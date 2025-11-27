@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos ONNX - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class="active"><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Modelos ONNX</h1>
+        </header>
+        
+        <article>
+            <p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3234
+<h3>Modelos ONNX em aprendizado de máquina</h3>
+O ONNX (Open Neural Network Exchange) é uma biblioteca aberta para a criação de redes neurais de
+aprendizagem profunda. Este projeto tem várias vantagens importantes:
+· Suporte a ONNX que é oferecido por grandes empresas, como Microsoft, Facebook, Amazon e outros
+parceiros.
+· O formato aberto permite a implementação de conversão de formatos entre diferentes ferramentas
+de aprendizado de máquina,  ONNXMLTools da Microsoft oferece a possibilidade de converter
+modelos no formato ONNX.
+· MQL5 oferece autoconversão de dados de entrada e saída do modelo se o tipo de parâmetro passado
+não corresponder ao modelo.
+· Criação de modelos ONNX que pode ser realizada com muitas ferramentas de aprendizado de
+máquina, atualmente suportadas pelo Caffe2, Microsoft Cognitive Toolkit, MXNet, PyTorch e
+OpenCV; também há interfaces para muitas outras estruturas e bibliotecas populares. 
+· A linguagem MQL5 possibilita implementar o modelo ONNX em uma estratégia de negociação e tirar
+o máximo proveito da plataforma MetaTrader 5 para trabalhar nos mercados financeiros de maneira
+eficiente.
+· Antes de executar o modelo na negociação real, você pode verificar o modelo em relação aos dados
+históricos no testador de estratégias sem o uso de ferramentas de terceiros.
+As seguintes funções são disponibilizadas na MQL5 para trabalhar com o ONNX:
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>OnnxCreate</h3>
+Cria uma sessão ONNX com carregamento de modelo a partir de um
+arquivo *.onnx
+<h3>OnnxCreateFromBuffer</h3>
+Cria uma sessão ONNX com carregamento de modelo a partir de uma
+matriz de dados
+<h3>OnnxRelease</h3>
+<h3>Exclusão de sessão ONNX</h3>
+<h3>OnnxRun</h3>
+<h3>Execução do modelo ONNX</h3>
+<h3>OnnxGetInputCount</h3>
+Obtenção do número de parâmetros de entrada do modelo ONNX
+<h3>OnnxGetOutputCount</h3>
+Obtenção do número de parâmetros de saída do modelo ONNX
+<h3>OnnxGetInputName</h3>
+Obtenção do nome do parâmetro de entrada do modelo por índice
+<h3>OnnxGetOutputName</h3>
+Obtenção do nome do parâmetro de saída do modelo por índice
+<h3>OnnxGetInputTypeInfo</h3>
+Obtenção de uma descrição do tipo de parâmetro de entrada do
+modelo
+<h3>OnnxGetOutputTypeInfo</h3>
+Obtenção de uma descrição do tipo de parâmetro de saída do modelo
+<h3>OnnxSetInputShape</h3>
+Define a dimensionalidade dos dados de entrada do modelo por índice
+<h3>OnnxSetOutputShape</h3>
+Define a dimensionalidade dos dados de saída do modelo por índice</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3235
+<h3>Suporte a ONNX em MQL5</h3>
+ONNX é um formato aberto criado para representar modelos de aprendizado de máquina. Esse padrão
+define um conjunto comum de operadores e formatos de arquivo que permite que os desenvolvedores
+usem os modelos em diferentes plataformas e ambientes de execução, com diferentes ferramentas e
+compiladores.
+Esse formato aberto ONNX permite obter e mover modelos de aprendizado de máquina entre
+diferentes plataformas e ferramentas de aprendizado de máquina. É por isso que o suporte a ONNX foi
+adicionado à linguagem MQL5, assim os desenvolvedores de IA podem executar modelos criados em
+um ambiente de execução de alto desempenho na plataforma MetaTrader 5. 
+A linguagem MQL5 é tão rápida quanto os aplicativos desenvolvidos em C++. Os resultados da
+execução de testes padrão em MQL5 e C++ confirmam esse fato. Quanto menor a coluna, menos
+tempo é gasto para a execução, melhor o resultado (tempo em milissegundos). Testes realizados no
+Windows 10 (build 17763) x64, Xeon E5-2630 v4 @ 2.20GHz, Memória: 65457 Mb.
+Com as novas operações de negociação assíncronas e o suporte nativo ao ONNX, surgem novas
+possibilidades que antes estavam disponíveis apenas para profissionais selecionados e operadores
+institucionais. O suporte a ONNX em MQL5 permite que os operadores treinem modelos para mercados
+financeiros em seu ambiente de desenvolvimento preferido e, por sua vez, negociem com baixos
+custos de rede, com uma alta taxa de atualização de cotações e com o envio assíncrono de ordens.
+Atualmente, o ONNX está sendo desenvolvido e suportado em conjunto pela Microsoft, Facebook,
+Amazon e outros parceiros, garantindo o desenvolvimento desse projeto de código aberto.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3236</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3237
+<h3>Conversão de formatos</h3>
+O formato ONNX é aberto, permitindo que modelos de várias ferramentas de aprendizado de máquina
+sejam armazenados nele. Esse formato é suportado por muitas plataformas, incluindo Chainer,
+Caffee2 e PyTorch. 
+Uma das ferramentas mais populares para converter modelos no formato ONNX é o ONNXMLTools
+desenvolvida pela Microsoft.
+As instruções para instalar e usar o ONNXMLTools estão disponíveis no GitHub. Atualmente, há
+suporte para os seguintes pacotes de ferramentas:
+·  Keras (shell do conversor keras2onnx)
+· Tensorflow (shell do conversor tf2onnx)
+· scikit-learn (shell do conversor skl2onnx)
+· Apple Core ML
+· Spark ML (modo experimental)
+· LightGBM
+· libscm;
+· XGBoost;
+· H2O
+· CatBoost
+A instalação do ONNXMLTools é simples e está descrita 
+na 
+página 
+do 
+projeto 
+em
+https://github.com/onnx/onnxmltools#install, onde há também alguns exemplos de conversão de
+modelos.onde há também alguns exemplos de conversões de modelos</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3238
+Autoconversão de valores de entrada e saída ao executar
+modelos ONNX
+Na versão atual do ONNX em MQL5 como valores do tipo input/output são suportados apenas tensores,
+que são matrizes de dados com um dos seguintes tipos de elementos:
+<h3>Tipo ONNX</h3>
+<h3>Em conformidade com o tipo MQL5</h3>
+<h3>ONNX_DATA_TYPE_BOOL</h3>
+bool
+<h3>ONNX_DATA_TYPE_FLOAT</h3>
+float
+<h3>ONNX_DATA_TYPE_UINT8</h3>
+uchar
+<h3>ONNX_DATA_TYPE_INT8</h3>
+char
+<h3>ONNX_DATA_TYPE_UINT16</h3>
+ushort
+<h3>ONNX_DATA_TYPE_INT16</h3>
+short
+<h3>ONNX_DATA_TYPE_INT32</h3>
+int
+<h3>ONNX_DATA_TYPE_INT64</h3>
+long
+<h3>ONNX_DATA_TYPE_FLOAT16</h3>
+—
+<h3>ONNX_DATA_TYPE_DOUBLE</h3>
+double
+<h3>ONNX_DATA_TYPE_UINT32</h3>
+uint
+<h3>ONNX_DATA_TYPE_UINT64</h3>
+ulong
+<h3>ONNX_DATA_TYPE_COMPLEX64</h3>
+—
+<h3>ONNX_DATA_TYPE_COMPLEX128</h3>
+complex
+<h3>ONNX_DATA_TYPE_BFLOAT16</h3>
+—
+<h3>ONNX_DATA_TYPE_STRING</h3>
+—
+Como valores do tipo input/output no modelo ONNX só é possível transferir matrizes, vetores ou
+matrizes (Dados). 
+Se o tipo de parâmetro passado não corresponder ao tipo de parâmetro do modelo ONNX e se o
+sinalizador OnnxRun não for especificado ao chamar ONNX_NO_CONVERSION, será usada a
+autoconversão. A autoconversão implica que, antes de executar o modelo ONNX, os dados do usuário
+Dadosserão copiados para os sensores ONNX com conversão.
+Ao executar um modelo ONNX sem autoconversão, o modelo ONNX é calculado em Dados sem nenhuma
+cópia adicional.
+ADVERTÊNCIA!A autoconversão não controla o truncamento, portanto, deve-se tomar cuidado com
+os dados e tipos de dados que são passados para o modelo ONNX.
+A autoconversão é compatível com os seguintes tipos de ONNX:</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3239
+· ONNX_DATA_TYPE_BOOL
+· ONNX_DATA_TYPE_FLOAT
+· ONNX_DATA_TYPE_UINT8
+· ONNX_DATA_TYPE_INT8
+· ONNX_DATA_TYPE_UINT16
+· ONNX_DATA_TYPE_INT16
+· ONNX_DATA_TYPE_INT32
+· ONNX_DATA_TYPE_INT64
+· ONNX_DATA_TYPE_FLOAT16
+· ONNX_DATA_TYPE_DOUBLE
+· ONNX_DATA_TYPE_UINT32
+· ONNX_DATA_TYPE_UINT64
+· ONNX_DATA_TYPE_COMPLEX64
+· ONNX_DATA_TYPE_COMPLEX128
+<h3>Tipos não suportados:</h3>
+· ONNX_DATA_TYPE_BFLOAT16
+· ONNX_DATA_TYPE_STRING
+Regras de autoconversão por tipos de tensor
+Se o tipo MQL5 não estiver entre os tipos suportados pelo modelo, o modelo ONNX será encerrado com
+o erro ERR_ONNX_NOT_SUPPORTED (código de erro 5802).
+ Nota: durante a autoconversão, o tipo color é processado como uint e o tipo datetime é processado
+como long.
+<h3>Autoconversão de valores input</h3>
+<h3>Tipo ONNX (tipo de elemento tensor)</h3>
+<h3>Tipo MQL5, suportado pela autoconversão</h3>
+<h3>ONNX_DATA_TYPE_BOOL</h3>
+bool, char, uchar, short, ushort, int, color, uint,
+datetime, long, folat, double, complex
+Ao converter elementos de Dados é verificado
+por uma comparação simples de zero a zero.
+<h3>ONNX_DATA_TYPE_FLOAT16</h3>
+float, double
+<h3>ONNX_DATA_TYPE_FLOAT</h3>
+char, uchar, short, ushort, int, color, uint,
+datetime, long, ulong, float, double
+<h3>ONNX_DATA_TYPE_UINT8</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT8</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3240
+<h3>Tipo ONNX (tipo de elemento tensor)</h3>
+<h3>Tipo MQL5, suportado pela autoconversão</h3>
+<h3>ONNX_DATA_TYPE_UINT16</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT16</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT32</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT64</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_DOUBLE</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_UINT32</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_UINT64</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_COMPLEX64</h3>
+complex
+<h3>ONNX_DATA_TYPE_COMPLEX128</h3>
+complex
+<h3>Autoconversão de valores output</h3>
+<h3>Tipo ONNX (tipo de elemento tensor)</h3>
+<h3>Tipo MQL5, suportado pela autoconversão</h3>
+<h3>ONNX_DATA_TYPE_BOOL</h3>
+bool, char, uchar, short, ushort, int, color, uint,
+datetime, long, folat, double, complex
+Se um elemento do tensor for zero, o elemento
+Dados será definido como 0; caso contrário,
+será definido como 1.
+<h3>ONNX_DATA_TYPE_FLOAT16</h3>
+float, double
+<h3>ONNX_DATA_TYPE_FLOAT</h3>
+char, uchar, short, ushort, int, color, uint,
+datetime, long, ulong, float, double
+<h3>ONNX_DATA_TYPE_UINT8</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT8</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_UINT16</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT16</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT32</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_INT64</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_DOUBLE</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_UINT32</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_UINT64</h3>
+<h3>Veja. ONNX_DATA_TYPE_FLOAT</h3>
+<h3>ONNX_DATA_TYPE_COMPLEX64</h3>
+complex
+<h3>ONNX_DATA_TYPE_COMPLEX128</h3>
+complex</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3241
+<h3>Veja também</h3>
+<h3>Coerção de tipos</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3242
+<h3>Criação de modelo</h3>
+Existem várias maneiras de obter um modelo ONNX pronto para uso. Uma biblioteca reconhecida é a
+ONNX Model Zoo, que contém vários modelos ONNX pré-treinados para diferentes tipos de tarefas. A
+vantagem dessa coleção é que o notebook de cada modelo contém referências ao conjunto de dados de
+treinamento, bem como links para o documento científico original que descreve a arquitetura do
+modelo. 
+A maioria das plataformas de aprendizado de máquina usa Python. Para instalar o ambiente de
+execução do ONNX para Python, use um dos seguintes comandos:
+pip install onnxruntime       # CPU build
+pip install onnxruntime-gpu   # GPU build
+Para chamar o ambiente de execução do ONNX em Python, use o seguinte comando
+import onnxruntime
+session = onnxruntime.InferenceSession(&quot;path to model&quot;)
+Os dados de entrada e saída para usar o modelo devem ser vistos na documentação do modelo
+correspondente. Ferramentas de visualização como Netron ou WinML Dashboard também podem ser
+usadas para visualizar o modelo. O ambiente de execução do ONNX também permite consultar os
+metadados do modelo e seus dados de entrada e saída:.
+results = session.run([&quot;output1&quot;, &quot;output2&quot;], {
+</p>
+<pre><code class="language-mql5">
+                      &quot;input1&quot;: indata1, &quot;input2&quot;: indata2})
+</code></pre>
+<p>
+results = session.run([], {&quot;input1&quot;: indata1, &quot;input2&quot;: indata2})
+Você pode criar modelos ONNX diretamente no terminal MetaTrader 5 ou no ambiente de
+desenvolvimento MetaEditor em Python.
+<h3>Python no MetaTrader 5</h3>
+A plataforma MetaTrader 5 suporta o trabalho com scripts Python assim que retirados da embalagem.
+Para isso, os desenvolvedores do terminal disponibilizam o módulo MetaTrader 5 para Python -
+https://pypi.org/project/MetaTrader5.
+O ambiente de desenvolvimento integrado MetaEditor permite não apenas escrever aplicativos em
+MQL5, mas também executar scripts Python diretamente do editor. Para fazer isso, especifique o
+caminho para o arquivo executável nas configurações do MetaEditor:.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3243
+Se você não tiver o Python em seu computador, clique em &quot;Instalar&quot; para baixar o arquivo de
+instalação.
+Você pode criar um script Python no MetaEdtior ou carregá-lo na pasta de dados do terminal e executá-
+lo imediatamente pressionando F7 (&quot;Compilar&quot;). Depois disso, o terminal MetaTrader 5 será aberto e o
+script será rodado no gráfico atual. As mensagens do console Python (stdout, stderr) serão exibidas na
+seção &quot;Error&quot;.
+Como trabalhar com modelos no MetaTrader 5
+A linguagem MQL5 permite que você execute modelos ONNX diretamente no terminal MetaTrader 5.
+Isso pode ser feito em três etapas:
+1. Treinar um modelo em uma plataforma de terceiros, por exemplo, em Python.
+2. Conversão do modelo no ONNX
+3. Incorpore o modelo ONNX no EA usando funções ONNX e execute no terminal do MetaTrader 5.
+Integração Python da linguagem MQL5 permite executar um script python e salvar o modelo ONNX no
+MetaEditor ou até mesmo executá-lo em um gráfico no MetaTrader 5. Você pode treinar seu modelo
+usando um script escrito em Python com a frequência desejada diretamente no terminal. Como a
+biblioteca contém funções prontas incorporadas para obter dados de preços com os quais você pode
+alimentar o modelo ONNX:
+· copy_rates_from - recebe barras a partir de uma determinada data;
+· copy_rates_from_pos - recebe barras a partir de um determinado índice;
+· copy_rates_range - recebe barras no intervalo de datas especificado;
+· copy_ticks_from - recebe ticks a partir de uma determinada data;
+· copy_ticks_range - recebe ticks referentes ao intervalo de datas especificado.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3244
+Exemplo de um modelo pronto para uso
+Você pode encontrar esse exemplo de modelo ONNX pronto em projetos públicos. Para fazer isso,
+primeiro ative o MQL5 Storage no Navegador, especificando seu login MQL5 nas configurações do
+MetaEditor, diferenciando maiúsculas de minúsculas.
+Após a ativação, localize o projeto ONNX.Price.Prediction e acesse-o por meio do comando do menu de
+contexto.
+Em seguida, atualize o projeto a partir do MQL5 Storage.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3245
+Depois disso, o projeto estará disponível, você encontrará nele um modelo ONNX pronto, dois scripts
+python, 
+um 
+script 
+<h3>MQL5</h3>
+para 
+rodar 
+o 
+projeto 
+e 
+o 
+arquivo 
+de 
+projeto 
+<h3>MQL5</h3>
+(ONNX.Price.Prediction.mqproj).</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3246
+Você mesmo pode criar um modelo ONNX usando o script PricePredictionTraining.py incluído no
+projeto. Para fazer isso, primeiro instale os módulos necessários a partir da linha de comando em seu
+computador.
+python.exe -m pip install --upgrade pip
+python -m pip install --upgrade tensorflow
+python -m pip install --upgrade pandas
+python -m pip install --upgrade scikit-learn
+python -m pip install --upgrade matplotlib
+python -m pip install --upgrade tqdm
+python -m pip install --upgrade metatrader5
+python -m pip install --upgrade onnx==1.12
+python -m pip install --upgrade tf2onnx
+python -m pip install --upgrade numpy
+python -m pip install onnxruntime
+Depois de instalar os módulos, abra o script PricePredictionTraining.py no MetaEditor e execute-o
+pressionando o botão &quot;Compile&quot; ou a tecla F7.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3247
+Antes de executar o script python, confira se seu terminal MetaTrader 5 está conectado ao servidor
+com o símbolo EURUSD. Por exemplo, conecte-se ao servidor MetaQuotes-Demo e verifique a caixa de
+seleção &quot;Integração com Python&quot; nas configurações do terminal.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3248
+Durante o treinamento da rede, o MetaEditor exibirá mensagens do script Python até que o
+treinamento seja concluído.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3249
+Quando o resultado for 100%, o modelo ONNX estará pronto e será salvo na pasta do projeto &lt;pasta de
+dados do terminal&gt;\MQL5\Shared Projects\ONNX.Price.Prediction\Python.
+Verifique o modelo resultante executando o segundo script PricePrediction.py clicando em F7.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3250
+<h3>Inicialização do modelo</h3>
+Para utilizar o modelo ONNX em MQL5, é necessário seguir três etapas:
+1. Carregá-lo a partir do arquivo *.onnx usando a função OnnxCreate ou a partir de um array usando
+OnnxCreateFromBuffer.
+2. Especificar a forma dos dados de entrada e saída por meio das funções OnnxSetInputShape e
+OnnxSetOutputShape.
+3. Iniciar o modelo usando OnnxRun, após lhe dar parâmetros de entrada e saída.
+4. Encerrar o modelo, se necessário, com OnnxRelease.
+Ao criar o modelo ONNX, é necessário considerar os limites e restrições existentes descritos em
+https://github.com/microsoft/onnxruntime/blob/rel-1.14.0/docs/OperatorKernels.md
+<h3>Por exemplo, aqui estão algumas delas:</h3>
+<h3>Operação</h3>
+<h3>Tipos de dados suportados</h3>
+<h3>ReduceSum</h3>
+tensor(double), tensor(float), tensor(int32), tensor(int64)
+<h3>Mul</h3>
+tensor(bfloat16), 
+tensor(double), 
+tensor(float), 
+tensor(float16),
+tensor(int32), tensor(int64), tensor(uint32), tensor(uint64)
+Veja abaixo um exemplo de código MQL5 extraído do projeto público ONNX.Price.Prediction. 
+const long   ExtOutputShape[] = {1,1};    // forma dos dados de saída do modelo
+const long   ExtInputShape [] = {1,10,4}; // forma dos dados de entrada do modelo
+#resource &quot;Python/model.onnx&quot; as uchar ExtModel[]// modelo em forma de recurso
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+int OnStart(void)
+  {
+   matrix rates;
+//--- obtemos 10 barras
+   if(!rates.CopyRates(&quot;EURUSD&quot;,PERIOD_H1,COPY_RATES_OHLC,2,10))
+      return(-1);
+//--- alimentamos com um conjunto de vetores OHLC
+   matrix x_norm=rates.Transpose();
+   vector m=x_norm.Mean(0);               
+   vector s=x_norm.Std(0);
+   matrix mm(10,4);
+   matrix ms(10,4);
+//--- preenchemos matrizes de normalização
+   for(int i=0; i&lt;10; i++)
+     {
+      mm.Row(m,i);
+      ms.Row(s,i);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3251
+</p>
+<pre><code class="language-mql5">
+//--- normalizamos os dados de entrada
+   x_norm-=mm;
+   x_norm/=ms;
+//--- criamos o modelo
+   long handle=OnnxCreateFromBuffer(ExtModel,ONNX_DEBUG_LOGS);
+//--- especificamos a forma dos dados de entrada
+   if(!OnnxSetInputShape(handle,0,ExtInputShape))
+     {
+      Print(&quot;OnnxSetInputShape failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- especificamos a forma dos dados de saída
+   if(!OnnxSetOutputShape(handle,0,ExtOutputShape))
+     {
+      Print(&quot;OnnxSetOutputShape failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- convertemos dados de entrada normalizados em dados do tipo float
+   matrixf x_normf;
+   x_normf.Assign(x_norm);
+//--- obtemos o resultado do modelo - a previsão de preço
+   vectorf y_norm(1);
+//--- iniciamos o modelo
+   if(!OnnxRun(handle,ONNX_DEBUG_LOGS | ONNX_NO_CONVERSION,x_normf,y_norm))
+     {
+      Print(&quot;OnnxRun failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- registramos no log o valor de saída do modelo
+   Print(y_norm);
+//--- realizamos uma transformação inversa para obter o preço previsto
+   double y_pred=y_norm[0]*s[3]+m[3];
+   Print(&quot;price predicted:&quot;,y_pred);
+//--- concluímos o trabalho
+   OnnxRelease(handle);
+   return(0);
+</code></pre>
+<p>
+  }
+Veja um exemplo de execução do script:
+ONNX: Creating and using per session threadpools since use_per_session_threads_ is tru
+ONNX: Dynamic block base set to 0
+ONNX: Initializing session.
+ONNX: Adding default CPU execution provider.
+ONNX: Total shared scalar initializer count: 0
+ONNX: Total fused reshape node count: 0</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3252
+ONNX: Total shared scalar initializer count: 0
+ONNX: Total fused reshape node count: 0
+<h3>ONNX: Use DeviceBasedPartition as default</h3>
+ONNX: Saving initialized tensors.
+<h3>ONNX: Done saving initialized tensors</h3>
+ONNX: Session successfully initialized.
+[0.28188983]
+predicted 1.0559258806393044
+O terminal MetaTrader 5 seleciona de forma independente o melhor executor para os cálculos —  ONNX
+Runtime Execution Provider. Neste caso, o modelo realiza seu trabalho usando a CPU.
+Vamos modificar o script para calcular a porcentagem de previsões bem-sucedidas do preço de
+fechamento com base nos valores das 10 barras anteriores.
+#resource &quot;Python/model.onnx&quot; as uchar ExtModel[]// modelo em forma de recurso
+</p>
+<pre><code class="language-mql5">
+#define TESTS 10000  // número de amostras de teste
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+int OnStart()
+  {
+//--- criamos o modelo
+   long session_handle=OnnxCreateFromBuffer(ExtModel,ONNX_DEBUG_LOGS);
+   if(session_handle==INVALID_HANDLE)
+     {
+      Print(&quot;Cannot create model. Error &quot;,GetLastError());
+      return(-1);
+     }
+//--- como o modelo não tem dimensões de tensor de entrada definidas, devemos defini-l
+//--- o primeiro índice é o tamanho do pacote; o segundo índice, tamanho da série; o t
+   const long input_shape[]={1,10,4};
+   if(!OnnxSetInputShape(session_handle,0,input_shape))
+     {
+      Print(&quot;OnnxSetInputShape error &quot;,GetLastError());
+      return(-2);
+     }
+//--- como o modelo não tem dimensões de tensor de saída definidas, devemos defini-las
+//--- o primeiro índice é o tamanho do lote, que deve corresponder ao tamanho do lote 
+//--- o segundo índice é o número de preços previstos (prevemos apenas o Close)
+   const long output_shape[]={1,1};
+   if(!OnnxSetOutputShape(session_handle,0,output_shape))
+     {
+      Print(&quot;OnnxSetOutputShape error &quot;,GetLastError());
+      return(-3);
+     }
+//--- iniciamos os testes</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3253
+</p>
+<pre><code class="language-mql5">
+   vector closes(TESTS);      // vetor para armazenar preços de verificação
+   vector predicts(TESTS);    // vetor para armazenar as previsões resultantes
+   vector prev_closes(TESTS); // vetor para armazenar os penúltimos preços
+   matrix rates;              // matriz para obter uma série OHLC
+   matrix splitted[2];        // duas submatrizes para dividir a série em uma de teste
+   ulong  parts[]={10,1};     // dimensões dos subarrays separáveis
+//--- começamos a partir da barra anterior
+   for(int i=1; i&lt;=TESTS; i++)
+     {
+      //--- obtemos 11 barras
+      rates.CopyRates(&quot;EURUSD&quot;,PERIOD_H1,COPY_RATES_OHLC,i,11);
+      //--- dividimos a matriz em uma de teste e outra de verificação
+      rates.Vsplit(parts,splitted);
+      //--- pegamos o preço Close a partir da matriz de verificação
+      closes[i-1]=splitted[1][3][0];
+      //--- último Close na série de teste
+      prev_closes[i-1]=splitted[0][3][9];
+      //--- enviamos ao teste uma matriz de teste de 10 barras
+      predicts[i-1]=PricePredictionTest(session_handle,splitted[0]);
+      //--- erro de execução
+      if(predicts[i-1]&lt;=0)
+        {
+         OnnxRelease(session_handle);
+         return(-4);
+        }
+     }
+//--- concluímos o trabalho
+   OnnxRelease(session_handle);
+//--- avaliamos se o movimento de preço previsto está correto
+   int    right_directions=0;
+   vector delta_predicts=prev_closes-predicts;
+   vector delta_actuals=prev_closes-closes;
+   for(int i=0; i&lt;TESTS; i++)
+      if((delta_predicts[i]&gt;0 &amp;&amp; delta_actuals[i]&gt;0) || (delta_predicts[i]&lt;0 &amp;&amp; delta_
+         right_directions++;
+   PrintFormat(&quot;right direction predictions = %.2f%%&quot;,(right_directions*100.0)/double
+//--- 
+   return(0);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Preparando os dados e utilizando o modelo                       |
+//+------------------------------------------------------------------+
+double PricePredictionTest(const long session_handle,matrix&amp; rates)
+  {
+   static matrixf input_data(10,4); // matriz para dados de entrada transformados</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3254
+</p>
+<pre><code class="language-mql5">
+   static vectorf output_data(1);   // vetor para obter o resultado
+   static matrix mm(10,4);          // matriz de vetores horizontais Mean
+   static matrix ms(10,4);          // matriz de vetores horizontais Std
+//--- o modelo deve ser alimentado com um conjunto de vetores OHLC verticais
+   matrix x_norm=rates.Transpose();
+//--- normalizamos os preços
+   vector m=x_norm.Mean(0);
+   vector s=x_norm.Std(0);
+   for(int i=0; i&lt;10; i++)
+     {
+      mm.Row(m,i);
+      ms.Row(s,i);
+     }
+   x_norm-=mm;
+   x_norm/=ms;
+//--- iniciamos o modelo
+   input_data.Assign(x_norm);
+   if(!OnnxRun(session_handle,ONNX_DEBUG_LOGS,input_data,output_data))
+     {
+      Print(&quot;OnnxRun error &quot;,GetLastError());
+      return(0);
+     }
+//--- revertemos a normalização do preço a partir do valor de saída
+   double y_pred=output_data[0]*s[3]+m[3];
+   return(y_pred);
+</code></pre>
+<p>
+  }
+Executamos o script e obtemos uma precisão de previsão de cerca de 51%
+ONNX: Creating and using per session threadpools since use_per_session_threads_ is tru
+ONNX: Dynamic block base set to 0
+ONNX: Initializing session.
+ONNX: Adding default CPU execution provider.
+ONNX: Total shared scalar initializer count: 0
+ONNX: Total fused reshape node count: 0
+ONNX: Total shared scalar initializer count: 0
+ONNX: Total fused reshape node count: 0
+<h3>ONNX: Use DeviceBasedPartition as default</h3>
+ONNX: Saving initialized tensors.
+<h3>ONNX: Done saving initialized tensors</h3>
+ONNX: Session successfully initialized.
+right direction predictions = 51.34 %</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3255</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3256
+Verificação do modelo no testador de estratégia
+Os modelos para mercados financeiros podem ser testados no testador de estratégias do terminal
+MetaTrader 5. Essa é a opção mais rápida e conveniente que não exige esforços adicionais para
+emular o ambiente de mercado e as condições de negociação.
+Reescreveremos o código do projeto público ONNX.Price.Prediction no EA para verificar o modelo. Isso
+requer pequenas edições.
+Transferimos a criação do modelo para a função OnInit e encerramos a sessão onnx em OnDeinit.
+Colocamos o bloco principal de manipulação do modelo no manipulador OnTick. 
+Também adicionamos uma função para obter o preço de fechamento das duas barras anteriores a fim
+de comparar o preço de fechamento real e a previsão.
+O código do EA é pequeno e fácil de ler.
+const long   ExtInputShape [] = {1,10,4}; // forma dos dados de entrada do modelo
+const long   ExtOutputShape[] = {1,1};    // forma dos dados de saída do modelo
+#resource &quot;Python/model.onnx&quot; as uchar ExtModel[];// modelo em forma de recurso
+long handle;         // identificador do modelo
+ulong predictions=0; // contador de previsões
+ulong confirmed=0;   // contador de previsões bem-sucedidas
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- verificações básicas
+   if(_Symbol!=&quot;EURUSD&quot;)
+     {
+      Print(&quot;Symbol must be EURUSD, testing aborted&quot;);
+      return(-1);
+     }
+   if(_Period!=PERIOD_H1)
+     {
+      Print(&quot;Timeframe must be H1, testing aborted&quot;);
+      return(-1);
+     }
+//--- criamos o modelo
+   handle=OnnxCreateFromBuffer(ExtModel,ONNX_DEBUG_LOGS);
+//--- especificamos a forma dos dados de entrada
+   if(!OnnxSetInputShape(handle,0,ExtInputShape))
+     {
+      Print(&quot;OnnxSetInputShape failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3257
+</p>
+<pre><code class="language-mql5">
+//--- especificamos a forma dos dados de saída
+   if(!OnnxSetOutputShape(handle,0,ExtOutputShape))
+     {
+      Print(&quot;OnnxSetOutputShape failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- concluímos o trabalho do modelo
+   OnnxRelease(handle);
+//--- calculamos e exibimos estatísticas de previsão
+   PrintFormat(&quot;Successfull predictions = %.2f %%&quot;,confirmed*100./double(predictions))
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+   static datetime open_time=0;
+   static double predict;
+//--- verificamos o tempo de abertura da barra atual
+   datetime time=iTime(_Symbol,_Period,0);
+   if(time==0)
+     {
+      PrintFormat(&quot;Failed to get Time(0), error %d&quot;, GetLastError());
+      return;
+     }
+//--- se o tempo de abertura da barra não muda, então saímos antes da próxima chamada 
+   if(time==open_time)
+      return;
+//--- obtemos os preços de fechamento das últimas 2 barras concluídas
+   double close[];
+   int recieved=CopyClose(_Symbol,_Period,1,2,close);
+   if(recieved!=2)
+     {
+      PrintFormat(&quot;CopyClose(2 bars) failed, error %d&quot;,GetLastError());
+      return;
+     }
+   double delta_predict=predict-close[0]; // movimento de preço previsto
+   double delta_actual=close[1]-close[0]; // variação real de preços
+   if((delta_predict&gt;0 &amp;&amp; delta_actual&gt;0) || (delta_predict&lt;0 &amp;&amp; delta_actual&lt;0))
+      confirmed++;</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3258
+</p>
+<pre><code class="language-mql5">
+//--- calculamos o preço de fechamento em uma nova barra para verificar na próxima bar
+   matrix rates;
+//--- obtemos 10 barras
+   if(!rates.CopyRates(&quot;EURUSD&quot;,PERIOD_H1,COPY_RATES_OHLC,1,10))
+      return;
+//--- alimentamos com um conjunto de vetores OHLC
+   matrix x_norm=rates.Transpose();
+   vector m=x_norm.Mean(0);
+   vector s=x_norm.Std(0);
+   matrix mm(10,4);
+   matrix ms(10,4);
+//--- preenchemos matrizes de normalização
+   for(int i=0; i&lt;10; i++)
+     {
+      mm.Row(m,i);
+      ms.Row(s,i);
+     }
+//--- normalizamos os dados de entrada
+   x_norm-=mm;
+   x_norm/=ms;
+//--- convertemos dados de entrada normalizados em dados do tipo float
+   matrixf x_normf;
+   x_normf.Assign(x_norm);
+//--- obtemos o resultado do modelo - a previsão de preço
+   vectorf y_norm(1);
+//--- iniciamos o modelo
+   if(!OnnxRun(handle,ONNX_DEBUG_LOGS | ONNX_NO_CONVERSION,x_normf,y_norm))
+     {
+      Print(&quot;OnnxRun failed, error &quot;,GetLastError());
+     }
+//--- realizamos uma transformação inversa para obter o preço previsto e verificamos e
+   predict=y_norm[0]*s[3]+m[3];
+   predictions++;  // aumentamos o contador de previsões
+   Print(predictions,&quot;. close prediction = &quot;,predict);
+//--- memorizamos o tempo de abertura da barra para verificar no próximo tick
+   open_time=time;
+</code></pre>
+<p>
+  }
+Compilamos o Expert Advisor e começamos a testar no intervalo 2022, especificando o símbolo
+EURUSD e o período de tempo H1 com os quais o modelo foi treinado. O modo de simulação de ticks
+não importa, pois o código tem uma verificação do aparecimento de nova barra.  </p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3259
+Executamos e obtemos o resultado no log de teste — pouco mais de 50% das previsões corretas para
+2022. 
+Se os resultados da verificação preliminar do modelo forem satisfatórios, podemos começar a escrever
+uma estratégia de negociação completa e usá-la.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3260</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3261
+<h3>OnnxCreate</h3>
+Cria uma sessão ONNX com carregamento de modelo a partir de um arquivo *.onnx
+long  OnnxCreate(
+</p>
+<pre><code class="language-mql5">
+   string  filename,  // caminho do arquivo
+   uint    flags      // sinalizadores para criação de um modelo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+filename
+[in]  Caminho para o arquivo *.onnx do modelo em relação à pasta \MQL5\Files\.
+flags
+[in] Sinalizador de ENUM_ONNX_FLAGS, que descreve o modo de criação do modelo —
+ONNX_COMMON_FOLDER e ONNX_DEBUG_LOGS.
+<h3>Valor retornado</h3>
+Identificador da sessão criada ou INVALID_HANDLE em caso de erro. Para obter o código do erro
+chame a função GetLastError.
+<h3>Observação</h3>
+Se o arquivo especificado não for encontrado no disco, será feita uma segunda tentativa de abrir o
+arquivo com a extensão &#x27;.onnx&#x27; anexada ao nome.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3262
+<h3>OnnxCreateFromBuffer</h3>
+Cria uma sessão ONNX com carregamento de modelo a partir de uma matriz de dados
+long  OnnxCreateFromBuffer(
+</p>
+<pre><code class="language-mql5">
+   const uchar&amp;  buffer[],   // referência para uma matriz
+   ulong         flags       // sinalizadores para criação de um modelo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+buffer
+[in]  Matriz com dados do modelo ONNX.
+flags
+[in] Sinalizador de ENUM_ONNX_FLAGS, que descreve o modo de criação do modelo —
+ONNX_COMMON_FOLDER e ONNX_DEBUG_LOGS.
+<h3>Valor retornado</h3>
+Identificador da sessão criada ou INVALID_HANDLE em caso de erro. Para obter o código do erro
+chame a função GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3263
+<h3>OnnxRelease</h3>
+Exclusão de sessão ONNX.
+</p>
+<pre><code class="language-mql5">
+bool  OnnxRelease(
+   long   onnx_handle  // Identificador de sessão ONNX
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false. Para obter o código de erro chame a função
+GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3264
+<h3>OnnxRun</h3>
+Execução do modelo ONNX.
+</p>
+<pre><code class="language-mql5">
+bool  OnnxRun(
+   long    onnx_handle,  // identificador de sessão
+   ulong   flags,        // sinalizadores que descrevem o modo de execução
+   ...                   // parâmetros de entrada e saída do modelo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+flags
+[in] Sinalizador de ENUM_ONNX_FLAGS, que descreve o modo de execução — ONNX_DEBUG_LOGS e
+ONNX_NO_CONVERSION.
+...
+[in] [out]  Parâmetros de entrada e saída do modelo.
+Retorna true se for bem-sucedido, caso contrário, false. Para obter o código de erro chame a função
+GetLastError.
+<h3>ENUM_ONNX_FLAGS</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ONNX_DEBUG_LOGS</h3>
+<h3>Saída de registros de depuração</h3>
+<h3>ONNX_NO_CONVERSION</h3>
+Proibir a autoconversão, usar os dados do
+usuário como estão
+<h3>ONNX_COMMON_FOLDER</h3>
+Carga do arquivo do modelo a partir da pasta
+<h3>Common/Files, igual em valor ao sinalizador</h3>
+<h3>FILE_COMMON</h3>
+<h3>Exemplo:</h3>
+const long                             ExtOutputShape[] = {1,1};    // forma dos dados
+const long                             ExtInputShape [] = {1,10,4}; // forma dos dados
+#resource &quot;Python/model.onnx&quot; as uchar ExtModel[]                   // modelo em forma
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+int OnStart(void)
+  {
+   matrix rates;</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3265
+</p>
+<pre><code class="language-mql5">
+//--- obtemos 10 barras
+   if(!rates.CopyRates(&quot;EURUSD&quot;,PERIOD_H1,COPY_RATES_OHLC,2,10))
+      return(-1);
+//--- alimentamos com um conjunto de vetores OHLC
+   matrix x_norm=rates.Transpose();
+   vector m=x_norm.Mean(0);               
+   vector s=x_norm.Std(0);
+   matrix mm(10,4);
+   matrix ms(10,4);
+//--- preenchemos matrizes de normalização
+   for(int i=0; i&lt;10; i++)
+     {
+      mm.Row(m,i);
+      ms.Row(s,i);
+     }
+//--- normalizamos os dados de entrada
+   x_norm-=mm;
+   x_norm/=ms;
+//--- criamos o modelo
+   long handle=OnnxCreateFromBuffer(ExtModel,ONNX_DEBUG_LOGS);
+//--- especificamos a forma dos dados de entrada
+   if(!OnnxSetInputShape(handle,0,ExtInputShape))
+     {
+      Print(&quot;OnnxSetInputShape failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- especificamos a forma dos dados de saída
+   if(!OnnxSetOutputShape(handle,0,ExtOutputShape))
+     {
+      Print(&quot;OnnxSetOutputShape failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- convertemos dados de entrada normalizados em dados do tipo float
+   matrixf x_normf;
+   x_normf.Assign(x_norm);
+//--- obtemos o resultado do modelo - a previsão de preço
+   vectorf y_norm(1);
+//--- iniciamos o modelo
+   if(!OnnxRun(handle,ONNX_DEBUG_LOGS | ONNX_NO_CONVERSION,x_normf,y_norm))
+     {
+      Print(&quot;OnnxRun failed, error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- registramos no log o valor de saída do modelo
+   Print(y_norm);
+//--- realizamos uma transformação inversa para obter o preço previsto</p>
+<p></code></pre>
+<p>
+<h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3266
+</p>
+<pre><code class="language-mql5">
+   double y_pred=y_norm[0]*s[3]+m[3];
+   Print(&quot;price predicted:&quot;,y_pred);
+//--- concluímos o trabalho
+   OnnxRelease(handle);
+   return(0);
+</code></pre>
+<p>
+  };
+<h3>Veja também</h3>
+<h3>OnnxSetInputShape, OnnxSetOutputShape</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3267
+<h3>OnnxGetInputCount</h3>
+Obtenção do número de parâmetros de entrada do modelo ONNX.
+long  OnnxGetInputCount(
+</p>
+<pre><code class="language-mql5">
+   long   onnx_handle  // Identificador de sessão ONNX
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna o número de parâmetros de entrada; caso contrário, retorna -1. Para
+obter o código de erro chame a função GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3268
+<h3>OnnxGetOutputCount</h3>
+Obtenção do número de parâmetros de saída do modelo ONNX.
+long  OnnxGetOutputCount(
+</p>
+<pre><code class="language-mql5">
+   long   onnx_handle  // Identificador de sessão ONNX
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna o número de parâmetros de saída; caso contrário, retorna -1. Para
+obter o código de erro chame a função GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3269
+<h3>OnnxGetInputName</h3>
+Obtenção do nome do parâmetro de entrada do modelo por índice.
+</p>
+<pre><code class="language-mql5">
+string  OnnxGetInputName(
+   long   onnx_handle,  // identificador de sessão
+   long   index         // índice de parâmetro
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+index
+[in]  Índice do parâmetro de entrada, a partir de 0.
+<h3>Valor retornado</h3>
+Retorna o nome do parâmetro de entrada se for bem-sucedido; caso contrário, retorna NULL. Para
+obter o código de erro chame a função GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3270
+<h3>OnnxGetOutputName</h3>
+Obtenção do nome do parâmetro de saída do modelo por índice.
+</p>
+<pre><code class="language-mql5">
+string  OnnxGetOutputName(
+   long   onnx_handle,  // identificador de sessão
+   long   index         // índice de parâmetro
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+index
+[in]  Índice do parâmetro de saída, a partir de 0.
+<h3>Valor retornado</h3>
+Retorna o nome do parâmetro de saída se for bem-sucedido; caso contrário, retorna NULL. Para
+obter o código de erro chame a função GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3271
+<h3>OnnxGetInputTypeInfo</h3>
+Obtenção de uma descrição do tipo de parâmetro de entrada do modelo.
+</p>
+<pre><code class="language-mql5">
+bool  OnnxGetInputTypeInfo(
+   long           onnx_handle,  // identificador de sessão
+   long           index,        // índice de parâmetro
+   OnnxTypeInfo&amp;  typeinfo      // descrição do tipo de parâmetro
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+index
+[in]  Índice do parâmetro de entrada, a partir de 0.
+typeinfo
+[out]  Estrutura OnnxTypeInfo, que descreve o tipo de parâmetro de entrada.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false. Para obter o código de erro chame a função
+GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3272
+<h3>OnnxGetOutputTypeInfo</h3>
+Obtenção de uma descrição do tipo de parâmetro de saída do modelo.
+</p>
+<pre><code class="language-mql5">
+bool  OnnxGetOutputTypeInfo(
+   long           onnx_handle,  // identificador de sessão
+   long           index,        // índice de parâmetro
+   OnnxTypeInfo&amp;  typeinfo      // descrição do tipo de parâmetro
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+index
+[in]  Índice do parâmetro de saída, a partir de 0.
+typeinfo
+[out]  Estrutura OnnxTypeInfo, que descreve o tipo de parâmetro de saída.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false. Para obter o código de erro chame a função
+GetLastError.</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3273
+<h3>OnnxSetInputShape</h3>
+Define a dimensionalidade dos dados de entrada do modelo por índice.
+</p>
+<pre><code class="language-mql5">
+bool  OnnxSetInputShape(
+   long          onnx_handle,  // identificador de sessão
+   long          input_index,  // índice do parâmetro de entrada
+   const ulong&amp;  shape[]       // matriz que descreve a dimensionalidade dos dados de 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+input_index
+[in]  Índice do parâmetro de entrada, a partir de 0.
+shape
+[in]  Matriz que descreve a dimensionalidade dos dados de entrada.
+<h3>Valor retornado</h3>
+Retorna o nome do parâmetro de entrada se for bem-sucedido; caso contrário, retorna NULL. Para
+obter o código de erro chame a função GetLastError.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//---- descrevemos a dimensionalidade dos dados de entrada do modelo
+   const long  ExtOutputShape[] = {1,1};
+   const long  ExtInputShape [] = {1,10,4};
+//--- criamos o modelo
+   long handle=OnnxCreateFromBuffer(model,ONNX_DEBUG_LOGS);
+//--- especificamos a forma dos dados de entrada
+   if(!OnnxSetInputShape(handle,0,ExtInputShape))
+     {
+      Print(&quot;failed, OnnxSetInputShape error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- especificamos a forma dos dados de saída
+   if(!OnnxSetOutputShape(handle,0,ExtOutputShape))
+     {
+      Print(&quot;failed, OnnxSetOutputShape error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+</code></pre>
+<p>
+<h3>Veja também</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3274
+<h3>OnnxSetOutputShape</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3275
+<h3>OnnxSetOutputShape</h3>
+Define a dimensionalidade dos dados de saída do modelo por índice.
+</p>
+<pre><code class="language-mql5">
+bool  OnnxSetOutputShape(
+   long          onnx_handle,   // identificador de sessão
+   long          output_index,  // índice do parâmetro de saída
+   const ulong&amp;  shape[]        // matriz que descreve a dimensionalidade dos dados de
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+onnx_handle
+[in]  Identificador do objeto da sessão ONNX, criado por meio de OnnxCreate ou
+OnnxCreateFromBuffer.
+output_index
+[in]  Índice do parâmetro de saída, a partir de 0.
+shape
+[in]  Matriz que descreve a dimensionalidade dos dados de saída.
+<h3>Valor retornado</h3>
+Retorna o nome do parâmetro de entrada se for bem-sucedido; caso contrário, retorna NULL. Para
+obter o código de erro chame a função GetLastError.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//---- descrevemos a dimensionalidade dos dados de entrada do modelo
+   const long  ExtOutputShape[] = {1,1};
+   const long  ExtInputShape [] = {1,10,4};
+//--- criamos o modelo
+   long handle=OnnxCreateFromBuffer(model,ONNX_DEBUG_LOGS);
+//--- especificamos a forma dos dados de entrada
+   if(!OnnxSetInputShape(handle,0,ExtInputShape))
+     {
+      Print(&quot;failed, OnnxSetInputShape error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+//--- especificamos a forma dos dados de saída
+   if(!OnnxSetOutputShape(handle,0,ExtOutputShape))
+     {
+      Print(&quot;failed, OnnxSetOutputShape error &quot;,GetLastError());
+      OnnxRelease(handle);
+      return(-1);
+     }
+</code></pre>
+<p>
+<h3>Veja também</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3276
+<h3>OnnxSetInputShape</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3277
+<h3>Estruturas de dados</h3>
+As seguintes estruturas de dados são usadas para trabalhar com modelos ONNX:
+<h3>OnnxTypeInfo</h3>
+A estrutura descreve o tipo de parâmetro de entrada ou saída do modelo ONNX
+</p>
+<pre><code class="language-mql5">
+struct OnnxTypeInfo
+  {
+   ENUM_ONNX_TYPE         type;           // tipo de parâmetro
+   OnnxTensorTypeInfo     tensor;         // descrição do tensor
+   OnnxMapTypeInfo        map;            // descrição do mapa
+   OnnxSequenceTypeInfo   sequence;       // descrição da sequência
+</code></pre>
+<p>
+  };
+Somente o tensor (ONNX_TYPE_TENSOR) pode ser usado como parâmetro de entrada; nesse caso,
+somente o campo OnnxTypeInfo::tensor é preenchido com valores; os outros campos (mapa e
+sequência) permanecem indefinidos.
+<h3>Apenas</h3>
+um 
+dos 
+três 
+tipos 
+<h3>OnnxTypeInfo</h3>
+(ONNX_TYPE_TENSOR, 
+<h3>ONNX_TYPE_MAP</h3>
+ou
+ONNX_TYPE_SEQUENCE) pode ser usado como parâmetro de saída, dependendo do tipo, será
+preenchida 
+a 
+subestrutura 
+apropriada 
+(OnnxTypeInfo::tensor, 
+<h3>OnnxTypeInfo::map</h3>
+ou
+OnnxTypeInfo::sequence).
+<h3>OnnxTensorTypeInfo</h3>
+A estrutura descreve o tensor no parâmetro de entrada ou saída do modelo ONNX
+</p>
+<pre><code class="language-mql5">
+struct OnnxTensorTypeInfo
+  {
+   const ENUM_ONNX_DATA_TYPE    data_type;      // tipo de dados no tensor
+   const long                   dimensions[];   // número de elementos no tensor
+</code></pre>
+<p>
+  };
+<h3>OnnxMapTypeInfo</h3>
+A estrutura descreve o mapa que é obtido no parâmetro de saída do modelo ONNX
+</p>
+<pre><code class="language-mql5">
+struct OnnxMapTypeInfo
+  {
+   const ENUM_ONNX_DATA_TYPE    key_type;       // tipo de chave
+   const OnnxTypeInfo&amp;          value_type;     // tipo de valor
+</code></pre>
+<p>
+  };
+<h3>OnnxSequenceTypeInfo</h3>
+A estrutura descreve a sequência que resulta no parâmetro de saída do modelo ONNX</p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3278
+</p>
+<pre><code class="language-mql5">
+struct OnnxSequenceTypeInfo
+  {
+   const OnnxTypeInfo&amp;          value_type;     // tipo de dados da sequência
+</code></pre>
+<p>
+  };
+<h3>ENUM_ONNX_TYPE</h3>
+A enumeração ENUM_ONNX_TYPE descreve o tipo de parâmetro do modelo
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ONNX_TYPE_UNKNOWN</h3>
+<h3>Desconhecido</h3>
+<h3>ONNX_TYPE_TENSOR</h3>
+<h3>Tensor</h3>
+<h3>ONNX_TYPE_SEQUENCE</h3>
+<h3>Sequência</h3>
+<h3>ONNX_TYPE_MAP</h3>
+<h3>Mapa</h3>
+<h3>ONNX_TYPE_OPAQUE</h3>
+<h3>Abstrato</h3>
+<h3>ONNX_TYPE_SPARSETENSOR</h3>
+<h3>Tensor esparso</h3>
+<h3>ENUM_ONNX_DATA_TYPE</h3>
+A enumeração ENUM_ONNX_DATA_TYPE descreve o tipo de dados usados
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ONNX_DATA_TYPE_UNDEFINED</h3>
+<h3>Não definido</h3>
+<h3>ONNX_DATA_TYPE_FLOAT</h3>
+float
+<h3>ONNX_DATA_TYPE_INT8</h3>
+</p>
+<pre><code class="language-mql5">
+int de 8 bits
+</code></pre>
+<p>
+<h3>ONNX_DATA_TYPE_UINT16</h3>
+uint de 16 bits
+<h3>ONNX_DATA_TYPE_INT16</h3>
+</p>
+<pre><code class="language-mql5">
+int de 16 bits
+</code></pre>
+<p>
+<h3>ONNX_DATA_TYPE_INT32</h3>
+</p>
+<pre><code class="language-mql5">
+int de 32 bits
+</code></pre>
+<p>
+<h3>ONNX_DATA_TYPE_INT64</h3>
+</p>
+<pre><code class="language-mql5">
+int de 64 bits
+</code></pre>
+<p>
+<h3>ONNX_DATA_TYPE_STRING</h3>
+string
+<h3>ONNX_DATA_TYPE_BOOL</h3>
+bool
+<h3>ONNX_DATA_TYPE_FLOAT16</h3>
+float de 16 bits
+<h3>ONNX_DATA_TYPE_DOUBLE</h3>
+double
+<h3>ONNX_DATA_TYPE_UINT32</h3>
+uint de 32 bits
+<h3>ONNX_DATA_TYPE_UINT64</h3>
+uint de 64 bits
+<h3>ONNX_DATA_TYPE_COMPLEX64</h3>
+<h3>Número complexo de 64 bits</h3></p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3279
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ONNX_DATA_TYPE_COMPLEX128</h3>
+<h3>Número complexo de 128 bits</h3>
+<h3>ONNX_DATA_TYPE_BFLOAT16</h3>
+bfloat de 16 bits (Brain Floating Point)
+<h3>ENUM_ONNX_FLAGS</h3>
+A enumeração ENUM_ONNX_FLAGS descreve o modo de inicialização do modelo
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ONNX_DEBUG_LOGS</h3>
+<h3>Saída de registros de depuração</h3>
+<h3>ONNX_NO_CONVERSION</h3>
+Proibir a autoconversão, usar os dados do
+usuário como estão
+<h3>ONNX_COMMON_FOLDER</h3>
+Carga do arquivo do modelo a partir da pasta
+<h3>Common/Files, igual em valor ao sinalizador</h3>
+<h3>FILE_COMMON</h3>
+Conversão de arrays ao trabalhar com modelos ONNX
+Em tarefas de aprendizado de máquina, nem sempre é necessária uma grande precisão nos cálculos.
+Para acelerar os cálculos, alguns modelos utilizam tipos de dados com menor precisão, como Float16 e
+até mesmo Float8. Para que os usuários possam fornecer esses dados de entrada aos modelos, no
+MQL5 foram adicionadas 4 funções especiais que convertem os tipos padrões do MQL5 para os tipos
+especiais FP16 e FP8.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>ArrayToFP16</h3>
+Realiza a cópia de um array do tipo float ou double para um
+array do tipo ushort com o formato especificado.
+<h3>ArrayToFP8</h3>
+Realiza a cópia de um array do tipo float ou double para um
+array do tipo uchar com o formato especificado.
+<h3>ArrayFromFP16</h3>
+Realiza a cópia de um array do tipo ushort para um array do
+tipo float ou double com um formato especificado.
+<h3>ArrayFromFP8</h3>
+Realiza a cópia de um array do tipo uchar para um array do
+tipo float ou double com um formato especificado.
+Essas funções para conversão de arrays utilizam formatos especiais, definidos nas enumerações
+abaixo.
+<h3>ENUM_FLOAT16_FORMAT</h3>
+Enumeração ENUM_FLOAT16_FORMAT descreve 2 formatos do tipo FP16. </p>
+<p><h3>Modelos ONNX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3280
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>FLOAT_FP16</h3>
+Formato padrão de 16 bits, também conhecido como half
+<h3>FLOAT_BFP16</h3>
+<h3>Formato especial brain float point</h3>
+Ambos os formatos têm suas vantagens e limitações. FLOAT16 oferece maior precisão, mas requer
+mais recursos para armazenamento e cálculos. BFLOAT16, por outro lado, oferece maior desempenho
+e eficiência no processamento de dados, mas pode ser menos preciso.
+<h3>ENUM_FLOAT8_FORMAT</h3>
+Enumeração ENUM_FLOAT8_FORMAT descreve 4 formatos do tipo FP8.
+O formato FP8 (número de ponto flutuante de 8 bits) é um dos tipos de dados usados para representar
+números de ponto flutuante. No FP8, cada número é representado por 8 bits de dados, que geralmente
+são divididos em três componentes: sinal, expoente e mantissa. Este formato oferece um
+compromisso entre precisão e eficiência de armazenamento de dados, tornando-o atraente para uso
+em aplicativos onde a economia de memória e recursos computacionais é necessária.  
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>FLOAT_FP8_E4M3FN</h3>
+Número de ponto flutuante de 8 bits, 4 bits de ordem e 3 bits
+de mantissa. Geralmente usado como coeficientes.
+<h3>FLOAT_FP8_E4M3FNUZ</h3>
+Número de ponto flutuante de 8 bits, 4 bits de ordem e 3 bits
+de mantissa. Suporta NaN, não suporta zero negativo e Inf.
+Geralmente usado como coeficientes.
+<h3>FLOAT_FP8_E5M2FN</h3>
+Número de ponto flutuante de 8 bits, 5 bits de ordem e 2 bits
+de mantissa. Suporta NaN e Inf. Geralmente usado para
+gradientes.
+<h3>FLOAT_FP8_E5M2FNUZ</h3>
+Número de ponto flutuante de 8 bits, 5 bits de ordem e 2 bits
+de mantissa. Suporta NaN e Inf, não suporta zero negativo.
+Também utilizado para gradientes.
+Uma das principais vantagens do FP8 é sua eficiência no processamento de grandes volumes de dados.
+Graças à representação compacta de números, FP8 permite reduzir os requisitos de memória e
+acelerar os cálculos. Isso é especialmente importante em aplicações de aprendizado de máquina e
+inteligência artificial, onde o processamento de grandes conjuntos de dados é comum.
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

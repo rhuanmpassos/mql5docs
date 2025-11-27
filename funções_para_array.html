@@ -1,0 +1,4761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções para Array - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class="active"><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções para Array</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1213
+Grupo de Funções para Trabalhar com Arrays
+Arrays podem ter no máximo quatro dimensões. Cada dimensão é indexada de 0 a dimension_size-1.
+No caso particular de um array de uma dimensão de 50 elementos, a chamada do primeiro elemento
+aparece como array[0], do último elemento - como array[49].
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>ArrayBsearch</h3>
+Retorna o índice do primeiro elemento encontrado na primeira dimensão
+do array
+<h3>ArrayCopy</h3>
+<h3>Copia um array em outro array</h3>
+<h3>ArrayCompare</h3>
+Retorna o resultado da comparação entre dois arrays de tipos simples ou
+estruturas personalizados sem objetos complexos
+<h3>ArrayFree</h3>
+Libera buffer de qualquer array dinâmico e define o tamanho da
+dimensão zero em 0.
+<h3>ArrayGetAsSeries</h3>
+Verifica a direção da indexação de um array
+<h3>ArrayInitialize</h3>
+Define todos os elementos de um array numérico para um único valor
+<h3>ArrayFill</h3>
+Preenche um array com o valor especificado
+<h3>ArrayIsSeries</h3>
+Verifica se um é array é uma série de tempo
+<h3>ArrayIsDynamic</h3>
+<h3>Verifica se um array é dinâmico</h3>
+<h3>ArrayMaximum</h3>
+Busca por um elemento com o valor máximo
+<h3>ArrayPrint</h3>
+No log, exibe uma matriz de tipo ou estrutura simples
+<h3>ArrayMinimum</h3>
+Busca por um elemento com o valor mínimo
+<h3>ArrayRange</h3>
+Retorna o número de elementos na dimensão especifica do array
+<h3>ArrayResize</h3>
+Define o novo tamanho da primeira dimensão do array
+<h3>ArrayInsert</h3>
+Insere na matriz de destino o número especificado de elementos da
+matriz de origem, iniciando no índice especificado
+<h3>ArrayRemove</h3>
+Remove o número especificado de elementos da matriz, iniciando no
+índice especificado
+<h3>ArrayReverse</h3>
+Expande o número de elementos especificado na matriz, iniciando no
+índice especificado
+<h3>ArraySetAsSeries</h3>
+Define a direção de indexação de um array
+<h3>ArraySize</h3>
+Retorna o número de elemento no array
+<h3>ArraySort</h3>
+<h3>Ordena arrays números pela primeira dimensão</h3>
+<h3>ArraySwap</h3>
+Troca entre si o conteúdo de duas matrizes do tipo dinâmico
+<h3>ArrayToFP16</h3>
+Realiza a cópia de um array do tipo float ou double para um array do tipo
+ushort com o formato especificado.</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1214
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>ArrayToFP8</h3>
+Realiza a cópia de um array do tipo float ou double para um array do tipo
+uchar com o formato especificado.
+<h3>ArrayFromFP16</h3>
+Realiza a cópia de um array do tipo ushort para um array do tipo float ou
+</p>
+<pre><code class="language-mql5">
+double com um formato especificado.
+</code></pre>
+<p>
+<h3>ArrayFromFP8</h3>
+Realiza a cópia de um array do tipo uchar para um array do tipo float ou
+</p>
+<pre><code class="language-mql5">
+double com um formato especificado.</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1215
+<h3>ArrayBsearch</h3>
+Procura um valor especificado em um array numérico multidimensional ordenado em ordem crescente.
+A pesquisa é realizada através dos elementos da primeira dimensão.
+Para buscar em um array de tipo double
+</p>
+<pre><code class="language-mql5">
+int  ArrayBsearch(
+   const double&amp;    array[],   // array para busca
+   double           value      // o que é pesquisada por
+   );
+</code></pre>
+<p>
+Para buscar em um array de tipo float
+</p>
+<pre><code class="language-mql5">
+int  ArrayBsearch(
+   const float&amp;     array[],   // array para busca
+   float            value      // o que é pesquisada por
+   );
+</code></pre>
+<p>
+Para buscar em um array de tipo long
+</p>
+<pre><code class="language-mql5">
+int  ArrayBsearch(
+   const long&amp;      array[],   // array para busca
+   long             value      // o que é pesquisada por
+   );
+</code></pre>
+<p>
+Para buscar em um array de tipo int
+</p>
+<pre><code class="language-mql5">
+int  ArrayBsearch(
+   const int&amp;       array[],   // array para busca
+   int              value      // o que é pesquisada por
+   );
+</code></pre>
+<p>
+Para buscar em um array de tipo short
+</p>
+<pre><code class="language-mql5">
+int  ArrayBsearch(
+   const short&amp;     array[],   // array para busca
+   short            value      // o que é pesquisada por
+   );
+</code></pre>
+<p>
+Para buscar em um array de tipo char
+</p>
+<pre><code class="language-mql5">
+int  ArrayBsearch(
+   const char&amp;      array[],   // array para busca
+   char             value      // o que é pesquisada por
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array numérico para busca.
+value</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1216
+[in]  Valor para busca.
+<h3>Valor do Retorno</h3>
+A função retorna o índice de um elemento encontrado. Se o valor desejado não for encontrado, a
+função retorna o índice de um elemento mais próximo em valor.
+<h3>Observação</h3>
+A busca binária processa somente arrays ordenados. Para ordenar arrays numéricos use a função
+ArraySort().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Script baseado no indicador RSI para visualização de dados&quot;
+#property description &quot;quantas vezes o mercado ficou em&quot;
+#property description &quot;áreas sobre-compradas e sobre-vendidas em intervalo de tempo es
+//--- mosta a janela dos parâmetros de entrada quando lançado o script
+#property script_show_inputs
+//--- parâmetros de entrada
+input int                InpMAPeriod=14;                    // Período de média móvel
+input ENUM_APPLIED_PRICE InpAppliedPrice=PRICE_CLOSE;       // Tipo de preço
+input double             InpOversoldValue=30.0;             // Nível sobre-vendido
+input double             InpOverboughtValue=70.0;           // Nível sobre-comprado
+input datetime           InpDateStart=D&#x27;2012.01.01 00:00&#x27;;  // Data de início para aná
+input datetime           InpDateFinish=D&#x27;2013.01.01 00:00&#x27;; // Data final para análise
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   double rsi_buff[]; // array do valores do indicador
+   int    size=0;     // tamanho de array
+//--- receber a manipulação do indicador RSI
+   ResetLastError();
+   int rsi_handle=iRSI(Symbol(),Period(),InpMAPeriod,InpAppliedPrice);
+   if(rsi_handle==INVALID_HANDLE)
+     {
+      //--- falha para receber a manipulação do indicador
+      PrintFormat(&quot;Manipulador de indicator recebido com erro. Código de erro = %d&quot;,Ge
+      return;
+     }
+//--- fica no loop, até que o indicador calcula todos os seus valores
+   while(BarsCalculated(rsi_handle)==-1)
+     {
+      //--- sair se o indicador concluir forçadamente a operação de script
+      if(IsStopped())
+         return;
+      //--- uma pausa para permitir que o indicador calcule todos os seus valores
+      Sleep(10);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1217
+</p>
+<pre><code class="language-mql5">
+//--- copiar os valores do indicador para um determinado período de tempo
+   ResetLastError();
+   if(CopyBuffer(rsi_handle,0,InpDateStart,InpDateFinish,rsi_buff)==-1)
+     {
+      PrintFormat(&quot;Falha para copiar valores do indicador. Código de erro = %d&quot;,GetLas
+      return;
+     }
+//--- recebe o tamanho do array
+   size=ArraySize(rsi_buff);
+//--- classificar o array
+   ArraySort(rsi_buff);
+//--- descobrir o tempo (em termos percentuais) que o mercado ficou na área sobre-vend
+   double ovs=(double)ArrayBsearch(rsi_buff,InpOversoldValue)*100/(double)size;
+//--- descobrir o tempo (em termos percentuais) que o mercado ficou na área sobre-comp
+   double ovb=(double)(size-ArrayBsearch(rsi_buff,InpOverboughtValue))*100/(double)siz
+//--- formar as strings para exibir os dados
+   string str=&quot;A partir de &quot;+TimeToString(InpDateStart,TIME_DATE)+&quot; para &quot;
+              +TimeToString(InpDateFinish,TIME_DATE)+&quot; o mercado ficou:&quot;;
+   string str_ovb=&quot;em área sobre-comprada &quot;+DoubleToString(ovb,2)+&quot;% do tempo&quot;;
+   string str_ovs=&quot;em área sobre-vendida &quot;+DoubleToString(ovs,2)+&quot;% do tempo&quot;;
+//--- mostrar os dados no gráfico
+   CreateLabel(&quot;topo&quot;,5,60,str,clrDodgerBlue);
+   CreateLabel(&quot;sobre-comprado&quot;,5,35,str_ovb,clrDodgerBlue);
+   CreateLabel(&quot;sobre-vendido&quot;,5,10,str_ovs,clrDodgerBlue);
+//--- redesenhar o gráfico
+   ChartRedraw(0);
+//--- pausa
+   Sleep(10000);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Mostrar comentário no canto inferior esquerdo do gráfico         |
+//+------------------------------------------------------------------+
+void CreateLabel(const string name,const int x,const int y,
+                 const string str,const color clr)
+  {
+//--- cria um rótulo (label)
+   ObjectCreate(0,name,OBJ_LABEL,0,0,0);
+//--- colocar a etiqueta no canto inferior esquerdo
+   ObjectSetInteger(0,name,OBJPROP_CORNER,CORNER_LEFT_LOWER);
+//--- alterar a posição do ponto de ancoragem
+   ObjectSetInteger(0,name,OBJPROP_ANCHOR,ANCHOR_LEFT_LOWER);
+//--- distância a partir do ponto de ancoragem na direção X
+   ObjectSetInteger(0,name,OBJPROP_XDISTANCE,x);
+//--- distância a partir do ponto de ancoragem na direção Y
+   ObjectSetInteger(0,name,OBJPROP_YDISTANCE,y);
+//--- texto do rótulo
+   ObjectSetString(0,name,OBJPROP_TEXT,str);
+//--- cor do texto
+   ObjectSetInteger(0,name,OBJPROP_COLOR,clr);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1218
+</p>
+<pre><code class="language-mql5">
+//--- tamanho do texto
+   ObjectSetInteger(0,name,OBJPROP_FONTSIZE,12);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1219
+<h3>ArrayCopy</h3>
+Copia um array em um outro array.
+</p>
+<pre><code class="language-mql5">
+int  ArrayCopy(
+   void&amp;        dst_array[],         // array de destino
+   const void&amp;  src_array[],         // array de origem
+   int          dst_start=0,         // índice de início do array destino a partir do 
+   int          src_start=0,         // primeiro índice de um array de origem
+   int          count=WHOLE_ARRAY    // número de elementos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dst_array[]
+[out]  Array destino
+src_array[]
+[in]  Array fonte
+dst_start=0
+[in]  Índice de início do array destino. Por padrão, o índice de início é 0.
+src_start=0
+[in]  Índice de início para o array fonte. Por padrão, o índice de início é 0.
+count=WHOLE_ARRAY
+[in]  Número de elementos que devem ser copiados. Por padrão, todo conjunto array é copiado
+(count=WHOLE_ARRAY).
+<h3>Valor do Retorno</h3>
+Retorna o número de elementos copiados.
+<h3>Observação</h3>
+Se count&lt;0 ou count&gt;src_size-src_start, toda a parte restante do array é copiada. Arrays são
+copiados da esquerda para direita. Para arrays de série, a posição de início é corretamente ajustada
+para copiar da esquerda para direita.
+Se os arrays são de tipos diferentes, durante a cópia a função tenta transformar cada elemento do
+array fonte para o tipo do array destino. Um array de string pode ser copiado somente em um array
+de string. Arrays de classes e estruturas contendo objetos que requerem inicialização não são
+copiados. Um array de estruturas pode ser copiado somente em um array do mesmo tipo.
+For dynamic arrays with indexing as in timeseries, the size of a destination array is automatically
+increased to the amount of copied data (if the latter exceeds the array size). The destination array
+size is not decreased automatically.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;O indicador destaca os candlesticks que são local&quot;
+#property description &quot;altos e baixos. Comprimento do intervalo para encontrar&quot;
+#property description &quot;valores extremos usando parâmetros de entrada.&quot;</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1220
+</p>
+<pre><code class="language-mql5">
+//--- configurações do indicador
+#property indicator_chart_window
+#property indicator_buffers 5
+#property indicator_plots   1
+//---- plotar
+#property indicator_label1  &quot;Extremums&quot;
+#property indicator_type1   DRAW_COLOR_CANDLES
+#property indicator_color1  clrLightSteelBlue,clrRed,clrBlue
+#property indicator_style1  STYLE_SOLID
+#property indicator_width1  1
+//--- constante pré-definida
+#define INDICATOR_EMPTY_VALUE 0.0
+//--- parâmetros de entrada
+input int InpNum=4; // Meio intervalo de comprimento
+//--- buffers do indicador
+double ExtOpen[];
+double ExtHigh[];
+double ExtLow[];
+double ExtClose[];
+double ExtColor[];
+//--- variáveis globais
+int    ExtStart=0; // índice do primeiro candlestick que não é um extremo
+int    ExtCount=0; // número de não extremos no intervalo
+//+------------------------------------------------------------------+
+//| Preenchimento dos candlesticks não extremos                      |
+//+------------------------------------------------------------------+
+void FillCandles(const double &amp;open[],const double &amp;high[],
+                 const double &amp;low[],const double &amp;close[])
+  {
+//--- preencher os candlesticks
+   ArrayCopy(ExtOpen,open,ExtStart,ExtStart,ExtCount);
+   ArrayCopy(ExtHigh,high,ExtStart,ExtStart,ExtCount);
+   ArrayCopy(ExtLow,low,ExtStart,ExtStart,ExtCount);
+   ArrayCopy(ExtClose,close,ExtStart,ExtStart,ExtCount);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- mapeamento de buffers do indicador
+   SetIndexBuffer(0,ExtOpen);
+   SetIndexBuffer(1,ExtHigh);
+   SetIndexBuffer(2,ExtLow);
+   SetIndexBuffer(3,ExtClose);
+   SetIndexBuffer(4,ExtColor,INDICATOR_COLOR_INDEX);
+//--- especificar o valor que não é apresentado
+   PlotIndexSetDouble(0,PLOT_EMPTY_VALUE,INDICATOR_EMPTY_VALUE);
+//--- especificar os nomes dos buffers do indicador para exibir na janela de dados</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1221
+</p>
+<pre><code class="language-mql5">
+   PlotIndexSetString(0,PLOT_LABEL,&quot;Open;High;Low;Close&quot;);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- definir a indexação direta em séries de tempo
+   ArraySetAsSeries(open,false);
+   ArraySetAsSeries(high,false);
+   ArraySetAsSeries(low,false);
+   ArraySetAsSeries(close,false);
+//--- variável da barra para iniciar cálculo
+   int start=prev_calculated;
+//--- cálculo não é realizado pela primeira InpNum*2 barras
+   if(start==0)
+     {
+      start+=InpNum*2;
+      ExtStart=0;
+      ExtCount=0;
+     }
+//--- se a barra acabou de se formar, verifique o seguinte extremo potencial
+   if(rates_total-start==1)
+      start--;
+//--- índice da barra a ser verificado para o extremo
+   int ext;
+//--- valor do indicador para cálculo do loop
+   for(int i=start;i&lt;rates_total-1;i++)
+     {
+      //--- inicialmente num bar sem desenhar
+      ExtOpen[i]=0;
+      ExtHigh[i]=0;
+      ExtLow[i]=0;
+      ExtClose[i]=0;
+      //--- índice extremo para verificação
+      ext=i-InpNum;
+      //--- verificar o máximo local
+      if(IsMax(high,ext))</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1222
+</p>
+<pre><code class="language-mql5">
+        {
+         //--- destacar um candlestick extremo
+         ExtOpen[ext]=open[ext];
+         ExtHigh[ext]=high[ext];
+         ExtLow[ext]=low[ext];
+         ExtClose[ext]=close[ext];
+         ExtColor[ext]=1;
+         //--- destacar outros candles até o extremo com uma cor neutra
+         FillCandles(open,high,low,close);
+         //--- alterar as cores variáveis
+         ExtStart=ext+1;
+         ExtCount=0;
+         //--- passar para a próxima iteração
+         continue;
+        }
+      //--- verifique o mínimo local
+      if(IsMin(low,ext))
+        {
+         //--- destacar um candlestick extremo
+         ExtOpen[ext]=open[ext];
+         ExtHigh[ext]=high[ext];
+         ExtLow[ext]=low[ext];
+         ExtClose[ext]=close[ext];
+         ExtColor[ext]=2;
+         //--- destacar outros candles até o extremo com uma cor neutra
+         FillCandles(open,high,low,close);
+         //--- alterar os valores das variáveis
+         ExtStart=ext+1;
+         ExtCount=0;
+         //--- passar para a próxima iteração
+         continue;
+        }
+      //--- aumentar o número de não extremos no intervalo
+      ExtCount++;
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificar se o atual elemento array é um local máximo (high)     |
+//+------------------------------------------------------------------+
+bool IsMax(const double &amp;price[],const int ind)
+  {
+//--- variável do início do intervalo
+   int i=ind-InpNum;
+//--- final do período do intervalo
+   int finish=ind+InpNum+1;
+//--- verificar a primeiro metade do intervalo
+   for(;i&lt;ind;i++)</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1223
+</p>
+<pre><code class="language-mql5">
+     {
+      if(price[ind]&lt;=price[i])
+         return(false);
+     }
+//--- verificar a segunda metade do intervalo
+   for(i=ind+1;i&lt;finish;i++)
+     {
+      if(price[ind]&lt;=price[i])
+         return(false);
+     }
+//--- este é um extremo
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificar se o atual elemento array é um local mínimo (low)     |
+//+------------------------------------------------------------------+
+bool IsMin(const double &amp;price[],const int ind)
+  {
+//--- variável do início do intervalo
+   int i=ind-InpNum;
+//--- variável do final do intervalo
+   int finish=ind+InpNum+1;
+//--- verificar a primeiro metade do intervalo
+   for(;i&lt;ind;i++)
+     {
+      if(price[ind]&gt;=price[i])
+         return(false);
+     }
+//--- verificar a segunda metade do intervalo
+   for(i=ind+1;i&lt;finish;i++)
+     {
+      if(price[ind]&gt;=price[i])
+         return(false);
+     }
+//--- este é um extremo
+   return(true);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1224
+<h3>ArrayCompare</h3>
+A função retorna o resultado da comparação de dois arrays de mesmo tipo. Pode ser usado para
+comparar arrays de tipos simples ou estruturas customizadas sem objetos complexos, isto é,
+estruturas customizadas que não contém strings, arrays dinâmicos, classes e outras estruturas com
+objetos complexos.
+</p>
+<pre><code class="language-mql5">
+int  ArrayCompare(
+   const void&amp;  array1[],            // primeiro array
+   const void&amp;  array2[],            // segundo array
+   int          start1=0,            // deslocamento inicial no primeiro array
+   int          start2=0,            // deslocamento inicial no segundo array
+   int          count=WHOLE_ARRAY    // número de elementos para comparação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array1[]
+[in]  Primeiro array.
+array2[]
+[in]  Segundo array.
+start1=0
+[in]  O índice inicial do elemento no primeiro array, a partir do qual a comparação começa. O
+índice de começo default - 0.
+start2=0
+[in]  O índice inicial do elemento no segundo array, a partir do qual a comparação começa. O
+índice de começo default - 0.
+count=WHOLE_ARRAY
+[in]  Número de elementos a ser comparados. Todos os elementos de ambos os arrays participam
+da comparação por default (count=WHOLE_ARRAY).
+<h3>Valor de retorno</h3>
+· -1, se array1[] menos que array2[]
+· 0, se array1[] igual a array2[]
+· 1, se array1[] mais que array2[]
+· -2, se um erro ocorrer devido a incompatibilidade dos tipos dos arrays comparados ou se os
+valores start1, start2 ou count levarem a cair para fora do array.
+<h3>Observação</h3>
+A função não retornará 0 (os arrays não serão considerados iguais) se os arrays diferirem em
+tamanho e count=WHOLE_ARRAY para o caso em que um array é um subconjunto fiel do outro.
+Neste caso, o resultado da comparação de tamanhos destes arrays irão retornar: -1, se o tamanho
+de array1[] for menor que o tamanho de array2[] , caso contrário 1.
+<h3>Exemplo:</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1225
+</p>
+<pre><code class="language-mql5">
+//--- variáveis globais
+double   ExtArrayFirst[];
+double   ExtArraySecond[];
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- definimos as dimensões dos arrays
+   if(ArrayResize(ExtArrayFirst,10)!=10)
+     {
+      Print(&quot;ArrayResize() failed for ExtArrayFirst. Error code: &quot;,GetLastError());
+      return;
+     }
+   if(ArrayResize(ExtArraySecond,10)!=10)
+     {
+      Print(&quot;ArrayResize() failed for ExtArraySecond. Error code: &quot;,GetLastError());
+      return;
+     }
+     
+//--- no ciclo, preenchemos os arrays com os valores dos índices i e j
+   int total=ArraySize(ExtArrayFirst);
+   for(int i=0, j=total-1; i&lt;total; i++,j--)
+     {
+      //--- preenchemos o array ExtArrayFirst da esquerda para a direita
+      //--- preenchemos o array ExtArraySecond da direita para a esquerda
+      ExtArrayFirst[i]=i;
+      ExtArraySecond[i]=j;
+     }
+//--- comparamos os arrays e imprimimos o resultado no log
+   ArrayComparePrint(ExtArrayFirst,ExtArraySecond);
+  /*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   ExtArrayFirst:
+   0.00000 1.00000 2.00000 3.00000 4.00000 5.00000 6.00000 7.00000 8.00000 9.00000
+   ExtArraySecond:
+   9.00000 8.00000 7.00000 6.00000 5.00000 4.00000 3.00000 2.00000 1.00000 0.00000
+   Result ArrayCompare(): ExtArrayFirst is smaller than ExtArraySecond (result = -1)
+</code></pre>
+<p>
+  */
+</p>
+<pre><code class="language-mql5">
+   
+//--- agora invertemos os arrays
+//--- no ciclo, preenchemos os arrays com os valores dos índices i e j
+   for(int i=0, j=total-1; i&lt;total; i++,j--)
+     {
+      //--- preenchemos o array ExtArrayFirst da direita para a esquerda
+      //--- preenchemos o array ExtArraySecond da esquerda para a direita
+      ExtArrayFirst[i]=j;
+      ExtArraySecond[i]=i;</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1226
+</p>
+<pre><code class="language-mql5">
+     }
+//--- comparamos os arrays e imprimimos o resultado no log
+   ArrayComparePrint(ExtArrayFirst,ExtArraySecond);
+   /*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   ExtArrayFirst:
+   9.00000 8.00000 7.00000 6.00000 5.00000 4.00000 3.00000 2.00000 1.00000 0.00000
+   ExtArraySecond:
+   0.00000 1.00000 2.00000 3.00000 4.00000 5.00000 6.00000 7.00000 8.00000 9.00000
+   Result ArrayCompare(): ExtArrayFirst is larger than ExtArraySecond (result = 1)
+   */
+   
+//--- agora preencheremos os arrays na mesma direção
+//--- no ciclo, preenchemos os arrays com os valores do índice i
+   for(int i=0; i&lt;total; i++)
+     {
+      //--- preenchemos ambos os arrays da esquerda para a direita
+      ExtArrayFirst[i]=i;
+      ExtArraySecond[i]=i;
+     }
+//--- comparamos os arrays e imprimimos o resultado no log
+   ArrayComparePrint(ExtArrayFirst,ExtArraySecond);
+   /*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   ExtArrayFirst:
+   0.00000 1.00000 2.00000 3.00000 4.00000 5.00000 6.00000 7.00000 8.00000 9.00000
+   ExtArraySecond:
+   0.00000 1.00000 2.00000 3.00000 4.00000 5.00000 6.00000 7.00000 8.00000 9.00000
+   Result ArrayCompare(): ExtArrayFirst and ExtArraySecond are equal (result = 0)
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Comparação e impressão do resultado                              |
+//+------------------------------------------------------------------+
+void ArrayComparePrint(const double &amp;array1[], const double &amp;array2[])
+  {
+   //--- imprimimos o cabeçalho e o conteúdo dos arrays
+   Print(&quot;ExtArrayFirst:&quot;);
+   ArrayPrint(array1);
+   Print(&quot;ExtArraySecond:&quot;);
+   ArrayPrint(array2);
+   //--- comparamos os arrays e imprimimos o resultado da comparação
+   int    res=ArrayCompare(array1,array2);
+   string res_str=(res&gt;0 ? &quot;ExtArrayFirst is larger than ExtArraySecond&quot; : res&lt;0 ? &quot;Ex
+   PrintFormat(&quot;Result ArrayCompare(): %s (result = %d)\n&quot;,res_str,res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1227
+<h3>ArrayFree</h3>
+Libera um buffer de qualquer array dinâmico e define o tamanho da dimensão zero para 0.
+</p>
+<pre><code class="language-mql5">
+void  ArrayFree(
+   void&amp;  array[]      // array
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array dinâmico.
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+A necessidade de usar a função ArrayFree() pode não aparecer com muita freqüência, considerando
+que toda a memória utilizada é liberada de uma só vez e o principal trabalho com os arrays
+compreende o acesso aos buffers dos indicadores. Os tamanhos dos buffers são controlados
+automaticamente pelo subsistema executivo do terminal.
+No caso, é necessário controlar manualmente a memória no ambiente dinâmico complexo da
+aplicação, a função ArrayFree() permite que os usuários possam liberar a memória ocupada pelo
+array dinâmico desnecessário de forma direta e imediata.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#include &lt;Controls\Dialog.mqh&gt;
+#include &lt;Controls\Button.mqh&gt;
+#include &lt;Controls\Label.mqh&gt;
+#include &lt;Controls\ComboBox.mqh&gt;
+//--- constantes predefinidas
+#define X_START 0
+#define Y_START 0
+#define X_SIZE 280
+#define Y_SIZE 300
+//+------------------------------------------------------------------+
+//| Uma classe para trabalhar com uma memória                        |
+//+------------------------------------------------------------------+
+class CMemoryControl : public CAppDialog
+  {
+</code></pre>
+<p>
+private:
+</p>
+<pre><code class="language-mql5">
+   //--- tamanho de array
+   int               m_arr_size;
+   //--- arrays
+   char              m_arr_char[];
+   int               m_arr_int[];
+   float             m_arr_float[];
+   double            m_arr_double[];</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1228
+</p>
+<pre><code class="language-mql5">
+   long              m_arr_long[];
+   //--- rótulos
+   CLabel            m_lbl_memory_physical;
+   CLabel            m_lbl_memory_total;
+   CLabel            m_lbl_memory_available;
+   CLabel            m_lbl_memory_used;
+   CLabel            m_lbl_array_size;
+   CLabel            m_lbl_array_type;
+   CLabel            m_lbl_error;
+   CLabel            m_lbl_change_type;
+   CLabel            m_lbl_add_size;
+   //--- botões
+   CButton           m_button_add;
+   CButton           m_button_free;
+   //--- caixas de combinação
+   CComboBox         m_combo_box_step;
+   CComboBox         m_combo_box_type;
+   //--- valor atual do tipo array da caixa de combinação
+   int               m_combo_box_type_value;
+</code></pre>
+<p>
+public:
+</p>
+<pre><code class="language-mql5">
+                     CMemoryControl(void);
+                    ~CMemoryControl(void);
+   //--- método de criação de objeto de classe
+   virtual bool      Create(const long chart,const string name,const int subwin,const 
+   //--- manipulador de eventos gráfico
+   virtual bool      OnEvent(const int id,const long &amp;lparam,const double &amp;dparam,cons
+</code></pre>
+<p>
+protected:
+</p>
+<pre><code class="language-mql5">
+   //--- cria um rótulos
+   bool              CreateLabel(CLabel &amp;lbl,const string name,const int x,const int y
+   //--- criar elementos de controle
+   bool              CreateButton(CButton &amp;button,const string name,const int x,const 
+   bool              CreateComboBoxStep(void);
+   bool              CreateComboBoxType(void);
+   //--- manipuladores de evento
+   void              OnClickButtonAdd(void);
+   void              OnClickButtonFree(void);
+   void              OnChangeComboBoxType(void);
+   //--- métodos para trabalhar com o atual array
+   void              CurrentArrayFree(void);
+   bool              CurrentArrayAdd(void);
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Liberar memória do atual array                                   |
+//+------------------------------------------------------------------+
+void CMemoryControl::CurrentArrayFree(void)
+  {
+//--- restabelecer o tamanho do array</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1229
+</p>
+<pre><code class="language-mql5">
+   m_arr_size=0;
+//--- liberar o array
+   if(m_combo_box_type_value==0)
+      ArrayFree(m_arr_char);
+   if(m_combo_box_type_value==1)
+      ArrayFree(m_arr_int);
+   if(m_combo_box_type_value==2)
+      ArrayFree(m_arr_float);
+   if(m_combo_box_type_value==3)
+      ArrayFree(m_arr_double);
+   if(m_combo_box_type_value==4)
+      ArrayFree(m_arr_long);
+</code></pre>
+<p>
+  }  
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Tentativa de adicionar memória para o atual array                |
+//+------------------------------------------------------------------+
+bool CMemoryControl::CurrentArrayAdd(void)
+  {
+//--- se o tamanho da memória usada excede o tamanho da memória física, sair
+   if(TerminalInfoInteger(TERMINAL_MEMORY_PHYSICAL)/TerminalInfoInteger(TERMINAL_MEMOR
+      return(false);
+//--- tentativa para alocar memória de acordo com o atual tipo
+   if(m_combo_box_type_value==0 &amp;&amp; ArrayResize(m_arr_char,m_arr_size)==-1)
+      return(false);
+   if(m_combo_box_type_value==1 &amp;&amp; ArrayResize(m_arr_int,m_arr_size)==-1)
+      return(false);
+   if(m_combo_box_type_value==2 &amp;&amp; ArrayResize(m_arr_float,m_arr_size)==-1)
+      return(false);
+   if(m_combo_box_type_value==3 &amp;&amp; ArrayResize(m_arr_double,m_arr_size)==-1)
+      return(false);
+   if(m_combo_box_type_value==4 &amp;&amp; ArrayResize(m_arr_long,m_arr_size)==-1)
+      return(false);
+//--- memória alocada
+   return(true);
+</code></pre>
+<p>
+  }  
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Manipulação de eventos                                           |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>EVENT_MAP_BEGIN(CMemoryControl)</h3>
+<h3>ON_EVENT(ON_CLICK,m_button_add,OnClickButtonAdd)</h3>
+<h3>ON_EVENT(ON_CLICK,m_button_free,OnClickButtonFree)</h3>
+<h3>ON_EVENT(ON_CHANGE,m_combo_box_type,OnChangeComboBoxType)</h3>
+<h3>EVENT_MAP_END(CAppDialog)</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Construtor                                                      |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>CMemoryControl::CMemoryControl(void)</h3>
+</p>
+<pre><code class="language-mql5">
+  {
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1230
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Destrutor                                                       |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>CMemoryControl::~CMemoryControl(void)</h3>
+</p>
+<pre><code class="language-mql5">
+  {
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Método para criação de objeto de classe                          |
+//+------------------------------------------------------------------+
+bool CMemoryControl::Create(const long chart,const string name,const int subwin,
+                            const int x1,const int y1,const int x2,const int y2)
+  {
+//--- base criada de objetos de classe
+   if(!CAppDialog::Create(chart,name,subwin,x1,y1,x2,y2))
+      return(false);
+//--- preparar strings para etiquetas
+   string str_physical=&quot;Memória Física = &quot;+(string)TerminalInfoInteger(TERMINAL_MEMORY
+   string str_total=&quot;Memória total = &quot;+(string)TerminalInfoInteger(TERMINAL_MEMORY_TOT
+   string str_available=&quot;Memória disponível = &quot;+(string)TerminalInfoInteger(TERMINAL_M
+   string str_used=&quot;Memória usada = &quot;+(string)TerminalInfoInteger(TERMINAL_MEMORY_USED
+//--- cria um rótulos
+   if(!CreateLabel(m_lbl_memory_physical,&quot;physical_label&quot;,X_START+10,Y_START+5,str_phy
+      return(false);
+   if(!CreateLabel(m_lbl_memory_total,&quot;total_label&quot;,X_START+10,Y_START+30,str_total,12
+      return(false);
+   if(!CreateLabel(m_lbl_memory_available,&quot;available_label&quot;,X_START+10,Y_START+55,str_
+      return(false);
+   if(!CreateLabel(m_lbl_memory_used,&quot;used_label&quot;,X_START+10,Y_START+80,str_used,12,cl
+      return(false);
+   if(!CreateLabel(m_lbl_array_type,&quot;type_label&quot;,X_START+10,Y_START+105,&quot;Array type = 
+      return(false);
+   if(!CreateLabel(m_lbl_array_size,&quot;size_label&quot;,X_START+10,Y_START+130,&quot;Array size = 
+      return(false);
+   if(!CreateLabel(m_lbl_error,&quot;error_label&quot;,X_START+10,Y_START+155,&quot;&quot;,12,clrRed))
+      return(false);
+   if(!CreateLabel(m_lbl_change_type,&quot;change_type_label&quot;,X_START+10,Y_START+185,&quot;Chang
+      return(false);
+   if(!CreateLabel(m_lbl_add_size,&quot;add_size_label&quot;,X_START+10,Y_START+210,&quot;Add to arra
+      return(false);
+//--- create control elements
+   if(!CreateButton(m_button_add,&quot;add_button&quot;,X_START+15,Y_START+245,&quot;Adicionar&quot;,12,cl
+      return(false);
+   if(!CreateButton(m_button_free,&quot;free_button&quot;,X_START+75,Y_START+245,&quot;Livre&quot;,12,clrB
+      return(false);
+   if(!CreateComboBoxType())
+      return(false);
+   if(!CreateComboBoxStep())
+      return(false);
+//--- inicializar a variável</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1231
+</p>
+<pre><code class="language-mql5">
+   m_arr_size=0;
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Criar o botão                                                    |
+//+------------------------------------------------------------------+
+bool CMemoryControl::CreateButton(CButton &amp;button,const string name,const int x,
+                                  const int y,const string str,const int font_size,
+                                  const int clr)
+  {
+//--- criar o botão
+   if(!button.Create(m_chart_id,name,m_subwin,x,y,x+50,y+20))
+      return(false);
+//--- texto
+   if(!button.Text(str))
+      return(false);
+//--- tamanho de fonte
+   if(!button.FontSize(font_size))
+      return(false);
+//--- cor de rótulo
+   if(!button.Color(clr))
+      return(false);
+//--- adicionar o botão para os elementos de controle
+   if(!Add(button))
+      return(false);
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Criar uma caixa de combinação para o tamanho do array            |
+//+------------------------------------------------------------------+
+bool CMemoryControl::CreateComboBoxStep(void)
+  {
+//--- criar a caixa de combinação
+   if(!m_combo_box_step.Create(m_chart_id,&quot;step_combobox&quot;,m_subwin,X_START+100,Y_START
+      return(false);
+//--- adicionar elementos para a caixa de combinação
+   if(!m_combo_box_step.ItemAdd(&quot;100 000&quot;,100000))
+      return(false);
+   if(!m_combo_box_step.ItemAdd(&quot;1 000 000&quot;,1000000))
+      return(false);
+   if(!m_combo_box_step.ItemAdd(&quot;10 000 000&quot;,10000000))
+      return(false);
+   if(!m_combo_box_step.ItemAdd(&quot;100 000 000&quot;,100000000))
+      return(false);
+//--- definir o elemento atual da caixa de combinação
+   if(!m_combo_box_step.SelectByValue(1000000))
+      return(false);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1232
+</p>
+<pre><code class="language-mql5">
+//--- adicionar a caixa de combinação para controlar elementos
+   if(!Add(m_combo_box_step))
+      return(false);
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Criar uma caixa de combinação para o tipo de array               |
+//+------------------------------------------------------------------+
+bool CMemoryControl::CreateComboBoxType(void)
+  {
+//--- criar a caixa de combinação
+   if(!m_combo_box_type.Create(m_chart_id,&quot;type_combobox&quot;,m_subwin,X_START+100,Y_START
+      return(false);
+//--- adicionar elementos para a caixa de combinação
+   if(!m_combo_box_type.ItemAdd(&quot;char&quot;,0))
+      return(false);
+   if(!m_combo_box_type.ItemAdd(&quot;int&quot;,1))
+      return(false);
+   if(!m_combo_box_type.ItemAdd(&quot;float&quot;,2))
+      return(false);
+   if(!m_combo_box_type.ItemAdd(&quot;double&quot;,3))
+      return(false);
+   if(!m_combo_box_type.ItemAdd(&quot;long&quot;,4))
+      return(false);
+//--- definir o elemento atual da caixa de combinação
+   if(!m_combo_box_type.SelectByValue(3))
+      return(false);
+//--- armazenar o elemento da caixa de combinação atual
+   m_combo_box_type_value=3;
+//--- adicionar a caixa de combinação para controlar elementos
+   if(!Add(m_combo_box_type))
+      return(false);
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| criar um rótulo                                                  |
+//+------------------------------------------------------------------+
+bool CMemoryControl::CreateLabel(CLabel &amp;lbl,const string name,const int x,
+                                 const int y,const string str,const int font_size,
+                                 const int clr)
+  {
+//--- criar um rótulo
+   if(!lbl.Create(m_chart_id,name,m_subwin,x,y,0,0))
+      return(false);
+//--- texto
+   if(!lbl.Text(str))
+      return(false);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1233
+</p>
+<pre><code class="language-mql5">
+//--- tamanho de fonte
+   if(!lbl.FontSize(font_size))
+      return(false);
+//--- cor
+   if(!lbl.Color(clr))
+      return(false);
+//--- adicionar a etiqueta para controlar elementos
+   if(!Add(lbl))
+      return(false);
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Manipulador criando botão de evento &quot;Adicionar&quot;                  |
+//+------------------------------------------------------------------+
+void CMemoryControl::OnClickButtonAdd(void)
+  {
+//--- aumentar o tamanho do array
+   m_arr_size+=(int)m_combo_box_step.Value();
+//--- tentativa de alocar memória para o atual array
+   if(CurrentArrayAdd())
+     {
+      //--- memória alocada, exibir o status atual na tela
+      m_lbl_memory_available.Text(&quot;Memória disponível = &quot;+(string)TerminalInfoInteger
+      m_lbl_memory_used.Text(&quot;Memória usada = &quot;+(string)TerminalInfoInteger(TERMINAL_M
+      m_lbl_array_size.Text(&quot;Tamanho de array = &quot;+IntegerToString(m_arr_size));
+      m_lbl_error.Text(&quot;&quot;);
+     }
+   else
+     {
+      //--- falha para alocar memória, exibir a mensagem de erro
+      m_lbl_error.Text(&quot;Array é muito grande, erro!&quot;);
+      //--- retornar o tamanho do array anterior
+      m_arr_size-=(int)m_combo_box_step.Value();
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Manipulador criando o botão de evento &quot;Livre&quot;                    |
+//+------------------------------------------------------------------+
+void CMemoryControl::OnClickButtonFree(void)
+  {
+//--- liberar memória do atual array
+   CurrentArrayFree();
+//--- exibir o status atual na tela
+   m_lbl_memory_available.Text(&quot;Memória disponível = &quot;+(string)TerminalInfoInteger(TER
+   m_lbl_memory_used.Text(&quot;Memória usada = &quot;+(string)TerminalInfoInteger(TERMINAL_MEMO
+   m_lbl_array_size.Text(&quot;Tamanho de array = 0&quot;);
+   m_lbl_error.Text(&quot;&quot;);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1234
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Manipulador da caixa de combinação para alterar evento           |
+//+------------------------------------------------------------------+
+void CMemoryControl::OnChangeComboBoxType(void)
+  {
+//--- verificar se o tipo de array foi alterado
+   if(m_combo_box_type.Value()!=m_combo_box_type_value)
+     {
+      //--- liberar memória do atual array
+      OnClickButtonFree();
+      //--- trabalhar com outro tipo de array
+      m_combo_box_type_value=(int)m_combo_box_type.Value();
+      //--- exibir um novo tipo de array na tela
+      if(m_combo_box_type_value==0)
+         m_lbl_array_type.Text(&quot;Tipo de array = char&quot;);
+      if(m_combo_box_type_value==1)
+         m_lbl_array_type.Text(&quot;Tipo de array = int&quot;);
+      if(m_combo_box_type_value==2)
+         m_lbl_array_type.Text(&quot;Tipo de array = float&quot;);
+      if(m_combo_box_type_value==3)
+         m_lbl_array_type.Text(&quot;Tipo de array = double&quot;);
+      if(m_combo_box_type_value==4)
+         m_lbl_array_type.Text(&quot;Tipo de array = long&quot;);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//--- objeto de classe CMemoryControl
+</code></pre>
+<p>
+<h3>CMemoryControl ExtDialog;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- criar o diálogo
+   if(!ExtDialog.Create(0,&quot;MemoryControl&quot;,0,X_START,Y_START,X_SIZE,Y_SIZE))
+      return(INIT_FAILED);
+//--- lançamento
+   ExtDialog.Run();
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//---
+   ExtDialog.Destroy(reason);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1235
+</p>
+<pre><code class="language-mql5">
+//| Expert chart event function                                      |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &amp;lparam,
+                  const double &amp;dparam,
+                  const string &amp;sparam)
+  {
+   ExtDialog.ChartEvent(id,lparam,dparam,sparam);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1236
+<h3>ArrayGetAsSeries</h3>
+Verifica a direção do índice de um array.
+</p>
+<pre><code class="language-mql5">
+bool  ArrayGetAsSeries(
+   const void&amp;  array[]    // array para verificação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array
+[in]  Array verificado.
+<h3>Valor do Retorno</h3>
+Retorna true, se o array especificado tem o flag AS_SERIES definido, isto é, o acesso ao array é
+realizado de trás para frente como em séries de tempo. A indexação em timeséries de tempo difere
+da indexação de um array comum, na medida que os elementos de séries de tempo são indexados
+do fim para o começo (dos dados mais novos para os mais antigos).
+<h3>Observação</h3>
+Para verificar se um array se comporta como uma série de tempo, use a função ArrayIsSeries().
+Array de dados de preços passados como parâmetros de entrada na função OnCalculate() não
+obrigatoriamente têm a mesma direção de uma série de tempo. A direção de indexação necessária
+pode ser definida usando a função ArraySetAsSeries().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Indicador calcula os valores absolutos das diferenças entre&quot;
+#property description &quot;Preços de Open (Abertura) e Close (Fechamento) ou High (Alto) e
+#property description &quot;como um histograma.&quot;
+//--- configurações do indicador
+#property indicator_separate_window
+#property indicator_buffers 1
+#property indicator_plots   1
+//---- plotar
+#property indicator_type1   DRAW_HISTOGRAM
+#property indicator_style1  STYLE_SOLID
+#property indicator_width1  3
+//--- parâmetros de entrada
+input bool InpAsSeries=true; // Direção de indexação no buffer de indicador
+input bool InpPrices=true;   // Cálculo de preços (true - Abertura, Fechamento; false 
+//--- buffer do indicador
+double ExtBuffer[];
+//+------------------------------------------------------------------+
+//| Calcule os valores do indicador                                  |
+//+------------------------------------------------------------------+
+void CandleSizeOnBuffer(const int rates_total,const int prev_calculated,
+                        const double &amp;first[],const double &amp;second[],double &amp;buffer[])
+  {
+//--- iniciar variável para o cálculo das barras</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1237
+</p>
+<pre><code class="language-mql5">
+   int start=prev_calculated;
+//--- trabalho na última barra se os valores do indicador já foram calculados no tick 
+   if(prev_calculated&gt;0)
+      start--;
+//--- definir a direção de indexação nos arrays
+   bool as_series_first=ArrayGetAsSeries(first);
+   bool as_series_second=ArrayGetAsSeries(second);
+   bool as_series_buffer=ArrayGetAsSeries(buffer);
+//--- substituir a direção de indexação com um direto, se necessário
+   if(as_series_first)
+      ArraySetAsSeries(first,false);
+   if(as_series_second)
+      ArraySetAsSeries(second,false);
+   if(as_series_buffer)
+      ArraySetAsSeries(buffer,false);
+//--- calcule valores do indicador
+   for(int i=start;i&lt;rates_total;i++)
+      buffer[i]=MathAbs(first[i]-second[i]);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- vincular buffers de indicador
+   SetIndexBuffer(0,ExtBuffer);
+//--- conjunto de elementos de indexação no buffer de indicador
+   ArraySetAsSeries(ExtBuffer,InpAsSeries);
+//--- verificar quais os preços do indicador são calculados
+   if(InpPrices)
+     {
+      //--- Preços Open (abrir) e Close (fechar)
+      PlotIndexSetString(0,PLOT_LABEL,&quot;BodySize&quot;);
+      //--- definir a cor do indicador
+      PlotIndexSetInteger(0,PLOT_LINE_COLOR,clrOrange);
+     }
+   else
+     {
+      //--- Preços High (máximo) e Low (mínimo)
+      PlotIndexSetString(0,PLOT_LABEL,&quot;ShadowSize&quot;);
+      //--- definir a cor do indicador
+      PlotIndexSetInteger(0,PLOT_LINE_COLOR,clrDodgerBlue);
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1238
+</p>
+<pre><code class="language-mql5">
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- calcular o indicador de acordo com o valor do sinalizador
+   if(InpPrices)
+      CandleSizeOnBuffer(rates_total,prev_calculated,open,close,ExtBuffer);
+   else
+      CandleSizeOnBuffer(rates_total,prev_calculated,high,low,ExtBuffer);
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>Aceso a séries de tempo, ArraySetAsSeries</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1239
+<h3>ArrayInitialize</h3>
+A função inicializa um array numérico com um valor predefinido.
+For initialization of an array of char type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   char    array[],     // array inicializado
+   char    value        // valor que será definido
+   );
+</code></pre>
+<p>
+For initialization of an array of short type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   short   array[],     // array inicializado
+   short   value        // valor que será definido
+   );
+</code></pre>
+<p>
+For initialization of an array of int type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   int     array[],     // array inicializado
+   int     value        // valor que será definido
+   );
+</code></pre>
+<p>
+For initialization of an array of long type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   long    array[],     // array inicializado
+   long    value        // valor que será definido
+   );
+</code></pre>
+<p>
+For initialization of an array of float type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   float   array[],     // array inicializado
+   float   value        // valor que será definido
+   );
+</code></pre>
+<p>
+For initialization of an array of double type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   double  array[],     // array inicializado
+   double  value        // valor que será definido
+   );
+</code></pre>
+<p>
+For initialization of an array of bool type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   bool    array[],     // array inicializado
+   bool    value        // valor que será definido
+   );</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1240
+For initialization of an array of uint type
+</p>
+<pre><code class="language-mql5">
+int  ArrayInitialize(
+   uint    array[],     // array inicializado
+   uint    value        // valor que será definido
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[out]  Array numérico que deve ser inicializado.
+value
+[in]  Novo valor que deve ser definido para todos os elementos do array.
+<h3>Valor do Retorno</h3>
+Número de elementos.
+<h3>Observação</h3>
+A função ArrayResize() permite definir o tamanho de um array com uma reserva para expansão
+posterior sem a realocação de memória. É implementada para uma melhor performance, porque as
+operações de realocação de memória são razoavelmente lentas.
+A inicialização de um array usando ArrayInitialize(array, init_val) não significa a inicialização com o
+mesmo valor dos elementos da reserva alocados para este array. Em uma expansão posterior do
+array usando a função ArrayResize(), os elementos serão adicionados no final do array, seus valores
+serão indefinidos e na maioria dos casos não serão iguais ao init_value.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- array dinâmico
+   double array[];
+//--- vamos definir o tamanho do array para 100 elementos e reservar um buffer para ou
+   ArrayResize(array,100,10);
+//--- inicializa os elementos do array com valor EMPTY_VALUE=DBL_MAX
+   ArrayInitialize(array,EMPTY_VALUE);
+   Print(&quot;Valores dos 10 últimos elementos antes da inicialização&quot;);
+   for(int i=90;i&lt;100;i++) printf(&quot;array[%d] = %G&quot;,i,array[i]);
+//--- expande o array em 5 elementos
+   ArrayResize(array,105);
+   Print(&quot;Valores dos 10 últimos elementos antes do ArrayResize(array,105)&quot;);
+//--- valores dos 5 últimos elementos são obtidos do buffer de reserva
+   for(int i=95;i&lt;105;i++) printf(&quot;array[%d] = %G&quot;,i,array[i]);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1241
+<h3>ArrayFill</h3>
+A função preenche um array com o valor especificado.
+</p>
+<pre><code class="language-mql5">
+void  ArrayFill(
+   void&amp;  array[],      // array
+   int    start,        // índice de início
+   int    count,        // número de elementos para preencher
+   void   value         // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[out]  Array de tipo simples (char, uchar, short, ushort, int, uint, long, ulong, bool, color,
+datetime, float, double).
+start
+[in]  Índice de início.  Neste caso, flag AS_SERIES específico é ignorado.
+count
+[in]  Número de elementos para preencher.
+value
+[in]  Valor usado no preenchimento do array.
+<h3>Valor de retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+Quando a função ArrayFill() é chamada, a direção de indexação normal( da esquerda para direita) é
+sempre implícita. Isso significa que a alteração da ordem de acesso dos elementos do array usando
+a função ArraySetAsSeries() é ignorada. 
+Um array multidimensional é exibido como unidimensional quando processado pela função
+ArrayFill(). Por exemplo, array[2][4] é processado como array[8]. Portanto, você deve especificar o
+índice do elemento inicial para ser igual a 5 quando trabalhar com este array. Assim, a chamada de
+ArrayFill(array, 5, 2, 3.14) para array[2][4] preenche os elementos array[1][1] e array[1][2] com
+3.14.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- declara um array dinâmico
+   int a[];
+//--- define tamanho
+   ArrayResize(a,10);
+//--- preenche os primeiros 5 elementos com 123
+   ArrayFill(a,0,5,123);
+//--- preenche os primeiros 5 elementos com 456</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1242
+</p>
+<pre><code class="language-mql5">
+   ArrayFill(a,5,5,456);
+//--- mostrar valores
+   for(int i=0;i&lt;ArraySize(a);i++) printf(&quot;a[%d] = %d&quot;,i,a[i]);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1243
+<h3>ArrayIsDynamic</h3>
+A função verifica se um array é dinâmico.
+</p>
+<pre><code class="language-mql5">
+bool  ArrayIsDynamic(
+   const void&amp;  array[]    // array verificado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array verificado.
+<h3>Valor do Retorno</h3>
+Retorna true se o array selecionado é dinâmico, caso contrário retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Este indicador não calcula valores. Faz uma única tentativa par
+#property description &quot;aplicar a chamada da função ArrayFree() para três arrays: dinâm
+#property description &quot;um buffer de indicador. Os resultados são mostrados no jornal d
+//--- configurações do indicador
+#property indicator_chart_window
+#property indicator_buffers 1
+#property indicator_plots   1
+//--- variáveis globais
+double ExtDynamic[];   // array dinâmico
+double ExtStatic[100]; // array estático
+bool   ExtFlag=true;   // bandeira
+double ExtBuff[];      // buffer do indicador
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- alocar memória para o array
+   ArrayResize(ExtDynamic,100);
+//--- mapeamento de buffers do indicador
+   SetIndexBuffer(0,ExtBuff);
+   PlotIndexSetDouble(0,PLOT_EMPTY_VALUE,0);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const int begin,
+                const double &amp;price[])</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1244
+</p>
+<pre><code class="language-mql5">
+  {
+//--- executar uma análise única
+   if(ExtFlag)
+     {
+      //--- tentativa para liberar memória para os arrays
+      //--- 1. Array dinâmico
+      Print(&quot;+============================+&quot;);
+      Print(&quot;1. Verificar o array dinâmico:&quot;);
+      Print(&quot;Antes do tamanho da memória ser liberada = &quot;,ArraySize(ExtDynamic));
+      Print(&quot;Isto é um array dinâmico = &quot;,ArrayIsDynamic(ExtDynamic) ? &quot;Sim&quot; : &quot;Não&quot;);
+      //--- tentativa de liberar memória do array
+      ArrayFree(ExtDynamic);
+      Print(&quot;Após o tamanho da memória ser liberada = &quot;,ArraySize(ExtDynamic));
+      //--- 2. Array estático
+      Print(&quot;2. Verificar array estático:&quot;);
+      Print(&quot;Antes do tamanho da memória ser liberada = &quot;,ArraySize(ExtStatic));
+      Print(&quot;Isto é um array dinâmico = &quot;,ArrayIsDynamic(ExtStatic) ? &quot;Sim&quot; : &quot;Não&quot;);
+      //--- tentativa de liberar memória do array
+      ArrayFree(ExtStatic);
+      Print(&quot;Após do tamanho da memória ser liberada = &quot;,ArraySize(ExtStatic));
+      //--- 3. Buffer do indicador
+      Print(&quot;3. Verificar buffer do indicador:&quot;);
+      Print(&quot;Antes do tamanho da memória ser liberada = &quot;,ArraySize(ExtBuff));
+      Print(&quot;Isto é um array dinâmico = &quot;,ArrayIsDynamic(ExtBuff) ? &quot;Sim&quot; : &quot;Não&quot;);
+      //--- tentativa de liberar memória do array
+      ArrayFree(ExtBuff);
+      Print(&quot;Após do tamanho da memória ser liberada = &quot;,ArraySize(ExtBuff));
+      //--- alterar o valor do sinalizador
+      ExtFlag=false;
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Acesso a séries de tempo e indicadores </p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1245
+<h3>ArrayIsSeries</h3>
+A função verifica se um array é uma série de tempo.
+</p>
+<pre><code class="language-mql5">
+bool  ArrayIsSeries(
+   const void&amp;  array[]    // array verificado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array verificado.
+<h3>Valor do Retorno</h3>
+Retorna true, se o array verificado é um array de série de tempo, caso contrário, retorna false.
+Arrays passados como parâmetro para a função OnCalculate() devem ser verificados quanto a ordem
+de acesso dos elementos do array através de ArrayGetAsSeries().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property indicator_chart_window
+#property indicator_buffers 1
+#property indicator_plots   1
+//---- Plotar Etiqueta1
+#property indicator_label1  &quot;Etiqueta1&quot;
+#property indicator_type1   DRAW_LINE
+#property indicator_color1  clrRed
+#property indicator_style1  STYLE_SOLID
+#property indicator_width1  1
+//--- buffers do indicador
+double         Label1Buffer[];
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+void OnInit()
+  {
+//--- mapeamento de buffers do indicador
+   SetIndexBuffer(0,Label1Buffer,INDICATOR_DATA);
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1246
+</p>
+<pre><code class="language-mql5">
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//---
+   if(ArrayIsSeries(open))
+      Print(&quot;open[] é timeseries&quot;);
+   else
+      Print(&quot;open[] não é timeseries!!!&quot;);
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Acesso a séries de tempo e indicadores </p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1247
+<h3>ArrayMaximum</h3>
+Procura o maior elemento na primeira dimensão de um array numérico multidimensional.
+</p>
+<pre><code class="language-mql5">
+int  ArrayMaximum(
+   const void&amp;   array[],             // array para busca
+   int           start=0,             // índice a partir do qual começa a verificação
+   int           count=WHOLE_ARRAY    // número de elementos verificados
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Um array númerico, na qual a busca é feita.
+start=0
+[in]  Índice a partir do qual começa a verificação.
+count=WHOLE_ARRAY
+[in] 
+ 
+<h3>Número</h3>
+de 
+elementos 
+para 
+busca. 
+<h3>Por</h3>
+padrão, 
+busca 
+no 
+array 
+inteiro
+(count=WHOLE_ARRAY)..
+<h3>Valor do Retorno</h3>
+A função retorna um índice de um elemento encontrado levando em consideração a série do array.
+Em caso de falha, retorna -1.
+<h3>Observação</h3>
+O valor da bandeira AS_SERIES É levado em consideração durante a procura de um máximo.
+Funções ArrayMaximum e ArrayMinimum aceitam arrays multi-dimensionais como um parâmetro. No
+entanto, a pesquisa é sempre aplicada à primeira (zero) dimensão.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;O indicador mostra sobre as barras (candlesticks) um prazo de t
+//--- configurações do indicador
+#property indicator_chart_window
+#property indicator_buffers 16
+#property indicator_plots   8
+//---- plot 1
+#property indicator_label1  &quot;BearBody&quot;
+#property indicator_color1  clrSeaGreen,clrSeaGreen
+//---- plot 2
+#property indicator_label2  &quot;BearBodyEnd&quot;
+#property indicator_color2  clrSeaGreen,clrSeaGreen
+//---- plot 3
+#property indicator_label3  &quot;BearShadow&quot;
+#property indicator_color3  clrSalmon,clrSalmon
+//---- plot 4
+#property indicator_label4  &quot;BearShadowEnd&quot;
+#property indicator_color4  clrSalmon,clrSalmon</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1248
+</p>
+<pre><code class="language-mql5">
+//---- plot 5
+#property indicator_label5  &quot;BullBody&quot;
+#property indicator_color5  clrOlive,clrOlive
+//---- plot 6
+#property indicator_label6  &quot;BullBodyEnd&quot;
+#property indicator_color6  clrOlive,clrOlive
+//---- plot 7
+#property indicator_label7  &quot;BullShadow&quot;
+#property indicator_color7  clrSkyBlue,clrSkyBlue
+//---- plot 8
+#property indicator_label8  &quot;BullShadowEnd&quot;
+#property indicator_color8  clrSkyBlue,clrSkyBlue
+//--- constante pré-definida
+#define INDICATOR_EMPTY_VALUE 0.0
+//--- parâmetros de entrada
+input ENUM_TIMEFRAMES InpPeriod=PERIOD_H4;              // Prazo de tempo para calcula
+input datetime        InpDateStart=D&#x27;2013.01.01 00:00&#x27;; // Analisar a partir desta dat
+//--- buffers do indicador para candlesticks de baixa
+double   ExtBearBodyFirst[];
+double   ExtBearBodySecond[];
+double   ExtBearBodyEndFirst[];
+double   ExtBearBodyEndSecond[];
+double   ExtBearShadowFirst[];
+double   ExtBearShadowSecond[];
+double   ExtBearShadowEndFirst[];
+double   ExtBearShadowEndSecond[];
+//--- buffers do indicador para candlesticks de alta
+double   ExtBullBodyFirst[];
+double   ExtBullBodySecond[];
+double   ExtBullBodyEndFirst[];
+double   ExtBullBodyEndSecond[];
+double   ExtBullShadowFirst[];
+double   ExtBullShadowSecond[];
+double   ExtBullShadowEndFirst[];
+double   ExtBullShadowEndSecond[];
+//--- variáveis globais
+</code></pre>
+<p>
+datetime ExtTimeBuff[];      // buffer de tempo para maior periodicidade
+</p>
+<pre><code class="language-mql5">
+int      ExtSize=0;          // tamanho do buffer de tempo
+int      ExtCount=0;         // índice dentro do buffer de tempo
+int      ExtStartPos=0;      // posição inicial para cálculo do indicador
+bool     ExtStartFlag=true;  // sinalizador auxiliar para receber a posição inicial
+</code></pre>
+<p>
+datetime ExtCurrentTime[1];  // último tempo na geração da barra de maior periodicidad
+datetime ExtLastTime;        // último tempo a partir da barra de maior periodicidade,
+</p>
+<pre><code class="language-mql5">
+bool     ExtBearFlag=true;   // flag para definir a ordem de escrita do dados para os 
+bool     ExtBullFlag=true;   // flag para definir a ordem de escrita do dados para os 
+int      ExtIndexMax=0;      // índice do elemento máximo do array
+int      ExtIndexMin=0;      // índice do elemento mínimo do array
+int      ExtDirectionFlag=0; // direção de movimento de preços para o atual candlestic
+//--- alternar entre o preço de abertura e fechamento do candlestick para desenhar cor</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1249
+const double ExtEmptyBodySize=0.2*SymbolInfoDouble(Symbol(),SYMBOL_POINT);
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenchendo a parte básica do candlestick                        |
+//+------------------------------------------------------------------+
+void FillCandleMain(const double &amp;open[],const double &amp;close[],
+                    const double &amp;high[],const double &amp;low[],
+                    const int start,const int last,const int fill_index,
+                    int &amp;index_max,int &amp;index_min)
+  {
+//--- encontrar o índice dos elementos máximo e mínimo nos arrays
+   index_max=ArrayMaximum(high,ExtStartPos,last-start+1); // máximo em Alta
+   index_min=ArrayMinimum(low,ExtStartPos,last-start+1);  // mínimo em Baixa
+//--- definir quantas barras do período de tempo atual serão preenchidas
+   int count=fill_index-start+1;
+//--- se o preço de fechamento no primeiro bar é excede ao do último bar, o candlestic
+   if(open[start]&gt;close[last])
+     {
+      //--- antes que o candlestick seja de alta, limpar os valores de alta dos buffer
+      if(ExtDirectionFlag!=-1)
+         ClearCandle(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShad
+      //--- candlestick de baixa
+      ExtDirectionFlag=-1;
+      //--- gerar o candlestick
+      FormCandleMain(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+                     close[last],high[index_max],low[index_min],start,count,ExtBearFla
+      //--- sair da função
+      return;
+     }
+//--- se o preço de fechamento no primeiro bar é menor do que último bar, o candlestic
+   if(open[start]&lt;close[last])
+     {
+      //--- antes que o candlestick seja de baixa, limpar os valores de baixa dos buff
+      if(ExtDirectionFlag!=1)
+         ClearCandle(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+      //--- candlesticks de alta
+      ExtDirectionFlag=1;
+      //--- gerar o candlestick
+      FormCandleMain(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShad
+                     open[start],high[index_max],low[index_min],start,count,ExtBullFla
+      //--- sair da função
+      return;
+     }
+//--- se você está nesta parte da função, o preço de abertura no primeiro bar é igual 
+//--- preço de fechamento no último bar; então o candlestick é considerado de baixa
+//--- antes que o candlestick seja de alta, limpar os valores de alta dos buffers do i
+   if(ExtDirectionFlag!=-1)
+      ClearCandle(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShadowS
+//--- candlestick de baixa
+   ExtDirectionFlag=-1;</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1250
+</p>
+<pre><code class="language-mql5">
+//--- se os preços de fechamento e de abertura são iguais, use o deslocamento para a e
+   if(high[index_max]!=low[index_min])
+      FormCandleMain(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+                     open[start]-ExtEmptyBodySize,high[index_max],low[index_min],start
+   else
+      FormCandleMain(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+                     open[start],open[start]-ExtEmptyBodySize,high[index_max],
+                     high[index_max]-ExtEmptyBodySize,start,count,ExtBearFlag);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preencher o final do candlestick                                 |
+//+------------------------------------------------------------------+
+void FillCandleEnd(const double &amp;open[],const double &amp;close[],
+                   const double &amp;high[],const double &amp;low[],
+                   const int start,const int last,const int fill_index,
+                   const int index_max,const int index_min)
+  {
+//--- não desenhar em caso de uma única barra
+   if(last-start==0)
+      return;
+//--- se o preço de fechamento no primeiro bar é excede ao do último bar, o candlestic
+   if(open[start]&gt;close[last])
+     {
+      //--- gerar o final do candelstick
+      FormCandleEnd(ExtBearBodyEndFirst,ExtBearBodyEndSecond,ExtBearShadowEndFirst,Ext
+                    open[start],close[last],high[index_max],low[index_min],fill_index,
+      //--- sair da função
+      return;
+     }
+//--- se o preço de fechamento no primeiro bar é menor do que último bar, o candlestic
+   if(open[start]&lt;close[last])
+     {
+      //--- gerar o final do candelstick
+      FormCandleEnd(ExtBullBodyEndFirst,ExtBullBodyEndSecond,ExtBullShadowEndFirst,Ext
+                    close[last],open[start],high[index_max],low[index_min],fill_index,
+      //--- sair da função
+      return;
+     }
+//--- se você está nesta parte da função, o preço de abertura no primeiro bar é igual 
+//--- preço de fechamento no último bar; então o candlestick é considerado de baixa
+//--- gerar o final do candelstick
+   if(high[index_max]!=low[index_min])
+      FormCandleEnd(ExtBearBodyEndFirst,ExtBearBodyEndSecond,ExtBearShadowEndFirst,Ext
+                    open[start]-ExtEmptyBodySize,high[index_max],low[index_min],fill_i
+   else
+      FormCandleEnd(ExtBearBodyEndFirst,ExtBearBodyEndSecond,ExtBearShadowEndFirst,Ext
+                    open[start]-ExtEmptyBodySize,high[index_max],high[index_max]-ExtEm
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1251
+</p>
+<pre><code class="language-mql5">
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- verificar o período do indicador
+   if(!CheckPeriod((int)Period(),(int)InpPeriod))
+      return(INIT_PARAMETERS_INCORRECT);
+//--- exibir dados de preço num primeiro plano
+   ChartSetInteger(0,CHART_FOREGROUND,0,1);
+//--- vincular buffers do indicador
+   SetIndexBuffer(0,ExtBearBodyFirst);
+   SetIndexBuffer(1,ExtBearBodySecond);
+   SetIndexBuffer(2,ExtBearBodyEndFirst);
+   SetIndexBuffer(3,ExtBearBodyEndSecond);
+   SetIndexBuffer(4,ExtBearShadowFirst);
+   SetIndexBuffer(5,ExtBearShadowSecond);
+   SetIndexBuffer(6,ExtBearShadowEndFirst);
+   SetIndexBuffer(7,ExtBearShadowEndSecond);
+   SetIndexBuffer(8,ExtBullBodyFirst);
+   SetIndexBuffer(9,ExtBullBodySecond);
+   SetIndexBuffer(10,ExtBullBodyEndFirst);
+   SetIndexBuffer(11,ExtBullBodyEndSecond);
+   SetIndexBuffer(12,ExtBullShadowFirst);
+   SetIndexBuffer(13,ExtBullShadowSecond);
+   SetIndexBuffer(14,ExtBullShadowEndFirst);
+   SetIndexBuffer(15,ExtBullShadowEndSecond);
+//--- definir alguns valores de propriedade para a criação do indicador
+   for(int i=0;i&lt;8;i++)
+     {
+      PlotIndexSetInteger(i,PLOT_DRAW_TYPE,DRAW_FILLING); // tipo de construção gráfic
+      PlotIndexSetInteger(i,PLOT_LINE_STYLE,STYLE_SOLID); // estilo de linha de desenh
+      PlotIndexSetInteger(i,PLOT_LINE_WIDTH,1);           // largura de linha de desen
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1252
+</p>
+<pre><code class="language-mql5">
+  {
+//--- neste caso ainda não existe cálculos de barras
+   if(prev_calculated==0)
+     {
+      //--- receber a maior periodicidade das barra no tempo de chegada
+      if(!GetTimeData())
+         return(0);
+     }
+//--- definir a indexação direta
+   ArraySetAsSeries(time,false);
+   ArraySetAsSeries(high,false);
+   ArraySetAsSeries(low,false);
+   ArraySetAsSeries(open,false);
+   ArraySetAsSeries(close,false);
+//--- iniciar variável para o cálculo das barras
+   int start=prev_calculated;
+//--- se uma barra é gerada, recalcular o valor do indicador sobre ela
+   if(start!=0 &amp;&amp; start==rates_total)
+      start--;
+//--- o loop para cálculos dos valores do indicador
+   for(int i=start;i&lt;rates_total;i++)
+     {
+      //--- preencher i elementos dos buffers do indicador por valores vazios
+      FillIndicatorBuffers(i);
+      //--- executar cálculos para as barras iniciando a partir dos dados InpDateStart
+      if(time[i]&gt;=InpDateStart)
+        {
+         //--- definir posição, a partir do qual os valores são exibidos pela primeira
+         if(ExtStartFlag)
+           {
+            //--- armazenar o número do bar inicial
+            ExtStartPos=i;
+            //--- definir a primeira data a partir da maior periodicidade excedendo ti
+            while(time[i]&gt;=ExtTimeBuff[ExtCount])
+               if(ExtCount&lt;ExtSize-1)
+                  ExtCount++;
+            //--- alterar o valor da sinalização em ordem não executada neste bloco no
+            ExtStartFlag=false;
+           }
+         //--- verificar se ainda existem quaisquer elementos no array
+         if(ExtCount&lt;ExtSize)
+           {
+            //--- esperar o valor da periodicidade atual para chegar a um maior períod
+            if(time[i]&gt;=ExtTimeBuff[ExtCount])
+              {
+               //--- desenhar a parte principal do candlestick (sem preencher o espaço
+               FillCandleMain(open,close,high,low,ExtStartPos,i-1,i-2,ExtIndexMax,ExtI
+               //--- preencher o final do candlestick(a área entre a última e a penúlt
+               FillCandleEnd(open,close,high,low,ExtStartPos,i-1,i-1,ExtIndexMax,ExtIn</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1253
+</p>
+<pre><code class="language-mql5">
+               //--- deslocar a posição inicial para desenhar o próximo candlestick
+               ExtStartPos=i;
+               //--- aumentar o contador de array
+               ExtCount++;
+              }
+            else
+               continue;
+           }
+         else
+           {
+            //--- redefinir os valores de array
+            ResetLastError();
+            //--- receber a última data do maior período de tempo
+            if(CopyTime(Symbol(),InpPeriod,0,1,ExtCurrentTime)==-1)
+              {
+               Print(&quot;Erro na cópia dos dados, código = &quot;,GetLastError());
+               return(0);
+              }
+            //--- se a nova data for posterior, parar de gerar o candlestick
+            if(ExtCurrentTime[0]&gt;ExtLastTime)
+              {
+               //--- limpar a área entre a última e a penúltima barra nos principais b
+               ClearEndOfBodyMain(i-1);
+               //--- preencher a área usando buffers auxiliares do indicador
+               FillCandleEnd(open,close,high,low,ExtStartPos,i-1,i-1,ExtIndexMax,ExtIn
+               //--- deslocar a posição inicial para desenhar o próximo candlestick
+               ExtStartPos=i;
+               //--- restabelecer flag da direção do preço
+               ExtDirectionFlag=0;
+               //--- armazenar a nova última data
+               ExtLastTime=ExtCurrentTime[0];
+              }
+            else
+              {
+               //--- gerar o candlestick
+               FillCandleMain(open,close,high,low,ExtStartPos,i,i,ExtIndexMax,ExtIndex
+              }
+           }
+        }
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificar a exatidão do período do indicador determinado         |
+//+------------------------------------------------------------------+
+bool CheckPeriod(int current_period,int high_period)
+  {
+//--- o período do indicador deve ultrapassar o período de tempo que é exibido sobre</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1254
+</p>
+<pre><code class="language-mql5">
+   if(current_period&gt;=high_period)
+     {
+      Print(&quot;Erro! O valor do período do indicador deve exceder o valor do intervalo d
+      return(false);
+     }
+//--- se o período do indicador é de uma semana ou um mês, o período está correto
+   if(high_period&gt;32768)
+      return(true);
+//--- converter valores do período para minutos
+   if(high_period&gt;30)
+      high_period=(high_period-16384)*60;
+   if(current_period&gt;30)
+      current_period=(current_period-16384)*60;
+//--- o período do indicador deve ser múltiplo do período de tempo, é exibido sobre
+   if(high_period%current_period!=0)
+     {
+      Print(&quot;Erro! O valor do período do indicador deve ser múltiplo ao valor do atual
+      return(false);
+     }
+//--- o período do indicador deve exceder o prazo de tempo quando apresentado de 3 ou 
+   if(high_period/current_period&lt;3)
+     {
+      Print(&quot;Erro! O período do indicador deve exceder o prazo atual de 3 ou mais veze
+      return(false);
+     }
+//--- O período do indicador é o correto para a atual periodicidade
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Receber dados de tempo a partir da maior prazo de tempo          |
+//+------------------------------------------------------------------+
+bool GetTimeData(void)
+  {
+//--- redefine o valor de erro
+   ResetLastError();
+//--- copiar todos os dados para o tempo atual
+   if(CopyTime(Symbol(),InpPeriod,InpDateStart,TimeCurrent(),ExtTimeBuff)==-1)
+     {
+      //--- receber o código de erro
+      int code=GetLastError();
+      //--- imprimir a mensagem de erro
+      PrintFormat(&quot;Erro de cópia de dados! %s&quot;,code==4401
+                  ? &quot;Histórico ainda está sendo carregado!&quot;
+                  : &quot;Código = &quot;+IntegerToString(code));
+      //--- retornar falso para fazer uma tentativa de repetir o download de dados
+      return(false);
+     }
+//--- recebe o tamanho do array
+   ExtSize=ArraySize(ExtTimeBuff);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1255
+</p>
+<pre><code class="language-mql5">
+//--- definir o índice do loop para o array zero
+   ExtCount=0;
+//--- definir a posição atual do candlestick no período de tempo para zero
+   ExtStartPos=0;
+   ExtStartFlag=true;
+//--- armazenar o último valor de tempo a partir da maior periodicidade
+   ExtLastTime=ExtTimeBuff[ExtSize-1];
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------------------+
+//| Função constitui a parte principal do candlestick. Dependendo do sinalizador |
+//| valor, a função define quais dados e arrays serão                        |
+//| usados para exibição correta.                                                |
+//+------------------------------------------------------------------------------+
+void FormCandleMain(double &amp;body_fst[],double &amp;body_snd[],
+                    double &amp;shadow_fst[],double &amp;shadow_snd[],
+                    const double fst_value,const double snd_value,
+                    const double fst_extremum,const double snd_extremum,
+                    const int start,const int count,const bool flag)
+  {
+//--- verificar o valor do flag
+   if(flag)
+     {
+      //--- gerar o corpo do candlestick
+      FormMain(body_fst,body_snd,fst_value,snd_value,start,count);
+      //--- gerar a sombra do candlestick
+      FormMain(shadow_fst,shadow_snd,fst_extremum,snd_extremum,start,count);
+     }
+   else
+     {
+      //--- gerar o corpo do candlestick
+      FormMain(body_fst,body_snd,snd_value,fst_value,start,count);
+      //--- gerar a sombra do candlestick
+      FormMain(shadow_fst,shadow_snd,snd_extremum,fst_extremum,start,count);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+-------------------------------------------------------------------------------+
+//| A função para formar o final do candlestick. Depende do valor do sinalizador, |
+//| a função define quais dados e arrays são                                      |
+//| usados para exibição correta.                                                 |
+//+-------------------------------------------------------------------------------+
+void FormCandleEnd(double &amp;body_fst[],double &amp;body_snd[],
+                   double &amp;shadow_fst[],double &amp;shadow_snd[],
+                   const double fst_value,const double snd_value,
+                   const double fst_extremum,const double snd_extremum,
+                   const int end,bool &amp;flag)
+  {
+//--- verificar o valor do flag</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1256
+</p>
+<pre><code class="language-mql5">
+   if(flag)
+     {
+      //--- gerar o final do corpo do candlestick
+      FormEnd(body_fst,body_snd,fst_value,snd_value,end);
+      //--- gerar o final da sombra do candlestick
+      FormEnd(shadow_fst,shadow_snd,fst_extremum,snd_extremum,end);
+      //--- alterar o valor do sinalizador para o oposto
+      flag=false;
+     }
+   else
+     {
+      //--- gerar o final do corpo do candlestick
+      FormEnd(body_fst,body_snd,snd_value,fst_value,end);
+      //--- gerar o final da sombra do candlestick
+      FormEnd(shadow_fst,shadow_snd,snd_extremum,fst_extremum,end);
+      //--- alterar o valor do sinalizador para o oposto
+      flag=true;
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+---------------------------------------------------------------------------------+
+//| Limpar o fim do candlestick (a área entre a última e a penúltima                |
+//| barra)                                                                          |
+//+---------------------------------------------------------------------------------+
+void ClearEndOfBodyMain(const int ind)
+  {
+   ClearCandle(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShadowSeco
+   ClearCandle(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShadowSeco
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+--------------------------------------------------------------------------+
+//| Limpar o candlestick                                                     |
+//+--------------------------------------------------------------------------+
+void ClearCandle(double &amp;body_fst[],double &amp;body_snd[],double &amp;shadow_fst[],
+                 double &amp;shadow_snd[],const int start,const int count)
+  {
+//--- verificar
+   if(count!=0)
+     {
+      //--- preencher buffers do indicador com valores vazios
+      ArrayFill(body_fst,start,count,INDICATOR_EMPTY_VALUE);
+      ArrayFill(body_snd,start,count,INDICATOR_EMPTY_VALUE);
+      ArrayFill(shadow_fst,start,count,INDICATOR_EMPTY_VALUE);
+      ArrayFill(shadow_snd,start,count,INDICATOR_EMPTY_VALUE);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+--------------------------------------------------------------------------+
+//| Gerar a parte principal do candlestick                                   |
+//+--------------------------------------------------------------------------+
+void FormMain(double &amp;fst[],double &amp;snd[],const double fst_value,
+              const double snd_value,const int start,const int count)</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1257
+</p>
+<pre><code class="language-mql5">
+  {
+//--- verificar
+   if(count!=0)
+     {
+      //--- preencher o buffer do indicador com valores
+      ArrayFill(fst,start,count,fst_value);
+      ArrayFill(snd,start,count,snd_value);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+-----------------------------------------------------------------------------+
+//| Gerar o final do candlestick                                                |
+//+-----------------------------------------------------------------------------+
+void FormEnd(double &amp;fst[],double &amp;snd[],const double fst_value,
+             const double snd_value,const int last)
+  {
+//--- preencher o buffer do indicador com valores
+   ArrayFill(fst,last-1,2,fst_value);
+   ArrayFill(snd,last-1,2,snd_value);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preencher i elemento dos buffers do indicador por valores vazios |
+//+------------------------------------------------------------------+
+void FillIndicatorBuffers(const int i)
+  {
+//--- definir um valor vazio na célula dos buffers do indicador
+   ExtBearBodyFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearBodySecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearBodyEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearBodyEndSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowEndSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodyFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodySecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodyEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodyEndSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowEndSecond[i]=INDICATOR_EMPTY_VALUE;
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1258
+<h3>ArrayMinimum</h3>
+Procura o elemento mais baixo na primeira dimensão de um array numérico multidimensional.
+</p>
+<pre><code class="language-mql5">
+int  ArrayMinimum(
+   const void&amp;   array[],             // array para busca
+   int           start=0,             // índice a partir do qual começa a verificação
+   int           count=WHOLE_ARRAY    // número de elementos verificados
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Um array númerico, na qual a busca é feita.
+start=0
+[in]  Índice a partir do qual começa a verificação.
+count=WHOLE_ARRAY
+[in] 
+ 
+<h3>Número</h3>
+de 
+elementos 
+para 
+busca. 
+<h3>Por</h3>
+padrão, 
+busca 
+no 
+array 
+inteiro
+(count=WHOLE_ARRAY)..
+<h3>Valor do Retorno</h3>
+A função retorna um índice de um elemento encontrado levando em consideração a série do array.
+Em caso de falha, retorna -1.
+<h3>Observação</h3>
+O valor da flag AS_SERIES é levado em conta durante a busca de um mínimo.
+Funções ArrayMaximum e ArrayMinimum aceitam arrays multi-dimensionais como um parâmetro. No
+entanto, a pesquisa é sempre aplicada à primeira (zero) dimensão.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;O indicador mostra sobre as barras (candlesticks) um prazo de t
+//--- configurações do indicador
+#property indicator_chart_window
+#property indicator_buffers 16
+#property indicator_plots   8
+//---- plot 1
+#property indicator_label1  &quot;BearBody&quot;
+#property indicator_color1  clrSeaGreen,clrSeaGreen
+//---- plot 2
+#property indicator_label2  &quot;BearBodyEnd&quot;
+#property indicator_color2  clrSeaGreen,clrSeaGreen
+//---- plot 3
+#property indicator_label3  &quot;BearShadow&quot;
+#property indicator_color3  clrSalmon,clrSalmon
+//---- plot 4
+#property indicator_label4  &quot;BearShadowEnd&quot;
+#property indicator_color4  clrSalmon,clrSalmon</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1259
+</p>
+<pre><code class="language-mql5">
+//---- plot 5
+#property indicator_label5  &quot;BullBody&quot;
+#property indicator_color5  clrOlive,clrOlive
+//---- plot 6
+#property indicator_label6  &quot;BullBodyEnd&quot;
+#property indicator_color6  clrOlive,clrOlive
+//---- plot 7
+#property indicator_label7  &quot;BullShadow&quot;
+#property indicator_color7  clrSkyBlue,clrSkyBlue
+//---- plot 8
+#property indicator_label8  &quot;BullShadowEnd&quot;
+#property indicator_color8  clrSkyBlue,clrSkyBlue
+//--- constante pré-definida
+#define INDICATOR_EMPTY_VALUE 0.0
+//--- parâmetros de entrada
+input ENUM_TIMEFRAMES InpPeriod=PERIOD_H4;              // Prazo de tempo para calcula
+input datetime        InpDateStart=D&#x27;2013.01.01 00:00&#x27;; // Analisar a partir desta dat
+//--- buffers do indicador para candlesticks de baixa
+double   ExtBearBodyFirst[];
+double   ExtBearBodySecond[];
+double   ExtBearBodyEndFirst[];
+double   ExtBearBodyEndSecond[];
+double   ExtBearShadowFirst[];
+double   ExtBearShadowSecond[];
+double   ExtBearShadowEndFirst[];
+double   ExtBearShadowEndSecond[];
+//--- buffers do indicador para candlesticks de alta
+double   ExtBullBodyFirst[];
+double   ExtBullBodySecond[];
+double   ExtBullBodyEndFirst[];
+double   ExtBullBodyEndSecond[];
+double   ExtBullShadowFirst[];
+double   ExtBullShadowSecond[];
+double   ExtBullShadowEndFirst[];
+double   ExtBullShadowEndSecond[];
+//--- variáveis globais
+</code></pre>
+<p>
+datetime ExtTimeBuff[];      // buffer de tempo para maior periodicidade
+</p>
+<pre><code class="language-mql5">
+int      ExtSize=0;          // tamanho do buffer de tempo
+int      ExtCount=0;         // índice dentro do buffer de tempo
+int      ExtStartPos=0;      // posição inicial para cálculo do indicador
+bool     ExtStartFlag=true;  // sinalizador auxiliar para receber a posição inicial
+</code></pre>
+<p>
+datetime ExtCurrentTime[1];  // último tempo na geração da barra de maior periodicidad
+datetime ExtLastTime;        // último tempo a partir da barra de maior periodicidade,
+</p>
+<pre><code class="language-mql5">
+bool     ExtBearFlag=true;   // flag para definir a ordem de escrita do dados para os 
+bool     ExtBullFlag=true;   // flag para definir a ordem de escrita do dados para os 
+int      ExtIndexMax=0;      // índice do elemento máximo do array
+int      ExtIndexMin=0;      // índice do elemento mínimo do array
+int      ExtDirectionFlag=0; // direção de movimento de preços para o atual candlestic
+//--- alternar entre o preço de abertura e fechamento do candlestick para desenhar cor</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1260
+const double ExtEmptyBodySize=0.2*SymbolInfoDouble(Symbol(),SYMBOL_POINT);
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenchendo a parte básica do candlestick                        |
+//+------------------------------------------------------------------+
+void FillCandleMain(const double &amp;open[],const double &amp;close[],
+                    const double &amp;high[],const double &amp;low[],
+                    const int start,const int last,const int fill_index,
+                    int &amp;index_max,int &amp;index_min)
+  {
+//--- encontrar o índice dos elementos máximo e mínimo nos arrays
+   index_max=ArrayMaximum(high,ExtStartPos,last-start+1); // máximo em Alta
+   index_min=ArrayMinimum(low,ExtStartPos,last-start+1);  // mínimo em Baixa
+//--- definir quantas barras do período de tempo atual serão preenchidas
+   int count=fill_index-start+1;
+//--- se o preço de fechamento no primeiro bar é excede ao do último bar, o candlestic
+   if(open[start]&gt;close[last])
+     {
+      //--- antes que o candlestick seja de alta, limpar os valores de alta dos buffer
+      if(ExtDirectionFlag!=-1)
+         ClearCandle(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShad
+      //--- candlestick de baixa
+      ExtDirectionFlag=-1;
+      //--- gerar o candlestick
+      FormCandleMain(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+                     close[last],high[index_max],low[index_min],start,count,ExtBearFla
+      //--- sair da função
+      return;
+     }
+//--- se o preço de fechamento no primeiro bar é menor do que último bar, o candlestic
+   if(open[start]&lt;close[last])
+     {
+      //--- antes que o candlestick seja de baixa, limpar os valores de baixa dos buff
+      if(ExtDirectionFlag!=1)
+         ClearCandle(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+      //--- candlesticks de alta
+      ExtDirectionFlag=1;
+      //--- gerar o candlestick
+      FormCandleMain(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShad
+                     open[start],high[index_max],low[index_min],start,count,ExtBullFla
+      //--- sair da função
+      return;
+     }
+//--- se você está nesta parte da função, o preço de abertura no primeiro bar é igual 
+//--- preço de fechamento no último bar; então o candlestick é considerado de baixa
+//--- antes que o candlestick seja de alta, limpar os valores de alta dos buffers do i
+   if(ExtDirectionFlag!=-1)
+      ClearCandle(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShadowS
+//--- candlestick de baixa
+   ExtDirectionFlag=-1;</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1261
+</p>
+<pre><code class="language-mql5">
+//--- se os preços de fechamento e de abertura são iguais, use o deslocamento para a e
+   if(high[index_max]!=low[index_min])
+      FormCandleMain(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+                     open[start]-ExtEmptyBodySize,high[index_max],low[index_min],start
+   else
+      FormCandleMain(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShad
+                     open[start],open[start]-ExtEmptyBodySize,high[index_max],
+                     high[index_max]-ExtEmptyBodySize,start,count,ExtBearFlag);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preencher o final do candlestick                                 |
+//+------------------------------------------------------------------+
+void FillCandleEnd(const double &amp;open[],const double &amp;close[],
+                   const double &amp;high[],const double &amp;low[],
+                   const int start,const int last,const int fill_index,
+                   const int index_max,const int index_min)
+  {
+//--- não desenhar em caso de uma única barra
+   if(last-start==0)
+      return;
+//--- se o preço de fechamento no primeiro bar é excede ao do último bar, o candlestic
+   if(open[start]&gt;close[last])
+     {
+      //--- gerar o final do candelstick
+      FormCandleEnd(ExtBearBodyEndFirst,ExtBearBodyEndSecond,ExtBearShadowEndFirst,Ext
+                    open[start],close[last],high[index_max],low[index_min],fill_index,
+      //--- sair da função
+      return;
+     }
+//--- se o preço de fechamento no primeiro bar é menor do que último bar, o candlestic
+   if(open[start]&lt;close[last])
+     {
+      //--- gerar o final do candelstick
+      FormCandleEnd(ExtBullBodyEndFirst,ExtBullBodyEndSecond,ExtBullShadowEndFirst,Ext
+                    close[last],open[start],high[index_max],low[index_min],fill_index,
+      //--- sair da função
+      return;
+     }
+//--- se você está nesta parte da função, o preço de abertura no primeiro bar é igual 
+//--- preço de fechamento no último bar; então o candlestick é considerado de baixa
+//--- gerar o final do candelstick
+   if(high[index_max]!=low[index_min])
+      FormCandleEnd(ExtBearBodyEndFirst,ExtBearBodyEndSecond,ExtBearShadowEndFirst,Ext
+                    open[start]-ExtEmptyBodySize,high[index_max],low[index_min],fill_i
+   else
+      FormCandleEnd(ExtBearBodyEndFirst,ExtBearBodyEndSecond,ExtBearShadowEndFirst,Ext
+                    open[start]-ExtEmptyBodySize,high[index_max],high[index_max]-ExtEm
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1262
+</p>
+<pre><code class="language-mql5">
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- verificar o período do indicador
+   if(!CheckPeriod((int)Period(),(int)InpPeriod))
+      return(INIT_PARAMETERS_INCORRECT);
+//--- exibir dados de preço num primeiro plano
+   ChartSetInteger(0,CHART_FOREGROUND,0,1);
+//--- vincular buffers do indicador
+   SetIndexBuffer(0,ExtBearBodyFirst);
+   SetIndexBuffer(1,ExtBearBodySecond);
+   SetIndexBuffer(2,ExtBearBodyEndFirst);
+   SetIndexBuffer(3,ExtBearBodyEndSecond);
+   SetIndexBuffer(4,ExtBearShadowFirst);
+   SetIndexBuffer(5,ExtBearShadowSecond);
+   SetIndexBuffer(6,ExtBearShadowEndFirst);
+   SetIndexBuffer(7,ExtBearShadowEndSecond);
+   SetIndexBuffer(8,ExtBullBodyFirst);
+   SetIndexBuffer(9,ExtBullBodySecond);
+   SetIndexBuffer(10,ExtBullBodyEndFirst);
+   SetIndexBuffer(11,ExtBullBodyEndSecond);
+   SetIndexBuffer(12,ExtBullShadowFirst);
+   SetIndexBuffer(13,ExtBullShadowSecond);
+   SetIndexBuffer(14,ExtBullShadowEndFirst);
+   SetIndexBuffer(15,ExtBullShadowEndSecond);
+//--- definir alguns valores de propriedade para a criação do indicador
+   for(int i=0;i&lt;8;i++)
+     {
+      PlotIndexSetInteger(i,PLOT_DRAW_TYPE,DRAW_FILLING); // tipo de construção gráfic
+      PlotIndexSetInteger(i,PLOT_LINE_STYLE,STYLE_SOLID); // estilo de linha de desenh
+      PlotIndexSetInteger(i,PLOT_LINE_WIDTH,1);           // largura de linha de desen
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1263
+</p>
+<pre><code class="language-mql5">
+  {
+//--- neste caso ainda não existe cálculos de barras
+   if(prev_calculated==0)
+     {
+      //--- receber a maior periodicidade das barra no tempo de chegada
+      if(!GetTimeData())
+         return(0);
+     }
+//--- definir a indexação direta
+   ArraySetAsSeries(time,false);
+   ArraySetAsSeries(high,false);
+   ArraySetAsSeries(low,false);
+   ArraySetAsSeries(open,false);
+   ArraySetAsSeries(close,false);
+//--- iniciar variável para o cálculo das barras
+   int start=prev_calculated;
+//--- se uma barra é gerada, recalcular o valor do indicador sobre ela
+   if(start!=0 &amp;&amp; start==rates_total)
+      start--;
+//--- o loop para cálculos dos valores do indicador
+   for(int i=start;i&lt;rates_total;i++)
+     {
+      //--- preencher i elementos dos buffers do indicador por valores vazios
+      FillIndicatorBuffers(i);
+      //--- executar cálculos para as barras iniciando a partir dos dados InpDateStart
+      if(time[i]&gt;=InpDateStart)
+        {
+         //--- definir posição, a partir do qual os valores são exibidos pela primeira
+         if(ExtStartFlag)
+           {
+            //--- armazenar o número do bar inicial
+            ExtStartPos=i;
+            //--- definir a primeira data a partir da maior periodicidade excedendo ti
+            while(time[i]&gt;=ExtTimeBuff[ExtCount])
+               if(ExtCount&lt;ExtSize-1)
+                  ExtCount++;
+            //--- alterar o valor da sinalização em ordem não executada neste bloco no
+            ExtStartFlag=false;
+           }
+         //--- verificar se ainda existem quaisquer elementos no array
+         if(ExtCount&lt;ExtSize)
+           {
+            //--- esperar o valor da periodicidade atual para chegar a um maior períod
+            if(time[i]&gt;=ExtTimeBuff[ExtCount])
+              {
+               //--- desenhar a parte principal do candlestick (sem preencher o espaço
+               FillCandleMain(open,close,high,low,ExtStartPos,i-1,i-2,ExtIndexMax,ExtI
+               //--- preencher o final do candlestick(a área entre a última e a penúlt
+               FillCandleEnd(open,close,high,low,ExtStartPos,i-1,i-1,ExtIndexMax,ExtIn</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1264
+</p>
+<pre><code class="language-mql5">
+               //--- deslocar a posição inicial para desenhar o próximo candlestick
+               ExtStartPos=i;
+               //--- aumentar o contador de array
+               ExtCount++;
+              }
+            else
+               continue;
+           }
+         else
+           {
+            //--- redefinir os valores de array
+            ResetLastError();
+            //--- receber a última data do maior período de tempo
+            if(CopyTime(Symbol(),InpPeriod,0,1,ExtCurrentTime)==-1)
+              {
+               Print(&quot;Erro na cópia dos dados, código = &quot;,GetLastError());
+               return(0);
+              }
+            //--- se a nova data for posterior, parar de gerar o candlestick
+            if(ExtCurrentTime[0]&gt;ExtLastTime)
+              {
+               //--- limpar a área entre a última e a penúltima barra nos principais b
+               ClearEndOfBodyMain(i-1);
+               //--- preencher a área usando buffers auxiliares do indicador
+               FillCandleEnd(open,close,high,low,ExtStartPos,i-1,i-1,ExtIndexMax,ExtIn
+               //--- deslocar a posição inicial para desenhar o próximo candlestick
+               ExtStartPos=i;
+               //--- restabelecer flag da direção do preço
+               ExtDirectionFlag=0;
+               //--- armazenar a nova última data
+               ExtLastTime=ExtCurrentTime[0];
+              }
+            else
+              {
+               //--- gerar o candlestick
+               FillCandleMain(open,close,high,low,ExtStartPos,i,i,ExtIndexMax,ExtIndex
+              }
+           }
+        }
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificar a exatidão do período do indicador determinado         |
+//+------------------------------------------------------------------+
+bool CheckPeriod(int current_period,int high_period)
+  {
+//--- o período do indicador deve ultrapassar o período de tempo que é exibido sobre</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1265
+</p>
+<pre><code class="language-mql5">
+   if(current_period&gt;=high_period)
+     {
+      Print(&quot;Erro! O valor do período do indicador deve exceder o valor do intervalo d
+      return(false);
+     }
+//--- se o período do indicador é de uma semana ou um mês, o período está correto
+   if(high_period&gt;32768)
+      return(true);
+//--- converter valores do período para minutos
+   if(high_period&gt;30)
+      high_period=(high_period-16384)*60;
+   if(current_period&gt;30)
+      current_period=(current_period-16384)*60;
+//--- o período do indicador deve ser múltiplo do período de tempo, é exibido sobre
+   if(high_period%current_period!=0)
+     {
+      Print(&quot;Erro! O valor do período do indicador deve ser múltiplo ao valor do atual
+      return(false);
+     }
+//--- o período do indicador deve exceder o prazo de tempo quando apresentado de 3 ou 
+   if(high_period/current_period&lt;3)
+     {
+      Print(&quot;Erro! O período do indicador deve exceder o prazo atual de 3 ou mais veze
+      return(false);
+     }
+//--- O período do indicador é o correto para a atual periodicidade
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Receber dados de tempo a partir da maior prazo de tempo          |
+//+------------------------------------------------------------------+
+bool GetTimeData(void)
+  {
+//--- redefine o valor de erro
+   ResetLastError();
+//--- copiar todos os dados para o tempo atual
+   if(CopyTime(Symbol(),InpPeriod,InpDateStart,TimeCurrent(),ExtTimeBuff)==-1)
+     {
+      //--- receber o código de erro
+      int code=GetLastError();
+      //--- imprimir a mensagem de erro
+      PrintFormat(&quot;Erro de cópia de dados! %s&quot;,code==4401
+                  ? &quot;Histórico ainda está sendo carregado!&quot;
+                  : &quot;Código = &quot;+IntegerToString(code));
+      //--- retornar falso para fazer uma tentativa de repetir o download de dados
+      return(false);
+     }
+//--- recebe o tamanho do array
+   ExtSize=ArraySize(ExtTimeBuff);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1266
+</p>
+<pre><code class="language-mql5">
+//--- definir o índice do loop para o array zero
+   ExtCount=0;
+//--- definir a posição atual do candlestick no período de tempo para zero
+   ExtStartPos=0;
+   ExtStartFlag=true;
+//--- armazenar o último valor de tempo a partir da maior periodicidade
+   ExtLastTime=ExtTimeBuff[ExtSize-1];
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+--------------------------------------------------------------------------+
+//| Função constitui a parte principal do candlestick. Dependendo do sinalizador |
+//| valor, a função define quais dados e arrays serão                        |
+//| usados para exibição correta.                                            |
+//+--------------------------------------------------------------------------+
+void FormCandleMain(double &amp;body_fst[],double &amp;body_snd[],
+                    double &amp;shadow_fst[],double &amp;shadow_snd[],
+                    const double fst_value,const double snd_value,
+                    const double fst_extremum,const double snd_extremum,
+                    const int start,const int count,const bool flag)
+  {
+//--- verificar o valor do flag
+   if(flag)
+     {
+      //--- gerar o corpo do candlestick
+      FormMain(body_fst,body_snd,fst_value,snd_value,start,count);
+      //--- gerar a sombra do candlestick
+      FormMain(shadow_fst,shadow_snd,fst_extremum,snd_extremum,start,count);
+     }
+   else
+     {
+      //--- gerar o corpo do candlestick
+      FormMain(body_fst,body_snd,snd_value,fst_value,start,count);
+      //--- gerar a sombra do candlestick
+      FormMain(shadow_fst,shadow_snd,snd_extremum,fst_extremum,start,count);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+--------------------------------------------------------------------------------+
+//| A função para formar o final do candlestick. Dependendo do valor da flag,  |
+//| A função define quais dados e arrays são                                       |
+//| usados para exibição correta.                                                  |
+//+--------------------------------------------------------------------------------+
+void FormCandleEnd(double &amp;body_fst[],double &amp;body_snd[],
+                   double &amp;shadow_fst[],double &amp;shadow_snd[],
+                   const double fst_value,const double snd_value,
+                   const double fst_extremum,const double snd_extremum,
+                   const int end,bool &amp;flag)
+  {
+//--- verificar o valor do flag</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1267
+</p>
+<pre><code class="language-mql5">
+   if(flag)
+     {
+      //--- gerar o final do corpo do candlestick
+      FormEnd(body_fst,body_snd,fst_value,snd_value,end);
+      //--- gerar o final da sombra do candlestick
+      FormEnd(shadow_fst,shadow_snd,fst_extremum,snd_extremum,end);
+      //--- alterar o valor do sinalizador para o oposto
+      flag=false;
+     }
+   else
+     {
+      //--- gerar o final do corpo do candlestick
+      FormEnd(body_fst,body_snd,snd_value,fst_value,end);
+      //--- gerar o final da sombra do candlestick
+      FormEnd(shadow_fst,shadow_snd,snd_extremum,fst_extremum,end);
+      //--- alterar o valor do sinalizador para o oposto
+      flag=true;
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+-----------------------------------------------------------------------------------
+//| Limpar o final do candlestick (a área entre a última e a penúltima                
+//| barra)                                                                            
+//+-----------------------------------------------------------------------------------
+void ClearEndOfBodyMain(const int ind)
+  {
+   ClearCandle(ExtBearBodyFirst,ExtBearBodySecond,ExtBearShadowFirst,ExtBearShadowSeco
+   ClearCandle(ExtBullBodyFirst,ExtBullBodySecond,ExtBullShadowFirst,ExtBullShadowSeco
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Limpar o candlestick                                             |
+//+------------------------------------------------------------------+
+void ClearCandle(double &amp;body_fst[],double &amp;body_snd[],double &amp;shadow_fst[],
+                 double &amp;shadow_snd[],const int start,const int count)
+  {
+//--- verificar
+   if(count!=0)
+     {
+      //--- preencher buffers do indicador com valores vazios
+      ArrayFill(body_fst,start,count,INDICATOR_EMPTY_VALUE);
+      ArrayFill(body_snd,start,count,INDICATOR_EMPTY_VALUE);
+      ArrayFill(shadow_fst,start,count,INDICATOR_EMPTY_VALUE);
+      ArrayFill(shadow_snd,start,count,INDICATOR_EMPTY_VALUE);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Gerar a parte principal do candlestick                           |
+//+------------------------------------------------------------------+
+void FormMain(double &amp;fst[],double &amp;snd[],const double fst_value,
+              const double snd_value,const int start,const int count)</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1268
+</p>
+<pre><code class="language-mql5">
+  {
+//--- verificar
+   if(count!=0)
+     {
+      //--- preencher o buffer do indicador com valores
+      ArrayFill(fst,start,count,fst_value);
+      ArrayFill(snd,start,count,snd_value);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Gerar o fim do candlestick                                       |
+//+------------------------------------------------------------------+
+void FormEnd(double &amp;fst[],double &amp;snd[],const double fst_value,
+             const double snd_value,const int last)
+  {
+//--- preencher o buffer do indicador com valores
+   ArrayFill(fst,last-1,2,fst_value);
+   ArrayFill(snd,last-1,2,snd_value);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preencher i elemento dos buffers do indicador por valores vazios |
+//+------------------------------------------------------------------+
+void FillIndicatorBuffers(const int i)
+  {
+//--- definir um valor vazio na célula dos buffers do indicador
+   ExtBearBodyFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearBodySecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearBodyEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearBodyEndSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBearShadowEndSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodyFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodySecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodyEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullBodyEndSecond[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowEndFirst[i]=INDICATOR_EMPTY_VALUE;
+   ExtBullShadowEndSecond[i]=INDICATOR_EMPTY_VALUE;
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1269
+<h3>ArrayPrint</h3>
+No log, exibe uma matriz de tipo ou estrutura simples.
+</p>
+<pre><code class="language-mql5">
+void  ArrayPrint(
+   const void&amp;   array[],             // matriz de saída
+   uint          digits=_Digits,      // número de casas decimais
+   const string  separator=NULL,      // separador entre os valores dos campos de estr
+   ulong         start=0,             // índice do primeiro elemento de saída
+   ulong         count=WHOLE_ARRAY,   // número de elementos exibidos
+   ulong         flags=ARRAYPRINT_HEADER|ARRAYPRINT_INDEX|ARRAYPRINT_LIMIT|ARRAYPRINT_
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Matriz de tipo ou estrutura simples..
+digits=_Digits
+[in]  Número de casas decimais para tipos reais. Por padrão igual a _Digits.
+separator=NULL
+[in]  Separador entre os valores dos campos do elemento de estrutura. O valor padrão NULL indica
+que existe uma cadeia de caracteres vazia, neste caso, o separador é um espaço.
+start=0
+[in]  Índice da primeira saída do elemento da matriz.  Por padrão, exibe-se a partir do índice zero.
+count=WHOLE_ARRAY
+[in]  Número de elementos de matriz que você deseja exibir. Por padrão, ele exibe toda a matriz
+(count=WHOLE_ARRAY).
+flags=ARRAYPRINT_HEADER|ARRAYPRINT_INDEX|ARRAYPRINT_LIMIT|ARRAYPRINT_ALIGN
+[in]  A combinação de sinalizadores especificada pelo modo de saída. Por padrão, todas os
+sinalizadores:
+· ARRAYPRINT_HEADER – exibição dos cabeçalhos para a matriz das estruturas
+· ARRAYPRINT_INDEX – exibição à esquerda do número de índice
+· ARRAYPRINT_LIMIT – exibição somente dos 100 primeiros e os últimos 100 elementos da matriz. É
+usado quando você deseja exibir apenas parte de uma matriz maior.
+· ARRAYPRINT_ALIGN – permitir o alinhamento dos valores de saída, quer dizer, os números serão
+alinhados à direita, enquanto as cadeias de caracteres à esquerda.
+· ARRAYPRINT_DATE – ao exibir datetime, mostra a data no formato dd.mm.yyyy
+· ARRAYPRINT_MINUTES – ao exibir datetime, mostra a data no formato HH:MM
+· ARRAYPRINT_SECONDS – ao exibir datetime, mostra a data no formato HH:MM:SS
+<h3>Valor de retorno</h3>
+<h3>Não</h3>
+<h3>Observação</h3>
+ArrayPrint() não exibe, no log, todos os campos da matriz de estruturas, uma vez que os campos
+tanto de matriz como de indicadores de objetos são omitidos. Estas colunas simplesmente não serão</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1270
+exibidas para impressão, com o propósito de obter uma apresentação simples e conveniente. Se
+você precisar da exibição de todos os campos dessa estrutura, necessitará escrever sua própria
+função de saída em massa com a formatação desejada.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- exibir os valores das últimas 10 barras
+   MqlRates rates[];
+   if(CopyRates(_Symbol,_Period,1,10,rates))
+     {
+      ArrayPrint(rates);
+      Print(&quot;Verificação\n[time]\t[open]\t[high]\t[low]\t[close]\t[tick_volume]\t[spre
+      for(int i=0;i&lt;10;i++)
+        {
+         PrintFormat(&quot;[%d]\t%s\t%G\t%G\t%G\t%G\t%G\t%G\t%I64d\t&quot;,i,
+         TimeToString(rates[i].time,TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+         rates[i].open,rates[i].high,rates[i].low,rates[i].close,
+         rates[i].tick_volume,rates[i].spread,rates[i].real_volume);
+        }
+     }
+   else
+      PrintFormat(&quot;CopyRates failed, error code=%d&quot;,GetLastError());
+//--- exemplo de saída
+/*
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea
+   [0] 2016.11.09 04:00:00 1.11242 1.12314 1.11187 1.12295         18110       10   17
+   [1] 2016.11.09 05:00:00 1.12296 1.12825 1.11930 1.12747         17829        9   15
+   [2] 2016.11.09 06:00:00 1.12747 1.12991 1.12586 1.12744         13458       10    9
+   [3] 2016.11.09 07:00:00 1.12743 1.12763 1.11988 1.12194         15362        9   12
+   [4] 2016.11.09 08:00:00 1.12194 1.12262 1.11058 1.11172         16833        9   12
+   [5] 2016.11.09 09:00:00 1.11173 1.11348 1.10803 1.11052         15933        8   10
+   [6] 2016.11.09 10:00:00 1.11052 1.11065 1.10289 1.10528         11888        9    8
+   [7] 2016.11.09 11:00:00 1.10512 1.11041 1.10472 1.10915          7284       10    5
+   [8] 2016.11.09 12:00:00 1.10915 1.11079 1.10892 1.10904          8710        9    6
+   [9] 2016.11.09 13:00:00 1.10904 1.10913 1.10223 1.10263          8956        7    7
+   Verificação
+   [time] [open] [high] [low] [close] [tick_volume] [spread] [real_volume]
+   [0] 2016.11.09 04:00:00 1.11242 1.12314 1.11187 1.12295 18110 10 17300175000 
+   [1] 2016.11.09 05:00:00 1.12296 1.12825 1.1193 1.12747 17829 9 15632176000 
+   [2] 2016.11.09 06:00:00 1.12747 1.12991 1.12586 1.12744 13458 10 9593492000 
+   [3] 2016.11.09 07:00:00 1.12743 1.12763 1.11988 1.12194 15362 9 12352245000 
+   [4] 2016.11.09 08:00:00 1.12194 1.12262 1.11058 1.11172 16833 9 12961333000 
+   [5] 2016.11.09 09:00:00 1.11173 1.11348 1.10803 1.11052 15933 8 10720384000 
+   [6] 2016.11.09 10:00:00 1.11052 1.11065 1.10289 1.10528 11888 9 8084811000 
+   [7] 2016.11.09 11:00:00 1.10512 1.11041 1.10472 1.10915 7284 10 5087113000 
+   [8] 2016.11.09 12:00:00 1.10915 1.11079 1.10892 1.10904 8710 9 6769629000 
+   [9] 2016.11.09 13:00:00 1.10904 1.10913 1.10223 1.10263 8956 7 7192138000 
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1271
+<h3>FileSave, FileLoad</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1272
+<h3>ArrayRange</h3>
+A função retorna o número de elementos na dimensão selecionada do array.
+</p>
+<pre><code class="language-mql5">
+int  ArrayRange(
+   const void&amp;   array[],      // array para verificação
+   int           rank_index    // índice da dimensão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array verificado.
+rank_index
+[in]  Índice da dimensão.
+<h3>Valor do Retorno</h3>
+Número de elementos na dimensão selecionada do array.
+<h3>Observação</h3>
+Uma vez que os índices começam em zero, o número de dimensões de um array é uma unidade
+maior que o índice da última dimensão.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- cria um array de quatro dimensões
+   double array[][5][2][4];
+//--- definir o tamanho da dimensão de zero
+   ArrayResize(array,10,10);
+//--- imprimir as dimensões
+   int temp;
+   for(int i=0;i&lt;4;i++)
+     {
+      //--- receber o tamanho de i dimensão
+      temp=ArrayRange(array,i);
+      //--- imprimir
+      PrintFormat(&quot;dim = %d, range = %d&quot;,i,temp);
+     }
+//--- Resultado
+// dim = 0, range = 10
+// dim = 1, range = 5
+// dim = 2, range = 2
+// dim = 3, range = 4
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1273
+<h3>ArrayResize</h3>
+A função define um tamanho novo para a primeira dimensão
+</p>
+<pre><code class="language-mql5">
+int  ArrayResize(
+   void&amp;  array[],              // array passado por referência
+   int    new_size,             // novo tamanho de array
+   int    reserve_size=0        // valor do tamanho de reserva (excesso)
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[out] Array para alteração de tamanho.
+new_size
+[in]  Novo tamanho para a primeira dimensão.
+reserve_size=0
+[in]  Tamanho alocado para obter reserva.
+<h3>Valor do Retorno</h3>
+Se executado com sucesso, a função retorna a quantidade de todos os elementos contidos no array
+após a alteração do tamanho, caso contrário, retorna -1, e o tamanho do array não é alterado.
+Если ArrayResize() применена к статическому массиву, таймсерии или индикаторному буферу, то
+размер массива остается прежним – такие массивы не могут быть перераспределены. В этом
+случае если new_size&lt;=ArraySize(array), то функция просто вернет new_size; в противном случае
+будет возвращено -1.
+<h3>Observação</h3>
+A função pode ser aplicada somente para arrays dinâmicos. Deve ser notado que não se pode alterar
+o tamanho de arrays dinâmicos atribuídos como buffers de indicadores através da função
+SetIndexBuffer(). Para buffers de indicadores, todas a operações de redimensionamento de tamanho
+são realizadas pelo subsistema de tempo de execução do terminal.
+Total amount of elements in the array cannot exceed 2147483647.
+Com uma alocação de memória freqüente, é recomendado usar o terceiro parâmetro que defini um
+reserva para reduzir o número de alocações físicas de memória. Todas as subseqüentes chamadas
+de ArrayResize não levam uma realocação física de memória, mas somente alteração do tamanho da
+primeira dimensão do array dentro da memória reservada. Deve ser lembrado que o terceiro
+parâmetro será usado somente durante a alocação física de memória. Por exemplo:
+<h3>ArrayResize(arr,1000,1000);</h3>
+for(int i=1;i&lt;3000;i++)
+</p>
+<pre><code class="language-mql5">
+   ArrayResize(arr,i,1000);
+</code></pre>
+<p>
+Neste caso a memória será realocada duas vezes, a primeira vez antes de entrar no loop de
+elemento 3000 (o tamanho do array será definido para 1000), e a segunda vez com i igual a 2000.
+Se omitisse o terceiro parâmetro, haveria 2000 realocações físicas de memória, que desaceleraria o
+programa.</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1274
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- Contadores
+   ulong start=GetTickCount();
+   ulong now;
+   int   count=0;
+//--- Um array para demonstração de uma versão rápida
+   double arr[];
+   ArrayResize(arr,100000,100000);
+//--- Verifique quão rápida a variante com a reserva de memória trabalha
+   Print(&quot;--- Test Fast: ArrayResize(arr,100000,100000)&quot;);
+   for(int i=1;i&lt;=300000;i++)
+     {
+      //--- Define um novo tamanho de array especificando a reserva de 100 000 element
+      ArrayResize(arr,i,100000);
+      //--- Quando alcançar um número redondo, exibe o tamanho do array e tempo gasto
+      if(ArraySize(arr)%100000==0)
+        {
+         now=GetTickCount();
+         count++;
+         PrintFormat(&quot;%d. ArraySize(arr)=%d Time=%d ms&quot;,count,ArraySize(arr),(now-star
+         start=now; 
+        }
+     }
+//--- Agora mostra quão lento a versão sem reserva de memória é
+   double slow[];
+   ArrayResize(slow,100000,100000);
+//--- 
+   count=0;
+   start=GetTickCount();
+   Print(&quot;---- Teste lenta: ArrayResize(slow,100000)&quot;);
+//---
+   for(int i=1;i&lt;=300000;i++)
+     {
+      //--- Define um novo tamanho de array, mas sem a reserva adicional
+      ArrayResize(slow,i);
+      //--- Quando alcançar um número redondo, exibe o tamanho do array e tempo gasto
+      if(ArraySize(slow)%100000==0)
+        {
+         now=GetTickCount();
+         count++;
+         PrintFormat(&quot;%d. ArraySize(slow)=%d Time=%d ms&quot;,count,ArraySize(slow),(now-st
+         start=now;
+        }</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1275
+</p>
+<pre><code class="language-mql5">
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//--- O resultado do script
+/*
+   Test_ArrayResize (EURUSD,H1)   --- Test Fast: ArrayResize(arr,100000,100000)
+   Test_ArrayResize (EURUSD,H1)   1. ArraySize(arr)=100000 Time=0 ms
+   Test_ArrayResize (EURUSD,H1)   2. ArraySize(arr)=200000 Time=0 ms
+   Test_ArrayResize (EURUSD,H1)   3. ArraySize(arr)=300000 Time=0 ms
+   Test_ArrayResize (EURUSD,H1)   ---- Test Slow: ArrayResize(slow,100000)
+   Test_ArrayResize (EURUSD,H1)   1. ArraySize(slow)=100000 Time=0 ms
+   Test_ArrayResize (EURUSD,H1)   2. ArraySize(slow)=200000 Time=0 ms
+   Test_ArrayResize (EURUSD,H1)   3. ArraySize(slow)=300000 Time=228511 ms
+</code></pre>
+<p>
+*/
+<h3>Também Veja</h3>
+<h3>ArrayInitialize</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1276
+<h3>ArrayInsert</h3>
+Insere na matriz de destino o número especificado de elementos da matriz de origem, iniciando no
+índice especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ArrayInsert(
+   void&amp;        dst_array[],          // matriz de destino
+   const void&amp;  src_array[],          // matriz de origem
+   uint         dst_start,            // índice na matriz de destino para inserir
+   uint         src_start=0,          // índice na matriz de origem para copiar
+   uint         count=WHOLE_ARRAY     // número de elementos a serem inseridos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dst_array[]
+[in][out] Matriz receptor à qual você deseja adicionar elementos.
+src_array[]
+[in] Matriz de origem a partir da qual você deseja adicionar elementos
+dst_start
+[in] Índice na matriz de destino para inserir elementos da matriz de origem.
+src_start=0
+[in] Índice na matriz de origem a partir do qual são tomados os elementos da matriz de origem
+para serem inseridos.
+count=WHOLE_ARRAY
+[in]  Número de elementos adicionados a partir da matriz de origem. O valor WHOLE_ARRAY
+significa que serão inseridos todos os elementos do índice especificado até o final da matriz.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter informações de erro, chame a
+função GetLastError(). Possíveis erros:
+· 5052 – ERR_SMALL_ARRAY (parâmetros start e/ou count inválidos ou matriz de origem src_array[]
+está vazia),
+· 5056 – ERR_SERIES_ARRAY (a matriz não pode ser alterada, buffer de indicador),
+· 4006 – ERR_INVALID_ARRAY (a cópia para si próprio é inválida, ou as matrizes têm um tipo
+diferente ou possuem uma matriz de tamanho fixo, que contém objetos de uma classe ou de uma
+estrutura com um destruidor),
+· 4005 - ERR_STRUCT_WITHOBJECTS_ORCLASS (a matriz não contém estruturas POD, isto é, é
+impossível copiar),
+· erros de redimensionamento da matriz de destino dst_array[] – eles são dados na descrição da
+função ArrayRemove().
+<h3>Observação</h3>
+Se a função é usada para uma matriz de tamanho fixo, o tamanho da própria matriz de destino
+dst_array[] não muda, a partir da posição dst_start os elementos da matriz de destino são</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1277
+deslocados para a direita (o último count dos elementos cai), e os elementos são copiados da matriz
+de origem para o local liberado.
+Você não pode inserir elementos em matrizes dinâmicas, que são designadas como buffers de
+indicador, através da função SetIndexBuffer(). Para buffers de indicador, todas as operações de
+redimensionamento são executadas pelo subsistema em execução do terminal.
+Na matriz de origem, os elementos são copiados a partir do índice src_start. O tamanho da matriz
+de origem não é alterado. Os elementos adicionados à matriz de destino não são referências aos
+elementos da matriz de origem, o que significa que alterações subsequentes nos elementos em
+qualquer uma das matrizes não são refletidas na seguinte.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declara uma matriz de tamanho fixo e preenche com valores
+   int array_dest[10];
+   for(int i=0;i&lt;10;i++)
+     {
+      array_dest[i]=i;
+     }
+   //--- matriz de origem   
+   int array_source[10];
+   for(int i=0;i&lt;10;i++)
+     {
+      array_source[i]=10+i;
+     }
+//--- mostra matrizes antes de inserir elementos
+   Print(&quot;Antes de chamar a ArrayInsert()&quot;);
+   ArrayPrint(array_dest);
+   ArrayPrint(array_source);
+//--- insere 3 elementos da matriz de origem e mostra a nova composição da matriz de d
+   ArrayInsert(array_dest,array_source,4,0,3);
+   Print(&quot;Depois de chamar a ArrayInsert()&quot;);
+   ArrayPrint(array_dest);
+/*
+</code></pre>
+<p>
+<h3>Resultado de execução</h3>
+</p>
+<pre><code class="language-mql5">
+   Antes de chamar a ArrayInsert()
+   0 1 2 3 4 5 6 7 8 9
+   Depois de chamar aArrayInsert()
+   0 1 2 3 10 11 12 7 8 9
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3>
+<h3>ArrayRemove, ArrayCopy, ArrayResize, ArrayFree</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1278</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1279
+<h3>ArrayRemove</h3>
+Remove o número especificado de elementos da matriz, iniciando no índice especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ArrayRemove(
+   void&amp;        array[],            // matriz de qualquer tipo
+   uint         start,              // índice a partir do qual é iniciada a remoção
+   uint         count=WHOLE_ARRAY   // número de elementos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in][out]  Matriz.
+start
+[in]  Índice a partir do qual são excluídos os elementos da matriz.
+count=WHOLE_ARRAY
+[in]  Número de elementos para excluir. O valor WHOLE_ARRAY indica a remoção de todos os
+elemento, do índice especificado até o final da matriz.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter informações de erro, chame a
+função GetLastError(). Possíveis erros:
+· 5052 – ERR_SMALL_ARRAY (o valor start é muito grande),
+· 5056 – ERR_SERIES_ARRAY (a matriz não pode ser alterada, buffer de indicador),
+· 4003 – ERR_INVALID_PARAMETER (o valor count é muito grande),
+· 4005 - ERR_STRUCT_WITHOBJECTS_ORCLASS (matriz de tamanho fixo que contém objetos
+complexos com um destruidor),
+· 4006 - ERR_INVALID_ARRAY  (matriz de tamanho fixo que contém objetos de estruturas ou de
+classes com destruidores).
+<h3>Observação</h3>
+Se a função é usada para uma matriz de tamanho fixo, o tamanho da matriz em si não muda: neste
+caso, a “cauda” remanescente é fisicamente copiada para a posição start. Para um entendimento
+preciso de como funciona a função, veja o exemplo abaixo. Cópia “física” significa que os objetos
+copiados não são criados chamando o construtor ou o operador de cópia, mas, sim, simplesmente
+copiando a representação binária do objeto. É por esse motivo que é proibido aplicar a função
+ArrayRemove() à uma matriz de tamanho fixo contendo objetos com um destruidor (é ativado
+ERR_INVALID_ARRAY ou ERR_STRUCT_WITHOBJECTS_ORCLASS) Como ao remover tal objeto, o
+destruidor deve ser chamado duas vezes - para o objeto inicial e para sua cópia.
+É impossível excluir elementos de matrizes dinâmicas, atribuídas como buffers de indicador,
+através da função SetIndexBuffer(), isso resultará no erro ERR_SERIES_ARRAY. Para buffers de
+indicador, todas as operações de redimensionamento são executadas pelo subsistema em execução
+do terminal.
+<h3>Exemplo:</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1280
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declara uma matriz de tamanho fixo e preenche com valores
+   int array[10];
+   for(int i=0;i&lt;10;i++)
+     {
+      array[i]=i;
+     }
+//--- mostra uma matriz antes de remover elementos
+   Print(&quot;Antes de chamar a ArrayRemove()&quot;);
+   ArrayPrint(array);
+//--- remove 2 elementos da matriz e mostra a nova composição
+   ArrayRemove(array,4,2);
+   Print(&quot;Depois de chamar a ArrayRemove()&quot;);
+   ArrayPrint(array);
+/*
+</code></pre>
+<p>
+<h3>Resultado da execução:</h3>
+<h3>Antes de chamar a ArrayRemove()</h3>
+</p>
+<pre><code class="language-mql5">
+   0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<p>
+<h3>Depois de chamar a ArrayRemove()</h3>
+</p>
+<pre><code class="language-mql5">
+   0 1 2 3 6 7 8 9 8 9
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3>
+<h3>ArrayInsert, ArrayCopy, ArrayResize, ArrayFree</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1281
+<h3>ArrayReverse</h3>
+Expande o número de elementos especificado na matriz, iniciando no índice especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ArrayReverse(
+   void&amp;        array[],            // matriz de qualquer tipo
+   uint         start=0,            // índice a partir do qual é expandida a matriz
+   uint         count=WHOLE_ARRAY   // número de elementos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in][out]  Matriz.
+start=0
+[in]  O índice a partir do qual a matriz é invertida.
+count=WHOLE_ARRAY
+[in]  Número de elementos para expandir. Se for especificado WHOLE_ARRAY, todos os elementos
+da matriz serão colocados de maneira invertida entre eles, começando com o índice especificado
+start até o final da matriz.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Observação</h3>
+A função ArraySetAsSeries() apenas altera a direção de indexação de trás para frente, a fim de
+organizar o acesso aos elementos como em timeseries. A função ArrayReverse() move fisicamente
+os elementos de uma matriz de tal forma que a matriz é &quot;invertida&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declara uma matriz de tamanho fixo e preenche com valores
+   int array[10];
+   for(int i=0;i&lt;10;i++)
+     {
+      array[i]=i;
+     }
+//--- mostra uma matriz antes de inversão de elementos
+   Print(&quot;Antes de chamar a ArrayReverse()&quot;);
+   ArrayPrint(array);
+//--- inverte 3 elementos na matriz e exibe a nova composição
+   ArrayReverse(array,4,3);
+   Print(&quot;Depois de chamar a ArrayReverse()&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1282
+</p>
+<pre><code class="language-mql5">
+   ArrayPrint(array);
+/*
+</code></pre>
+<p>
+<h3>Resultado da execução:</h3>
+<h3>Antes de chamar a ArrayReverse()</h3>
+</p>
+<pre><code class="language-mql5">
+   0 1 2 3 4 5 6 7 8 9
+</code></pre>
+<p>
+<h3>Depois de chamar a ArrayReverse()</h3>
+</p>
+<pre><code class="language-mql5">
+   0 1 2 3 6 5 4 7 8 9
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3>
+ArrayInsert, ArrayRemove, ArrayCopy, ArrayResize, ArrayFree, ArrayGetAsSeries, ArraySetAsSeries</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1283
+<h3>ArraySetAsSeries</h3>
+A função define o flag AS_SERIES para um objeto de um array dinâmico, e os elementos serão
+indexados como em timeseries.
+</p>
+<pre><code class="language-mql5">
+bool  ArraySetAsSeries(
+   const void&amp;  array[],    // array passado por referência
+   bool         flag        // true significa ordem reversa de indexação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in][out]  Array numérico para definir.
+flag
+[in]  Direção de indexação do array.
+<h3>Valor do Retorno</h3>
+A função retorna true para sucesso, caso contrário - false.
+<h3>Observação</h3>
+O flag AS_SERIES não pode ser definido para arrays multi-dimensionais ou arrays estáticos (arrays
+cujo tamanho nos colchetes já é predefinido na etapa de compilação). A indexação em séries de
+tempo difere da indexação de um array comum, na medida que os elementos de séries de tempo são
+indexados do fim para o começo (dos dados mais novos para os mais antigos).
+Exemplo: Indicador que mostra número de barra
+</p>
+<pre><code class="language-mql5">
+#property indicator_chart_window
+#property indicator_buffers 1
+#property indicator_plots   1
+//---- plota Numeration</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1284
+</p>
+<pre><code class="language-mql5">
+#property indicator_label1  &quot;Numeration&quot;
+#property indicator_type1   DRAW_LINE
+#property indicator_color1  CLR_NONE
+//--- buffers do indicador
+double         NumerationBuffer[];
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- mapeamento de buffers do indicador
+   SetIndexBuffer(0,NumerationBuffer,INDICATOR_DATA);
+//--- definir a indexação do buffer como numa timeseries
+   ArraySetAsSeries(NumerationBuffer,true);
+//--- define a precisão de exibição na Janela de Dados
+   IndicatorSetInteger(INDICATOR_DIGITS,0);
+//--- como o nome do array do indicador é exibido na Janela de Dados
+   PlotIndexSetString(0,PLOT_LABEL,&quot;Bar #&quot;); 
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- nós armazenaremos a hora de abertura da barra zero corrente
+   static datetime currentBarTimeOpen=0;
+//--- acesso reverso ao array time[] - fazemos isso como em séries temporais
+   ArraySetAsSeries(time,true);
+//--- se a hora da barra zero difere da hora armazenada
+   if(currentBarTimeOpen!=time[0])
+     {
+     //--- enumera todas as barras a partir do corrento para a profundidade do gráfico
+      for(int i=rates_total-1;i&gt;=0;i--) NumerationBuffer[i]=i;
+      currentBarTimeOpen=time[0];
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1285
+<h3>Também Veja</h3>
+<h3>Acesso à séries de tempo, ArrayGetAsSeries</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1286
+<h3>ArraySize</h3>
+A função retorna o número de elementos de um array selecionado.
+</p>
+<pre><code class="language-mql5">
+int  ArraySize(
+   const void&amp;  array[]    // array verificado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array de qualquer tipo.
+<h3>Valor do Retorno</h3>
+Valor do tipo int.
+<h3>Observação</h3>
+Para um array de uma dimensão, o valor a ser retornado pela função ArraySize é igual ao de
+ArrayRange(array,0).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- criar arrays
+   double one_dim[];
+   double four_dim[][10][5][2];
+//--- tamanhos
+   int one_dim_size=25;
+   int reserve=20;
+   int four_dim_size=5;
+//--- variáveis auxiliares
+   int size;
+//--- alocar memória sem fazer backup
+   ArrayResize(one_dim,one_dim_size);
+   ArrayResize(four_dim,four_dim_size);
+//--- 1. array unidimensional
+   Print(&quot;+==========================================================+&quot;);
+   Print(&quot;Tamanhos de arrays:&quot;);
+   Print(&quot;1. Array unidimensional&quot;);
+   size=ArraySize(one_dim);
+   PrintFormat(&quot;Tamanho dimensão zero = %d, Tamanho array = %d&quot;,one_dim_size,size);
+//--- 2. array multidimensional
+   Print(&quot;2. Array multidimensional&quot;);
+   size=ArraySize(four_dim);
+   PrintFormat(&quot;Tamanho dimensão zero = %d, Tamanho array = %d&quot;,four_dim_size,size);
+//--- tamanhos de dimensões
+   int d_1=ArrayRange(four_dim,1);
+   int d_2=ArrayRange(four_dim,2);
+   int d_3=ArrayRange(four_dim,3);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1287
+</p>
+<pre><code class="language-mql5">
+   Print(&quot;Verificar:&quot;);
+   Print(&quot;Dimensão zero = Tamanho de array / (Primeira dimensão * Segunda dimensão * T
+   PrintFormat(&quot;%d = %d / (%d * %d * %d)&quot;,size/(d_1*d_2*d_3),size,d_1,d_2,d_3);
+//--- 3. array unidimensional com backup de memória
+   Print(&quot;3. Array unidimensional com backup de memória&quot;);
+//--- dobro do valor
+   one_dim_size*=2;
+//--- alocar memória com o backup
+   ArrayResize(one_dim,one_dim_size,reserve);
+//--- imprimir o tamanho
+   size=ArraySize(one_dim);
+   PrintFormat(&quot;Tamanho com o backup = %d, Atual tamanho do array = %d&quot;,one_dim_size+r
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1288
+<h3>ArraySort</h3>
+Classifica os valores na primeira dimensão de um array numérico multidimensional na ordem
+crescente.
+</p>
+<pre><code class="language-mql5">
+bool  ArraySort(
+   void&amp;  array[]      // array para ordenação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in][out]  Array numérico para ordenação.
+<h3>Valor do Retorno</h3>
+A função retorna true para sucesso, caso contrário - false.
+<h3>Observação</h3>
+Um array é sempre classificado em ordem crescente, independentemente do valor da
+flag AS_SERIES.
+Funções ArraySort e ArrayBSearch aceitam arrays de qualquer dimensão como um parâmetro. No
+entanto, a pesquisa e a classificação são sempre aplicadas à primeira dimensão (zero).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;O indicador analisa os dados para o último mês e pinta todos os
+#property description &quot;e grandes volumes de tick. A volume de tick do array é ordenado
+#property description &quot;para definir estes candlesticks. Os candlesticks que tem os vol
+#property description &quot;por cento do array, são consideradas pequenos. Os candlesticks 
+#property description &quot;por cento do array, são consideradas grandes.&quot;
+//--- configurações do indicador
+#property indicator_chart_window
+#property indicator_buffers 5
+#property indicator_plots   1
+//--- plotar
+#property indicator_label1  &quot;VolumeFactor&quot;
+#property indicator_type1   DRAW_COLOR_CANDLES
+#property indicator_color1  clrDodgerBlue,clrOrange
+#property indicator_style1  STYLE_SOLID
+#property indicator_width1  2
+//--- constante pré-definida
+#define INDICATOR_EMPTY_VALUE 0.0
+//--- parâmetros de entrada
+input int InpSmallVolume=15; // Valor percentual de pequenos volumes (&lt;50)
+input int InpBigVolume=20;   // Valor percentual de grandes volumes (&lt;50)
+//--- início do tempo para análise (será deslocado)
+</code></pre>
+<p>
+datetime ExtStartTime;
+</p>
+<pre><code class="language-mql5">
+//--- buffers do indicador
+double   ExtOpenBuff[];</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1289
+</p>
+<pre><code class="language-mql5">
+double   ExtHighBuff[];
+double   ExtLowBuff[];
+double   ExtCloseBuff[];
+double   ExtColorBuff[];
+//--- valores de limite do volume para exibir os candlesticks
+</code></pre>
+<p>
+long     ExtLeftBorder=0;
+long     ExtRightBorder=0;
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Receber valores das bordas para volumes de tick                  |
+//+------------------------------------------------------------------+
+bool GetVolumeBorders(void)
+  {
+//--- variáveis
+   datetime stop_time;  // copiar tempo final
+   long     buff[];     // buffer para copiar
+//--- tempo final é o atual
+   stop_time=TimeCurrent();
+//--- tempo de início é de um mês antes do atual
+   ExtStartTime=GetStartTime(stop_time);
+//--- receber os valores de volume do tick
+   ResetLastError();
+   if(CopyTickVolume(Symbol(),Period(),ExtStartTime,stop_time,buff)==-1)
+     {
+      //--- falhou para receber os dados, retornar falso para lançar o comando de recá
+      PrintFormat(&quot;Falha ao receber os valores de volume do tick. Código de erro = %d&quot;
+      return(false);
+     }
+//--- calcule tamanho de array
+   int size=ArraySize(buff);
+//--- classificar o array
+   ArraySort(buff);
+//--- definir os valores das bordas esquerda e direita para volumes do tick
+   ExtLeftBorder=buff[size*InpSmallVolume/100];
+   ExtRightBorder=buff[(size-1)*(100-InpBigVolume)/100];
+//--- sucesso na execução
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Receber os dados do mês menor do que o mês anterior              |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+datetime GetStartTime(const datetime stop_time)
+</p>
+<pre><code class="language-mql5">
+  {
+//--- converter o tempo final da variável de estrutura do tipo MqlDateTime
+   MqlDateTime temp;
+   TimeToStruct(stop_time,temp);
+//--- receber os dados que é do mês menor
+   if(temp.mon&gt;1)
+      temp.mon-=1;  // o mês corrente não é o primeiro no ano, por conseguinte, o núme
+   else</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1290
+</p>
+<pre><code class="language-mql5">
+     {
+      temp.mon=12;  // o mês corrente é o primeiro no ano, por conseguinte, o número d
+      temp.year-=1; // enquanto o número do ano é um a menos
+     }
+//--- número do dia não será superior a 28
+   if(temp.day&gt;28)
+      temp.day=28;
+//--- retornar a data obtida
+   return(StructToTime(temp));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- verificar se os parâmetros de entrada satisfazem as condições
+   if(InpSmallVolume&lt;0 || InpSmallVolume&gt;=50 || InpBigVolume&lt;0 || InpBigVolume&gt;=50)
+     {
+      Print(&quot;Parâmetros de entrada incorreto&quot;);
+      return(INIT_PARAMETERS_INCORRECT);
+     }
+//--- mapeamento de buffers do indicador
+   SetIndexBuffer(0,ExtOpenBuff);
+   SetIndexBuffer(1,ExtHighBuff);
+   SetIndexBuffer(2,ExtLowBuff);
+   SetIndexBuffer(3,ExtCloseBuff);
+   SetIndexBuffer(4,ExtColorBuff,INDICATOR_COLOR_INDEX);
+//--- definir o valor que não será exibido
+   PlotIndexSetDouble(0,PLOT_EMPTY_VALUE,INDICATOR_EMPTY_VALUE);
+//--- definir etiquetas para buffers do indicador
+   PlotIndexSetString(0,PLOT_LABEL,&quot;Open;High;Low;Close&quot;);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- verificar se barras não manipuladas ainda estão presentes</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1291
+</p>
+<pre><code class="language-mql5">
+   if(prev_calculated&lt;rates_total)
+     {
+      //--- receber novos valores das bordas direita e esquerda para volumes
+      if(!GetVolumeBorders())
+         return(0);
+     }
+//--- iniciar variável para cálculo da barra
+   int start=prev_calculated;
+//--- trabalho na última barra se os valores do indicador já foram calculados no tick 
+   if(start&gt;0)
+      start--;
+//--- definir indexação direta em séries temporais
+   ArraySetAsSeries(time,false);
+   ArraySetAsSeries(open,false);
+   ArraySetAsSeries(high,false);
+   ArraySetAsSeries(low,false);
+   ArraySetAsSeries(close,false);
+   ArraySetAsSeries(tick_volume,false);
+//--- o loop de cálculo dos valores do indicador
+   for(int i=start;i&lt;rates_total;i++)
+     {
+      //--- preencher os candlesticks a partir da data inicial
+      if(ExtStartTime&lt;=time[i])
+        {
+         //--- se o valor não é inferior a borda direita, preencher clandlestick
+         if(tick_volume[i]&gt;=ExtRightBorder)
+           {
+            //--- receber dados para desenhar o candlestick
+            ExtOpenBuff[i]=open[i];
+            ExtHighBuff[i]=high[i];
+            ExtLowBuff[i]=low[i];
+            ExtCloseBuff[i]=close[i];
+            //--- cor de DodgerBlue
+            ExtColorBuff[i]=0;
+            //--- continuar o loop
+            continue;
+           }
+         //--- preencher o candlestick, se o valor não exceder o limite esquerdo
+         if(tick_volume[i]&lt;=ExtLeftBorder)
+           {
+            //--- receber dados para desenhar o candlestick
+            ExtOpenBuff[i]=open[i];
+            ExtHighBuff[i]=high[i];
+            ExtLowBuff[i]=low[i];
+            ExtCloseBuff[i]=close[i];
+            //--- Cor laranja
+            ExtColorBuff[i]=1;
+            //--- continuar o loop
+            continue;</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1292
+</p>
+<pre><code class="language-mql5">
+           }
+        }
+      //--- definir valores vazios para as barras que não foram incluídas no cálculo
+      ExtOpenBuff[i]=INDICATOR_EMPTY_VALUE;
+      ExtHighBuff[i]=INDICATOR_EMPTY_VALUE;
+      ExtLowBuff[i]=INDICATOR_EMPTY_VALUE;
+      ExtCloseBuff[i]=INDICATOR_EMPTY_VALUE;
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ArrayBsearch</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1293
+<h3>ArraySwap</h3>
+Troca entre si o conteúdo de duas matrizes do tipo dinâmico. Para matrizes multidimensionais, o
+número de elementos em todas as dimensões, excepto o primeiro, tem de ser o mesmo.
+</p>
+<pre><code class="language-mql5">
+bool  ArraySwap(
+   void&amp;  array1[],      // primeira matriz
+   void&amp;  array2[]       // segunda matriz
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array1[]
+[in][out]  Matriz numérica.
+array2[]
+[in][out]  Matriz numérica.
+<h3>Valor de retorno</h3>
+Retorna true em caso de sucesso, caso contrário, false. Neste caso, GetLastError() retorna o código
+de erro ERR_INVALID_ARRAY.
+<h3>Observação</h3>
+A função implementa matrizes dinâmicas do mesmo tipo e as mesmas dimensões, exceto a
+primeira. Para tipos inteiros, o sinal é ignorado, ou seja, char==uchar)
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- matrizes para armazenar cotações
+   double source_array[][8];
+   double   dest_array[][8];
+   MqlRates rates[];
+//--- obtemos dados dos últimos 20 candles no timeframe atual
+   int copied=CopyRates(NULL,0,0,20,rates);
+   if(copied&lt;=0)
+     {
+      PrintFormat(&quot;CopyRates(%s,0,0,20,rates) failed, error=%d&quot;,
+                  Symbol(),GetLastError());
+      return;
+     }
+//--- definimos o tamanho da matriz pelo número de dados copiados
+   ArrayResize(source_array,copied);
+//--- preenchemos a matriz rate_array_1[] com dados a partir de rates[]
+   for(int i=0;i&lt;copied;i++)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1294
+</p>
+<pre><code class="language-mql5">
+      source_array[i][0]=(double)rates[i].time;
+      source_array[i][1]=rates[i].open;
+      source_array[i][2]=rates[i].high;
+      source_array[i][3]=rates[i].low;
+      source_array[i][4]=rates[i].close;
+      source_array[i][5]=(double)rates[i].tick_volume;
+      source_array[i][6]=(double)rates[i].spread;
+      source_array[i][7]=(double)rates[i].real_volume;
+     }
+//--- realizamos o intercâmbio de dados entre source_array[] e dest_array[]
+   if(!ArraySwap(source_array,dest_array))
+     {
+      PrintFormat(&quot;ArraySwap(source_array,rate_array_2) failed, error code=%d&quot;,GetLast
+      return;
+     }
+//--- verificamos que, depois do intercâmbio, o tamanho da fonte-matriz se tornou zero
+   PrintFormat(&quot;ArraySwap() done: ArraySize(source_array)=%d&quot;,ArraySize(source_array))
+//--- exibimos os dados do receptor de matriz dest_array[]
+   ArrayPrint(dest_array);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>ArrayCopy, ArrayFill, ArrayRange, ArrayIsDynamic</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1295
+<h3>ArrayToFP16</h3>
+Realiza a cópia de um array do tipo float ou double para um array do tipo ushort com o formato
+especificado.
+</p>
+<pre><code class="language-mql5">
+bool   ArrayToFP16(
+   const ushort&amp;        dst_array[],        // para onde copiamos
+   const float&amp;         src_array[],        // de onde copiamos
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Sobrecarga para o tipo double</h3>
+</p>
+<pre><code class="language-mql5">
+bool   ArrayToFP16(
+   const ushort&amp;        dst_array[],        // para onde copiamos
+   const double&amp;        src_array[],        // de onde copiamos
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dst_array[]
+[out]  Array receptor do tipo ushort.
+src_array[]
+[in]  Array receptor do tipo float ou double.
+fmt
+[in]  Formato de cópia a partir da enumeração ENUM_FLOAT16_FORMAT.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false.
+<h3>Observação</h3>
+Os formatos FLOAT16 e BFLOAT16 são definidos no enum ENUM_FLOAT16_FORMAT e são usados no
+MQL5 exclusivamente para trabalhar com modelos ONNX.
+A função é utilizada para a conversão de parâmetros de entrada do tipo float ou double para o tipo
+FLOAT16 e BFLOAT16. Posteriormente, esses parâmetros de entrada são usados na função
+OnnxRun.
+FLOAT16, também conhecido como precisão média ou formato &quot;half-precision float&quot;, utiliza 16 bits
+para representar um número de ponto flutuante. Este formato oferece um equilíbrio entre precisão e
+eficiência de cálculo. FLOAT16 é amplamente usado em aprendizado profundo e redes neurais, onde
+a alta performance no processamento de grandes volumes de dados é requerida. Este formato
+permite acelerar os cálculos por meio da redução do tamanho dos números, o que é especialmente
+importante no treinamento de redes neurais profundas em unidades de processamento gráfico
+(GPUs).</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1296
+BFLOAT16 (ou Brain Floating Point 16) também usa 16 bits, mas difere do FLOAT16 na forma como
+os números são representados. Neste formato, 8 bits são alocados para a representação do
+expoente, e os 7 bits restantes são usados para a mantissa. Este formato foi desenvolvido para uso
+em aprendizado profundo e inteligência artificial, especialmente em unidades de processamento
+Tensor do Google (TPUs). BFLOAT16 tem bom desempenho no treinamento de redes neurais e pode
+ser efetivamente usado para acelerar os cálculos.
+Exemplo: função do artigo Trabalhando com modelos ONNX nos formatos float16 e float8
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| RunCastFloat16ToDouble                                           |
+//+------------------------------------------------------------------+
+bool RunCastFloat16ToDouble(long model_handle)
+  {
+   PrintFormat(&quot;test=%s&quot;,__FUNCTION__);
+   double test_data[12]= {1,2,3,4,5,6,7,8,9,10,11,12};
+   ushort data_uint16[12];
+   if(!ArrayToFP16(data_uint16,test_data,FLOAT_FP16))
+     {
+      Print(&quot;error in ArrayToFP16. error code=&quot;,GetLastError());
+      return(false);
+     }
+   Print(&quot;test array:&quot;);
+   ArrayPrint(test_data);
+   Print(&quot;ArrayToFP16:&quot;);
+   ArrayPrint(data_uint16);
+   U&lt;ushort&gt; input_float16_values[3*4];
+   U&lt;double&gt; output_double_values[3*4];
+   float test_data_float[];
+   if(!ArrayFromFP16(test_data_float,data_uint16,FLOAT_FP16))
+     {
+      Print(&quot;error in ArrayFromFP16. error code=&quot;,GetLastError());
+      return(false);
+     }
+   for(int i=0; i&lt;12; i++)
+     {
+      input_float16_values[i].value=data_uint16[i];
+      PrintFormat(&quot;%d input value =%f  Hex float16 = %s  ushort value=%d&quot;,i,test_data_
+     }
+   Print(&quot;ONNX input array:&quot;);
+   ArrayPrint(input_float16_values);
+   bool res=OnnxRun(model_handle,ONNX_NO_CONVERSION,input_float16_values,output_double
+   if(!res)
+     {
+      PrintFormat(&quot;error in OnnxRun. error code=%d&quot;,GetLastError());
+      return(false);
+     }
+   Print(&quot;ONNX output array:&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1297
+</p>
+<pre><code class="language-mql5">
+   ArrayPrint(output_double_values);
+//---
+   double sum_error=0.0;
+   for(int i=0; i&lt;12; i++)
+     {
+      double delta=test_data[i]-output_double_values[i].value;
+      sum_error+=MathAbs(delta);
+      PrintFormat(&quot;%d output double %f = %s  difference=%f&quot;,i,output_double_values[i].
+     }
+//---
+   PrintFormat(&quot;test=%s   sum_error=%f&quot;,__FUNCTION__,sum_error);
+//---
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>ArrayFromFP16, ArrayCopy</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1298
+<h3>ArrayToFP8</h3>
+Realiza a cópia de um array do tipo float ou double para um array do tipo uchar com o formato
+especificado.
+</p>
+<pre><code class="language-mql5">
+bool   ArrayToFP8(
+   const uchar&amp;         dst_array[],        // para onde copiamos
+   const float&amp;         src_array[],        // de onde copiamos
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Sobrecarga para o tipo double</h3>
+</p>
+<pre><code class="language-mql5">
+bool   ArrayToFP8(
+   const uchar&amp;         dst_array[],        // para onde copiamos
+   const double&amp;        src_array[],        // de onde copiamos
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dst_array[]
+[out]  Array receptor do tipo uchar.
+src_array[]
+[in]  Array receptor do tipo float ou double.
+fmt
+[in] Formato de cópia do enum ENUM_FLOAT8_FORMAT.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false.
+<h3>Observação</h3>
+Todos os tipos de formato FP8 são definidos no enum ENUM_FLOAT8_FORMAT e são usados no
+MQL5 exclusivamente para trabalhar com modelos ONNX.
+A função é utilizada para a conversão de parâmetros de entrada do tipo float ou double para um dos
+tipos FP8. Posteriormente, esses parâmetros de entrada são usados na função OnnxRun.
+O formato FP8 (número de ponto flutuante de 8 bits) é um dos tipos de dados usados para
+representar números de ponto flutuante. No FP8, cada número é representado por 8 bits de dados,
+que geralmente são divididos em três componentes: sinal, expoente e mantissa. Este formato
+oferece um compromisso entre precisão e eficiência de armazenamento de dados, tornando-o
+atraente para uso em aplicativos onde a economia de memória e recursos computacionais é
+necessária.</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1299
+Graças à representação compacta de números, FP8 permite reduzir os requisitos de memória e
+acelerar os cálculos. Além disso, FP8 pode ser útil para a implementação de operações de baixo
+nível, como cálculos aritméticos e processamento de sinais.
+Exemplo: função do artigo Trabalhando com modelos ONNX nos formatos float16 e float8
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| RunCastFloat8Float                                               |
+//+------------------------------------------------------------------+
+bool RunCastFloat8ToFloat(long model_handle,const ENUM_FLOAT8_FORMAT fmt)
+  {
+   PrintFormat(&quot;TEST: %s(%s)&quot;,__FUNCTION__,EnumToString(fmt));
+//---
+   float test_data[15]   = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+   uchar data_float8[15] = {};
+   if(!ArrayToFP8(data_float8,test_data,fmt))
+     {
+      Print(&quot;error in ArrayToFP8. error code=&quot;,GetLastError());
+      OnnxRelease(model_handle);
+      return(false);
+     }
+   U&lt;uchar&gt; input_float8_values[3*5];
+   U&lt;float&gt; output_float_values[3*5];
+   float    test_data_float[];
+//--- convert float8 to float
+   if(!ArrayFromFP8(test_data_float,data_float8,fmt))
+     {
+      Print(&quot;error in ArrayFromFP8. error code=&quot;,GetLastError());
+      OnnxRelease(model_handle);
+      return(false);
+     }
+   for(uint i=0; i&lt;data_float8.Size(); i++)
+     {
+      input_float8_values[i].value=data_float8[i];
+      PrintFormat(&quot;%d input value =%f  Hex float8 = %s  ushort value=%d&quot;,i,test_data_f
+     }
+   Print(&quot;ONNX input array: &quot;,ArrayToString(input_float8_values));
+//--- execute model (convert float8 to float using ONNX)
+   if(!OnnxRun(model_handle,ONNX_NO_CONVERSION,input_float8_values,output_float_values
+     {
+      PrintFormat(&quot;error in OnnxRun. error code=%d&quot;,GetLastError());
+      OnnxRelease(model_handle);
+      return(false);
+     }
+   Print(&quot;ONNX output array: &quot;,ArrayToString(output_float_values));
+//--- calculate error (compare ONNX and ArrayFromFP8 results)
+   double sum_error=0.0;
+   for(uint i=0; i&lt;test_data.Size(); i++)</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1300
+</p>
+<pre><code class="language-mql5">
+     {
+      double delta=test_data_float[i]-(double)output_float_values[i].value;
+      sum_error+=MathAbs(delta);
+      PrintFormat(&quot;%d output float %f = %s difference=%f&quot;,i,output_float_values[i].val
+     }
+//---
+   PrintFormat(&quot;%s(%s): sum_error=%f\n&quot;,__FUNCTION__,EnumToString(fmt),sum_error);
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>ArrayFromFP8, ArrayCopy</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1301
+<h3>ArrayFromFP16</h3>
+Realiza a cópia de um array do tipo ushort para um array do tipo float ou double com um formato
+especificado.
+</p>
+<pre><code class="language-mql5">
+bool   ArrayFromFP16(
+   const float&amp;         dst_array[],        // para onde copiamos
+   const ushort&amp;        src_array[],        // de onde copiamos
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Sobrecarga para o tipo double</h3>
+</p>
+<pre><code class="language-mql5">
+bool   ArrayFromFP16(
+   const double&amp;        dst_array[],        // para onde copiamos
+   const ushort&amp;        src_array[],        // de onde copiamos
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dst_array[]
+[out]  Array receptor do tipo float ou double.
+src_array[]
+[in]  Array fonte do tipo ushort.
+fmt
+[in]  Formato de cópia a partir da enumeração ENUM_FLOAT16_FORMAT.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false.
+<h3>Observação</h3>
+Os formatos FLOAT16 e BFLOAT16 são definidos no enum ENUM_FLOAT16_FORMAT e são usados no
+MQL5 exclusivamente para trabalhar com modelos ONNX.
+Se os parâmetros de saída obtidos ao executar a função OnnxRun são do tipo FLOAT16 e BFLOAT16,
+então esta função permite converter o resultado em arrays do tipo float ou double.
+FLOAT16, também conhecido como precisão média ou formato &quot;half-precision float&quot;, utiliza 16 bits
+para representar um número de ponto flutuante. Este formato oferece um equilíbrio entre precisão e
+eficiência de cálculo. FLOAT16 é amplamente usado em aprendizado profundo e redes neurais, onde
+a alta performance no processamento de grandes volumes de dados é requerida. Este formato
+permite acelerar os cálculos por meio da redução do tamanho dos números, o que é especialmente
+importante no treinamento de redes neurais profundas em unidades de processamento gráfico
+(GPUs).</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1302
+BFLOAT16 (ou Brain Floating Point 16) também usa 16 bits, mas difere do FLOAT16 na forma como
+os números são representados. Neste formato, 8 bits são alocados para a representação do
+expoente, e os 7 bits restantes são usados para a mantissa. Este formato foi desenvolvido para uso
+em aprendizado profundo e inteligência artificial, especialmente em unidades de processamento
+Tensor do Google (TPUs). BFLOAT16 tem bom desempenho no treinamento de redes neurais e pode
+ser efetivamente usado para acelerar os cálculos.
+Exemplo: função do artigo Trabalhando com modelos ONNX nos formatos float16 e float8
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| RunCastFloat16ToDouble                                           |
+//+------------------------------------------------------------------+
+bool RunCastFloat16ToDouble(long model_handle)
+  {
+   PrintFormat(&quot;test=%s&quot;,__FUNCTION__);
+   double test_data[12]= {1,2,3,4,5,6,7,8,9,10,11,12};
+   ushort data_uint16[12];
+   if(!ArrayToFP16(data_uint16,test_data,FLOAT_FP16))
+     {
+      Print(&quot;error in ArrayToFP16. error code=&quot;,GetLastError());
+      return(false);
+     }
+   Print(&quot;test array:&quot;);
+   ArrayPrint(test_data);
+   Print(&quot;ArrayToFP16:&quot;);
+   ArrayPrint(data_uint16);
+   U&lt;ushort&gt; input_float16_values[3*4];
+   U&lt;double&gt; output_double_values[3*4];
+   float test_data_float[];
+   if(!ArrayFromFP16(test_data_float,data_uint16,FLOAT_FP16))
+     {
+      Print(&quot;error in ArrayFromFP16. error code=&quot;,GetLastError());
+      return(false);
+     }
+   for(int i=0; i&lt;12; i++)
+     {
+      input_float16_values[i].value=data_uint16[i];
+      PrintFormat(&quot;%d input value =%f  Hex float16 = %s  ushort value=%d&quot;,i,test_data_
+     }
+   Print(&quot;ONNX input array:&quot;);
+   ArrayPrint(input_float16_values);
+   bool res=OnnxRun(model_handle,ONNX_NO_CONVERSION,input_float16_values,output_double
+   if(!res)
+     {
+      PrintFormat(&quot;error in OnnxRun. error code=%d&quot;,GetLastError());
+      return(false);
+     }
+   Print(&quot;ONNX output array:&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1303
+</p>
+<pre><code class="language-mql5">
+   ArrayPrint(output_double_values);
+//---
+   double sum_error=0.0;
+   for(int i=0; i&lt;12; i++)
+     {
+      double delta=test_data[i]-output_double_values[i].value;
+      sum_error+=MathAbs(delta);
+      PrintFormat(&quot;%d output double %f = %s  difference=%f&quot;,i,output_double_values[i].
+     }
+//---
+   PrintFormat(&quot;test=%s   sum_error=%f&quot;,__FUNCTION__,sum_error);
+//---
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>ArrayToFP16, ArrayCopy</h3></p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1304
+<h3>ArrayFromFP8</h3>
+Realiza a cópia de um array do tipo uchar para um array do tipo float ou double com um formato
+especificado.
+</p>
+<pre><code class="language-mql5">
+bool   ArrayFromFP8(
+   const float&amp;         dst_array[],        // para onde copiamos
+</code></pre>
+<p>
+ const uchar&amp;  src_array[], // de onde copiamos
+</p>
+<pre><code class="language-mql5">
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Sobrecarga para o tipo double</h3>
+</p>
+<pre><code class="language-mql5">
+bool   ArrayFromFP8(
+   const double&amp;        dst_array[],        // para onde copiamos
+</code></pre>
+<p>
+ const uchar&amp;  src_array[], // de onde copiamos
+</p>
+<pre><code class="language-mql5">
+   ENUM_FLOAT16_FORMAT  fmt                 // formato
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dst_array[]
+[out]  Array receptor do tipo float ou double.
+src_array[]
+[in] Array fonte do tipo uchar.
+fmt
+[in] Formato de cópia do enum ENUM_FLOAT8_FORMAT.
+<h3>Valor retornado</h3>
+Retorna true se for bem-sucedido, caso contrário, false.
+<h3>Observação</h3>
+Todos os tipos de formato FP8 são definidos no enum ENUM_FLOAT8_FORMAT e são usados no
+MQL5 exclusivamente para trabalhar com modelos ONNX.
+Se os parâmetros de saída obtidos ao executar a função OnnxRun são do tipo FP8 do enum
+ENUM_FLOAT8_FORMAT, então esta função permite converter o resultado em arrays do tipo float ou
+double.
+O formato FP8 (número de ponto flutuante de 8 bits) é um dos tipos de dados usados para
+representar números de ponto flutuante. No FP8, cada número é representado por 8 bits de dados,
+que geralmente são divididos em três componentes: sinal, expoente e mantissa. Este formato
+oferece um compromisso entre precisão e eficiência de armazenamento de dados, tornando-o
+atraente para uso em aplicativos onde a economia de memória e recursos computacionais é
+necessária.</p>
+<p><h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1305
+Graças à representação compacta de números, FP8 permite reduzir os requisitos de memória e
+acelerar os cálculos. Além disso, FP8 pode ser útil para a implementação de operações de baixo
+nível, como cálculos aritméticos e processamento de sinais.
+Exemplo: função do artigo Trabalhando com modelos ONNX nos formatos float16 e float8
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| RunCastFloat8Float                                               |
+//+------------------------------------------------------------------+
+bool RunCastFloat8ToFloat(long model_handle,const ENUM_FLOAT8_FORMAT fmt)
+  {
+   PrintFormat(&quot;TEST: %s(%s)&quot;,__FUNCTION__,EnumToString(fmt));
+//---
+   float test_data[15]   = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+   uchar data_float8[15] = {};
+   if(!ArrayToFP8(data_float8,test_data,fmt))
+     {
+      Print(&quot;error in ArrayToFP8. error code=&quot;,GetLastError());
+      OnnxRelease(model_handle);
+      return(false);
+     }
+   U&lt;uchar&gt; input_float8_values[3*5];
+   U&lt;float&gt; output_float_values[3*5];
+   float    test_data_float[];
+//--- convert float8 to float
+   if(!ArrayFromFP8(test_data_float,data_float8,fmt))
+     {
+      Print(&quot;error in ArrayFromFP8. error code=&quot;,GetLastError());
+      OnnxRelease(model_handle);
+      return(false);
+     }
+   for(uint i=0; i&lt;data_float8.Size(); i++)
+     {
+      input_float8_values[i].value=data_float8[i];
+      PrintFormat(&quot;%d input value =%f  Hex float8 = %s  ushort value=%d&quot;,i,test_data_f
+     }
+   Print(&quot;ONNX input array: &quot;,ArrayToString(input_float8_values));
+//--- execute model (convert float8 to float using ONNX)
+   if(!OnnxRun(model_handle,ONNX_NO_CONVERSION,input_float8_values,output_float_values
+     {
+      PrintFormat(&quot;error in OnnxRun. error code=%d&quot;,GetLastError());
+      OnnxRelease(model_handle);
+      return(false);
+     }
+   Print(&quot;ONNX output array: &quot;,ArrayToString(output_float_values));
+//--- calculate error (compare ONNX and ArrayFromFP8 results)
+   double sum_error=0.0;
+   for(uint i=0; i&lt;test_data.Size(); i++)</p>
+<p></code></pre>
+<p>
+<h3>Funções para Array</h3>
+© 2000-2025, MetaQuotes Ltd.
+1306
+</p>
+<pre><code class="language-mql5">
+     {
+      double delta=test_data_float[i]-(double)output_float_values[i].value;
+      sum_error+=MathAbs(delta);
+      PrintFormat(&quot;%d output float %f = %s difference=%f&quot;,i,output_float_values[i].val
+     }
+//---
+   PrintFormat(&quot;%s(%s): sum_error=%f\n&quot;,__FUNCTION__,EnumToString(fmt),sum_error);
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>ArrayToFP8, ArrayCopy</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

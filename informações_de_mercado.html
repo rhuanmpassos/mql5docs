@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações de Mercado - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class="active"><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Informações de Mercado</h1>
+        </header>
+        
+        <article>
+            <p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1978
+<h3>Obtendo Informações de Mercado</h3>
+Estas são funções destinadas a receber informações sobre o estado do mercado.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>SymbolsTotal</h3>
+Retorna o número de ativos disponíveis (selecionados na janela
+<h3>Observação de Mercado ou todos)</h3>
+<h3>SymbolExist</h3>
+Verifica se há um símbolo com o nome especificado
+<h3>SymbolName</h3>
+Retorna o nome de um ativo especificado
+<h3>SymbolSelect</h3>
+Seleciona um ativo na janela Observação de Mercado ou remove um
+ativo desta janela
+<h3>SymbolIsSynchronized</h3>
+Verifica se dados de um ativo selecionado no terminal estão
+sincronizados com dados no servidor de negociações
+<h3>SymbolInfoDouble</h3>
+Retorna um valor double de um ativo para a propriedade
+correspondente
+<h3>SymbolInfoInteger</h3>
+Retorna um valor de tipo inteiro (long, datetime, int ou bool) de um
+ativo especificado para a propriedade correspondente
+<h3>SymbolInfoString</h3>
+Retorna um valor do tipo string de um ativo especificado para a
+propriedade correspondente
+<h3>SymbolInfoMarginRate</h3>
+Returns the margin rates depending on the order type and direction
+<h3>SymbolInfoTick</h3>
+Retorna os preços correntes para um ativo especificado em uma
+variável do tipo MqlTick
+<h3>SymbolInfoSessionQuote</h3>
+Permite obter a hora de início e fim das sessões de cotação
+especificadas para um ativo especificado e dia da semana.
+<h3>SymbolInfoSessionTrade</h3>
+Permite obter a hora de início e fim das sessões de negociação
+especificadas para um ativo especificado e dia da semana.
+<h3>MarketBookAdd</h3>
+Fornece abertura da Profundidade de Mercado para um ativo
+selecionado, e subscrever para receber notificações de alterações do
+<h3>DOM (Depth of Market)</h3>
+<h3>MarketBookRelease</h3>
+Fornece fechamento da Profundidade de Mercado para um ativo
+selecionado, e cancelar a subscrição para receber notificações de
+alterações do DOM
+<h3>MarketBookGet</h3>
+Retorna um array de estrutura MqlBookInfo contendo registros da
+Profundidade de Mercado de uma ativo especificado</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1979
+<h3>SymbolsTotal</h3>
+Retorna o número de ativos disponíveis (selecionados na janela Observação do Mercado ou todos os
+ativos).
+</p>
+<pre><code class="language-mql5">
+int  SymbolsTotal(
+   bool  selected      // True - somente ativos em Observação do Mercado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+selected
+[in] Mode de solicitação. Pode ser true ou false.
+<h3>Valor do Retorno</h3>
+Se o parâmetro &#x27;selected&#x27; for true, a função retorna o número de ativos selecionados na janela
+Observação do Mercado. Se o valor for false, ela retorna o número total de todos os ativos.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o número de símbolos disponíveis
+   int total    = SymbolsTotal(false);       // todos os símbolos no servidor
+   int selected = SymbolsTotal(true);        // todos os símbolos adicionados à janela
+//--- enviamos os dados obtidos para o log
+   PrintFormat(&quot;Number of available symbols on the server: %d\n&quot;+
+               &quot;Number of available symbols selected in MarketWatch: %d&quot;, total, selec
+   /*
+   resultado:
+   Number of available symbols on the server: 140
+   Number of available symbols selected in MarketWatch: 11
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1980
+<h3>SymbolExist</h3>
+Verifica se há um símbolo com o nome especificado.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolExist(
+   const string  name,    // nome do símbolo
+   bool&amp;   is_custom      // tipo de símbolo personalizado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+nome
+[in]  Nome do símbolo.
+is_custom
+[out]  Tipo de símbolo personalizado que é definido após a execução bem-sucedida. Se for true, o
+símbolo encontrado é personalizado.
+<h3>Valor retornado</h3>
+Retorna false se o símbolo não for encontrado entre os padrão ou entre os símbolos personalizados.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;GBPUSDn&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos um sinalizador de símbolo personalizado e verificamos a presença de u
+   bool custom = false;
+   bool result = SymbolExist(SYMBOL_NAME, custom);
+   
+//--- declaramos o texto da mensagem, por padrão sobre o símbolo não encontrado
+   string text = StringFormat(&quot;The symbol &#x27;%s&#x27; was not found among either the standard
+   
+//--- se o símbolo for encontrado, criamos o corpo da mensagem de acordo com a lista n
+   if(result)
+     {
+      //--- se for um símbolo padrão
+      if(!custom)
+         text = StringFormat(&quot;The &#x27;%s&#x27; symbol is available on the server.&quot;, SYMBOL_NAM
+      //--- se for um símbolo personalizado
+      else
+         text = StringFormat(&quot;The symbol &#x27;%s&#x27; was found in the list of custom symbols.
+     }
+     
+//--- imprimimos no log a mensagem sobre o resultado da verificação
+   Print(text);
+   /*</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1981
+</p>
+<pre><code class="language-mql5">
+   resultado para o símbolo padrão &#x27;GBPUSD&#x27;:
+   The &#x27;GBPUSD&#x27; symbol is available on the server.
+   
+   resultado para o símbolo personalizado &#x27;GBPUSDx&#x27;:
+   The symbol &#x27;GBPUSDx&#x27; was found in the list of custom symbols.
+   
+   resultado para o símbolo ausente &#x27;GBPUSDn&#x27;:
+   The symbol &#x27;GBPUSDn&#x27; was not found among either the standard or custom symbols.
+   */
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SymbolsTotal, SymbolSelect, Símbolos personalizados</h3></p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1982
+<h3>SymbolName</h3>
+Retorna o nome de um ativo.
+</p>
+<pre><code class="language-mql5">
+string  SymbolName(
+   int   pos,          // número na lista
+   bool  selected      // true - somente ativos em Observação do Mercado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+pos
+[in] Número de ordem de um ativo.
+selected
+[in] Mode de solicitação. Se o valor for true, o ativo é tomado da lista de ativos selecionados na
+janela Observação do Mercado. Se o valor for false, o ativo é tomado da lista geral.
+<h3>Valor do Retorno</h3>
+Valor de tipo string com o nome do ativo.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;GBPHKD&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- definimos o sinalizador do resultado da pesquisa do símbolo no servidor
+   bool found = false;
+   
+//--- localizamos o símbolo &#x27;SYMBOL_NAME&#x27; na lista de todos os símbolos do servidor
+   int total = SymbolsTotal(false);
+   for(int i=0; i&lt;total; i++)
+     {
+      //--- obtemos o nome do símbolo na lista com base no índice do loop
+      string name = SymbolName(i, false);
+      
+      //--- se for o símbolo desejado, imprimimos seu nome e posição na lista no log e
+      if(name == SYMBOL_NAME)
+        {
+         PrintFormat(&quot;The &#x27;%s&#x27; symbol was found in the list of server symbols at index
+         found = true;
+         break;
+        }
+     }
+     
+//--- se o símbolo não for encontrado no servidor, informaremos sobre isso antes de en</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1983
+</p>
+<pre><code class="language-mql5">
+   if(!found)
+      PrintFormat(&quot;The &#x27;%s&#x27; symbol was not found on the server.&quot;, SYMBOL_NAME);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1984
+<h3>SymbolSelect</h3>
+Seleciona um ativo da janela Observação do Mercado ou remove um ativo desta janela.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolSelect(
+   string  name,       // nome do ativo
+   bool    select      // adicionar ou remover
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in] Nome do ativo.
+select
+[in] Alterna. Se o valor for false, o ativo deve ser removido do Observação do Mercado, caso
+contrário o ativo deve ser selecionado nesta janela. O ativo não pode ser removido se o gráfico do
+ativo estiver aberto, ou houver posições em aberto deste ativo.
+<h3>Valor do Retorno</h3>
+Em caso de falha retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;GBPHKD&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- verificamos se o símbolo está presente nas listas; se não estiver, informamos o 
+   bool custom = false;
+   if(!SymbolExist(SYMBOL_NAME, custom))
+     {
+      PrintFormat(&quot;&#x27;%s&#x27; symbol not found in the lists&quot;, SYMBOL_NAME);
+      return;
+     }
+     
+//--- adicionamos o símbolo à janela Observação do mercado
+   ResetLastError();
+   if(!SymbolSelect(SYMBOL_NAME, true))
+     {
+      Print(&quot;SymbolSelect() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- se o símbolo for adicionado com sucesso à lista, obtemos seu índice na janela Ob
+   int index = SymbolIndex(SYMBOL_NAME);
+   PrintFormat(&quot;The &#x27;%s&#x27; symbol has been added to the MarketWatch list. Symbol index i
+     </p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1985
+</p>
+<pre><code class="language-mql5">
+//--- agora removemos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(SYMBOL_NAME, false))
+     {
+      Print(&quot;SymbolSelect() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- se o símbolo for removido com sucesso da lista, seu índice na janela Observação 
+   index = SymbolIndex(SYMBOL_NAME);
+   PrintFormat(&quot;The &#x27;%s&#x27; symbol has been removed from the MarketWatch list. Symbol ind
+   
+   /*
+   resultado:
+   The &#x27;GBPHKD&#x27; symbol has been added to the MarketWatch list. Symbol index in the lis
+   The &#x27;GBPHKD&#x27; symbol has been removed from the MarketWatch list. Symbol index in the
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna o índice do símbolo na lista da Observação do Mercado   |
+//+------------------------------------------------------------------+
+int SymbolIndex(const string symbol)
+  {
+   int total = SymbolsTotal(true);
+   for(int i=0; i&lt;total; i++)
+     {
+      string name = SymbolName(i, true);
+      if(name == symbol)
+         return i;
+     }
+   return(WRONG_VALUE);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1986
+<h3>SymbolIsSynchronized</h3>
+Verifica se os dados do símbolo especificado no terminal estão sincronizados com os dados no servidor
+de negociação.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolIsSynchronized(
+   string  name,       // nome do ativo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome do ativo.
+<h3>Valor de retorno</h3>
+Se os dados estiverem sincronizados, retorna true; caso contrário, retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;EURUSD&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o sinalizador de sincronização dos dados no terminal para o símbolo &#x27;SYM
+   bool   sync = SymbolIsSynchronized(SYMBOL_NAME);
+   
+//--- criamos uma mensagem dependendo do sinalizador de sincronização
+   string text = StringFormat(&quot;The data on the &#x27;%s&#x27; symbol in the terminal is synchron
+   if(!sync)
+      text = StringFormat(&quot;The data for the &#x27;%s&#x27; symbol in the terminal is not synchro
+   
+//--- exibimos o resultado obtido no log
+   Print(text);
+   
+   /*
+   resultado para dados sincronizados:
+   The data on the &#x27;EURUSD&#x27; symbol in the terminal is synchronized with the data on th
+   
+</code></pre>
+<p>
+  resultado para dados ainda não sincronizados:
+</p>
+<pre><code class="language-mql5">
+   The data for the &#x27;GBPHKD&#x27; symbol in the terminal is not synchronized with the data 
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>SymbolInfoInteger, Organizando Acesso a Dados</h3></p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1987
+<h3>SymbolInfoDouble</h3>
+Retorna a propriedade correspondente de um ativo especificado. Existem 2 variantes da função.
+1. Imediatamente retorna o valor da propriedade.
+</p>
+<pre><code class="language-mql5">
+double  SymbolInfoDouble(
+   string                   name,       // ativo
+   ENUM_SYMBOL_INFO_DOUBLE  prop_id     // identificador da propriedade
+   );
+</code></pre>
+<p>
+2. Retorna true ou false dependendo se a função for executada com sucesso. Em caso de sucesso, o
+valor da propriedade é colocado em uma variável recipiente, passada por referênce atráves do último
+parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoDouble(
+   string                   name,       // ativo
+   ENUM_SYMBOL_INFO_DOUBLE  prop_id,    // identificador da propriedade
+   double&amp;                  double_var  // aqui nós assumimos o valor da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in] Nome do ativo.
+prop_id
+[in] Identificador de um propriedade de ativo. O valor pode ser um dos valores da enumeração
+ENUM_SYMBOL_INFO_DOUBLE.
+double_var
+[out] Variável de tipo double recebendo o valor da propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor de tipo double. Em caso de falha de execução, a informação sobre o erro pode ser obtida
+usando a função GetLastError():
+· 5040 – parâmetro de string inválido para especificar um nome de ativo,
+· 4301 – ativo desconhecido (instrumento financeiro),
+· 4302 – ativo não está selecionado no &quot;Observador de Mercado&quot; (não encontrado na lista de ativos
+disponíveis),
+· 4303 – identificador inválido de uma propriedade de ativo.
+<h3>Observação</h3>
+É recomendável usar SymbolInfoTick() se a função for usada para obter informações sobre o último
+tick. É bom possível que nenhuma cotação tenha aparecido ainda desde que o terminal se conectou
+a uma conta de negociação. Em tal situação, o valor solicitado será indefinido
+Na maioria dos casos, é suficiente usar a função SymbolInfoTick() permitindo a um usuário receber
+os valores dos preços Compra, Venda, Último, Volume e a hora da chegada do último tick através de
+uma única chamada.</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1988
+A função SymbolInfoMarginRate() fornece informações sobre o valor da margem cobrada,
+dependendo do tipo e direção da ordem.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnTick()
+  {
+//--- obtém spread a partir das propriedade do ativo
+   bool spreadfloat=SymbolInfoInteger(Symbol(),SYMBOL_SPREAD_FLOAT);
+   string comm=StringFormat(&quot;Spread %s = %I64d pontos\r\n&quot;,
+                            spreadfloat?&quot;flutuante&quot;:&quot;fixo&quot;,
+                            SymbolInfoInteger(Symbol(),SYMBOL_SPREAD));
+//--- agora vamos calcular nós mesmos o spread
+   double ask=SymbolInfoDouble(Symbol(),SYMBOL_ASK);
+   double bid=SymbolInfoDouble(Symbol(),SYMBOL_BID);
+   double spread=ask-bid;
+   int spread_points=(int)MathRound(spread/SymbolInfoDouble(Symbol(),SYMBOL_POINT));
+   comm=comm+&quot;Spread calculada = &quot;+(string)spread_points+&quot; pontos&quot;;
+   Comment(comm);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1989
+<h3>SymbolInfoInteger</h3>
+Retorna a propriedade correspondente de um ativo especificado. Existem 2 variantes da função.
+1. Imediatamente retorna o valor da propriedade.
+long  SymbolInfoInteger(
+</p>
+<pre><code class="language-mql5">
+   string                    name,      // ativo
+   ENUM_SYMBOL_INFO_INTEGER  prop_id    // identificador da propriedade
+   );
+</code></pre>
+<p>
+2. Retorna true ou false dependendo se a função for executada com sucesso. Em caso de sucesso, o
+valor da propriedade é colocado em uma variável recipiente, passada por referênce atráves do último
+parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoInteger(
+   string                    name,      // ativo
+   ENUM_SYMBOL_INFO_INTEGER  prop_id,   // identificador da propriedade
+   long&amp;                     long_var   // aqui nós assumimos o valor da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in] Nome do ativo.
+prop_id
+[in] Identificador de um propriedade de ativo. O valor pode ser um dos valores da enumeração
+ENUM_SYMBOL_INFO_INTEGER.
+long_var
+[out] Variável de tipo long rececendo o valor da propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor de tipo long. Em caso de falha de execução, a informação sobre o erro pode ser obtida usando
+a função GetLastError():
+· 5040 – parâmetro de string inválido para especificar um nome de ativo,
+· 4301 – ativo desconhecido (instrumento financeiro),
+· 4302 – ativo não está selecionado no &quot;Observador de Mercado&quot; (não encontrado na lista de ativos
+disponíveis),
+· 4303 – identificador inválido de uma propriedade de ativo.
+<h3>Observação</h3>
+É recomendável usar SymbolInfoTick() se a função for usada para obter informações sobre o último
+tick. É bom possível que nenhuma cotação tenha aparecido ainda desde que o terminal se conectou
+a uma conta de negociação. Em tal situação, o valor solicitado será indefinido
+Na maioria dos casos, é suficiente usar a função SymbolInfoTick() permitindo a um usuário receber
+os valores dos preços Compra, Venda, Último, Volume e a hora da chegada do último tick através de
+uma única chamada.</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1990
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnTick()
+  {
+//--- obtém spread a partir das propriedade do ativo
+   bool spreadfloat=SymbolInfoInteger(Symbol(),SYMBOL_SPREAD_FLOAT);
+   string comm=StringFormat(&quot;Spread %s = %I64d pontos\r\n&quot;,
+                            spreadfloat?&quot;flutuante&quot;:&quot;fixo&quot;,
+                            SymbolInfoInteger(Symbol(),SYMBOL_SPREAD));
+//--- agora vamos calcular nós mesmos o spread
+   double ask=SymbolInfoDouble(Symbol(),SYMBOL_ASK);
+   double bid=SymbolInfoDouble(Symbol(),SYMBOL_BID);
+   double spread=ask-bid;
+   int spread_points=(int)MathRound(spread/SymbolInfoDouble(Symbol(),SYMBOL_POINT));
+   comm=comm+&quot;Spread calculada = &quot;+(string)spread_points+&quot; pontos&quot;;
+   Comment(comm);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1991
+<h3>SymbolInfoString</h3>
+Retorna a propriedade correspondente do símbolo especificado. Existem 2 variantes da função.
+1. Retorna diretamente o valor da propriedade.
+</p>
+<pre><code class="language-mql5">
+string  SymbolInfoString(
+   string                   name,        // ativo
+   ENUM_SYMBOL_INFO_STRING  prop_id      // identificador da propriedade
+   );
+</code></pre>
+<p>
+2. Retorna true ou false dependendo do sucesso da execução da função. Em caso de sucesso, o valor
+da propriedade é colocado na variável receptora passada por referência como último parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoString(
+   string                   name,        // ativo
+   ENUM_SYMBOL_INFO_STRING  prop_id      // identificador da propriedade
+   string&amp;                  string_var   // variável que recebe o valor da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in] Nome do ativo.
+prop_id
+[in] Identificador da propriedade do ativo. O valor pode ser um dos valores da enumeração
+ENUM_SYMBOL_INFO_STRING.
+string_var
+[out] Variável do tipo string que recebe o valor da propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor de tipo string. Em caso de execução malsucedida, a informação sobre o erro pode ser obtida
+com a função GetLastError():
+· 5040 – parâmetro de string inválido para especificar o nome do ativo,
+· 4301 – ativo desconhecido (instrumento financeiro),
+· 4302 – ativo não selecionado no &quot;Observação do Mercado&quot; (não está na lista disponível),
+· 4303 – identificador da propriedade do ativo inválido.
+<h3>Observação</h3>
+Se a função for usada para obter informações sobre o último tick, é melhor usar SymbolInfoTick()
+***. É possível que não tenha havido nenhuma cotação para esse símbolo desde que o terminal se
+conectou à conta de negociação. Nesse caso, o valor solicitado será indefinido.
+Na maioria dos casos, é suficiente usar a função SymbolInfoTick(), que permite obter em uma
+chamada os valores Ask, Bid, Last, Volume e a hora da chegada do último tick.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;USDJPY&quot;</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1992
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos dados de string para o símbolo SYMBOL_NAME
+   string currency_base   = SymbolInfoString(SYMBOL_NAME, SYMBOL_CURRENCY_BASE);    //
+   string currency_profit = SymbolInfoString(SYMBOL_NAME, SYMBOL_CURRENCY_PROFIT);  //
+   string currency_margin = SymbolInfoString(SYMBOL_NAME, SYMBOL_CURRENCY_MARGIN);  //
+   string symbol_descript = SymbolInfoString(SYMBOL_NAME, SYMBOL_DESCRIPTION);      //
+//--- criamos o corpo da mensagem com os dados recebidos
+   string text=StringFormat(&quot;Symbol %s:\n&quot;+
+                            &quot;- Currency Base: %s\n&quot;+
+                            &quot;- Currensy Profit: %s\n&quot;+
+                            &quot;- Currency Margin: %s\n&quot;+
+                            &quot;- Symbol Description: %s&quot;,
+                            SYMBOL_NAME, currency_base,
+                            currency_profit, currency_margin,
+                            symbol_descript);
+//--- enviamos os dados obtidos para o log
+   Print(text);
+   /*
+   Symbol USDJPY:
+   - Currency Base: USD
+   - Currensy Profit: JPY
+   - Currency Margin: USD
+   - Symbol Description: US Dollar vs Yen
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1993
+<h3>SymbolInfoMarginRate</h3>
+Retorna os coeficientes de cobrança de margem, dependendo do tipo e direção da ordem.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoMarginRate(
+   string             name,                     // símbolo
+   ENUM_ORDER_TYPE    order_type,               // tipo de ordem
+   double&amp;            initial_margin_rate,      // coeficiente de cobrança de margem i
+   double&amp;            maintenance_margin_rate   // coeficiente de cobrança de margem d
+   );
+</code></pre>
+<p>
+parâmetros
+name
+[in]  Nome do símbolo.
+order_type
+[in]  Tipo de ordem.
+initial_margin_rate
+[in] Variável do tipo double para receber o coeficiente de cobrança de margem inicial. A margem
+inicial é o valor da garantia para realizar a operação de 1 lote na direção correspondente. Ao
+multiplicar o coeficiente pela margem inicial, podemos obter o valor dos fundos que serão
+reservados na conta ao colocar a ordem do tipo especificado.
+maintenance_margin_rate
+[out] A variável do tipo double para receber o coeficiente de cobrança de margem de manutenção.
+A margem de manutenção é o valor mínimo necessário para manter a posição aberta de 1 lote na
+direção correspondente. Ao multiplicar o coeficiente pela margem de manutenção, podemos obter
+o valor dos fundos que serão reservados na conta após a execução da ordem do tipo especificado.
+valor de retorno
+Retorna true em caso de execução bem-sucedida da solicitação das propriedades, caso contrário,
+false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME Symbol()
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos as variáveis que receberão os coeficientes
+   double initial_margin_rate = 0;     // coeficiente de cobrança de margem inicial
+   double maintenance_margin_rate = 0; // coeficiente de cobrança de margem de manuten
+   
+//--- obtemos e exibiremos no log os coeficientes para o símbolo SYMBOL_NAME para a or
+   SymbolInfoMarginRatePrint(SYMBOL_NAME, ORDER_TYPE_BUY, initial_margin_rate, mainten
+   </p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1994
+</p>
+<pre><code class="language-mql5">
+//--- obtemos e exibiremos no log os coeficientes para o símbolo SYMBOL_NAME para a or
+   SymbolInfoMarginRatePrint(SYMBOL_NAME, ORDER_TYPE_SELL, initial_margin_rate, mainte
+   /*
+   resultado:
+   Initial margin rate for symbol AFKS for the Buy market order: 0.225600
+   Maintenance margin rate for symbol AFKS for the Buy market order: 0.112800
+   Initial margin rate for symbol AFKS for the Sell market order: 0.254400
+   Maintenance margin rate for symbol AFKS for the Sell market order: 0.127200   
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprime no log os coeficientes de cobrança de margem |
+//+------------------------------------------------------------------+
+void SymbolInfoMarginRatePrint(const string symbol, const ENUM_ORDER_TYPE order_type, 
+  {
+//--- obtemos os coeficientes para o símbolo symbol para a ordem a mercado order_type
+   ResetLastError();
+   if(!SymbolInfoMarginRate(symbol, order_type, initial_margin_rate, maintenance_margi
+     {
+      Print(&quot;SymbolInfoMarginRate() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- imprimimos os valores obtidos dos coeficientes
+   string type=(order_type==ORDER_TYPE_BUY ? &quot;Buy&quot; : order_type==ORDER_TYPE_SELL ? &quot;Se
+   PrintFormat(&quot;Initial margin rate for symbol %s for the %s market order: %f\n&quot;+
+               &quot;Maintenance margin rate for symbol %s for the %s market order: %f&quot;,
+               SYMBOL_NAME, type, initial_margin_rate,
+               SYMBOL_NAME, type, maintenance_margin_rate);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1995
+<h3>SymbolInfoTick</h3>
+Retorna os preços atuais para o símbolo especificado em uma variável do tipo MqlTick.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoTick(
+   string    symbol,     // nome do ativo
+   MqlTick&amp;  tick        // referência para a estrutura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do ativo.
+tick
+[out]  Referência para a estrutura do tipo MqlTick, na qual serão armazenados os preços atuais e o
+horário da última atualização dos preços.
+<h3>Valor do Retorno</h3>
+Retorna true em caso de sucesso, caso contrário, retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;EURUSD&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos um array do tipo estrutura MqlTick de tamanho 1
+   MqlTick tick[1]={};
+   
+//--- obtemos os preços mais recentes para o símbolo SYMBOL_NAME na estrutura MqlTick
+   if(!SymbolInfoTick(SYMBOL_NAME, tick[0]))
+     {
+      Print(&quot;SymbolInfoTick() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- enviamos os dados obtidos para o log
+   PrintFormat(&quot;Latest price data for the &#x27;%s&#x27; symbol:&quot;, SYMBOL_NAME);
+   ArrayPrint(tick);
+   /*
+   resultado:
+   Latest price data for the &#x27;EURUSD&#x27; symbol:
+                    [time]   [bid]   [ask] [last] [volume]    [time_msc] [flags] [volu
+   [0] 2024.05.17 23:58:54 1.08685 1.08695 0.0000        0 1715990334319       6      
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1996
+<h3>SymbolInfoSessionQuote</h3>
+Permite obter o horário de início e término da sessão de cotação especificada para o símbolo e dia da
+semana indicados.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoSessionQuote(
+   string            name,                // nome do ativo
+   ENUM_DAY_OF_WEEK  day_of_week,         // dia da semana
+   uint              session_index,       // índice da sessão
+   datetime&amp;         from,                // hora de início da sessão
+   datetime&amp;         to                   // hora de término da sessão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome do ativo.
+<h3>ENUM_DAY_OF_WEEK</h3>
+[in]  Dia da semana, um valor da enumeração ENUM_DAY_OF_WEEK.
+uint
+[in]  Número ordinal da sessão para a qual se deseja obter o horário de início e término. A
+indexação das sessões começa em 0.
+from
+[out]  Hora de início da sessão em segundos a partir de 00:00. A data no valor obtido deve ser
+ignorada.
+to
+[out]  Hora de término da sessão em segundos a partir de 00:00. A data no valor obtido deve ser
+ignorada.
+<h3>Valor do Retorno</h3>
+Se os dados para a sessão, símbolo e dia da semana especificados forem obtidos, retorna true; caso
+contrário, retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME   Symbol()
+#define SESSION_INDEX 0
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- imprime o cabeçalho com o símbolo e o índice da sessão SESSION_INDEX e
+//--- em um loop de segunda a sexta, imprime no log o horário de início e término da s
+   PrintFormat(&quot;Symbol %s, Quote session %d:&quot;, SYMBOL_NAME, SESSION_INDEX);
+   for(int i=MONDAY; i&lt;SATURDAY; i++)</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1997
+</p>
+<pre><code class="language-mql5">
+      SymbolInfoSessionQuotePrint(SYMBOL_NAME, (ENUM_DAY_OF_WEEK)i, SESSION_INDEX);
+   /*
+   resultado:
+   Symbol RU000A103661, Quote session 0:
+   - Monday     06:45 - 00:00
+   - Tuesday    06:45 - 00:00
+   - Wednesday  06:45 - 00:00
+   - Thursday   06:45 - 00:00
+   - Friday     06:45 - 00:00
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprime no log o horário de início e término da sessão |
+//| de cotação para o símbolo e dia da semana especificados |
+//+------------------------------------------------------------------+
+void SymbolInfoSessionQuotePrint(const string symbol, const ENUM_DAY_OF_WEEK day_of_we
+  {
+//--- declaramos variáveis para armazenar o início e término da sessão de cotação
+   datetime date_from;  // hora de início da sessão
+   datetime date_to;    // hora de término da sessão
+   
+//--- obtemos os dados da sessão de cotação para o símbolo e dia da semana
+   if(!SymbolInfoSessionQuote(symbol, day_of_week, session_index, date_from, date_to))
+     {
+      Print(&quot;SymbolInfoSessionQuote() failed. Error &quot;, GetLastError());
+      return;
+     }
+     
+//--- criamos o nome do dia da semana a partir da constante de enumeração
+   string week_day=EnumToString(day_of_week);
+   if(week_day.Lower())
+      week_day.SetChar(0, ushort(week_day.GetChar(0)-32));
+//--- imprimimos no log os dados da sessão de cotação especificada
+   PrintFormat(&quot;- %-10s %s - %s&quot;, week_day, TimeToString(date_from, TIME_MINUTES), Tim
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Propriedade de Ativo, TimeToStruct, Estrutura de Dados</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1998
+<h3>SymbolInfoSessionTrade</h3>
+Permite obter a hora de início e término da sessão de negociação especificada para o símbolo e dia da
+semana indicados.
+</p>
+<pre><code class="language-mql5">
+bool  SymbolInfoSessionTrade(
+   string            name,                // nome do ativo
+   ENUM_DAY_OF_WEEK  day_of_week,         // dia da semana
+   uint              session_index,       // índice da sessão
+   datetime&amp;         from,                // hora de início da sessão
+   datetime&amp;         to                   // hora de término da sessão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome do ativo.
+<h3>ENUM_DAY_OF_WEEK</h3>
+[in]  Dia da semana, um valor da enumeração ENUM_DAY_OF_WEEK.
+uint
+[in]  Número ordinal da sessão para a qual se deseja obter o horário de início e término. A
+indexação das sessões começa em 0.
+from
+[out]  Hora de início da sessão em segundos a partir de 00:00. A data no valor obtido deve ser
+ignorada.
+to
+[out]  Hora de término da sessão em segundos a partir de 00:00. A data no valor obtido deve ser
+ignorada.
+<h3>Valor de retorno</h3>
+Se os dados para a sessão, símbolo e dia da semana especificados forem obtidos, retorna true; caso
+contrário, retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME   Symbol()
+#define SESSION_INDEX 0
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- imprime o cabeçalho com o símbolo e o índice da sessão SESSION_INDEX e
+//--- em um loop de segunda a sexta, imprime no log a hora de início e término da sess
+   PrintFormat(&quot;Symbol %s, Trade session %d:&quot;, SYMBOL_NAME, SESSION_INDEX);
+   for(int i=MONDAY; i&lt;SATURDAY; i++)</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1999
+</p>
+<pre><code class="language-mql5">
+      SymbolInfoSessionTradePrint(SYMBOL_NAME, (ENUM_DAY_OF_WEEK)i, SESSION_INDEX);
+   /*
+   resultado:
+   Symbol GBPUSD, Trade session 0:
+   - Monday     00:15 - 23:55
+   - Tuesday    00:15 - 23:55
+   - Wednesday  00:15 - 23:55
+   - Thursday   00:15 - 23:55
+   - Friday     00:15 - 23:55
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprime no log o horário de início e término da sessão |
+//| de negociação para o símbolo e dia da semana especificados |
+//+------------------------------------------------------------------+
+void SymbolInfoSessionTradePrint(const string symbol, const ENUM_DAY_OF_WEEK day_of_we
+  {
+//--- declaramos variáveis para armazenar o início e término da sessão de negociação
+   datetime date_from;  // hora de início da sessão
+   datetime date_to;    // hora de término da sessão
+   
+//--- obtemos os dados da sessão de negociação para o símbolo e dia da semana
+   if(!SymbolInfoSessionTrade(symbol, day_of_week, session_index, date_from, date_to))
+     {
+      Print(&quot;SymbolInfoSessionTrade() failed. Error &quot;, GetLastError());
+      return;
+     }
+     
+//--- criamos o nome do dia da semana a partir da constante de enumeração
+   string week_day=EnumToString(day_of_week);
+   if(week_day.Lower())
+      week_day.SetChar(0, ushort(week_day.GetChar(0)-32));
+//--- imprimimos no log os dados da sessão de negociação especificada
+   PrintFormat(&quot;- %-10s %s - %s&quot;, week_day, TimeToString(date_from, TIME_MINUTES), Tim
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Propriedade de Ativo, TimeToStruct, Estrutura de Dados</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+2000
+<h3>MarketBookAdd</h3>
+Abre o livro de ofertas (Depth of Market, DOM) para o ativo selecionado, e ativa notificações de
+alterações na DOM.
+</p>
+<pre><code class="language-mql5">
+bool  MarketBookAdd(
+   string  symbol      // ativo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in] O nome do ativo cujo livro de ofertas é usado no Expert Advisor ou script.
+<h3>Valor do Retorno</h3>
+O valor true se aberto com sucesso, caso contrário false.
+<h3>Observação</h3>
+Normalmente, esta função deve ser chamada a partir da função OnInit() ou no construtor da classe.
+Para manipular a chegada de alertas, o programa Expert Advisor deve conter a função void
+OnBookEvent(string&amp; symbol).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define   SYMBOL_NAME   &quot;GBPUSD&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- abrimos o livro de ofertas do símbolo SYMBOL_NAME
+   if(!MarketBookAdd(SYMBOL_NAME))
+     {
+      PrintFormat(&quot;MarketBookAdd(%s) failed. Error &quot;, SYMBOL_NAME, GetLastError());
+      return;
+     }
+//--- mostramos no log a mensagem sobre a abertura bem-sucedida do livro de ofertas
+   PrintFormat(&quot;The MarketBook for the &#x27;%s&#x27; symbol was successfully opened and a subsc
+   
+//--- esperamos 2 segundos
+   Sleep(2000);
+   
+//--- no final, cancelaremos a assinatura do livro de ofertas
+   ResetLastError();
+   if(MarketBookRelease(SYMBOL_NAME))
+      PrintFormat(&quot;MarketBook for the &#x27;%s&#x27; symbol was successfully closed&quot;, SYMBOL_NAM
+   else
+      PrintFormat(&quot;Error %d occurred when closing MarketBook using the &#x27;%s&#x27; symbol&quot;, G</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+2001
+</p>
+<pre><code class="language-mql5">
+      
+   /*
+   resultado:
+   The MarketBook for the &#x27;GBPUSD&#x27; symbol was successfully opened and a subscription t
+   MarketBook for the &#x27;GBPUSD&#x27; symbol was successfully closed
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Estrutura da Profundidade de Mercado, Estruturas e Classes</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+2002
+<h3>MarketBookRelease</h3>
+Fecha o livro de ofertas (Depth of Market, DOM) para um ativo selecionado, e cancela a assinatura
+para receber notificações de alteração na DOM.
+</p>
+<pre><code class="language-mql5">
+bool  MarketBookRelease(
+   string  symbol      // ativo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in] Nome do ativo.
+<h3>Valor do Retorno</h3>
+O valor true se a fechamento foi bem sucedido, caso contrário false.
+<h3>Observação</h3>
+Normalmente, esta função deve ser chamada da função OnDeinit(), se a correspondente função
+MarketBookAdd() foi chamada na função OnInit(). Ou ela deve ser chamada a partir do destrutor da
+classe, se a função MarketBookAdd() correspondente foi chamada a partir do construtor da classe.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define SYMBOL_NAME &quot;GBPUSD&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- abrimos o livro de ofertas do símbolo SYMBOL_NAME
+   if(!MarketBookAdd(SYMBOL_NAME))
+     {
+      PrintFormat(&quot;MarketBookAdd(%s) failed. Error &quot;, SYMBOL_NAME, GetLastError());
+      return;
+     }
+//--- mostramos no log a mensagem sobre a abertura bem-sucedida do livro de ofertas
+   PrintFormat(&quot;The MarketBook for the &#x27;%s&#x27; symbol was successfully opened and a subsc
+   
+//--- esperamos 2 segundos
+   Sleep(2000);
+   
+//--- no final, cancelaremos a assinatura do livro de ofertas
+//--- mostramos no log a mensagem sobre o cancelamento bem-sucedido da assinatura do l
+   ResetLastError();
+   if(MarketBookRelease(SYMBOL_NAME))
+      PrintFormat(&quot;MarketBook for the &#x27;%s&#x27; symbol was successfully closed&quot;, SYMBOL_NAM
+   else</p>
+<p></code></pre>
+<p>
+<h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+2003
+</p>
+<pre><code class="language-mql5">
+      PrintFormat(&quot;Error %d occurred when closing MarketBook using the &#x27;%s&#x27; symbol&quot;, G
+      
+   /*
+   resultado:
+   The MarketBook for the &#x27;GBPUSD&#x27; symbol was successfully opened and a subscription t
+   MarketBook for the &#x27;GBPUSD&#x27; symbol was successfully closed
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Estrutura da Profundidade de Mercado, Estruturas e Classes</p>
+<p><h3>Informações de Mercado</h3>
+© 2000-2025, MetaQuotes Ltd.
+2004
+<h3>MarketBookGet</h3>
+Retorna um array de estruturas MqlBookInfo contendo registros da Profundidade de Mercado de um
+ativo especificado.
+</p>
+<pre><code class="language-mql5">
+bool  MarketBookGet(
+   string        symbol,     // ativo
+   MqlBookInfo&amp;  book[]      // referência para um array
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in] Nome do ativo.
+book[]
+[in] Referência para um array de registros de Profundidade de Mercado. O array pode ser pré-
+alocado para um número suficiente de registros. Se um array dinâmico não tiver sido pré-alocado
+na memória operacional, o terminal cliente alocará ele mesmo o array.
+<h3>Valor do Retorno</h3>
+Retorna true em caso de sucesso, caso contrário false.
+<h3>Observação</h3>
+A Profundidade de Mercado deve ser pre-aberta pela função MarketBookAdd().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   MqlBookInfo priceArray[];
+   bool getBook=MarketBookGet(NULL,priceArray);
+   if(getBook)
+     {
+      int size=ArraySize(priceArray);
+      Print(&quot;MarketBookInfo para &quot;,Symbol());
+      for(int i=0;i&lt;size;i++)
+        {
+         Print(i+&quot;:&quot;,priceArray[i].price
+               +&quot;    Volume = &quot;+priceArray[i].volume,
+               &quot; tipo = &quot;,priceArray[i].type);
+        }
+     }
+   else
+     {
+      Print(&quot;Could not get contents of the symbol DOM &quot;,Symbol());
+     }
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+Estrutura da Profundidade de Mercado, Estruturas e Classes
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis Globais do Terminal - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class="active"><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Variáveis Globais do Terminal</h1>
+        </header>
+        
+        <article>
+            <p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2468
+<h3>Variáveis Globais do Terminal de Cliente</h3>
+Há um grupo que define as funções para trabalhar com variáveis globais.
+Variáveis globais do terminal de cliente não deve ser confundida com as variáveis declaradas no
+escopo global do programa mql5.
+Variáveis globais são guardadas no terminal de cliente por 4 semanas desde o último acesso, então
+elas serão excluídas automaticamente. Um acesso para a variável global não é somente a definição de
+um novo valor, mas a leitura do valor da varável global, também.
+As variáveis ​globais do terminal de cliente são acessíveis simultaneamente de todos os programas
+mql5 executados no terminal do cliente.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>GlobalVariableCheck</h3>
+Verifica a existência de uma variável global com o nome
+especificado
+<h3>GlobalVariableTime</h3>
+Retorna o tempo do último acesso para a variável global
+<h3>GlobalVariableDel</h3>
+<h3>Exclui uma variável global</h3>
+<h3>GlobalVariableGet</h3>
+<h3>Retorna o valor da variável global</h3>
+<h3>GlobalVariableName</h3>
+Retorna o nome de uma variável global, que é o número ordinal
+dentro da lista de variáveis globais
+<h3>GlobalVariableSet</h3>
+Define o novo valor para uma variável global
+<h3>GlobalVariablesFlush</h3>
+Salva forçadamente o conteúdo de todas as varáveis globais
+num disco
+<h3>GlobalVariableTemp</h3>
+Define o novo valor para uma variável global, que existe
+somente na sessão geral do terminal
+<h3>GlobalVariableSetOnCondition</h3>
+Define um novo valor de existência de variável global pela
+condição estabelecida
+<h3>GlobalVariablesDeleteAll</h3>
+Exclui as variáveis globais com especificação prefixada em seus
+nomes
+<h3>GlobalVariablesTotal</h3>
+Retorna o número total de Variáveis Globais</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2469
+<h3>GlobalVariableCheck</h3>
+Verifica a existência de uma variável global com o nome especificado
+</p>
+<pre><code class="language-mql5">
+bool  GlobalVariableCheck(
+   string  name      // Nome da variável global
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome da variável global.
+<h3>Valor do Retorno</h3>
+Retorna true, se a variável global existe, caso contrário, retorna false.
+As variáveis globais existem no terminal do cliente durante 4 semanas desde a última utilização,
+então eles são excluídos automaticamente.
+<h3>Também Veja</h3>
+<h3>GlobalVariableTime()</h3></p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2470
+<h3>GlobalVariableTime</h3>
+Retorna o tempo em que a variável global foi acessado pela última vez.
+datetime  GlobalVariableTime(
+</p>
+<pre><code class="language-mql5">
+   string  name      // nome
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome da variável global.
+<h3>Valor do Retorno</h3>
+A função retorna hora do último acesso à variável global especificada. Chamando uma variável para
+obter um valor também é considerado como um acesso a ele. A fim de obter os detalhes do erro
+chamar a função GetLastError().
+<h3>Observação</h3>
+As variáveis globais existem no terminal do cliente durante 4 semanas desde a última utilização.
+Depois disso, eles são excluídos automaticamente.
+<h3>Também Veja</h3>
+<h3>GlobalVariableCheck()</h3></p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2471
+<h3>GlobalVariableDel</h3>
+Exclui uma variável global a partir do terminal do cliente.
+</p>
+<pre><code class="language-mql5">
+bool  GlobalVariableDel(
+   string  name      // Nome da variável global
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome da variável global.
+<h3>Valor do Retorno</h3>
+Se bem sucedida, a função retorna true, caso contrário ela retorna false. Para obter uma informação
+sobre o erro é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+As variáveis globais existem no terminal do cliente durante 4 semanas desde a última utilização,
+então eles são excluídos automaticamente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2472
+<h3>GlobalVariableGet</h3>
+Retorna o valor de uma variável global existente do terminal do cliente. Existem 2 variantes da
+função.
+1. Imediatamente retorna o valor da variável global.
+</p>
+<pre><code class="language-mql5">
+double  GlobalVariableGet(
+   string  name      // Nome da variável global
+   );
+</code></pre>
+<p>
+2. Retorna true ou false dependendo do sucesso da execução da função. Se for bem sucedido, a
+variável global do terminal do cliente é colocado em uma variável passada por referência no segundo
+parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  GlobalVariableGet(
+   string  name,              // Nome da variável global
+   double&amp; double_var         // Esta variável irá conter o valor da variável global
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome da variável global.
+double_var
+[out]  Alvo variável do tipo duplo, que aceita o valor armazenado em uma variável global do
+terminal do cliente.
+<h3>Valor do Retorno</h3>
+O valor da variável global existente ou 0(zero) em caso de um erro. Para mais detalhes sobre o erro,
+chamar GetLastError().
+<h3>Observação</h3>
+As variáveis globais existem no terminal do cliente durante 4 semanas desde a última utilização,
+então eles são excluídos automaticamente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2473
+<h3>GlobalVariableName</h3>
+Retorna o nome de uma variável global, que é o número ordinal.
+</p>
+<pre><code class="language-mql5">
+string  GlobalVariableName(
+   int  index      // Número variável global na lista de variáveis globais
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+index
+[in]  Número de seqüência na lista de variáveis globais. Ele deve ser maior ou igual a 0(zero) e
+menor do que GlobalVariablesTotal().
+<h3>Valor do Retorno</h3>
+Nome da variável global, que é o número ordinal na lista de variáveis globais. Para mais detalhes
+sobre o erro, chamar GetLastError().
+<h3>Observação</h3>
+As variáveis globais existem no terminal do cliente durante 4 semanas desde a última utilização,
+então eles são excluídos automaticamente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2474
+<h3>GlobalVariableSet</h3>
+Define um novo valor para uma variável global. Se a variável não existir, o sistema cria uma nova
+variável global.
+datetime  GlobalVariableSet(
+</p>
+<pre><code class="language-mql5">
+   string  name,      // Nome da variável global
+   double  value      // Valor a ser definido
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome da variável global.
+value
+[in]  O novo valor numérico.
+<h3>Valor do Retorno</h3>
+Se for bem sucedido, a função retorna a última modificação, caso contrário, 0 (zero). Para mais
+detalhes sobre o erro, chamar GetLastError().
+<h3>Observação</h3>
+Um nome de variável global não deve exceder 63 caracteres. As variáveis globais existem no
+terminal do cliente durante 4 semanas desde a última utilização, então eles são excluídos
+automaticamente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2475
+<h3>GlobalVariablesFlush</h3>
+Salva forçadamente o conteúdo de todas as varáveis globais num disco.
+</p>
+<pre><code class="language-mql5">
+void  GlobalVariablesFlush();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+O terminal escreve todas as variáveis globais quando o trabalho é em excesso, mas os dados podem
+ser perdidos em uma falha súbita de operação do computador. Esta função permite controle
+independente do processo de salvar variáveis globais em caso de contingência.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2476
+<h3>GlobalVariableTemp</h3>
+A função tenta criar uma variável global temporária. Se a variável não existir, o sistema cria uma
+nova variável global temporária.
+</p>
+<pre><code class="language-mql5">
+bool  GlobalVariableTemp(
+   string  name      // Nome da variável global
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  O nome de uma variável global temporária.
+<h3>Valor do Retorno</h3>
+Se for bem sucedido, a função retorna true, caso contrário - false. Para obter detalhes sobre o erro,
+você deve chamar a função GetLastError().
+<h3>Observação</h3>
+Variáveis globais temporários existem apenas enquanto o terminal do cliente está sendo executado,
+após o desligamento do terminal eles são excluídos automaticamente. Note-se que durante a
+execução de GlobalVariablesFlush() variáveis ​globais temporárias não são gravados em um disco.
+Depois de uma variável global temporário tiver sido criado, pode ser acedido e modificado a mesma
+ variável global do terminal do cliente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2477
+<h3>GlobalVariableSetOnCondition</h3>
+Define o novo valor da variável global existente, se o valor da corrente é igual ao terceiro parâmetro
+check_value. 
+<h3>Se</h3>
+não 
+houver 
+nenhuma 
+variável 
+global, 
+a 
+função 
+irá 
+gerar 
+um 
+erro
+ERR_GLOBALVARIABLE_NOT_FOUND (4501) e voltar false.
+</p>
+<pre><code class="language-mql5">
+bool  GlobalVariableSetOnCondition(
+   string  name,            // Nome da variável global
+   double  value,           // Novo valor para a variável, se a condição for verdadeir
+   double  check_value      // Verifique condição de valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  O nome de uma variável global.
+value
+[in]  Novo valor.
+check_value
+[in]   O valor para verificar o valor atual da variável global.
+<h3>Valor do Retorno</h3>
+Se bem sucedida, a função retorna true, caso contrário ela retorna false. Para obter detalhes sobre
+o erro chamar GetLastError(). Se o valor atual da variável global é diferente de check_value, a
+função retorna false.
+<h3>Observação</h3>
+Função fornece acesso atômico a variável global, para que ele possa ser utilizado para a prestação
+de uma exclusão mútua na interação de vários consultores especializados trabalhando
+simultaneamente dentro de um terminal de cliente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2478
+<h3>GlobalVariablesDeleteAll</h3>
+Apaga as variáveis globais do terminal do cliente.
+</p>
+<pre><code class="language-mql5">
+int  GlobalVariablesDeleteAll(
+   string     prefix_name=NULL,     // Todas as variáveis globais com nomes que começa
+   datetime   limit_data=0          // Todas as variáveis globais que foram alteradas 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+prefix_name=NULL
+[in] Prefixo do nome de variáveis globais para remover. Se você especificar um prefixo NULL ou
+</p>
+<pre><code class="language-mql5">
+string vazia, então todas as variáveis que atendam o critério dados serão apagados.
+</code></pre>
+<p>
+limit_data=0
+[in] Data para selecionar as variáveis globais no momento de sua última modificação. A função
+remove variáveis globais, que foram alteradas antes desta data. Se o parâmetro for zero, então
+todas as variáveis que atendam o primeiro critério (prefixo) são excluídos.
+<h3>Valor do Retorno</h3>
+O número de variáveis apagados.
+<h3>Observação</h3>
+Se ambas as opções são iguais a zero (prefix_name = NULL e limit_data = 0), então função exclui
+todas as variáveis globais da terminação. Se ambos os parâmetros são especificados, então ele
+elimina variáveis globais correspondentes a ambos os parâmetros.
+As variáveis globais existem no terminal do cliente durante 4 semanas desde suas última utilização,
+então eles são excluídos automaticamente.</p>
+<p><h3>Variáveis Globais do Terminal</h3>
+© 2000-2025, MetaQuotes Ltd.
+2479
+<h3>GlobalVariablesTotal</h3>
+Retorna o número total de Variáveis Globais do Terminal de Cliente.
+</p>
+<pre><code class="language-mql5">
+int  GlobalVariablesTotal();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Número de variáveis globais.
+<h3>Observação</h3>
+As variáveis globais existem no terminal do cliente durante 4 semanas desde a última utilização,
+então eles são excluídos automaticamente. Chamada de uma variável global está a definir não só
+um novo valor, mas também a leitura do valor da variável global.
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

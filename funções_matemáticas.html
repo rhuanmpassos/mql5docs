@@ -1,0 +1,4166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Matemáticas - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class="active"><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções Matemáticas</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1764
+<h3>Funções Matemáticas</h3>
+Um conjunto de funções matemáticas e trigonométricas.
+As funções matemáticas foram originalmente projetadas para operações matemáticas em valores
+escalares. Agora, a maioria dessas funções pode ser usada com novos tipos de dados - matrizes e
+vetores - MathAbs, MathArccos, MathArcsin, MathArctan, MathCeil, MathCos, MathExp, MathFloor,
+MathLog, MathLog10, MathMod, MathPow, MathRound, MathSin, MathSqrt, MathTan, MathExpm1 ,
+MathLog1p, MathArccosh, MathArcsinh, MathArctanh, MathCosh, MathSinh, MathTanh. Neste caso, a
+matriz ou vetor é processado termo a termo, por exemplo:
+</p>
+<pre><code class="language-mql5">
+//---
+</code></pre>
+<p>
+  matrix a= {{1, 4}, {9, 16}};
+<h3>Print(&quot;matrix a=\n&quot;,a);</h3>
+  a=MathSqrt(a);
+<h3>Print(&quot;MatrSqrt(a)=\n&quot;,a);</h3>
+</p>
+<pre><code class="language-mql5">
+  /*
+   matrix a=
+   [[1,4]
+    [9,16]]
+   MatrSqrt(a)=
+   [[1,2]
+    [3,4]]
+</code></pre>
+<p>
+  */
+No caso de MathMod e MathPow, um escalar, uma matriz ou um vetor de tamanho apropriado pode ser
+usado como segundo parâmetro. 
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>MathAbs</h3>
+Retorna o valor absoluto (modulo) do valor numérico especificado
+<h3>MathArccos</h3>
+Retorna o arco-cosseno de x em radianos
+<h3>MathArcsin</h3>
+Retorna o arco-seno de x em radianos
+<h3>MathArctan</h3>
+Retorna o arco-tangente de x em radianos
+<h3>MathArctan2</h3>
+Retorna em radianos o valor de um ângulo cuja tangente é igual ao
+quociente de dois números especificados
+<h3>MathClassify</h3>
+Retorna o tipo de um número real
+<h3>MathCeil</h3>
+Retorna o valor numérico inteiro mais próximo do acima
+<h3>MathCos</h3>
+<h3>Retorna o cosseno de um número</h3>
+<h3>MathExp</h3>
+<h3>Retorna o exponencial de um número</h3>
+<h3>MathFloor</h3>
+Retorna o valor numérico inteiro mais próximo do abaixo
+<h3>MathLog</h3>
+<h3>Retorna o logaritmo natural</h3>
+<h3>MathLog10</h3>
+Retorna o logaritmo decimal (de um número na base 10)</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1765
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>MathMax</h3>
+Retorna o valor máximo entre dois valores numéricos
+<h3>MathMin</h3>
+Retorna de valor mínimo entre dois valores numéricos
+<h3>MathMod</h3>
+Retorna o resto real da divisão de dois números
+<h3>MathPow</h3>
+Eleva uma base a um expoente especificado
+<h3>MathRand</h3>
+Retorna um valor pseudo-aleatório entre 0 e 32767
+<h3>MathRound</h3>
+Arredonda um valor para o inteiro mais próximo
+<h3>MathSin</h3>
+<h3>Retorna o seno de um número</h3>
+<h3>MathSqrt</h3>
+<h3>Retorna a raiz quadrada</h3>
+<h3>MathSrand</h3>
+Define o ponto inicial para geração de uma série de inteiros pseudo-
+aleatórios
+<h3>MathTan</h3>
+<h3>Retorna a tangente de um número</h3>
+<h3>MathIsValidNumber</h3>
+Verifica a validade de um número real
+<h3>MathExpm1</h3>
+<h3>Retorna o valor da expressão MathExp(x)-1</h3>
+<h3>MathLog1p</h3>
+<h3>Retorna o valor da expressão MathLog(1+x)</h3>
+<h3>MathArccosh</h3>
+Retorna o valor do arco cosseno hiperbólico
+<h3>MathArcsinh</h3>
+Retorna o valor do arco seno hiperbólico
+<h3>MathArctanh</h3>
+Retorna o valor do arco tangente hiperbólico
+<h3>MathCosh</h3>
+<h3>Retorna o valor do cosseno hiperbólico</h3>
+<h3>MathSinh</h3>
+<h3>Retorna o valor do seno hiperbólico</h3>
+<h3>MathTanh</h3>
+<h3>Retorna o valor da tangente hiperbólica</h3>
+<h3>MathSwap</h3>
+Altera a ordem de bytes em valores do tipo ushort/uint/ushort</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1766
+<h3>MathAbs</h3>
+A função retorna o valor absoluto (módulo) de um valor numérico especificado.
+</p>
+<pre><code class="language-mql5">
+double  MathAbs(
+   double  value      // valor numérico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor numérico.
+<h3>Valor do Retorno</h3>
+Valor de tipo double maior ou igual a zero.
+<h3>Observação</h3>
+A invés da função MathAbs(), você pode usar fabs().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input int      InpValue = -10;   // Enter any value here
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o valor absoluto do número inserido nos parâmetros de entrada
+   uint abs_value=MathAbs(InpValue);
+//--- imprimimos valores no log
+   PrintFormat(&quot;The entered value %d received the value %u after using the MathAbs() f
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1767
+<h3>MathArccos</h3>
+A função retorna o arco-cosseno de x no intervalo de 0 a p radianos.
+</p>
+<pre><code class="language-mql5">
+double  MathArccos(
+   double  val     // -1&lt;val&lt;1
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]  Valor de val entre -1 e 1, valor sobre o qual será calculado o arco-cosseno.
+<h3>Valor do Retorno</h3>
+Arco-cosseno de um número em radianos. Se val for menor que -1 ou maior que 1, a função retorna
+NaN (valor indeterminado).
+<h3>Observação</h3>
+Ao invés da função MathArccos(), você pode usar acos(). 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/1000);
+   delta[0]=-1;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o arco cosseno para cada valor do vetor X
+   vector Y=MathArccos(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1768
+</p>
+<pre><code class="language-mql5">
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//| Ao pressionar ESC, retorna true                                  |
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1769
+</p>
+<pre><code class="language-mql5">
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1770
+<h3>MathArcsin</h3>
+A função retorna o arco-seno de x no intervalo de -p/2 a p/2 radianos.
+</p>
+<pre><code class="language-mql5">
+double  MathArcsin(
+   double  val      // -1&lt;value&lt;1
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]   Valor de val entre -1 e 1, valor sobre o qual será calculado o arco-seno.
+<h3>Valor do Retorno</h3>
+Arco-seno do número val em radianos no intervalo de -p/2 e p/2 radianos. Se val for menor que -1
+ou maior que 1, a função retorna NaN (valor indeterminado).
+<h3>Observação</h3>
+Ao invés da função MathArcsin(), você pode usar asin().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/1000);
+   delta[0]=-1;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o seno para cada valor do vetor X
+   vector Y=MathArcsin(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1771
+</p>
+<pre><code class="language-mql5">
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//| Ao pressionar ESC, retorna true                                  |
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1772
+</p>
+<pre><code class="language-mql5">
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1773
+<h3>MathArctan</h3>
+A função retorna o arco-tangente de x. Se x for igual a 0, a função retorna 0.
+</p>
+<pre><code class="language-mql5">
+double  MathArctan(
+   double  value      // tangente
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Um número representando uma tangente.
+<h3>Valor do Retorno</h3>
+MathArctan retorna um valor no intervalo de -p/2 a p/2 radianos.
+<h3>Observação</h3>
+Ao invés da função MathArctan(), você pode usar atan().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos arco tangente para cada valor do vetor X
+   vector Y=MathArctan(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1774
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1775
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1776
+<h3>MathArctan2</h3>
+Retorna em radianos o valor de um ângulo cuja tangente é igual ao quociente de dois números
+especificados.
+</p>
+<pre><code class="language-mql5">
+double  MathArctan2(
+   double  y      // coordenada y do ponto
+   double  x      // coordenada x do ponto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+y
+[in]  Número representando a coordenada Y.
+x
+[in]  Número representando a coordenada X.
+<h3>Valor retornado</h3>
+MathArctan2 retorna o valor do ângulo θ no intervalo de -p a p radianos, tal que MathTan(θ)=y/x.
+<h3>Observe o seguinte:</h3>
+· Para (x, y) no quadrante 1, 0 &lt; θ &lt; p/2
+· Para (x, y) no quadrante 2, p/2 &lt; θ≤p
+· Para (x, y) no quadrante 3, -p &lt; θ &lt; -p/2
+· Para (x, y) no quadrante 4, -p/2 &lt; θ &lt; 0
+Para os pontos fora dos quadrantes indicados, o valor retornado é especificado abaixo:
+· Se y é igual a 0 e x não é negativo, θ = 0.
+· Se y é igual a 0 e x é negativo, θ = p.
+· Se y é um número positivo, e x é igual a 0, θ = p/2.
+· Se y é um número negativo, e x é igual a 0, θ = -p/2.
+· Se y é igual a 0 e x é igual a 0, θ = 0.
+<h3>Observação</h3>
+Em vez da função MathArctan2(), pode ser usada a função atan2().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1777
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   vector delta=vector::Full(10,10);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos arco tangente para cada valor do vetor X
+   vector Y=delta.CumSum();
+   
+   Print(&quot;vector delta = \n&quot;,delta);
+   Print(&quot;vector X = \n&quot;,X);
+   Print(&quot;vector Y = \n&quot;,Y);
+   
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[];;
+   double y_array[];;
+   X.Swap(x_array);
+   Y.Swap(y_array);
+   
+   double array[10];
+   for(int i=0; i&lt;10; i++)
+     {
+      array[i]=MathArctan2(y_array[i],x_array[i]);
+     }
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1778
+</p>
+<pre><code class="language-mql5">
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1779
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1780
+<h3>MathClassify</h3>
+Determina o tipo de um número real e retorna o resultado como um valor da enumeração
+<h3>ENUM_FP_CLASS</h3>
+<h3>ENUM_FP_CLASS  MathClassify(</h3>
+</p>
+<pre><code class="language-mql5">
+   double  value      // número real
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Número real verificado
+<h3>Valor retornado</h3>
+<h3>Valor a partir da enumeração ENUM_FP_CLASS</h3>
+<h3>ENUM_FP_CLASS</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>FP_SUBNORMAL</h3>
+Número subnormal que está mais próximo de
+zero do que do menor número normalizado
+representável DBL_MIN (2.2250738585072014e-
+308)
+<h3>FP_NORMAL</h3>
+<h3>Número</h3>
+normalizado 
+que 
+varia 
+de
+2,2250738585072014e-308 
+a
+1,7976931348623158e+308
+<h3>FP_ZERO</h3>
+<h3>Zero positivo ou negativo</h3>
+<h3>FP_INFINITE</h3>
+Número que não pode ser representado pelo tipo
+correspondente - infinito positivo ou negativo
+<h3>FP_NAN</h3>
+<h3>Não é um número</h3>
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+ {
+//--- test NaN
+</code></pre>
+<p>
+  double nan=double(&quot;nan&quot;);
+  PrintFormat(&quot;Test NaN: %G is %s, MathIsValidNumber(NaN)=%s&quot;,
+</p>
+<pre><code class="language-mql5">
+              nan,
+              EnumToString(MathClassify(nan)),
+              (string)MathIsValidNumber(nan));
+//--- test infinity
+</code></pre>
+<p>
+  double inf=double(&quot;inf&quot;);</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1781
+  PrintFormat(&quot;Test Inf: %G is %s, MathIsValidNumber(inf)=%s&quot;,
+</p>
+<pre><code class="language-mql5">
+              inf,
+              EnumToString(MathClassify(inf)),
+              (string)MathIsValidNumber(inf));
+//--- test normal value
+</code></pre>
+<p>
+  double normal=1.2345e6;
+  PrintFormat(&quot;Test Normal: %G is %s, MathIsValidNumber(normal)=%s&quot;,
+</p>
+<pre><code class="language-mql5">
+              normal,
+              EnumToString(MathClassify(normal)),
+              (string)MathIsValidNumber(normal));
+//--- test subnormal value
+</code></pre>
+<p>
+  double sub_normal=DBL_MIN/2.0;
+  PrintFormat(&quot;Test Subnormal: %G is %s, MathIsValidNumber(sub_normal)=%s&quot;,
+</p>
+<pre><code class="language-mql5">
+              sub_normal,
+              EnumToString(MathClassify(sub_normal)),
+              (string)MathIsValidNumber(sub_normal));
+//--- test zero value
+</code></pre>
+<p>
+  double zero=0.0/(-1);
+  PrintFormat(&quot;Test Zero: %G is %s, MathIsValidNumber(zero)=%s&quot;,
+</p>
+<pre><code class="language-mql5">
+              zero,
+              EnumToString(MathClassify(zero)),
+              (string)MathIsValidNumber(zero));
+</code></pre>
+<p>
+ } 
+</p>
+<pre><code class="language-mql5">
+ /*
+</code></pre>
+<p>
+<h3>Result:</h3>
+</p>
+<pre><code class="language-mql5">
+   Test NaN: NAN is FP_NAN, MathIsValidNumber(NaN)=false
+   Test Inf: INF is FP_INFINITE, MathIsValidNumber(inf)=false
+   Test Normal: 1.2345E+06 is FP_NORMAL, MathIsValidNumber(normal)=true
+   Test Subnormal: 1.11254E-308 is FP_SUBNORMAL, MathIsValidNumber(sub_normal)=true
+   Test Zero: -0 is FP_ZERO, MathIsValidNumber(zero)=true
+</code></pre>
+<p>
+*/ 
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>Tipos reais (double, float), MathIsValidNumber</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1782
+<h3>MathCeil</h3>
+A função retorna o valor do número inteiro mais próximo do acima.
+</p>
+<pre><code class="language-mql5">
+double  MathCeil(
+   double  val      // número
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]  Valor numérico.
+<h3>Valor do Retorno</h3>
+Valor numérico representando o menor inteiro que excede ou é igual a val.
+<h3>Observação</h3>
+Ao invés da função MathCeil(), você pode usar ceil().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define VALUES_TOTAL 31
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos variáveis para transformação
+   double value=0;                     // número real para a transformação MathCeil
+   int    ceil_value=0;                // aqui obtemos o resultado
+//--- em um loop pelo número de incrementos decimais de um número real
+   for(int i=0; i&lt;VALUES_TOTAL; i++)
+     {
+      //--- incrementamos o número,
+      //--- obtemos o valor inteiro mais próximo do valor acima
+      //--- e registramos os valores de controle no log
+      value+=0.1;
+      ceil_value=(int)MathCeil(NormalizeDouble(value,1));
+      PrintFormat(&quot;value: %.1f, ceil value: %d&quot;,value,ceil_value);
+      /*
+     resultado:
+      value: 0.1, ceil value: 1
+      value: 0.2, ceil value: 1
+      value: 0.3, ceil value: 1
+      value: 0.4, ceil value: 1
+      value: 0.5, ceil value: 1
+      value: 0.6, ceil value: 1</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1783
+</p>
+<pre><code class="language-mql5">
+      value: 0.7, ceil value: 1
+      value: 0.8, ceil value: 1
+      value: 0.9, ceil value: 1
+      value: 1.0, ceil value: 1
+      value: 1.1, ceil value: 2
+      value: 1.2, ceil value: 2
+      value: 1.3, ceil value: 2
+      value: 1.4, ceil value: 2
+      value: 1.5, ceil value: 2
+      value: 1.6, ceil value: 2
+      value: 1.7, ceil value: 2
+      value: 1.8, ceil value: 2
+      value: 1.9, ceil value: 2
+      value: 2.0, ceil value: 2
+      value: 2.1, ceil value: 3
+      value: 2.2, ceil value: 3
+      value: 2.3, ceil value: 3
+      value: 2.4, ceil value: 3
+      value: 2.5, ceil value: 3
+      value: 2.6, ceil value: 3
+      value: 2.7, ceil value: 3
+      value: 2.8, ceil value: 3
+      value: 2.9, ceil value: 3
+      value: 3.0, ceil value: 3
+      value: 3.1, ceil value: 4
+      */
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1784
+<h3>MathCos</h3>
+A função retorna o cosseno de um ângulo.
+</p>
+<pre><code class="language-mql5">
+double  MathCos(
+   double  value      // número
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Ângulo em radianos.
+<h3>Valor do Retorno</h3>
+Valor de tipo double no intervalo de -1 a 1.
+<h3>Observação</h3>
+A invés de MathCos(), você pode usar cos().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calcular o cosseno para cada valor do vetor X
+   vector Y=MathCos(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1785
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1786
+</p>
+<pre><code class="language-mql5">
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1787
+<h3>MathExp</h3>
+A função retorna o valor e elevado a potência d.
+</p>
+<pre><code class="language-mql5">
+double  MathExp(
+   double  value      // potência para o número e
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Um número especificando a potência.
+<h3>Valor do Retorno</h3>
+Um número de tipo double. Em &quot;overflow&quot;, a função retorna INF (infinito), em caso de perda de
+ordem MathExp retorna 0.
+<h3>Observação</h3>
+Ao invés de MathExp(), você pode usar exp().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 9 valores de 0 a 8 em incrementos de 1
+   vector X(9,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- calculamos o valor do número &quot;e&quot; (número de Euler) elevado à potência de cada va
+   X=MathExp(X);
+   Print(&quot;MathExp(X) = \n&quot;,X);
+   
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1788
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1789
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1790
+<h3>MathFloor</h3>
+A função retorna o valor numérico inteiro mais próximo do abaixo.
+</p>
+<pre><code class="language-mql5">
+double  MathFloor(
+   double  val     // número
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]  Valor numérico.
+<h3>Valor do Retorno</h3>
+Um valor numérico representando o maior inteiro que é menor ou igual a val.
+<h3>Observação</h3>
+Ao invés de MathFloor(), você pode usar floor().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define VALUES_TOTAL 31
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos variáveis para transformação
+   double value=0;                     // número real´ para a transformação MathFloor
+   int    floor_value=0;               // aqui obtemos o resultado
+//--- em um loop pelo número de incrementos decimais de um número real
+   for(int i=0; i&lt;VALUES_TOTAL; i++)
+     {
+      //--- incrementamos o número,
+      //--- obtemos o valor inteiro mais próximo da valor abaixo
+      //--- e registramos os valores de controle no log
+      value+=0.1;
+      floor_value=(int)MathFloor(NormalizeDouble(value,1));
+      PrintFormat(&quot;value: %.1f, floor value: %d&quot;,value,floor_value);
+      /*
+     resultado:
+      value: 0.1, floor value: 0
+      value: 0.2, floor value: 0
+      value: 0.3, floor value: 0
+      value: 0.4, floor value: 0
+      value: 0.5, floor value: 0
+      value: 0.6, floor value: 0</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1791
+</p>
+<pre><code class="language-mql5">
+      value: 0.7, floor value: 0
+      value: 0.8, floor value: 0
+      value: 0.9, floor value: 0
+      value: 1.0, floor value: 1
+      value: 1.1, floor value: 1
+      value: 1.2, floor value: 1
+      value: 1.3, floor value: 1
+      value: 1.4, floor value: 1
+      value: 1.5, floor value: 1
+      value: 1.6, floor value: 1
+      value: 1.7, floor value: 1
+      value: 1.8, floor value: 1
+      value: 1.9, floor value: 1
+      value: 2.0, floor value: 2
+      value: 2.1, floor value: 2
+      value: 2.2, floor value: 2
+      value: 2.3, floor value: 2
+      value: 2.4, floor value: 2
+      value: 2.5, floor value: 2
+      value: 2.6, floor value: 2
+      value: 2.7, floor value: 2
+      value: 2.8, floor value: 2
+      value: 2.9, floor value: 2
+      value: 3.0, floor value: 3
+      value: 3.1, floor value: 3
+      */
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1792
+<h3>MathLog</h3>
+A função retorna o logaritmo natural.
+</p>
+<pre><code class="language-mql5">
+double  MathLog(
+   double  val      // valor aplicado ao logaritmo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]  Valor cujo logaritmo deve ser encontrado.
+<h3>Valor do Retorno</h3>
+O logaritmo natural de val em caso de sucesso. Se val for negativo, a função retorna NaN (valor
+indeterminado). Se val for igual a 0, a função retorna INF (infinito).
+<h3>Observação</h3>
+Ao invés de MathLog(), você pode usar log().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 9 valores de 0 a 8 em incrementos de 1
+   vector X(9,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- calculamos o logaritmo para cada valor do vetor X
+   X=MathLog(X);
+   Print(&quot;MathLog(X) = \n&quot;,X);
+   
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1793
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   vector X = 
+   [0,1,2,3,4,5,6,7,8]
+   MathLog(X) = 
+   [-inf,0,0.6931471805599453,1.09861228866811,1.386294361119891,1.6094379124341,1.791
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1794
+</p>
+<pre><code class="language-mql5">
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1795
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1796
+<h3>MathLog</h3>
+Retorna o logaritmo de um número na base 10.
+</p>
+<pre><code class="language-mql5">
+double  MathLog10(
+   double  val      // número aplicado ao logaritmo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]  Valor numérico cujo logaritmo comum deve ser encontrado.
+<h3>Valor do Retorno</h3>
+O logaritmo comum em caso de sucesso. Se val for negativo, a função retorna NaN (valor
+indeterminado). Se val for igual a 0, a função retorna INF (infinito).
+<h3>Observação</h3>
+Ao invés de MathLog10(), você pode usar log10().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 9 valores de 0 a 8 em incrementos de 1
+   vector X(9,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- calculamos o logaritmo decimal para cada valor do vetor X
+   X=MathLog10(X);
+   Print(&quot;MathLog10(X) = \n&quot;,X);
+   
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1797
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   vector X = 
+   [0,1,2,3,4,5,6,7,8]
+   MathLog10(X) = 
+   [-inf,0,0.3010299956639812,0.4771212547196624,0.6020599913279624,0.6989700043360189
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1798
+</p>
+<pre><code class="language-mql5">
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1799
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1800
+<h3>MathMax</h3>
+A função retorna o valor máximo entre dois valores.
+</p>
+<pre><code class="language-mql5">
+double  MathMax(
+   double  value1,     // primeiro valor
+   double  value2      // segundo valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value1
+[in]  Primeiro valor numérico.
+value2
+[in]  Segundo valor numérico.
+<h3>Valor do Retorno</h3>
+O maior dos dois valores.
+<h3>Observação</h3>
+Ao invés de MathMax(), você pode usar fmax(). As funções fmax(), fmin(), MathMax(), MathMin()
+podem trabalhar com tipos inteiros sem convertê-los para o tipo double.
+Se parâmetros de diferentes tipos são passados para um função, o parâmetro do menor tipo é
+automaticamente convertido para o maior tipo. O tipo do valor de retorno corresponde ao do maior
+tipo.
+Se dados de mesmo tipo são passados, nenhuma conversão é realizada.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input int                  InpPeriod = 10;            // Período de cálculo da média m
+input ENUM_MA_METHOD       InpMethod = MODE_SMA;      // Método de cálculo de média mó
+input ENUM_APPLIED_PRICE   InpPrice  = PRICE_CLOSE;   // Preço de cálculo da média móv
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- se o período da média móvel for definido como um valor menor que 1, será usado o
+   int period=(InpPeriod&lt;1 ? 10 : InpPeriod);
+//--- criamos um handle do indicador Moving Average
+   int handle=iMA(Symbol(),Period(),period,0,InpMethod,InpPrice);
+   if(handle==INVALID_HANDLE)
+     {
+      Print(&quot;Falha ao criar o handle do indicador Moving Average. Erro &quot;,GetLastError</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1801
+</p>
+<pre><code class="language-mql5">
+      return;
+     }
+//--- obtemos o preço Bid atual
+   double bid=0;
+   ResetLastError();
+   if(!SymbolInfoDouble(Symbol(),SYMBOL_BID,bid))
+     {
+      Print(&quot;Falha ao obter o preço Bid. Erro &quot;,GetLastError());
+      return;
+     }
+//--- obtemos o valor da média móvel na barra atual
+   double array[1];
+   int    copied=CopyBuffer(handle,0,0,1,array);
+   if(copied!=1)
+     {
+      Print(&quot;Falha ao obter dos dados do Moving Average. Erro &quot;,GetLastError());
+      return;
+     }
+//--- obtemos o preço mais alto dos dois (preço Bid e valor do Moving Average) e regis
+   double max_price=MathMax(bid,array[0]);
+   PrintFormat(&quot;Bid: %.*f, Moving Average: %.*f, preço mais alto dos dois: %.*f&quot;,_Digi
+   PrintFormat(&quot;Preço Bid %s da média móvel&quot;,(bid&gt;array[0] ? &quot;mais alto&quot; : bid&lt;array[0
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1802
+<h3>MathMin</h3>
+A função retorna o valor mínimo entre dois valores.
+</p>
+<pre><code class="language-mql5">
+double  MathMin(
+   double  value1,     // primeiro valor
+   double  value2      // segundo valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value1
+[in]  Primeiro valor numérico.
+value2
+[in]  Segundo valor numérico.
+<h3>Valor do Retorno</h3>
+O menor valor dos dois valores.
+<h3>Observação</h3>
+Ao invés de MathMin(), você pode usar fmin(). As funções fmax(), fmin(), MathMax(), MathMin()
+podem trabalhar com tipos inteiros sem convertê-los para o tipo double.
+Se parâmetros de diferentes tipos são passados para um função, o parâmetro do menor tipo é
+automaticamente convertido para o maior tipo. O tipo do valor de retorno corresponde ao do maior
+tipo.
+Se dados de mesmo tipo são passados, nenhuma conversão é realizada.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input uint  InpBars  =  100000;  // Número desejado de barras
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o número de barras disponíveis no servidor
+   uint bars_total = Bars(Symbol(),Period());
+   if(bars_total==0)
+     {
+      PrintFormat(&quot;Os dados da série temporal %s %s ainda não foram gerados no termina
+      return;
+     }
+//--- obtemos o número mínimo de barras a partir de dois valores: a partir do número d
+   int bars = (int)MathMin(bars_total,InpBars);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1803
+</p>
+<pre><code class="language-mql5">
+//--- se forem solicitadas mais barras do que as disponíveis no servidor, informaremos
+   if(bars_total&lt;InpBars)
+      PrintFormat(&quot;O número de barras no servidor (%u) é menor do que o solicitado (%u
+//--- registramos no log o número de barras disponíveis
+   Print(&quot;Barras disponíveis para trabalho: &quot;,bars);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1804
+<h3>MathMod</h3>
+A função retorna o resto real da divisão de dois números.
+</p>
+<pre><code class="language-mql5">
+double  MathMod(
+   double  value,      // valor do dividendo
+   double  value2      // valor do divisor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor do dividendo.
+value2
+[in]  Valor do divisor.
+<h3>Valor do Retorno</h3>
+A função MathMod calcula o valor real de f de val / y tal que val = i * y + f , onde i é um inteiro, f
+tem o mesmo sinal de val, e o valor absoluto de f é menor que o valor absoluto de y.
+<h3>Observação</h3>
+Ao invés de MathMod(), você pode usar fmod().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property script_show_inputs
+//--- input parameters
+input double   InpDividentValue  =  10;   // Dividend value
+input double   InpDivisorValue   =  3;    // Divisor value
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o resto real da divisão dos números inseridos nos parâmetros de entrada
+   double res=MathMod(InpDividentValue,InpDivisorValue);
+//--- imprimimos o resultado no log
+   PrintFormat(&quot;Real remainder when dividing %.2f by %.2f = %.2f&quot;,InpDividentValue,Inp
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1805
+<h3>MathPow</h3>
+A função eleva uma base a uma potência especificada.
+</p>
+<pre><code class="language-mql5">
+double  MathPow(
+   double  base,         // base 
+   double  exponent      // valor do expoente
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+base
+[in]  Base.
+exponent
+[in]  Valor do expoente.
+<h3>Valor do Retorno</h3>
+Valor da base elevada a uma potência especificada.
+<h3>Observação</h3>
+Ao invés de MathPow(), você pode usar pow().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#property script_show_inputs
+#include &lt;Graphics\Graphic.mqh&gt;
+//--- input parameters
+input double   InpExponentValue  =  2;    // exponent value
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 11 valores de 0 a 10 em incrementos de 1
+   vector X(11,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- calculamos cada valor do vetor X elevado à potência InpExponentValue
+   X=MathPow(X,InpExponentValue);
+   Print(&quot;MathPow(X,&quot;,(string)InpExponentValue,&quot;) = \n&quot;,X);
+   </p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1806
+</p>
+<pre><code class="language-mql5">
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   vector X = 
+   [0,1,2,3,4,5,6,7,8,9,10]
+   MathPow(X,2.0) = 
+   [0,1,4,9,16,25,36,49,64,81,100]
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1807
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1808
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1809
+<h3>MathRand</h3>
+Retorna um inteiro pseudo-aleatório no intervalo de 0 a 32767.
+</p>
+<pre><code class="language-mql5">
+int  MathRand();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Valor de um inteiro no intervalo de 0 a 32767.
+<h3>Observação</h3>
+Antes da primeira chamada da função, é necessário chamar MathSrand para definir o gerador de
+números pseudo-aleatório para o estado inicial.
+<h3>Observação</h3>
+Ao invés de MathRand(), você pode usar rand().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- a cada inicialização, definimos um novo estado inicial para gerar um número de n
+   MathSrand(GetTickCount());
+//--- em um loop, imprimimos no log 10 inteiros pseudo-aleatórios gerados
+   for(int i=0; i&lt;10; i++)
+     {
+      int rand_value=MathRand();
+      PrintFormat(&quot;Número inteiro pseudo-aleatório №%d: %u&quot;,i+1,rand_value);
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1810
+<h3>MathRound</h3>
+A função retorna o valor arredondado para o inteiro mais próximo de um valor numérico especificado.
+</p>
+<pre><code class="language-mql5">
+double  MathRound(
+   double  value      // valor a ser arredondado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor numérico antes do arredondamento.
+<h3>Valor do Retorno</h3>
+Valor arredondado até o inteiro mais próximo.
+<h3>Observação</h3>
+Ao invés de MathRound(), você pode usar round().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define VALUES_TOTAL 31
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos variáveis para transformação
+   double value=0;                     // número real para transformação em MathRound
+   int    round_value=0;               // aqui obtemos o resultado
+//--- em um loop pelo número de incrementos decimais de um número real
+   for(int i=0; i&lt;VALUES_TOTAL; i++)
+     {
+      //--- incrementamos o valor de um número real,
+      //--- obtemos um valor numérico arredondado para o número inteiro mais próximo 
+      //--- e registramos os valores de controle no log
+      value+=0.1;
+      round_value=(int)MathRound(NormalizeDouble(value,1));
+      PrintFormat(&quot;value: %.1f, round value: %d&quot;,value,round_value);
+      /*
+     resultado:
+      value: 0.1, round value: 0
+      value: 0.2, round value: 0
+      value: 0.3, round value: 0
+      value: 0.4, round value: 0
+      value: 0.5, round value: 1
+      value: 0.6, round value: 1</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1811
+</p>
+<pre><code class="language-mql5">
+      value: 0.7, round value: 1
+      value: 0.8, round value: 1
+      value: 0.9, round value: 1
+      value: 1.0, round value: 1
+      value: 1.1, round value: 1
+      value: 1.2, round value: 1
+      value: 1.3, round value: 1
+      value: 1.4, round value: 1
+      value: 1.5, round value: 2
+      value: 1.6, round value: 2
+      value: 1.7, round value: 2
+      value: 1.8, round value: 2
+      value: 1.9, round value: 2
+      value: 2.0, round value: 2
+      value: 2.1, round value: 2
+      value: 2.2, round value: 2
+      value: 2.3, round value: 2
+      value: 2.4, round value: 2
+      value: 2.5, round value: 3
+      value: 2.6, round value: 3
+      value: 2.7, round value: 3
+      value: 2.8, round value: 3
+      value: 2.9, round value: 3
+      value: 3.0, round value: 3
+      value: 3.1, round value: 3
+      */
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1812
+<h3>MathSin</h3>
+Retorna o seno de um ângulo especificado.
+</p>
+<pre><code class="language-mql5">
+double  MathSin(
+   double  value      // argumento em radianos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Ângulo em radianos.
+<h3>Valor do Retorno</h3>
+Seno de um ângulo medido em radianos. Retorna um valor no intervalo de -1 a 1.
+<h3>Observação</h3>
+Ao invés de MathSin(), você pode usar sin().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o seno para cada valor do vetor X
+   vector Y=MathSin(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1813
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1814
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1815
+<h3>MathSqrt</h3>
+Retorna a raiz quadrada de um número.
+</p>
+<pre><code class="language-mql5">
+double  MathSqrt(
+   double  value      // número positivo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor numérico positivo.
+<h3>Valor do Retorno</h3>
+Raiz quadrada de um valor. Se val for negativo, a função retorna NaN (valor indeterminado).
+<h3>Observação</h3>
+Ao invés de MathSqrt(), você pode usar sqrt().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 11 valores de 0 a 10 em incrementos de 1
+   vector X(11,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- calculamos a raiz quadrada para cada valor do vetor X
+   X=MathSqrt(X);
+   Print(&quot;MathSqrt(X) = \n&quot;,X);
+   
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1816
+</p>
+<pre><code class="language-mql5">
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   vector X = 
+   [0,1,2,3,4,5,6,7,8,9,10]
+   MathSqrt(X) = 
+   [0,1,1.414213562373095,1.732050807568877,2,2.23606797749979,2.449489742783178,2.645
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1817
+</p>
+<pre><code class="language-mql5">
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1818
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1819
+<h3>MathSrand</h3>
+Define o ponto inicial para geração de uma série de inteiros pseudo-aleatórios.
+</p>
+<pre><code class="language-mql5">
+void  MathSrand(
+   int  seed      // número de inicialização
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+seed
+[in]  Número inicial para a seqüência de números aleatórios.
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+A função MathRand() é usada para gerar uma seqüência de números pseudo-aleatórios. Chamar
+MathSrand() com um certo número de inicialização permite produzir sempre a mesma seqüência de
+números pseudo-aleatórios. 
+Para garantir o recebimento de uma seqüência não recorrente, use a chamada de
+MathSrand(GetTickCount()), uma vez que o valor de GetTickCount() aumenta a partir do momento
+do início do sistema operativo e não se repete dentro de 49 dias, quando o contador built-in de
+milissegundos transborda. O uso do MathSrand(TimeCurrent()) não é adequado, porque a função
+TimeCurrent() retorna a hora do último tick, que pode não se alterar por um longo tempo, por
+exemplo, nos finais de semana.
+A inicialização do gerador de números aleatórios usando MathSrand() para indicadores e Expert
+Advisors é melhor realizada no handler OnInit(); isso evita os seguidos reinícios múltiplos caso a
+inicialização do gerador fosse colocada em OnTick() ou OnCalculate().
+Ao invés da função MathSrand(), você pode usar a função srand().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;O indicador mostra o teorema do limite central, que:&quot;
+#property description &quot;A soma de um número suficientemente grande de variáveis aleatór
+#property description &quot;A soma de um número suficientemente grande de variáveis aleatór
+#property description &quot;ou faz uma contribuição determinante para a soma), tem uma dist
+#property indicator_separate_window
+#property indicator_buffers 1
+#property indicator_plots   1
+//--- Propriedades da construção gráfica
+#property indicator_label1  &quot;Label&quot;
+#property indicator_type1   DRAW_HISTOGRAM
+#property indicator_color1  clrRoyalBlue
+#property indicator_style1  STYLE_SOLID
+#property indicator_width1  5
+//--- Uma variável de entrada
+input int      sample_number=10;</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1820
+</p>
+<pre><code class="language-mql5">
+//--- Um buffer do indicador para desenhar a distribuição
+double         LabelBuffer[];
+//--- Um contador de ticks
+double         ticks_counter;
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+void OnInit()
+  {
+//--- Ligando um array e um buffer de indicador
+   SetIndexBuffer(0,LabelBuffer,INDICATOR_DATA);
+//--- transformar o buffer do indicador em torno do presente para o passado
+   ArraySetAsSeries(LabelBuffer,true);
+//--- Inicializar o gerador de números aleatórios
+   MathSrand(GetTickCount());
+//--- Inicializar o contador de ticks
+   ticks_counter=0;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- Para um contador zero, reinicie o buffer do indicador
+   if(ticks_counter==0) ArrayInitialize(LabelBuffer,0);
+//--- Aumentar o contador
+   ticks_counter++;
+//--- Devemos periodicamente redefinir os contadores, para reviver a distribuição
+   if(ticks_counter&gt;100)
+     {
+      Print(&quot;Reajustamos os valores dos indicadores, vamos começar a preencher as célu
+      ticks_counter=0;
+     }
+//--- Obter uma amostra de valores aleatórios como a soma de três números de 0 a 7
+   for(int i=0;i&lt;sample_number;i++)
+     {
+      //--- Cálculo do índice da célula, onde o número aleatório cai como a soma de ou
+      int rand_index=0;
+      //--- Obter três números aleatórios de 0 a 7
+      for(int k=0;k&lt;3;k++)</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1821
+</p>
+<pre><code class="language-mql5">
+        {
+         //--- Um restante na divisão por 7 retornará um valor de 0 a 6
+         rand_index+=MathRand()%7;
+        }
+      //--- Aumentar o valor no número da célula rand_index por 1
+      LabelBuffer[rand_index]++;
+     }
+//--- Sair do manipulador OnCalculate()
+   return(rates_total);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1822
+<h3>MathTan</h3>
+A função retorna a tangente de um número.
+</p>
+<pre><code class="language-mql5">
+double  MathTan(
+   double  rad      // argumento em radianos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+rad
+[in]  Ângulo em radianos.
+<h3>Valor do Retorno</h3>
+Tangente do rad. Se rad for maior ou igual a 263, ou menor ou igual a -263, uma perda de
+significância no resultado ocorre, neste caso a função retorna um número indefinido.
+<h3>Observação</h3>
+Ao invés de MathTan(), você pode usar tan().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=-263;
+//--- obtemos 101 valores de -1 a 2π com um incremento delta
+   vector X=delta.CumSum();
+//--- calculamos a tangente para cada valor do vetor X
+   vector Y=MathTan(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1823
+</p>
+<pre><code class="language-mql5">
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1824
+</p>
+<pre><code class="language-mql5">
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1825
+<h3>MathIsValidNumber</h3>
+Verifica a validade de um número real.
+</p>
+<pre><code class="language-mql5">
+bool  MathIsValidNumber(
+   double  number      // número para verificar
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+number
+[in]  Valor numérico verificado.
+<h3>Valor do Retorno</h3>
+Retorna true, se o valor verificado for um número real aceitável. Se o valor verificado for infinito
+positivo ou infinito negativo, ou &quot;not a number&quot; (NaN), a função retorna false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   double abnormal=MathArcsin(2.0);
+   if(!MathIsValidNumber(abnormal)) Print(&quot;Atenção! MathArcsin(2.0) = &quot;,abnormal); 
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>Tipos Reais (double, float)</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1826
+<h3>MathExpm1</h3>
+Retorna o valor da expressão MathExp(x)-1.
+</p>
+<pre><code class="language-mql5">
+double  MathExpm1(
+   double  value      // nível par a o número e
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Número que define o nível.
+<h3>Valor de retorno</h3>
+Número do tipo double. Após ser excedido, a função retorna INF (infinito), em caso de perda de
+precisão de MathExpm1, retorna 0.
+<h3>Observação</h3>
+Com valores x próximo de 0, a função MathExpm1(x) dá um valor muito mais preciso do que
+MathExp(x)-1.
+Em vez da função MathExpm1(), é possível utilizar a função expm1().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 9 valores de 0 a 8 em incrementos de 1
+   vector X(9,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- calculamos o valor (número de Euler &quot;e&quot; elevado à potência de cada valor no veto
+   X=MathExpm1(X);
+   Print(&quot;MathExpm1(X) = \n&quot;,X);
+   
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1827
+</p>
+<pre><code class="language-mql5">
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1828
+</p>
+<pre><code class="language-mql5">
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1829
+<h3>MathLog1p</h3>
+Retorna o valor da expressão MathLog(1+x).
+</p>
+<pre><code class="language-mql5">
+double  MathLog1p(
+   double  value      // número para tomar o logaritmo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor, cujo logaritmo deve ser calculado.
+<h3>Valor de retorno</h3>
+Logaritmo natural do valor (value+1), em caso de sucesso. Se value &lt; -1, a função retorna NaN
+(valor não definido). Se value é igual a -1, a função retorna INF (infinito) .
+<h3>Observação</h3>
+Com valores x próximo de 0, a função MathLog1p(x) dá um valor muito mais preciso do que
+MathLog(1+x).
+Em vez da função MathLog1p(), é possível utilizar a função log1p().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos 9 valores de 0 a 8 em incrementos de 1
+   vector X(9,VectorArange);
+   Print(&quot;vector X = \n&quot;,X);
+//--- para cada valor do vetor, calculamos o logaritmo da expressão (1 + valor do veto
+   X=MathLog1p(X);
+   Print(&quot;MathLog1p(X) = \n&quot;,X);
+   
+//--- transferimos os valores calculados do vetor para o array
+   double y_array[];
+   X.Swap(y_array);
+//--- plotamos os valores calculados do vetor</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1830
+</p>
+<pre><code class="language-mql5">
+   CurvePlot(y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   vector X = 
+   [0,1,2,3,4,5,6,7,8]
+   MathLog1p(X) = 
+   [0,0.6931471805599453,1.09861228866811,1.386294361119891,1.6094379124341,1.79175946
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o vetor com os value com incremento step                |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template&lt;typename T&gt; 
+</p>
+<pre><code class="language-mql5">
+void VectorArange(vector&lt;T&gt; &amp;vec,T value=0.0,T step=1.0) 
+  { 
+   for(ulong i=0; i&lt;vec.Size(); i++,value+=step) 
+      vec[i]=value; 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1831
+</p>
+<pre><code class="language-mql5">
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1832
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1833
+<h3>MathArccosh</h3>
+Retorna o valor do arco cosseno hiperbólico.
+</p>
+<pre><code class="language-mql5">
+double  MathArccosh(
+   double  value     // 1 &lt;= value &lt; ∞
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor value, cujo arco-cosseno hiperbólico inverso deve ser calculado.
+<h3>Valor de retorno</h3>
+Arco-cosseno hiperbólico do número. Se value for inferior a +1, a função retornará NaN (valor não
+definido).
+<h3>Observação</h3>
+Em vez da função MathArccosh(), é possível utilizar a função acosh(). 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/10);
+   delta[0]=1;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o arco cosseno hiperbólico para cada valor do vetor X
+   vector Y=MathArccosh(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1834
+</p>
+<pre><code class="language-mql5">
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1835
+</p>
+<pre><code class="language-mql5">
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1836
+<h3>MathArcsinh</h3>
+Retorna o valor do arco seno hiperbólico.
+</p>
+<pre><code class="language-mql5">
+double  MathArcsinh(
+   double  value      // -∞ &lt; value &lt; +∞
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+val
+[in]   Valor value, cujo arco-cosseno deve ser calculado.
+<h3>Valor de retorno</h3>
+Arco-seno hiperbólico de um número.
+<h3>Observação</h3>
+Em vez da função MathArcsinh(), é possível utilizar a função asinh().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/10);
+   delta[0]=-31;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o arco seno hiperbólico para cada valor do vetor X
+   vector Y=MathArcsinh(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1837
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1838
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1839
+<h3>MathArctanh</h3>
+Retorna o valor do arco tangente hiperbólico.
+</p>
+<pre><code class="language-mql5">
+double  MathArctanh(
+   double  value      // valor no intervalo -1 &lt; value &lt; 1
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor no intervalo -1 &lt; value &lt; 1, que representa a tangente.
+<h3>Valor de retorno</h3>
+Arco-tangente hiperbólica de um número.
+<h3>Observação</h3>
+Em vez da função MathArctanh(), é possível utilizar a função atanh().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(34,2*M_PI/100);
+   delta[0]=-1;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o arco tangente hiperbólico para cada valor do vetor X
+   vector Y=MathArctanh(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1840
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1841
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1842
+<h3>MathCosh</h3>
+Retorna o valor do cosseno hiperbólico do número.
+</p>
+<pre><code class="language-mql5">
+double  MathCosh(
+   double  value      // número
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor.
+<h3>Valor de retorno</h3>
+Cosseno hiperbólico de um número, valor no intervalo de +1 a mais infinito.
+<h3>Observação</h3>
+Em vez da função MathCosh(), é possível utilizar a função cosh().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o cosseno hiperbólico para cada valor do vetor X
+   vector Y=MathCosh(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1843
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1844
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1845
+<h3>MathSinh</h3>
+Retorna o valor do seno hiperbólico do número.
+</p>
+<pre><code class="language-mql5">
+double  MathSinh(
+   double  value      // número
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor.
+<h3>Valor de retorno</h3>
+Seno hiperbólico de um número.
+<h3>Observação</h3>
+Em vez da função MathSinh(), é possível utilizar a função sinh().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o seno hiperbólico hiperbólico para cada valor do vetor X
+   vector Y=MathSinh(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1846
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1847
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1848
+<h3>MathTanh</h3>
+Retorna o valor da tangente hiperbólica do número.
+</p>
+<pre><code class="language-mql5">
+double  MathTanh(
+   double  value      // número
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor.
+<h3>Valor de retorno</h3>
+Tangente hiperbólica de um número, valor no intervalo de -1 a +1.
+<h3>Observação</h3>
+Em vez da função MathTanh(), é possível utilizar a função tanh().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define GRAPH_WIDTH  750
+#define GRAPH_HEIGHT 350
+#include &lt;Graphics\Graphic.mqh&gt;
+</code></pre>
+<p>
+<h3>CGraphic ExtGraph;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   vector delta=vector::Full(101,2*M_PI/100);
+   delta[0]=0;
+//--- obtemos 101 valores de -1 a 2π com um passo de delta
+   vector X=delta.CumSum();
+//--- calculamos o tangente hiperbólico para cada valor do vetor X
+   vector Y=MathTanh(X);
+//--- transferimos os valores calculados de vetores para arrays
+   double x_array[],y_array[];
+   X.Swap(x_array);
+   Y.Swap(y_array);
+//--- plotamos os valores calculados do vetor
+   CurvePlot(x_array,y_array,clrDodgerBlue);
+//--- aguardamos o pressionamento das teclas Escape ou PgDn para excluir o gráfico (cr</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1849
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped())
+     {
+      if(StopKeyPressed())
+         break;
+      Sleep(16);
+     }
+//--- limpamos o que for preciso
+   ExtGraph.Destroy();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Ao pressionar ESC, retorna true                                  |
+//| Ao pressionar PgDn, faz uma captura de tela e retorna true       |
+//| Caso contrário, retorna false                                    |
+//+------------------------------------------------------------------+
+bool StopKeyPressed()
+  {
+//--- Ao pressionar ESC, retorna true                                  
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)!=0)
+      return(true);
+//--- caso PgDn seja pressionado e a captura de tela do gráfico seja bem-sucedida, ret
+   if(TerminalInfoInteger(TERMINAL_KEYSTATE_PAGEDOWN)!=0 &amp;&amp; MakeAndSaveScreenshot(MQLI
+      return(true);
+//--- retornamos false
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto gráfico e desenha uma curva                       |
+//+------------------------------------------------------------------+
+void CurvePlot(double &amp;x_array[], double &amp;y_array[], const color colour)
+  {
+   ExtGraph.Create(ChartID(), &quot;Graphic&quot;, 0, 0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);
+   ExtGraph.CurveAdd(x_array, y_array, ColorToARGB(colour), CURVE_LINES);
+   ExtGraph.IndentUp(30);
+   ExtGraph.CurvePlotAll();
+   string text1=&quot;Press ESC to delete the graph and stop the script, or&quot;;
+   string text2=&quot;Press PgDn to create a screen, delete the graph and stop the script&quot;;
+   ExtGraph.TextAdd(54, 9, text1, ColorToARGB(clrBlack));
+   ExtGraph.TextAdd(54,21, text2, ColorToARGB(clrBlack));
+   ExtGraph.Update();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria uma captura de tela e a salva em um arquivo                 |
+//+------------------------------------------------------------------+
+bool MakeAndSaveScreenshot(const string file_name)
+  {
+   string file_names[];
+   ResetLastError();
+   int selected=FileSelectDialog(&quot;Save Picture&quot;, NULL, &quot;All files (*.*)|*.*&quot;, FSD_WRIT</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1850
+</p>
+<pre><code class="language-mql5">
+   if(selected&lt;1)
+     {
+      if(selected&lt;0)
+         PrintFormat(&quot;%s: FileSelectDialog() function returned error %d&quot;, __FUNCTION__
+      return false;
+     }
+   
+   bool res=false;
+   if(ChartSetInteger(0,CHART_SHOW,false))
+      res=ChartScreenShot(0, file_names[0], GRAPH_WIDTH, GRAPH_HEIGHT);
+   ChartSetInteger(0,CHART_SHOW,true);
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Resultado:</h3>
+<h3>Também Veja</h3>
+Tipos reais (double, float), Estatística, Gráficos científicos, Propriedades do Terminal Cliente</p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1851
+<h3>MathSwap</h3>
+Altera a ordem de bytes em valores do tipo ushort.
+ushort  MathSwap(
+</p>
+<pre><code class="language-mql5">
+   ushort  value      // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor para alterar a ordem de bytes.
+<h3>Valor retornado</h3>
+Valor ushort com ordem de bytes inversa.
+<h3>MathSwap</h3>
+Altera a ordem de bytes em valores do tipo uint.
+uint  MathSwap(
+</p>
+<pre><code class="language-mql5">
+   uint   value      // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor para alterar a ordem de bytes.
+<h3>Valor retornado</h3>
+Valor uint com ordem de bytes inversa.
+<h3>MathSwap</h3>
+Altera a ordem de bytes em valores do tipo ulong.
+ulong  MathSwap(
+</p>
+<pre><code class="language-mql5">
+   ulong  value      // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor para alterar a ordem de bytes.
+<h3>Valor retornado</h3>
+Valor ulong com ordem de bytes inversa.
+<h3>Exemplo:</h3></p>
+<p><h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1852
+</p>
+<pre><code class="language-mql5">
+#property script_show_inputs
+input ulong  InpLongValue  =  1;    // Enter any ulong value here
+input uint   InpIntValue   =  2;    // Enter any uint value here
+input ushort InpShortValue =  3;    // Enter any ushort value here
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- imprimimos no log os valores MathSwap() inseridos e convertidos em representação
+   Print(ValueDescription(InpLongValue));
+   Print(ValueDescription(InpIntValue));
+   Print(ValueDescription(InpShortValue));
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   ulong value: 1
+   ulong value: 72057594037927936 using MathSwap()
+   binary ulong value: 000000000000000000000000000000000000000000000000000000000000000
+   binary ulong value: 000000010000000000000000000000000000000000000000000000000000000
+   
+   uint value: 2
+   uint value: 33554432 using MathSwap()
+   binary uint value: 00000000000000000000000000000010
+   binary uint value: 00000010000000000000000000000000 using MathSwap()
+   
+   ushort value: 3
+   ushort value: 768 using MathSwap()
+   binary ushort value: 0000000000000011
+   binary ushort value: 0000001100000000 using MathSwap()
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a descrição dos valores da variável                     |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template &lt;typename T&gt;
+</p>
+<pre><code class="language-mql5">
+string ValueDescription(T x)
+  {
+   int    num_bits   = sizeof(T)*8;
+   string type_name  = typename(T);
+   string bin_x      = NumberToBinaryString(x);
+   string bin_swap_x = NumberToBinaryString(MathSwap(x));
+   return(StringFormat(&quot;%s value: %lld\n%s value: %lld using MathSwap()\nbinary %s val
+          type_name, x, type_name, MathSwap(x), type_name, num_bits, bin_x, type_name,
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a representação binária do número como uma string        |</p>
+<p></code></pre>
+<p>
+<h3>Funções Matemáticas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1853
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+template &lt;typename T&gt;
+</p>
+<pre><code class="language-mql5">
+string NumberToBinaryString(T x)
+  {
+   string res  = &quot;&quot;;
+   int    i    = -1;
+   uchar  size = sizeof(T)*8-1;
+   ulong  mask = (ulong)1&lt;&lt;size;
+   while(!((x&lt;&lt;++i)&amp; mask));
+   for(; i &lt;=size; i++)
+      res += !((x&lt;&lt;i)&amp; mask) ? &quot;0&quot; : &quot;1&quot;;
+   return res;
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Funções de rede, SocketRead, SocketSend, SocketTlsRead, SocketTlsReadAvailable, SocketTlsSend
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

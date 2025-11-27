@@ -1,0 +1,3470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de eventos - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class="active"><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Manipulação de eventos</h1>
+        </header>
+        
+        <article>
+            <p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1916
+<h3>Manipulação de eventos</h3>
+A linguagem MQL5 providencia o processamento de eventos predefinidos. As funções para processar
+esses eventos devem ser definidas no programa MQL5: o nome da função, o tipo de retorno, a
+composição dos parâmetros (se houver) e seus tipos devem corresponder estritamente à descrição da
+função do manipulador de eventos.
+É pelo tipo do valor de retorno e pelos tipos de parâmetros que o manipulador de eventos do terminal
+do cliente identifica as funções que manipulam eventos. Se, para a respectiva função, forem definidos
+outros parâmetros que não correspondem às seguintes descrições, ou se for especificado um tipo de
+retorno diferente, essa função não será usada para processar o evento.
+<h3>Função</h3>
+<h3>Descrição</h3>
+<h3>OnStart</h3>
+É chamada no script quando ocorre um evento Start para executar
+ações definidas no script
+<h3>OnInit</h3>
+É chamada em indicadores e EAs quando ocorre um evento Init para
+inicializar um programa MQL5 em execução
+<h3>OnDeinit</h3>
+É chamada em indicadores e EAs quando ocorre um evento Deinit
+para desinicializar um programa MQL5 em execução
+<h3>OnTick</h3>
+É chamada em EAs quando ocorre um evento NewTick para
+processar uma nova cotação
+<h3>OnCalculate</h3>
+É chamada em indicadores quando ocorre um evento Calculate para
+processar alterações de dados de preço
+<h3>OnTimer</h3>
+É chamada em indicadores e EAs no início de um evento periódico
+Timer que é gerado pelo terminal com o intervalo de tempo
+definido
+<h3>OnTrade</h3>
+É chamada em EAs quando ocorre um evento Trade que é gerado no
+final da negociação no servidor de negociação
+<h3>OnTradeTransaction</h3>
+É chamada em EAs quando ocorre um evento TradeTransaction
+para processar os resultados de uma solicitação de negociação
+<h3>OnBookEvent</h3>
+É chamada em EAs quando ocorre um evento BookEvent para
+processar alterações no livro de ofertas
+<h3>OnChartEvent</h3>
+É chamada em indicadores e Eas quando ocorre um evento
+ChartEvent para processar mudanças no gráfico causadas por ações
+do usuário ou pelo funcionamento de programas MQL5
+<h3>OnTester</h3>
+É chamada em EAs quando ocorre um evento Tester para executar
+as ações necessárias no final do teste
+<h3>OnTesterInit</h3>
+É chamada em EAs quando ocorre um evento TesterInit para
+executar as ações necessárias antes do início da otimização
+<h3>OnTesterDeinit</h3>
+É chamada em EAs quando ocorre um evento TesterDeinit para
+realizar as ações necessárias após a otimização do EA</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1917
+<h3>Função</h3>
+<h3>Descrição</h3>
+<h3>OnTesterPass</h3>
+É chamada em EAs quando ocorre um evento TesterPass para
+processar a chegada de um novo quadro de dados durante a
+otimização do EA
+O terminal do cliente envia os novos eventos para os respectivos gráficos abertos. Além disso, os
+eventos podem ser gerados por gráficos (evento de gráfico) ou por programas MQL5 (eventos
+personalizados). A geração de eventos para criar e excluir objetos gráficos no gráfico pode ser ativada
+e 
+desativada 
+definindo 
+as 
+propriedades 
+do 
+gráfico 
+<h3>CHART_EVENT_OBJECT_CREATE</h3>
+e
+CHART_EVENT_OBJECT_DELETE. Cada programa MQL5 e cada gráfico tem sua própria fila de eventos,
+à qual são adicionados todos os eventos recém-chegados.
+O programa recebe eventos apenas do gráfico em que está sendo executado. Todos os eventos são
+processados um após o outro na ordem em que são recebidos. Se na fila já houver um evento NewTick
+ou este evento estiver no estado de processamento, o novo evento NewTick não será colocado na fila
+do programa MQL5. Da mesma forma, se na fila do programa MQL5 já estiver o evento ChartEvent ou
+tal evento estiver sendo processado, não será enfileirado um novo evento desse tipo. Os eventos do
+temporizador são processados da mesma maneira, isto é, se um evento estiver na fila ou o evento
+Timer já estiver sendo processado, não será enfileirado um novo evento do temporizador.
+Filas de eventos são de tamanho limitado, mas suficiente, portanto, para um programa escrito
+corretamente, o estouro da fila é improvável. Quando a fila estourar, novos eventos são descartados
+sem serem enfileirados.
+Evite usar loops infinitos para manipular eventos. Uma exceção a essa regra podem ser apenas os
+scripts que lidam com o evento único Start.
+As bibliotecas não processam nenhum evento.</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1918
+<h3>OnStart</h3>
+É chamado em scripts e serviços quando ocorre um evento Start. A função se destina à execução única
+de ações estabelecidas pelo programa. Existem duas versões da função.
+<h3>Versão com retorno de resultado</h3>
+</p>
+<pre><code class="language-mql5">
+int  OnStart(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+Valor de tipo int que é exibido na guia &quot;Diário&quot;.
+Após o script ser concluído, no log do terminal será criada uma entrada de tipo &quot;script
+nome_do_script removed (result code N)&quot;, onde N é o valor retornado pela função OnStart().
+Após o serviço ser concluído, no log do terminal será criada uma entrada de tipo &quot;service
+имя_сервиса stopped (result code N)&quot;, onde N é o valor retornado pela função OnStart().
+O uso da chamada da OnStart() com o retorno de resultado é prioridade, pois este método permite não
+apenas iniciar o script, mas também retornar um código de erro ou outras informações úteis para
+analisar o resultado da execução do script.
+Versão sem retorno do resultado é deixada apenas para compatibilidade com códigos antigos. Não é
+recomendada
+</p>
+<pre><code class="language-mql5">
+void  OnStart(void);
+</code></pre>
+<p>
+<h3>Observação</h3>
+OnStart() é a única função para manipular eventos em scripts e serviços, outros eventos não são
+enviados para esses programas. Por sua vez, o evento Start não é enviado para EAs e indicadores
+personalizados.
+<h3>Exemplo de script:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- macros para trabalhar com cores
+#define XRGB(r,g,b)    (0xFF000000|(uchar(r)&lt;&lt;16)|(uchar(g)&lt;&lt;8)|uchar(b))
+#define GETRGB(clr)    ((clr)&amp;0xFFFFFF)
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- definimos a cor a vela de baixa
+   Comment(&quot;Definimos a cor da vela de baixa&quot;); 
+   ChartSetInteger(0,CHART_COLOR_CANDLE_BEAR,GetRandomColor());
+   ChartRedraw(); // atualizamos imediatamente o gráfico sem esperar por um novo tick
+   Sleep(1000);   // fazemos uma pausa de 1 segundo, para poder ver as alterações
+//--- definimos a cor da vela de alta
+   Comment(&quot;Definimos a cor da vela de alta&quot;); 
+   ChartSetInteger(0,CHART_COLOR_CANDLE_BULL,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   </p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1919
+</p>
+<pre><code class="language-mql5">
+//--- definimos a cor de fundo
+   Comment(&quot;Definimos a cor de fundo&quot;); 
+   ChartSetInteger(0,CHART_COLOR_BACKGROUND,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor da linha Ask
+   Comment(&quot;Definimos a cor da linha Ask&quot;); 
+   ChartSetInteger(0,CHART_COLOR_ASK,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor da linha Bid
+   Comment(&quot;Definimos a cor da linha Bid&quot;); 
+   ChartSetInteger(0,CHART_COLOR_BID,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);    
+//--- definimos a cor da barra baixista e as bordas da vela baixista
+   Comment(&quot;Definimos a cor da barra baixista e as bordas da vela baixista&quot;); 
+   ChartSetInteger(0,CHART_COLOR_CHART_DOWN,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor da linha do gráfico e das velas do tipo &quot;Doji&quot;
+   Comment(&quot;Definimos a cor da linha do gráfico e das velas do tipo Doji&quot;); 
+   ChartSetInteger(0,CHART_COLOR_CHART_LINE,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor da barra altista e a borda da vela altista  
+   Comment(&quot;Definimos a cor da barra altista e a borda da vela altista&quot;); 
+   ChartSetInteger(0,CHART_COLOR_CHART_UP,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor dos eixos, da escala e da linha OHLC
+   Comment(&quot;Definimos a cor dos eixos, da escala e da linha OHLC&quot;); 
+   ChartSetInteger(0,CHART_COLOR_FOREGROUND,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor da grade
+   Comment(&quot;Definimos a cor da grade&quot;); 
+   ChartSetInteger(0,CHART_COLOR_GRID,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor do preço Last
+   Comment(&quot;Definimos a cor do preço Last&quot;); 
+   ChartSetInteger(0,CHART_COLOR_LAST,GetRandomColor());
+   ChartRedraw(); 
+   Sleep(1000);   
+//--- definimos a cor dos níveis das ordens Stop Loss e Take Profit
+   Comment(&quot;Definimos a cor dos níveis das ordens Stop Loss e Take Profit&quot;); 
+   ChartSetInteger(0,CHART_COLOR_STOP_LEVEL,GetRandomColor());
+   ChartRedraw(); </p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1920
+</p>
+<pre><code class="language-mql5">
+   Sleep(1000);   
+//--- definimos a cor dos volumes e dos níveis de abertura das posições
+   Comment(&quot;Definimos a cor dos volumes e dos níveis de abertura das posições&quot;); 
+   ChartSetInteger(0,CHART_COLOR_VOLUME,GetRandomColor());
+   ChartRedraw();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna uma cor gerada aleatoriamente                            |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+color GetRandomColor()
+</p>
+<pre><code class="language-mql5">
+  {
+   color clr=(color)GETRGB(XRGB(rand()%255,rand()%255,rand()%255));
+   return clr;
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Funções de processamento de eventos, Execução de programas, Eventos do terminal do cliente</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1921
+<h3>OnInit</h3>
+É chamada em indicadores e EAs quando ocorre o evento Init. A função é projetada para inicialização
+de um programa MQL5 em execução. Existem duas versões da função.
+<h3>Versão com retorno de resultado</h3>
+</p>
+<pre><code class="language-mql5">
+int  OnInit(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+Valor de tipo int, zero significa inicialização bem-sucedida.
+Ao retornar o valor INIT_FAILED o Expert Advisor será retirado à força do gráfico. 
+Ao retornar o valor INIT_FAILED o indicador não será removido do gráfico. Nesse caso, o indicador
+restante no gráfico estará inoperante — os manipuladores de eventos não são chamados no
+indicador. 
+O uso da chamada da OnInit() com o retorno de resultado é prioridade, pois este método permite não
+apenas inicializar o programa, mas também retornar o código de erro em caso de término antecipado
+do programa.
+Versão sem retorno do resultado é deixada apenas para compatibilidade com códigos antigos. Não é
+recomendada
+</p>
+<pre><code class="language-mql5">
+void  OnInit(void);
+</code></pre>
+<p>
+<h3>Observação</h3>
+O evento Init é gerado imediatamente após o especialista ou indicador ser carregado, este evento
+não é gerado para scripts. A função OnInit() é usada para inicialização do programa MQL5. Se a
+OnInit() tiver um valor retornado do tipo int, um código de retorno diferente de zero significa uma
+inicialização mal-sucedida e gera o evento Deinit com código de motivo de desinicialização
+REASON_INITFAILED.
+A função OnInit() do tipo void sempre significa uma inicialização bem-sucedida e não é
+recomendada.
+Ao otimizar os parâmetros de entrada do EA, recomenda-se usar como código de retorno os valores
+da enumeração ENUM_INIT_RETCODE. Estes valores se destinam a organizar o gerenciamento do
+progresso da otimização e, inclusive, a selecionar os mais adequados agentes de teste. Na
+inicialização do EA, mesmo antes de executar o teste, você pode solicitar informações sobre a
+configuração e sobre os recursos do agente (o número de núcleos, a quantidade de memória livre,
+etc.) usando a função TerminalInfoInteger(). Com base nas informações recebidas, você pode
+permitir que esse agente de teste seja usado ou não ao ser otimizado.
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>INIT_SUCCEEDED</h3>
+Inicialização bem-sucedida, o teste do EA pode continuar.
+Esse código significa o mesmo que o valor zero – inicialização
+do EA no testador bem-sucedida.
+<h3>INIT_FAILED</h3>
+Inicialização mal-sucedida, não faz sentido continuar o teste
+devido a erros irrecuperáveis. Por exemplo, não foi possível</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1922
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+criar o indicador necessário para o trabalho do EA.
+O retorno deste valor significa o mesmo que o retorno,
+retrocesso de um valor diferente de zero – inicialização do EA
+no testador mal-sucedida.
+<h3>INIT_PARAMETERS_INCORRECT</h3>
+Projetado para denotar um conjunto incorreto de parâmetros de
+entrada, na tabela de otimização geral, a sequência de
+resultados com esse código de retorno será destacada em
+vermelho.
+O teste para este conjunto de parâmetros do EA não será
+executado, o agente estará livre para receber um novo
+trabalho.
+Quando esse valor é recebido, o testador de estratégia tem a
+garantia de não transferir essa tarefa para outros agentes para
+reexecução.
+<h3>INIT_AGENT_NOT_SUITABLE</h3>
+Não há erros no programa durante a inicialização, mas por
+algum motivo este agente não é adequado para testes. Por
+exemplo, não há RAM suficiente, sem suporte de OpenCL e
+assim por diante. 
+Após retornar este código, o agente não receberá mais tarefas
+até o final desta otimização.
+O uso da OnInit() com retorno de INIT_FAILED/INIT_PARAMETERS_INCORRECT no testador tem
+várias características que devem ser consideradas ao otimizar EAs:
+· o conjunto de parâmetros para o qual a OnInit() retornou INIT_PARAMETERS_INCORRECT é
+considerado inadequado para testes e não será usado para obter a próxima população
+duranteotimizações genéticas. O fato de haver muitos conjuntos de parâmetros rejeitados pode
+levar a resultados de pesquisa incorretos de parâmetros ideais de EAs. O algoritmo de busca
+pressupõe que a função de critério de otimização é suave e não tem descontinuidades em todo o
+conjunto de parâmetros de entrada.
+· se a OnInit() retornar INIT_FAILED, o teste não poderá ser iniciado e o EA será descarregado da
+memória do agente. Para executar a próxima passagem, o novo EA será carregado com o novo
+conjunto de parâmetros. Isso faz com que inciar o teste da próxima passagem de otimização leve
+mais tempo do que se fosse chamada a TesterStop().
+Exemplo da função OnInit() para um EA
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input int      ma_period=20; // período de média móvel
+//--- identificador do indicador usado no Expert Advisor
+int indicator_handle;   
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- verificamos se o valor ma_period é correto</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1923
+</p>
+<pre><code class="language-mql5">
+   if(ma_period&lt;=0)
+     {
+      PrintFormat(&quot;Valor inválido do parâmetro de entrada ma_period: %d&quot;,ma_period);
+      return (INIT_PARAMETERS_INCORRECT);
+     }
+//--- ao otimizar
+   if(MQLInfoInteger(MQL_OPTIMIZATION))
+     {
+      //--- verificamos a quantidade de RAM disponível para o agente
+      int available_memory_mb=TerminalInfoInteger(TERMINAL_MEMORY_TOTAL);
+      if(available_memory_mb&lt;2000)
+        {
+         PrintFormat(&quot;Memória insuficiente para o agente de teste: %d MB&quot;,
+                     available_memory_mb);
+         return (INIT_AGENT_NOT_SUITABLE);
+        }
+     }
+//--- verificamos se existe indicador
+   indicator_handle=iCustom(_Symbol,_Period,&quot;My_Indicator&quot;,ma_period);
+   if(indicator_handle==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;Não foi possível criar o indicador My_Indicator. Código de erro %d&quot;
+                  GetLastError());
+      return (INIT_FAILED);
+     }
+//--- inicialização do EA bem-sucedida
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+OnDeinit, TesterHideIndicators, Funções de processamento de eventos, Execução de programas,
+Evento do terminal do cliente, Inicialização de variáveis, Criando e destruindo objetos</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1924
+<h3>OnDeinit</h3>
+É chamada em indicadores e EAs quando ocorre o evento Deinit. A função é projetada para
+desinicialização de um programa MQL5 em execução.
+</p>
+<pre><code class="language-mql5">
+void  OnDeinit(
+   const int  reason         // código de motivo da desinicialização
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+reason
+[in]  Código de motivo da desinicialização.
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+O evento Deinit é gerado para EAs e para indicadores nos seguintes casos:
+· antes de uma reinicialização devida à mudança do símbolo ou do período do gráfico ao qual o
+programa MQL5 está associado;
+· antes de uma reinicialização devida à mudança dos parâmetros de entrada;
+· antes de descarregar o programa MQL%.
+O parâmetro reason pode pegar os seguintes valores:
+<h3>Constante</h3>
+<h3>Valor</h3>
+<h3>Descrição</h3>
+<h3>REASON_PROGRAM</h3>
+0
+O Expert Advisor parou seu trabalho chamando a
+função ExpertRemove()
+<h3>REASON_REMOVE</h3>
+1
+<h3>Programa excluído do gráfico</h3>
+<h3>REASON_RECOMPILE</h3>
+2
+<h3>Programa recompilado</h3>
+<h3>REASON_CHARTCHANGE</h3>
+3
+<h3>Símbolo ou período alterado</h3>
+<h3>REASON_CHARTCLOSE</h3>
+4
+<h3>Gráfico fechado</h3>
+<h3>REASON_PARAMETERS</h3>
+5
+<h3>Parâmetros de entrada alterados pelo usuário</h3>
+<h3>REASON_ACCOUNT</h3>
+6
+Outra conta ativada ou reconectada ao servidor de
+negociação como resultado da 
+alteração 
+das
+configurações da conta
+<h3>REASON_TEMPLATE</h3>
+7
+<h3>Outro modelo de gráfico implementado</h3>
+<h3>REASON_INITFAILED</h3>
+8
+Manipulador de OnInit() retornou um valor diferente
+de zero
+<h3>REASON_CLOSE</h3>
+9
+<h3>Terminal fechado</h3>
+Códigos de motivo de desinicialização do EA podem ser obtidos pela função UninitializeReason() ou a
+partir da variável predefinida _UninitReason.</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1925
+Exemplo da funções OnInit() e OnDeinit() para o EA
+</p>
+<pre><code class="language-mql5">
+input int fake_parameter=3;      // parâmetro inútil
+//+----------´--------------------------------------------------------+
+//| Expert initialization function                                    |
+//+----------´--------------------------------------------------------+
+int OnInit()
+  {
+//--- Obtemos o número da compilação do programa
+   Print(__FUNCTION__,&quot; Build #&quot;,__MQLBUILD__);
+//--- Código de motivo de reinicialização pode ser obtido na OnInit()
+   Print(__FUNCTION__,&quot; Ao reinicializar o EA, você pode obter o código de motivo da d
+//--- Primeira maneira de obter o código de motivo de desinicialização
+   Print(__FUNCTION__,&quot; _UninitReason = &quot;,getUninitReasonText(_UninitReason));
+//--- Segunda maneira de obter o código de motivo de desinicialização  
+   Print(__FUNCTION__,&quot; UninitializeReason() = &quot;,getUninitReasonText(UninitializeReaso
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+----------´--------------------------------------------------------+
+//| Expert deinitialization function                                  |
+//+----------´--------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- Primeira maneira de obter o código de motivo de desinicialização
+   Print(__FUNCTION__,&quot; Código de motivo da desinicialização = &quot;,reason);
+//--- Segunda maneira de obter o código de motivo de desinicialização
+   Print(__FUNCTION__,&quot; _UninitReason = &quot;,getUninitReasonText(_UninitReason));
+//--- Terceira maneira de obter o código de motivo de desinicialização  
+   Print(__FUNCTION__,&quot; UninitializeReason() = &quot;,getUninitReasonText(UninitializeReaso
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a descrição do motivo da desinicialização                |
+//+------------------------------------------------------------------+
+string getUninitReasonText(int reasonCode)
+  {
+   string text=&quot;&quot;;
+//---
+   switch(reasonCode)
+     {
+      case REASON_ACCOUNT:
+         text=&quot;Account was changed&quot;;break;
+      case REASON_CHARTCHANGE:
+         text=&quot;Symbol or timeframe was changed&quot;;break;
+      case REASON_CHARTCLOSE:
+         text=&quot;Chart was closed&quot;;break;
+      case REASON_PARAMETERS:
+         text=&quot;Input-parameter was changed&quot;;break;
+      case REASON_RECOMPILE:</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1926
+</p>
+<pre><code class="language-mql5">
+         text=&quot;Program &quot;+__FILE__+&quot; was recompiled&quot;;break;
+      case REASON_REMOVE:
+         text=&quot;Program &quot;+__FILE__+&quot; was removed from chart&quot;;break;
+      case REASON_TEMPLATE:
+         text=&quot;New template was applied to chart&quot;;break;
+      default:text=&quot;Another reason&quot;;
+     }
+//---
+   return text;
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+OnInit, Funções de processamento de eventos, Execução de programas, Eventos do terminal do
+cliente, Motivos de desinicialização, Escopo de visibilidade e tempo de vida das variáveis, Criando e
+destruindo objetos</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1927
+<h3>OnTick</h3>
+É chamada em EAs quando ocorre o evento NewTick para processar uma nova cotação.
+</p>
+<pre><code class="language-mql5">
+void  OnTick(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+O evento NewTick é gerado apenas para EAs após a chegada de um novo tick do símbolo cujo EA é
+anexado ao gráfico. É inútil definir a função OnTick() no indicador personalizado ou no script, pois o
+evento NewTick não é gerado para eles. 
+O evento Tick é gerado apenas para EAs, mas isso não significa que os EAs precisam ter a função
+OnTick(), porque não apenas os eventos NewTick são gerados para EAs, mas também os eventos
+Timer, BookEvent e ChartEvent.
+Todos os eventos são processados um após o outro na ordem em que são recebidos. Se na fila já
+houver um evento NewTick ou este evento estiver no estado de processamento, o novo evento
+NewTick não será colocado na fila do programa MQL5.
+O evento NewTick é gerado independentemente de se a negociação automática está habilitada ou
+desabilitada (o botão &quot;Negociação automática&quot;). Ao desabilitar a negociação automática, será
+apenas desativado o envio de solicitações de negociação a partir do EA, ao mesmo tempo, o EA
+continua trabalhando.
+Ao desativar a negociação automática clicando no botão &quot;Negociação automática&quot;, não se
+interrompe a execução atual da função OnTick().
+Exemplo de EA em que toda a lógica de negociação é colocada na função OnTick()
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                   TradeByATR.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de EA que opera segundo a direção da vela \&quot;detonante\&quot;
+#property description &quot;O corpo da vela \&quot;detonante\&quot; tem um tamanho maior que k*ATR&quot;
+#property description &quot;O parâmetro \&quot;revers\&quot; inverte a direção do sinal&quot;
+input double lots=0.1;        // volume em lotes
+input double kATR=3;          // tamanho da vela de sinal no ATR
+input int    ATRperiod=20;    // período do indicador ATR
+input int    holdbars=8;      // número de barras para manter a posição
+input int    slippage=10;     // derrapagem admissível
+input bool   revers=false;    // invertemos o sinal? 
+input ulong  EXPERT_MAGIC=0;  // MagicNumber do EA</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1928
+</p>
+<pre><code class="language-mql5">
+//--- para armazenar o identificador do indicador ATR
+int atr_handle;
+//--- aqui vamos armazenar os últimos valores do ATR e o corpo da vela
+double last_atr,last_body;
+</code></pre>
+<p>
+datetime lastbar_timeopen;
+</p>
+<pre><code class="language-mql5">
+double trade_lot;
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- inicializamos as variáveis globais
+   last_atr=0;
+   last_body=0;
+//--- definimos o volume correto
+   double min_lot=SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_MIN);
+   trade_lot=lots&gt;min_lot? lots:min_lot;   
+//--- criamos o identificador do indicador ATR
+   atr_handle=iATR(_Symbol,_Period,ATRperiod);
+   if(atr_handle==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;%s: não foi possível criar o iATR, código de erro %d&quot;,__FUNCTION__,
+      return(INIT_FAILED);
+     }
+//--- inicialização bem-sucedida do EA
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- relatamos o código de desligamento do EA
+   Print(__FILE__,&quot;: Código de motivo da desinicialização = &quot;,reason);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- sinal de negociação
+   static int signal=0; // +1 significa um sinal de compra, -1 significa um sinal de v
+//--- verificamos e fechamos as posições abertas antigas, abertas há mais de holdbars 
+   ClosePositionsByBars(holdbars,slippage,EXPERT_MAGIC);
+//--- verificamos o surgimento de uma nova barra
+   if(isNewBar())
+     {
+      //--- verificamos a presença de sinal      
+      signal=CheckSignal();</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1929
+</p>
+<pre><code class="language-mql5">
+     }
+//--- se aberta uma posição de &#x27;netting&#x27;, ignoramos o sinal e esperamos até que ele fe
+   if(signal!=0 &amp;&amp; PositionsTotal()&gt;0 &amp;&amp; (ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger
+     {
+      signal=0;
+      return; // saímos do manipulador de eventos NewTick e não entramos no mercado at
+     }
+//--- para contas de cobertura (&#x27;hedge&#x27;), casa posição tem vida e fecha separadamente
+   if(signal!=0)
+     {
+      //--- sinal de compra
+      if(signal&gt;0)
+        {
+         PrintFormat(&quot;%s: Existe um sinal de compra! Revers=%s&quot;,__FUNCTION__,string(re
+         if(Buy(trade_lot,slippage,EXPERT_MAGIC))
+            signal=0;
+        }
+      //--- sinal de venda
+      if(signal&lt;0)
+        {
+         PrintFormat(&quot;%s: Existe um sinal de venda! Revers=%s&quot;,__FUNCTION__,string(rev
+         if(Sell(trade_lot,slippage,EXPERT_MAGIC))
+            signal=0;
+        }
+     }
+//--- fim da função OnTick
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificando se á sinal de negociação                             |
+//+------------------------------------------------------------------+
+int CheckSignal()
+  {
+//--- 0 significa que não há sinal
+   int res=0;
+//--- obtemos o valor do ATR na penúltima barra concluída (o índice da barra igual a 2
+   double atr_value[1];
+   if(CopyBuffer(atr_handle,0,2,1,atr_value)!=-1)
+     {
+      last_atr=atr_value[0];
+      //--- recebemos os dados da última barra fechada numa matriz do tipo MqlRates
+      MqlRates bar[1];
+      if(CopyRates(_Symbol,_Period,1,1,bar)!=-1)
+        {
+         //--- calculamos o tamanho do corpo da barra na última barra fechada
+         last_body=bar[0].close-bar[0].open;
+         //--- se o corpo da última barra (com índice 1) exceder o valor anterior do A
+         if(MathAbs(last_body)&gt;kATR*last_atr)
+            res=last_body&gt;0?1:-1; // para a leva altista um valor positivo
+        }</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1930
+</p>
+<pre><code class="language-mql5">
+      else
+         PrintFormat(&quot;%s: Não foi possível obter a última barra! Erro&quot;,__FUNCTION__,Ge
+     }
+   else
+      PrintFormat(&quot;%s: Não foi possível obter o valor do indicador ATR! Erro&quot;,__FUNCTI
+//--- se estiver ativado o modo de negociação de reversão
+   res=revers?-res:res;  // se necessário, revertemos o sinal (em vez de 1, retornamos
+//--- retornamos o valor do sinal de negociação
+   return (res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Retornando true quando aparece uma nova barra                   |
+//+------------------------------------------------------------------+
+bool isNewBar(const bool print_log=true)
+  {
+   static datetime bartime=0; // armazenamos o tempo de abertura da barra atual
+//--- obtemos o tempo de abertura da barra zero
+   datetime currbar_time=iTime(_Symbol,_Period,0);
+//--- se o tempo de abertura mudar, é porque apareceu uma nova barra
+   if(bartime!=currbar_time)
+     {
+      bartime=currbar_time;
+      lastbar_timeopen=bartime;
+      //--- exibir no log informações sobre o tempo de abertura da nova barra      
+      if(print_log &amp;&amp; !(MQLInfoInteger(MQL_OPTIMIZATION)||MQLInfoInteger(MQL_TESTER)))
+        {
+         //--- exibimos uma mensagem sobre o tempo de abertura da nova barra
+         PrintFormat(&quot;%s: new bar on %s %s opened at %s&quot;,__FUNCTION__,_Symbol,
+                     StringSubstr(EnumToString(_Period),7),
+                     TimeToString(TimeCurrent(),TIME_SECONDS));
+         //--- obtemos os dados do último tick
+         MqlTick last_tick;
+         if(!SymbolInfoTick(Symbol(),last_tick))
+            Print(&quot;SymbolInfoTick() failed, error = &quot;,GetLastError());
+         //--- exibimos o tempo do último tick em segundos
+         PrintFormat(&quot;Last tick was at %s.%03d&quot;,
+                     TimeToString(last_tick.time,TIME_SECONDS),last_tick.time_msc%1000
+        }
+      //--- temos uma nova barra
+      return (true);
+     }
+//--- não há nenhuma barra nova
+   return (false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Comprando a mercado com o volume especificado                    |
+//+------------------------------------------------------------------+
+bool Buy(double volume,ulong deviation=10,ulong  magicnumber=0)
+  {</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1931
+</p>
+<pre><code class="language-mql5">
+//--- compramos a mercado
+   return (MarketOrder(ORDER_TYPE_BUY,volume,deviation,magicnumber));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Vendendo a mercado com o volume definido                          |
+//+------------------------------------------------------------------+
+bool Sell(double volume,ulong deviation=10,ulong  magicnumber=0)
+  {
+//--- vendemos a mercado
+   return (MarketOrder(ORDER_TYPE_SELL,volume,deviation,magicnumber));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Fechando posições segundo o tempo de retenção nas barras         |
+//+------------------------------------------------------------------+
+void ClosePositionsByBars(int holdtimebars,ulong deviation=10,ulong  magicnumber=0)
+  {
+   int total=PositionsTotal(); // número de posições abertas   
+//--- pesquisa detalhada de todas as posições abertas
+   for(int i=total-1; i&gt;=0; i--)
+     {
+      //--- parâmetros da posição
+      ulong  position_ticket=PositionGetTicket(i);                                    
+      string position_symbol=PositionGetString(POSITION_SYMBOL);                      
+      ulong  magic=PositionGetInteger(POSITION_MAGIC);                                
+      datetime position_open=(datetime)PositionGetInteger(POSITION_TIME);             
+      int bars=iBarShift(_Symbol,PERIOD_CURRENT,position_open)+1;                     
+      //--- se a posição tem vivido por um longo tempo, e também o MagicNumber e o sím
+      if(bars&gt;holdtimebars &amp;&amp; magic==magicnumber &amp;&amp; position_symbol==_Symbol)
+        {
+         int    digits=(int)SymbolInfoInteger(position_symbol,SYMBOL_DIGITS);         
+         double volume=PositionGetDouble(POSITION_VOLUME);                            
+         ENUM_POSITION_TYPE type=(ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE)
+         string str_type=StringSubstr(EnumToString(type),14);
+         StringToLower(str_type); // reduzimos o registro do texto para uma correta fo
+         PrintFormat(&quot;Fechamos a posição #%I64u %s %s %.2f&quot;,
+                     position_ticket,position_symbol,str_type,volume);
+         //--- definindo o tipo de ordem e de envio do pedido de negociação
+         if(type==POSITION_TYPE_BUY)
+            MarketOrder(ORDER_TYPE_SELL,volume,deviation,magicnumber,position_ticket);
+         else
+            MarketOrder(ORDER_TYPE_BUY,volume,deviation,magicnumber,position_ticket);
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preparando e enviando uma solicitação de negociação              |
+//+------------------------------------------------------------------+
+bool MarketOrder(ENUM_ORDER_TYPE type,double volume,ulong slip,ulong magicnumber,ulong</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1932
+</p>
+<pre><code class="language-mql5">
+  {
+//--- declaração e inicialização de estruturas
+   MqlTradeRequest request={};
+   MqlTradeResult  result={};
+   double price=SymbolInfoDouble(Symbol(),SYMBOL_BID);
+   if(type==ORDER_TYPE_BUY)
+      price=SymbolInfoDouble(Symbol(),SYMBOL_ASK);
+//--- parâmetros da solicitação
+   request.action   =TRADE_ACTION_DEAL;                     // tipo de operação de neg
+   request.position =pos_ticket;                            // boleta da posição, se f
+   request.symbol   =Symbol();                              // símbolo
+   request.volume   =volume;                                // volume 
+   request.type     =type;                                  // tipo de ordem
+   request.price    =price;                                 // preço de transação
+   request.deviation=slip;                                  // desvio permitido em rel
+   request.magic    =magicnumber;                           // MagicNumber da ordem
+//--- envio do pedido
+   if(!OrderSend(request,result))
+     {
+      //--- exibimos as informações sobre a falha
+      PrintFormat(&quot;OrderSend %s %s %.2f at %.5f error %d&quot;,
+                  request.symbol,EnumToString(type),volume,request.price,GetLastError
+      return (false);
+     }
+//--- relatamos sobre a operação bem-sucedida
+   PrintFormat(&quot;retcode=%u  deal=%I64u  order=%I64u&quot;,result.retcode,result.deal,result
+   return (true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Funções de processamento de eventos, Execução de programas, Eventos do terminal do cliente,
+<h3>OnTimer, OnBookEvent, OnChartEvent</h3></p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1933
+<h3>OnCalculate</h3>
+É chamada em indicadores quando ocorre o evento Calculate para processar alterações nos dados de
+preço. Existem duas versões da função, você não pode usar as duas dentro do mesmo indicador.
+<h3>Cálculo baseado numa matriz de dados</h3>
+</p>
+<pre><code class="language-mql5">
+int  OnCalculate(
+   const int        rates_total,       // tamanho da matriz price[]
+   const int        prev_calculated,   // número de barras processadas na chamada ante
+   const int        begin,             // número do índice na matriz price[] a partir 
+   const double&amp;    price[]            // matriz de valores para cálculo
+   );
+</code></pre>
+<p>
+Cálculos baseados nas séries temporais do timeframe atual
+</p>
+<pre><code class="language-mql5">
+int  OnCalculate(
+   const int        rates_total,       // tamanho das séries temporais de entrada
+   const int        prev_calculated,   // número de barras processadas na chamada ante
+   const datetime&amp;  time[],            // matriz Time
+   const double&amp;    open[],            // matriz Open
+   const double&amp;    high[],            // matriz High
+   const double&amp;    low[],             // matriz Low
+   const double&amp;    close[],           // matriz Close
+   const long&amp;      tick_volume[],     // matriz Tick Volume
+   const long&amp;      volume[],          // matriz Real Volume
+   const int&amp;       spread[]           // matriz Spread
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+rates_total
+[in]  Tamanho da matriz price[] ou das séries temporais de entrada disponíveis para o indicador
+para cálculo. Na segunda versão da função, o valor do parâmetro corresponde ao número de barras
+no gráfico em que está sendo executado.
+prev_calculated
+[in]  Contém o valor retornado pela função OnCalculate() na chamada anterior. Ele é usado para
+ignorar nos cálculos as barras que não mudaram desde a última inicialização desta função.
+begin
+[in]  valor do índice na matriz price[] a partir do qual começam os dados significativos. Permite
+ignorar nos cálculos os dados ausentes ou iniciais, para os quais não há valores corretos.
+price[]
+[in]  Matriz de valores para executar cálculos. Como matriz price[] pode ser transferida uma das
+séries temporais de preços ou o buffer calculado de qualquer indicador. O tipo de dados que foi
+transferido para o cálculo pode ser determinado usando a variável predefinida _AppliedTo.
+time{}
+[in]  Matriz com os valores de tempo da abertura das barras.</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1934
+open[]
+[in]  Matriz com os valores dos preços de abertura.
+high[]
+[in]  Matriz com os valores dos preços máximos.
+low[]
+[in]  Matriz com os valores dos preços mínimos.
+close[]
+[in]  Matriz com os valores dos preços de fechamento.
+tick_volume[]
+[in]  Matriz com valores dos volumes de ticks.
+volume[]
+[in]  Matriz com valores dos volumes de negociação.
+spread[]
+[in]  Matriz com os valores de spread para barras.
+<h3>Valor retornado</h3>
+Valor de tipo int que será transferido como parâmetro prev_calculated, da próxima vez que a função
+</p>
+<pre><code class="language-mql5">
+for chamada.
+</code></pre>
+<p>
+<h3>Observação</h3>
+Se a função OnCalculate() retornar um valor zero, a janela DataWindow do terminal do cliente não
+exibirá os valores do indicador.
+Se os dados de preço foram alterados desde a última chamada da função OnCalculate() (um histórico
+mais profundo foi carregado ou o histórico estava ausente), o valor do parâmetro de entrada
+prev_calculated será definido como zero pelo próprio terminal.
+Para determinar a direção da indexação nas matrizes time[], open[], high[], low[], close[],
+tick_volume[], volume[] e spread[], é necessário chamar a função ArrayGetAsSeries(). Para não
+depender dos padrões, é absolutamente necessário chamar a função ArraySetAsSeries() para aquelas
+matrizes com as quais se deve trabalhar.
+Ao usar a primeira versão da função, a séries temporais ou o indicador necessário como uma matriz
+price[] é selecionado pelo usuário na guia Parameters quando o indicador é iniciado. Para fazer isso,
+você deve especificar o elemento desejado na lista suspensa do campo &quot;Apply to&quot;.
+Para obter os valores do indicador personalizado a partir de outros programas MQL5, é usada a
+função iCustom() que retorna o identificador do indicador para as operações subsequentes. Neste
+caso, você pode especificar a matriz necessária price[] ou o identificador da outro indicador. Este
+parâmetro deve ser o último a ser passado na lista de variáveis de entrada do indicador
+personalizado.
+É necessário usar o relacionamento entre o valor retornado pela função OnCalculate() e o segundo
+parâmetro de entrada prev_calculated. O parâmetro prev_calculated, ao chamar a função, contém o
+valor retornado pela função OnCalculate() na chamada anterior. Isso possibilita a implementação de
+algoritmos econômicos para o cálculo do indicador personalizado, a fim de evitar cálculos repetitivos
+para as barras que não foram alteradas desde a última inicialização desta função. </p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1935
+<h3>Exemplo de indicador</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           OnCalculate_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de cálculo do indicador Momentum&quot;
+//---- indicator settings
+#property indicator_separate_window
+#property indicator_buffers 1
+#property indicator_plots   1
+#property indicator_type1   DRAW_LINE
+#property indicator_color1  Blue
+//---- parâmetros de entrada
+input int MomentumPeriod=14; // Período para cálculo
+//---- buffer de indicador
+double    MomentumBuffer[];
+//--- variável global para armazenar o período de cálculos
+int       IntPeriod;
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+void OnInit()
+  {
+//--- verificamos o parâmetro de entrada
+   if(MomentumPeriod&lt;0)
+     {
+      IntPeriod=14;
+      Print(&quot;parâmetro Período possui um valor inválido. Para cálculos, será usado o v
+     }
+   else
+      IntPeriod=MomentumPeriod;
+//---- buffers  
+   SetIndexBuffer(0,MomentumBuffer,INDICATOR_DATA);
+//---- o nome do indicador a ser exibido na DataWindow e na subjanela
+   IndicatorSetString(INDICATOR_SHORTNAME,&quot;Momentum&quot;+&quot;(&quot;+string(IntPeriod)+&quot;)&quot;);
+//--- definimos o número da barra a partir da qual começa a plotagem
+   PlotIndexSetInteger(0,PLOT_DRAW_BEGIN,IntPeriod-1);
+//--- definimos 0.0 como um valor vazio que não é plotado
+   PlotIndexSetDouble(0,PLOT_EMPTY_VALUE,0.0);
+//--- precisão para mostrar os valores do indicador
+   IndicatorSetInteger(INDICATOR_DIGITS,2);</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1936
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Cálculo do indicador Momentum                                   |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,     // tamanho da matriz price[] 
+                const int prev_calculated, // número de barras processadas anteriormen
+                const int begin,           // começo dos valores significativos
+                const double &amp;price[])     // matriz para o valor a ser processado
+  {
+//--- posição inicial para cálculos
+   int StartCalcPosition=(IntPeriod-1)+begin;
+//---- se não houver suficientes dados para cálculo
+   if(rates_total&lt;StartCalcPosition)
+      return(0);  // saímos com valor nulo - indicador não é calculado
+//--- correct draw begin
+   if(begin&gt;0)
+      PlotIndexSetInteger(0,PLOT_DRAW_BEGIN,StartCalcPosition+(IntPeriod-1));
+//--- começamos os cálculos, calculamos a posição do início
+   int pos=prev_calculated-1;
+   if(pos&lt;StartCalcPosition)
+      pos=begin+IntPeriod;
+//--- ciclo principal de cálculos
+   for(int i=pos;i&lt;rates_total &amp;&amp; !IsStopped();i++)
+      MomentumBuffer[i]=price[i]*100/price[i-IntPeriod];
+//--- execução da OnCalculate concluída. Retornamos o novo valor de prev_calculated pa
+   return(rates_total);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+ArrayGetAsSeries, ArraySetAsSeries, iCustom, Funções de processamento de eventos, Execução de
+programas, Eventos do terminal do cliente, Acesso a séries temporais e indicadores</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1937
+<h3>OnTimer</h3>
+É chamada em EAs quando o ocorre o evento Timer gerado pelo terminal com um intervalo
+predeterminado.
+</p>
+<pre><code class="language-mql5">
+void  OnTimer(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+O evento Timer é gerado periodicamente pelo terminal do cliente para o EA que ativa o
+temporizador usando a função EventSetTimer(). Geralmente, esta função é chamada na função
+OnInit(). Ao concluir o trabalho do EA, é necessário destruir o temporizador criado com a ajuda da
+EventKillTimer() que, normalmente é chamada na função OnDeinit().
+Cada EA e cada indicador trabalha com seu temporizador e recebe eventos apenas dele. No final do
+trabalho do programa MQL5, o temporizador é forçosamente destruído, se foi criado, mas não foi
+desabilitado pela função EventKillTimer().
+Se precisar receber eventos do temporizador mais de uma vez por segundo, use a
+EventSetMillisecondTimer() para criar um temporizador de alta resolução. 
+Em geral, à medida que o período do temporizador diminui, o tempo de teste aumenta, uma vez que
+o número de chamadas do manipulador de eventos do tempo total aumenta. Ao trabalhar em tempo
+real, os eventos do temporizador são gerados no máximo 1 vez a cada 10-16 milissegundos, o que é
+devido a limitações de hardware.
+Para cada programa, não pode ser iniciado mais do que um temporizador. Cada programa MQL5 e
+cada gráfico têm sua própria fila de eventos, à qual são adicionados todos os eventos recém-
+chegados. Se na fila já houver um evento Timer ou este evento estiver no estado de
+processamento, o novo evento Timer não será colocado na fila do programa MQL5. 
+<h3>Exemplo de EA com manipulador OnTimer()</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                               OnTimer_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de uso de temporizador para calcular a hora do servidor
+#property description &quot;É melhor iniciar o EA no final da semana de negociação, antes d
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- criamos um temporizador com um período de 1 segundo</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1938
+</p>
+<pre><code class="language-mql5">
+   EventSetTimer(1);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- destruímos o temporizador no final do trabalho
+   EventKillTimer();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+----------´--------------------------------------------------------+
+//| Expert tck function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Timer function                                                   |
+//+------------------------------------------------------------------+
+void OnTimer()
+  {
+//--- hora da primeira chamada da OnTimer()
+   static datetime start_time=TimeCurrent();
+//--- hora do servidor de negociação na primeira chamada da OnTimer();
+   static datetime start_tradeserver_time=0;
+//--- hora do servidor de negociação calculada
+   static datetime calculated_server_time=0;
+//--- hora local no computador
+   datetime local_time=TimeLocal();
+//--- hora estimada atual do servidor de negociação
+   datetime trade_server_time=TimeTradeServer();
+//--- se por algum motivo a hora do servidor for desconhecida, sairemos antecipadament
+   if(trade_server_time==0)
+      return;
+//--- se o valor inicial do servidor de negociação ainda não estiver definido
+   if(start_tradeserver_time==0)
+     {
+      start_tradeserver_time=trade_server_time;
+      //--- definimos a hora calculada do servidor de negociação      
+      Print(trade_server_time);
+      calculated_server_time=trade_server_time;
+     }
+   else</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1939
+</p>
+<pre><code class="language-mql5">
+     {
+      //--- aumentamos o tempo da primeira chamada da OnTimer()
+      if(start_tradeserver_time!=0)
+         calculated_server_time=calculated_server_time+1;;
+     }
+//--- 
+   string com=StringFormat(&quot;                  Start time: %s\r\n&quot;,TimeToString(start_t
+   com=com+StringFormat(&quot;                  Local time: %s\r\n&quot;,TimeToString(local_time
+   com=com+StringFormat(&quot;TimeTradeServer time: %s\r\n&quot;,TimeToString(trade_server_time,
+   com=com+StringFormat(&quot; EstimatedServer time: %s\r\n&quot;,TimeToString(calculated_server
+//--- exibimos no gráfico os valores de todos os contadores
+   Comment(com);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+EventSetTimer, EventSetMillisecondTimer, EventKillTimer, GetTickCount, GetMicrosecondCount,
+<h3>Eventos do terminal do cliente</h3></p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1940
+<h3>OnTrade</h3>
+É chamada em EAs quando ocorre o evento Trade. A função se destina ao processamento de alterações
+em listas de ordens, de posições e de transações.
+</p>
+<pre><code class="language-mql5">
+void  OnTrade(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+A OnTrade() é chamada apenas para EAs, é ignorada em indicadores e em scripts, mesmo se você
+adicionar uma função com esse nome e tipo a eles.
+Para qualquer ação de negociação (colocação de uma ordem pendente, abertura/fechamento de uma
+posição, definição de stops, desencadeamento de ordens pendentes, etc.), são devidamente
+modificados o histórico de ordens e de transações e/ou a lista de posições e de ordens atuais.
+Ao processar a ordem, o servidor de negociação envia uma mensagem ao terminal sobre a
+ocorrência do evento Trade. Para obter a partir do histórico dados atuais sobre ordens e transações,
+você deve primeiro executar uma solicitação de histórico de negociação usando HistorySelect().
+Eventos de negociação são gerados pelo servidor nos seguintes casos:
+· alterações nas ordens atuais,
+· alterações nas posições,
+· alterações nas transações,
+· alterações no histórico de negociação.
+Cada evento Trade pode ser o resultado de uma ou mais solicitações de negociação. As solicitações
+de negociação são enviadas para o servidor usando OrderSend() ou OrderSendAsync(). Cada
+solicitação pode gerar vários eventos de negociação. Você não pode confiar na regra «Uma
+solicitação - Um evento &#x27;Trade&#x27;», já que o processamento de solicitações pode ocorrer em vários
+estágios e cada operação pode alterar o status de ordens, de posições e do histórico de negociação.
+O manipulador OnTrade() é chamado após a chamadas correspondentes da OnTradeTransaction().
+Em geral, não há correlação exata no número 
+de 
+chamadas 
+da 
+<h3>OnTrade()</h3>
+e 
+da
+OnTradeTransaction(). Uma chamada da OnTrade() corresponde a uma ou mais chamadas da
+OnTradeTransaction.
+<h3>Exemplo de EA com manipulador OnTrade()</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                               OnTrade_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1941
+</p>
+<pre><code class="language-mql5">
+input    int days=7;            // profundidade do histórico de negociação em dias
+//--- definimos no nível global os limites do histórico de negociação
+</code></pre>
+<p>
+datetime     start;             // data de início do histórico de negociação em cache
+datetime     end;               // data final do histórico de negociação em cache
+</p>
+<pre><code class="language-mql5">
+//--- contadores globais
+int          orders;            // número de ordens vigentes
+int          positions;         // número de posições abertas
+int          deals;             // número de transações no cache do histórico de negoc
+int          history_orders;    // número de ordens no cache do histórico de negociaçã
+bool         started=false;     // sinalizador da relevância dos contadores
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//---
+   end=TimeCurrent();
+   start=end-days*PeriodSeconds(PERIOD_D1);
+   PrintFormat(&quot;Limites do histórico de negociação carregado: início - %s, fim - %s&quot;,
+               TimeToString(start),TimeToString(end));
+   InitCounters();
+//---
+   return(0);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Inicializando contadores de posições, de ordens e de transações |
+//+------------------------------------------------------------------+
+void InitCounters()
+  {
+   ResetLastError();
+//--- carregamos o histórico
+   bool selected=HistorySelect(start,end);
+   if(!selected)
+     {
+      PrintFormat(&quot;%s. Não foi possível carregar no cache o histórico de %s a %s. Códi
+                  __FUNCTION__,TimeToString(start),TimeToString(end),GetLastError());
+      return;
+     }
+//--- obtemos os valores atuais
+   orders=OrdersTotal();
+   positions=PositionsTotal();
+   deals=HistoryDealsTotal();
+   history_orders=HistoryOrdersTotal();
+   started=true;
+   Print(&quot;Inicialização de contadores de ordens, de posições e de transações bem-suced
+</code></pre>
+<p>
+  }  
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1942
+</p>
+<pre><code class="language-mql5">
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+   if(started) SimpleTradeProcessor();
+   else InitCounters();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| chamado quando ocorre o evento Trade                             |
+//+------------------------------------------------------------------+
+void OnTrade()
+  {
+   if(started) SimpleTradeProcessor();
+   else InitCounters();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| exemplo de processamento de alterações na negociação e no histórico
+//+------------------------------------------------------------------+
+void SimpleTradeProcessor()
+  {
+   end=TimeCurrent();
+   ResetLastError();
+//--- carregamos no cache do programa o histórico de negociação a partir do intervalo 
+   bool selected=HistorySelect(start,end);
+   if(!selected)
+     {
+      PrintFormat(&quot;%s. Não foi possível carregar no cache o histórico de %s a %s. Códi
+                  __FUNCTION__,TimeToString(start),TimeToString(end),GetLastError());
+      return;
+     }
+//--- obtemos os valores atuais
+   int curr_orders=OrdersTotal();
+   int curr_positions=PositionsTotal();
+   int curr_deals=HistoryDealsTotal();
+   int curr_history_orders=HistoryOrdersTotal();
+//--- verificamos as alterações na quantidade de ordens vigentes
+   if(curr_orders!=orders)
+     {
+      //--- número de ordens vigentes alterado
+      PrintFormat(&quot;O número de ordens foi alterado de %d para %d&quot;,
+                  orders,curr_orders);
+      //--- atualizamo o valor
+      orders=curr_orders;
+     }
+//--- alteração no número de posições abertas
+   if(curr_positions!=positions)
+     {
+      //--- o número de posições abertas foi alterado
+      PrintFormat(&quot;O número de posições abertas foi alterado de %d para %d&quot;,</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1943
+</p>
+<pre><code class="language-mql5">
+                  positions,curr_positions);
+      //--- atualizamo o valor
+      positions=curr_positions;
+     }
+//--- alterações no número de transações no cache do histórico de negociação
+   if(curr_deals!=deals)
+     {
+      //--- número de transações no cache do histórico de negociação foi alterado
+      PrintFormat(&quot;O número de transações foi alterado de %d para %d&quot;,
+                  deals,curr_deals);
+      //--- atualizamo o valor
+      deals=curr_deals;
+     }
+//--- alterações no número de ordens históricas no cache do histórico de negociação
+   if(curr_history_orders!=history_orders)
+     {
+      //--- número de ordens históricas no cache do histórico de negociação foi altera
+      PrintFormat(&quot;O número de ordens no histórico foi alterado de %d para %d&quot;,
+                  history_orders,curr_history_orders);
+     //--- atualizamos o valor
+     history_orders=curr_history_orders;
+     }
+//--- verificamos se é necessário alterar os limites do histórico de negociação para s
+   CheckStartDateInTradeHistory();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  alterações da data de início para a solicitação do histórico de negociação      
+//+------------------------------------------------------------------+
+void CheckStartDateInTradeHistory()
+  {
+//--- intervalo de início, se começarmos a trabalhar agora
+   datetime curr_start=TimeCurrent()-days*PeriodSeconds(PERIOD_D1);
+//--- verificamos que o limite do início do histórico de transações seja inferior
+//--- a 1 dia a partir da data planejada
+   if(curr_start-start&gt;PeriodSeconds(PERIOD_D1))
+     {
+      //--- deve-se corrigir a data de início do histórico carregado no cache
+      start=curr_start;
+      PrintFormat(&quot;Novo limite de início do histórico de negociação carregado: início 
+                  TimeToString(start));
+      //--- agora recarregamos o histórico de transações para o intervalo atualizado
+      HistorySelect(start,end);
+      //--- corrigimos os contadores de transações e de ordens no histórico para a pró
+      history_orders=HistoryOrdersTotal();
+      deals=HistoryDealsTotal();
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+/* Exemplo de exibição:</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1944
+  Limites do histórico de negociação carregado: início - 2018.07.16 18:11, fim - 2018.
+  Contadores de ordens, deposições e de transações inicializados com sucesso
+  O número de ordens foi alterado. Havia 0, há 1
+  O número de ordens foi alterado. Havia 1, há 0
+  O número de posições foi alterado. Havia 0, há 1
+  O número de transações foi alterado. Havia 0, há 1
+  O número de ordens no histórico foi alterado. Havia 0, há 1
+*/
+<h3>Veja também</h3>
+OrderSend, OrderSendAsync, OnTradeTransaction,  Eventos do terminal do cliente</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1945
+<h3>OnTradeTransaction</h3>
+É chamada em EAs quando ocorre o evento TradeTransaction. A função é projetada para processar os
+resultados de execução da solicitação de negociação.
+</p>
+<pre><code class="language-mql5">
+void  OnTradeTransaction()
+   const MqlTradeTransaction&amp;    trans,     // estrutura da transação comercial
+   const MqlTradeRequest&amp;        request,   // estrutura da solicitação
+   const MqlTradeResult&amp;         result     // estrutura da resposta
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+trans
+[in]  Variável do tipo MqlTradeTransaction com descrição da transação feita na conta de
+negociação.
+request
+[in]  Variável do tipo MqlTradeRequest com descrição da solicitação que gerou a transação.
+Contém os valores apenas para a transação de tipo TRADE_TRANSACTION_REQUEST.
+result
+[in]  Variável do tipo MqlTradeResult com resultado da execução da solicitação que gerou a
+transação. Contém os valores apenas para a transação de tipo TRADE_TRANSACTION_REQUEST.
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+OnTradeTransaction() é chamada para manipular o evento TradeTransaction que o servidor de
+negociação envia para o terminal nos seguintes casos:
+· envio da solicitação de negociação a partir do programa MQL5 usando as funções
+<h3>OrderSend()/OrderSendAsync() e sua posterior execução;</h3>
+· envio manual da solicitação de negociação através da interface gráfica e sua posterior execução;
+· desencadeamento de ordens pendentes e ordens stop no servidor;
+· execução de operações no lado do servidor de negociação.
+Informações sobre o tipo de transação são contidas no campo type da variável trans. Os tipos de
+trasações comerciais são descritas na enumeração ENUM_TRADE_TRANSACTION_TYPE:
+· TRADE_TRANSACTION_ORDER_ADD – adição de uma nova ordem ativa
+· TRADE_TRANSACTION_ORDER_UPDATE – alteração da ordem ativa
+· TRADE_TRANSACTION_ORDER_DELETE – remoção da ordem da lista de ordens ativas
+· TRADE_TRANSACTION_DEAL_ADD – adição da transação ao histórico
+· TRADE_TRANSACTION_DEAL_UPDATE – alteração da transação no histórico
+· TRADE_TRANSACTION_DEAL_DELETE – remoção da transação do histórico
+· TRADE_TRANSACTION_HISTORY_ADD – adição da ordem ao histórico como resultado da execução
+ou do cancelamento
+· TRADE_TRANSACTION_HISTORY_UPDATE – alteração da ordem que se encontra no histórico de
+ordens</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1946
+· TRADE_TRANSACTION_HISTORY_DELETE – remoção da ordem do histórico de ordens
+· TRADE_TRANSACTION_POSITION – alteração da posição não relacionada à execução da transação
+· TRADE_TRANSACTION_REQUEST – notificação de que a solicitação de negociação foi processada
+pelo servidor e o resultado de seu processamento foi recebido.
+Ao processar transações do tipo TRADE_TRANSACTION_REQUEST, para obter informações
+adicionais, é necessário analisar os segundo e terceiro parâmetros da função OnTradeTransaction()
+– request e result.
+O envio de uma solicitação de compra leva a uma cadeia de transações comerciais feitas na conta
+de negociação: 1) a solicitação é aceita para ser processada, 2) para a conta é criada a respectiva
+solicitação de compra, 3) é executada a ordem, 4) a ordem executada é removida da lista de ordens
+ativas, 5) adicionada ao histórico de ordens, 6) a transação correspondente é adicionada ao
+histórico e 7) é criada uma nova posição. Todas essas ações são transações comerciais. A chegada
+de cada transação desse tipo no terminal é um evento TradeTransaction. FFNeste caso, não é
+garantida a ordem de recepção destas transações ao terminal, portanto, não se pode construir seu
+próprio algoritmo de negociação na expectativa de receber certas transações comerciais após a
+chegada de outras.
+Quando EA processa transações comerciais usando o manipulador OnTradeTransaction(), o terminal
+continua processando as transações recém-chegadas. Assim, o estado da conta de negociação pode
+mudar já durante o funcionamento da OnTradeTransaction(). Por exemplo, enquanto o programa
+MQL5 manipula o evento de adição de nova ordem, ela pode ser executada, excluída da lista de
+pedidos ordens abertas e movida para o histórico. No futuro, o programa será notificado de todos
+esses eventos.
+O comprimento da fila de transações é de 1 024 itens. Se a OnTradeTransaction() demorar a
+processar a seguinte transação muito tempo, as transações anteriores na fila poderão ser
+substituídas por transações mais recentes.
+O manipulador OnTrade() é chamado após as respectivas chamadas da OnTradeTransaction(). Em
+geral, não há correlação exata no número de chamadas da OnTrade() e da OnTradeTransaction().
+Uma chamada da OnTrade() corresponde a uma ou mais chamadas da OnTradeTransaction.
+Cada evento Trade pode ser o resultado de uma ou mais solicitações de negociação. As solicitações
+de negociação são enviadas para o servidor usando OrderSend() ou OrderSendAsync(). Cada
+solicitação pode gerar vários eventos de negociação. Você não pode confiar na regra «Uma
+solicitação - Um evento &#x27;Trade&#x27;», já que o processamento de solicitações pode ocorrer em vários
+estágios e cada operação pode alterar o status de ordens, de posições e do histórico de negociação.
+<h3>Exemplo de EA  com manipulador OnTradeTransaction()</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                    OnTradeTransaction_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de ouvinte do evento TradeTransaction&quot;
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1947
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//---
+   PrintFormat(&quot;LAST PING=%.f ms&quot;,
+               TerminalInfoInteger(TERMINAL_PING_LAST)/1000.);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| TradeTransaction function                                        |
+//+------------------------------------------------------------------+
+void OnTradeTransaction(const MqlTradeTransaction &amp;trans,
+                        const MqlTradeRequest &amp;request,
+                        const MqlTradeResult &amp;result)
+  {
+//---
+   static int counter=0;   // contador de chamadas da OnTradeTransaction()
+   static uint lasttime=0; // hora da última chamada da OnTradeTransaction()
+//---
+   uint time=GetTickCount();
+//--- se a última operação tiver sido realizada há mais de 1 segundo,
+   if(time-lasttime&gt;1000)
+     {
+      counter=0; // significa que se trata de uma nova operação de negociação e, porta
+      if(IS_DEBUG_MODE)
+         Print(&quot; Nova operação de negociação&quot;);
+     }
+   lasttime=time;
+   counter++;
+   Print(counter,&quot;. &quot;,__FUNCTION__);
+//--- resultado da execução do pedido de negociação
+   ulong            lastOrderID   =trans.order;
+   ENUM_ORDER_TYPE  lastOrderType =trans.order_type;
+   ENUM_ORDER_STATE lastOrderState=trans.order_state;
+//--- nome do símbolo segundo o qual foi realizada a transação
+   string trans_symbol=trans.symbol;
+//--- tipo de transação
+   ENUM_TRADE_TRANSACTION_TYPE  trans_type=trans.type;
+   switch(trans.type)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1948
+</p>
+<pre><code class="language-mql5">
+      case  TRADE_TRANSACTION_POSITION:   // alteração da posição
+        {
+         ulong pos_ID=trans.position;
+         PrintFormat(&quot;MqlTradeTransaction: Position  #%I64u %s modified: SL=%.5f TP=%.
+                     pos_ID,trans_symbol,trans.price_sl,trans.price_tp);
+        }
+      break;
+      case TRADE_TRANSACTION_REQUEST:     // envio do pedido de negociação
+         PrintFormat(&quot;MqlTradeTransaction: TRADE_TRANSACTION_REQUEST&quot;);
+         break;
+      case TRADE_TRANSACTION_DEAL_ADD:    // adição da transação
+        {
+         ulong          lastDealID   =trans.deal;
+         ENUM_DEAL_TYPE lastDealType =trans.deal_type;
+         double        lastDealVolume=trans.volume;
+         //--- identificador da transação no sistema externo - bilhete atribuído pela 
+         string Exchange_ticket=&quot;&quot;;
+         if(HistoryDealSelect(lastDealID))
+            Exchange_ticket=HistoryDealGetString(lastDealID,DEAL_EXTERNAL_ID);
+         if(Exchange_ticket!=&quot;&quot;)
+            Exchange_ticket=StringFormat(&quot;(Exchange deal=%s)&quot;,Exchange_ticket);
+         PrintFormat(&quot;MqlTradeTransaction: %s deal #%I64u %s %s %.2f lot   %s&quot;,EnumToS
+                     lastDealID,EnumToString(lastDealType),trans_symbol,lastDealVolume
+        }
+      break;
+      case TRADE_TRANSACTION_HISTORY_ADD: // adição da ordem ao histórico
+        {
+         //--- identificador da transação no sistema externo - bilhete atribuído pela 
+         string Exchange_ticket=&quot;&quot;;
+         if(lastOrderState==ORDER_STATE_FILLED)
+           {
+            if(HistoryOrderSelect(lastOrderID))
+               Exchange_ticket=HistoryOrderGetString(lastOrderID,ORDER_EXTERNAL_ID);
+            if(Exchange_ticket!=&quot;&quot;)
+               Exchange_ticket=StringFormat(&quot;(Exchange ticket=%s)&quot;,Exchange_ticket);
+           }
+         PrintFormat(&quot;MqlTradeTransaction: %s order #%I64u %s %s %s   %s&quot;,EnumToString
+                     lastOrderID,EnumToString(lastOrderType),trans_symbol,EnumToString
+        }
+      break;
+      default: // outras transações  
+        {
+         //--- identificador da ordem no sistema externo - bilhete atribuído pela Bols
+         string Exchange_ticket=&quot;&quot;;
+         if(lastOrderState==ORDER_STATE_PLACED)
+           {
+            if(OrderSelect(lastOrderID))
+               Exchange_ticket=OrderGetString(ORDER_EXTERNAL_ID);</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1949
+</p>
+<pre><code class="language-mql5">
+            if(Exchange_ticket!=&quot;&quot;)
+               Exchange_ticket=StringFormat(&quot;Exchange ticket=%s&quot;,Exchange_ticket);
+           }
+         PrintFormat(&quot;MqlTradeTransaction: %s order #%I64u %s %s   %s&quot;,EnumToString(tr
+                     lastOrderID,EnumToString(lastOrderType),EnumToString(lastOrderSta
+        }
+      break;
+     }
+//--- bilhete da ordem    
+   ulong orderID_result=result.order;
+   string retcode_result=GetRetcodeID(result.retcode);
+   if(orderID_result!=0)
+      PrintFormat(&quot;MqlTradeResult: order #%d retcode=%s &quot;,orderID_result,retcode_resul
+//---   
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| converte códigos numéricos de respostas em códigos Mnemonic de string       
+//+------------------------------------------------------------------+
+string GetRetcodeID(int retcode)
+  {
+   switch(retcode)
+     {
+      case 10004: return(&quot;TRADE_RETCODE_REQUOTE&quot;);             break;
+      case 10006: return(&quot;TRADE_RETCODE_REJECT&quot;);              break;
+      case 10007: return(&quot;TRADE_RETCODE_CANCEL&quot;);              break;
+      case 10008: return(&quot;TRADE_RETCODE_PLACED&quot;);              break;
+      case 10009: return(&quot;TRADE_RETCODE_DONE&quot;);                break;
+      case 10010: return(&quot;TRADE_RETCODE_DONE_PARTIAL&quot;);        break;
+      case 10011: return(&quot;TRADE_RETCODE_ERROR&quot;);               break;
+      case 10012: return(&quot;TRADE_RETCODE_TIMEOUT&quot;);             break;
+      case 10013: return(&quot;TRADE_RETCODE_INVALID&quot;);             break;
+      case 10014: return(&quot;TRADE_RETCODE_INVALID_VOLUME&quot;);      break;
+      case 10015: return(&quot;TRADE_RETCODE_INVALID_PRICE&quot;);       break;
+      case 10016: return(&quot;TRADE_RETCODE_INVALID_STOPS&quot;);       break;
+      case 10017: return(&quot;TRADE_RETCODE_TRADE_DISABLED&quot;);      break;
+      case 10018: return(&quot;TRADE_RETCODE_MARKET_CLOSED&quot;);       break;
+      case 10019: return(&quot;TRADE_RETCODE_NO_MONEY&quot;);            break;
+      case 10020: return(&quot;TRADE_RETCODE_PRICE_CHANGED&quot;);       break;
+      case 10021: return(&quot;TRADE_RETCODE_PRICE_OFF&quot;);           break;
+      case 10022: return(&quot;TRADE_RETCODE_INVALID_EXPIRATION&quot;);  break;
+      case 10023: return(&quot;TRADE_RETCODE_ORDER_CHANGED&quot;);       break;
+      case 10024: return(&quot;TRADE_RETCODE_TOO_MANY_REQUESTS&quot;);   break;
+      case 10025: return(&quot;TRADE_RETCODE_NO_CHANGES&quot;);          break;
+      case 10026: return(&quot;TRADE_RETCODE_SERVER_DISABLES_AT&quot;);  break;
+      case 10027: return(&quot;TRADE_RETCODE_CLIENT_DISABLES_AT&quot;);  break;
+      case 10028: return(&quot;TRADE_RETCODE_LOCKED&quot;);              break;
+      case 10029: return(&quot;TRADE_RETCODE_FROZEN&quot;);              break;
+      case 10030: return(&quot;TRADE_RETCODE_INVALID_FILL&quot;);        break;
+      case 10031: return(&quot;TRADE_RETCODE_CONNECTION&quot;);          break;</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1950
+</p>
+<pre><code class="language-mql5">
+      case 10032: return(&quot;TRADE_RETCODE_ONLY_REAL&quot;);           break;
+      case 10033: return(&quot;TRADE_RETCODE_LIMIT_ORDERS&quot;);        break;
+      case 10034: return(&quot;TRADE_RETCODE_LIMIT_VOLUME&quot;);        break;
+      case 10035: return(&quot;TRADE_RETCODE_INVALID_ORDER&quot;);       break;
+      case 10036: return(&quot;TRADE_RETCODE_POSITION_CLOSED&quot;);     break;
+      default:
+         return(&quot;TRADE_RETCODE_UNKNOWN=&quot;+IntegerToString(retcode));
+         break;
+     }
+//---
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+OrderSend, OrderSendAsync, OnTradeTransaction, Estrutura do pedido de negociação, Estrutura da
+transação comercial, Tipos de transações comerciais, Tipos de operações de negociação, Eventos do
+terminal do cliente</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1951
+<h3>OnBookEvent</h3>
+É chamada em indicadores e EAs quando ocorre o evento BookEvent. A função é projetada para
+processar alterações no livro de ofertas (Depth of Market).
+</p>
+<pre><code class="language-mql5">
+void  OnBookEvent(
+   const string&amp;  symbol         // símbolo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento financeiro em que ocorre o evento BookEvent
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+Para receber eventos BookEvent em qualquer símbolo, basta fazer uma pré-assinatura a fim de
+receber esses eventos para este símbolo usando a função MarketBookAdd(). Para cancelar a
+assinatura de recebimento do evento BookEvent num símbolo específico, você deve chamar a função
+MarketBookRelease().
+O evento BookEvent é difundido no gráfico. Isso significa que basta que um aplicativo no gráfico
+assine a recepção do evento BookEvent usando a função MarketBookAdd, para todos os outros
+indicadores e EAs - que estão sendo executados neste gráfico e que têm o manipulador
+OnBookEvent() - receberem esse evento. Por isso, você precisa analisar o nome do símbolo que é
+transferido para o manipulador OnBookEvent() como um parâmetro symbol.
+Para todos os aplicativos em andamento no mesmo gráfico, são executados contadores separados
+para receber eventos BookEvent na seção de símbolos. Isso significa que em cada gráfico pode
+haver assinaturas de diferentes símbolos, e para cada símbolo existe seu próprio contador.
+Assinatura e remoção de assinatura de eventos BookEvent alteram o contador de assinaturas só dos
+símbolos especificados, apenas dentro do mesmo gráfico. Isso significa que, em dois gráficos
+adjacentes, pode haver assinaturas de eventos BookEvent para o mesmo símbolo, mas com valores
+diferentes para o contador de assinaturas.
+O valor inicial do contador de assinaturas é zero. Após cada chamada da MarketBookAdd(), o
+contador de assinaturas para o símbolo especificado neste gráfico é aumentado em 1 (não é
+necessário o símbolo do gráfico e o símbolo na MarketBookAdd() coincidirem). Após a chamada da
+MarketBookRelease(), o contador de assinaturas para o símbolo especificado dentro do gráfico é
+reduzido em 1. A transmissão de eventos BookEvent em qualquer símbolo dentro do gráfico continua
+até que o contador de assinaturas para este símbolo se torne zero. Portanto, é importante que cada
+programa MQL5 contendo chamadas da MarketBookAdd(), ao concluir seu trabalho, corretamente
+cancele a recepção de eventos para cada símbolo com a ajuda da MarketBookRelease(). Para isso,
+basta que - para cada chamada - o número de chamadas da MarketBookAdd() e da
+MarketBookRelease() seja par durante toda a vida útil do programa MQL5. Usar sinalizadores ou
+próprios contadores de assinaturas dentro do programa permite trabalhar com segurança com
+eventos BookEvent e impede a remoção de assinaturas de recepção desse evento em programas de
+terceiros dentro do mesmo gráfico.</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1952
+Os eventos BookEvent nunca são ignorados e sempre são enfileirados, mesmo que o processamento
+do evento BookEvent anterior ainda não tenha sido concluído. Deve-se ter em mente que os eventos
+BookEvent são entregues por eles mesmos e não levam consigo o status do livro de ofertas. Isso
+significa que a chamada da MarketBookGet() a partir do manipulador OnBookEvent() permite - em
+vez do status do livro de ofertas que causou o envio do evento BookEvent - obter o status atual do
+livro de ofertas no momento da chamada. Para garantir que todos os status exclusivos sejam
+obtidos, a função OnBookEvent() deve ser o mais rápida possível. 
+<h3>Exemplo</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           OnBookEvent_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com/pt/articles/2635&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de medição da velocidade de atualização do livro de ofe
+#property description &quot;Código é retirado do artigo https://www.mql5.com/pt/articles/26
+//--- parâmetros de entrada
+input ulong ExtCollectTime   =30;  // tempo de teste em segundos
+input ulong ExtSkipFirstTicks=10;  // número de ticks ignorados no início
+//--- sinalizador da presença de assinatura de recepção de eventos BookEvent
+bool book_subscribed=false;
+//--- matriz para receber solicitações a partir do livro de ofertas
+</code></pre>
+<p>
+<h3>MqlBookInfo  book[];</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- definimos o início
+   Comment(StringFormat(&quot;Aguardamos a recepção dos primeiros %I64u ticks&quot;,ExtSkipFirst
+   PrintFormat(&quot;Aguardamos a recepção dos primeiros %I64u ticks&quot;,ExtSkipFirstTicks);
+//--- ativamos a transmissão do livro de ofertas
+   if(MarketBookAdd(_Symbol))
+     {
+      book_subscribed=true;
+      PrintFormat(&quot;%s: Função MarketBookAdd(%s) retornou true&quot;,__FUNCTION__,_Symbol);
+     }
+   else
+      PrintFormat(&quot;%s: Função MarketBookAdd(%s) retornou false! GetLastError()=%d&quot;,__F
+//--- inicialização bem-sucedida
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Deinitialize expert                                              |</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1953
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- exibimos o código de motivo da desinicialização
+   Print(__FUNCTION__,&quot;: Código de motivo da desinicialização = &quot;,reason);  
+//--- cancelamos nossa assinatura de recepção de eventos a partir do livro de ofertas
+   if(book_subscribed)
+     {
+      if(!MarketBookRelease(_Symbol))
+         PrintFormat(&quot;%s: MarketBookRelease(%s) retornou false! GetLastError()=%d&quot;,_Sy
+      else
+         book_subscribed=false;
+     }
+//--- 
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| BookEvent function                                               |
+//+------------------------------------------------------------------+
+void OnBookEvent(const string &amp;symbol)
+  {
+   static ulong starttime=0;             // tempo de início do teste
+   static ulong tickcounter=0;           // contador de atualização do livro de oferta
+//--- trabalhamos com eventos do livro de ofertas somente se ele tiver sido assinado p
+   if(!book_subscribed)
+      return;
+//--- consideramos atualizações apenas do próprio símbolo
+   if(symbol!=_Symbol)
+      return;
+//--- pulamos os primeiros ticks para a limpeza primária da fila e para aquecimento
+   tickcounter++;
+   if(tickcounter&lt;ExtSkipFirstTicks)
+      return;
+//--- lembramo-nos do tempo de início
+   if(tickcounter==ExtSkipFirstTicks) 
+      starttime=GetMicrosecondCount();
+//--- consultamos os dados do livro de ofertas
+   MarketBookGet(symbol,book);
+//--- quando se deve parar?  
+   ulong endtime=GetMicrosecondCount()-starttime;
+   ulong ticks  =1+tickcounter-ExtSkipFirstTicks;
+// quanto tempo passou em microssegundos desde o início do teste?
+   if(endtime&gt;ExtCollectTime*1000*1000) 
+     {
+      PrintFormat(&quot;%I64u ticks for %.1f seconds: %.1f ticks/sec &quot;,ticks,endtime/1000.0
+      ExpertRemove();
+      return;
+     }
+//--- exibição dos contadores no campo de comentários</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1954
+</p>
+<pre><code class="language-mql5">
+   if(endtime&gt;0)
+      Comment(StringFormat(&quot;%I64u ticks for %.1f seconds: %.1f ticks/sec &quot;,ticks,endti
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+MarketBookAdd, MarketBookRelease, MarketBookGet, OnTrade, OnTradeTransaction, OnTick,
+Função de manipulação de eventos, Execução do programa, Eventos do terminal do cliente</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1955
+<h3>OnChartEvent</h3>
+É chamada em EAs e indicadores quando ocorre o evento ChartEvent. A função é projetada para
+processar mudanças no gráfico causadas por ações do usuário ou pelo funcionamento de programas
+<h3>MQL5</h3>
+</p>
+<pre><code class="language-mql5">
+void  OnChartEvent()
+   const int       id,       // identificador de evento
+   const long&amp;     lparam,   // parâmetro do evento de tipo long
+   const double&amp;   dparam,   // parâmetro do evento de tipo double
+   const string&amp;   sparam    // parâmetro do evento de tipo string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+id
+[in]  Identificador do evento a partir da enumeração ENUM_CHART_EVENT.
+lparam
+[in]  Parâmetro do evento de tipo long
+dparam
+[in]  Parâmetro do evento de tipo double
+sparam
+[in]  Parâmetro do evento de tipo string
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+Existem 11 tipos de eventos que podem ser processados usando a função predefinida
+OnChartEvent() . Para eventos personalizados, são fornecidos 65 535 identificadores no intervalo de
+CHARTEVENT_CUSTOM a CHARTEVENT_CUSTOM_LAST. Para gerar um evento personalizado, você
+deve usar a função EventChartCustom().
+Breve descrição dos eventos da enumeração ENUM_CHART_EVENT:
+· CHARTEVENT_KEYDOWN — pressionamento do teclado quando a janela do gráfico está em foco;
+· CHARTEVENT_MOUSE_MOVE — deslocamento do mouse e pressionamento dos botões do mouse
+(se para o gráfico estiver definida a propriedade CHART_EVENT_MOUSE_MOVE=true);
+· CHARTEVENT_OBJECT_CREATE — criação do objeto gráfico (se para o gráfico estiver definida a
+propriedade CHART_EVENT_OBJECT_CREATE=true);
+· CHARTEVENT_OBJECT_CHANGE — alteração das propriedades do objeto através do diálogo de
+propriedades;
+· CHARTEVENT_OBJECT_DELETE — remoção do objeto gráfico (se para o gráfico estiver definida a
+propriedade CHART_EVENT_OBJECT_DELETE=true);
+· CHARTEVENT_CLICK — clique do mouse no gráfico;
+· CHARTEVENT_OBJECT_CLICK — clique do mouse no objeto gráfico que pertence ao gráfico;
+· CHARTEVENT_OBJECT_DRAG — deslocamento do objeto gráfico com o mouse;</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1956
+· CHARTEVENT_OBJECT_ENDEDIT — fim da edição de texto no campo inserido do objeto gráfico
+<h3>Edit (OBJ_EDIT);</h3>
+· CHARTEVENT_CHART_CHANGE — alteração do gráfico;
+· CHARTEVENT_CUSTOM+n — identificador do evento personalizado, onde n está no intervalo de 0 a
+65 535. CHARTEVENT_CUSTOM_LAST contém o último identificador válido de evento
+personalizado (CHARTEVENT_CUSTOM+65535).
+Todos os programas MQL5 trabalham em fluxos diferentes do fluxo principal do aplicativo. O fluxo
+principal do terminal é responsável pelo processamento de todas as mensagens de sistema do
+Windows e, como resultado dele, gera mensagens do Windows para seu próprio aplicativo. Por
+exemplo, o deslocamento do mouse no gráfico (evento WM_MOUSE_MOVE) gera várias mensagens
+de sistema para a plotagem subsequente da janela do aplicativo, bem como envia mensagens
+internas para EAs e para indicadores que estão sendo executados neste gráfico. Neste caso, pode
+acontecer que o fluxo principal do aplicativo ainda não consiga processar a mensagem de sistema
+WM_PAINT (e, portanto, ainda não plote a gráfico alterado), enquanto o EA ou indicador já tenha
+recebido o evento sobre o movimento do cursor do mouse. Assim, a propriedade do gráfico
+CHART_FIRST_VISIBLE_BAR será alterada somente após a plotagem do gráfico.
+Para cada tipo de evento, os parâmetros de entrada da função OnChartEvent() possuem
+determinados valores necessários para manipular este evento. A tabela lista os eventos e valores
+que são transferidos através dos parâmetros.
+<h3>Evento</h3>
+<h3>Valor</h3>
+do
+parâmetro id
+<h3>Valor</h3>
+do
+parâmetro
+lparam
+<h3>Valor</h3>
+do
+parâmetro
+dparam
+<h3>Valor</h3>
+do
+parâmetro
+sparam
+<h3>Evento</h3>
+de
+teclado
+<h3>CHARTEVENT_KE</h3>
+<h3>YDOWN</h3>
+código de tecla
+pressionada
+<h3>Número</h3>
+de
+pressionamentos
+da tecla gerados
+durante o tempo
+em 
+que 
+é
+mantida
+pressionada
+<h3>Valor de string</h3>
+da bitmask que
+descreve 
+o
+status 
+dos
+botões 
+do
+teclado
+<h3>Eventos</h3>
+do
+mouse (se para
+o gráfico estiver
+definida 
+a
+propriedade
+<h3>CHART_EVENT_</h3>
+<h3>MOUSE_MOVE=tr</h3>
+ue)
+<h3>CHARTEVENT_M</h3>
+<h3>OUSE_MOVE</h3>
+<h3>Coordenada X</h3>
+<h3>Coordenada Y</h3>
+<h3>Valor de string</h3>
+da bitmask que
+descreve 
+o
+status 
+dos
+botões do mouse
+<h3>Evento da roda</h3>
+do mouse 
+(se
+para o gráfico
+estiver definida
+a 
+propriedade
+<h3>CHART_EVENT_</h3>
+<h3>MOUSE_WHEEL=</h3>
+true)
+<h3>CHARTEVENT_M</h3>
+<h3>OUSE_WHEEL</h3>
+<h3>Sinalizadores de</h3>
+estados 
+das
+teclas 
+e 
+dos
+botões 
+do
+mouse,
+coordenadas X e
+<h3>Y do cursor. A</h3>
+descrição é dada
+no exemplo
+<h3>Valor Delta de</h3>
+rolagem da roda
+do mouse
+—</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1957
+<h3>Evento</h3>
+<h3>Valor</h3>
+do
+parâmetro id
+<h3>Valor</h3>
+do
+parâmetro
+lparam
+<h3>Valor</h3>
+do
+parâmetro
+dparam
+<h3>Valor</h3>
+do
+parâmetro
+sparam
+<h3>Evento</h3>
+de
+criação 
+do
+objeto 
+gráfico
+(se 
+para 
+o
+gráfico 
+for
+definida 
+a
+propriedade
+<h3>CHART_EVENT_</h3>
+<h3>OBJECT_CREATE</h3>
+=true)
+<h3>CHARTEVENT_O</h3>
+<h3>BJECT_CREATE</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico criado
+<h3>Evento</h3>
+de
+alteração 
+das
+propriedades do
+objeto 
+através
+do diálogo 
+de
+propriedades
+<h3>CHARTEVENT_O</h3>
+<h3>BJECT_CHANGE</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico alterado
+<h3>Evento</h3>
+de
+remoção 
+do
+objeto 
+gráfico
+(se 
+para 
+o
+gráfico 
+estiver
+definida 
+a
+propriedade
+<h3>CHART_EVENT_</h3>
+<h3>OBJECT_DELETE</h3>
+=true)
+<h3>CHARTEVENT_O</h3>
+<h3>BJECT_DELETE</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico excluído
+<h3>Evento de clique</h3>
+no gráfico
+<h3>CHARTEVENT_C</h3>
+<h3>LICK</h3>
+<h3>Coordenada X</h3>
+<h3>Coordenada Y</h3>
+—
+<h3>Evento de clique</h3>
+do 
+mouse 
+no
+objeto gráfico
+<h3>CHARTEVENT_O</h3>
+<h3>BJECT_CLICK</h3>
+<h3>Coordenada X</h3>
+<h3>Coordenada Y</h3>
+<h3>Nome do objeto</h3>
+gráfico no qual
+ocorreu o evento
+<h3>Evento</h3>
+de
+movimento 
+do
+objeto 
+gráfico
+com o mouse
+<h3>CHARTEVENT_O</h3>
+<h3>BJECT_DRAG</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico movido
+<h3>Evento de fim</h3>
+da 
+edição 
+de
+texto no campo
+inserido 
+do
+objeto 
+gráfico
+&quot;Caixa 
+de
+edição&quot;
+<h3>CHARTEVENT_O</h3>
+<h3>BJECT_ENDEDIT</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico &quot;Campo
+de entrada&quot; no
+qual 
+foi
+concluída 
+a
+edição de texto</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1958
+<h3>Evento</h3>
+<h3>Valor</h3>
+do
+parâmetro id
+<h3>Valor</h3>
+do
+parâmetro
+lparam
+<h3>Valor</h3>
+do
+parâmetro
+dparam
+<h3>Valor</h3>
+do
+parâmetro
+sparam
+<h3>Evento</h3>
+de
+redimensioname
+nto do gráfico
+ou alteração das
+propriedades do
+gráfico através
+do diálogo 
+de
+propriedades
+<h3>CHARTEVENT_C</h3>
+<h3>HART_CHANGE</h3>
+—
+—
+—
+<h3>Evento</h3>
+personalizado
+com número N
+<h3>CHARTEVENT_C</h3>
+<h3>USTOM+N</h3>
+<h3>Valor</h3>
+definido
+pela 
+função
+<h3>EventChartCusto</h3>
+m()
+<h3>Valor</h3>
+definido
+pela 
+função
+<h3>EventChartCusto</h3>
+m()
+<h3>Valor</h3>
+definido
+pela 
+função
+<h3>EventChartCusto</h3>
+m()
+Exemplo de um ouvinte dos eventos do gráfico:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                          OnChartEvent_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo do ouvinte dos eventos do gráfico e do gerador de event
+//--- identificadores das teclas Enter, Shift, Caps Lock, Space, Backspace, Ctrl, Alt 
+#define KEY_NUMPAD_5       12
+#define KEY_LEFT           37
+#define KEY_UP             38
+#define KEY_RIGHT          39
+#define KEY_DOWN           40
+#define KEY_NUMLOCK_DOWN   98
+#define KEY_NUMLOCK_LEFT  100
+#define KEY_NUMLOCK_5     101
+#define KEY_NUMLOCK_RIGHT 102
+#define KEY_NUMLOCK_UP    104
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- exibimos o valor da constante CHARTEVENT_CUSTOM
+   Print(&quot;CHARTEVENT_CUSTOM=&quot;,CHARTEVENT_CUSTOM);
+//---
+   Print(&quot;Executado o EA com nome &quot;,MQLInfoString(MQL5_PROGRAM_NAME));
+//--- definindo o sinalizador de recepção dos eventos de criação de objetos do gráfico</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1959
+</p>
+<pre><code class="language-mql5">
+   ChartSetInteger(ChartID(),CHART_EVENT_OBJECT_CREATE,true);
+//--- definindo o sinalizador de recepção dos eventos de remoção de objetos do gráfico
+   ChartSetInteger(ChartID(),CHART_EVENT_OBJECT_DELETE,true);
+//--- ativação da mensagem de rolagem de roda do mouse
+   ChartSetInteger(0,CHART_EVENT_MOUSE_WHEEL,1);
+//--- a atualização forçada das propriedades do gráfico garante a prontidão para o pro
+   ChartRedraw();
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- contador de ticks para gerar o evento personalizado
+   static int tick_counter=0;
+//--- vamos dividir os ticks acumulados por este número
+   int simple_number=113;
+//--- 
+   tick_counter++;
+//--- enviamos o m evento personalizado se o contador de ticks for um múltiplo de simp
+   if(tick_counter%simple_number==0)
+     {
+      //--- formaremos o identificador do evento personalizado no intervalo de 0 a 655
+      ushort custom_event_id=ushort(tick_counter%65535);
+      //---  enviamos um evento personalizado com preenchimento dos parâmetros
+      EventChartCustom(ChartID(),custom_event_id,tick_counter,SymbolInfoDouble(Symbol
+      //--- fazemos a exibição do log para estudar e analisar os resultados do exemplo
+      Print(__FUNCTION__,&quot;: Evento personalizado enviado com ID=&quot;,custom_event_id);
+     }
+//---     
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| ChartEvent function                                              |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &amp;lparam,
+                  const double &amp;dparam,
+                  const string &amp;sparam)
+  {
+//--- pressionamento de tecla
+   if(id==CHARTEVENT_KEYDOWN)
+     {
+      switch((int)lparam)
+        {
+         case KEY_NUMLOCK_LEFT:  Print(&quot;KEY_NUMLOCK_LEFT pressionado&quot;);   break;
+         case KEY_LEFT:          Print(&quot;KEY_LEFT pressionado&quot;);           break;
+         case KEY_NUMLOCK_UP:    Print(&quot;KEY_NUMLOCK_UP pressionado&quot;);     break;</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1960
+</p>
+<pre><code class="language-mql5">
+         case KEY_UP:            Print(&quot;KEY_UP pressionado&quot;);             break;
+         case KEY_NUMLOCK_RIGHT: Print(&quot;KEY_NUMLOCK_RIGHT pressionado&quot;);  break;
+         case KEY_RIGHT:         Print(&quot;KEY_RIGHT pressionado&quot;);          break;
+         case KEY_NUMLOCK_DOWN:  Print(&quot;KEY_NUMLOCK_DOWN pressionado&quot;);   break;
+         case KEY_DOWN:          Print(&quot;KEY_DOWN pressionado&quot;);           break;
+         case KEY_NUMPAD_5:      Print(&quot;KEY_NUMPAD_5 pressionado&quot;);       break;
+         case KEY_NUMLOCK_5:     Print(&quot;KEY_NUMLOCK_5 pressionado&quot;);      break;
+         default:                Print(&quot;Tecla não listada pressionada&quot;);
+        }
+     }
+//--- clique com o botão esquerdo do mouse no gráfico
+   if(id==CHARTEVENT_CLICK)
+      Print(&quot;Coordenadas do clique do mouse no gráfico: x = &quot;,lparam,&quot;  y = &quot;,dparam);
+//--- clique no objeto gráfico
+   if(id==CHARTEVENT_OBJECT_CLICK)
+      Print(&quot;Clique no objeto com nome &#x27;&quot;+sparam+&quot;&#x27;&quot;);
+//--- objeto excluído
+   if(id==CHARTEVENT_OBJECT_DELETE)
+      Print(&quot;Excluído objeto com nome &quot;,sparam);
+//--- objeto criado
+   if(id==CHARTEVENT_OBJECT_CREATE)
+      Print(&quot;Criado objeto com nome &quot;,sparam);
+//--- objeto alterado
+   if(id==CHARTEVENT_OBJECT_CHANGE)
+      Print(&quot;Alterado objeto com nome &quot;,sparam);
+//--- objeto deslocado ou coordenadas dos pontos de ancoragem alteradas
+   if(id==CHARTEVENT_OBJECT_DRAG)
+      Print(&quot;Alteração de pontos de ancoragem do objeto com nome &quot;,sparam);
+//--- alterado o texto no campo inserido do objeto gráfico Edit
+   if(id==CHARTEVENT_OBJECT_ENDEDIT)
+      Print(&quot;Alterado o texto no objeto Edit &quot;,sparam,&quot;  id=&quot;,id);
+//--- eventos de movimento do mouse
+   if(id==CHARTEVENT_MOUSE_MOVE)
+      Comment(&quot;POINT: &quot;,(int)lparam,&quot;,&quot;,(int)dparam,&quot;\n&quot;,MouseState((uint)sparam));
+   if(id==CHARTEVENT_MOUSE_WHEEL)
+     {
+      //--- analisemos o estado dos botões e da roda do mouse para este evento
+      int flg_keys = (int)(lparam&gt;&gt;32);          // sinalizador de estado de teclas Ct
+      int x_cursor = (int)(short)lparam;         // coordenada X, em que acontece o ev
+      int y_cursor = (int)(short)(lparam&gt;&gt;16);   // coordenada Y, em que acontece o ev
+      int delta    = (int)dparam;                // valor total de rolagem da roda, é 
+      //--- processamos o sinalizador 
+      string str_keys=&quot;&quot;;
+      if((flg_keys&amp;0x0001)!=0)
+         str_keys+=&quot;LMOUSE &quot;;
+      if((flg_keys&amp;0x0002)!=0)
+         str_keys+=&quot;RMOUSE &quot;;
+      if((flg_keys&amp;0x0004)!=0)
+         str_keys+=&quot;SHIFT &quot;;</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1961
+</p>
+<pre><code class="language-mql5">
+      if((flg_keys&amp;0x0008)!=0)
+         str_keys+=&quot;CTRL &quot;;
+      if((flg_keys&amp;0x0010)!=0)
+         str_keys+=&quot;MMOUSE &quot;;
+      if((flg_keys&amp;0x0020)!=0)
+         str_keys+=&quot;X1MOUSE &quot;;
+      if((flg_keys&amp;0x0040)!=0)
+         str_keys+=&quot;X2MOUSE &quot;;
+      if(str_keys!=&quot;&quot;)
+         str_keys=&quot;, keys=&#x27;&quot;+StringSubstr(str_keys,0,StringLen(str_keys)-1)+&quot;&#x27;&quot;;
+      PrintFormat(&quot;%s: X=%d, Y=%d, delta=%d%s&quot;,EnumToString(CHARTEVENT_MOUSE_WHEEL),x_
+     }
+//--- redimensionando o gráfico ou alterando as propriedades do gráfico através do diá
+   if(id==CHARTEVENT_CHART_CHANGE)
+      Print(&quot;Redimensionamento ou alteração das propriedades do gráfico&quot;);
+//--- evento personalizado
+   if(id&gt;CHARTEVENT_CUSTOM)
+      PrintFormat(&quot;Evento personalizado ID=%d, lparam=%d, dparam=%G, sparam=%s&quot;,id,lpa
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| MouseState                                                       |
+//+------------------------------------------------------------------+
+string MouseState(uint state)
+  {
+   string res;
+   res+=&quot;\nML: &quot;   +(((state&amp; 1)== 1)?&quot;DN&quot;:&quot;UP&quot;);   // mouse left
+   res+=&quot;\nMR: &quot;   +(((state&amp; 2)== 2)?&quot;DN&quot;:&quot;UP&quot;);   // mouse right 
+   res+=&quot;\nMM: &quot;   +(((state&amp;16)==16)?&quot;DN&quot;:&quot;UP&quot;);   // mouse middle
+   res+=&quot;\nMX: &quot;   +(((state&amp;32)==32)?&quot;DN&quot;:&quot;UP&quot;);   // mouse first X key
+   res+=&quot;\nMY: &quot;   +(((state&amp;64)==64)?&quot;DN&quot;:&quot;UP&quot;);   // mouse second X key
+   res+=&quot;\nSHIFT: &quot;+(((state&amp; 4)== 4)?&quot;DN&quot;:&quot;UP&quot;);   // shift key
+   res+=&quot;\nCTRL: &quot; +(((state&amp; 8)== 8)?&quot;DN&quot;:&quot;UP&quot;);   // control key
+   return(res);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+EventChartCustom, Tipos de eventos do gráfico, Funções de processamento de eventos, Execução
+do programa, Evento do terminal do cliente</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1962
+<h3>OnTester</h3>
+É chamada em EAs quando ocorre o evento Tester para executar as ações necessárias no final do
+teste.
+</p>
+<pre><code class="language-mql5">
+double  OnTester(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+Valor de um critério de otimização personalizado para avaliar os resultados do teste.  
+<h3>Observação</h3>
+A função OnTester() só pode ser usada em EAs durante o teste e é projetada principalmente para
+calcular um determinado valor a ser usado como critério &quot;Custom max&quot; ao otimizar parâmetros de
+entrada.
+Durante a otimização genética, a classificação de resultados numa geração é feita em ordem
+decrescente. Isso significa que, do ponto de vista do critério de otimização, os melhores são os
+resultados com o maior valor. Os piores valores para esta classificação são colocados no final e,
+posteriormente, descartados, não participando da formação da próxima geração.
+Assim, usando a função OnTester(), você pode não apenas criar e salvar seus próprios relatórios de
+resultados de testes, mas também controlar o processo de otimização para encontrar os melhores
+parâmetros da estratégia de negociação.
+Exemplo de cálculo de um critério de otimização personalizado. A ideia é calcular a regressão linear do
+gráfico de saldo descrita no artigo Otimizando uma estratégia usando o gráfico do saldo e comparando
+os resultados com o critério &quot;Balance + max Sharpe Ratio&quot;
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                              OnTester_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de EA com manipulador OnTester()&quot;
+#property description &quot;Como critério de otimização personalizado &quot;
+#property description &quot;é retornado o coeficiente de regressão linear do gráfico de sal
+#property description &quot;dividido pelo erro quadrático médio do desvio&quot;
+//--- conectamos a classe de operações de negociação
+#include &lt;Trade\Trade.mqh&gt;
+//--- parâmetros de entrada do EA
+input double Lots               = 0.1;     // Volume
+input int    Slippage           = 10;      // Derrapagem admissível
+input int    MovingPeriod       = 80;      // Período de média móvel
+input int    MovingShift        = 6;       // Deslocamento de média móvel
+//--- variáveis globais
+int    IndicatorHandle=0;  // identificador do indicador
+bool   IsHedging=false;    //sinal da conta </p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1963
+CTrade trade;              // para realizar operações de negociação
+</p>
+<pre><code class="language-mql5">
+//--- 
+#define EA_MAGIC 18052018
+//+------------------------------------------------------------------+
+//| Verificando as condições para abertura da posição                |
+//+------------------------------------------------------------------+
+void CheckForOpen(void)
+  {
+   MqlRates rt[2];
+//--- negociamos apenas no início da barra nova
+   if(CopyRates(_Symbol,_Period,0,2,rt)!=2)
+     {
+      Print(&quot;CopyRates of &quot;,_Symbol,&quot; failed, no history&quot;);
+      return;
+     }
+//--- volume de ticks
+   if(rt[1].tick_volume&gt;1)
+      return;
+//--- obtemos os valores da média móvel
+   double   ma[1];
+   if(CopyBuffer(IndicatorHandle,0,1,1,ma)!=1)
+     {
+      Print(&quot;CopyBuffer from iMA failed, no data&quot;);
+      return;
+     }
+//--- verificamos a presença do sinal
+   ENUM_ORDER_TYPE signal=WRONG_VALUE;
+//--- a vela se abriu mais alto, mas fechou abaixo da média móvel
+   if(rt[0].open&gt;ma[0] &amp;&amp; rt[0].close&lt;ma[0])
+      signal=ORDER_TYPE_BUY;    // sinal de compra
+   else // a vela se abriu mais abaixo, mas fechou acima da média móvel
+     {
+      if(rt[0].open&lt;ma[0] &amp;&amp; rt[0].close&gt;ma[0])
+         signal=ORDER_TYPE_SELL;// sinal de venda
+     }
+//--- verificações adicionais
+   if(signal!=WRONG_VALUE)
+     {
+      if(TerminalInfoInteger(TERMINAL_TRADE_ALLOWED) &amp;&amp; Bars(_Symbol,_Period)&gt;100)
+        {
+         double price=SymbolInfoDouble(_Symbol,signal==ORDER_TYPE_SELL ? SYMBOL_BID:SY
+         trade.PositionOpen(_Symbol,signal,Lots,price,0,0);
+        }
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificando as condições de fechamento da posição                |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1964
+</p>
+<pre><code class="language-mql5">
+void CheckForClose(void)
+  {
+   MqlRates rt[2];
+//--- negociamos apenas no início da barra nova
+   if(CopyRates(_Symbol,_Period,0,2,rt)!=2)
+     {
+      Print(&quot;CopyRates of &quot;,_Symbol,&quot; failed, no history&quot;);
+      return;
+     }
+   if(rt[1].tick_volume&gt;1)
+      return;
+//--- obtemos os valores da média móvel
+   double   ma[1];
+   if(CopyBuffer(IndicatorHandle,0,1,1,ma)!=1)
+     {
+      Print(&quot;CopyBuffer from iMA failed, no data&quot;);
+      return;
+     }
+//--- posição já foi selecionada usando PositionSelect()
+   bool signal=false;
+   long type=PositionGetInteger(POSITION_TYPE);
+//--- a vela se abriu mais acima, mas fechou abaixo da média móvel - fechamos a posiçã
+   if(type==(long)POSITION_TYPE_SELL &amp;&amp; rt[0].open&gt;ma[0] &amp;&amp; rt[0].close&lt;ma[0])
+      signal=true;
+//--- a vela se abriu mais abaixo, mas fechou acima da média móvel - fechamos a posiçã
+   if(type==(long)POSITION_TYPE_BUY &amp;&amp; rt[0].open&lt;ma[0] &amp;&amp; rt[0].close&gt;ma[0])
+      signal=true;
+//--- verificações adicionais
+   if(signal)
+     {
+      if(TerminalInfoInteger(TERMINAL_TRADE_ALLOWED) &amp;&amp; Bars(_Symbol,_Period)&gt;100)
+         trade.PositionClose(_Symbol,Slippage);
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Selecionamos a posição com base no tipo de conta: Netting ou Hedging        
+//+------------------------------------------------------------------+
+bool SelectPosition()
+  {
+   bool res=false;
+//--- seleção da posição para a conta Hedging
+   if(IsHedging)
+     {
+      uint total=PositionsTotal();
+      for(uint i=0; i&lt;total; i++)
+        {
+         string position_symbol=PositionGetSymbol(i);
+         if(_Symbol==position_symbol &amp;&amp; EA_MAGIC==PositionGetInteger(POSITION_MAGIC))</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1965
+</p>
+<pre><code class="language-mql5">
+           {
+            res=true;
+            break;
+           }
+        }
+     }
+//--- seleção da posição para a conta Netting
+   else
+     {
+      if(!PositionSelect(_Symbol))
+         return(false);
+      else
+         return(PositionGetInteger(POSITION_MAGIC)==EA_MAGIC); //---verificação do Mag
+     }
+//--- resultado da execução
+   return(res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit(void)
+  {
+//--- definimos o tipo de negociação: Netting ou Hedging
+   IsHedging=((ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger(ACCOUNT_MARGIN_MODE)==ACCOU
+//--- inicializamos o objeto para o controle correto das posições
+   trade.SetExpertMagicNumber(EA_MAGIC);
+   trade.SetMarginMode();
+   trade.SetTypeFillingBySymbol(Symbol());
+   trade.SetDeviationInPoints(Slippage);
+//--- criamos o indicador Moving Average
+   IndicatorHandle=iMA(_Symbol,_Period,MovingPeriod,MovingShift,MODE_SMA,PRICE_CLOSE);
+   if(IndicatorHandle==INVALID_HANDLE)
+     {
+      printf(&quot;Erro ao criar o indicador iMA&quot;);
+      return(INIT_FAILED);
+     }
+//--- ok
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick(void)
+  {
+//--- se a posição já estiver aberta, verificamos condição de fechamento
+   if(SelectPosition())
+      CheckForClose();
+// verificamos a condição para abertura da posição
+   CheckForOpen();</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1966
+</p>
+<pre><code class="language-mql5">
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Tester function                                                  |
+//+------------------------------------------------------------------+
+double OnTester()
+  {
+//--- valor do critério de otimização personalizado (quanto mais, melhor)
+   double ret=0.0;
+//--- obtemos os resultados dos trades na matriz
+   double array[];
+   double trades_volume;
+   GetTradeResultsToArray(array,trades_volume);
+   int trades=ArraySize(array);
+//--- se há menos de 10 trades, o teste não gerou resultados positivos
+   if(trades&lt;10)
+      return (0);
+//--- resultado médio no trade
+   double average_pl=0;
+   for(int i=0;i&lt;ArraySize(array);i++)
+      average_pl+=array[i];
+   average_pl/=trades;
+//--- exibimos uma mensagem para o modo de teste único
+   if(MQLInfoInteger(MQL_TESTER) &amp;&amp; !MQLInfoInteger(MQL_OPTIMIZATION))
+      PrintFormat(&quot;%s: Trades=%d, Lucro médio=%.2f&quot;,__FUNCTION__,trades,average_pl);
+//--- calculamos os coeficientes de regressão linear para o gráfico de lucro
+   double a,b,std_error;
+   double chart[];
+   if(!CalculateLinearRegression(array,chart,a,b))
+      return (0);
+//--- calculamos o erro de desvio do gráfico em relação à linha de regressão
+   if(!CalculateStdError(chart,a,b,std_error))
+      return (0);
+//--- calculamos o rácio do lucro de tendência em relação ao desvio padrão
+   ret=(std_error == 0.0) ? a*trades : a*trades/std_error;
+//--- retornamos o valor do critério de otimização personalizado
+   return(ret);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Obtendo a matriz de lucros/perdas de transações                  |
+//+------------------------------------------------------------------+
+bool GetTradeResultsToArray(double &amp;pl_results[],double &amp;volume)
+  {
+//--- consultamos o histórico de negociação completo
+   if(!HistorySelect(0,TimeCurrent()))
+      return (false);
+   uint total_deals=HistoryDealsTotal();
+   volume=0;
+//--- definimos o tamanho inicial da matriz pelo número de transações no histórico</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1967
+</p>
+<pre><code class="language-mql5">
+   ArrayResize(pl_results,total_deals);
+//--- contador de trades que fixam o resultado da negociação - lucro ou perda
+   int counter=0;
+   ulong ticket_history_deal=0;
+//--- passar por todos os trades
+   for(uint i=0;i&lt;total_deals;i++)
+     {
+      //--- selecionamos o trade 
+      if((ticket_history_deal=HistoryDealGetTicket(i))&gt;0)
+        {
+         ENUM_DEAL_ENTRY deal_entry  =(ENUM_DEAL_ENTRY)HistoryDealGetInteger(ticket_hi
+         long            deal_type   =HistoryDealGetInteger(ticket_history_deal,DEAL_T
+         double          deal_profit =HistoryDealGetDouble(ticket_history_deal,DEAL_PR
+         double          deal_volume =HistoryDealGetDouble(ticket_history_deal,DEAL_VO
+         //--- estamos interessados apenas em operações de negociação        
+         if((deal_type!=DEAL_TYPE_BUY) &amp;&amp; (deal_type!=DEAL_TYPE_SELL))
+            continue;
+         //--- somente trades com fixação de lucro/perda
+         if(deal_entry!=DEAL_ENTRY_IN)
+           {
+            //--- escrevemos o resultado da negociação na matriz e aumentamos o contad
+            pl_results[counter]=deal_profit;
+            volume+=deal_volume;
+            counter++;
+           }
+        }
+     }
+//--- definimos o tamanho final da matriz
+   ArrayResize(pl_results,counter);
+   return (true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Calculando a regressão linear de tipo y=a*x+b                    |
+//+------------------------------------------------------------------+
+bool CalculateLinearRegression(double  &amp;change[],double &amp;chartline[],
+                               double  &amp;a_coef,double  &amp;b_coef)
+  {
+//--- verificamos se há suficientes dados
+   if(ArraySize(change)&lt;3)
+      return (false);
+//--- criamos a matriz do gráfico com acumulação
+   int N=ArraySize(change);
+   ArrayResize(chartline,N);
+   chartline[0]=change[0];
+   for(int i=1;i&lt;N;i++)
+      chartline[i]=chartline[i-1]+change[i];
+//--- agora calculamos os coeficientes de regressão
+   double x=0,y=0,x2=0,xy=0;
+   for(int i=0;i&lt;N;i++)</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1968
+</p>
+<pre><code class="language-mql5">
+     {
+      x=x+i;
+      y=y+chartline[i];
+      xy=xy+i*chartline[i];
+      x2=x2+i*i;
+     }
+   a_coef=(N*xy-x*y)/(N*x2-x*x);
+   b_coef=(y-a_coef*x)/N;
+//---
+   return (true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Calcula o erro quadrático médio do desvio para os a e b definidos    
+//+------------------------------------------------------------------+
+bool  CalculateStdError(double  &amp;data[],double  a_coef,double  b_coef,double &amp;std_err)
+  {
+//--- soma dos quadrados dos erros
+   double error=0;
+   int N=ArraySize(data);
+   if(N&lt;=2)
+      return (false);
+   for(int i=0;i&lt;N;i++)
+      error+=MathPow(a_coef*i+b_coef-data[i],2);
+   std_err=MathSqrt(error/(N-2));
+//--- 
+   return (true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Teste de estratégias de negociação, TesterHideIndicators, Trabalhando com os resultados da
+otimização, 
+<h3>TesterStatistics,</h3>
+<h3>OnTesterInit,</h3>
+<h3>OnTesterDeinit,</h3>
+<h3>OnTesterPass,</h3>
+<h3>MQL_TESTER,</h3>
+<h3>MQL_OPTIMIZATION, FileOpen, FileWrite, FileLoad, FileSave</h3></p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1969
+<h3>OnTesterInit</h3>
+É chamada em EAs quando ocorre o evento TesterInit para executar as ações necessárias antes do
+início da otimização no testador de estratégia. Existem duas versões da função.
+<h3>Versão com retorno de resultado</h3>
+</p>
+<pre><code class="language-mql5">
+int  OnTesterInit(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+Valor do tipo int, zero significa inicialização bem-sucedida do EA em execução no gráfico antes do
+início da otimização.
+O uso da chamada da OnTesterInit() com o retorno de resultado é prioridade, pois este método
+permite não apenas inicializar o programa, mas também retornar o código de erro em caso de término
+antecipado da otimização. Retorno de qualquer valor diferente de INIT_SUCCEEDED (0) significa um
+erro e não será inicializada a otimização.
+Versão sem retorno do resultado é deixada apenas para compatibilidade com códigos antigos. Não é
+recomendada
+</p>
+<pre><code class="language-mql5">
+void  OnTesterInit(void);
+</code></pre>
+<p>
+<h3>Observação</h3>
+O evento TesterInit é gerado automaticamente antes do início da otimização do EA no testador de
+estratégias.Para esse evento, o EA com manipulador OnTesterDeinit() e/ou OnTesterPass() é
+carregado automaticamente num gráfico de terminal separado com o símbolo e o período
+especificados no testador. 
+Esse EA recebe os eventos TesterInit, TesterDeinit e TesterPass, mas, não, os eventos Init, Deinit e
+NewTick. Assim, toda lógica necessária para processar os resultados de cada passagem durante a
+otimização deve ser implementada nos manipuladores OnTesterInit(), OnTesterDeinit() e
+OnTesterPass(). 
+O resultado de cada passagem única ao otimizar uma estratégia pode ser passado por um quadro a
+partir do manipulador OnTester() com a ajuda da função FrameAdd(). 
+A função OnTesterInit() se destina a inicializar o EA antes de iniciar a otimização para o seguinte
+processamento de resultados de otimização. É sempre usada em conjunto com o manipulador
+OnTesterDeinit().
+À execução da OnTesterInit() é atribuído um tempo limitado, após o qual o trabalho do EA é
+forçadamente concluído, e, consequentemente, é cancelada a própria otimização. Nesse caso, uma
+mensagem é exibida no log do testador:
+TesterOnTesterInit works too long. Tester cannot be initialized.
+Exemplo tirado da OnTick, adicionado o manipulador OnTesterInit() para definir os parâmetros de
+otimização:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                          OnTesterInit_Sample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1970
+</p>
+<pre><code class="language-mql5">
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property description &quot;Exemplo de EA com manipulador OnTesterInit()&quot;
+#property description &quot;em que são definidos valores e limites &quot;
+#property description &quot;de parâmetros de entrada ao otimizar&quot;
+input double lots=0. 1;       // volume em lotes
+input double kATR=3;          // tamanho da vela de sinal no ATR
+input int    ATRperiod=20;    // período do indicador ATR
+input int    holdbars=8;      // número de barras para manter a posição
+input int    slippage=10;     // derrapagem admissível
+input bool   revers=false;    // invertemos o sinal? 
+input ulong  EXPERT_MAGIC=0;  // MagicNumber do EA
+//--- para armazenar o identificador do indicador ATR
+int atr_handle;
+//--- aqui vamos armazenar os últimos valores do ATR e o corpo da vela
+double last_atr,last_body;
+</code></pre>
+<p>
+datetime lastbar_timeopen;
+</p>
+<pre><code class="language-mql5">
+double trade_lot;
+//--- lembramo-nos da hora de início da otimização
+</code></pre>
+<p>
+datetime optimization_start;
+</p>
+<pre><code class="language-mql5">
+//--- para exibir no gráfico a duração após o final da otimização
+string report;
+//+------------------------------------------------------------------+
+//| TesterInit function                                              |
+//+------------------------------------------------------------------+
+void OnTesterInit()
+  {
+//--- definimos os valores dos parâmetros de entrada para a otimização
+   ParameterSetRange(&quot;lots&quot;,false,0.1,0,0,0);
+   ParameterSetRange(&quot;kATR&quot;,true,3.0,1.0,0.3,7.0);
+   ParameterSetRange(&quot;ATRperiod&quot;,true,10,15,1,30);
+   ParameterSetRange(&quot;holdbars&quot;,true,5,3,1,15);
+   ParameterSetRange(&quot;slippage&quot;,false,10,0,0,0);
+   ParameterSetRange(&quot;revers&quot;,true,false,false,1,true);
+   ParameterSetRange(&quot;EXPERT_MAGIC&quot;,false,123456,0,0,0);
+   Print(&quot;Definidos os valores iniciais e limites dos parâmetros de otimização&quot;);
+//--- lembramo-nos do início da otimização
+   optimization_start=TimeLocal();
+   report=StringFormat(&quot;%s: otimização iniciada em %s&quot;,
+                       __FUNCTION__,TimeToString(TimeLocal(),TIME_MINUTES|TIME_SECONDS
+//--- exibimos uma mensagem no gráfico e no log do terminal
+   Print(report);
+   Comment(report);
+//---   
+</code></pre>
+<p>
+  }</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1971
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| TesterDeinit function                                            |
+//+------------------------------------------------------------------+
+void OnTesterDeinit()
+  {
+//--- duração da otimização
+   string log_message=StringFormat(&quot;%s: a otimização demorou %d segundos&quot;,
+                                   __FUNCTION__,TimeLocal()-optimization_start);
+   PrintFormat(log_message);
+   report=report+&quot;\r\n&quot;+log_message;
+   Comment(report);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- inicializamos as variáveis globais
+   last_atr=0;
+   last_body=0;
+//--- definimos o volume correto
+   double min_lot=SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_MIN);
+   trade_lot=lots&gt;min_lot? lots:min_lot;   
+//--- criamos o identificador do indicador ATR
+   atr_handle=iATR(_Symbol,_Period,ATRperiod);
+   if(atr_handle==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;%s: não foi possível criar o iATR, código de erro %d&quot;,__FUNCTION__,
+      return(INIT_FAILED);
+     }
+//--- inicialização bem-sucedida do EA
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- sinal de negociação
+   static int signal=0; // +1 significa um sinal de compra, -1 significa um sinal de v
+//--- verificamos e fechamos as posições abertas antigas, abertas há mais de holdbars 
+   ClosePositionsByBars(holdbars,slippage,EXPERT_MAGIC);
+//--- verificamos o surgimento de uma nova barra
+   if(isNewBar())
+     {
+      //--- verificamos a presença de sinal      
+      signal=CheckSignal();
+     }
+//--- se aberta uma posição de &#x27;netting&#x27;, ignoramos o sinal e esperamos até que ele fe</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1972
+</p>
+<pre><code class="language-mql5">
+   if(signal!=0 &amp;&amp; PositionsTotal()&gt;0 &amp;&amp; (ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger
+     {
+      signal=0;
+      return; // saímos do manipulador de eventos NewTick e não entramos no mercado at
+     }
+//--- para contas de cobertura (&#x27;hedge&#x27;), casa posição tem vida e fecha separadamente
+   if(signal!=0)
+     {
+      //--- sinal de compra
+      if(signal&gt;0)
+        {
+         PrintFormat(&quot;%s: Existe um sinal de compra! Revers=%s&quot;,__FUNCTION__,string(re
+         if(Buy(trade_lot,slippage,EXPERT_MAGIC))
+            signal=0;
+        }
+      //--- sinal de venda
+      if(signal&lt;0)
+        {
+         PrintFormat(&quot;%s: Existe um sinal de venda! Revers=%s&quot;,__FUNCTION__,string(rev
+         if(Sell(trade_lot,slippage,EXPERT_MAGIC))
+            signal=0;
+        }
+     }
+//--- fim da função OnTick
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Verificando se á sinal de negociação                             |
+//+------------------------------------------------------------------+
+int CheckSignal()
+  {
+//--- 0 significa que não há sinal
+   int res=0;
+//--- obtemos o valor do ATR na penúltima barra concluída (o índice da barra igual a 2
+   double atr_value[1];
+   if(CopyBuffer(atr_handle,0,2,1,atr_value)!=-1)
+     {
+      last_atr=atr_value[0];
+      //--- recebemos os dados da última barra fechada numa matriz do tipo MqlRates
+      MqlRates bar[1];
+      if(CopyRates(_Symbol,_Period,1,1,bar)!=-1)
+        {
+         //--- calculamos o tamanho do corpo da barra na última barra fechada
+         last_body=bar[0].close-bar[0].open;
+         //--- se o corpo da última barra (com índice 1) exceder o valor anterior do A
+         if(MathAbs(last_body)&gt;kATR*last_atr)
+            res=last_body&gt;0?1:-1; // para a leva altista um valor positivo
+        }
+      else
+         PrintFormat(&quot;%s: Não foi possível obter a última barra! Erro&quot;,__FUNCTION__,Ge</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1973
+</p>
+<pre><code class="language-mql5">
+     }
+   else
+      PrintFormat(&quot;%s: Não foi possível obter o valor do indicador ATR! Erro&quot;,__FUNCTI
+//--- se estiver ativado o modo de negociação de reversão
+   res=revers?-res:res;  // se necessário, revertemos o sinal (em vez de 1, retornamos
+//--- retornamos o valor do sinal de negociação
+   return (res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Retornando true quando aparece uma nova barra                   |
+//+------------------------------------------------------------------+
+bool isNewBar(const bool print_log=true)
+  {
+   static datetime bartime=0; // armazenamos o tempo de abertura da barra atual
+//--- obtemos o tempo de abertura da barra zero
+   datetime currbar_time=iTime(_Symbol,_Period,0);
+//--- se o tempo de abertura mudar, é porque apareceu uma nova barra
+   if(bartime!=currbar_time)
+     {
+      bartime=currbar_time;
+      lastbar_timeopen=bartime;
+      //--- exibir no log informações sobre o tempo de abertura da nova barra      
+      if(print_log &amp;&amp; !(MQLInfoInteger(MQL_OPTIMIZATION)||MQLInfoInteger(MQL_TESTER)))
+        {
+         //--- exibimos uma mensagem sobre o tempo de abertura da nova barra
+         PrintFormat(&quot;%s: new bar on %s %s opened at %s&quot;,__FUNCTION__,_Symbol,
+                     StringSubstr(EnumToString(_Period),7),
+                     TimeToString(TimeCurrent(),TIME_SECONDS));
+         //--- obtemos os dados do último tick
+         MqlTick last_tick;
+         if(!SymbolInfoTick(Symbol(),last_tick))
+            Print(&quot;SymbolInfoTick() failed, error = &quot;,GetLastError());
+         //--- exibimos o tempo do último tick em segundos
+         PrintFormat(&quot;Last tick was at %s.%03d&quot;,
+                     TimeToString(last_tick.time,TIME_SECONDS),last_tick.time_msc%1000
+        }
+      //--- temos uma nova barra
+      return (true);
+     }
+//--- não há nenhuma barra nova
+   return (false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Comprando a mercado com o volume especificado                    |
+//+------------------------------------------------------------------+
+bool Buy(double volume,ulong deviation=10,ulong  magicnumber=0)
+  {
+//--- compramos a mercado
+   return (MarketOrder(ORDER_TYPE_BUY,volume,deviation,magicnumber));</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1974
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Vendendo a mercado com o volume definido                         |
+//+------------------------------------------------------------------+
+bool Sell(double volume,ulong deviation=10,ulong  magicnumber=0)
+  {
+//--- vendemos a mercado
+   return (MarketOrder(ORDER_TYPE_SELL,volume,deviation,magicnumber));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Fechando posições segundo o tempo de retenção nas barras         |
+//+------------------------------------------------------------------+
+void ClosePositionsByBars(int holdtimebars,ulong deviation=10,ulong  magicnumber=0)
+  {
+   int total=PositionsTotal(); // número de posições abertas   
+//--- pesquisa detalhada de todas as posições abertas
+   for(int i=total-1; i&gt;=0; i--)
+     {
+      //--- parâmetros da posição
+      ulong  position_ticket=PositionGetTicket(i);                                    
+      string position_symbol=PositionGetString(POSITION_SYMBOL);                      
+      ulong  magic=PositionGetInteger(POSITION_MAGIC);                                
+      datetime position_open=(datetime)PositionGetInteger(POSITION_TIME);             
+      int bars=iBarShift(_Symbol,PERIOD_CURRENT,position_open)+1;                     
+      //--- se a posição tem vivido por um longo tempo, e também o MagicNumber e o sím
+      if(bars&gt;holdtimebars &amp;&amp; magic==magicnumber &amp;&amp; position_symbol==_Symbol)
+        {
+         int    digits=(int)SymbolInfoInteger(position_symbol,SYMBOL_DIGITS);         
+         double volume=PositionGetDouble(POSITION_VOLUME);                            
+         ENUM_POSITION_TYPE type=(ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE)
+         string str_type=StringSubstr(EnumToString(type),14);
+         StringToLower(str_type); // reduzimos o registro do texto para uma correta fo
+         PrintFormat(&quot;Fechamos a posição #%I64u %s %s %.2f&quot;,
+                     position_ticket,position_symbol,str_type,volume);
+         //--- definindo o tipo de ordem e de envio do pedido de negociação
+         if(type==POSITION_TYPE_BUY)
+            MarketOrder(ORDER_TYPE_SELL,volume,deviation,magicnumber,position_ticket);
+         else
+            MarketOrder(ORDER_TYPE_BUY,volume,deviation,magicnumber,position_ticket);
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preparando e enviando uma solicitação de negociação              |
+//+------------------------------------------------------------------+
+bool MarketOrder(ENUM_ORDER_TYPE type,double volume,ulong slip,ulong magicnumber,ulong
+  {
+//--- declaração e inicialização de estruturas</p>
+<p></code></pre>
+<p>
+<h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1975
+</p>
+<pre><code class="language-mql5">
+   MqlTradeRequest request={};
+   MqlTradeResult  result={};
+   double price=SymbolInfoDouble(Symbol(),SYMBOL_BID);
+   if(type==ORDER_TYPE_BUY)
+      price=SymbolInfoDouble(Symbol(),SYMBOL_ASK);
+//--- parâmetros da solicitação
+   request.action   =TRADE_ACTION_DEAL;                     // tipo de operação de neg
+   request.position =pos_ticket;                            // boleta da posição, se f
+   request.symbol   =Symbol();                              // símbolo
+   request.volume   =volume;                                // volume 
+   request.type     =type;                                  // tipo de ordem
+   request.price    =price;                                 // preço de transação
+   request.deviation=slip;                                  // desvio permitido em rel
+   request.magic    =magicnumber;                           // MagicNumber da ordem
+//--- envio do pedido
+   if(!OrderSend(request,result))
+     {
+      //--- exibimos as informações sobre a falha
+      PrintFormat(&quot;OrderSend %s %s %.2f at %.5f error %d&quot;,
+                  request.symbol,EnumToString(type),volume,request.price,GetLastError
+      return (false);
+     }
+//--- relatamos sobre a operação bem-sucedida
+   PrintFormat(&quot;retcode=%u  deal=%I64u  order=%I64u&quot;,result.retcode,result.deal,result
+   return (true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Teste de estratégias de negociação, Trabalhando com resultados de otimização, OnTesterDeinit,
+<h3>OnTesterPass, ParameterGetRange, ParameterSetRange</h3></p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1976
+<h3>OnTesterDeinit</h3>
+É chamada em EAs quando ocorre o evento TesterDeinit para realizar as ações necessárias após a
+otimização do EA.
+</p>
+<pre><code class="language-mql5">
+void  OnTesterDeinit(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+O evento TesterDeinit é gerado automaticamente no final da otimização do EA no testador de
+estratégia. 
+EA com manipulador OnTesterDeinit() ou OnTesterPass() que é carregado automaticamente num
+gráfico de terminal separado com o símbolo e o período especificados no testador quando é iniciada
+a otimização. A função se destina ao processamento final de todos os resultados de otimização.
+Deve ser lembrado que os quadros de otimização enviados pelos agentes de teste usando a função
+FrameAdd() podem vir em pacotes e levar tempo para serem entregues. Portanto, nem todos os
+quadros e, consequentemente, os eventos TesterPass, podem ser recebidos e processados antes do
+final da otimização na OnTesterPass(). Portanto, para garantir o recebimento de todos os quadros
+atrasados na OnTesterDeinit(), você precisa colocar um bloco de código usando a função
+FrameNext().
+<h3>Veja também</h3>
+Teste de estratégias de negociação, Trabalhando com os resultados da otimização, TesterStatistics,
+OnTesterInit, OnTesterPass, ParameterGetRange, ParameterSetRange</p>
+<p><h3>Manipulação de eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+1977
+<h3>OnTesterPass</h3>
+É chamada em EAs quando ocorre o evento TesterPass para processar o novo quadro de dados durante
+a otimização do EA.
+</p>
+<pre><code class="language-mql5">
+void  OnTesterPass(void);
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+<h3>Sem valor retornado</h3>
+<h3>Observação</h3>
+O evento TesterPass é gerado automaticamente quando chega um quadro durante a otimização do
+EA no testador de estratégia.
+EA com manipulador OnTesterDeinit() ou OnTesterPass() que é carregado automaticamente num
+gráfico de terminal separado com o símbolo e o período especificados no testador quando é iniciada
+a otimização. A função é projetada para processar quadros recebidos de agentes de teste durante a
+otimização. O envio do quadro com resultados de teste deve ser feito a partir do manipulador
+OnTester() usando a função FrameAdd().
+Deve ser lembrado que os quadros de otimização enviados pelos agentes de teste usando a função
+FrameAdd() podem vir em pacotes e levar tempo para serem entregues. Portanto, nem todos os
+quadros e, consequentemente, os eventos TesterPass, podem ser recebidos e processados antes do
+final da otimização na OnTesterPass(). Portanto, para garantir o recebimento de todos os quadros
+atrasados na OnTesterDeinit(), você precisa colocar um bloco de código usando a função
+FrameNext().
+Após concluída a otimização de OnTesterDeinit(), você pode classificar novamente todos os quadros
+com a ajuda das funções FrameFirst()/FrameFilter e FrameNext().
+<h3>Veja também</h3>
+Teste de estratégias de negociação, Trabalhando com resultados de otimização, OnTesterInit,
+OnTesterDeinit, FrameFirst, FrameFilter, FrameNext, FrameInputs
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

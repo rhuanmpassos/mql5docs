@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis Predefinidas - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class="active"><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Variáveis Predefinidas</h1>
+        </header>
+        
+        <article>
+            <p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1116
+<h3>As variáveis predefinidas</h3>
+Para cada programa MQL5 executável, um conjunto de variáveis predefinidas é suportado, que reflete
+o estado do gráfico de preço corrente no momento em que um programa-mql5 é iniciado.
+Os valores das variáveis predefinidas são definidas pelo terminal cliente antes de um programa MQL5
+ser iniciado. Variáveis predefinidas são constantes e não podem ser alteradas a partir de um programa
+MQL5. Como exceção, existe a variáveis especial _LastError, que pode ser redefinida para 0 pela
+função ResetLastError.
+<h3>Variável</h3>
+<h3>Valor</h3>
+_AppliedTo
+A variável _AppliedTo permite ver no indicador o tipo de dados em que é
+calculado
+_Digits
+<h3>Número de casas decimais</h3>
+_Point
+Tamanho do ponto do ativo corrente na moeda de cotação
+_LastError
+<h3>O último código de erro</h3>
+_Period
+<h3>Janela de tempo do gráfico corrente</h3>
+_RandomSeed
+Status atual do gerador de números pseudo-aleatórios
+_StopFlag
+<h3>Flag de parada de programa</h3>
+_Symbol
+<h3>Nome do ativo do gráfico corrente</h3>
+_UninitReason
+<h3>Código do motivo da não inicialização</h3>
+_IsX64
+A variável _IsX64 permite saber em que terminal está funcionando o
+programa MQL5
+Variáveis predefinidas não podem ser definidas em uma biblioteca. Uma biblioteca usa tais variáveis
+que são definidas em um programa a partir do qual esta biblioteca é chamada.</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1117
+</p>
+<pre><code class="language-mql5">
+int _AppliedTo
+</code></pre>
+<p>
+A variável _AppliedTo permite ver no indicador o tipo de dados em que é calculado:
+<h3>Tipo de dados</h3>
+<h3>Valor</h3>
+Descrição dos dados usados ​para calcular o indicador
+—
+0
+O indicador usa a segunda maneira de chamada de OnCalculate() - os
+dados para o cálculo não são especificados por um buffer ou array de
+dados
+<h3>Close</h3>
+1 
+<h3>Preço Close</h3>
+<h3>Open</h3>
+2
+<h3>Preço Open</h3>
+<h3>High</h3>
+3
+<h3>Preço High</h3>
+<h3>Low</h3>
+4
+<h3>Preço Low</h3>
+<h3>Median</h3>
+<h3>Price</h3>
+(HL/2)
+5
+<h3>Preço médio = (High+Low)/2</h3>
+<h3>Typical</h3>
+<h3>Price</h3>
+(HLC/3)
+6
+<h3>Preço típico = (High+Low+Close)/3</h3>
+<h3>Weighted Price</h3>
+(HLCC/4)
+7
+<h3>Preço ponderado = (Open+High+Low+Close)/4</h3>
+<h3>Previous</h3>
+<h3>Indicator&#x27;s Data</h3>
+8
+Dados do indicador inicializado no gráfico antes deste indicador
+<h3>First Indicator&#x27;s</h3>
+<h3>Data</h3>
+9
+Dados do indicador inicializado no gráfico pela primeira vez
+<h3>Indicator handle</h3>
+10+
+Dados do indicador transferidos para a função iCustom() com ajuda do
+identificador do indicador. O valor _AppliedTo contém o identificador
+do indicador
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- indicator buffers mapping
+   SetIndexBuffer(0,Label1Buffer,INDICATOR_DATA);
+// obtemos o tipo de dados no qual o indicador é calculado
+   Print(&quot;_AppliedTo=&quot;,_AppliedTo);
+   Print(getIndicatorDataDescription(_AppliedTo));
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1118
+</p>
+<pre><code class="language-mql5">
+//| Descrição dos dados em que o indicador é calculado               |
+//+------------------------------------------------------------------+
+string getIndicatorDataDescription(int data_id)
+  {
+   string descr=&quot;&quot;;
+   switch(data_id)
+     {
+      case(0):descr=&quot;It&#x27;s first type of OnCalculate() - no data buffer&quot;;
+         break;
+      case(1):descr=&quot;Indicator calculates on Close price&quot;;
+         break;
+      case(2):descr=&quot;Indicator calculates on Open price&quot;;
+         break;
+      case(3):descr=&quot;Indicator calculates on High price&quot;;
+         break;
+      case(4):descr=&quot;Indicator calculates on Low price&quot;;
+         break;
+      case(5):descr=&quot;Indicator calculates on Median Price (HL/2)&quot;;
+         break;
+      case(6):descr=&quot;Indicator calculates on Typical Price (HLC/3)&quot;;
+         break;
+      case(7):descr=&quot;Indicator calculates on Weighted Price (HLCC/4)&quot;;
+         break;
+      case(8):descr=&quot;Indicator calculates Previous Indicator&#x27;s data&quot;;
+         break;
+      case(9):descr=&quot;Indicator calculates on First Indicator&#x27;s data&quot;;
+         break;
+      default: descr=&quot;Indicator calculates on data of indicator with handle=&quot;+string(d
+         break;
+     }
+//---
+   return descr;
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>ENUM_APPLIED_PRICE</h3></p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1119
+</p>
+<pre><code class="language-mql5">
+int _Digits
+</code></pre>
+<p>
+A variável _Digits armazena o número de dígitos após o ponto decimal, que define a precisão do preço
+do ativo do gráfico corrente.
+Você pode também usar a função Digits().</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1120
+</p>
+<pre><code class="language-mql5">
+double _Point
+</code></pre>
+<p>
+A variável _Point contém o tamanho do ponto do ativo corrente na moeda de cotação.
+Você também pode usar a função Point().</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1121
+</p>
+<pre><code class="language-mql5">
+int _LastError
+</code></pre>
+<p>
+A variável _LastError contém o código do último erro, que ocorreu durante a execução de um
+programa-mql5. Seu valor pode ser redefinido para zero por ResetLastError().
+Para obter o código do último erro, você também pode usar a função GetLastError().</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1122
+<h3>ENUM_TIMEFRAMES _Period</h3>
+A variável _Period contém o valor da janela de tempo do gráfico corrente.
+Você também pode usar a função Period().
+<h3>Também Veja</h3>
+PeriodSeconds, Janelas de tempo de gráficos, Data e Hora, Visibilidade de objetos</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1123
+_RandomSeed
+Variável para armazenamento do estado corrente ao gerar inteiros pseudo-aleatórios. _RandomSeed
+altera seu valor ao chamar MathRand(). Use MathSrand() para definir a condição inicial requerida. 
+x número aleatório recebido pela função MathRand() é calculado da seguinte forma a cada chamada:
+x=_RandomSeed*214013+2531011;
+_RandomSeed=x;
+x=(x&gt;&gt;16)&amp;0x7FFF;
+<h3>Também Veja</h3>
+<h3>MathRand(), MathSrand(), Tipos inteiros</h3></p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1124
+</p>
+<pre><code class="language-mql5">
+int _StopFlag
+</code></pre>
+<p>
+A variável _StopFlag armazena a flag de parada do programa mql5, que é igual a 0 no modo normal de
+operação.  Quando o terminal do cliente tenta interromper o programa, um valor diferente de zero é
+armazenado nessa variável.
+Para verificar o estado do _StopFlag você também pode usar a função IsStopped().</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1125
+</p>
+<pre><code class="language-mql5">
+string _Symbol
+</code></pre>
+<p>
+A variável _Symbol contém o nome do ativo do gráfico corrente.
+Você também pode usar a função Symbol().</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1126
+</p>
+<pre><code class="language-mql5">
+int _UninitReason
+</code></pre>
+<p>
+A variável _UninitReason contém o código do motivo de não inicialização do programa.
+Geralmente, este código é obtido através da função UninitializeReason().</p>
+<p><h3>Variáveis Predefinidas</h3>
+© 2000-2025, MetaQuotes Ltd.
+1127
+</p>
+<pre><code class="language-mql5">
+int _IsX64
+</code></pre>
+<p>
+A variável _IsX64 permite saber em que terminal está funcionando o programa MQL5: para um
+terminal de 32 bits _IsX64=0 e para um terminal de 64 _IsX64!=0.
+Você também pode usar a função TerminalInfoInteger(TERMINAL_X64).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+// verifique em que terminal está sendo executado o programa
+   Print(&quot;_IsX64=&quot;,_IsX64);
+   if(_IsX64)
+      Print(&quot;O programa &quot;,__FILE__,&quot; está sendo executado em um terminal de 64 bits&quot;);
+   else
+      Print(&quot;O programa &quot;,__FILE__,&quot; está sendo executado em um terminal de 32 bits&quot;);
+   Print(&quot;TerminalInfoInteger(TERMINAL_X64)=&quot;,TerminalInfoInteger(TERMINAL_X64));
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>MQLInfoInteger, Importando funções (#import)</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

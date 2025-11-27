@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de rede - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class="active"><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções de rede</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2404
+<h3>Funções de rede</h3>
+Os programas MQL5 podem trocar dados com servidores remotos, enviar notificações push, e-mails e
+dados FTP.
+· O grupo de funções Socket* permite que você crie uma conexão TCP (incluindo uma conexão TLS
+segura) com um host remoto por meio de soquetes de sistema. O esquema de trabalho é simples:
+você cria o soquete, conecta-se ao servidor, e, assim, começaler e registrar dados.
+· A função WebRequest é projetada para trabalhar com recursos da Web e facilita o envio de
+solicitações HTTP (incluindo GET e POST).
+· SendFTP, SendMail e SendNotification são uma função mais simples para enviar arquivos, e-mail e
+notificações móveis.
+Para segurança do usuário final, no lado do terminal do cliente é implementada uma lista de endereços
+IP permitidos, com a qual o programa MQL5 pode ser conectado usando as funções Socket* e
+WebRequest. Por exemplo, se ela precisar se conectar a https://www.someserver.com, esse endereço
+deverá ser explicitamente indicado pelo usuário do terminal na lista de permitidos. Via software não é
+possível adicionar o endereço.
+Para notificar o usuário sobre a necessidade de configuração adicional, inclua uma mensagem explícita
+no programa MQL5. Por exemplo, via #property description, Alert ou Print.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>SocketCreate</h3>
+Cria um soquete com os sinalizadores especificados e retorna seu
+identificador
+<h3>SocketClose</h3>
+<h3>Fecha o soquete</h3>
+<h3>SocketConnect</h3>
+Conecta-se ao servidor com controle de tempo limite
+<h3>SocketIsConnected</h3>
+Verifica se há um soquete conectado atualmente</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2405
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>SocketIsReadable</h3>
+Obtém o número de bytes que podem ser lidos do soquete.
+<h3>SocketIsWritable</h3>
+Verifica se os dados podem ser registrados no soquete no momento
+atual.
+<h3>SocketTimeouts</h3>
+Define os tempos limite a fim de receber e enviar dados para o
+objeto de sistema de soquete
+<h3>SocketRead</h3>
+<h3>Lê dados do soquete</h3>
+<h3>SocketSend</h3>
+<h3>Registra dados no soquete</h3>
+<h3>SocketTlsHandshake</h3>
+Inicia uma conexão TLS (SSL) segura com o host especificado
+usando o protocolo TLS Handshake
+<h3>SocketTlsCertificate</h3>
+Recebe informações sobre o certificado usado para proteger a
+conexão de rede.
+<h3>SocketTlsRead</h3>
+Lê dados de uma conexão TLS segura
+<h3>SocketTlsReadAvailable</h3>
+Lê todos os dados disponíveis a partir de uma conexão TLS segura
+<h3>SocketTlsSend</h3>
+Envia dados por meio de uma conexão TLS segura
+<h3>WebRequest</h3>
+Envia uma solicitação HTTP para o servidor especificado
+<h3>SendFTP</h3>
+Envia um arquivo para o endereço especificado na janela de
+configurações na guia &quot;FTP&quot;
+<h3>SendMail</h3>
+Envia um e-mail para o endereço especificado na janela de
+configurações na guia &quot;Mail&quot;
+<h3>SendNotification</h3>
+Envia notificações por push para terminais móveis cuja ID
+<h3>MetaQuotes é indicada na guia &quot;Notificações&quot;</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2406
+<h3>SocketCreate</h3>
+Cria um soquete com os sinalizadores especificados e retorna seu identificador.
+</p>
+<pre><code class="language-mql5">
+int  SocketCreate(
+   uint     flags         // sinalizadores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+flags
+[in]  Combinação de sinalizadores definindo o modo de operação com o soquete. Atualmente, é
+suportado um sinalizador — SOCKET_DEFAULT.
+<h3>Valor retornado</h3>
+Após a criação bem-sucedida de um soquete, retorna seu identificador, caso contrário,
+INVALID_HANDLE.
+<h3>Comentário:</h3>
+Para liberar a memória do computador de um soquete não utilizado, chame para ele SocketClose.
+De um programa MQL5 você pode criar um máximo de 128 soquetes. Quando exceder o limite em
+_LastError é registrado o erro 5271 (ERR_NETSOCKET_TOO_MANY_OPENED).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2407
+</p>
+<pre><code class="language-mql5">
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2408
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2409
+<h3>SocketClose</h3>
+Fecha o soquete.
+</p>
+<pre><code class="language-mql5">
+bool  SocketClose(
+   const int  socket      // identificador do soquete
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete que deve ser fechado. O identificador é retornado pela função
+SocketCreate. Ao passar um identificador inválido para _LastError é registrado o erro 5270
+(ERR_NETSOCKET_INVALIDHANDLE).
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Observação</h3>
+Se, para o soquete, anteriormente foi criada uma conexão SocketConnect, ela será interrompida.
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2410
+</p>
+<pre><code class="language-mql5">
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2411
+</p>
+<pre><code class="language-mql5">
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2412
+<h3>SocketConnect</h3>
+Conecta-se ao servidor com controle de tempo limite.
+</p>
+<pre><code class="language-mql5">
+bool  SocketConnect(
+   int           socket,               // soquete
+   const string  server,               // endereço para conexão
+   uint          port,                 // porto para conexão
+   uint          timeout_receive_ms    // tempo limite da conexão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+server
+[in]  Nome de domínio do servidor ao qual você deseja se conectar ou seu endereço IP.
+port
+[in]  Número da porta para conexão.
+timeout_receive_ms
+[in]  Tempo limite de conexão em milissegundos. Se a conexão falhar durante esse período, serão
+interrompidas as tentativas.
+<h3>Valor retornado</h3>
+Retorna true na conexão bem-sucedida, caso contrário, false.
+<h3>Observação</h3>
+O endereço para conexão deve ser adicionado à lista de permitidos no lado do terminal do cliente
+(seção Serviços \ Configurações \ Expert Advisors).
+<h3>Em</h3>
+caso 
+de 
+erro 
+de 
+conexão 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5272
+(ERR_NETSOCKET_CANNOT_CONNECT).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2413
+</p>
+<pre><code class="language-mql5">
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2414
+</p>
+<pre><code class="language-mql5">
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2415
+</p>
+<pre><code class="language-mql5">
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2416
+<h3>SocketIsConnected</h3>
+Verifica se há um soquete conectado atualmente.
+</p>
+<pre><code class="language-mql5">
+bool  SocketIsConnected(
+   const int  socket      // identificador do soquete
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate(). Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+<h3>Valor retornado</h3>
+Retorna true se o soquete estiver conectado, caso contrário, false.
+<h3>Observação</h3>
+Usando a função SocketIsConnected(), você pode verificar a conexão do soquete em um
+determinado momento.
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            SocketIsConnected.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#property description &quot;Add Address to the list of allowed ones in the terminal setting
+#property script_show_inputs
+input string Address    =&quot;www.mql5.com&quot;;
+input int    Port       =80;
+input bool   CloseSocket=true;
+bool         ExtTLS     =false;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//--- criamos um soquete e obtemos seu identificador
+   int socket=SocketCreate();
+//--- verificamos o identificador</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2417
+</p>
+<pre><code class="language-mql5">
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver bem, podemos nos conectar.
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         PrintFormat(&quot;Established connection to %s:%d&quot;,Address,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, imprimimos seus dado
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;TLS certificate:&quot;);
+            Print(&quot;   Owner:      &quot;,subject);
+            Print(&quot;   Issuer:     &quot;,issuer);
+            Print(&quot;   Number:     &quot;,serial);
+            Print(&quot;   Print:      &quot;,thumbprint);
+            Print(&quot;   Expiration: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- enviamos uma solicitação GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;GET request sent&quot;);
+            //--- lemos a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Failed to get a response, error &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Failed to send GET request, error &quot;,GetLastError());
+        }
+      else
+        {
+         PrintFormat(&quot;Connection to %s:%d failed, error %d&quot;,Address,Port,GetLastError
+        }
+      //--- se o sinalizador estiver definido, fechamos o soquete após o uso
+      if(CloseSocket)
+         SocketClose(socket);
+     }
+   else
+      Print(&quot;Failed to create a socket, error &quot;,GetLastError());
+//--- verificamos a conexão ao servidor
+   bool connected=SocketIsConnected(socket);
+//--- se não houver conexão, encerramos
+   if(!connected)
+     {
+      Print(&quot;No connection to server&quot;);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2418
+</p>
+<pre><code class="language-mql5">
+//--- если есть подклюse houver uma conexão com o servidor
+   else
+     {
+      Print(&quot;Connection to the server is available\nThe connection needs to be closed.
+      //--- encerramos o soquete e verificamos o status da conexão novamente
+      SocketClose(socket);
+      connected=SocketIsConnected(socket);
+     }
+//--- imprimimos o estado atual da conexão com o servidor no log
+   Print(&quot;Currently connected: &quot;,(connected ? &quot;opened&quot; : &quot;closed&quot;));
+   /*
+   resultado quando CloseSocket = true:
+   No connection to server
+   Currently connected: closed
+   resultado quanto CloseSocket = false:
+   Connection to the server is available
+   The connection needs to be closed. Closing
+   Currently connected: closed
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Envio de um comando ao servidor                                  |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+//--- convertemos a string em um array de caracteres, descartando o zero final
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão protegida por TLS via porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Leitura da resposta do servidor                                  |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout_ms)
+  {
+   char   rsp[];
+   string result;
+   ulong  timeout_check=GetTickCount64()+timeout_ms;
+//--- lemos dados do soquete enquanto eles existirem, mas não mais do que o tempo limi
+   do</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2419
+</p>
+<pre><code class="language-mql5">
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- comandos de leitura diferentes, dependendo do fato de a conexão estar p
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout_ms);
+         //--- analisamos a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprimimos apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;HTTP answer header received:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+            //--- atualizamos o tempo de expiração do tempo limite de leitura
+            timeout_check=GetTickCount64()+timeout_ms;
+           }
+        }
+     }
+   while(GetTickCount64()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SocketConnect, SocketIsWritable, SocketCreate, SocketClose</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2420
+<h3>SocketIsReadable</h3>
+Obtém o número de bytes que podem ser lidos a partir do soquete.
+uint  SocketIsReadable(
+</p>
+<pre><code class="language-mql5">
+   const int  socket      // identificador do soquete
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+<h3>Valor retornado</h3>
+Número de bytes que podem ser lidos. Em caso de erro, retorna 0.
+<h3>Observação</h3>
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+Antes de chamar SocketRead, verifique se o soquete tem dados que ler. Caso contrário, na ausência
+de dados, a função SocketRead irá esperar em vão dados durante timeout_ms, atrasando a
+execução do programa.
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2421
+</p>
+<pre><code class="language-mql5">
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2422
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2423
+<h3>SocketIsWritable</h3>
+Verifica se os dados podem ser gravados no soquete no momento atual.
+</p>
+<pre><code class="language-mql5">
+bool  SocketIsWritable(
+   const int  socket      // identificador do soquete
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+<h3>Valor retornado</h3>
+Retorna true se a operação for possível, caso contrário, false.
+<h3>Observação</h3>
+Com esta função, você pode verificar se os dados podem ser gravados no soquete agora.
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                             SocketIsWritable.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#property description &quot;Add Address to the list of allowed ones in the terminal setting
+#property script_show_inputs
+input string Address    =&quot;www.mql5.com&quot;;
+input int    Port       =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//--- criamos um soquete e obtemos seu identificador
+   int socket=SocketCreate();
+//--- verificamos o identificador</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2424
+</p>
+<pre><code class="language-mql5">
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver bem, podemos nos conectar.
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         PrintFormat(&quot;Established connection to %s:%d&quot;,Address,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, imprimimos seus dado
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;TLS certificate:&quot;);
+            Print(&quot;   Owner:      &quot;,subject);
+            Print(&quot;   Issuer:     &quot;,issuer);
+            Print(&quot;   Number:     &quot;,serial);
+            Print(&quot;   Print:      &quot;,thumbprint);
+            Print(&quot;   Expiration: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- enviamos uma solicitação GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;GET request sent&quot;);
+            //--- lemos a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Failed to get a response, error &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Failed to send GET request, error &quot;,GetLastError());
+        }
+      else
+        {
+         PrintFormat(&quot;Connection to %s:%d failed, error %d&quot;,Address,Port,GetLastError
+        }
+      //--- imprimimos no log a possibilidade de gravar dados no soquete no momento at
+      if(SocketIsWritable(socket))
+         Print(&quot;At the current moment in time, writing data to the socket is possible&quot;
+      else
+         Print(&quot;It is not possible to write data to the socket at the current time&quot;);
+      //--- fechamos o soquete após usá-lo
+      if(SocketClose(socket))
+         Print(&quot;Now the socket is closed&quot;);
+     }
+   else
+      Print(&quot;Failed to create a socket, error &quot;,GetLastError());
+   /*
+   Resultado:
+   At the current moment in time, writing data to the socket is possible</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2425
+</p>
+<pre><code class="language-mql5">
+   Socket is closed now
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Envio de um comando ao servidor                                  |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+//--- convertemos a string em um array de caracteres, descartando o zero final
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão protegida por TLS via porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Leitura da resposta do servidor                                  |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout_ms)
+  {
+   char   rsp[];
+   string result;
+   ulong  timeout_check=GetTickCount64()+timeout_ms;
+//--- lemos dados do soquete enquanto eles existirem, mas não mais do que o tempo limi
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- comandos de leitura diferentes, dependendo do fato de a conexão estar p
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout_ms);
+         //--- analisamos a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprimimos apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2426
+</p>
+<pre><code class="language-mql5">
+              {
+               Print(&quot;HTTP answer header received:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+            //--- atualizamos o tempo de expiração do tempo limite de leitura
+            timeout_check=GetTickCount64()+timeout_ms;
+           }
+        }
+     }
+   while(GetTickCount64()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2427
+<h3>SocketTimeouts</h3>
+Define os tempos limite para receber e enviar dados para o objeto do sistema do soquete.
+</p>
+<pre><code class="language-mql5">
+bool  SocketTimeouts(
+   int           socket,               // soquete
+   uint          timeout_send_ms,      // tempo limite para envio de dados
+   uint          timeout_receive_ms    // tempo limite de aquisição de dados
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+timeout_send_ms
+[in]  Tempo limite de envio de dados em milissegundos.
+timeout_receive_ms
+[in]  Tempo limite para receber dados em milissegundos.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Observação</h3>
+Não confunda o tempo limite dos objetos do sistema e o tempo limite definido ao ler os dados via
+SocketRead. SocketTimeout define os tempos limite uma vez para o objeto do soquete no sistema
+operacional. Esses tempos limite serão aplicados a todas as funções de leitura e de envio de dados
+através desse soquete. Em SocketRead, o tempo limite é definido para uma operação de leitura de
+dados específica.
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                               SocketTimeouts.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#define   TIMEOUT_SEND     5000
+#define   TIMEOUT_RECEIVE  5000
+//+------------------------------------------------------------------+
+//| Script program start function                                    |</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2428
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//--- criamos um soquete e obtemos seu identificador
+   int socket=SocketCreate();
+   if(socket==INVALID_HANDLE)
+     {
+      Print(&quot;SocketCreate() failed. Error &quot;,GetLastError());
+      return;
+     }
+//--- definimos tempos limite para receber e enviar dados para o objeto do sistema de 
+   if(SocketTimeouts(socket,TIMEOUT_SEND,TIMEOUT_RECEIVE))
+      PrintFormat(&quot;timeouts were successfully set&quot;,socket,TIMEOUT_SEND,TIMEOUT_RECEIVE
+   else
+      PrintFormat(&quot;SocketTimeouts(%d, %I64d, %I64d) failed. Error %d&quot;,socket,TIMEOUT_S
+//--- fechamos o soquete
+   SocketClose(socket);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2429
+<h3>SocketRead</h3>
+Lê dados do soquete.
+</p>
+<pre><code class="language-mql5">
+int  SocketRead(
+   int           socket,               // soquete
+   uchar&amp;        buffer[],             // buffer para ler dados do soquete
+   uint          buffer_maxlen,        // número de bytes necessário para leitura
+   uint          timeout_ms            // tempo limite de leitura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+buffer
+[out]  Referência para array do tipo uchar em que serão lidos os dados. O tamanho da matriz
+dinâmica é aumentado pelo número de bytes lidos. O tamanho da matriz não pode exceder
+INT_MAX (2147483647).
+buffer_maxlen
+[in]  Número de bytes que devem ser lidos na matriz buffer[]. Os dados que não se encaixam na
+matriz permanecerão no soquete. Eles podem ser obtidos pela seguinte chamada SocketRead. O
+valor buffer_maxlen não pode exceder INT_MAX (2147483647).
+timeout_ms
+[in]  Tempo limite de leitura de dados em milissegundos. Se os dados não puderem ser
+recuperados durante esse tempo, as tentativas serão concluídas e a função retornará -1.
+<h3>Valor retornado</h3>
+Se bem-sucedido, retorna o número de bytes lidos, em caso de erro, retorna -1.
+<h3>Observação</h3>
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+<h3>Se</h3>
+houver 
+um 
+erro 
+ao 
+ler 
+os 
+dados 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5273
+(ERR_NETSOCKET_IO_ERROR).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2430
+</p>
+<pre><code class="language-mql5">
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2431
+</p>
+<pre><code class="language-mql5">
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2432
+</p>
+<pre><code class="language-mql5">
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>SocketTimeouts, MathSwap</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2433
+<h3>SocketSend</h3>
+Registra dados no soquete.
+</p>
+<pre><code class="language-mql5">
+int  SocketSend(
+   int           socket,               // soquete
+   const uchar&amp;  buffer[],             // buffer para dados
+   uint          buffer_len            // tamanho do buffer
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+buffer
+[in]  Referência para o array do tipo uchar com os dados que é preciso enviar para o soquete.
+buffer_len
+[in]  Tamanho do array buffer.
+<h3>Valor retornado</h3>
+Se bem-sucedido, retorna o número de bytes registrados no socket. Em caso de erro, retorna -1.
+<h3>Observação</h3>
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+<h3>Se houver um</h3>
+erro 
+ao 
+registrar 
+dados 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5273
+(ERR_NETSOCKET_IO_ERROR).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2434
+</p>
+<pre><code class="language-mql5">
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2435
+</p>
+<pre><code class="language-mql5">
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2436
+</p>
+<pre><code class="language-mql5">
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>SocketTimeouts, MathSwap, StringToCharArray</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2437
+<h3>SocketTlsHandshake</h3>
+Inicia uma conexão TLS (SSL) segura com o host especificado usando o protocolo TLS Handshake.
+Durante o Handshake, o cliente e o servidor concordam com os parâmetros de conexão: a versão do
+protocolo usado e o método de criptografia de dados.
+</p>
+<pre><code class="language-mql5">
+bool  SocketTlsHandshake(
+   int           socket,               // soquete
+   const string  host                  // endereço do host
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+host
+[in]  Endereço do host com o qual é estabelecida uma conexão segura.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Comentário:</h3>
+Antes de uma conexão segura, o programa deve estabelecer uma conexão TCP normal ao host
+usando SocketConnect.
+Em caso de falha ao estabelecer uma conexão segura, em _LastError é registrado o erro 5274
+(ERR_NETSOCKET_HANDSHAKE_FAILED).
+Não é necessária a chamada desta função, se a conexão é realizada para a porta 443. Essa é a porta
+TCP padrão usada para conexões TLS (SSL) seguras.
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           SocketTlsHandshake.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#define   SERVER    &quot;smtp.gmail.com&quot;
+#define   PORT      587
+//+------------------------------------------------------------------+
+//| Mudança manual de uma conexão insegura para uma conexão segura   |</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2438
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+bool TlsHandshake(int socket)
+  {
+//--- recebemos a saudação do servidor
+   string rsp;
+   if(!RecvString(socket,rsp))
+      return(false);
+//--- cumprimentamos o servidor
+   if(!SendString(socket,&quot;EHLO my.domain.com\r\n&quot;))
+      return(false);
+//--- recebemos uma resposta do servidor com a lista de comandos suportados
+   if(!RecvString(socket,rsp))
+      return(false);
+//--- imprimimos a saudação
+   Print(&quot;SERVER: &quot;,rsp);
+//--- informamos ao servidor que desejamos mudar de uma conexão insegura para uma segu
+   if(!SendString(socket,&quot;STARTTLS\r\n&quot;))
+      return(false);
+//--- obtemos a resposta do servidores
+   if(!RecvString(socket,rsp))
+      return(false);
+//--- noo exemplo, não verificamos a resposta do servidor de que ele está pronto para 
+//--- iniciamos uma conexão TLS (SSL) segura com o host especificado usando o protocol
+   if(SocketTlsHandshake(socket,SERVER))
+      return(true);
+   Print(&quot;SocketTlsHandshake() failed. Error &quot;,GetLastError());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//--- criamos um soquete e obtemos seu identificador
+   int socket=SocketCreate();
+   if(socket==INVALID_HANDLE)
+     {
+      Print(&quot;SocketCreate() failed. Error &quot;,GetLastError());
+      return;
+     }
+//--- contectamo-nos ao servidor SERVER na porta PORT
+   if(!SocketConnect(socket,SERVER,PORT,10000))
+     {
+      Print(&quot;SocketConnect() failed. Error &quot;,GetLastError());
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2439
+</p>
+<pre><code class="language-mql5">
+   else
+     {
+      //--- foi estabelecida uma conexão insegura
+      PrintFormat(&quot;%s connection has been established to %s:%d&quot;,(PORT==443 ? &quot;A secure
+      //--- mudamos para uma conexão segura
+      if(PORT!=443 &amp;&amp; TlsHandshake(socket))
+        {
+         PrintFormat(&quot;Unsecured connection to %s:%d switched to secured&quot;,SERVER,PORT);
+         //--- se a conexão estiver protegida por um certificado, imprimimos seus dado
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;TLS certificate:&quot;);
+            Print(&quot;   Owner:      &quot;,subject);
+            Print(&quot;   Issuer:     &quot;,issuer);
+            Print(&quot;   Number:     &quot;,serial);
+            Print(&quot;   Print:      &quot;,thumbprint);
+            Print(&quot;   Expiration: &quot;,expiration);
+           }
+        }
+     }
+//--- fechamos o soquete após usá-lo
+   SocketClose(socket);
+   /*
+   Resultado:
+   An unsecured connection has been established to smtp.gmail.com:587
+   SERVER: 220 smtp.gmail.com ESMTP a640c23a62f3a-a9b1f298319sm82305866b.105 - gsmtp
+   SERVER: 250-smtp.gmail.com at your service, [37.193.40.122]
+   250-SIZE 35882577
+   250-8BITMIME
+   250-STARTTLS
+   250-ENHANCEDSTATUSCODES
+   250-PIPELINING
+   250-CHUNKING
+   250 SMTPUTF8
+   SERVER: 220 2.0.0 Ready to start TLS
+   SocketTlsHandshake(): A secure connection to smtp.gmail.com:587 is now established
+   TLS certificate:
+      Owner:  /CN=smtp.gmail.com
+      Issuer:  /C=US/O=Google Trust Services/CN=WR2
+      Number:     1f:f4:db:2a:5a:e6:dc:52:0a:4c:05:ce:81:cc:c3:f7
+      Print: d6be8af229b5329cd3d4c2789c02aa94f89b421c
+      Expiration: 2024.12.30 08:25:30
+   */</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2440
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Enviamos uma string para o servidor                              |
+//+------------------------------------------------------------------+
+bool SendString(int socket,const string str)
+  {
+//--- convertemos a string em um array de caracteres
+   uchar data[];
+   int   size=StringToCharArray(str,data,0,str.Length(),CP_UTF8);
+//--- enviamos os dados para o soquete
+   ResetLastError();
+   if(SocketSend(socket,data,size)==size)
+      return(true);
+//--- erro de envio de dados
+   Print(&quot;Failed to send data to server. Error &quot;,GetLastError());
+   return false;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Obtém uma string do servidor                                     |
+//+------------------------------------------------------------------+
+bool RecvString(int socket,string&amp; result,uint timeout_ms=1000)
+  {
+//--- aguardamos que os dados apareçam no soquete
+   ulong wait_time_end=GetMicrosecondCount()+timeout_ms*1000;
+   while(!SocketIsReadable(socket))
+     {
+      Sleep(10);
+      //--- o tempo de espera dos dados expirou, retornamos NULL como resposta
+      if(wait_time_end&lt;GetMicrosecondCount())
+        {
+         Print(&quot;ERROR: No response from server&quot;);
+         return(false);
+        }
+     }
+//--- lemos os dados do soquete
+   uchar  data[128];
+   uint   size=0;
+   string resp=NULL;
+   do
+     {
+      uchar b[1];
+      int   n=SocketRead(socket,b,1,1000);
+      if(n &lt; 0)
+         break;
+      if(n)</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2441
+</p>
+<pre><code class="language-mql5">
+        {
+         data[size++]=b[0];
+         if(size==data.Size())
+           {
+            resp += CharArrayToString(data,0,data.Size(),CP_UTF8);
+            size = 0;
+           }
+        }
+     }
+   while(SocketIsReadable(socket));
+//--- copiamos os dados lidos para a linha
+   if(size)
+      resp+=CharArrayToString(data,0,size,CP_UTF8);
+//--- se a string estiver vazia, ocorrerá um erro
+   if(!resp.Length())
+     {
+      Print(&quot;ERROR: No response from server&quot;);
+      return(false);
+     }
+//--- entregamos a string
+   result=resp;
+   return(true);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2442
+<h3>SocketTlsCertificate</h3>
+Obtém informações sobre o certificado usado para proteger uma conexão de rede.
+</p>
+<pre><code class="language-mql5">
+bool  SocketTlsCertificate(
+   int           socket,               // soquete
+   string&amp;       subject,              // proprietário do certificado
+   string&amp;       issuer,               // emissor do certificado
+   string&amp;       serial,               // número de série do certificado
+   string&amp;       thumbprint,           // impressão digital do certificado
+   datetime&amp;     expiration            // data de expiração do certificado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+subject
+[in]  Nome do proprietário do certificado. Corresponde ao campo Subject.
+issuer
+[in]  Nome do emissor do certificado. Corresponde ao campo Issuer.
+serial
+[in]  Número de série do certificado. Corresponde ao campo SerialNumber.
+thumbprint
+[in]  Impressão digital do certificado. Corresponde ao hash SHA-1 do arquivo de certificado inteiro
+(todos os campos, incluindo a assinatura do editor).
+expiration
+[in]  Data de expiração do certificado no formato datetime.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Observação</h3>
+A solicitação de dados do certificado só é possível após estabelecer uma conexão segura usando
+SocketTlsHandshake.
+<h3>Ao</h3>
+falhar 
+a 
+obtenção 
+do 
+certificado, 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5275
+(ERR_NETSOCKET_NO_CERTIFICATE).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2443
+</p>
+<pre><code class="language-mql5">
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2444
+</p>
+<pre><code class="language-mql5">
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2445
+</p>
+<pre><code class="language-mql5">
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2446
+<h3>SocketTlsRead</h3>
+Lê dados de uma conexão TLS segura
+</p>
+<pre><code class="language-mql5">
+int  SocketTlsRead(
+   int           socket,               // soquete
+   uchar&amp;        buffer[],             // buffer para ler dados do soquete
+   uint          buffer_maxlen         // número de bytes necessário para leitura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+buffer
+[out]  Referência para array do tipo uchar em que serão lidos os dados. O tamanho da matriz
+dinâmica é aumentado pelo número de bytes lidos. O tamanho da matriz não pode exceder
+INT_MAX (2147483647).
+buffer_maxlen
+[in]  Número de bytes que devem ser lidos na matriz buffer[]. Os dados que não se encaixam na
+matriz permanecerão no soquete. Eles podem ser recebidos pela seguinte chamada
+SocketTLSRead. O valor buffer_maxlen não pode exceder INT_MAX (2147483647).
+<h3>Valor retornado</h3>
+Se bem-sucedido, retorna o número de bytes lidos, em caso de erro, retorna -1.
+<h3>Observação</h3>
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+A função é executada até que receba a quantidade especificada de dados ou ocorra o tempo limite
+(SocketTimeouts).
+<h3>Se</h3>
+houver 
+um 
+erro 
+ao 
+ler 
+os 
+dados 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5273
+(ERR_NETSOCKET_IO_ERROR).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketExample.mq5 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright   &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link        &quot;https://www.mql5.com&quot;</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2447
+</p>
+<pre><code class="language-mql5">
+#property version     &quot;1.00&quot;
+#property description &quot;Para o exemplo funcionar, adicione Address à lista de permitido
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =80;
+bool         ExtTLS =false;
+//+------------------------------------------------------------------+
+//| Enviando comandos para o servidor                                |
+//+------------------------------------------------------------------+
+bool HTTPSend(int socket,string request)
+  {
+   char req[];
+   int  len=StringToCharArray(request,req)-1;
+   if(len&lt;0)
+      return(false);
+//--- se for usada uma conexão TLS segura pela porta 443
+   if(ExtTLS)
+      return(SocketTlsSend(socket,req,len)==len);
+//--- se for usada uma conexão TCP normal
+   return(SocketSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Lendo a resposta do servidor                                     |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout)
+  {
+   char   rsp[];
+   string result;
+   uint   timeout_check=GetTickCount()+timeout;
+//--- lê dados do soquete enquanto eles existem, mas não mais tempo do que o timeout
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         int rsp_len;
+         //--- diferentes comandos de leitura dependendo de se a conexão é segura ou n
+         if(ExtTLS)
+            rsp_len=SocketTlsRead(socket,rsp,len);
+         else
+            rsp_len=SocketRead(socket,rsp,len,timeout);
+         //--- analisa a resposta
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprime apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2448
+</p>
+<pre><code class="language-mql5">
+              {
+               Print(&quot;Cabeçalho HTTP de resposta recebido:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+           }
+        }
+     }
+   while(GetTickCount()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int socket=SocketCreate();
+//--- verifica o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver em ordem, conecte-se
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         Print(&quot;Conectado a &quot;,Address,&quot;:&quot;,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, exibe seus dados
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;Certificado TLS:&quot;);
+            Print(&quot;   Proprietário:  &quot;,subject);
+            Print(&quot;   Emissor:  &quot;,issuer);
+            Print(&quot;   Número:     &quot;,serial);
+            Print(&quot;   Impressão digital: &quot;,thumbprint);
+            Print(&quot;   Expiração: &quot;,expiration);
+            ExtTLS=true;
+           }
+         //--- envia um pedido GET ao servidor
+         if(HTTPSend(socket,&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r
+           {
+            Print(&quot;Solicitação GET enviada&quot;);
+            //--- leia a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Falha ao obter resposta, erro &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Falha ao enviar solicitação GET, erro &quot;,GetLastError());
+        }</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2449
+</p>
+<pre><code class="language-mql5">
+      else
+        {
+         Print(&quot;Falhou conexão a &quot;,Address,&quot;:&quot;,Port,&quot;, erro &quot;,GetLastError());
+        }
+      //--- fecha o soquete após ser usado
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Não foi possível criar o soquete, erro &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>SocketTimeouts, MathSwap</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2450
+<h3>SocketTlsReadAvailable</h3>
+Lê todos os dados disponíveis a partir de uma conexão TLS segura.
+</p>
+<pre><code class="language-mql5">
+int  SocketTlsReadAvailable(
+   int           socket,               // soquete
+   uchar&amp;        buffer[],             // buffer para ler dados do soquete
+   const uint    buffer_maxlen         // número de bytes necessário para leitura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+buffer
+[out]  Referência para array do tipo uchar em que serão lidos os dados. O tamanho da matriz
+dinâmica é aumentado pelo número de bytes lidos. O tamanho da matriz não pode exceder
+INT_MAX (2147483647).
+buffer_maxlen
+[in]  Número de bytes que devem ser lidos no array buffer[]. Os dados que não se encaixam na
+matriz permanecerão no soquete. Eles estarão disponíveis chamando SocketTlsReadAvailable
+ou SocketTlsRead. O valor Buffer_maxlen não pode exceder INT_MAX (2147483647).
+<h3>Valor retornado</h3>
+Se bem-sucedido, retorna o número de bytes lidos, em caso de erro, retorna -1.
+<h3>Observação</h3>
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+<h3>Se</h3>
+houver 
+um 
+erro 
+ao 
+ler 
+os 
+dados 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5273
+(ERR_NETSOCKET_IO_ERROR).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                       SocketTlsReadAvailable.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#property script_show_inputs</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2451
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Parâmetros de entrada do script                                  |
+//+------------------------------------------------------------------+
+input string InpMethod =&quot;GET&quot;;            // Method (HEAD,GET)
+input string InpServer =&quot;www.google.com&quot;; // Server
+input uint   InpPort   =443;              // Port
+input uint   InpTimeout=5000;             // Timeouts
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+   Print(&quot;Server: &quot;,InpServer);
+   Print(&quot;Port: &quot;,InpPort);
+//--- criamos um soquete e obtemos seu identificador
+   const int socket=SocketCreate();
+   if(socket==INVALID_HANDLE)
+     {
+      Print(&quot;SocketCreate() failed. Error &quot;,GetLastError());
+      return;
+     }
+//--- definimos tempos limite para receber e enviar dados para o objeto do sistema de 
+   if(!SocketTimeouts(socket,InpTimeout,InpTimeout))
+     {
+      PrintFormat(&quot;SocketTimeouts(%u, %u) failed. Error %d&quot;,InpTimeout,InpTimeout,GetL
+      SocketClose(socket);
+      return;
+     }
+//--- contectamo-nos ao servidor Server na porta Port
+   if(!SocketConnect(socket,InpServer,InpPort,InpTimeout))
+     {
+      PrintFormat(&quot;SocketConnect(&#x27;%s&#x27;, %u, %u) failed. Error %d&quot;,InpServer,InpPort,Inp
+      SocketClose(socket);
+      return;
+     }
+//--- obtemos dados sobre o certificado usado para proteger a conexão de rede
+   string   subject,issuer,serial,thumbprint;
+   datetime expiration;
+   if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+     {
+      Print(&quot;TLS certificate:&quot;);
+      Print(&quot;   Owner:      &quot;,subject);
+      Print(&quot;   Issuer:     &quot;,issuer);
+      Print(&quot;   Number:     &quot;,serial);
+      Print(&quot;   Print:      &quot;,thumbprint);
+      Print(&quot;   Expiration: &quot;,expiration);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2452
+</p>
+<pre><code class="language-mql5">
+   else
+     {
+      //--- o servidor não fornecer um certificado, informamos que a conexão não é seg
+      Print(&quot;The connection is not secured by a certificate&quot;);
+      SocketClose(socket);
+      return;
+     }
+//--- enviamos a consulta ao servidor
+   string request=StringFormat(&quot;%s / HTTP/1.1\r\nHost: %s\r\nUser-Agent: MetaTrader 5\
+   if(HTTPSendTLS(socket,request))
+     {
+      //--- consulta enviada, resposta recebida
+      Print(&quot;\nRequest sent. Starting page loading...&quot;);
+      uchar response[]; // todos os dados recebidos (cabeçalho e corpo do documento)
+      if(!HTTPRecvTLS(socket,response,InpTimeout))
+        {
+         Print(&quot;There were errors while reading the page&quot;);
+         SocketClose(socket);
+         return;
+        }
+      //--- informamos o número de bytes de dados recebidos
+      PrintFormat(&quot;%u bytes received&quot;,response.Size());
+      //--- imprimimos somente o cabeçalho da página resultante
+      string result    =CharArrayToString(response,0,WHOLE_ARRAY,CP_UTF8);
+      int    header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+      if(header_end&gt;0)
+        {
+         Print(&quot;\nHTTP answer header received:&quot;);
+         Print(StringSubstr(result,0,header_end));
+        }
+     }
+//--- fechamos o soquete após usá-lo
+   SocketClose(socket);
+   /*
+   Resultado:
+   Server: www.google.com
+   Port: 443
+   TLS certificate:
+      Owner: /CN=www.google.com
+      Issuer: /C=US/O=Google Trust Services/CN=WR2
+      Number: 0d:43:b1:4a:bb:9c:15:96:10:e1:3d:55:23:9f:25:4e
+      Print: 89167618e5017f813aff981c88ce422dc1016bdf
+      Expiration: 2024.12.30 08:26:35
+   Request sent. Starting page loading...
+   HTTPRecvTLS: Document received within 27 attempts</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2453
+</p>
+<pre><code class="language-mql5">
+   25185 bytes received
+   HTTP answer header received:
+   HTTP/1.1 200 OK
+   Date: Fri, 25 Oct 2024 17:12:42 GMT
+   Expires: -1
+   Cache-Control: private, max-age=0
+   Content-Type: text/html; charset=ISO-8859-1
+   Content-Security-Policy-Report-Only: object-src &#x27;none&#x27;;base-uri &#x27;self&#x27;;script-src &#x27;
+   Accept-CH: Sec-CH-Prefers-Color-Scheme
+   P3P: CP=&quot;This is not a P3P policy! See g.co/p3phelp for more info.&quot;
+   Server: gws
+   X-XSS-Protection: 0
+   X-Frame-Options: SAMEORIGIN
+   Set-Cookie: AEC=AVYB7coyYMCdweTDTaWeGYzmRnxzKGqsOEosH_VkbCn8xhWkFz6v0kxQFw; expires
+   Set-Cookie: NID=518=J02X02Ff4v_9sMcNoUz-1SolmuG08E26Gs438ik0J_SOJUMy7of-P-qup-LaNSW
+   Alt-Svc: h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000
+   Accept-Ranges: none
+   Vary: Accept-Encoding
+   Transfer-Encoding: chunked
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Enviamos uma solicitação HTTP por meio de uma conexão segura     |
+//+------------------------------------------------------------------+
+bool HTTPSendTLS(int socket,const string request)
+  {
+//--- convertemos a string em um array de caracteres, descartando o zero final
+   char req[];
+   int  len=StringToCharArray(request,req,0,WHOLE_ARRAY,CP_UTF8)-1;
+   if(len&lt;0)
+      return false;
+   return(SocketTlsSend(socket,req,len)==len);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Recebe uma página da Web por meio de uma conexão segura     |
+//+------------------------------------------------------------------+
+bool HTTPRecvTLS(int socket,uchar &amp;response[],const uint timeout_ms)
+  {
+//--- lemos os dados disponíveis de uma conexão protegida por TLS antes que o tempo de
+   ulong timeout_check=GetTickCount64()+timeout_ms;
+   uchar block[1024];   // buffer de bloco para leitura de dados de um soquete
+   uint  attempt=0;     // número solicitado de blocos de dados
+   int   err    =0;     // código de erro
+   ResetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2454
+</p>
+<pre><code class="language-mql5">
+   do
+     {
+      //--- lemos em blocos de no máximo 1024 bytes
+      int len=SocketTlsReadAvailable(socket,block,1024);
+      if(len&gt;0)
+        {
+         attempt++;
+         //--- juntamos os blocos de dados resultantes
+         ArrayCopy(response,block,response.Size());
+         //--- aqui analisamos os dados recebidos, determinamos o cabeçalho, o corpo d
+         //...
+         //...
+         //...
+         timeout_check=GetTickCount64()+timeout_ms;
+        }
+      else
+         Sleep(10);
+      err=GetLastError();
+     }
+   while(!IsStopped() &amp;&amp; GetTickCount()&lt;timeout_check &amp;&amp; !err);
+//--- Houve algum erro na leitura?
+   if(err)
+     {
+      Print(&quot;Error &quot;,err);
+      return(false);
+     }
+   PrintFormat(&quot;%s: Document received within %d attempts&quot;,__FUNCTION__,attempt);
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SocketTimeouts, MathSwap</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2455
+<h3>SocketTlsSend</h3>
+Envia dados por meio de uma conexão TLS segura.
+</p>
+<pre><code class="language-mql5">
+int  SocketTlsSend(
+   int           socket,               // soquete
+   const uchar&amp;  buffer[],             // buffer para dados
+   uint          buffer_len            // tamanho do buffer
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+socket
+[in]  Identificador do soquete retornado pela função SocketCreate. Ao passar um identificador
+inválido para _LastError é registrado o erro 5270 (ERR_NETSOCKET_INVALIDHANDLE).
+buffer
+[in]  Referência para o array do tipo uchar com os dados que é preciso enviar.
+buffer_len
+[in]  Tamanho do array buffer.
+<h3>Valor retornado</h3>
+Se bem-sucedido, retorna o número de bytes registrados no socket. Em caso de erro, retorna -1.
+<h3>Observação</h3>
+Se ocorrer um erro durante a execução desta função no soquete do sistema, a conexão estabelecida
+Socketconnect será interrompida.
+<h3>Se houver um</h3>
+erro 
+ao 
+registrar 
+dados 
+em 
+_LastError 
+é 
+registrado 
+o 
+erro 
+5273
+(ERR_NETSOCKET_IO_ERROR).
+A função só pode ser chamada por EAs e scripts, pois eles trabalham em seu próprio fluxo de
+execução. Quando chamado do indicador GetLastError() retorna o erro 4014 – &quot;Função do sistema
+não permitida para chamada&quot;.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                SocketTlsSend.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#property description &quot;Add Address to the list of allowed ones in the terminal setting
+#property script_show_inputs
+input string Address=&quot;www.mql5.com&quot;;
+input int    Port   =443;</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2456
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+   int socket=SocketCreate();
+//--- verificamos o identificador
+   if(socket!=INVALID_HANDLE)
+     {
+      //--- se tudo estiver bem, podemos nos conectar.
+      if(SocketConnect(socket,Address,Port,1000))
+        {
+         PrintFormat(&quot;Established connection to %s:%d&quot;,Address,Port);
+         string   subject,issuer,serial,thumbprint;
+         datetime expiration;
+         //--- se a conexão estiver protegida por um certificado, imprimimos seus dado
+         if(SocketTlsCertificate(socket,subject,issuer,serial,thumbprint,expiration))
+           {
+            Print(&quot;TLS certificate:&quot;);
+            Print(&quot;   Owner:      &quot;,subject);
+            Print(&quot;   Issuer:     &quot;,issuer);
+            Print(&quot;   Number:     &quot;,serial);
+            Print(&quot;   Print:      &quot;,thumbprint);
+            Print(&quot;   Expiration: &quot;,expiration);
+           }
+         //--- enviamos uma solicitação GET ao servidor
+         string request=&quot;GET / HTTP/1.1\r\nHost: www.mql5.com\r\nUser-Agent: MT5\r\n\r
+         char   req[];
+         int    len=StringToCharArray(request,req)-1;
+         if(len&lt;0)
+           {
+            Print(&quot;StringToCharArray() failed. Error &quot;, GetLastError());
+            SocketClose(socket);
+            return;
+           }
+//--- se for usada uma conexão protegida por TLS via porta 443
+         if(SocketTlsSend(socket,req,len)==len)
+           {
+            Print(&quot;GET request sent&quot;);
+            //--- lemos a resposta
+            if(!HTTPRecv(socket,1000))
+               Print(&quot;Failed to get a response, error &quot;,GetLastError());
+           }
+         else
+            Print(&quot;Failed to send GET request, error &quot;,GetLastError());
+        }
+      else</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2457
+</p>
+<pre><code class="language-mql5">
+        {
+         PrintFormat(&quot;Connection to %s:%d failed, error %d&quot;,Address,Port,GetLastError
+        }
+      //--- fechamos o soquete após usá-lo
+      SocketClose(socket);
+     }
+   else
+      Print(&quot;Failed to create a socket, error &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Leitura da resposta do servidor                                  |
+//+------------------------------------------------------------------+
+bool HTTPRecv(int socket,uint timeout_ms)
+  {
+//--- lemos dados do soquete enquanto eles existirem, mas não mais do que o tempo limi
+   char   rsp[];
+   string result;
+   ulong  timeout_check=GetTickCount64()+timeout_ms;
+   do
+     {
+      uint len=SocketIsReadable(socket);
+      if(len)
+        {
+         //--- lemos e analisamos os dados de uma conexão TLS segura
+         int rsp_len=SocketTlsRead(socket,rsp,len);
+         if(rsp_len&gt;0)
+           {
+            result+=CharArrayToString(rsp,0,rsp_len);
+            //--- imprimimos apenas o cabeçalho da resposta
+            int header_end=StringFind(result,&quot;\r\n\r\n&quot;);
+            if(header_end&gt;0)
+              {
+               Print(&quot;HTTP answer header received:&quot;);
+               Print(StringSubstr(result,0,header_end));
+               return(true);
+              }
+            //--- atualizamos o tempo de expiração do tempo limite de leitura
+            timeout_check=GetTickCount64()+timeout_ms;
+           }
+        }
+     }
+   while(GetTickCount64()&lt;timeout_check &amp;&amp; !IsStopped());
+   return(false);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2458
+<h3>Veja também</h3>
+<h3>SocketTimeouts, MathSwap, StringToCharArray</h3></p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2459
+<h3>WebRequest</h3>
+A função envia uma solicitação HTTP para um servidor especificado. A função possui duas versões:
+1. Enviando solicitações simples do tipo &quot;key = value&quot; usando o cabeçalho Content-Type:
+application/x-www-form-urlencoded.
+</p>
+<pre><code class="language-mql5">
+int  WebRequest(
+   const string      method,           // método HTTP 
+   const string      url,              // URL
+   const string      cookie,           // cookie
+   const string      referer,          // referer
+   int               timeout,          // tempo esgotado
+   const char        &amp;data[],          // A matriz do corpo da mensagem HTTP
+   int               data_size,        // tamanho do array data[] em bytes
+   char              &amp;result[],        // Uma matriz contendo dados de resposta do ser
+   string            &amp;result_headers   // cabeçalhos de resposta do servidor
+   );
+</code></pre>
+<p>
+2. Enviando uma solicitação de qualquer tipo especificando o conjunto personalizado de cabeçalhos
+para uma interação mais flexível com vários serviços da Web.
+</p>
+<pre><code class="language-mql5">
+int  WebRequest(
+   const string      method,           // método HTTP
+   const string      url,              // URL
+   const string      headers,          // cabeçalho 
+   int               timeout,          // tempo esgotado
+   const char        &amp;data[],          // A matriz do corpo da mensagem HTTP
+   char              &amp;result[],        // Uma matriz contendo dados de resposta do ser
+   string            &amp;result_headers   // cabeçalhos de resposta do servidor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+método
+[in]  método HTTP.
+url
+[in]  URL.
+cabeçalho
+[in]  Cabeçalhos de solicitação do tipo &quot;key: valor&quot;, separados por uma quebra de linha &quot;\r\n&quot;.
+cookie
+[in]  Valor do cookie.
+referer
+[in]  Valor do cabeçalho Referer do pedido HTTP.
+timeout
+[in]  Tempo limite em milissegundos.</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2460
+data[]
+[in]  Matriz de dados do corpo da mensagem HTTP.
+data_size
+[in]  Tamanho do array data[].
+result[]
+[out]  Um array contendo dados de resposta do servidor.
+result_headers
+[out] Cabeçalhos de resposta do servidor.
+<h3>Valor retornado</h3>
+Código de resposta do servidor HTTP ou -1 para um erro.
+<h3>Nota</h3>
+Para usar a função WebRequest(), adicione os endereços dos servidores necessários na lista de URLs
+permitidos na guia &quot;Expert Advisors&quot; da janela &quot;Options&quot;. A porta do servidor é automaticamente
+selecionada com base no protocolo especificado - 80 para &quot;http://&quot; e 443 para &quot;https://&quot;.
+A função WebRequest() é síncrona, o que significa que interrompe a execução do programa e
+aguarda a resposta do servidor solicitado. Uma vez que os atrasos na recepção de uma resposta
+podem ser grandes, a função não está disponível para chamadas a partir dos indicadores, porque os
+indicadores são executados em uma linha comum compartilhada por todos os indicadores e gráficos
+em um símbolo. O atraso de desempenho do indicador em um dos gráficos de um símbolo pode
+interromper a atualização de todos os gráficos do mesmo símbolo.
+A função pode ser chamada somente de Expert Advisors e scripts, como eles executam em seus
+próprios tópicos de execução. Se você tentar chamar a função de um indicador, GetLastError()
+retornará o erro 4014 – &quot;Função não é permitida&quot;.
+O WebRequest() não pode ser executada no Testador de Estratégia.
+Um exemplo de usar a primeira versão da função WebRequest():
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   string cookie=NULL,headers;
+   char   post[],result[];
+   string url=&quot;https://finance.yahoo.com&quot;;
+//--- para trabalhar com o servidor é necessário adicionar a URL &quot;https://finance.yaho
+//--- na lista de URLs permitidas (menu Principal-&gt;Ferramentas-&gt;Opções, guia &quot;Experts&quot;
+//--- redefinimos o código do último erro
+   ResetLastError();
+//--- download da página html do Yahoo Finance
+   int res=WebRequest(&quot;GET&quot;,url,cookie,NULL,500,post,0,result,headers);
+   if(res==-1)
+     {
+      Print(&quot;Erro no WebRequest. Código de erro =&quot;,GetLastError());
+      //--- é possível que a URL não esteja na lista, exibimos uma mensagem sobre a ne
+      MessageBox(&quot;É necessário adicionar um endereço &#x27;&quot;+url+&quot;&#x27; à lista de URL permitid</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2461
+</p>
+<pre><code class="language-mql5">
+     }
+   else
+     {
+      if(res==200)
+        {
+         //--- download bem-sucedido
+         PrintFormat(&quot;O arquivo foi baixado com sucesso, tamanho %d bytes.&quot;,ArraySize
+         //PrintFormat(&quot;Cabeçalhos do servidor: %s&quot;,headers);
+         //--- salvamos os dados em um arquivo
+         int filehandle=FileOpen(&quot;url.htm&quot;,FILE_WRITE|FILE_BIN);
+         if(filehandle!=INVALID_HANDLE)
+           {
+            //--- armazenamos o conteúdo do array result[] no arquivo
+            FileWriteArray(filehandle,result,0,ArraySize(result));
+            //--- fechamos o arquivo
+            FileClose(filehandle);
+           }
+         else
+            Print(&quot;Erro em FileOpen. Código de erro =&quot;,GetLastError());
+        }
+      else
+         PrintFormat(&quot;Erro de download &#x27;%s&#x27;, código %d&quot;,url,res);
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2462
+<h3>SendFTP</h3>
+Envia um arquivo para o endereço especificado na janela de configurações da guia &quot;FTP&quot;.
+</p>
+<pre><code class="language-mql5">
+bool  SendFTP(
+   string  filename,          // nome do arquivo enviado
+   string  ftp_path=NULL      // catálogo FTP
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+filename
+[in]   Nome do arquivo enviado.
+ftp_path=NULL
+[in]   Catálogo FTP. Se um diretório não for especificado, será utilizado o diretório descrito nas
+configurações.
+<h3>Valor retornado</h3>
+Em caso de falha, retorna false.
+<h3>Observação</h3>
+O arquivo enviado deve estar localizado na pasta terminal_directory\MQL5\files ou em suas
+subpastas. O envio não ocorre se o endereço FTP e/ou a senha de acesso não estiverem
+especificados nas configurações. 
+SendFTP() function does not work in the Strategy Tester.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                      SendFTP.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#define   FILENAME  &quot;SomeFile.bin&quot;
+#define   PATH      NULL
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//--- verificamos se é permitido enviar arquivos para o endereço FTP no terminal
+   if(!TerminalInfoInteger(TERMINAL_FTP_ENABLED))
+     {
+      Print(&quot;Error. The client terminal does not have permission to send messages to t</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2463
+</p>
+<pre><code class="language-mql5">
+      return;
+     }
+//--- enviamos o arquivo
+   ResetLastError();
+   if(!SendFTP(FILENAME, PATH))
+      Print(&quot;SendFTP() failed. Error &quot;,GetLastError());
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2464
+<h3>SendMail</h3>
+Envia um email para endereço especificado na janela de configurações da guia &quot;Email&quot;.
+</p>
+<pre><code class="language-mql5">
+bool  SendMail(
+   string  subject,       // assunto
+   string  some_text      // texto do e-mail
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+subject
+[in]  Assunto do email.
+some_text
+[in]  Corpo do email.
+<h3>Valor retornado</h3>
+true – se um email é colocado na fila de envio, caso contrário, false.
+<h3>Observação</h3>
+O envio de e-mails pode ser proibido nas configurações, portanto o respectivo endereço pode ser
+omitido. Para obter informações sobre o erro, chamamos GetLastError().
+SendMail() function does not work in the Strategy Tester.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                     SendMail.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#define   SUBJECT   &quot;Test SendMail&quot;
+#define   TEXT      &quot;Text for SendMail() function&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//--- verificamos se é permitido enviar e-mails no terminal
+   if(!TerminalInfoInteger(TERMINAL_EMAIL_ENABLED))
+     {
+      Print(&quot;Error. The client terminal does not have permission to send email message
+      return;
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2465
+</p>
+<pre><code class="language-mql5">
+//--- enviamos o e-mail
+   ResetLastError();
+   if(!SendMail(SUBJECT, TEXT))
+      Print(&quot;SendMail() failed. Error &quot;,GetLastError());
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2466
+<h3>SendNotification</h3>
+Envia notificações push para terminais móveis, cujo MetaQuotes ID estão especificados na guia
+&quot;Notificações&quot;.
+</p>
+<pre><code class="language-mql5">
+bool  SendNotification(
+   string  text          // Texto da notificação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+text
+[in]  Texto da notificação. O comprimento da mensagem não deve exceder 255 caracteres.
+<h3>Valor retornado</h3>
+true se a notificação foi enviada com sucesso do terminal; em caso de falha, retorna false. Após a
+falha de envio de notificação durante a verificação, GetLastError () pode retornar um dos seguintes
+erros:
+· 4515 – ERR_NOTIFICATION_SEND_FAILED,
+· 4516 – ERR_NOTIFICATION_WRONG_PARAMETER,
+· 4517 – ERR_NOTIFICATION_WRONG_SETTINGS,
+· 4518 – ERR_NOTIFICATION_TOO_FREQUENT.
+<h3>Observação</h3>
+Estão definidas restrições rigorosas de uso para a função SendNotification(): não mais que duas
+chamadas por segundo e não mais que dez chamadas por minuto. O monitoramento da frequência
+de uso é dinâmico. A função pode ser desabilitada em caso de violação da restrição.
+SendNotification() function does not work in the Strategy Tester.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                             SendNotification.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com
+#property version     &quot;1.00&quot;
+#define   MESSAGE   &quot;Test Message&quot;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart(void)
+  {
+//-- verificamos se é permitido enviar notificações no terminal
+   if(!TerminalInfoInteger(TERMINAL_NOTIFICATIONS_ENABLED))
+     {</p>
+<p></code></pre>
+<p>
+<h3>Funções de rede</h3>
+© 2000-2025, MetaQuotes Ltd.
+2467
+</p>
+<pre><code class="language-mql5">
+      Print(&quot;Error. The client terminal does not have permission to send notifications
+      return;
+     }
+//--- enviamos a notificação
+   ResetLastError();
+   if(!SendNotification(MESSAGE))
+      Print(&quot;SendNotification() failed. Error &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,4182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaTrader para Python - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class="active"><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>MetaTrader para Python</h1>
+        </header>
+        
+        <article>
+            <p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3142
+<h3>Módulo MetaTrader para integração com Python</h3>
+A MQL5 foi projetada para desenvolver aplicativos de negociação de alto desempenho nos mercados
+financeiros e não possui análogos entre outras linguagens especializadas para algotrading. A sintaxe e
+a velocidade dos programas em MQL5 se aproximam mais das do C++, possui suporte a Opencl e
+integração com o MS Visual Studio, dispõe de bibliotecas de estatística, lógica difusa e ALGLIB. No
+ambiente de desenvolvimento do MetaEditor existe também um suporte nativo a bibliotecas .NET com
+a importação inteligente de funções sem escrever wrappers especiais, podem-se usar DLL de C++ de
+terceiros. Arquivos de códigos fonte em C++ (CPP e H) podem ser editados e compilados em DLLs
+diretamente do editor, basta usar o Microsoft Visual Studio instalado no computador do usuário. 
+Python é uma linguagem de programação moderna de alto nível para o desenvolvimento de scripts e
+aplicativos. Possui muitas bibliotecas para aprendizado de máquina, automação de processos, análise
+de dados e visualização.
+O pacote MetaTrader para Python é projetado para o recebimento conveniente e rápido de
+informações de negociação através de comunicação entre processos diretamente do terminal
+MetaTrader 5. Os dados recebidos desta maneira podem ser utilizados para cálculos estatísticos e
+aprendizado de máquina.
+Instalando o pacote na linha de comando:
+  pip install MetaTrader5
+Atualizando o pacote na linha de comando:
+  pip install --upgrade MetaTrader5
+Funções para integração de MetaTrader 5 e Python
+<h3>Função</h3>
+<h3>Ação</h3>
+initialize
+Estabelece a conexão com o terminal MetaTrader 5
+login
+Conecta-se a uma conta de negociação com os parâmetros
+especificados
+shutdown
+Fecha a conexão estabelecida anteriormente com o terminal
+<h3>MetaTrader 5</h3>
+version
+Retorna a versão do terminal MetaTrader 5
+last_error
+<h3>Retorna informações sobre o último erro</h3>
+account_info
+Obtém informações atuais sobre a conta de negociação
+terminal_Info
+Obtém o estado e os parâmetros do terminal MetaTrader 5 conectado
+symbols_total
+Obtém o número total de instrumentos financeiros no terminal
+<h3>MetaTrader 5</h3>
+symbols_get
+Obtém todos os instrumentos financeiros do terminal MetaTrader 5
+symbol_info
+Obtém informações sobre o instrumento financeiro especificado
+symbol_info_tick
+Obtém o último tick do instrumento financeiro especificado</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3143
+<h3>Função</h3>
+<h3>Ação</h3>
+symbol_select
+Seleciona o símbolo na janela MarketWatch ou remove o símbolo
+deste janela
+market_book_add
+Faz com que o terminal MetaTrader 5 receba eventos sobre mudanças
+no livro de ofertas para o símbolo especificado
+market_book_get
+Retorna uma tupla desde BookInfo contendo os registros do livro de
+ofertas para o símbolo especificado
+market_book_release
+Cancela a subscrição do terminal MetaTrader 5 para receber eventos
+sobre alterações no livro de ofertas para o símbolo especificado
+copy_rates_from
+Recebe barras do terminal MetaTrader 5, a partir da data
+especificada
+copy_rates_from_pos
+Recebe barras do terminal MetaTrader 5, a partir do índice
+especificado
+copyrates_range
+Recebe barras a partir do terminal MetaTrader 5, no intervalo de
+datas especificado
+copy_ticks_from
+Recebe ticks do terminal MetaTrader 5, a partir da data especificada
+copy_ticks_range
+Recebe ticks a partir do terminal MetaTrader 5, no intervalo de datas
+especificado
+orders_total
+Obtém o número de ordens ativas.
+orders_get
+Obtém ordens ativas com a capacidade de filtrar por símbolo ou
+ticket
+order_calc_margin
+Retorna o tamanho da margem na moeda da conta para a operação de
+negociação especificada
+order_calc_profit
+Retorna o valor do lucro na moeda da conta para a operação de
+negociação especificada
+order_check
+Verifica que há fundos suficientes para realizar a operação de
+negociação requerida
+order_send
+Envia do terminal para o servidor de negociação uma solicitação para
+concluir uma operação de negociação.
+positions_total
+<h3>Obtém o número de posições abertas</h3>
+positions_get
+Obtém posições abertas com a capacidade de filtrar por símbolo ou
+bilhete
+history_orders_total
+Obtém o número de ordens no histórico de negociação no intervalo
+especificado
+history_orders_get
+Obtém ordens do histórico de negociação com a capacidade de filtrar
+por bilhete ou posição
+history_deals_total
+Obtém o número de transações no histórico de negociação no
+intervalo especificado</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3144
+<h3>Função</h3>
+<h3>Ação</h3>
+history_deals_get
+Obtém transações do histórico de negociação com a capacidade de
+filtrar por bilhete ou posição
+Exemplo de conexão do Python ao MetaTrader 5
+1. Baixe a última versão do Python 3.8 da página https://www.python.org/downloads/windows
+2. Ao instalar o Python, marque a caixa &quot;Add Python 3.8 to PATH%&quot; para poder executar scripts Python
+a partir da linha de comando.
+3. Instale o módulo MetaTrader5 a partir da linha de comando
+  pip install MetaTrader5
+4. Adicione os pacotes matplotlib e pandas
+  pip install matplotlib
+  pip install pandas
+5. Execute o script de teste
+from datetime import datetime
+import matplotlib.pyplot as plt
+import pandas as pd
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+import MetaTrader5 as mt5
+# conecte-se ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed&quot;)
+    mt5.shutdown()
+</code></pre>
+<p>
+# consultamos o estado e os parâmetros de conexão
+print(mt5.terminal_info())
+# obtemos informações sobre a versão do MetaTrader 5
+print(mt5.version())
+# solicitamos 1 000 ticks de EURAUD
+euraud_ticks = mt5.copy_ticks_from(&quot;EURAUD&quot;, datetime(2020,1,28,13), 1000, mt5.COPY_TI
+# solicitamos ticks de AUDUSD no intervalo 2019.04.01 13:00 - 2019.04.02 13:00
+audusd_ticks = mt5.copy_ticks_range(&quot;AUDUSD&quot;, datetime(2020,1,27,13), datetime(2020,1,
+# obtemos barras de vários instrumentos de diferentes maneiras
+eurusd_rates = mt5.copy_rates_from(&quot;EURUSD&quot;, mt5.TIMEFRAME_M1, datetime(2020,1,28,13),
+eurgbp_rates = mt5.copy_rates_from_pos(&quot;EURGBP&quot;, mt5.TIMEFRAME_M1, 0, 1000)
+eurcad_rates = mt5.copy_rates_range(&quot;EURCAD&quot;, mt5.TIMEFRAME_M1, datetime(2020,1,27,13)
+# concluímos a conexão ao MetaTrader 5
+mt5.shutdown()
+#DATA</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3145
+print(&#x27;euraud_ticks(&#x27;, len(euraud_ticks), &#x27;)&#x27;)
+</p>
+<pre><code class="language-mql5">
+for val in euraud_ticks[:10]: print(val)
+</code></pre>
+<p>
+print(&#x27;audusd_ticks(&#x27;, len(audusd_ticks), &#x27;)&#x27;)
+</p>
+<pre><code class="language-mql5">
+for val in audusd_ticks[:10]: print(val)
+</code></pre>
+<p>
+print(&#x27;eurusd_rates(&#x27;, len(eurusd_rates), &#x27;)&#x27;)
+</p>
+<pre><code class="language-mql5">
+for val in eurusd_rates[:10]: print(val)
+</code></pre>
+<p>
+print(&#x27;eurgbp_rates(&#x27;, len(eurgbp_rates), &#x27;)&#x27;)
+</p>
+<pre><code class="language-mql5">
+for val in eurgbp_rates[:10]: print(val)
+</code></pre>
+<p>
+print(&#x27;eurcad_rates(&#x27;, len(eurcad_rates), &#x27;)&#x27;)
+</p>
+<pre><code class="language-mql5">
+for val in eurcad_rates[:10]: print(val)
+</code></pre>
+<p>
+#PLOT
+# a partir dos dados recebidos criamos o DataFrame
+ticks_frame = pd.DataFrame(euraud_ticks)
+# plotamos os ticks no gráfico
+plt.plot(ticks_frame[&#x27;time&#x27;], ticks_frame[&#x27;ask&#x27;], &#x27;r-&#x27;, label=&#x27;ask&#x27;)
+plt.plot(ticks_frame[&#x27;time&#x27;], ticks_frame[&#x27;bid&#x27;], &#x27;b-&#x27;, label=&#x27;bid&#x27;)
+# exibimos rótulos
+plt.legend(loc=&#x27;upper left&#x27;)
+# adicionamos cabeçalho
+plt.title(&#x27;EURAUD ticks&#x27;)
+# mostramos o gráfico
+plt.show()
+6. Obtemos os dados e o gráfico</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3146
+[2, &#x27;MetaQuotes-Demo&#x27;, &#x27;16167573&#x27;]
+[500, 2325, &#x27;19 Feb 2020&#x27;]
+euraud_ticks( 1000 )
+(1580209200, 1.63412, 1.63437, 0., 0, 1580209200067, 130, 0.)
+(1580209200, 1.63416, 1.63437, 0., 0, 1580209200785, 130, 0.)
+(1580209201, 1.63415, 1.63437, 0., 0, 1580209201980, 130, 0.)
+(1580209202, 1.63419, 1.63445, 0., 0, 1580209202192, 134, 0.)
+(1580209203, 1.6342, 1.63445, 0., 0, 1580209203004, 130, 0.)
+(1580209203, 1.63419, 1.63445, 0., 0, 1580209203487, 130, 0.)
+(1580209203, 1.6342, 1.63445, 0., 0, 1580209203694, 130, 0.)
+(1580209203, 1.63419, 1.63445, 0., 0, 1580209203990, 130, 0.)
+(1580209204, 1.63421, 1.63445, 0., 0, 1580209204194, 130, 0.)
+(1580209204, 1.63425, 1.63445, 0., 0, 1580209204392, 130, 0.)
+audusd_ticks( 40449 )
+(1580122800, 0.67858, 0.67868, 0., 0, 1580122800244, 130, 0.)
+(1580122800, 0.67858, 0.67867, 0., 0, 1580122800429, 4, 0.)
+(1580122800, 0.67858, 0.67865, 0., 0, 1580122800817, 4, 0.)
+(1580122801, 0.67858, 0.67866, 0., 0, 1580122801618, 4, 0.)
+(1580122802, 0.67858, 0.67865, 0., 0, 1580122802928, 4, 0.)
+(1580122809, 0.67855, 0.67865, 0., 0, 1580122809526, 130, 0.)
+(1580122809, 0.67855, 0.67864, 0., 0, 1580122809699, 4, 0.)
+(1580122813, 0.67855, 0.67863, 0., 0, 1580122813576, 4, 0.)
+(1580122815, 0.67856, 0.67863, 0., 0, 1580122815190, 130, 0.)
+(1580122815, 0.67855, 0.67863, 0., 0, 1580122815479, 130, 0.)
+eurusd_rates( 1000 )
+(1580149260, 1.10132, 1.10151, 1.10131, 1.10149, 44, 1, 0)
+(1580149320, 1.10149, 1.10161, 1.10143, 1.10154, 42, 1, 0)
+(1580149380, 1.10154, 1.10176, 1.10154, 1.10174, 40, 2, 0)
+(1580149440, 1.10174, 1.10189, 1.10168, 1.10187, 47, 1, 0)
+(1580149500, 1.10185, 1.10191, 1.1018, 1.10182, 53, 1, 0)
+(1580149560, 1.10182, 1.10184, 1.10176, 1.10183, 25, 3, 0)
+(1580149620, 1.10183, 1.10187, 1.10177, 1.10187, 49, 2, 0)
+(1580149680, 1.10187, 1.1019, 1.1018, 1.10187, 53, 1, 0)
+(1580149740, 1.10187, 1.10202, 1.10187, 1.10198, 28, 2, 0)
+(1580149800, 1.10198, 1.10198, 1.10183, 1.10188, 39, 2, 0)
+eurgbp_rates( 1000 )
+(1582236360, 0.83767, 0.83767, 0.83764, 0.83765, 23, 9, 0)
+(1582236420, 0.83765, 0.83765, 0.83764, 0.83765, 15, 8, 0)
+(1582236480, 0.83765, 0.83766, 0.83762, 0.83765, 19, 7, 0)
+(1582236540, 0.83765, 0.83768, 0.83758, 0.83763, 39, 6, 0)
+(1582236600, 0.83763, 0.83768, 0.83763, 0.83767, 21, 6, 0)
+(1582236660, 0.83767, 0.83775, 0.83765, 0.83769, 63, 5, 0)
+(1582236720, 0.83769, 0.8377, 0.83758, 0.83764, 40, 7, 0)
+(1582236780, 0.83766, 0.83769, 0.8376, 0.83766, 37, 6, 0)
+(1582236840, 0.83766, 0.83772, 0.83763, 0.83772, 22, 6, 0)
+(1582236900, 0.83772, 0.83773, 0.83768, 0.8377, 36, 5, 0)
+eurcad_rates( 1441 )
+(1580122800, 1.45321, 1.45329, 1.4526, 1.4528, 146, 15, 0)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3147
+(1580122860, 1.4528, 1.45315, 1.45274, 1.45301, 93, 15, 0)
+(1580122920, 1.453, 1.45304, 1.45264, 1.45264, 82, 15, 0)
+(1580122980, 1.45263, 1.45279, 1.45231, 1.45277, 109, 15, 0)
+(1580123040, 1.45275, 1.4528, 1.45259, 1.45271, 53, 14, 0)
+(1580123100, 1.45273, 1.45285, 1.45269, 1.4528, 62, 16, 0)
+(1580123160, 1.4528, 1.45284, 1.45267, 1.45282, 64, 14, 0)
+(1580123220, 1.45282, 1.45299, 1.45261, 1.45272, 48, 14, 0)
+(1580123280, 1.45272, 1.45275, 1.45255, 1.45275, 74, 14, 0)
+(1580123340, 1.45275, 1.4528, 1.4526, 1.4528, 94, 13, 0)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3148
+initialize
+Estabelece a conexão com o terminal MetaTrader 5. Existem 3 variantes de chamada.
+Chamada sem parâmetros. O terminal para conexão será encontrado automaticamente.
+initialize()
+Chamada indicando o caminho para o terminal MetaTrader 5 ao qual é preciso se conectar.
+initialize(
+</p>
+<pre><code class="language-mql5">
+   path                      // caminho para o arquivo EXE do terminal MetaTrader
+   )
+</code></pre>
+<p>
+Uma chamada indicando o caminho e os parâmetros da conta de negociação.
+initialize(
+</p>
+<pre><code class="language-mql5">
+   path,                     // caminho para o arquivo EXE do terminal MetaTrader 5
+   login=LOGIN,              // número da conta
+   password=&quot;PASSWORD&quot;,      // senha
+   server=&quot;SERVER&quot;,          // nome do servidor conforme definido no terminal
+   timeout=TIMEOUT,          // tempo de espera esgotado
+   portable=False            // modo portable
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+path
+[in]  Caminho para o arquivo metatrader.exe ou metatrader64.exe. Parâmetro opcional sem
+nome. É indicado primeiro sem nome de parâmetro. Se o caminho não for especificado, o módulo
+tentará encontrar arquivo executável por conta própria.
+login=LOGIN
+[in]  Número da conta de negociação. Parâmetro nomeado opcional. Se não for especificado, será
+usada a última conta de negociação.
+password=&quot;PASSWORD&quot;
+[in]  Senha da conta de negociação. Parâmetro nomeado opcional. Se a senha não for
+especificada, será automaticamente colocada a senha armazenada no banco de dados do terminal
+para a conta de negociação especificada.
+server=&quot;SERVER&quot;
+[in]  Nome do servidor de negociação. Parâmetro nomeado opcional. Se a servidor não for
+especificado, será automaticamente colocada servidor armazenado no banco de dados do terminal
+para a conta de negociação especificada.
+timeout=TIMEOUT
+[in]  Tempo limite de conexão em milissegundos. Parâmetro nomeado opcional. Se não
+especificado, será usado um valor de 60 000 (60 segundos).
+portable=False
+[in]  Sinal de inicialização do terminal no modo portable. Parâmetro nomeado opcional. Se não
+especificado, será usado False. </p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3149
+<h3>Valor retornado</h3>
+Retorna True se a conexão com o terminal MetaTrader 5 for bem-sucedida, caso contrário, False.
+<h3>Observação</h3>
+Se necessário, se for chamado initialize(), o terminal MetaTrader 5 será inicializado para executar a
+conexão.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dads sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão com o terminal MetaTrader 5 para a conta especificada
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize(login=25115284, server=&quot;MetaQuotes-Demo&quot;,password=&quot;4zatlbqx&quot;):
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# imprimimos informações sobre o estado da conexão, o nome do servidor e a conta de ne
+print(mt5.terminal_info())
+# imprimimos informações sobre a versão do MetaTrader 5
+print(mt5.version())
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Veja também</h3>
+shutdown, terminal_info, version</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3150
+login
+Conecta-se a uma conta de negociação com os parâmetros especificados.
+login(
+</p>
+<pre><code class="language-mql5">
+   login,                    // número da conta
+   password=&quot;PASSWORD&quot;,      // senha
+   server=&quot;SERVER&quot;,          // nome do servidor como definido no terminal
+   timeout=TIMEOUT           // tempo de espera esgotado
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+login
+[in]  Número da conta de negociação. Parâmetro sem nome obrigatório.
+password
+[in]  Senha da conta de negociação. Parâmetro nomeado opcional. Se a senha não for
+especificada, será automaticamente colocada a senha armazenada no banco de dados do terminal.
+server
+[in]  Nome do servidor de negociação. Parâmetro nomeado opcional. Se o servidor não for
+especificado, será automaticamente colocado o último servidor.
+timeout=TIMEOUT
+[in]  Tempo limite de conexão em milissegundos. Parâmetro nomeado opcional. Se não
+especificado, será usado um valor de 60 000 (60 segundos). Se a conexão não for estabelecida
+durante esse período, a chamada será forçosamente encerrada e será gerada sua remoção.
+<h3>Valor retornado</h3>
+True em caso de conexão bem-sucedida à conta de negociação, caso contrário, False.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# imprimimos informações sobre a versão do MetaTrader 5
+print(mt5.version())
+# conectamo-nos à conta de negociação sem especificar senha e servidor
+account=17221085
+authorized=mt5.login(account)  # a senha será retirada do banco de dados do terminal, 
+</p>
+<pre><code class="language-mql5">
+if authorized:
+    print(&quot;connected to account #{}&quot;.format(account))
+</code></pre>
+<p>
+else:</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3151
+</p>
+<pre><code class="language-mql5">
+    print(&quot;failed to connect at account #{}, error code: {}&quot;.format(account, mt5.last_
+</code></pre>
+<p>
+# agora conectamo-nos a outra conta de negociação indicando senha
+account=25115284
+authorized=mt5.login(account, password=&quot;gqrtz0lbdm&quot;)
+</p>
+<pre><code class="language-mql5">
+if authorized:
+    # exibimos os dados sobre a conta de negociação como estão
+    print(mt5.account_info())
+    # exibimos os dados da conta de negociação como uma lista
+    print(&quot;Show account_info()._asdict():&quot;)
+    account_info_dict = mt5.account_info()._asdict()
+    for prop in account_info_dict:
+        print(&quot;  {}={}&quot;.format(prop, account_info_dict[prop]))
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;failed to connect at account #{}, error code: {}&quot;.format(account, mt5.last_
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+[500, 2367, &#x27;23 Mar 2020&#x27;]
+connected to account #17221085
+connected to account #25115284
+AccountInfo(login=25115284, trade_mode=0, leverage=100, limit_orders=200, margin_so_mo
+account properties:
+</p>
+<pre><code class="language-mql5">
+   login=25115284
+   trade_mode=0
+   leverage=100
+   limit_orders=200
+   margin_so_mode=0
+   trade_allowed=True
+   trade_expert=True
+   margin_mode=2
+   currency_digits=2
+   fifo_close=False
+   balance=99588.33
+   credit=0.0
+   profit=-45.23
+   equity=99543.1
+   margin=54.37
+   margin_free=99488.73
+   margin_level=183084.6054809638
+   margin_so_call=50.0
+   margin_so_so=30.0</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3152
+</p>
+<pre><code class="language-mql5">
+   margin_initial=0.0
+   margin_maintenance=0.0
+   assets=0.0
+   liabilities=0.0
+   commission_blocked=0.0
+   name=James Smith
+   server=MetaQuotes-Demo
+   currency=USD
+   company=MetaQuotes Software Corp.
+</code></pre>
+<p>
+<h3>Veja também</h3>
+initialize, shutdown</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3153
+shutdown
+Fecha a conexão estabelecida anteriormente com o terminal MetaTrader 5.
+shutdown()
+<h3>Valor retornado</h3>
+Não.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed&quot;)
+    quit()
+</code></pre>
+<p>
+# imprimimos informações sobre o estado da conexão, o nome do servidor e a conta de ne
+print(mt5.terminal_info())
+# imprimimos informações sobre a versão do MetaTrader 5
+print(mt5.version())
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Veja também</h3>
+initialize, login_py, terminal_info, version</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3154
+version
+Retorna a versão do terminal MetaTrader 5.
+version()
+<h3>Valor retornado</h3>
+Retorna o número da versão, o número da compilação e a data de lançamento do terminal
+MetaTrader 5. Em caso de erro, retorna None, enquanto informações sobre o erro podem ser obtidas
+usando last_error().
+<h3>Observação</h3>
+A função version() retorna o número da versão, o número da compilação e a data de lançamento do
+terminal como uma tupla de três valores:
+<h3>Tipo</h3>
+<h3>Descrição</h3>
+<h3>Exemplo de valor</h3>
+integer
+<h3>Versão</h3>
+do 
+terminal
+<h3>MetaTrader 5</h3>
+500
+integer
+<h3>Compilação</h3>
+2007
+string
+<h3>Data</h3>
+de 
+lançamento 
+da
+compilação
+&#x27;25 Feb 2019&#x27;
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import pandas as pd
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# imprimimos informações sobre a versão do MetaTrader 5
+print(mt5.version())
+# imprimimos informações sobre o estado da conexão, o nome do servidor e a conta de ne
+print(mt5.terminal_info())
+print()
+# obtemos as propriedades na forma de um dicionário
+terminal_info_dict=mt5.terminal_info()._asdict()
+# convertemos o dicionário num DataFrame e imprimimos
+df=pd.DataFrame(list(terminal_info_dict.items()),columns=[&#x27;property&#x27;,&#x27;value&#x27;])
+print(&quot;terminal_info() as dataframe:&quot;)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3155
+print(df[:-1])
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+[500, 2367, &#x27;23 Mar 2020&#x27;]
+TerminalInfo(community_account=True, community_connection=True, connected=True, dlls_a
+terminal_info() as dataframe:
+</p>
+<pre><code class="language-mql5">
+                 property                         value
+</code></pre>
+<p>
+0       community_account                          True
+1    community_connection                          True
+2               connected                          True
+3            dlls_allowed                         False
+4           trade_allowed                         False
+5       tradeapi_disabled                         False
+6           email_enabled                         False
+7             ftp_enabled                         False
+8   notifications_enabled                         False
+9                    mqid                         False
+10                  build                          2367
+11                maxbars                          5000
+12               codepage                          1251
+13              ping_last                         77881
+14      community_balance                       707.107
+15         retransmission                             0
+16                company     MetaQuotes Software Corp.
+17                   name                  MetaTrader 5
+18               language                       Russian
+19                   path  E:\ProgramFiles\MetaTrader 5
+20              data_path  E:\ProgramFiles\MetaTrader 5
+<h3>Veja também</h3>
+initialize, shutdown, terminal_info</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3156
+last_error
+Retorna informações sobre o último erro.
+last_error()
+<h3>Valor retornado</h3>
+Retorna o código do último erro e sua descrição na forma de uma tupla.
+<h3>Observação</h3>
+last_error() permite que obter o código de erro em caso de execução mal sucedida de qualquer
+função da biblioteca MetaTrader 5. É semelhante a GetLastError(), mas são usados seus próprios
+códigos de erro. Valores possíveis:
+<h3>Constante</h3>
+<h3>Valor</h3>
+<h3>Descrição</h3>
+<h3>RES_S_OK</h3>
+1
+generic success
+<h3>RES_E_FAIL</h3>
+-1
+generic fail
+<h3>RES_E_INVALID_PARAMS</h3>
+-2
+invalid arguments/parameters
+<h3>RES_E_NO_MEMORY</h3>
+-3
+no memory condition
+<h3>RES_E_NOT_FOUND</h3>
+-4
+no history
+<h3>RES_E_INVALID_VERSION</h3>
+-5
+invalid version
+<h3>RES_E_AUTH_FAILED</h3>
+-6
+authorization failed
+<h3>RES_E_UNSUPPORTED</h3>
+-7
+unsupported method
+<h3>RES_E_AUTO_TRADING_DISABLED</h3>
+-8
+auto-trading disabled
+<h3>RES_E_INTERNAL_FAIL</h3>
+-10000
+internal IPC general error
+<h3>RES_E_INTERNAL_FAIL_SEND</h3>
+-10001
+internal IPC send failed
+<h3>RES_E_INTERNAL_FAIL_RECEIVE</h3>
+-10002
+internal IPC recv failed
+<h3>RES_E_INTERNAL_FAIL_INIT</h3>
+-10003
+internal IPC initialization fail
+<h3>RES_E_INTERNAL_FAIL_CONNECT</h3>
+-10003
+internal IPC no ipc
+<h3>RES_E_INTERNAL_FAIL_TIMEOUT</h3>
+-10005
+internal timeout
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3157
+</p>
+<pre><code class="language-mql5">
+    quit()
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Veja também</h3>
+version, GetLastError</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3158
+account_info
+Obtém informações atuais sobre a conta de negociação atual.
+account_info()
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função pode de uma chamada retornar todas as informações que podem ser obtidas usando
+AccountInfoInteger, AccountInfoDouble e AccountInfoString.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import pandas as pd
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# conectamo-nos à conta de negociação sem especificar senha e servidor
+authorized=mt5.login(25115284, password=&quot;gqz0343lbdm&quot;)
+</p>
+<pre><code class="language-mql5">
+if authorized:
+    account_info=mt5.account_info()
+    if account_info!=None:
+        # exibimos os dados sobre a conta de negociação como estão
+        print(account_info)
+        # exibimos os dados da conta de negociação como um dicionário
+        print(&quot;Show account_info()._asdict():&quot;)
+        account_info_dict = mt5.account_info()._asdict()
+        for prop in account_info_dict:
+            print(&quot;  {}={}&quot;.format(prop, account_info_dict[prop]))
+        print()
+       # convertemos o dicionário num DataFrame e imprimimos
+        df=pd.DataFrame(list(account_info_dict.items()),columns=[&#x27;property&#x27;,&#x27;value&#x27;])
+        print(&quot;account_info() as dataframe:&quot;)
+        print(df)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;failed to connect to trade account 25115284 with password=gqz0343lbdm, erro
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3159
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+AccountInfo(login=25115284, trade_mode=0, leverage=100, limit_orders=200, margin_so_mo
+<h3>Show account_info()._asdict():</h3>
+  login=25115284
+  trade_mode=0
+  leverage=100
+  limit_orders=200
+  margin_so_mode=0
+  trade_allowed=True
+  trade_expert=True
+  margin_mode=2
+  currency_digits=2
+  fifo_close=False
+  balance=99511.4
+  credit=0.0
+  profit=41.82
+  equity=99553.22
+  margin=98.18
+  margin_free=99455.04
+  margin_level=101398.67590140559
+  margin_so_call=50.0
+  margin_so_so=30.0
+  margin_initial=0.0
+  margin_maintenance=0.0
+  assets=0.0
+  liabilities=0.0
+  commission_blocked=0.0
+  server=MetaQuotes-Demo
+  currency=USD
+  company=MetaQuotes Software Corp.
+account_info() as dataframe
+</p>
+<pre><code class="language-mql5">
+              property                      value
+</code></pre>
+<p>
+0                login                   25115284
+1           trade_mode                          0
+2             leverage                        100
+3         limit_orders                        200
+4       margin_so_mode                          0
+5        trade_allowed                       True
+6         trade_expert                       True
+7          margin_mode                          2
+8      currency_digits                          2
+9           fifo_close                      False
+10             balance                    99588.3</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3160
+11              credit                          0
+12              profit                     -45.13
+13              equity                    99543.2
+14              margin                      54.37
+15         margin_free                    99488.8
+16        margin_level                     183085
+17      margin_so_call                         50
+18        margin_so_so                         30
+19      margin_initial                          0
+20  margin_maintenance                          0
+21              assets                          0
+22         liabilities                          0
+23  commission_blocked                          0
+24                name                James Smith
+25              server            MetaQuotes-Demo
+26            currency                        USD
+27             company  MetaQuotes Software Corp.
+<h3>Veja também</h3>
+initialize, shutdown, login</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3161
+terminal_info
+Obtém o status e as configurações do terminal do cliente MetaTrader 5 conectado.
+terminal_info()
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função retorna numa chamada todas as informações que podem ser obtidas usando
+TerminalInfoInteger, TerminalInfoDouble e TerminalInfoDouble.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import pandas as pd
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# imprimimos informações sobre a versão do MetaTrader 5
+print(mt5.version())
+# exibimos informações sobre as configurações e o status do terminal
+terminal_info=mt5.terminal_info()
+</p>
+<pre><code class="language-mql5">
+if terminal_info!=None:
+    # exibimos os dados sobre o terminal tal qual como estão
+    print(terminal_info)
+    # exibimos os dados como uma lista
+    print(&quot;Show terminal_info()._asdict():&quot;)
+    terminal_info_dict = mt5.terminal_info()._asdict()
+    for prop in terminal_info_dict:
+        print(&quot;  {}={}&quot;.format(prop, terminal_info_dict[prop]))
+    print()
+   # convertemos o dicionário num DataFrame e imprimimos
+    df=pd.DataFrame(list(terminal_info_dict.items()),columns=[&#x27;property&#x27;,&#x27;value&#x27;])
+    print(&quot;terminal_info() as dataframe:&quot;)
+    print(df)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3162
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+[500, 2366, &#x27;20 Mar 2020&#x27;]
+TerminalInfo(community_account=True, community_connection=True, connected=True,....
+<h3>Show terminal_info()._asdict():</h3>
+  community_account=True
+  community_connection=True
+  connected=True
+  dlls_allowed=False
+  trade_allowed=False
+  tradeapi_disabled=False
+  email_enabled=False
+  ftp_enabled=False
+  notifications_enabled=False
+  mqid=False
+  build=2366
+  maxbars=5000
+  codepage=1251
+  ping_last=77850
+  community_balance=707.10668201585
+  retransmission=0.0
+  company=MetaQuotes Software Corp.
+  name=MetaTrader 5
+  language=Russian
+  path=E:\ProgramFiles\MetaTrader 5
+  data_path=E:\ProgramFiles\MetaTrader 5
+  commondata_path=C:\Users\Rosh\AppData\Roaming\MetaQuotes\Terminal\Common
+terminal_info() as dataframe:
+</p>
+<pre><code class="language-mql5">
+                 property                      value
+</code></pre>
+<p>
+0       community_account                       True
+1    community_connection                       True
+2               connected                       True
+3            dlls_allowed                      False
+4           trade_allowed                      False
+5       tradeapi_disabled                      False
+6           email_enabled                      False
+7             ftp_enabled                      False
+8   notifications_enabled                      False
+9                    mqid                      False
+10                  build                       2367
+11                maxbars                       5000
+12               codepage                       1251
+13              ping_last                      80953
+14      community_balance                    707.107</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3163
+15         retransmission                   0.063593
+16                company  MetaQuotes Software Corp.
+17                   name               MetaTrader 5
+18               language                    Russian
+<h3>Veja também</h3>
+initialize, shutdown, version</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3164
+symbols_total
+Obtém o número total de instrumentos financeiros no terminal MetaTrader 5.
+symbols_total()
+<h3>Valor retornado</h3>
+Valor inteiro.
+<h3>Observação</h3>
+A função é semelhante a SymbolsTotal(), mas, além disso, retorna o número total de símbolos,
+incluindo os personalizados e os desabilitados no MarketWatch. 
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos o número de instrumentos financeiros
+symbols=mt5.symbols_total()
+</p>
+<pre><code class="language-mql5">
+if symbols&gt;0:
+    print(&quot;Total symbols =&quot;,symbols)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Symbols not found&quot;)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Veja também</h3>
+symbols_get, symbol_select, symbol_info</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3165
+symbols_get
+Obtém todos os instrumentos financeiros do terminal MetaTrader 5.
+symbols_get(
+</p>
+<pre><code class="language-mql5">
+   group=&quot;GROUP&quot;      // filtro para selecionar símbolos 
+</code></pre>
+<p>
+)
+group=&quot;GROUP&quot;
+[in]  Filtro para selecionar apenas o grupo de símbolos necessários. Parâmetro opcional. Se um
+grupo for especificado, a função retornará apenas os símbolos que satisfazem os critérios
+especificados.
+<h3>Valor retornado</h3>
+Retorna símbolos como uma tupla (tuple). Em caso de erro, retorna None, enquanto informações
+sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+O parâmetro group permite filtrar símbolos por nome, é permitido usar &#x27;*&#x27; no início e no final da
+linha.
+O parâmetro group pode ser usado como parâmetro nomeado e como não nomeado. Ambas as
+variantes funcionam da mesma maneira. O uso de uma variante nomeada (group=&quot;GROUP&quot;) torna o
+código mais compreensível.
+O parâmetro group pode conter várias condições, separadas por vírgulas. A condição pode ser
+especificada como uma máscara usando &#x27;*&#x27;. Para exclusões, pode-se usar o símbolo de negação
+lógica &#x27;!&#x27;. Neste caso, todas as condições são aplicadas sequencialmente, ou seja, primeiro deve-se
+especificar as condições para inclusão no grupo e, em seguida, a condição de exclusão. Por
+exemplo, group=&quot;*, !EUR&quot; significa que primeiro é necessário selecionar todos os símbolos e, em
+seguida, excluir os que contêm &quot;EUR&quot; no nome.
+Ao contrário de symbol_info(), a função symbols_get() retorna informações sobre todos os símbolos
+solicitados numa chamada.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos todos os símbolos
+symbols=mt5.symbols_get()
+print(&#x27;Symbols: &#x27;, len(symbols))
+count=0</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3166
+# exibimos os 5 primeiros
+</p>
+<pre><code class="language-mql5">
+for s in symbols:
+    count+=1
+    print(&quot;{}. {}&quot;.format(count,s.name))
+    if count==5: break
+</code></pre>
+<p>
+print()
+# obtemos símbolos cujos nomes contêm RU
+ru_symbols=mt5.symbols_get(&quot;*RU*&quot;)
+print(&#x27;len(*RU*): &#x27;, len(ru_symbols))
+</p>
+<pre><code class="language-mql5">
+for s in ru_symbols:
+    print(s.name)
+</code></pre>
+<p>
+print()
+# obtemos símbolos cujos nomes não contêm USD, EUR, JPY e GBP
+group_symbols=mt5.symbols_get(group=&quot;*,!*USD*,!*EUR*,!*JPY*,!*GBP*&quot;)
+print(&#x27;len(*,!*USD*,!*EUR*,!*JPY*,!*GBP*):&#x27;, len(group_symbols))
+</p>
+<pre><code class="language-mql5">
+for s in group_symbols:
+    print(s.name,&quot;:&quot;,s)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Symbols:  84</h3>
+1. EURUSD
+2. GBPUSD
+3. USDCHF
+4. USDJPY
+5. USDCNH
+len(*RU*):  8
+<h3>EURUSD</h3>
+<h3>USDRUB</h3>
+<h3>USDRUR</h3>
+<h3>EURRUR</h3>
+<h3>EURRUB</h3>
+<h3>FORTS.RUB.M5</h3>
+<h3>EURUSD_T20</h3>
+<h3>EURUSD4</h3>
+len(*,!*USD*,!*EUR*,!*JPY*,!*GBP*):  13
+AUDCAD : SymbolInfo(custom=False, chart_mode=0, select=True, visible=True, session_dea
+AUDCHF : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+AUDNZD : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+CADCHF : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+NZDCAD : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3167
+NZDCHF : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+NZDSGD : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+CADMXN : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+CHFMXN : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+NZDMXN : SymbolInfo(custom=False, chart_mode=0, select=False, visible=False, session_d
+FORTS.RTS.M5 : SymbolInfo(custom=True, chart_mode=0, select=False, visible=False, sess
+FORTS.RUB.M5 : SymbolInfo(custom=True, chart_mode=0, select=False, visible=False, sess
+FOREX.CHF.M5 : SymbolInfo(custom=True, chart_mode=0, select=False, visible=False, sess
+<h3>Veja também</h3>
+symbols_total, symbol_select, symbol_info</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3168
+symbol_info
+Obtém informações sobre o instrumento financeiro especificado.
+symbol_info(
+</p>
+<pre><code class="language-mql5">
+   symbol      // nome do instrumento financeiro
+</code></pre>
+<p>
+)
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função consegue de uma chamada retornar todas as informações que podem ser obtidas usando
+SymbolInfoInteger, SymbolInfoDouble e SymbolInfoString.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# tentamos ativar a exibição do símbolo EURJPY no MarketWatch
+selected=mt5.symbol_select(&quot;EURJPY&quot;,True)
+</p>
+<pre><code class="language-mql5">
+if not selected:
+    print(&quot;Failed to select EURJPY&quot;)
+    mt5.shutdown()
+    quit()
+</code></pre>
+<p>
+# imprimimos as propriedades do símbolo EURJPY
+symbol_info=mt5.symbol_info(&quot;EURJPY&quot;)
+</p>
+<pre><code class="language-mql5">
+if symbol_info!=None:
+    # exibimos os dados sobre o terminal tal qual como estão    
+    print(symbol_info)
+    print(&quot;EURJPY: spread =&quot;,symbol_info.spread,&quot;  digits =&quot;,symbol_info.digits)
+    # exibimos as propriedades do símbolo como uma lista
+    print(&quot;Show symbol_info(\&quot;EURJPY\&quot;)._asdict():&quot;)
+    symbol_info_dict = mt5.symbol_info(&quot;EURJPY&quot;)._asdict()
+    for prop in symbol_info_dict:
+        print(&quot;  {}={}&quot;.format(prop, symbol_info_dict[prop]))</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3169
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+SymbolInfo(custom=False, chart_mode=0, select=True, visible=True, session_deals=0, ses
+EURJPY: spread = 17   digits = 3
+<h3>Show symbol_info()._asdict():</h3>
+  custom=False
+  chart_mode=0
+  select=True
+  visible=True
+  session_deals=0
+  session_buy_orders=0
+  session_sell_orders=0
+  volume=0
+  volumehigh=0
+  volumelow=0
+  time=1585069682
+  digits=3
+  spread=17
+  spread_float=True
+  ticks_bookdepth=10
+  trade_calc_mode=0
+  trade_mode=4
+  start_time=0
+  expiration_time=0
+  trade_stops_level=0
+  trade_freeze_level=0
+  trade_exemode=1
+  swap_mode=1
+  swap_rollover3days=3
+  margin_hedged_use_leg=False
+  expiration_mode=7
+  filling_mode=1
+  order_mode=127
+  order_gtc_mode=0
+  option_mode=0
+  option_right=0
+  bid=120.024
+  bidhigh=120.506
+  bidlow=118.798
+  ask=120.041
+  askhigh=120.526
+  asklow=118.828
+  last=0.0</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3170
+  lasthigh=0.0
+  lastlow=0.0
+  volume_real=0.0
+  volumehigh_real=0.0
+  volumelow_real=0.0
+  option_strike=0.0
+  point=0.001
+  trade_tick_value=0.8977708350166538
+  trade_tick_value_profit=0.8977708350166538
+  trade_tick_value_loss=0.8978272580355541
+  trade_tick_size=0.001
+  trade_contract_size=100000.0
+  trade_accrued_interest=0.0
+  trade_face_value=0.0
+  trade_liquidity_rate=0.0
+  volume_min=0.01
+  volume_max=500.0
+  volume_step=0.01
+  volume_limit=0.0
+  swap_long=-0.2
+  swap_short=-1.2
+  margin_initial=0.0
+  margin_maintenance=0.0
+  session_volume=0.0
+  session_turnover=0.0
+  session_interest=0.0
+  session_buy_orders_volume=0.0
+  session_sell_orders_volume=0.0
+  session_open=0.0
+  session_close=0.0
+  session_aw=0.0
+  session_price_settlement=0.0
+  session_price_limit_min=0.0
+  session_price_limit_max=0.0
+  margin_hedged=100000.0
+  price_change=0.0
+  price_volatility=0.0
+  price_theoretical=0.0
+  price_greeks_delta=0.0
+  price_greeks_theta=0.0
+  price_greeks_gamma=0.0
+  price_greeks_vega=0.0
+  price_greeks_rho=0.0
+  price_greeks_omega=0.0
+  price_sensitivity=0.0
+  basis=
+  category=
+  currency_base=EUR
+  currency_profit=JPY</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3171
+  currency_margin=EUR
+  bank=
+  description=Euro vs Japanese Yen
+  exchange=
+  formula=
+  isin=
+  name=EURJPY
+  page=http://www.google.com/finance?q=EURJPY
+  path=Forex\EURJPY
+<h3>Veja também</h3>
+account_info, terminal_info</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3172
+symbol_info_tick
+Obtém o último tick do instrumento financeiro especificado.
+symbol_info_tick(
+</p>
+<pre><code class="language-mql5">
+   symbol      // nome do instrumento financeiro
+</code></pre>
+<p>
+)
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma tupla. Em caso de erro, retorna None, enquanto informações
+sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função é semelhante a SymbolInfoTick.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# tentamos ativar a exibição do símbolo GBPUSD no MarketWatch
+selected=mt5.symbol_select(&quot;GBPUSD&quot;,True)
+</p>
+<pre><code class="language-mql5">
+if not selected:
+    print(&quot;Failed to select GBPUSD&quot;)
+    mt5.shutdown()
+    quit()
+</code></pre>
+<p>
+# imprimimos o último tick do símbolo GBPUSD
+lasttick=mt5.symbol_info_tick(&quot;GBPUSD&quot;)
+print(lasttick)
+# imprimimos os valores dos campos de tick como uma lista
+print(&quot;Show symbol_info_tick(\&quot;GBPUSD\&quot;)._asdict():&quot;)
+symbol_info_tick_dict = mt5.symbol_info_tick(&quot;GBPUSD&quot;)._asdict()
+</p>
+<pre><code class="language-mql5">
+for prop in symbol_info_tick_dict:
+    print(&quot;  {}={}&quot;.format(prop, symbol_info_tick_dict[prop]))
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3173
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+Tick(time=1585070338, bid=1.17264, ask=1.17279, last=0.0, volume=0, time_msc=158507033
+<h3>Show symbol_info_tick._asdict():</h3>
+  time=1585070338
+  bid=1.17264
+  ask=1.17279
+  last=0.0
+  volume=0
+  time_msc=1585070338728
+  flags=2
+  volume_real=0.0
+<h3>Veja também</h3>
+symbol_info, symbol_info</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3174
+symbol_select
+Seleciona o símbolo na janela MarketWatch ou remove o símbolo deste janela.
+symbol_select(
+</p>
+<pre><code class="language-mql5">
+   symbol,      // nome do instrumento financeiro
+   enable=None  // ativar/desativar
+</code></pre>
+<p>
+)
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+enable
+[in]  Alternador. Parâmetro sem nome opcional. Se o valor for false, o símbolo deverá ser excluído
+da janela do MarketWatch, caso contrário, o símbolo deverá ser selecionado na janela do
+MarketWatch. O símbolo não poderá ser removido se houver gráficos abertos com este símbolo ou
+se houver posições abertas com base neste símbolo.
+<h3>Valor retornado</h3>
+true, em caso de execução bem-sucedida, caso contrário, false.
+<h3>Observação</h3>
+A função é semelhante a SymbolSelect.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import pandas as pd
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+print()
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize(login=25115284, server=&quot;MetaQuotes-Demo&quot;,password=&quot;4zatlbqx&quot;):
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# tentamos ativar a exibição do símbolo EURCAD no MarketWatch
+selected=mt5.symbol_select(&quot;EURCAD&quot;,True)
+</p>
+<pre><code class="language-mql5">
+if not selected:
+    print(&quot;Failed to select EURCAD, error code =&quot;,mt5.last_error())
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    symbol_info=mt5.symbol_info(&quot;EURCAD&quot;)
+    print(symbol_info)
+    print(&quot;EURCAD: currency_base =&quot;,symbol_info.currency_base,&quot;  currency_profit =&quot;,sy
+    print()
+    # obtemos as propriedades do símbolo como um dicionário
+    print(&quot;Show symbol_info()._asdict():&quot;)
+    symbol_info_dict = symbol_info._asdict()</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3175
+</p>
+<pre><code class="language-mql5">
+    for prop in symbol_info_dict:
+        print(&quot;  {}={}&quot;.format(prop, symbol_info_dict[prop]))
+    print()
+   # convertemos o dicionário num DataFrame e imprimimos
+    df=pd.DataFrame(list(symbol_info_dict.items()),columns=[&#x27;property&#x27;,&#x27;value&#x27;])
+    print(&quot;symbol_info_dict() as dataframe:&quot;)
+    print(df)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+SymbolInfo(custom=False, chart_mode=0, select=True, visible=True, session_deals=0, ses
+EURCAD: currency_base = EUR   currency_profit = CAD   currency_margin = EUR
+<h3>Show symbol_info()._asdict():</h3>
+  custom=False
+  chart_mode=0
+  select=True
+  visible=True
+  session_deals=0
+  session_buy_orders=0
+  session_sell_orders=0
+  volume=0
+  volumehigh=0
+  volumelow=0
+  time=1585217595
+  digits=5
+  spread=39
+  spread_float=True
+  ticks_bookdepth=10
+  trade_calc_mode=0
+  trade_mode=4
+  start_time=0
+  expiration_time=0
+  trade_stops_level=0
+  trade_freeze_level=0
+  trade_exemode=1
+  swap_mode=1
+  swap_rollover3days=3
+  margin_hedged_use_leg=False
+  expiration_mode=7
+  filling_mode=1
+  order_mode=127
+  order_gtc_mode=0</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3176
+  option_mode=0
+  option_right=0
+  bid=1.55192
+  bidhigh=1.55842
+  bidlow=1.5419800000000001
+  ask=1.5523099999999999
+  askhigh=1.55915
+  asklow=1.5436299999999998
+  last=0.0
+  lasthigh=0.0
+  lastlow=0.0
+  volume_real=0.0
+  volumehigh_real=0.0
+  volumelow_real=0.0
+  option_strike=0.0
+  point=1e-05
+  trade_tick_value=0.7043642408362214
+  trade_tick_value_profit=0.7043642408362214
+  trade_tick_value_loss=0.7044535553770941
+  trade_tick_size=1e-05
+  trade_contract_size=100000.0
+  trade_accrued_interest=0.0
+  trade_face_value=0.0
+  trade_liquidity_rate=0.0
+  volume_min=0.01
+  volume_max=500.0
+  volume_step=0.01
+  volume_limit=0.0
+  swap_long=-1.1
+  swap_short=-0.9
+  margin_initial=0.0
+  margin_maintenance=0.0
+  session_volume=0.0
+  session_turnover=0.0
+  session_interest=0.0
+  session_buy_orders_volume=0.0
+  session_sell_orders_volume=0.0
+  session_open=0.0
+  session_close=0.0
+  session_aw=0.0
+  session_price_settlement=0.0
+  session_price_limit_min=0.0
+  session_price_limit_max=0.0
+  margin_hedged=100000.0
+  price_change=0.0
+  price_volatility=0.0
+  price_theoretical=0.0
+  price_greeks_delta=0.0
+  price_greeks_theta=0.0</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3177
+  price_greeks_gamma=0.0
+  price_greeks_vega=0.0
+  price_greeks_rho=0.0
+  price_greeks_omega=0.0
+  price_sensitivity=0.0
+  basis=
+  category=
+  currency_base=EUR
+  currency_profit=CAD
+  currency_margin=EUR
+  bank=
+  description=Euro vs Canadian Dollar
+  exchange=
+  formula=
+  isin=
+  name=EURCAD
+  page=http://www.google.com/finance?q=EURCAD
+  path=Forex\EURCAD
+symbol_info_dict() as dataframe:
+</p>
+<pre><code class="language-mql5">
+         property                                   value
+</code></pre>
+<p>
+0          custom                                   False
+1      chart_mode                                       0
+2          select                                    True
+3         visible                                    True
+4   session_deals                                       0
+..            ...                                     ...
+91        formula                                        
+92           isin                                        
+93           name                                  EURCAD
+94           page  http://www.google.com/finance?q=EURCAD
+95           path                            Forex\EURCAD
+[96 rows x 2 columns]
+<h3>Veja também</h3>
+symbol_info</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3178
+market_book_add
+Faz com que o terminal MetaTrader 5 receba eventos sobre mudanças no livro de ofertas para o
+símbolo especificado.
+market_book_add(
+</p>
+<pre><code class="language-mql5">
+   symbol      // nome do instrumento financeiro
+</code></pre>
+<p>
+)
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+true, em caso de execução bem-sucedida, caso contrário, false.
+<h3>Observação</h3>
+A função é análoga de MarketBookAdd.
+<h3>Veja também</h3>
+market_book_get, market_book_release, Estrutura do livro de ofertas</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3179
+market_book_get
+Retorna uma tupla desde BookInfo contendo os registros do livro de ofertas para o símbolo
+especificado.
+market_book_get(
+</p>
+<pre><code class="language-mql5">
+   symbol      // nome do instrumento financeiro
+</code></pre>
+<p>
+)
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna o conteúdo do livro de ofertas como uma tupla desde o log de BookInfo contendo o tipo de
+pedido, preço e volume em lotes. BookInfo é análogo à estrutura MqlBookInfo. 
+Retorna None em caso de erro, as informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+Anteriormente com ajuda da função market_book_add() era realizada a subscrição para receber
+eventos de mudanças no livro de ofertas.
+A função é análoga a MarketBookGet.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import time
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+print(&quot;&quot;)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+   # concluímos a conexão ao terminal MetaTrader 5
+    mt5.shutdown()
+    quit()
+</code></pre>
+<p>
+# subscreva para receber atualizações no livro de ofertas para o símbolo EURUSD (Depth
+</p>
+<pre><code class="language-mql5">
+if mt5.market_book_add(&#x27;EURUSD&#x27;):
+</code></pre>
+<p>
+  # obtemos 10 vezes em um loop os dados do livro de ofertas
+</p>
+<pre><code class="language-mql5">
+   for i in range(10):
+        # obtemos o conteúdo do livro de ofertas (Depth of Market)
+        items = mt5.market_book_get(&#x27;EURUSD&#x27;)
+        # exibimos todo o livro de ofertas como uma string tal qual como está
+        print(items)
+        # agora exibimos cada solicitação separadamente para maior clareza</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3180
+</p>
+<pre><code class="language-mql5">
+        if items:
+            for it in items:
+                # conteúdo da solicitação
+                print(it._asdict())
+        # vamos fazer uma pausa de 5 segundos antes da próxima solicitação de dados do
+        time.sleep(5)
+</code></pre>
+<p>
+  # cancelamos a subscrição de atualizações no livro de ofertas (Depth of Market)
+</p>
+<pre><code class="language-mql5">
+   mt5.market_book_release(&#x27;EURUSD&#x27;)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;mt5.market_book_add(&#x27;EURUSD&#x27;) failed, error code =&quot;,mt5.last_error())
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.34</h3>
+(BookInfo(type=1, price=1.20038, volume=250, volume_dbl=250.0), BookInfo(type=1, price
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20038, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20032, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.2003, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20028, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20026, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20025, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20023, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20017, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+</code></pre>
+<p>
+(BookInfo(type=1, price=1.2004299999999999, volume=250, volume_dbl=250.0), BookInfo(ty
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.2004299999999999, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20037, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20036, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20034, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20031, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20029, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20028, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20022, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+</code></pre>
+<p>
+(BookInfo(type=1, price=1.2004299999999999, volume=250, volume_dbl=250.0), BookInfo(ty
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.2004299999999999, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20037, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20036, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20034, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20031, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20029, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20028, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20022, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+</code></pre>
+<p>
+(BookInfo(type=1, price=1.20036, volume=250, volume_dbl=250.0), BookInfo(type=1, price
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20036, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20029, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3181
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20028, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20026, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20023, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20022, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20021, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20014, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+</code></pre>
+<p>
+(BookInfo(type=1, price=1.20035, volume=250, volume_dbl=250.0), BookInfo(type=1, price
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20035, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20029, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20027, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20025, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20023, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20022, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20021, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20014, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+</code></pre>
+<p>
+(BookInfo(type=1, price=1.20037, volume=250, volume_dbl=250.0), BookInfo(type=1, price
+</p>
+<pre><code class="language-mql5">
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20037, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20031, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.2003, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 1, &#x27;price&#x27;: 1.20028, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20025, &#x27;volume&#x27;: 36, &#x27;volume_dbl&#x27;: 36.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20023, &#x27;volume&#x27;: 50, &#x27;volume_dbl&#x27;: 50.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20022, &#x27;volume&#x27;: 100, &#x27;volume_dbl&#x27;: 100.0}
+{&#x27;type&#x27;: 2, &#x27;price&#x27;: 1.20016, &#x27;volume&#x27;: 250, &#x27;volume_dbl&#x27;: 250.0}
+</code></pre>
+<p>
+<h3>Veja também</h3>
+market_book_add, market_book_release, Estrutura do livro de ofertas</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3182
+market_book_release
+Cancela a subscrição do terminal MetaTrader 5 para receber eventos sobre alterações no livro de
+ofertas para o símbolo especificado.
+market_book_release(
+</p>
+<pre><code class="language-mql5">
+   symbol      // nome do instrumento financeiro
+</code></pre>
+<p>
+)
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+true, em caso de execução bem-sucedida, caso contrário, false.
+<h3>Observação</h3>
+A função é análoga a MarketBookRelease.
+<h3>Veja também</h3>
+market_book_add, market_book_get, Estrutura do livro de ofertas</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3183
+copy_rates_from
+Recebe barras do terminal MetaTrader 5, a partir da data especificada.
+copy_rates_from(
+</p>
+<pre><code class="language-mql5">
+   symbol,       // nome do símbolo
+   timeframe,    // período gráfico
+   date_from,    // data de abertura da barra inicial
+   count         // número de barras
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento financeiro, por exemplo, &quot;EURUSD&quot;. Parâmetro sem nome obrigatório.
+timeframe
+[in]  Período gráfico para o qual são solicitadas as barras. É definido pelo valor a partir da
+enumeração TIMEFRAME. Parâmetro sem nome obrigatório.
+date_from
+[in]  Data de abertura da primeira barra a partir da amostra solicitada. É definido pelo objeto
+datetime ou pelo número de segundos que passaram desde 1970.01.01. Parâmetro sem nome
+obrigatório.
+count
+[in]  O número de barras que é necessário obter. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna barras na forma de arrays numpy contendo colunas nomeadas time, open, high, low, close,
+tick_volume, spread e real_volume. Em caso de erro, retorna None, enquanto informações sobre o
+erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+Para mais informações, veja a função CopyRates().
+Somente dados cuja data seja menor (anterior) ou igual a data especificada são retornados. Isso
+significa que a hora de abertura de qualquer barra é sempre menor ou igual ao valor especificado.
+O terminal MetaTrader 5 fornece barras apenas nos limites do histórico disponível para o usuário
+nos gráficos. O número de barras disponíveis para o usuário é definido nas configurações com o
+parâmetro &quot;Máx. de barras no gráfico&quot;
+Python, ao criar um objeto datetime, usa o fuso horário local, enquanto o terminal MetaTrader 5
+armazena o tempo de ticks e de abertura de barras no fuso horário UTC (sem deslocamento). Assim,
+para executar funções que usam tempo, deve-se criar um datetime no horário UTC. Os dados
+recebidos do terminal MetaTrader 5 têm hora UTC.  
+TIMEFRAME é uma listagem com os valores possíveis dos períodos do gráfico</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3184
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>TIMEFRAME_M1</h3>
+1 minuto
+<h3>TIMEFRAME_M2</h3>
+2 minutos
+<h3>TIMEFRAME_M3</h3>
+3 minutos
+<h3>TIMEFRAME_M4</h3>
+4 minutos
+<h3>TIMEFRAME_M5</h3>
+5 minutos
+<h3>TIMEFRAME_M6</h3>
+6 minutos
+<h3>TIMEFRAME_M10</h3>
+10 minutos
+<h3>TIMEFRAME_M12</h3>
+12 minutos
+<h3>TIMEFRAME_M12</h3>
+15 minutos
+<h3>TIMEFRAME_M20</h3>
+20 minutos
+<h3>TIMEFRAME_M30</h3>
+30 minutos
+<h3>TIMEFRAME_H1</h3>
+1 hora
+<h3>TIMEFRAME_H2</h3>
+2 horas
+<h3>TIMEFRAME_H3</h3>
+3 horas
+<h3>TIMEFRAME_H4</h3>
+4 horas
+<h3>TIMEFRAME_H6</h3>
+6 horas
+<h3>TIMEFRAME_H8</h3>
+8 horas
+<h3>TIMEFRAME_H12</h3>
+12 horas
+<h3>TIMEFRAME_D1</h3>
+1 dia
+<h3>TIMEFRAME_W1</h3>
+1 semana
+<h3>TIMEFRAME_MN1</h3>
+1 mês
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# importamos o módulo pandas para exibir os dados recebidos na forma de uma tabela
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # largura máxima da tabela
+# importamos o módulo pytz para trabalhar com o fuso horário</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3185
+import pytz
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# definimos o fuso horário como UTC
+timezone = pytz.timezone(&quot;Etc/UTC&quot;)
+# criamos o objeto datetime no fuso horário UTC para que não seja aplicado o deslocame
+utc_from = datetime(2020, 1, 10, tzinfo=timezone)
+# recebemos 10 barras de EURUSD H4 a partir de 01/10/2019 no fuso horário UTC
+rates = mt5.copy_rates_from(&quot;EURUSD&quot;, mt5.TIMEFRAME_H4, utc_from, 10)
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+# exibimos cada elemento de dados recebidos numa nova linha
+print(&quot;Exibimos os dados recebidos como estão&quot;)
+</p>
+<pre><code class="language-mql5">
+for rate in rates:
+    print(rate)
+</code></pre>
+<p>
+# a partir dos dados recebidos criamos o DataFrame
+rates_frame = pd.DataFrame(rates)
+# convertemos o tempo em segundos no formato datetime
+rates_frame[&#x27;time&#x27;]=pd.to_datetime(rates_frame[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+</p>
+<pre><code class="language-mql5">
+                           
+</code></pre>
+<p>
+# exibimos dados
+print(&quot;\nExibimos o dataframe com dados&quot;)
+print(rates_frame)  
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Exibimos os dados como eles são</h3>
+(1578484800, 1.11382, 1.11385, 1.1111, 1.11199, 9354, 1, 0)
+(1578499200, 1.11199, 1.11308, 1.11086, 1.11179, 10641, 1, 0)
+(1578513600, 1.11178, 1.11178, 1.11016, 1.11053, 4806, 1, 0)
+(1578528000, 1.11053, 1.11193, 1.11033, 1.11173, 3480, 1, 0)
+(1578542400, 1.11173, 1.11189, 1.11126, 1.11182, 2236, 1, 0)
+(1578556800, 1.11181, 1.11203, 1.10983, 1.10993, 7984, 1, 0)
+(1578571200, 1.10994, 1.11173, 1.10965, 1.11148, 7406, 1, 0)
+(1578585600, 1.11149, 1.11149, 1.10923, 1.11046, 7468, 1, 0)
+(1578600000, 1.11046, 1.11097, 1.11033, 1.11051, 3450, 1, 0)
+(1578614400, 1.11051, 1.11093, 1.11017, 1.11041, 2448, 1, 0)
+<h3>Exibimos o dataframe com dados</h3>
+</p>
+<pre><code class="language-mql5">
+                 time     open     high      low    close  tick_volume  spread  real_v
+</code></pre>
+<p>
+0 2020-01-08 12:00:00  1.11382  1.11385  1.11110  1.11199         9354       1        </p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3186
+1 2020-01-08 16:00:00  1.11199  1.11308  1.11086  1.11179        10641       1        
+2 2020-01-08 20:00:00  1.11178  1.11178  1.11016  1.11053         4806       1        
+3 2020-01-09 00:00:00  1.11053  1.11193  1.11033  1.11173         3480       1        
+4 2020-01-09 04:00:00  1.11173  1.11189  1.11126  1.11182         2236       1        
+5 2020-01-09 08:00:00  1.11181  1.11203  1.10983  1.10993         7984       1        
+6 2020-01-09 12:00:00  1.10994  1.11173  1.10965  1.11148         7406       1        
+7 2020-01-09 16:00:00  1.11149  1.11149  1.10923  1.11046         7468       1        
+8 2020-01-09 20:00:00  1.11046  1.11097  1.11033  1.11051         3450       1        
+9 2020-01-10 00:00:00  1.11051  1.11093  1.11017  1.11041         2448       1        
+<h3>Veja também</h3>
+CopyRates, copy_rates_from_pos, copy_rates_range, copy_ticks_from, copy_ticks_range</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3187
+copy_rates_from_pos
+Recebe barras do terminal MetaTrader 5, a partir do índice especificado.
+copy_rates_from_pos(
+</p>
+<pre><code class="language-mql5">
+   symbol,       // nome do símbolo
+   timeframe,    // período gráfico
+   start_pos,    // número da barra inicial
+   count         // número de barras
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento financeiro, por exemplo, &quot;EURUSD&quot;. Parâmetro sem nome obrigatório.
+timeframe
+[in]  Período gráfico para o qual são solicitadas as barras. É definido pelo valor a partir da
+enumeração TIMEFRAME. Parâmetro sem nome obrigatório.
+start_pos
+[in]  Número inicial da barra a partir da qual são solicitados os dados. A numeração das barras vai
+do presente para o passado, ou seja, a barra zero significa a atual. Parâmetro sem nome
+obrigatório.
+count
+[in]  O número de barras que é necessário obter. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna barras na forma de array numpy contendo colunas nomeadas time, open, high, low, close,
+tick_volume, spread e real_volume. Em caso de erro, retorna None, enquanto informações sobre o
+erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+Para mais informações, veja a função CopyRates().
+O terminal MetaTrader 5 fornece barras apenas nos limites do histórico disponível para o usuário
+nos gráficos. O número de barras disponíveis para o usuário é definido nas configurações com o
+parâmetro &quot;Máx. de barras no gráfico&quot;
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# importamos o módulo pandas para exibir os dados recebidos na forma de uma tabela
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3188
+pd.set_option(&#x27;display.width&#x27;, 1500)      # largura máxima da tabela
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# solicitamos 10 barras de GBPUSD D1 do dia atual
+rates = mt5.copy_rates_from_pos(&quot;GBPUSD&quot;, mt5.TIMEFRAME_D1, 0, 10)
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+# exibimos cada elemento de dados recebidos numa nova linha
+print(&quot;Exibimos os dados recebidos como estão&quot;)
+</p>
+<pre><code class="language-mql5">
+for rate in rates:
+    print(rate)
+</code></pre>
+<p>
+# a partir dos dados recebidos criamos o DataFrame
+rates_frame = pd.DataFrame(rates)
+# convertemos o tempo em segundos no formato datetime
+rates_frame[&#x27;time&#x27;]=pd.to_datetime(rates_frame[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+# exibimos dados
+print(&quot;\nExibimos o dataframe com dados&quot;)
+print(rates_frame) 
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Exibimos os dados como eles são</h3>
+(1581552000, 1.29568, 1.30692, 1.29441, 1.30412, 68228, 0, 0)
+(1581638400, 1.30385, 1.30631, 1.3001, 1.30471, 56498, 0, 0)
+(1581897600, 1.30324, 1.30536, 1.29975, 1.30039, 49400, 0, 0)
+(1581984000, 1.30039, 1.30486, 1.29705, 1.29952, 62288, 0, 0)
+(1582070400, 1.29952, 1.3023, 1.29075, 1.29187, 57909, 0, 0)
+(1582156800, 1.29186, 1.29281, 1.28489, 1.28792, 61033, 0, 0)
+(1582243200, 1.28802, 1.29805, 1.28746, 1.29566, 66386, 0, 0)
+(1582502400, 1.29426, 1.29547, 1.28865, 1.29283, 66933, 0, 0)
+(1582588800, 1.2929, 1.30178, 1.29142, 1.30037, 80121, 0, 0)
+(1582675200, 1.30036, 1.30078, 1.29136, 1.29374, 49286, 0, 0)
+<h3>Exibimos o dataframe com dados</h3>
+</p>
+<pre><code class="language-mql5">
+        time     open     high      low    close  tick_volume  spread  real_volume
+</code></pre>
+<p>
+0 2020-02-13  1.29568  1.30692  1.29441  1.30412        68228       0            0
+1 2020-02-14  1.30385  1.30631  1.30010  1.30471        56498       0            0
+2 2020-02-17  1.30324  1.30536  1.29975  1.30039        49400       0            0
+3 2020-02-18  1.30039  1.30486  1.29705  1.29952        62288       0            0</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3189
+4 2020-02-19  1.29952  1.30230  1.29075  1.29187        57909       0            0
+5 2020-02-20  1.29186  1.29281  1.28489  1.28792        61033       0            0
+6 2020-02-21  1.28802  1.29805  1.28746  1.29566        66386       0            0
+7 2020-02-24  1.29426  1.29547  1.28865  1.29283        66933       0            0
+8 2020-02-25  1.29290  1.30178  1.29142  1.30037        80121       0            0
+9 2020-02-26  1.30036  1.30078  1.29136  1.29374        49286       0            0
+<h3>Veja também</h3>
+CopyRates, copy_rates_from, copy_rates_range, copy_ticks_from, copy_ticks_range</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3190
+copy_rates_range
+Recebe barras a partir do terminal MetaTrader 5, no intervalo de datas especificado.
+copy_rates_range(
+</p>
+<pre><code class="language-mql5">
+   symbol,       // nome do símbolo
+   timeframe,    // período gráfico
+   date_from,    // data a partir da qual são solicitadas as barras
+   date_to       // data para a qual são solicitadas as barras
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento financeiro, por exemplo, &quot;EURUSD&quot;. Parâmetro sem nome obrigatório.
+timeframe
+[in]  Período gráfico para o qual são solicitadas as barras. É definido pelo valor a partir da
+enumeração TIMEFRAME. Parâmetro sem nome obrigatório.
+date_from
+[in]  Data a partir da qual são solicitadas as barras. É definido pelo objeto datetime ou pelo
+número de segundos que passaram desde 1970.01.01. São usadas barras com tempo de abertura
+&gt;= date_from. Parâmetro sem nome obrigatório.
+date_to
+[in]  Data para a qual são solicitadas as barras. É definido pelo objeto datetime ou pelo número de
+segundos que passaram desde 1970.01.01. São usadas barras com tempo de abertura &lt;= date_to.
+Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna barras na forma de array numpy contendo colunas nomeadas time, open, high, low, close,
+tick_volume, spread e real_volume. Em caso de erro, retorna None, enquanto informações sobre o
+erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+Para mais informações, veja a função CopyRates().
+O terminal MetaTrader 5 fornece barras apenas nos limites do histórico disponível para o usuário
+nos gráficos. O número de barras disponíveis para o usuário é definido nas configurações com o
+parâmetro &quot;Máx. de barras no gráfico&quot;
+Python, ao criar um objeto datetime, usa o fuso horário local, enquanto o terminal MetaTrader 5
+armazena o tempo de ticks e de abertura de barras no fuso horário UTC (sem deslocamento). Assim,
+para executar funções que usam tempo, deve-se criar um datetime no horário UTC. Os dados
+recebidos do terminal MetaTrader 5 têm hora UTC.
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3191
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# importamos o módulo pandas para exibir os dados recebidos na forma de uma tabela
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas exibidas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # max. largura para exibição da tabela
+# importamos o módulo pytz para trabalhar com o fuso horário
+import pytz
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# definimos o fuso horário como UTC
+timezone = pytz.timezone(&quot;Etc/UTC&quot;)
+# criamos o objeto datatime no fuso horário UTC para que não seja aplicado o deslocame
+utc_from = datetime(2020, 1, 10, tzinfo=timezone)
+utc_to = datetime(2020, 1, 11, hour = 13, tzinfo=timezone)
+# obtemos as barras com USDJPY M5 no intervalo 2020.01.10 00:00 - 2020.01.11 13:00 no 
+rates = mt5.copy_rates_range(&quot;USDJPY&quot;, mt5.TIMEFRAME_M5, utc_from, utc_to)
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+# exibimos cada elemento dos dados obtidos numa nova linha
+print(&quot;Exibimos os dados obtidos como estão&quot;)
+counter=0
+</p>
+<pre><code class="language-mql5">
+for rate in rates:
+    counter+=1
+    if counter&lt;=10:
+        print(rate)
+</code></pre>
+<p>
+# criamos a partir dos dados obtidos DataFrame
+rates_frame = pd.DataFrame(rates)
+# convertemos o tempo em segundos no formato datetime
+rates_frame[&#x27;time&#x27;]=pd.to_datetime(rates_frame[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+# exibimos dados
+print(&quot;\nExibimos o dataframe com dados&quot;)
+print(rates_frame.head(10))
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Exibimos os dados como eles são</h3>
+(1578614400, 109.513, 109.527, 109.505, 109.521, 43, 2, 0)
+(1578614700, 109.521, 109.549, 109.518, 109.543, 215, 8, 0)
+(1578615000, 109.543, 109.543, 109.466, 109.505, 98, 10, 0)
+(1578615300, 109.504, 109.534, 109.502, 109.517, 155, 8, 0)
+(1578615600, 109.517, 109.539, 109.513, 109.527, 71, 4, 0)
+(1578615900, 109.526, 109.537, 109.484, 109.52, 106, 9, 0)
+(1578616200, 109.52, 109.524, 109.508, 109.51, 205, 7, 0)
+(1578616500, 109.51, 109.51, 109.491, 109.496, 44, 8, 0)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3192
+(1578616800, 109.496, 109.509, 109.487, 109.5, 85, 5, 0)
+(1578617100, 109.5, 109.504, 109.487, 109.489, 82, 7, 0)
+<h3>Exibimos o dataframe com dados</h3>
+</p>
+<pre><code class="language-mql5">
+                 time     open     high      low    close  tick_volume  spread  real_v
+</code></pre>
+<p>
+0 2020-01-10 00:00:00  109.513  109.527  109.505  109.521           43       2        
+1 2020-01-10 00:05:00  109.521  109.549  109.518  109.543          215       8        
+2 2020-01-10 00:10:00  109.543  109.543  109.466  109.505           98      10        
+3 2020-01-10 00:15:00  109.504  109.534  109.502  109.517          155       8        
+4 2020-01-10 00:20:00  109.517  109.539  109.513  109.527           71       4        
+5 2020-01-10 00:25:00  109.526  109.537  109.484  109.520          106       9        
+6 2020-01-10 00:30:00  109.520  109.524  109.508  109.510          205       7        
+7 2020-01-10 00:35:00  109.510  109.510  109.491  109.496           44       8        
+8 2020-01-10 00:40:00  109.496  109.509  109.487  109.500           85       5        
+9 2020-01-10 00:45:00  109.500  109.504  109.487  109.489           82       7        
+<h3>Veja também</h3>
+CopyRates, copy_rates_from, copy_rates_range, copy_ticks_from, copy_ticks_range</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3193
+copy_ticks_from
+Recebe ticks do terminal MetaTrader 5, a partir da data especificada.
+copy_ticks_from(
+</p>
+<pre><code class="language-mql5">
+   symbol,       // nome do símbolo
+   date_from,    // data a partir da qual são solicitados os ticks
+   count,        // número de ticks solicitados
+   flags         // combinação de sinalizadores que definem o tipo de ticks solicitado
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento financeiro, por exemplo, &quot;EURUSD&quot;. Parâmetro sem nome obrigatório.
+date_from
+[in]  Data a partir da qual são solicitados os ticks. É definido pelo objeto datetime ou pelo número
+de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+count
+[in]  Número de ticks que é necessário obter. Parâmetro sem nome obrigatório.
+flags
+[in]  sinalizador que especifica o tipo de ticks solicitados. COPY_TICKS_INFO – ticks chamados
+pelas alterações do Bid e/ou Ask, COPY_TICKS_TRADE – ticks com alterações em Last e Volume,
+COPY_TICKS_ALL – todos os ticks. Valores dos sinalizadores descritos na enumeração COPY_TICKS.
+Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna os ticks na forma de array numpy contendo colunas nomeadas time, bid, ask, last e flags. O
+elemento flags pode ser uma combinação de sinalizadores a partir da enumeração TICK_FLAG. Em
+caso de erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando
+last_error().
+<h3>Observação</h3>
+Para mais informações, veja a função CopyTicks.
+Python, ao criar um objeto datetime, usa o fuso horário local, enquanto o terminal MetaTrader 5
+armazena o tempo de ticks e de abertura de barras no fuso horário UTC (sem deslocamento). Assim,
+para executar funções que usam tempo, deve-se criar um datetime no horário UTC. Os dados
+recebidos do terminal MetaTrader 5 têm hora UTC.
+COPY_TICKS define os tipos de ticks que podem ser solicitados com a ajuda das funções
+copy_ticks_from() e copy_ticks_range().
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>COPY_TICKS_ALL</h3>
+todos os ticks</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3194
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>COPY_TICKS_INFO</h3>
+ticks contendo alterações de preços Bid e/ou
+<h3>Ask</h3>
+<h3>COPY_TICKS_TRADE</h3>
+ticks contendo alterações do preço Last e/ou do
+volume (Volume)
+TICK_FLAG define possíveis sinalizadores para ticks. Esses sinalizadores são usados para descrever os
+ticks recebidos pelas funções copy_ticks_from() e copy_ticks_range().
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>TICK_FLAG_BID</h3>
+preço Bid alterado
+<h3>TICK_FLAG_ASK</h3>
+preço Ask alterado
+<h3>TICK_FLAG_LAST</h3>
+preço Last alterado
+<h3>TICK_FLAG_VOLUME</h3>
+volume alterado (Volume)
+<h3>TICK_FLAG_BUY</h3>
+preço da última compra alterado (Buy)
+<h3>TICK_FLAG_SELL</h3>
+preço da última venda alterado (Sell)
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# importamos o módulo pandas para exibir os dados recebidos na forma de uma tabela
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # largura máxima da tabela
+# importamos o módulo pytz para trabalhar com o fuso horário
+import pytz
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3195
+</p>
+<pre><code class="language-mql5">
+    quit()
+</code></pre>
+<p>
+# definimos o fuso horário como UTC
+timezone = pytz.timezone(&quot;Etc/UTC&quot;)
+# criamos o objeto datetime no fuso horário UTC para que não seja aplicado o deslocame
+# solicitamos 100 000 ticks de EURUSD a partir de 04/01/2019 no fuso horário UTC
+ticks = mt5.copy_ticks_from(&quot;EURUSD&quot;, utc_from, 100000, mt5.COPY_TICKS_ALL)
+print(&quot;Ticks recebidos:&quot;,len(ticks))
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+# exibimos cada tick numa nova linha
+print(&quot;Exibimos os ticks recebidos como são&quot;)
+count = 0
+</p>
+<pre><code class="language-mql5">
+for tick in ticks:
+    count+=1
+    print(tick)
+    if count &gt;= 10:
+        break
+</code></pre>
+<p>
+# a partir dos dados recebidos criamos o DataFrame
+ticks_frame = pd.DataFrame(ticks)
+# convertemos o tempo em segundos no formato datetime
+ticks_frame[&#x27;time&#x27;]=pd.to_datetime(ticks_frame[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+# exibimos dados
+print(&quot;\nExibimos o dataframe com ticks&quot;)
+print(ticks_frame.head(10))  
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Ticks recebidos: 100 000</h3>
+<h3>Exibimos os ticks recebidos como são</h3>
+(1578614400, 1.11051, 1.11069, 0., 0, 1578614400987, 134, 0.)
+(1578614402, 1.11049, 1.11067, 0., 0, 1578614402025, 134, 0.)
+(1578614404, 1.1105, 1.11066, 0., 0, 1578614404057, 134, 0.)
+(1578614404, 1.11049, 1.11067, 0., 0, 1578614404344, 134, 0.)
+(1578614412, 1.11052, 1.11064, 0., 0, 1578614412106, 134, 0.)
+(1578614418, 1.11039, 1.11051, 0., 0, 1578614418265, 134, 0.)
+(1578614418, 1.1104, 1.1105, 0., 0, 1578614418905, 134, 0.)
+(1578614419, 1.11039, 1.11051, 0., 0, 1578614419519, 134, 0.)
+(1578614456, 1.11037, 1.11065, 0., 0, 1578614456011, 134, 0.)
+(1578614456, 1.11039, 1.11051, 0., 0, 1578614456015, 134, 0.)
+<h3>Exibimos o dataframe com ticks</h3>
+</p>
+<pre><code class="language-mql5">
+                 time      bid      ask  last  volume       time_msc  flags  volume_re
+</code></pre>
+<p>
+0 2020-01-10 00:00:00  1.11051  1.11069   0.0       0  1578614400987    134          0
+1 2020-01-10 00:00:02  1.11049  1.11067   0.0       0  1578614402025    134          0
+2 2020-01-10 00:00:04  1.11050  1.11066   0.0       0  1578614404057    134          0
+3 2020-01-10 00:00:04  1.11049  1.11067   0.0       0  1578614404344    134          0</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3196
+4 2020-01-10 00:00:12  1.11052  1.11064   0.0       0  1578614412106    134          0
+5 2020-01-10 00:00:18  1.11039  1.11051   0.0       0  1578614418265    134          0
+6 2020-01-10 00:00:18  1.11040  1.11050   0.0       0  1578614418905    134          0
+7 2020-01-10 00:00:19  1.11039  1.11051   0.0       0  1578614419519    134          0
+8 2020-01-10 00:00:56  1.11037  1.11065   0.0       0  1578614456011    134          0
+9 2020-01-10 00:00:56  1.11039  1.11051   0.0       0  1578614456015    134          0
+<h3>Veja também</h3>
+CopyRates, copy_rates_from_pos, copy_rates_range, copy_ticks_from, copy_ticks_range</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3197
+copy_ticks_range
+Recebe ticks a partir do terminal MetaTrader 5, no intervalo de datas especificado.
+copy_ticks_range(
+</p>
+<pre><code class="language-mql5">
+   symbol,       // nome do símbolo
+   date_from,    // data a partir da qual são solicitados os ticks
+   date_to,      // data segundo a qual são solicitados os ticks
+   flags         // combinação de sinalizadores que definem o tipo de ticks solicitado
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento financeiro, por exemplo, &quot;EURUSD&quot;. Parâmetro sem nome obrigatório.
+date_from
+[in]  Data a partir da qual são solicitados os ticks. É definido pelo objeto datetime ou pelo número
+de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+date_to
+[in]  Data para a qual são solicitados os ticks. É definido pelo objeto datetime ou pelo número de
+segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+flags
+[in]  sinalizador que especifica o tipo de ticks solicitados. COPY_TICKS_INFO – ticks chamados
+pelas alterações do Bid e/ou Ask, COPY_TICKS_TRADE – ticks com alterações em Last e Volume,
+COPY_TICKS_ALL – todos os ticks. Valores dos sinalizadores descritos na enumeração COPY_TICKS.
+Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Retorna os ticks na forma de array numpy contendo colunas nomeadas time, bid, ask, last e flags. O
+elemento flags pode ser uma combinação de sinalizadores a partir da enumeração TICK_FLAG. Em
+caso de erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando
+last_error().
+<h3>Observação</h3>
+Para mais informações, veja a função CopyTicks.
+Python, ao criar um objeto datetime, usa o fuso horário local, enquanto o terminal MetaTrader 5
+armazena o tempo de ticks e de abertura de barras no fuso horário UTC (sem deslocamento). Assim,
+para executar funções que usam tempo, deve-se criar um datetime no horário UTC. Os dados
+recebidos do terminal MetaTrader 5 têm hora UTC, mas quando se tenta imprimi-los, o Python
+aplica novamente o deslocamento para a hora local. Por essa razão, a apresentação visual dos dados
+recebidos também precisa ser corrigida.
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3198
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# importamos o módulo pandas para exibir os dados recebidos na forma de uma tabela
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas exibidas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # max. largura para exibição da tabela
+# importamos o módulo pytz para trabalhar com o fuso horário
+import pytz
+# estabelecemos conexão ao terminal MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# definimos o fuso horário como UTC
+timezone = pytz.timezone(&quot;Etc/UTC&quot;)
+# criamos o objeto datatime no fuso horário UTC para que não seja aplicado o deslocame
+utc_from = datetime(2020, 1, 10, tzinfo=timezone)
+utc_to = datetime(2020, 1, 11, tzinfo=timezone)
+# solicitamos ticks de AUDUSD no intervalo de 11.01.2020 - 11.01.2020
+ticks = mt5.copy_ticks_range(&quot;AUDUSD&quot;, utc_from, utc_to, mt5.COPY_TICKS_ALL)
+print(&quot;Ticks recebidos:&quot;,len(ticks))
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+# exibimos cada tick numa nova linha
+print(&quot;Exibimos os ticks recebidos como estão)
+count = 0
+</p>
+<pre><code class="language-mql5">
+for tick in ticks:
+    count+=1
+    print(tick)
+    if count &gt;= 10:
+        break
+</code></pre>
+<p>
+# a partir dos dados recebidos criamos o DataFrame
+ticks_frame = pd.DataFrame(ticks)
+# convertemos o tempo em segundos no formato datetime
+ticks_frame[&#x27;time&#x27;]=pd.to_datetime(ticks_frame[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+# exibimos dados
+print(&quot;\nExibimos o dataframe com ticks&quot;)
+print(ticks_frame.head(10)) 
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Ticks recebidos: 37008</h3>
+<h3>Exibimos os ticks recebidos como são</h3>
+(1578614400, 0.68577, 0.68594, 0., 0, 1578614400820, 134, 0.)
+(1578614401, 0.68578, 0.68594, 0., 0, 1578614401128, 130, 0.)
+(1578614401, 0.68575, 0.68594, 0., 0, 1578614401128, 130, 0.)
+(1578614411, 0.68576, 0.68594, 0., 0, 1578614411388, 130, 0.)
+(1578614411, 0.68575, 0.68594, 0., 0, 1578614411560, 130, 0.)
+(1578614414, 0.68576, 0.68595, 0., 0, 1578614414973, 134, 0.)
+(1578614430, 0.68576, 0.68594, 0., 0, 1578614430188, 4, 0.)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3199
+(1578614450, 0.68576, 0.68595, 0., 0, 1578614450408, 4, 0.)
+(1578614450, 0.68576, 0.68594, 0., 0, 1578614450519, 4, 0.)
+(1578614456, 0.68575, 0.68594, 0., 0, 1578614456363, 130, 0.)
+<h3>Exibimos o dataframe com ticks</h3>
+</p>
+<pre><code class="language-mql5">
+                 time      bid      ask  last  volume       time_msc  flags  volume_re
+</code></pre>
+<p>
+0 2020-01-10 00:00:00  0.68577  0.68594   0.0       0  1578614400820    134          0
+1 2020-01-10 00:00:01  0.68578  0.68594   0.0       0  1578614401128    130          0
+2 2020-01-10 00:00:01  0.68575  0.68594   0.0       0  1578614401128    130          0
+3 2020-01-10 00:00:11  0.68576  0.68594   0.0       0  1578614411388    130          0
+4 2020-01-10 00:00:11  0.68575  0.68594   0.0       0  1578614411560    130          0
+5 2020-01-10 00:00:14  0.68576  0.68595   0.0       0  1578614414973    134          0
+6 2020-01-10 00:00:30  0.68576  0.68594   0.0       0  1578614430188      4          0
+7 2020-01-10 00:00:50  0.68576  0.68595   0.0       0  1578614450408      4          0
+8 2020-01-10 00:00:50  0.68576  0.68594   0.0       0  1578614450519      4          0
+9 2020-01-10 00:00:56  0.68575  0.68594   0.0       0  1578614456363    130          0
+<h3>Veja também</h3>
+CopyRates, copy_rates_from_pos, copy_rates_range, copy_ticks_from, copy_ticks_range</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3200
+orders_total
+Obtém o número de ordens ativas.
+orders_total()
+<h3>Valor retornado</h3>
+Valor inteiro.
+<h3>Observação</h3>
+A função é semelhante a OrdersTotal.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# verificamos a presença de ordens ativas
+orders=mt5.orders_total()
+</p>
+<pre><code class="language-mql5">
+if orders&gt;0:
+    print(&quot;Total orders=&quot;,orders)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Orders not found&quot;)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Veja também</h3>
+orders_get, positions_total</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3201
+orders_get
+Obtém ordens ativas com a capacidade de filtrar por símbolo ou bilhete. Existem 3 variantes de
+chamada.
+Chamada sem parâmetros. Retorna as ordens ativas de todos os símbolos.
+orders_get()
+Uma chamada indicando o símbolo pelo qual é necessário receber as ordens ativas.
+orders_get(
+</p>
+<pre><code class="language-mql5">
+   symbol=&quot;SYMBOL&quot;      // nome do símbolo
+</code></pre>
+<p>
+)
+Uma chamada indicando o grupo de símbolos para o qual é necessário receber ordens ativas.
+orders_get(
+</p>
+<pre><code class="language-mql5">
+   group=&quot;GROUP&quot;        // filtro para selecionar ordens por símbolos
+</code></pre>
+<p>
+)
+Uma chamada indicando o bilhete da ordem.
+orders_get(
+</p>
+<pre><code class="language-mql5">
+   ticket=TICKET        // bilhete
+</code></pre>
+<p>
+)
+symbol=&quot;SYMBOL&quot;
+[in]  Nome do símbolo. Parâmetro nomeado opcional. Se o símbolo for especificado, o parâmetro
+ticket será ignorado.
+group=&quot;GROUP&quot;
+[in]  Filtro para selecionar apenas o grupo de símbolos necessários. Parâmetro nomeado opcional.
+Se um grupo for especificado, a função retornará apenas as ordens que satisfazem os critérios
+especificados para o nome do símbolo.
+ticket=TICKET 
+[in]  Bilhete da ordem (ORDER_TICKET). Parâmetro nomeado opcional.
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função permite de uma chamada receber todas as ordens ativas, a ligação OrdersTotal e
+OrderSelect é um análogo.
+O parâmetro group permite filtrar ordens por símbolos, é permitido usar &#x27;*&#x27; no início e no final da
+linha.
+O parâmetro group pode conter várias condições, separadas por vírgulas. A condição pode ser
+especificada como uma máscara usando &#x27;*&#x27;. Para exclusões, pode-se usar o símbolo de negação
+lógica &#x27;!&#x27;. Neste caso, todas as condições são aplicadas sequencialmente, ou seja, primeiro deve-se
+especificar as condições para inclusão no grupo e, em seguida, a condição de exclusão. Por</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3202
+exemplo, group=&quot;*, !EUR&quot; significa que primeiro é necessário selecionar as ordens de todos os
+símbolos e, em seguida, excluir as que contêm o símbolo &quot;EUR&quot; no nome.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas mostradas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # max. largura máxima da tabela exibida
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+print()
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# exibimos informações sobre ordens ativas do símbolo GBPUSD
+orders=mt5.orders_get(symbol=&quot;GBPUSD&quot;)
+</p>
+<pre><code class="language-mql5">
+if orders is None:
+    print(&quot;No orders on GBPUSD, error code={}&quot;.format(mt5.last_error()))
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Total orders on GBPUSD:&quot;,len(orders))
+    # exibimos todas as ordens ativas
+    for order in orders:
+        print(order)
+</code></pre>
+<p>
+print()
+# obtemos uma lista de ordens com base em símbolos cujos nomes contenham &quot;*GBP*&quot;
+gbp_orders=mt5.orders_get(group=&quot;*GBP*&quot;)
+</p>
+<pre><code class="language-mql5">
+if gbp_orders is None:
+    print(&quot;No orders with group=\&quot;*GBP*\&quot;, error code={}&quot;.format(mt5.last_error()))
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;orders_get(group=\&quot;*GBP*\&quot;)={}&quot;.format(len(gbp_orders)))
+    # exibimos essas posições como uma tabela usando pandas.DataFrame
+    df=pd.DataFrame(list(gbp_orders),columns=gbp_orders[0]._asdict().keys())
+    df.drop([&#x27;time_done&#x27;, &#x27;time_done_msc&#x27;, &#x27;position_id&#x27;, &#x27;position_by_id&#x27;, &#x27;reason&#x27;, 
+    df[&#x27;time_setup&#x27;] = pd.to_datetime(df[&#x27;time_setup&#x27;], unit=&#x27;s&#x27;)
+    print(df)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Total orders on GBPUSD: 2</h3></p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3203
+TradeOrder(ticket=554733548, time_setup=1585153667, time_setup_msc=1585153667718, time
+TradeOrder(ticket=554733621, time_setup=1585153671, time_setup_msc=1585153671419, time
+orders_get(group=&quot;*GBP*&quot;)=4
+</p>
+<pre><code class="language-mql5">
+      ticket          time_setup  time_setup_msc  time_expiration  type  type_time  ty
+</code></pre>
+<p>
+0  554733548 2020-03-25 16:27:47   1585153667718                0     3          0    
+1  554733621 2020-03-25 16:27:51   1585153671419                0     2          0    
+2  554746664 2020-03-25 16:38:14   1585154294401                0     3          0    
+3  554746710 2020-03-25 16:38:17   1585154297022                0     2          0    
+<h3>Veja também</h3>
+orders_total, positions_get</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3204
+order_calc_margin
+Retorna o tamanho da margem na moeda da conta para a operação de negociação especificada.
+order_calc_margin(
+</p>
+<pre><code class="language-mql5">
+   action,      // tipo de ordem (ORDER_TYPE_BUY ou ORDER_TYPE_SELL)
+   symbol,      // nome do símbolo
+   volume,      // volume
+   price        // preço de abertura
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+action
+[in]   Tipo de ordem, sendo que pode assumir os valores da enumeração ORDER_TYPE. Parâmetro
+sem nome obrigatório.
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+volume
+[in]  Volume da operação de negociação. Parâmetro sem nome obrigatório.
+price
+[in]  Preço de abertura. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Valor real em caso de execução bem-sucedida, caso contrário, None. Informações de erro podem ser
+obtidas usando last_error().
+<h3>Observação</h3>
+A função permite estimar a margem necessária para o tipo de ordem especificado na conta corrente
+e no ambiente de mercado atual, excluindo os pedidos pendentes atuais e as posições abertas. É
+semelhante a OrderCalcMargin.
+<h3>ORDER_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ORDER_TYPE_BUY</h3>
+<h3>Ordem de mercado para compra</h3>
+<h3>ORDER_TYPE_SELL</h3>
+<h3>Ordem de mercado para venda</h3>
+<h3>ORDER_TYPE_BUY_LIMIT</h3>
+<h3>Ordem pendente Buy Limit</h3>
+<h3>ORDER_TYPE_SELL_LIMIT</h3>
+<h3>Ordem pendente Sell Limit</h3>
+<h3>ORDER_TYPE_BUY_STOP</h3>
+<h3>Ordem pendente Buy Stop</h3>
+<h3>ORDER_TYPE_SELL_STOP</h3>
+<h3>Ordem pendente Sell Stop</h3>
+<h3>ORDER_TYPE_BUY_STOP_LIMIT</h3>
+Ao atingir o preço da ordem, uma ordem Buy Limit é
+colocada segundo o preço Stop Limit</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3205
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ORDER_TYPE_SELL_STOP_LIMIT</h3>
+Ao atingir o preço da ordem, é colocada uma ordem
+pendente Sell Limit de acordo com o preço StopLimit
+<h3>ORDER_TYPE_CLOSE_BY</h3>
+<h3>Ordem de fechamento da posição oposta</h3>
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao terminal MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos a moeda da conta
+account_currency=mt5.account_info().currency
+print(&quot;Account currency:&quot;,account_currency)
+# geramos uma lista de símbolos
+symbols=(&quot;EURUSD&quot;,&quot;GBPUSD&quot;,&quot;USDJPY&quot;, &quot;USDCHF&quot;,&quot;EURJPY&quot;,&quot;GBPJPY&quot;)
+print(&quot;Symbols to check margin:&quot;, symbols)
+action=mt5.ORDER_TYPE_BUY
+lot=0.1
+</p>
+<pre><code class="language-mql5">
+for symbol in symbols:
+    symbol_info=mt5.symbol_info(symbol)
+    if symbol_info is None:
+        print(symbol,&quot;not found, skipped&quot;)
+        continue
+    if not symbol_info.visible:
+        print(symbol, &quot;is not visible, trying to switch on&quot;)
+        if not mt5.symbol_select(symbol,True):
+            print(&quot;symbol_select({}}) failed, skipped&quot;,symbol)
+            continue
+    ask=mt5.symbol_info_tick(symbol).ask
+    margin=mt5.order_calc_margin(action,symbol,lot,ask)
+    if margin != None:
+        print(&quot;   {} buy {} lot margin: {} {}&quot;.format(symbol,lot,margin,account_curren
+    else:
+        print(&quot;order_calc_margin failed: , error code =&quot;, mt5.last_error())
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Account currency: USD</h3>
+Symbols to check margin: (&#x27;EURUSD&#x27;, &#x27;GBPUSD&#x27;, &#x27;USDJPY&#x27;, &#x27;USDCHF&#x27;, &#x27;EURJPY&#x27;, &#x27;GBPJPY&#x27;)</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3206
+</p>
+<pre><code class="language-mql5">
+   EURUSD buy 0.1 lot margin: 109.91 USD
+   GBPUSD buy 0.1 lot margin: 122.73 USD
+   USDJPY buy 0.1 lot margin: 100.0 USD
+   USDCHF buy 0.1 lot margin: 100.0 USD
+   EURJPY buy 0.1 lot margin: 109.91 USD
+   GBPJPY buy 0.1 lot margin: 122.73 USD
+</code></pre>
+<p>
+<h3>Veja também</h3>
+order_calc_profit, order_check</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3207
+order_calc_profit
+Retorna o valor do lucro na moeda da conta para a operação de negociação especificada.
+order_calc_profit(
+</p>
+<pre><code class="language-mql5">
+   action,          // tipo de ordem (ORDER_TYPE_BUY ou ORDER_TYPE_SELL)
+   symbol,          // nome do símbolo
+   volume,          // volume
+   price_open,      // preço de abertura
+   price_close      // preço de fechamento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+action
+[in]  Tipo de ordem, sendo que pode assumir um dos dois valores da enumeração ORDER_TYPE:
+ORDER_TYPE_BUY ou ORDER_TYPE_SELL. Parâmetro sem nome obrigatório.
+symbol
+[in]  Nome do instrumento financeiro. Parâmetro sem nome obrigatório.
+volume
+[in]  Volume da operação de negociação. Parâmetro sem nome obrigatório.
+price_open
+[in]  Preço de abertura. Parâmetro sem nome obrigatório.
+price_close
+[in]  Preço de fechamento. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Valor real em caso de execução bem-sucedida, caso contrário, None. Informações de erro podem ser
+obtidas usando last_error().
+<h3>Observação</h3>
+A função permite avaliar o resultado de uma operação de negociação na conta corrente e no
+ambiente de mercado atual. É semelhante a OrderCalcProfit.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao terminal MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3208
+</p>
+<pre><code class="language-mql5">
+    quit()
+</code></pre>
+<p>
+# obtemos a moeda da conta
+account_currency=mt5.account_info().currency
+print(&quot;Account currency:&quot;,account_currency)
+# fazemos uma lista de símbolos
+symbols = (&quot;EURUSD&quot;,&quot;GBPUSD&quot;,&quot;USDJPY&quot;)
+print(&quot;Symbols to check margin:&quot;, symbols)
+# avaliamos valores de lucro para compras e vendas
+lot=1.0
+distance=300
+</p>
+<pre><code class="language-mql5">
+for symbol in symbols:
+    symbol_info=mt5.symbol_info(symbol)
+    if symbol_info is None:
+        print(symbol,&quot;not found, skipped&quot;)
+        continue
+    if not symbol_info.visible:
+        print(symbol, &quot;is not visible, trying to switch on&quot;)
+        if not mt5.symbol_select(symbol,True):
+            print(&quot;symbol_select({}}) failed, skipped&quot;,symbol)
+            continue
+    point=mt5.symbol_info(symbol).point
+    symbol_tick=mt5.symbol_info_tick(symbol)
+    ask=symbol_tick.ask
+    bid=symbol_tick.bid
+    buy_profit=mt5.order_calc_profit(mt5.ORDER_TYPE_BUY,symbol,lot,ask,ask+distance*po
+    if buy_profit!=None:
+        print(&quot;   buy {} {} lot: profit on {} points =&gt; {} {}&quot;.format(symbol,lot,dista
+    else:
+        print(&quot;order_calc_profit(ORDER_TYPE_BUY) failed, error code =&quot;,mt5.last_error
+    sell_profit=mt5.order_calc_profit(mt5.ORDER_TYPE_SELL,symbol,lot,bid,bid-distance*
+    if sell_profit!=None:
+        print(&quot;   sell {} {} lots: profit on {} points =&gt; {} {}&quot;.format(symbol,lot,dis
+    else:
+        print(&quot;order_calc_profit(ORDER_TYPE_SELL) failed, error code =&quot;,mt5.last_error
+    print()
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Account currency: USD</h3>
+Symbols to check margin: (&#x27;EURUSD&#x27;, &#x27;GBPUSD&#x27;, &#x27;USDJPY&#x27;)
+</p>
+<pre><code class="language-mql5">
+   buy EURUSD 1.0 lot: profit on 300 points =&gt; 300.0 USD
+   sell EURUSD 1.0 lot: profit on 300 points =&gt; 300.0 USD
+   buy GBPUSD 1.0 lot: profit on 300 points =&gt; 300.0 USD
+   sell GBPUSD 1.0 lot: profit on 300 points =&gt; 300.0 USD</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3209
+</p>
+<pre><code class="language-mql5">
+   buy USDJPY 1.0 lot: profit on 300 points =&gt; 276.54 USD
+   sell USDJPY 1.0 lot: profit on 300 points =&gt; 278.09 USD
+</code></pre>
+<p>
+<h3>Veja também</h3>
+order_calc_margin, order_check</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3210
+order_check
+Verifica que há fundos suficientes para realizar a operação de negociação requerida. Os resultados da
+verificação são retornados como estruturas MqlTradeCheckResult.
+order_check(
+</p>
+<pre><code class="language-mql5">
+   request      // estrutura da solicitação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Estrutura do tipo MqlTradeRequest que descreve a ação de negociação requerida. Parâmetro
+sem nome obrigatório. Veja abaixo um exemplo de preenchimento de solicitação e a composição
+de enumerações.
+<h3>Valor retornado</h3>
+Resultado de verificação como estrutura MqlTradeCheckResult. O campo request na resposta contém
+a estrutura da solicitação de negociação transferida para order_check().
+<h3>Observação</h3>
+Uma verificação bem-sucedida não é um sinal de que a operação de negociação solicitada
+certamente seja executada com êxito. A função order_check é semelhante a OrderCheck.
+<h3>TRADE_REQUEST_ACTIONS</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>TRADE_ACTION_DEAL</h3>
+<h3>Definir</h3>
+uma 
+ordem 
+de 
+negociação 
+para 
+executar
+imediatamente 
+uma 
+transação 
+com 
+os 
+parâmetros
+especificados (colocar uma ordem a mercado)
+<h3>TRADE_ACTION_PENDING</h3>
+Definir uma ordem de negociação para executar uma
+transação nas condições especificados (colocar uma ordem
+pendente)
+<h3>TRADE_ACTION_SLTP</h3>
+Alterar os valores de Stop Loss e de Take Profit da posição
+aberta
+<h3>TRADE_ACTION_MODIFY</h3>
+Alterar os parâmetros de uma ordem de negociação colocada
+anteriormente
+<h3>TRADE_ACTION_REMOVE</h3>
+<h3>Excluir uma ordem pendente colocada anteriormente</h3>
+<h3>TRADE_ACTION_CLOSE_BY</h3>
+<h3>Fechar a posição oposta</h3>
+<h3>ORDER_TYPE_FILLING</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ORDER_FILLING_FOK</h3>
+Esta política de execução significa que a ordem pode ser
+executada 
+exclusivamente 
+com 
+base 
+no 
+volume
+especificado. Se, no mercado, nesse momento, não estiver
+presente um volume suficiente de instrumento financeiro, a</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3211
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+ordem não será executada. O volume necessário pode ser
+composto pelas variadas ofertas atualmente disponíveis no
+mercado.
+<h3>ORDER_FILLING_IOC</h3>
+Significa consentimento para concluir uma transação de
+acordo com o valor máximo disponível no mercado dentro
+dos 
+limites 
+especificados 
+na 
+ordem. 
+<h3>No</h3>
+caso 
+de
+impossibilidade de total execução, a ordem será executada
+no volume disponível, e o volume não disponível será
+cancelado.
+<h3>ORDER_FILLING_RETURN</h3>
+<h3>Este</h3>
+modo 
+é 
+usada 
+para 
+ordenes 
+a 
+mercado
+(ORDER_TYPE_BUY e  ORDER_TYPE_SELL), ordens limitadas
+e 
+ordens 
+stop 
+limit 
+(ORDER_TYPE_BUY_LIMIT,
+<h3>ORDER_TYPE_SELL_LIMIT, ORDER_TYPE_BUY_STOP_LIMIT e</h3>
+<h3>ORDER_TYPE_SELL_STOP_LIMIT) e apenas nos</h3>
+modos
+&quot;Execução a mercado&quot; e &quot;Execução de bolsa&quot;. No caso de
+uma execução parcial, a ordem de mercado ou limit com um
+volume residual não é retirada e continua a vigorar.
+<h3>Durante</h3>
+a 
+ativação 
+das 
+ordens
+<h3>ORDER_TYPE_BUY_STOP_LIMIT</h3>
+e
+<h3>ORDER_TYPE_SELL_STOP_LIMIT, será criado a ordem limite</h3>
+correspondente
+<h3>ORDER_TYPE_BUY_LIMIT/ORDER_TYPE_SELL_LIMIT</h3>
+com
+execução ORDER_FILLING_RETURN.
+<h3>ORDER_TYPE_TIME</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>ORDER_TIME_GTC</h3>
+A ordem permanecerá na fila até ser retirada
+<h3>ORDER_TIME_DAY</h3>
+A ordem será válida apenas durante o dia de negociação
+atual
+<h3>ORDER_TIME_SPECIFIED</h3>
+A ordem será válida até a data de vencimento
+<h3>ORDER_TIME_SPECIFIED_DAY</h3>
+A ordem será válida até 23:59:59 do dia especificado. Se
+essa hora não coincidir com a sessão de trading, o
+vencimento acontecerá ao iniciar a próxima negociação.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao terminal MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3212
+</p>
+<pre><code class="language-mql5">
+    quit()
+</code></pre>
+<p>
+# obtemos a moeda da conta
+account_currency=mt5.account_info().currency
+print(&quot;Account currency:&quot;,account_currency)
+# preparamos a estrutura da solicitação
+symbol=&quot;USDJPY&quot;
+symbol_info = mt5.symbol_info(symbol)
+</p>
+<pre><code class="language-mql5">
+if symbol_info is None:
+    print(symbol, &quot;not found, can not call order_check()&quot;)
+    mt5.shutdown()
+    quit()
+</code></pre>
+<p>
+# se o símbolo não estiver disponível no MarketWatch, adicionamo-lo
+</p>
+<pre><code class="language-mql5">
+if not symbol_info.visible:
+    print(symbol, &quot;is not visible, trying to switch on&quot;)
+    if not mt5.symbol_select(symbol,True):
+        print(&quot;symbol_select({}}) failed, exit&quot;,symbol)
+        mt5.shutdown()
+        quit()
+</code></pre>
+<p>
+# preparamos a solicitação
+point=mt5.symbol_info(symbol).point
+request = {
+</p>
+<pre><code class="language-mql5">
+    &quot;action&quot;: mt5.TRADE_ACTION_DEAL,
+    &quot;symbol&quot;: symbol,
+    &quot;volume&quot;: 1.0,
+    &quot;type&quot;: mt5.ORDER_TYPE_BUY,
+    &quot;price&quot;: mt5.symbol_info_tick(symbol).ask,
+    &quot;sl&quot;: mt5.symbol_info_tick(symbol).ask-100*point,
+    &quot;tp&quot;: mt5.symbol_info_tick(symbol).ask+100*point,
+    &quot;deviation&quot;: 10,
+    &quot;magic&quot;: 234000,
+    &quot;comment&quot;: &quot;python script&quot;,
+    &quot;type_time&quot;: mt5.ORDER_TIME_GTC,
+    &quot;type_filling&quot;: mt5.ORDER_FILLING_RETURN,
+}
+</code></pre>
+<p>
+# verificamos e exibimos o resultado como está
+result = mt5.order_check(request)
+print(result);
+# solicitamos o resultado na forma de um dicionário e exibimos elemento por elemento
+result_dict=result._asdict()
+</p>
+<pre><code class="language-mql5">
+for field in result_dict.keys():
+    print(&quot;   {}={}&quot;.format(field,result_dict[field]))
+    # se esta for uma estrutura de uma solicitação de negociação, também a exibiremos 
+    if field==&quot;request&quot;:
+        traderequest_dict=result_dict[field]._asdict()
+        for tradereq_filed in traderequest_dict:
+            print(&quot;       traderequest: {}={}&quot;.format(tradereq_filed,traderequest_dict</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3213
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+<h3>Account currency: USD</h3>
+</p>
+<pre><code class="language-mql5">
+   retcode=0
+   balance=101300.53
+   equity=68319.53
+   profit=-32981.0
+   margin=51193.67
+   margin_free=17125.86
+   margin_level=133.45308121101692
+   comment=Done
+   request=TradeRequest(action=1, magic=234000, order=0, symbol=&#x27;USDJPY&#x27;, volume=1.0, 
+       traderequest: action=1
+       traderequest: magic=234000
+       traderequest: order=0
+       traderequest: symbol=USDJPY
+       traderequest: volume=1.0
+       traderequest: price=108.081
+       traderequest: stoplimit=0.0
+       traderequest: sl=107.98100000000001
+       traderequest: tp=108.181
+       traderequest: deviation=10
+       traderequest: type=0
+       traderequest: type_filling=2
+       traderequest: type_time=0
+       traderequest: expiration=0
+       traderequest: comment=python script
+       traderequest: position=0
+       traderequest: position_by=0
+</code></pre>
+<p>
+<h3>Veja também</h3>
+order_send, OrderCheck, Tipos de operações de negociação, Estrutura da solicitação de negociação,
+Estrutura dos resultados de verificação da solicitação de negociação, Estrutura do resultado da
+solicitação de negociação</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3214
+order_send
+Envia do terminal para o servidor de negociação uma solicitação para concluir uma operação de
+negociação. A função é semelhante a OrderSend.
+order_send(
+</p>
+<pre><code class="language-mql5">
+   request      // estrutura da solicitação
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Estrutura do tipo MqlTradeRequest que descreve a ação de negociação requerida. Parâmetro
+sem nome obrigatório. Veja abaixo um exemplo de preenchimento de solicitação e a composição
+de enumerações.
+<h3>Valor retornado</h3>
+Resultado da execução como uma estrutura MqlTradeResult. O campo request na resposta contém a
+estrutura da solicitação de negociação transferida para order_send(). Em caso de erro, retorna
+None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Estrutura da solicitação de negociação MqlTradeRequest</h3>
+<h3>Campo</h3>
+<h3>Descrição</h3>
+action
+Tipo de operação de negociação. O valor pode ser um dos valores da enumeração
+<h3>TRADE_REQUEST_ACTIONS</h3>
+magic
+ID do EA. Permite realizar o processamento analítico de ordens de negociação.
+Cada EA pode definir seu próprio identificador exclusivo ao enviar uma solicitação
+de negociação.
+order
+Bilhete da ordem. Necessário para modificar ordens pendentes
+symbol
+Nome do instrumento de negociação para o qual é colocada a ordem. Não é
+necessário para operações de modificação de ordens e fechamento de posições
+volume
+Volume de transação solicitado em lotes. O valor real do volume ao abrir uma
+transação dependerá do tipo de ordem segundo execução.
+price
+O preço que, ao ser atingido, executa uma ordem pendente. Para ordens a
+mercado 
+de 
+instrumentos 
+com 
+o 
+tipo 
+de 
+execução&quot;Market
+<h3>Execution&quot;</h3>
+(SYMBOL_TRADE_EXECUTION_MARKET), 
+que 
+têm 
+o 
+tipo
+TRADE_ACTION_DEAL, não é necessária nenhuma indicação do preço
+stoplimit
+Preço segundo o qual será colocada a ordem pendente Limit quando o preço
+atingir o valor price (esta condição é obrigatória). Até este momento, a ordem
+pendente não é exibida no sistema de negociação.
+sl
+Preço segundo o qual será colocada a ordem Stop Loss quando o preço se mover
+numa direção desfavorável
+tp
+Preço segundo o qual será colocada a ordem Take Profit quando o preço se mover
+numa direção favorável</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3215
+<h3>Campo</h3>
+<h3>Descrição</h3>
+deviation
+Desvio máximo aceitável em relação ao preço solicitado, definido em pontos
+type
+Tipo de ordem. O valor pode ser um dos valores da enumeração ORDER_TYPE
+type_filling
+Tipo de ordem segundo sua execução. O valor pode ser um dos valores da
+enumeração ORDER_TYPE_FILLING
+type_time
+Tipo de pedido segundo expiração. O valor pode ser um dos valores da
+enumeração ORDER_TYPE_TIME
+expiration
+Prazo de validade da ordem (para ordens do tipo TIME_SPECIFIED)
+comment
+<h3>Comentário da ordem</h3>
+position
+Bilhete da posição. Deve ser preenchido ao alterar e fechar a posição para a sua
+identificação inequívoca. Normalmente, corresponde ao bilhete de ordem, do
+qual, como resultado, a posição foi aberta.
+position_by
+Bilhete da posição oposta. Utiliza-se ao fechar uma posição usando outra oposta,
+se estiver aberta no mesmo instrumento, mas na direção oposta.
+<h3>Observação</h3>
+Uma solicitação de negociação passa por vários estágios de verificação no servidor de negociação.
+Primeiro, verifica-se que o preenchimento de todos os campos obrigatórios da solicitação request
+está correto e, se não houver erros, o servidor aceitará a ordem para continuar a processá-la. Para
+obter informações completas sobre a execução de operações de negociação, consulte a descrição da
+função OrderSend.
+<h3>Exemplo:</h3>
+import time
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;, mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;, mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# preparamos a estrutura de solicitação para compra
+symbol = &quot;USDJPY&quot;
+symbol_info = mt5.symbol_info(symbol)
+</p>
+<pre><code class="language-mql5">
+if symbol_info is None:
+    print(symbol, &quot;not found, can not call order_check()&quot;)
+    mt5.shutdown()
+    quit()</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3216
+# se o símbolo não estiver disponível no MarketWatch, adicionamo-lo
+</p>
+<pre><code class="language-mql5">
+if not symbol_info.visible:
+    print(symbol, &quot;is not visible, trying to switch on&quot;)
+    if not mt5.symbol_select(symbol,True):
+        print(&quot;symbol_select({}}) failed, exit&quot;,symbol)
+        mt5.shutdown()
+        quit()
+</code></pre>
+<p>
+lot = 0.1
+point = mt5.symbol_info(symbol).point
+price = mt5.symbol_info_tick(symbol).ask
+deviation = 20
+request = {
+</p>
+<pre><code class="language-mql5">
+    &quot;action&quot;: mt5.TRADE_ACTION_DEAL,
+    &quot;symbol&quot;: symbol,
+    &quot;volume&quot;: lot,
+    &quot;type&quot;: mt5.ORDER_TYPE_BUY,
+    &quot;price&quot;: price,
+    &quot;sl&quot;: price - 100 * point,
+    &quot;tp&quot;: price + 100 * point,
+    &quot;deviation&quot;: deviation,
+    &quot;magic&quot;: 234000,
+    &quot;comment&quot;: &quot;python script open&quot;,
+    &quot;type_time&quot;: mt5.ORDER_TIME_GTC,
+    &quot;type_filling&quot;: mt5.ORDER_FILLING_RETURN,
+}
+</code></pre>
+<p>
+# enviamos a solicitação de negociação
+result = mt5.order_send(request)
+# verificamos o resultado da execução
+print(&quot;1. order_send(): by {} {} lots at {} with deviation={} points&quot;.format(symbol,lo
+</p>
+<pre><code class="language-mql5">
+if result.retcode != mt5.TRADE_RETCODE_DONE:
+    print(&quot;2. order_send failed, retcode={}&quot;.format(result.retcode))
+   # solicitamos o resultado na forma de dicionário e exibimos elemento por elemento
+    result_dict=result._asdict()
+    for field in result_dict.keys():
+        print(&quot;   {}={}&quot;.format(field,result_dict[field]))
+        #se esta for uma estrutura de uma solicitação de negociação, também a exibirem
+        if field==&quot;request&quot;:
+            traderequest_dict=result_dict[field]._asdict()
+            for tradereq_filed in traderequest_dict:
+                print(&quot;       traderequest: {}={}&quot;.format(tradereq_filed,traderequest_
+    print(&quot;shutdown() and quit&quot;)
+    mt5.shutdown()
+    quit()
+</code></pre>
+<p>
+print(&quot;2. order_send done, &quot;, result)
+print(&quot;   opened position with POSITION_TICKET={}&quot;.format(result.order))
+print(&quot;   sleep 2 seconds before closing position #{}&quot;.format(result.order))</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3217
+time.sleep(2)
+# criamos uma solicitação de fechamento
+position_id=result.order
+price=mt5.symbol_info_tick(symbol).bid
+deviation=20
+request={
+</p>
+<pre><code class="language-mql5">
+    &quot;action&quot;: mt5.TRADE_ACTION_DEAL,
+    &quot;symbol&quot;: symbol,
+    &quot;volume&quot;: lot,
+    &quot;type&quot;: mt5.ORDER_TYPE_SELL,
+    &quot;position&quot;: position_id,
+    &quot;price&quot;: price,
+    &quot;deviation&quot;: deviation,
+    &quot;magic&quot;: 234000,
+    &quot;comment&quot;: &quot;python script close&quot;,
+    &quot;type_time&quot;: mt5.ORDER_TIME_GTC,
+    &quot;type_filling&quot;: mt5.ORDER_FILLING_RETURN,
+}
+</code></pre>
+<p>
+# enviamos a solicitação de negociação
+result=mt5.order_send(request)
+# verificamos o resultado da execução
+print(&quot;3. close position #{}: sell {} {} lots at {} with deviation={} points&quot;.format(p
+</p>
+<pre><code class="language-mql5">
+if result.retcode != mt5.TRADE_RETCODE_DONE:
+    print(&quot;4. order_send failed, retcode={}&quot;.format(result.retcode))
+    print(&quot;   result&quot;,result)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;4. position #{} closed, {}&quot;.format(position_id,result))
+   # solicitamos o resultado na forma de dicionário e exibimos elemento por elemento
+    result_dict=result._asdict()
+    for field in result_dict.keys():
+        print(&quot;   {}={}&quot;.format(field,result_dict[field]))
+        #se esta for uma estrutura de uma solicitação de negociação, também a exibirem
+        if field==&quot;request&quot;:
+            traderequest_dict=result_dict[field]._asdict()
+            for tradereq_filed in traderequest_dict:
+                print(&quot;       traderequest: {}={}&quot;.format(tradereq_filed,traderequest_
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+1. order_send(): by USDJPY 0.1 lots at 108.023 with deviation=20 points
+2. order_send done,  OrderSendResult(retcode=10009, deal=535084512, order=557416535, v
+</p>
+<pre><code class="language-mql5">
+   opened position with POSITION_TICKET=557416535
+   sleep 2 seconds before closing position #557416535
+</code></pre>
+<p>
+3. close position #557416535: sell USDJPY 0.1 lots at 108.018 with deviation=20 points
+4. position #557416535 closed, OrderSendResult(retcode=10009, deal=535084631, order=55</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3218
+</p>
+<pre><code class="language-mql5">
+   retcode=10009
+   deal=535084631
+   order=557416654
+   volume=0.1
+   price=108.015
+   bid=108.015
+   ask=108.02
+   comment=Request executed
+   request_id=55
+   retcode_external=0
+   request=TradeRequest(action=1, magic=234000, order=0, symbol=&#x27;USDJPY&#x27;, volume=0.1, 
+       traderequest: action=1
+       traderequest: magic=234000
+       traderequest: order=0
+       traderequest: symbol=USDJPY
+       traderequest: volume=0.1
+       traderequest: price=108.018
+       traderequest: stoplimit=0.0
+       traderequest: sl=0.0
+       traderequest: tp=0.0
+       traderequest: deviation=20
+       traderequest: type=1
+       traderequest: type_filling=2
+       traderequest: type_time=0
+       traderequest: expiration=0
+       traderequest: comment=python script close
+       traderequest: position=557416535
+       traderequest: position_by=0
+</code></pre>
+<p>
+<h3>Veja também</h3>
+order_check, OrderSend, Tipos de operações de negociação, Estrutura da solicitação de negociação,
+Estrutura dos resultados de verificação da solicitação de negociação, Estrutura do resultado da
+solicitação de negociação</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3219
+positions_total
+Obtém o número de posições abertas.
+positions_total()
+<h3>Valor retornado</h3>
+Valor inteiro.
+<h3>Observação</h3>
+A função é semelhante a PositionsTotal.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# verificamos a presença de posições abertas
+positions_total=mt5.positions_total()
+</p>
+<pre><code class="language-mql5">
+if positions_total&gt;0:
+    print(&quot;Total positions=&quot;,positions_total)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Positions not found&quot;)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Veja também</h3>
+positions_get, orders_total</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3220
+positions_get
+Obtém posições abertas com a capacidade de filtrar por símbolo ou ticket. Existem 3 variantes de
+chamada.
+Chamada sem parâmetros. Retorna posições abertas de todos os símbolos.
+positions_get()
+Uma chamada indicando o símbolo para o qual é necessário receber posições abertas.
+positions_get(
+</p>
+<pre><code class="language-mql5">
+   symbol=&quot;SYMBOL&quot;      // nome do símbolo
+</code></pre>
+<p>
+)
+Uma chamada indicando o grupo de símbolos para os quais é necessário receber posições abertas.
+positions_get(
+</p>
+<pre><code class="language-mql5">
+   group=&quot;GROUP&quot;        // filtro para selecionar posições por símbolos
+</code></pre>
+<p>
+)
+Uma chamada indicando o bilhete da posição.
+positions_get(
+</p>
+<pre><code class="language-mql5">
+   ticket=TICKET        // bilhete
+</code></pre>
+<p>
+)
+<h3>Parâmetros</h3>
+symbol=&quot;SYMBOL&quot;
+[in]  Nome do símbolo. Parâmetro nomeado opcional. Se o símbolo for especificado, o parâmetro
+ticket será ignorado.
+group=&quot;GROUP&quot;
+[in]  Filtro para selecionar apenas o grupo de símbolos necessários. Parâmetro nomeado opcional.
+Se um grupo for especificado, a função retornará apenas as posições que satisfazem os critérios
+especificados para o nome do símbolo.
+ticket=TICKET 
+[in]  Bilhete da posição (POSITION_TICKET). Parâmetro nomeado opcional.
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função permite de uma chamada obter todas as posições abertas, a ligação PositionsTotal e
+PositionSelect é um análogo.
+O parâmetro group pode conter várias condições, separadas por vírgulas. A condição pode ser
+especificada como uma máscara usando &#x27;*&#x27;. Para exclusões, pode-se usar o símbolo de negação
+lógica &#x27;!&#x27;. Neste caso, todas as condições são aplicadas sequencialmente, ou seja, primeiro deve-se
+especificar as condições para inclusão no grupo e, em seguida, a condição de exclusão. Por</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3221
+exemplo, group=&quot;*, !EUR&quot; significa que primeiro é necessário selecionar as posições de todos os
+símbolos e, em seguida, excluir as que contêm o símbolo &quot;EUR&quot; no nome.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas mostradas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # max. largura máxima da tabela exibida
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+print()
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos as posições abertas com base no USDCHF
+positions=mt5.positions_get(symbol=&quot;USDCHF&quot;)
+</p>
+<pre><code class="language-mql5">
+if positions==None:
+    print(&quot;No positions on USDCHF, error code={}&quot;.format(mt5.last_error()))
+</code></pre>
+<p>
+elif len(positions)&gt;0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Total positions on USDCHF =&quot;,len(positions))
+    # imprimimos todas as posições abertas
+    for position in positions:
+        print(position)
+</code></pre>
+<p>
+# obtemos uma lista de posições com base em símbolos cujos nomes contenham &quot;*USD*&quot;
+usd_positions=mt5.positions_get(group=&quot;*USD*&quot;)
+</p>
+<pre><code class="language-mql5">
+if usd_positions==None:
+    print(&quot;No positions with group=\&quot;*USD*\&quot;, error code={}&quot;.format(mt5.last_error()))
+</code></pre>
+<p>
+elif len(usd_positions)&gt;0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;positions_get(group=\&quot;*USD*\&quot;)={}&quot;.format(len(usd_positions)))
+    # exibimos essas posições como uma tabela usando pandas.DataFrame
+    df=pd.DataFrame(list(usd_positions),columns=usd_positions[0]._asdict().keys())
+    df[&#x27;time&#x27;] = pd.to_datetime(df[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+    df.drop([&#x27;time_update&#x27;, &#x27;time_msc&#x27;, &#x27;time_update_msc&#x27;, &#x27;external_id&#x27;], axis=1, inp
+    print(df)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+positions_get(group=&quot;*USD*&quot;)=5</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3222
+</p>
+<pre><code class="language-mql5">
+      ticket                time  type  magic  identifier  reason  volume  price_open 
+</code></pre>
+<p>
+0  548297723 2020-03-18 15:00:55     1      0   548297723       3    0.01     1.09301 
+1  548655158 2020-03-18 20:31:26     0      0   548655158       3    0.01     1.08676 
+2  548663803 2020-03-18 20:40:04     0      0   548663803       3    0.01     1.08640 
+3  548847168 2020-03-19 01:10:05     0      0   548847168       3    0.01     1.09545 
+4  548847194 2020-03-19 01:10:07     0      0   548847194       3    0.02     1.09536 
+<h3>Veja também</h3>
+positions_total, orders_get</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3223
+history_orders_total
+Obtém o número de ordens no histórico de negociação no intervalo especificado.
+history_orders_total(
+</p>
+<pre><code class="language-mql5">
+   date_from,    // data a partir da qual são solicitadas as ordens
+   date_to       // data segundo a qual são solicitadas as ordens
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+date_from
+[in]  Data a partir da qual são solicitadas as ordens. É definido pelo objeto datetime ou pelo
+número de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+date_to
+[in]  Data segundo a qual são solicitadas as ordens É definido pelo objeto datetime ou pelo número
+de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Valor inteiro.
+<h3>Observação</h3>
+A função é semelhante a HistoryOrdersTotal.
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos o número de ordens no histórico
+from_date=datetime(2020,1,1)
+to_date=datetime.now()
+history_orders=mt5.history_orders_total(from_date, datetime.now())
+</p>
+<pre><code class="language-mql5">
+if history_orders&gt;0:
+    print(&quot;Total history orders=&quot;,history_orders)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Orders not found in history&quot;)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3224
+<h3>Veja também</h3>
+history_orders_get, history_deals_total</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3225
+history_orders_get
+Obtém ordens do histórico de negociação com a capacidade de filtrar por bilhete ou posição. Existem 3
+variantes de chamada.
+Uma chamada indicando o intervalo de tempo. Retorna todas as ordens dentro do intervalo
+especificado.
+history_orders_get(
+</p>
+<pre><code class="language-mql5">
+   date_from,           // data a partir da qual são solicitadas as ordens
+   date_to,             // data segundo a qual são solicitados os ticks
+   group=&quot;GROUP&quot;        // filtro para selecionar ordens por símbolos
+   )
+</code></pre>
+<p>
+Uma chamada indicando o bilhete da ordem. Retorna a ordem com o bilhete especificado.
+history_orders_get(
+</p>
+<pre><code class="language-mql5">
+   ticket=TICKET        // bilhete da ordem
+</code></pre>
+<p>
+)
+Uma chamada indicando o bilhete da posição. Retorna todas as posições com a propriedade
+ORDER_POSITION_ID, com o bilhete da posição especificado.
+history_orders_get(
+</p>
+<pre><code class="language-mql5">
+   position=POSITION    // bilhete da posição
+</code></pre>
+<p>
+)
+<h3>Parâmetros</h3>
+date_from
+[in]  Data a partir da qual são solicitadas as ordens. É definido pelo objeto datetime ou pelo
+número de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório,
+especificado primeiro.
+date_to
+[in]  Data segundo a qual são solicitadas as ordens É definido pelo objeto datetime ou pelo número
+de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório, especificado em
+segundo lugar.
+group=&quot;GROUP&quot;
+[in]  Filtro para selecionar apenas o grupo de símbolos necessários. Parâmetro nomeado opcional.
+Se um grupo for especificado, a função retornará apenas as ordens do histórico que satisfazem os
+critérios especificados para o nome do símbolo.
+ticket=TICKET
+[in]  Bilhete da ordem deve ser recebido. Parâmetro opcional. Se não for especificado o bilhete da
+ordem, não será aplicado o filtro.
+position=POSITION
+[in]  Bilhete da posição (é armazenado em ORDER_POSITION_ID), para o qual é necessário obter
+todas as ordens. Parâmetro opcional. Se não for especificado o bilhete da posição, não será
+aplicado o filtro.
+<h3>Valor retornado</h3></p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3226
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função permite de uma chamada receber todas as ordens ativas, a ligação HistoryOrdersTotal e
+HistoryOrderSelect é um análogo.
+O parâmetro group pode conter várias condições, separadas por vírgulas. A condição pode ser
+especificada como uma máscara usando &#x27;*&#x27;. Para exclusões, pode-se usar o símbolo de negação
+lógica &#x27;!&#x27;. Neste caso, todas as condições são aplicadas sequencialmente, ou seja, primeiro deve-se
+especificar as condições para inclusão no grupo e, em seguida, a condição de exclusão. Por
+exemplo, group=&quot;*, !EUR&quot; significa que primeiro é necessário selecionar as transações de todos os
+símbolos e, em seguida, excluir as que contêm o símbolo &quot;EUR&quot; no nome.
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas mostradas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # max. largura máxima da tabela exibida
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+print()
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos o número de ordens no histórico
+from_date=datetime(2020,1,1)
+to_date=datetime.now()
+history_orders=mt5.history_orders_get(from_date, to_date, group=&quot;*GBP*&quot;)
+</p>
+<pre><code class="language-mql5">
+if history_orders==None:
+    print(&quot;No history orders with group=\&quot;*GBP*\&quot;, error code={}&quot;.format(mt5.last_erro
+</code></pre>
+<p>
+elif len(history_orders)&gt;0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;history_orders_get({}, {}, group=\&quot;*GBP*\&quot;)={}&quot;.format(from_date,to_date,le
+</code></pre>
+<p>
+print()
+# exibimos todas as ordens históricas segundo o bilhete da posição
+position_id=530218319
+position_history_orders=mt5.history_orders_get(position=position_id)
+</p>
+<pre><code class="language-mql5">
+if position_history_orders==None:
+    print(&quot;No orders with position #{}&quot;.format(position_id))
+    print(&quot;error code =&quot;,mt5.last_error())
+</code></pre>
+<p>
+elif len(position_history_orders)&gt;0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Total history orders on position #{}: {}&quot;.format(position_id,len(position_h
+   # exibimos todas as ordens históricas que possuem o bilhete da posição especificado
+    for position_order in position_history_orders:        </p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3227
+</p>
+<pre><code class="language-mql5">
+        print(position_order)
+    print()
+    # exibimos essas posições como uma tabela usando pandas.DataFrame
+    df=pd.DataFrame(list(position_history_orders),columns=position_history_orders[0]._
+    df.drop([&#x27;time_expiration&#x27;,&#x27;type_time&#x27;,&#x27;state&#x27;,&#x27;position_by_id&#x27;,&#x27;reason&#x27;,&#x27;volume_c
+    df[&#x27;time_setup&#x27;] = pd.to_datetime(df[&#x27;time_setup&#x27;], unit=&#x27;s&#x27;)
+    df[&#x27;time_done&#x27;] = pd.to_datetime(df[&#x27;time_done&#x27;], unit=&#x27;s&#x27;)
+    print(df)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+history_orders_get(2020-01-01 00:00:00, 2020-03-25 17:17:32.058795, group=&quot;*GBP*&quot;)=14
+Total history orders on position #530218319: 2
+TradeOrder(ticket=530218319, time_setup=1582282114, time_setup_msc=1582282114681, time
+TradeOrder(ticket=535548147, time_setup=1583176242, time_setup_msc=1583176242265, time
+</p>
+<pre><code class="language-mql5">
+      ticket          time_setup  time_setup_msc           time_done  time_done_msc  t
+</code></pre>
+<p>
+0  530218319 2020-02-21 10:48:34   1582282114681 2020-02-21 16:49:37  1582303777582   
+1  535548147 2020-03-02 19:10:42   1583176242265 2020-03-02 19:10:42  1583176242265   
+<h3>Veja também</h3>
+history_deals_total, history_deals_get</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3228
+history_deals_total
+Obtém o número de transações no histórico de negociação no intervalo especificado.
+history_deals_total(
+</p>
+<pre><code class="language-mql5">
+   date_from,      // data a partir da qual são solicitadas as transações
+   date_to         // data segundo a qual são solicitadas as transações
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+date_from
+[in]  Data a partir da qual são solicitadas as transações. É definido pelo objeto datetime ou pelo
+número de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+date_to
+[in]  Data segundo a qual são solicitadas as transações. É definido pelo objeto datetime ou pelo
+número de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório.
+<h3>Valor retornado</h3>
+Valor inteiro.
+<h3>Observação</h3>
+A função é semelhante a HistoryDealsTotal.
+<h3>Exemplo:</h3>
+from datetime import datetime
+import MetaTrader5 as mt5
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos o número de transações no histórico
+from_date=datetime(2020,1,1)
+to_date=datetime.now()
+deals=mt5.history_deals_total(from_date, to_date)
+</p>
+<pre><code class="language-mql5">
+if deals&gt;0:
+    print(&quot;Total deals=&quot;,deals)
+</code></pre>
+<p>
+else:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Deals not found in history&quot;)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3229
+<h3>Veja também</h3>
+history_deals_get, history_orders_total</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3230
+history_deals_get
+Obtém transações do histórico de negociação no intervalo especificado, com a capacidade de filtrar
+por bilhete ou posição.
+Uma chamada indicando o intervalo de tempo. Retorna todas as transações dentro do intervalo
+especificado.
+history_deals_get(
+</p>
+<pre><code class="language-mql5">
+   date_from,           // data a partir da qual são solicitadas as transações
+   date_to,             // data segundo a qual são solicitadas as transações
+   group=&quot;GROUP&quot;        // filtro para selecionar ordens por símbolos
+   )
+</code></pre>
+<p>
+Uma chamada indicando o bilhete da ordem. Retorna todas as transações que possuem o bilhete de
+ordem especificado na propriedade DEAL_ORDER.
+history_deals_get(
+</p>
+<pre><code class="language-mql5">
+   ticket=TICKET        // bilhete da ordem
+</code></pre>
+<p>
+)
+Uma chamada indicando o bilhete da posição. Retorna todas as transações que possuem o bilhete de
+posição especificado na DEAL_POSITION_ID.
+history_deals_get(
+</p>
+<pre><code class="language-mql5">
+   position=POSITION    // bilhete da posição
+</code></pre>
+<p>
+)
+<h3>Parâmetros</h3>
+date_from
+[in]  Data a partir da qual são solicitadas as ordens. É definido pelo objeto datetime ou pelo
+número de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório,
+especificado primeiro.
+date_to
+[in]  Data segundo a qual são solicitadas as ordens É definido pelo objeto datetime ou pelo número
+de segundos que passaram desde 1970.01.01. Parâmetro sem nome obrigatório, especificado em
+segundo lugar.
+group=&quot;GROUP&quot;
+[in]  Filtro para selecionar apenas o grupo de símbolos necessários. Parâmetro nomeado opcional.
+Se um grupo for especificado, a função retornará apenas as transações que satisfazem os critérios
+especificados para o nome do símbolo.
+ticket=TICKET
+[in]  Bilhete da ordem (é armazenado em DEAL_ORDER), para o qual é necessário obter todas as
+transações. Parâmetro opcional. Se não for especificado o bilhete da ordem, não será aplicado o
+filtro.
+position=POSITION
+[in]  Bilhete da posição (é armazenado em DEAL_POSITION_ID), para o qual é necessário obter
+todas as ordens. Parâmetro opcional. Se não for especificado o bilhete da posição, não será
+aplicado o filtro.</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3231
+<h3>Valor retornado</h3>
+Retorna informações na forma de uma estrutura de tuplas nomeadas (namedtuple). Em caso de
+erro, retorna None, enquanto informações sobre o erro podem ser obtidas usando last_error().
+<h3>Observação</h3>
+A função permite de uma chamada receber todas as transações do histórico para o período
+especificado, a ligação HistoryOrdersTotal e HistoryOrderSelect é um análogo.
+O parâmetro group permite filtrar transações por símbolos, é permitido usar &#x27;*&#x27; no início e no final
+da linha.
+O parâmetro group pode conter várias condições, separadas por vírgulas. A condição pode ser
+especificada como uma máscara usando &#x27;*&#x27;. Para exclusões, pode-se usar o símbolo de negação
+lógica &#x27;!&#x27;. Neste caso, todas as condições são aplicadas sequencialmente, ou seja, primeiro deve-se
+especificar as condições para inclusão no grupo e, em seguida, a condição de exclusão. Por
+exemplo, group=&quot;*, !EUR&quot; significa que primeiro é necessário selecionar as transações de todos os
+símbolos e, em seguida, excluir as que contêm o símbolo &quot;EUR&quot; no nome.
+<h3>Exemplo:</h3>
+import MetaTrader5 as mt5
+from datetime import datetime
+import pandas as pd
+pd.set_option(&#x27;display.max_columns&#x27;, 500) # número de colunas mostradas
+pd.set_option(&#x27;display.width&#x27;, 1500)      # max. largura máxima da tabela exibida
+# exibimos dados sobre o pacote MetaTrader5
+print(&quot;MetaTrader5 package author: &quot;,mt5.__author__)
+print(&quot;MetaTrader5 package version: &quot;,mt5.__version__)
+print()
+# estabelecemos a conexão ao MetaTrader 5
+</p>
+<pre><code class="language-mql5">
+if not mt5.initialize():
+    print(&quot;initialize() failed, error code =&quot;,mt5.last_error())
+    quit()
+</code></pre>
+<p>
+# obtemos o número de transações no histórico
+from_date=datetime(2020,1,1)
+to_date=datetime.now()
+# obtemos no intervalo especificado as transações com base em símbolos cujos nomes con
+deals=mt5.history_deals_get(from_date, to_date, group=&quot;*GBP*&quot;)
+</p>
+<pre><code class="language-mql5">
+if deals==None:
+    print(&quot;No deals with group=\&quot;*USD*\&quot;, error code={}&quot;.format(mt5.last_error()))
+</code></pre>
+<p>
+elif len(deals)&gt; 0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;history_deals_get({}, {}, group=\&quot;*GBP*\&quot;)={}&quot;.format(from_date,to_date,len
+</code></pre>
+<p>
+# obtemos transações cujos símbolos não contêm &quot;EUR&quot; nem &quot;GBP&quot;
+deals = mt5.history_deals_get(from_date, to_date, group=&quot;*,!*EUR*,!*GBP*&quot;)
+</p>
+<pre><code class="language-mql5">
+if deals == None:
+    print(&quot;No deals, error code={}&quot;.format(mt5.last_error()))
+</code></pre>
+<p>
+elif len(deals) &gt; 0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;history_deals_get(from_date, to_date, group=\&quot;*,!*EUR*,!*GBP*\&quot;) =&quot;, len(de</p>
+<p></code></pre>
+<p>
+<h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3232
+</p>
+<pre><code class="language-mql5">
+    # exibimos todas as transações recebidos como estão
+    for deal in deals:
+        print(&quot;  &quot;,deal)
+    print()
+    # exibimos essas transações como uma tabela usando pandas.DataFrame
+    df=pd.DataFrame(list(deals),columns=deals[0]._asdict().keys())
+    df[&#x27;time&#x27;] = pd.to_datetime(df[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+    print(df)
+</code></pre>
+<p>
+print(&quot;&quot;)
+# obtemos todas as transações que pertencem à posição #530218319
+position_id=530218319
+position_deals = mt5.history_deals_get(position=position_id)
+</p>
+<pre><code class="language-mql5">
+if position_deals == None:
+    print(&quot;No deals with position #{}&quot;.format(position_id))
+    print(&quot;error code =&quot;, mt5.last_error())
+</code></pre>
+<p>
+elif len(position_deals) &gt; 0:
+</p>
+<pre><code class="language-mql5">
+    print(&quot;Deals with position id #{}: {}&quot;.format(position_id, len(position_deals)))
+    # exibimos essas transações como uma tabela usando pandas.DataFrame
+    df=pd.DataFrame(list(position_deals),columns=position_deals[0]._asdict().keys())
+    df[&#x27;time&#x27;] = pd.to_datetime(df[&#x27;time&#x27;], unit=&#x27;s&#x27;)
+    print(df)
+</code></pre>
+<p>
+# concluímos a conexão ao terminal MetaTrader 5
+mt5.shutdown()
+<h3>Resultado:</h3>
+MetaTrader5 package author:  MetaQuotes Software Corp.
+<h3>MetaTrader5 package version:  5.0.29</h3>
+history_deals_get(from_date, to_date, group=&quot;*GBP*&quot;) = 14
+history_deals_get(from_date, to_date, group=&quot;*,!*EUR*,!*GBP*&quot;) = 7
+</p>
+<pre><code class="language-mql5">
+   TradeDeal(ticket=506966741, order=0, time=1582202125, time_msc=1582202125419, type=
+   TradeDeal(ticket=507962919, order=530218319, time=1582303777, time_msc=158230377758
+   TradeDeal(ticket=513149059, order=535548147, time=1583176242, time_msc=158317624226
+   TradeDeal(ticket=516943494, order=539349382, time=1583510003, time_msc=158351000389
+   TradeDeal(ticket=516943915, order=539349802, time=1583510025, time_msc=158351002505
+   TradeDeal(ticket=517139682, order=539557870, time=1583520201, time_msc=158352020122
+   TradeDeal(ticket=517139716, order=539557909, time=1583520202, time_msc=158352020297
+      ticket      order                time       time_msc  type  entry  magic  positi
+</code></pre>
+<p>
+0  506966741          0 2020-02-20 12:35:25  1582202125419     2      0      0        
+1  507962919  530218319 2020-02-21 16:49:37  1582303777582     0      0      0    5302
+2  513149059  535548147 2020-03-02 19:10:42  1583176242265     1      1      0    5302
+3  516943494  539349382 2020-03-06 15:53:23  1583510003895     1      0      0    5393
+4  516943915  539349802 2020-03-06 15:53:45  1583510025054     0      0      0    5393
+5  517139682  539557870 2020-03-06 18:43:21  1583520201227     0      1      0    5393
+6  517139716  539557909 2020-03-06 18:43:22  1583520202971     1      1      0    5393</p>
+<p><h3>MetaTrader para Python</h3>
+© 2000-2025, MetaQuotes Ltd.
+3233
+<h3>Deals with position id #530218319: 2</h3>
+</p>
+<pre><code class="language-mql5">
+      ticket      order                time       time_msc  type  entry  magic  positi
+</code></pre>
+<p>
+0  507962919  530218319 2020-02-21 16:49:37  1582303777582     0      0      0    5302
+1  513149059  535548147 2020-03-02 19:10:42  1583176242265     1      1      0    5302
+<h3>Veja também</h3>
+history_deals_total, history_orders_get
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho com DirectX - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class="active"><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Trabalho com DirectX</h1>
+        </header>
+        
+        <article>
+            <p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3113
+<h3>Trabalho com DirectX</h3>
+Funções e sombreadores do DirectX 11 são projetados para visualização em 3D diretamente no gráfico
+de preços.
+Para criar gráficos tridimensionais, é necessário criar um contexto gráfico (DXContextCreate) com o
+tamanho de imagem desejado. Em seguida, prepare os buffers de vértice e de índice (DXBufferCreate)
+e crie os sombreadores de vértice e de pixel (DXShaderCreate). Para isso, basta exibir gráficos
+coloridos.
+Para o próximo nível de gráficos, é necessário adicionar parâmetros de entrada (DXInputSet),
+destinados a transferir parâmetros adicionais de renderização para os sombreadores. Isso permite
+definir a posição da câmera e do objeto 3D, descrever as fontes de luz e implementar o controle
+usando o mouse e o teclado.
+Desta maneira, as funções criadas diretamente em MQL5 permitem criar gráficos 3D animados
+diretamente no terminal MetaTrader 5 e não requerem ferramentas de terceiros para tal. Para que as
+funções funcionem, a placa de vídeo deve suportar DX 11 e sombreadores versão 5.0.
+Para começar a trabalhar com a biblioteca, basta ler o artigo Como criar gráfico 3D em DirectX no
+MetaTrader 5.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>DXContextCreate</h3>
+Cria um contexto gráfico para renderizar quadros do tamanho
+especificado
+<h3>DXContextSetSize</h3>
+Altera o tamanho do quadro do contexto gráfico criado em
+<h3>DXContextCreate()</h3>
+<h3>DXContextSetSize</h3>
+Obtém o tamanho do quadro do contexto gráfico criado em
+DXContextCreate().
+<h3>DXContextClearColors</h3>
+Define, para o buffer de renderização, todos os pixeis na cor
+especificada
+<h3>DXContextClearDepth</h3>
+<h3>Limpa o buffer de profundidade</h3>
+<h3>DXContextGetColors</h3>
+Obtém, do contexto gráfico, uma imagem com o tamanho e o
+deslocamento especificados
+<h3>DXContextGetDepth</h3>
+Obtém o buffer de profundidade do quadro renderizado
+<h3>DXBufferCreate</h3>
+Cria um buffer com tipo especificado baseado em uma matriz
+de dados
+<h3>DXTextureCreate</h3>
+Cria uma textura bidimensional, a partir de um retângulo com
+determinado tamanho cortado da imagem transferida
+<h3>DXInputCreate</h3>
+Cria os parâmetros de entrada do sombreador
+<h3>DXInputSet</h3>
+Define os parâmetros de entrada do sombreador
+<h3>DXShaderCreate</h3>
+<h3>Cria um sombreador com tipo especificado</h3>
+<h3>DXShaderSetLayout</h3>
+Define o layout do vértice para o sombreador de vértice</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3114
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>DXShaderInputsSet</h3>
+Define os parâmetros de entrada do sombreador
+<h3>DXShaderTexturesSet</h3>
+Define a textura do sombreador.
+<h3>DXDraw</h3>
+Desenha os vértices do buffer de vértice definido em
+<h3>DXBufferSet()</h3>
+<h3>DXDrawIndexed</h3>
+Desenha as primitivas gráficas descritas pelo buffer de índice
+de DXBufferSet()
+<h3>DXPrimiveTopologySet</h3>
+Define o tipo de primitivas para renderização usando
+<h3>DXDrawIndexed()</h3>
+<h3>DXBufferSet</h3>
+Define o buffer para a renderização atual
+<h3>DXShaderSet</h3>
+<h3>Define o sombreador para renderização</h3>
+<h3>DXHandleType</h3>
+<h3>Retorna o tipo de identificador</h3>
+<h3>DXRelease</h3>
+<h3>Libera o identificador</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3115
+<h3>DXContextCreate</h3>
+Cria um contexto gráfico para renderizar quadros com o tamanho especificado.
+</p>
+<pre><code class="language-mql5">
+int  DXContextCreate(
+   uint  width,      // largura em pixeis
+   uint  height      // altura em pixeis
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+width
+[in]  Largura do quadro em pixeis.
+height
+[in]  Altura do quadro em pixeis
+<h3>Valor retornado</h3>
+Identificador para o contexto criado ou, em caso de erro, INVALID_HANDLE. Para obter o código de
+erro, é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+Todos os objetos gráficos criados com ajuda das funções DXBufferCreate, DXInputCreate,
+DXShaderCreate e DXTextureCreate só podem ser usados no contexto gráfico em que foram criados.
+O tamanho do quadro pode ser alterado em  DXContextSetSize().
+Ó identificador criado que não é mais usado deve ser liberado explicitamente com ajuda da função
+DXRelease().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3116
+<h3>DXContextSetSize</h3>
+Altera o tamanho do quadro do contexto gráfico criado em DXContextCreate().
+</p>
+<pre><code class="language-mql5">
+bool  DXContextSetSize(
+   int    context,      // identifica o contexto gráfico   
+   uint&amp;  width,        // largura em pixeis   
+   uint&amp;  height        // altura em pixeis   
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+width
+[in]  Largura do quadro em pixeis.
+height
+[in]  Altura do quadro em pixeis.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O tamanho do quadro do contexto gráfico deve ser alterado apenas entre as renderizações do
+quadro.</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3117
+<h3>DXContextGetSize</h3>
+Obtém o tamanho do quadro do contexto gráfico criado em DXContextCreate().
+</p>
+<pre><code class="language-mql5">
+bool  DXContextGetSize(
+   int    context,      // identifica o contexto gráfico   
+   uint&amp;  width,        // largura em pixeis 
+   uint&amp;  height        // altura em pixeis 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+width
+[out]  Largura do quadro em pixels.
+height
+[out]  Altura do quadro em pixeis.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3118
+<h3>DXContextClearColors</h3>
+Define, para o buffer de renderização, todos os pixeis com a cor especificada.
+</p>
+<pre><code class="language-mql5">
+bool  DXContextClearColors(
+   int              context,      // identifica o contexto gráfico
+   const DXVector&amp;  color         // cor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+color
+[in]  Cor para renderização.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+A função DXContextClearColors() pode ser usada para limpar o buffer de cores antes de renderizar o
+próximo quadro.</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3119
+<h3>DXContextClearDepth</h3>
+Limpa o buffer de profundidade.
+</p>
+<pre><code class="language-mql5">
+bool  DXContextClearDepth(
+   int  context      // identifica o contexto gráfico 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+A função DXContextClearDepth() pode ser usada para limpar o buffer de profundidade antes de
+renderizar o próximo quadro.</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3120
+<h3>DXContextGetColors</h3>
+Obtém, do contexto gráfico, uma imagem com o tamanho e o deslocamento especificados.
+</p>
+<pre><code class="language-mql5">
+bool  DXContextGetColors(
+   int    context,                       // identifica o contexto gráfico   
+   uint&amp;  image[],                       // matriz de piexeis da imagem 
+   int    image_width=WHOLE_ARRAY,       // largura da imagem em pixeis
+   int    image_height=WHOLE_ARRAY,      // altura da imagem em pixeis
+   int    image_offset_x=0,              // deslocamento ao longo do eixo X
+   int    image_offset_y=0               // deslocamento ao longo do eixo Y
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+image
+[out]  Matriz de pixeis com tamanho image_width*image_height em formato ARGB.
+image_width=WHOLE_ARRAY
+[in]  Largura da imagem em pixeis.
+image_height=WHOLE_ARRAY
+[in]  Altura da imagem em pixeis.
+image_offset_x=0
+[in]  Deslocamento horizontal.
+image_offset_y=0
+[in]  Deslocamento vertical.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3121
+<h3>DXContextGetDepth</h3>
+Obtém o buffer de profundidade do quadro renderizado.
+</p>
+<pre><code class="language-mql5">
+bool  DXContextGetDepth(
+   int     context,      // identifica o contexto gráfico   
+   float&amp;  image[]       // matriz de valores de profundidade 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+image
+[out]  Matriz de valores do buffer de profundidade do quadro renderizado.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O buffer retornado contém em unidades relativas (de 0,0 a 1,0) a profundidade de cada pixel do
+quadro renderizado que pode ser obtido em DXContextGetColors().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3122
+<h3>DXBufferCreate</h3>
+Cria um buffer com tipo especificado baseado em uma matriz de dados.
+</p>
+<pre><code class="language-mql5">
+int  DXBufferCreate(
+   int                  context,               // identifica o contexto gráfico
+   ENUM_DX_BUFFER_TYPE  buffer_type,           // tipo de buffer a ser criado
+   const void&amp;          data[],                // dados para o buffer
+   uint                 start=0,               // índice inicial
+   uint                 count=WHOLE_ARRAY      // número de elementos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+buffer_type
+[in]  Tipo de buffer da enumeração ENUM_DX_BUFFER_TYPE.
+data[]
+[in]  Dados para criar o buffer.
+start
+[in]  Índice do primeiro elemento da matriz, a partir do qual são tomados os valores da matriz
+para criar o buffer. Por padrão, os dados são tomados desde o início da matriz.
+count
+[in]  Número de valores.  Por padrão, é usada toda a matriz (count=WHOLE_ARRAY).
+<h3>Valor retornado</h3>
+Identificador para o buffer criado ou, em caso de erro, INVALID_HANDLE. Para obter o código de
+erro, é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+Para o buffer de índice, a matriz data[] deve ser do tipo uint, enquanto para o buffer de vértices é
+transferida uma matriz de estruturas que descreve vértices.
+Ó identificador criado que não é mais usado deve ser liberado explicitamente com ajuda da função
+DXRelease().
+<h3>ENUM_DX_BUFFER_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Descrição</h3>
+<h3>DX_BUFFER_VERTEX</h3>
+1
+<h3>Buffer de vértice</h3>
+<h3>DX_BUFFER_INDEX</h3>
+2
+<h3>Buffer de índice</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3123
+<h3>DXTextureCreate</h3>
+Cria uma textura bidimensional, a partir de um retângulo com determinado tamanho cortado da
+imagem transferida.
+</p>
+<pre><code class="language-mql5">
+int  DXTextureCreate(
+   int             context,         // identifica o contexto gráfico
+   ENUM_DX_FORMAT  format,          // formato de cor do pixel 
+   uint            width,           // largura da imagem de origem
+   uint            height,          // altura da imagem de origem
+   const void&amp;     data[],          // matriz de pixeis da imagem de origem
+   uint            data_x,          // coordenada X do retângulo para criação da textu
+   uint            data_y,          // coordenada Y do retângulo para criação da textu
+   uint            data_width,      // largura do retângulo para criar a textura
+   uint            data_height      // altura do retângulo para criar a textura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+format
+[in]  Formato da cor dos pixeis especificado na enumeração ENUM_DX_FORMAT.
+width
+[in]  Largura da imagem com base na qual é criada a textura.
+height
+[in]  Altura da imagem com base na qual é criada a textura.
+data
+[in]  Matriz de pixeis da imagem com base na qual é criada a textura.
+data_x
+[in]  Coordenada X do retângulo (deslocamento horizontal) a partir do qual é criada a textura.
+data_y
+[in]  Coordenada Y do retângulo (deslocamento vertical) a partir do qual é criada a textura.
+data_width
+[in]  Largura do retângulo a partir do qual é criada a textura.
+data_height
+[in]  Altura do retângulo a partir do qual é criada a textura.
+<h3>Valor retornado</h3>
+Identificador para a textura ou, em caso de erro, INVALID_HANDLE. Para obter o código de erro, é
+necessário chamar a função GetLastError().
+<h3>Observação</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3124
+Ó identificador criado que não é mais usado deve ser liberado explicitamente com ajuda da função
+DXRelease().
+<h3>ENUM_DX_FORMAT</h3>
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Em conformidade com DXGI_FORMAT</h3>
+<h3>DX_FORMAT_UNKNOWN</h3>
+0
+<h3>DXGI_FORMAT_UNKNOWN</h3>
+<h3>DX_FORMAT_R32G32B32A32_TYPELES</h3>
+<h3>S</h3>
+1
+<h3>DXGI_FORMAT_R32G32B32A32_TYPEL</h3>
+<h3>ESS</h3>
+<h3>DX_FORMAT_R32G32B32A32_FLOAT</h3>
+2
+<h3>DXGI_FORMAT_R32G32B32A32_FLOAT</h3>
+<h3>DX_FORMAT_R32G32B32A32_UINT</h3>
+3
+<h3>DXGI_FORMAT_R32G32B32A32_UINT</h3>
+<h3>DX_FORMAT_R32G32B32A32_SINT</h3>
+4
+<h3>DXGI_FORMAT_R32G32B32A32_SINT</h3>
+<h3>DX_FORMAT_R32G32B32_TYPELESS</h3>
+5
+<h3>DXGI_FORMAT_R32G32B32_TYPELESS</h3>
+<h3>DX_FORMAT_R32G32B32_FLOAT</h3>
+6
+<h3>DXGI_FORMAT_R32G32B32_FLOAT</h3>
+<h3>DX_FORMAT_R32G32B32_UINT</h3>
+7
+<h3>DXGI_FORMAT_R32G32B32_UINT</h3>
+<h3>DX_FORMAT_R32G32B32_SINT</h3>
+8
+<h3>DXGI_FORMAT_R32G32B32_SINT</h3>
+<h3>DX_FORMAT_R16G16B16A16_TYPELES</h3>
+<h3>S</h3>
+9
+<h3>DXGI_FORMAT_R16G16B16A16_TYPEL</h3>
+<h3>ESS</h3>
+<h3>DX_FORMAT_R16G16B16A16_FLOAT</h3>
+10
+<h3>DXGI_FORMAT_R16G16B16A16_FLOAT</h3>
+<h3>DX_FORMAT_R16G16B16A16_UNORM</h3>
+11
+<h3>DXGI_FORMAT_R16G16B16A16_UNOR</h3>
+<h3>M</h3>
+<h3>DX_FORMAT_R16G16B16A16_UINT</h3>
+12
+<h3>DXGI_FORMAT_R16G16B16A16_UINT</h3>
+<h3>DX_FORMAT_R16G16B16A16_SNORM</h3>
+13
+<h3>DXGI_FORMAT_R16G16B16A16_SNOR</h3>
+<h3>M</h3>
+<h3>DX_FORMAT_R16G16B16A16_SINT</h3>
+14
+<h3>DXGI_FORMAT_R16G16B16A16_SINT</h3>
+<h3>DX_FORMAT_R32G32_TYPELESS</h3>
+15
+<h3>DXGI_FORMAT_R32G32_TYPELESS</h3>
+<h3>DX_FORMAT_R32G32_FLOAT</h3>
+16
+<h3>DXGI_FORMAT_R32G32_FLOAT</h3>
+<h3>DX_FORMAT_R32G32_UINT</h3>
+17
+<h3>DXGI_FORMAT_R32G32_UINT</h3>
+<h3>DX_FORMAT_R32G32_SINT</h3>
+18
+<h3>DXGI_FORMAT_R32G32_SINT</h3>
+<h3>DX_FORMAT_R32G8X24_TYPELESS</h3>
+19
+<h3>DXGI_FORMAT_R32G8X24_TYPELESS</h3>
+<h3>DX_FORMAT_D32_FLOAT_S8X24_UINT</h3>
+20
+<h3>DXGI_FORMAT_D32_FLOAT_S8X24_UI</h3>
+<h3>NT</h3>
+<h3>DX_FORMAT_R32_FLOAT_X8X24_TYPE</h3>
+<h3>LESS</h3>
+21
+<h3>DXGI_FORMAT_R32_FLOAT_X8X24_TY</h3>
+<h3>PELESS</h3>
+<h3>DX_FORMAT_X32_TYPELESS_G8X24_UI</h3>
+<h3>NT</h3>
+22
+<h3>DXGI_FORMAT_X32_TYPELESS_G8X24</h3>
+_UINT</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3125
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Em conformidade com DXGI_FORMAT</h3>
+<h3>DX_FORMAT_R10G10B10A2_TYPELESS</h3>
+23
+<h3>DXGI_FORMAT_R10G10B10A2_TYPELE</h3>
+<h3>SS</h3>
+<h3>DX_FORMAT_R10G10B10A2_UNORM</h3>
+24
+<h3>DXGI_FORMAT_R10G10B10A2_UNORM</h3>
+<h3>DX_FORMAT_R10G10B10A2_UINT</h3>
+25
+<h3>DXGI_FORMAT_R10G10B10A2_UINT</h3>
+<h3>DX_FORMAT_R11G11B10_FLOAT</h3>
+26
+<h3>DXGI_FORMAT_R11G11B10_FLOAT</h3>
+<h3>DX_FORMAT_R8G8B8A8_TYPELESS</h3>
+27
+<h3>DXGI_FORMAT_R8G8B8A8_TYPELESS</h3>
+<h3>DX_FORMAT_R8G8B8A8_UNORM</h3>
+28
+<h3>DXGI_FORMAT_R8G8B8A8_UNORM</h3>
+<h3>DX_FORMAT_R8G8B8A8_UNORM_SRGB</h3>
+29
+<h3>DXGI_FORMAT_R8G8B8A8_UNORM_SR</h3>
+<h3>GB</h3>
+<h3>DX_FORMAT_R8G8B8A8_UINT</h3>
+30
+<h3>DXGI_FORMAT_R8G8B8A8_UINT</h3>
+<h3>DX_FORMAT_R8G8B8A8_SNORM</h3>
+31
+<h3>DXGI_FORMAT_R8G8B8A8_SNORM</h3>
+<h3>DX_FORMAT_R8G8B8A8_SINT</h3>
+32
+<h3>DXGI_FORMAT_R8G8B8A8_SINT</h3>
+<h3>DX_FORMAT_R16G16_TYPELESS</h3>
+33
+<h3>DXGI_FORMAT_R16G16_TYPELESS</h3>
+<h3>DX_FORMAT_R16G16_FLOAT</h3>
+34
+<h3>DXGI_FORMAT_R16G16_FLOAT</h3>
+<h3>DX_FORMAT_R16G16_UNORM</h3>
+35
+<h3>DXGI_FORMAT_R16G16_UNORM</h3>
+<h3>DX_FORMAT_R16G16_UINT</h3>
+36
+<h3>DXGI_FORMAT_R16G16_UINT</h3>
+<h3>DX_FORMAT_R16G16_SNORM</h3>
+37
+<h3>DXGI_FORMAT_R16G16_SNORM</h3>
+<h3>DX_FORMAT_R16G16_SINT</h3>
+38
+<h3>DXGI_FORMAT_R16G16_SINT</h3>
+<h3>DX_FORMAT_R32_TYPELESS</h3>
+39
+<h3>DXGI_FORMAT_R32_TYPELESS</h3>
+<h3>DX_FORMAT_D32_FLOAT</h3>
+40
+<h3>DXGI_FORMAT_D32_FLOAT</h3>
+<h3>DX_FORMAT_R32_FLOAT</h3>
+41
+<h3>DXGI_FORMAT_R32_FLOAT</h3>
+<h3>DX_FORMAT_R32_UINT</h3>
+42
+<h3>DXGI_FORMAT_R32_UINT</h3>
+<h3>DX_FORMAT_R32_SINT</h3>
+43
+<h3>DXGI_FORMAT_R32_SINT</h3>
+<h3>DX_FORMAT_R24G8_TYPELESS</h3>
+44
+<h3>DXGI_FORMAT_R24G8_TYPELESS</h3>
+<h3>DX_FORMAT_D24_UNORM_S8_UINT</h3>
+45
+<h3>DXGI_FORMAT_D24_UNORM_S8_UINT</h3>
+<h3>DX_FORMAT_R24_UNORM_X8_TYPELE</h3>
+<h3>SS</h3>
+46
+<h3>DXGI_FORMAT_R24_UNORM_X8_TYPE</h3>
+<h3>LESS</h3>
+<h3>DX_FORMAT_X24_TYPELESS_G8_UINT</h3>
+47
+<h3>DXGI_FORMAT_X24_TYPELESS_G8_UIN</h3>
+<h3>T</h3>
+<h3>DX_FORMAT_R8G8_TYPELESS</h3>
+48
+<h3>DXGI_FORMAT_R8G8_TYPELESS</h3>
+<h3>DX_FORMAT_R8G8_UNORM</h3>
+49
+<h3>DXGI_FORMAT_R8G8_UNORM</h3>
+<h3>DX_FORMAT_R8G8_UINT</h3>
+50
+<h3>DXGI_FORMAT_R8G8_UINT</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3126
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Em conformidade com DXGI_FORMAT</h3>
+<h3>DX_FORMAT_R8G8_SNORM</h3>
+51
+<h3>DXGI_FORMAT_R8G8_SNORM</h3>
+<h3>DX_FORMAT_R8G8_SINT</h3>
+52
+<h3>DXGI_FORMAT_R8G8_SINT</h3>
+<h3>DX_FORMAT_R16_TYPELESS</h3>
+53
+<h3>DXGI_FORMAT_R16_TYPELESS</h3>
+<h3>DX_FORMAT_R16_FLOAT</h3>
+54
+<h3>DXGI_FORMAT_R16_FLOAT</h3>
+<h3>DX_FORMAT_D16_UNORM</h3>
+55
+<h3>DXGI_FORMAT_D16_UNORM</h3>
+<h3>DX_FORMAT_R16_UNORM</h3>
+56
+<h3>DXGI_FORMAT_R16_UNORM</h3>
+<h3>DX_FORMAT_R16_UINT</h3>
+57
+<h3>DXGI_FORMAT_R16_UINT</h3>
+<h3>DX_FORMAT_R16_SNORM</h3>
+58
+<h3>DXGI_FORMAT_R16_SNORM</h3>
+<h3>DX_FORMAT_R16_SINT</h3>
+59
+<h3>DXGI_FORMAT_R16_SINT</h3>
+<h3>DX_FORMAT_R8_TYPELESS</h3>
+60
+<h3>DXGI_FORMAT_R8_TYPELESS</h3>
+<h3>DX_FORMAT_R8_UNORM</h3>
+61
+<h3>DXGI_FORMAT_R8_UNORM</h3>
+<h3>DX_FORMAT_R8_UINT</h3>
+62
+<h3>DXGI_FORMAT_R8_UINT</h3>
+<h3>DX_FORMAT_R8_SNORM</h3>
+63
+<h3>DXGI_FORMAT_R8_SNORM</h3>
+<h3>DX_FORMAT_R8_SINT</h3>
+64
+<h3>DXGI_FORMAT_R8_SINT</h3>
+<h3>DX_FORMAT_A8_UNORM</h3>
+65
+<h3>DXGI_FORMAT_A8_UNORM</h3>
+<h3>DX_FORMAT_R1_UNORM</h3>
+66
+<h3>DXGI_FORMAT_R1_UNORM</h3>
+<h3>DX_FORMAT_R9G9B9E5_SHAREDEXP</h3>
+67
+<h3>DXGI_FORMAT_R9G9B9E5_SHAREDEXP</h3>
+<h3>DX_FORMAT_R8G8_B8G8_UNORM</h3>
+68
+<h3>DXGI_FORMAT_R8G8_B8G8_UNORM</h3>
+<h3>DX_FORMAT_G8R8_G8B8_UNORM</h3>
+69
+<h3>DXGI_FORMAT_G8R8_G8B8_UNORM</h3>
+<h3>DX_FORMAT_BC1_TYPELESS</h3>
+70
+<h3>DXGI_FORMAT_BC1_TYPELESS</h3>
+<h3>DX_FORMAT_BC1_UNORM</h3>
+71
+<h3>DXGI_FORMAT_BC1_UNORM</h3>
+<h3>DX_FORMAT_BC1_UNORM_SRGB</h3>
+72
+<h3>DXGI_FORMAT_BC1_UNORM_SRGB</h3>
+<h3>DX_FORMAT_BC2_TYPELESS</h3>
+73
+<h3>DXGI_FORMAT_BC2_TYPELESS</h3>
+<h3>DX_FORMAT_BC2_UNORM</h3>
+74
+<h3>DXGI_FORMAT_BC2_UNORM</h3>
+<h3>DX_FORMAT_BC2_UNORM_SRGB</h3>
+75
+<h3>DXGI_FORMAT_BC2_UNORM_SRGB</h3>
+<h3>DX_FORMAT_BC3_TYPELESS</h3>
+76
+<h3>DXGI_FORMAT_BC3_TYPELESS</h3>
+<h3>DX_FORMAT_BC3_UNORM</h3>
+77
+<h3>DXGI_FORMAT_BC3_UNORM</h3>
+<h3>DX_FORMAT_BC3_UNORM_SRGB</h3>
+78
+<h3>DXGI_FORMAT_BC3_UNORM_SRGB</h3>
+<h3>DX_FORMAT_BC4_TYPELESS</h3>
+79
+<h3>DXGI_FORMAT_BC4_TYPELESS</h3>
+<h3>DX_FORMAT_BC4_UNORM</h3>
+80
+<h3>DXGI_FORMAT_BC4_UNORM</h3>
+<h3>DX_FORMAT_BC4_SNORM</h3>
+81
+<h3>DXGI_FORMAT_BC4_SNORM</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3127
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Em conformidade com DXGI_FORMAT</h3>
+<h3>DX_FORMAT_BC5_TYPELESS</h3>
+82
+<h3>DXGI_FORMAT_BC5_TYPELESS</h3>
+<h3>DX_FORMAT_BC5_UNORM</h3>
+83
+<h3>DXGI_FORMAT_BC5_UNORM</h3>
+<h3>DX_FORMAT_BC5_SNORM</h3>
+84
+<h3>DXGI_FORMAT_BC5_SNORM</h3>
+<h3>DX_FORMAT_B5G6R5_UNORM</h3>
+85
+<h3>DXGI_FORMAT_B5G6R5_UNORM</h3>
+<h3>DX_FORMAT_B5G5R5A1_UNORM</h3>
+86
+<h3>DXGI_FORMAT_B5G5R5A1_UNORM</h3>
+<h3>DX_FORMAT_B8G8R8A8_UNORM</h3>
+87
+<h3>DXGI_FORMAT_B8G8R8A8_UNORM</h3>
+<h3>DX_FORMAT_B8G8R8X8_UNORM</h3>
+88
+<h3>DXGI_FORMAT_B8G8R8X8_UNORM</h3>
+<h3>DX_FORMAT_R10G10B10_XR_BIAS_A2</h3>
+_UNORM
+89
+<h3>DXGI_FORMAT_R10G10B10_XR_BIAS_</h3>
+<h3>A2_UNORM</h3>
+<h3>DX_FORMAT_B8G8R8A8_TYPELESS</h3>
+90
+<h3>DXGI_FORMAT_B8G8R8A8_TYPELESS</h3>
+<h3>DX_FORMAT_B8G8R8A8_UNORM_SRGB</h3>
+91
+<h3>DXGI_FORMAT_B8G8R8A8_UNORM_SR</h3>
+<h3>GB</h3>
+<h3>DX_FORMAT_B8G8R8X8_TYPELESS</h3>
+92
+<h3>DXGI_FORMAT_B8G8R8X8_TYPELESS</h3>
+<h3>DX_FORMAT_B8G8R8X8_UNORM_SRGB</h3>
+93
+<h3>DXGI_FORMAT_B8G8R8X8_UNORM_SR</h3>
+<h3>GB</h3>
+<h3>DX_FORMAT_BC6H_TYPELESS</h3>
+94
+<h3>DXGI_FORMAT_BC6H_TYPELESS</h3>
+<h3>DX_FORMAT_BC6H_UF16</h3>
+95
+<h3>DXGI_FORMAT_BC6H_UF16</h3>
+<h3>DX_FORMAT_BC6H_SF16</h3>
+96
+<h3>DXGI_FORMAT_BC6H_SF16</h3>
+<h3>DX_FORMAT_BC7_TYPELESS</h3>
+97
+<h3>DXGI_FORMAT_BC7_TYPELESS</h3>
+<h3>DX_FORMAT_BC7_UNORM</h3>
+98
+<h3>DXGI_FORMAT_BC7_UNORM</h3>
+<h3>DX_FORMAT_BC7_UNORM_SRGB</h3>
+99
+<h3>DXGI_FORMAT_BC7_UNORM_SRGB</h3>
+<h3>DX_FORMAT_AYUV</h3>
+100
+<h3>DXGI_FORMAT_AYUV</h3>
+<h3>DX_FORMAT_Y410</h3>
+101
+<h3>DXGI_FORMAT_Y410</h3>
+<h3>DX_FORMAT_Y416</h3>
+102
+<h3>DXGI_FORMAT_Y416</h3>
+<h3>DX_FORMAT_NV12</h3>
+103
+<h3>DXGI_FORMAT_NV12</h3>
+<h3>DX_FORMAT_P010</h3>
+104
+<h3>DXGI_FORMAT_P010</h3>
+<h3>DX_FORMAT_P016</h3>
+105
+<h3>DXGI_FORMAT_P016</h3>
+<h3>DX_FORMAT_420_OPAQUE</h3>
+106
+<h3>DXGI_FORMAT_420_OPAQUE</h3>
+<h3>DX_FORMAT_YUY2</h3>
+107
+<h3>DXGI_FORMAT_YUY2</h3>
+<h3>DX_FORMAT_Y210</h3>
+108
+<h3>DXGI_FORMAT_Y210</h3>
+<h3>DX_FORMAT_Y216</h3>
+109
+<h3>DXGI_FORMAT_Y216</h3>
+<h3>DX_FORMAT_NV11</h3>
+110
+<h3>DXGI_FORMAT_NV11</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3128
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Em conformidade com DXGI_FORMAT</h3>
+<h3>DX_FORMAT_AI44</h3>
+111
+<h3>DXGI_FORMAT_AI44</h3>
+<h3>DX_FORMAT_IA44</h3>
+112
+<h3>DXGI_FORMAT_IA44</h3>
+<h3>DX_FORMAT_P8</h3>
+113
+<h3>DXGI_FORMAT_P8</h3>
+<h3>DX_FORMAT_A8P8</h3>
+114
+<h3>DXGI_FORMAT_A8P8</h3>
+<h3>DX_FORMAT_B4G4R4A4_UNORM</h3>
+115
+<h3>DXGI_FORMAT_B4G4R4A4_UNORM</h3>
+<h3>DX_FORMAT_P208</h3>
+130
+<h3>DXGI_FORMAT_P208</h3>
+<h3>DX_FORMAT_V208</h3>
+131
+<h3>DXGI_FORMAT_V208</h3>
+<h3>DX_FORMAT_V408</h3>
+132
+<h3>DXGI_FORMAT_V408</h3>
+<h3>DX_FORMAT_FORCE_UINT</h3>
+0xffffffff
+<h3>DXGI_FORMAT_FORCE_UINT</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3129
+<h3>DXInputCreate</h3>
+Cria os parâmetros de entrada do sombreador.
+</p>
+<pre><code class="language-mql5">
+int  DXInputCreate(
+   int   context,        // identifica o contexto gráfico
+   uint  input_size      // tamanho dos parâmetros de entrada em bytes 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+input_size
+[in]  Tamanho da estrutura do parâmetro em bytes.
+<h3>Valor retornado</h3>
+Identificador para os parâmetros de entrada do sombreador ou, em caso de erro, INVALID_HANDLE.
+Para obter o código de erro, é necessário chamar a função GetLastError().
+Ó identificador criado que não é mais usado deve ser liberado explicitamente com ajuda da função
+DXRelease().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3130
+<h3>DXInputSet</h3>
+Define os parâmetros de entrada do sombreador.
+</p>
+<pre><code class="language-mql5">
+bool  DXInputSet(
+   int          input,      // identifica o contexto gráfico
+   const void&amp;  data        // dados para definição  
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+input
+[in]  Identificador de parâmetros de entrada para o sombreador recebido em DXInputCreate().
+data
+[in]  Dados para definir os parâmetros de entrada do sombreador.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3131
+<h3>DXShaderCreate</h3>
+Cria um sombreador com tipo especificado.
+</p>
+<pre><code class="language-mql5">
+int  DXShaderCreate(
+   int                  context,            // identifica o contexto gráfico   
+   ENUM_DX_SHADER_TYPE  shader_type,        // tipo de sombreador 
+   const string         source,             // código fonte do sombreador
+   const string         entry_point,        // ponto de entrada
+   string&amp;              compile_error       // cadeia de caracteres para receber mensa
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+shader_type
+[out]  Valor da enumeração ENUM_DX_SHADER_TYPE.
+source
+[in]  Código fonte do sombreador descrito em HLSL 5.
+entry_point
+[in]  Ponto de entrada, isto é, o nome da função no código fonte.
+compile_error
+[in]  String para obter erros de compilação.
+<h3>Valor retornado</h3>
+Identificador para o sombreador ou, em caso de erro, INVALID_HANDLE. Para obter o código de erro,
+é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+Ó identificador criado que não é mais usado deve ser liberado explicitamente com ajuda da função
+DXRelease().
+<h3>ENUM_DX_SHADER_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Descrição</h3>
+<h3>DX_SHADER_VERTEX</h3>
+0
+<h3>Sombreador de vértice</h3>
+<h3>DX_SHADER_GEOMETRY</h3>
+1
+<h3>Sombreador geométrico</h3>
+<h3>DX_SHADER_PIXEL</h3>
+2
+<h3>Sombreador de pixel</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3132
+<h3>DXShaderSetLayout</h3>
+Define o layout do vértice para o sombreador de vértice.
+</p>
+<pre><code class="language-mql5">
+bool  DXShaderSetLayout(
+   int                    shader,       // identificador do sombreador
+   const DXVertexLayout&amp;  layout[]      // 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+shader
+[in]  Identificador do sombreador de vértice criado em DXShaderCreate().
+layout[]
+[in]  Matriz de descrição dos campos de vértices. A descrição é definida pela estrutura
+<h3>DXVertexLayout:</h3>
+</p>
+<pre><code class="language-mql5">
+struct DXVertexLayout
+  {
+   string         semantic_name;       // The HLSL semantic associated with this e
+   uint           semantic_index;      // The semantic index for the element. A sem
+   ENUM_DX_FORMAT format;              // The data type of the element data.
+</code></pre>
+<p>
+  };
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O layout deve corresponder ao tipo de vértices no buffer de vértice definido e ao tipo de entrada de
+vértices usados no ponto de entrada no código do sombreador de vértice.
+O buffer de vértice para o sombreador é definido em DXBufferSet(). 
+A estrutura DXVertexLayout é uma versão da estrutura D3D11_INPUT_ELEMENT_DESC do MSDN.</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3133
+<h3>DXShaderInputsSet</h3>
+Define os parâmetros de entrada do sombreador.
+</p>
+<pre><code class="language-mql5">
+bool  DXShaderInputsSet(
+   int         shader,       // identificador do sombreador
+   const int&amp;  inputs[]      // matriz de identificadores de parâmetros de entrada
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+shader
+[in]  Identificador do sombreador criado em DXShaderCreate().
+inputs[]
+[in]  Matriz de identificadores de parâmetros de entrada criados com ajuda de DXInputCreate().
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O tamanho da matriz de parâmetros de entrada deve ser igual ao número de objetos cbuffer
+declarados no código do sombreador. </p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3134
+<h3>DXShaderTexturesSet</h3>
+Define as texturas para o sombreador.
+</p>
+<pre><code class="language-mql5">
+bool  DXShaderTexturesSet(
+   int          shader,         // identificador do sombreador
+   const  int&amp;  textures[]      // matriz de identificadores de estruturas
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+shader
+[in]  Identificador do sombreador criado em DXShaderCreate().
+textures[]
+[in]  Matriz de identificadores de textura criados com ajuda de DXTextureCreate().
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O tamanho da matriz de texturas deve ser igual ao número de objetos Texture2D declarados no
+código do sombreador. </p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3135
+<h3>DXDraw</h3>
+Desenha os vértices do buffer de vértice definido em DXBufferSet().
+</p>
+<pre><code class="language-mql5">
+bool  DXDraw(
+   int   context,               // identifica o contexto gráfico 
+   uint  start=0,               // índice do primeiro vértice
+   uint  count=WHOLE_ARRAY      // número de vértices
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+start
+[in]  Índice do primeiro vértice para renderização.
+count
+[in]  Número de vértices para renderização.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+Para renderização de vértices, os sombreadores devem primeiro ser definidos com ajuda de
+DXShaderSet(). </p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3136
+<h3>DXDrawIndexed</h3>
+Desenha as primitivas gráficas descritas pelo buffer de índice de DXBufferSet().
+</p>
+<pre><code class="language-mql5">
+bool  DXDrawIndexed(
+   int   context,               // identifica o contexto gráfico 
+   uint  start=0,               // índice da primeira primitiva
+   uint  count=WHOLE_ARRAY      // número de primitivas
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+start
+[in]  Índice da primeira primitiva para renderização.
+count
+[in]  Número de primitivas para renderização.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O tipo de primitivas descrito pelo buffer de índice é especificado com ajuda de
+DXPrimiveTopologySet().
+Para renderização de primitivas, um buffer de vértice deve primeiro ser definido em DXBufferSet().
+Para renderização de primitivas, os sombreadores devem primeiro ser definidos com ajuda de
+DXShaderSet(). </p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3137
+<h3>DXPrimiveTopologySet</h3>
+Define o tipo de primitivas para renderização com ajuda de DXDrawIndexed().
+</p>
+<pre><code class="language-mql5">
+bool  DXPrimiveTopologySet(
+   int                         context,                // identifica o contexto gráfic
+   ENUM_DX_PRIMITIVE_TOPOLOGY  primitive_topology      // tipo de primitiva
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+primitive_topology
+[in]  Valor da enumeração ENUM_DX_PRIMITIVE_TOPOLOGY.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>ENUM_DX_PRIMITIVE_TOPOLOGY</h3>
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Em conformidade com</h3>
+<h3>D3D11_PRIMITIVE_TOPOLOGY</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_POINTLIST</h3>
+1
+<h3>D3D11_PRIMITIVE_TOPOLOGY_POINTL</h3>
+<h3>IST</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_LINELIST</h3>
+2
+<h3>D3D11_PRIMITIVE_TOPOLOGY_LINELIS</h3>
+<h3>T</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_LINESTRIP</h3>
+3
+<h3>D3D11_PRIMITIVE_TOPOLOGY_LINEST</h3>
+<h3>RIP</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_TRIANGLEL</h3>
+<h3>IST</h3>
+4
+<h3>D3D11_PRIMITIVE_TOPOLOGY_TRIANG</h3>
+<h3>LELIST</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_TRIANGLES</h3>
+<h3>TRIP</h3>
+5
+<h3>D3D11_PRIMITIVE_TOPOLOGY_TRIANG</h3>
+<h3>LESTRIP</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_LINELIST_A</h3>
+<h3>DJ</h3>
+6
+<h3>D3D11_PRIMITIVE_TOPOLOGY_LINELIS</h3>
+<h3>T_ADJ</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_LINESTRIP_</h3>
+<h3>ADJ</h3>
+7
+<h3>D3D11_PRIMITIVE_TOPOLOGY_LINEST</h3>
+<h3>RIP_ADJ</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_TRIANGLEL</h3>
+<h3>IST_ADJ</h3>
+8
+<h3>D3D11_PRIMITIVE_TOPOLOGY_TRIANG</h3>
+<h3>LELIST_ADJ</h3>
+<h3>DX_PRIMITIVE_TOPOLOGY_TRIANGLES</h3>
+<h3>TRIP_ADJ</h3>
+9
+<h3>D3D11_PRIMITIVE_TOPOLOGY_TRIANG</h3>
+<h3>LESTRIP_ADJ</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3138
+<h3>DXBufferSet</h3>
+Define o buffer para a renderização atual.
+</p>
+<pre><code class="language-mql5">
+bool  DXBufferSet(
+   int   context,               // identifica o contexto gráfico
+   int   buffer,                // identifica o buffer de vértice ou de índice
+   uint  start=0,               // índice inicial
+   uint  count=WHOLE_ARRAY      // número de elementos 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+buffer
+[in]  Identificador do buffer de vértice ou de índice criado em DXBufferCreate().
+start
+[in]  Índice do primeiro elemento do buffer. Por padrão, são usados os dados do início do buffer.
+count
+[in]  Número de valores a serem usados. Por padrão, todos os valores do buffer.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+A função DXBufferSet() deve ser chamada para definir os buffers de vértice e de índice para
+renderização com ajuda de DXDraw().</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3139
+<h3>DXShaderSet</h3>
+Define o sombreador para renderização.
+</p>
+<pre><code class="language-mql5">
+bool  DXShaderSet(
+   int  context,      // identifica o contexto gráfico
+   int  shader        // identificador do sombreador
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador para o contexto gráfico criado em DXContextCreate().
+shader
+[in]  Identificador do sombreador criado em DXShaderCreate().
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+Para renderização, podem ser simultaneamente usados vários sombreadores (de vértice,
+geométricos, de pixel).</p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3140
+<h3>DXHandleType</h3>
+Retorna o tipo de identificador.
+<h3>ENUM_DX_HANDLE_TYPE  DXHandleType(</h3>
+</p>
+<pre><code class="language-mql5">
+   int  handle      // identificador 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+handle
+[in]     Identificador.
+<h3>Valor retornado</h3>
+<h3>Valor da enumeração ENUM_DX_HANDLE_TYPE</h3>
+<h3>ENUM_DX_HANDLE_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>Descrição</h3>
+<h3>DX_HANDLE_INVALID</h3>
+0
+<h3>Identificador inválido</h3>
+<h3>DX_HANDLE_CONTEXT</h3>
+1
+<h3>Identificador para contexto gráfico</h3>
+<h3>DX_HANDLE_SHADER</h3>
+2
+<h3>Identificador para sombreador</h3>
+<h3>DX_HANDLE_BUFFER</h3>
+3
+<h3>Identificador para buffer de vértice ou</h3>
+de índice
+<h3>DX_HANDLE_INPUT</h3>
+4
+<h3>Identificador</h3>
+para 
+parâmetros 
+de
+entrada do sombreador
+<h3>DX_HANDLE_TEXTURE</h3>
+5
+<h3>Identificador para textura</h3></p>
+<p><h3>Trabalho com DirectX</h3>
+© 2000-2025, MetaQuotes Ltd.
+3141
+<h3>DXRelease</h3>
+Libera o identificador.
+</p>
+<pre><code class="language-mql5">
+bool  DXRelease(
+   int  handle      // identificador 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Identificador a ser liberado.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+Todos os identificadores criados que não são usados mais devem ser liberados explicitamente com
+ajuda da função DXRelease().
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

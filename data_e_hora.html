@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data e Hora - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class="active"><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Data e Hora</h1>
+        </header>
+        
+        <article>
+            <p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1883
+<h3>Data e Hora</h3>
+Este é o grupo de funções para trabalhar com dados do tipo datetime (um inteiro que representa
+número de segundos decorridos a partir da 0 hora de 1° Janeiro de 1970).
+Para obter contadores e timers de alta-resolução, use a função GetTickCount(), que produz valores em
+milissegundos.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>TimeCurrent</h3>
+Retorna a última hora conhecida do servidor (hora da última cotação
+recebida) no formato de datetime(
+<h3>TimeTradeServer</h3>
+Retorna a hora calculada corrente do servidor de negociação
+<h3>TimeLocal</h3>
+Retorna a hora do computador local em formato datetime
+<h3>TimeGMT</h3>
+Retorna a hora GMT em formato datetime com o horário de verão por
+hora local do computador, de onde o terminal cliente está executando
+<h3>TimeDaylightSavings</h3>
+Retorna o sinal do ajuste do horário de verão
+<h3>TimeGMTOffset</h3>
+Retorna a diferença corrente entre a hora GMT e a hora do computador
+local em segundos, levando em consideração o ajuste do horário de
+verão
+<h3>TimeToStruct</h3>
+Converte um valor datetime em uma variável do tipo estrutura
+<h3>MqlDateTime</h3>
+<h3>StructToTime</h3>
+Converte uma variável do tipo estrutura MqlDateTime em um valor
+datetime</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1884
+<h3>TimeCurrent</h3>
+Retorna a última hora conhecida do servidor, hora da última cotação recebida para um dos ativos
+selecionados na janela &quot;Observação de Mercado&quot;. No handler OnTick(), esta função retorna a hora do
+tick recebido, que está sendo tratado. Em outros casos (por exemplos, chamar nos handlers OnInit(),
+OnDeinit(), OnTimer() e assim por diante), esta função retorna a hora da última cotação recebida para
+qualquer ativo disponível na janela &quot;Observação de Mercado&quot;, a hora exibida no cabeçalho desta
+janela. O valor da hora é formado em servidor de negociação e não depende das configurações de hora
+em seu computador. Existem 2 variantes da função.
+<h3>Chamar sem parâmetros</h3>
+datetime  TimeCurrent();
+<h3>Chamar com parâmetro de tipo MqlDateTime</h3>
+datetime  TimeCurrent(
+</p>
+<pre><code class="language-mql5">
+   MqlDateTime&amp;  dt_struct      // variável de tipo estrutura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dt_struct
+[out]  MqlDateTime variável de tipo estrutura.
+<h3>Valor do Retorno</h3>
+<h3>Valor de tipo datetime</h3>
+<h3>Observação</h3>
+Se uma variável de tipo estrutura MqlDateTime for passada como parâmetro, ela é preenchida de
+acordo.
+Para obter contadores e timer de alta-resolução, use a função GetTickCount(), que produz valores
+em milissegundos.
+During testing in the strategy tester, TimeCurrent() is simulated according to historical data.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- declaramos a variável MqlDateTime a ser preenchida com dados de data/hora e obte
+   MqlDateTime tm={};
+   datetime    time1=TimeCurrent();    // primeiro formato de chamada: hora da última 
+   datetime    time2=TimeCurrent(tm);  //segunda forma de chamada: hora da última cota
+   
+//--- exibimos no log o resultado da obtenção da data/hora e do preenchimento da estru
+   PrintFormat(&quot;Tick time: %s\n- Year: %u\n- Month: %02u\n- Day: %02u\n- Hour: %02u\n-
+               (string)time1, tm.year, tm.mon, tm.day, tm.hour, tm.min, tm.sec, tm.day
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Tick time: 2024.04.18 15:40:06</p>
+<p></code></pre>
+<p>
+<h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1885
+</p>
+<pre><code class="language-mql5">
+   - Year: 2024
+   - Month: 04
+   - Day: 18
+   - Hour: 15
+   - Min: 40
+   - Sec: 06
+   - Day of Year: 108
+   - Day of Week: 4 (THURSDAY)
+</code></pre>
+<p>
+  */
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1886
+<h3>TimeTradeServer</h3>
+Returna a hora corrente calculada do servidor de negociação. Diferentemente de TimeCurrent(), o
+cálculo do valor da hora é realizado no terminal cliente e depende das configurações de hora em seu
+computador. Existem 2 variantes da função.
+<h3>Chamar sem parâmetros</h3>
+datetime  TimeTradeServer();
+<h3>Chamar com parâmetro de tipo MqlDateTime</h3>
+datetime  TimeTradeServer(
+</p>
+<pre><code class="language-mql5">
+   MqlDateTime&amp;  dt_struct      // Variável de tipo estrutura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dt_struct
+[out]  Variável de tipo estrutura MqlDateTime.
+<h3>Valor do Retorno</h3>
+<h3>Valor de tipo datetime</h3>
+<h3>Observação</h3>
+Se uma variável de tipo estrutura MqlDateTime for passada como parâmetro, ela é preenchida de
+acordo.
+Para obter contadores e timer de alta-resolução, use a função GetTickCount(), que produz valores
+em milissegundos.
+Durante o teste no testador de estratégia, o tempo do servidor simuladoTimeGMT() é sempre igual
+ao TimeCurrent().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- declaramos a variável MqlDateTime a ser preenchida com dados de data/hora e obte
+   MqlDateTime tm={};
+   datetime    time_current=TimeCurrent();                  // primeria forma de chama
+   datetime    time_server =TimeTradeServer(tm);            // segunda forma de chamad
+   int         difference  =int(time_current-time_server);  // diferença entre Time Cu
+   
+//--- exibimos no log a hora da última cotação e a hora atual estimada do servidor de 
+   PrintFormat(&quot;Time Current: %s\nTime Trade Server: %s\n- Year: %u\n- Month: %02u\n- 
+               &quot;- Hour: %02u\n- Min: %02u\n- Sec: %02u\n- Day of Year: %03u\n- Day of 
+               (string)time_current, (string)time_server, tm.year, tm.mon, tm.day, tm.
+               EnumToString((ENUM_DAY_OF_WEEK)tm.day_of_week), difference);
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Time Current: 2024.04.18 16:10:14</p>
+<p></code></pre>
+<p>
+<h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1887
+</p>
+<pre><code class="language-mql5">
+   Time Trade Server: 2024.04.18 16:10:15
+   - Year: 2024
+   - Month: 04
+   - Day: 18
+   - Hour: 16
+   - Min: 10
+   - Sec: 15
+   - Day of Year: 108
+   - Day of Week: 4 (THURSDAY)
+   Difference between Time Current and Time Trade Server: -1
+</code></pre>
+<p>
+  */
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1888
+<h3>TimeLocal</h3>
+Retorna a hora local de um computador, de onde o terminal cliente está executando. Existem 2
+variantes da função.
+<h3>Chamar sem parâmetros</h3>
+datetime  TimeLocal();
+<h3>Chamar com parâmetro de tipo MqlDateTime</h3>
+datetime  TimeLocal(
+</p>
+<pre><code class="language-mql5">
+   MqlDateTime&amp;  dt_struct      // Variável de tipo estrutura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dt_struct
+[out]  Variável de tipo estrutura MqlDateTime.
+<h3>Valor do Retorno</h3>
+<h3>Valor de tipo datetime</h3>
+<h3>Observação</h3>
+Se uma variável de tipo estrutura MqlDateTime for passada como parâmetro, ela é preenchida de
+acordo.
+Para obter contadores e timer de alta-resolução, use a função GetTickCount(), que produz valores
+em milissegundos.
+Durante o teste no testador de estratégia, o tempo do servidor simuladoTimeGMT() é sempre igual
+ao TimeCurrent().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- declaramos a variável MqlDateTime para ser preenchida com dados sobre a hora loc
+   MqlDateTime tm={};
+   datetime    time1=TimeLocal();            // primeira forma de chamada: hora local 
+   datetime    time2=TimeLocal(tm); // segunda forma de chamada: hora local do computa
+   
+//--- exibimos no log o resultado da obtenção da hora local do preenchimento da estrut
+   PrintFormat(&quot;Local time: %s\n- Year: %u\n- Month: %02u\n- Day: %02u\n- Hour: %02u\n
+               (string)time1, tm.year, tm.mon, tm.day, tm.hour, tm.min, tm.sec, tm.day
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Local time: 2024.04.18 19:44:09
+   - Year: 2024
+   - Month: 04
+   - Day: 18
+   - Hour: 19</p>
+<p></code></pre>
+<p>
+<h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1889
+</p>
+<pre><code class="language-mql5">
+   - Min: 44
+   - Sec: 09
+   - Day of Year: 108
+   - Day of Week: 4 (THURSDAY)
+</code></pre>
+<p>
+  */
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1890
+<h3>TimeGMT</h3>
+Retorna a hora GMT, que é calculada levando em consideração o ajuste ao horário de verão pela hora
+local no computador de onde o terminal cliente está executando. Existem 2 variantes da função.
+<h3>Chamar sem parâmetros</h3>
+datetime  TimeGMT();
+<h3>Chamar com parâmetro de tipo MqlDateTime</h3>
+datetime  TimeGMT(
+</p>
+<pre><code class="language-mql5">
+   MqlDateTime&amp;  dt_struct      // Variável de tipo estrutura
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dt_struct
+[out]  Variável de tipo estrutura MqlDateTime.
+<h3>Valor do Retorno</h3>
+<h3>Valor de tipo datetime</h3>
+<h3>Observação</h3>
+Se uma variável de tipo estrutura MqlDateTime for passada como parâmetro, ela é preenchida de
+acordo.
+Para obter contadores e timer de alta-resolução, use a função GetTickCount(), que produz valores
+em milissegundos.
+Durante o teste no testador de estratégia, o tempo do servidor simuladoTimeGMT() é sempre igual
+ao TimeTradeServer().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- declaramos a a variável MqlDateTime para preencher com dados de data/hora e obte
+   MqlDateTime tm={};
+   datetime    time1=TimeLocal();            // primeira forma de chamada: hora local 
+   datetime    time2=TimeGMT(tm);            // segunda forma de chamada: hora GMT cal
+   int         shift=int(time1-time2)/3600;  // deslocamento da hora local em relação 
+   
+//--- exibimos no log a hora local e a hora GMT com dados da estrutura MqlDateTime pre
+   PrintFormat(&quot;Time Local: %s\nTime GMT: %s\n- Year: %u\n- Month: %02u\n- Day: %02u\n
+               &quot;- Hour: %02u\n- Min: %02u\n- Sec: %02u\n- Day of Year: %03u\n- Day of 
+               (string)time1, (string)time2, tm.year, tm.mon, tm.day, tm.hour, tm.min,
+               EnumToString((ENUM_DAY_OF_WEEK)tm.day_of_week), shift);
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Time Local: 2024.04.18 19:37:23
+   Time GMT: 2024.04.18 12:37:23</p>
+<p></code></pre>
+<p>
+<h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1891
+</p>
+<pre><code class="language-mql5">
+   - Year: 2024
+   - Month: 04
+   - Day: 18
+   - Hour: 12
+   - Min: 37
+   - Sec: 23
+   - Day of Year: 108
+   - Day of Week: 4 (THURSDAY)
+   Local time offset relative to GMT: +7
+</code></pre>
+<p>
+  */
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1892
+<h3>TimeDaylightSavings</h3>
+Retorna correção para o horário de verão em segundos, ajuste ao horário de verão foi feito. Depende
+das configurações de hora de seu computador.
+</p>
+<pre><code class="language-mql5">
+int  TimeDaylightSavings();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Se o ajuste ao horário de inverno (padrão) foi feito, retorna 0.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- obtemos a correção do horário de verão em segundos
+   int sec_dl=TimeDaylightSavings();
+   
+//--- criamos um texto de descrição para o valor obtido
+   string text=(sec_dl==0 ? &quot;Standard \&quot;winter\&quot; time is used&quot; : 
+                StringFormat(&quot;Daylight saving time has been switched over. The correct
+   
+//--- exibimos no log uma descrição da correção do horário de verão em segundos
+   Print(text);
+   /*
+   Resultado para o horário de &quot;inverno&quot;:
+   Standard &quot;winter&quot; time is used
+   
+   Resultado para o horário de &quot;verão&quot;:
+   Daylight saving time has been switched over. The correction is -3600 seconds
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1893
+<h3>TimeGMTOffset</h3>
+Retorna a diferença corrente entre a hora GMT e a hora do computador local em segundos. Depende
+das configurações de hora de seu computador.
+</p>
+<pre><code class="language-mql5">
+int  TimeGMTOffset();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Valor de tipo int, representando a diferença corrente entre a hora GMT  e a hora local do
+computador TimeLocal() em segundos.
+<h3>TimeGMTOffset() =  TimeGMT() - TimeLocal()</h3>
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- obtemos a hora local, a hora GMT e a diferença entre a hora GMT e a hora local d
+   datetime time_local=TimeLocal();
+   datetime time_gmt  =TimeGMT();
+   int      offset    =TimeGMTOffset();
+   
+//--- exibimos no log os valores obtidos de tempo e deslocamento
+   PrintFormat(&quot;Local Time: %s, GMT Time: %s, Seconds Offset: %+d&quot;, (string)time_local
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Local Time: 2024.04.18 19:35:52, GMT Time: 2024.04.18 12:35:52, Seconds Offset: -25
+</code></pre>
+<p>
+  */
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1894
+<h3>TimeToStruct</h3>
+Converte um valor de tipo datetime (número de segundos desde 01.01.1970) em uma variável
+estrutura MqlDateTime.
+</p>
+<pre><code class="language-mql5">
+bool  TimeToStruct(
+   datetime      dt,            // data e hora
+   MqlDateTime&amp;  dt_struct      // estrutura para a captura de valores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dt
+[in]  Valor de data e hora para conversão.
+dt_struct
+[out]  Variável de tipo estrutura MqlDateTime.
+<h3>Valor do Retorno</h3>
+true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a função
+GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//---obtemos a última hora conhecida do servidor, declaramos a estrutura de data/hora 
+   datetime    time=TimeCurrent();
+   MqlDateTime tm  ={};
+   if(!TimeToStruct(time,tm))
+      Print(&quot;TimeToStruct() failed. Error &quot;, GetLastError());
+   
+//--- exibimos no log a hora recebida do servidor e o resultado do preenchimento da es
+   PrintFormat(&quot;Server time: %s\n- Year: %u\n- Month: %02u\n- Day: %02u\n- Hour: %02u\
+               (string)time, tm.year, tm.mon, tm.day, tm.hour, tm.min, tm.sec, tm.day_
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Server time: 2024.04.18 15:47:27
+   - Year: 2024
+   - Month: 04
+   - Day: 18
+   - Hour: 15
+   - Min: 47
+   - Sec: 27
+   - Day of Year: 108
+   - Day of Week: 4 (THURSDAY)
+</code></pre>
+<p>
+  */
+  }</p>
+<p><h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1895
+<h3>StructToTime</h3>
+Converte uma variável estrutura MqlDateTime em um valor de tipo datetime e retorna o valor
+resultante.
+datetime  StructToTime(
+</p>
+<pre><code class="language-mql5">
+   MqlDateTime&amp;  dt_struct      // estrutura da data e hora
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+dt_struct
+[in] Variável de tipo estrutura MqlDateTime.
+<h3>Valor do Retorno</h3>
+Valor de tipo datetime contendo o número de segundos deste 01.01.1970.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property script_show_inputs
+input int   InpYear  =  0;    // Year
+input int   InpMonth =  0;    // Month
+input int   InpDay   =  0;    // Day
+input int   InpHour  =  0;    // Hour
+input int   InpMin   =  0;    // Minutes
+input int   InpSec   =  0;    // Seconds
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- corregemos os valores inseridos e os escrevemos nas variáveis
+   int year =  (InpYear&lt;1970 ? 1970 : InpYear); // Se o ano inserido for inferior a 19
+   int month=  (InpMonth&lt;1 ?  1  :  InpMonth &gt; 12  ?  12 :  InpMonth);
+   int day  =  (InpDay  &lt;1 ?  1  :  InpDay   &gt; 31  ?  31 :  InpDay);
+   int hour =  (InpHour &lt;0 ?  0  :  InpHour  &gt; 23  ?  23 :  InpHour);
+   int min  =  (InpMin  &lt;0 ?  0  :  InpMin   &gt; 59  ?  59 :  InpMin);
+   int sec  =  (InpSec  &lt;0 ?  0  :  InpSec   &gt; 59  ?  59 :  InpSec);
+//--- exibimos os valores inseridos no log
+   PrintFormat(&quot;Entered date and time: %04u.%02u.%02u %02u:%02u:%02u&quot;, InpYear, InpMon
+   
+//--- exibimos os valores corrigidos no log
+   PrintFormat(&quot;Corrected date and time: %04u.%02u.%02u %02u:%02u:%02u&quot;, year, month, 
+   
+//--- escrevemos os valores de entrada nos campos correspondentes da estrutura
+   MqlDateTime time_struct={};
+   time_struct.year= year;</p>
+<p></code></pre>
+<p>
+<h3>Data e Hora</h3>
+© 2000-2025, MetaQuotes Ltd.
+1896
+</p>
+<pre><code class="language-mql5">
+   time_struct.mon = month;
+   time_struct.day = day;
+   time_struct.hour= hour;
+   time_struct.min = min;
+   time_struct.sec = sec;
+   
+//--- convertemos a data e a hora da estrutura em uma variável com o tipo datetime e
+   datetime time = StructToTime(time_struct);
+   
+//--- exibimos o resultado da conversão de uma variável do tipo de estrutura MqlDateTi
+   Print(&quot;Converted date and time: &quot;,TimeToString(time,TIME_DATE|TIME_MINUTES|TIME_SEC
+   /*
+   Resultados, se forem inseridos valores padrão zero:
+   Entered date and time: 0000.00.00 00:00:00
+   Corrected date and time: 1970.01.01 00:00:00
+   Converted date and time: 1970.01.01 00:00:00
+   
+   Resultados, se for inserido o dia errado do mês de fevereiro do ano atual:
+   Entered date and time: 2024.02.31 00:00:00
+   Corrected date and time: 2024.02.31 00:00:00
+   Converted date and time: 2024.03.02 00:00:00
+   */
+</code></pre>
+<p>
+  }
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,4168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhar com bancos de dados - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class="active"><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Trabalhar com bancos de dados</h1>
+        </header>
+        
+        <article>
+            <p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3033
+As funções de banco de dados usam o SQLite, um mecanismo popular e fácil de usar. Esse mecanismo
+é conveniente porque todo o banco de dados fica em um único arquivo no computador do usuário. 
+Usando essas funções, é fácil criar tabelas, adicionar dados a elas, fazer modificações e fazer seleções
+com consultas SQL simples:
+· receber histórico de negociação e cotações de qualquer formato,
+· salvar resultados de otimização e de teste,
+· preparar e intercambiar dados com outros pacotes de análise,
+· salvar configurações e status de programas MQL5.
+Além disso, você pode usar em consultas funções estatísticas e matemáticas.
+As funções para trabalhar com bancos de dados permitem substituir as operações mais repetitivas,
+quanto ao processamento de grandes matrizes de dados, por consultas SQL, o que permite, em muitos
+casos, 
+usar 
+chamadas 
+em 
+vez 
+de 
+programar 
+loops 
+e 
+comparações 
+complexas
+DatabaseExecute/DatabasePrepare. Para obter convenientemente os resultados de consulta em uma
+estrutura pronta, use a função DatabaseReadBind, que permite ler todos os campos de registro em
+uma chamada diretamente.
+Para acelerar as operações de leitura, gravação e modificação, o banco de dados pode ser
+aberto/criado no banco de dados online com o sinalizador DATABASE_OPEN_MEMORY, sendo que esse
+banco de dados estará disponível apenas para esse programa específico e não será compartilhado com
+ninguém. Ao trabalhar com bancos de dados localizados no disco rígido, é necessário embrulhar
+grandes 
+inserções/alterações 
+de 
+dados 
+em 
+uma 
+transação 
+usando
+DatabaseTransactionBegin/DatabaseTransactionCommit/DatabaseTransactionRollback, o que fornece
+aceleração centenas de vezes.
+Para começar a trabalhar com estas funções, basta ler o artigo SQLite: trabalho nativo com bancos de
+dados SQL em MQL5. 
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>DatabaseOpen</h3>
+Abre ou cria um banco de dados no arquivo especificado
+<h3>DatabaseClose</h3>
+<h3>Fecha um banco de dados</h3>
+<h3>DatabaseImport</h3>
+Importa para uma tabela dados de um arquivo
+<h3>DatabaseExport</h3>
+Exporta uma tabela ou resultado sobre a execução da consulta
+<h3>SQL para um arquivo CSV</h3>
+<h3>DatabasePrint</h3>
+Exibe uma tabela ou resultado sobre a execução da consulta
+<h3>SQL no log do EA</h3>
+<h3>DatabaseTableExists</h3>
+Verifica a existência de tabela no banco de dados
+<h3>DatabaseExecute</h3>
+Executa uma consulta no banco de dados especificado
+<h3>DatabasePrepare</h3>
+Cria um identificador de consulta, que pode ser executado
+usando DatabaseRead()
+<h3>DatabaseReset</h3>
+Redefine a consulta para seu status inicial, como após uma
+chamada de DatabasePrepare()</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3034
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>DatabaseBind</h3>
+Define o valor do parâmetro na consulta
+<h3>DatabaseBindArray</h3>
+Define a matriz como um valor de parâmetro
+<h3>DatabaseRead</h3>
+Realiza o a transição para o próximo registro como resultado
+de uma consulta
+<h3>DatabaseReadBind</h3>
+Moves to the next record and reads data into the structure
+from it
+<h3>DatabaseFinalize</h3>
+<h3>Exclui uma consulta criada em DatabasePrepare()</h3>
+<h3>DatabaseTransactionBegin</h3>
+<h3>Inicia a execução da transação</h3>
+<h3>DatabaseTransactionCommit</h3>
+<h3>Conclui a execução da transação</h3>
+<h3>DatabaseTransactionRollback</h3>
+<h3>Executa a reversão de transações</h3>
+<h3>DatabaseColumnsCount</h3>
+Obtém o número de campos na consulta
+<h3>DatabaseColumnName</h3>
+Obtém o nome do campo pelo número
+<h3>DatabaseColumnType</h3>
+<h3>Obter tipo de campo por número</h3>
+<h3>DatabaseColumnSize</h3>
+Obtém o tamanho do campo em bytes
+<h3>DatabaseColumnText</h3>
+Obtém o valor do campo do registro atual como uma string
+<h3>DatabaseColumnInteger</h3>
+Obtém um valor int do registro atual
+<h3>DatabaseColumnLong</h3>
+Obtém um valor long do registro atual
+<h3>DatabaseColumnDouble</h3>
+Obtém um valor double do registro atual
+<h3>DatabaseColumnBlob</h3>
+Obtém o valor do campo do registro atual como um array
+<h3>Funções estatísticas:</h3>
+· mode — moda
+· median — mediana (50º percentil)
+· percentile_25 — 25º percentil
+· percentile_75 — 75º percentil
+· percentile_90 — 90º percentil
+· percentile_95 — 95º percentil
+· percentile_99 — 99º percentil
+· stddev или stddev_samp — desvio padrão da amostra
+· stddev_pop — desvio padrão da população
+· variance or var_samp — variância da amostra
+· var_pop — variação da população
+<h3>Funções matemáticas</h3>
+· acos(X) - arco cosseno em radianos</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3035
+· acosh(X) - arco cosseno inverso hiperbólico
+· asin(X) - arco seno em radianos
+· asinh(X) - arco seno hiperbólico
+· atan(X) - arco tangente em radianos
+· atan2(X,Y) - arco tangente em radianos da relação X/Y
+· atanh(X) - arco tangente hiperbólico
+· ceil(X) - arredondando para um número inteiro
+· ceiling(X) - arredondamento para um número inteiro
+· cos(X) - cosseno de um ângulo em radianos
+· cosh(X) - cosseno hiperbólico
+· degrees(X) - converte radianos em ângulo
+· exp(X) - exponente
+· floor(X) - arredondamento para um número inteiro
+· ln(X) - logaritmo natural
+· log(B,X) - logaritmo para a base indicada
+· log(X) - logaritmo decimal
+· log10(X) - logaritmo decimal
+· log2(X) - logaritmo de base 2
+· mod(X,Y) - restante da divisãopi() - número aproximado de Pi
+· pow(X,Y) - potência de uma determinada base
+· power(X,Y) – potência de uma determinada base
+· radians(X) - converte o ângulo em radianos
+· sin(X) - seno do ângulo em radianos
+· sinh(X) - seno hiperbólico
+· sqrt(X) - raiz quadrada
+· tan(X) - tangente de um ângulo em radianos
+· tanh(X) - tangente hiperbólica
+· trunc(X) - reduz para o número inteiro mais próximo de 0
+<h3>Exemplo:</h3>
+select
+  count(*) as book_count,
+  cast(avg(parent) as integer) as mean,
+  cast(median(parent) as integer) as median,
+  mode(parent) as mode,
+  percentile_90(parent) as p90,
+  percentile_95(parent) as p95,
+  percentile_99(parent) as p99
+from moz_bookmarks;</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3036
+<h3>DatabaseOpen</h3>
+Abre ou cria um banco de dados no arquivo especificado.
+</p>
+<pre><code class="language-mql5">
+int  DatabaseOpen(
+   string  filename,      // nome do arquivo
+   uint    flags,         // combinação de sinalizadores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+filename
+[in] Nome do arquivo relativo à pasta &quot;MQL5\Files&quot;.
+flags
+[in]  Combinação de sinalizadores da enumeração ENUM_DATABASE_OPEN_FLAGS.
+<h3>Valor retornado</h3>
+Se for bem-sucedida, a função retorna o identificador do banco de dados, que é usado para acessar
+os dados do banco de dados, caso contrário, retorna INVALID_HANDLE. Para obter o código de erro,
+use GetLastError(), possíveis respostas:
+· ERR_INTERNAL_ERROR (4001)                       – erro crítico de tempo de execução do sistema;
+· ERR_WRONG_INTERNAL_PARAMETER (4002)  - erro interno ao acessar a pasta &quot;MQL5\Files&quot;;
+· ERR_INVALID_PARAMETER (4003)                  – caminho para o arquivo de banco de dados
+contendo uma string vazia ou definida uma combinação incompatível de sinalizadores;
+· ERR_NOT_ENOUGH_MEMORY (4004)              - memória insuficiente;
+· ERR_WRONG_FILENAME (5002)                     - nome de arquivo de banco de dados inválido;
+· ERR_TOO_LONG_FILENAME (5003)                 - caminho absoluto para o arquivo de banco de
+dados excedendo o tamanho máximo;
+· ERR_DATABASE_TOO_MANY_OBJECTS (5122) - excedido número máximo de objetos Database;
+· ERR_DATABASE_CONNECT (5123)                  - erro de conexão ao banco de dados;
+· ERR_DATABASE_MISUSE (5621)                      - uso incorreto da biblioteca SQLite.
+<h3>Geral</h3>
+Se no parâmetro filename estiver especificado NULL ou uma string vazia &quot;&quot;, no disco será criado um
+arquivo temporário, que será excluído automaticamente após encerrada a conexão com o banco de
+dados.
+Se no parâmetro filename estiver especificadoн &quot;:memory:&quot;, o banco de dados será criado na
+memória e o banco de dados será excluído automaticamente após encerrada a conexão.
+<h3>Se</h3>
+no 
+parâmetro 
+flags 
+não 
+estiver 
+especificado 
+nenhum 
+do 
+sinalizadores
+<h3>DATABASE_OPEN_READONLY</h3>
+ou 
+<h3>DATABASE_OPEN_READWRITE,</h3>
+será 
+usado 
+o 
+sinalizador
+DATABASE_OPEN_READWRITE.
+Se não estiver especificada a extensão do arquivo, será usada a extensão &quot;.sqlite&quot;
+<h3>ENUM_DATABASE_OPEN_FLAGS</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3037
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>DATABASE_OPEN_READONLY</h3>
+<h3>Abrir somente leitura</h3>
+<h3>DATABASE_OPEN_READWRITE</h3>
+<h3>Abrir para leitura e escrita</h3>
+<h3>DATABASE_OPEN_CREATE</h3>
+Criar um arquivo no disco se ele não existir
+<h3>DATABASE_OPEN_MEMORY</h3>
+Criar um banco de dados na RAM
+<h3>DATABASE_OPEN_COMMON</h3>
+<h3>O</h3>
+arquivo 
+está 
+localizado 
+na 
+pasta
+compartilhada dos terminais
+<h3>Veja também</h3>
+<h3>DatabaseClose</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3038
+<h3>DatabaseClose</h3>
+Закрывает базу данных.
+</p>
+<pre><code class="language-mql5">
+void  DatabaseClose(
+   int  database      // identificador de banco de dados recebido em DatabaseOpen
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador de banco de dados recebido em DatabaseOpen().
+<h3>Valor retornado</h3>
+Não.
+<h3>Observação</h3>
+Após chamar DatabaseClose, todos os identificadores de consulta de banco de dados são excluídos
+automaticamente e se tornam inválidos.
+No caso de um identificador válido, a função mostrará o erro ERR_DATABASE_INVALID_HANDLE. O
+erro pode ser verificado usando GetLastError().
+<h3>Veja também</h3>
+<h3>DatabaseOpen, DatabasePrepare</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3039
+<h3>DatabaseImport</h3>
+Importa para uma tabela dados de um arquivo.
+long  DatabaseImport(
+</p>
+<pre><code class="language-mql5">
+   int           database,          // identificador de banco de dados recebido em Dat
+   const string  table,             // nome da tabela para inserir dados
+   const string  filename,          // nome do arquivo para importar dados
+   uint          flags,             // combinação de sinalizadores
+   const string  separator,         // separador de dados 
+   ulong         skip_rows,         // quantas primeiras linhas ignorar
+   const string  skip_comments      // strings de símbolos que definem comentários
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador do banco de dados obtido em DatabaseOpen().
+table
+[in]  Nome da tabela à qual serão adicionados os dados do arquivo.
+filename
+[in]  Arquivo CSV ou arquivo ZIP para leitura de dados, o nome pode conter subpastas e é definido
+em relação à pasta MQL5\Files.
+flags
+[in]  Combinação de sinalizadores a partir da enumeração ENUM_DATABASE_IMPORT_FLAGS.
+separator
+[in]  Separador de dados em um arquivo CSV.
+skip_rows
+[in]  Número de linhas iniciais a serem ignoradas ao ler dados de um arquivo.
+skip_comments
+[in]   Linhas dos símbolos para designar strings como comentários. Se, no início da linha, for
+encontrado qualquer símbolo de skip_comments, tal linha é considerada um comentário e não é
+importada.
+<h3>Valor retornado</h3>
+Retorna o número de linhas importadas ou -1 em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), respostas possíveis:</h3>
+· ERR_INVALID_PARAMETER (4003)              –  o nome da tabela não está especificado (linha vazia
+ou NULL);
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)   - identificador de banco de dados inválido.
+<h3>Observação</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3040
+Se tabelas cujo nome é table não existirem, elas serão criadas automaticamente. Os nomes e o tipo
+de campos na tabela criada serão reconhecidos automaticamente com base nos dados contidos no
+arquivo.  
+<h3>ENUM_DATABASE_IMPORT_FLAGS</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>DATABASE_IMPORT_HEADER</h3>
+A primeira linha contém os nomes dos campos
+da tabela
+<h3>DATABASE_IMPORT_CRLF</h3>
+Quebra de linha é CRLF ( por padrão, LF)
+<h3>DATABASE_IMPORT_APPEND</h3>
+Adiciona dados ao final de uma tabela
+existente
+<h3>DATABASE_IMPORT_QUOTED_STRINGS</h3>
+Os valores de string estão contidos em aspas
+duplas
+<h3>DATABASE_IMPORT_COMMON_FOLDER</h3>
+O arquivo está localizado na pasta comum de
+todos 
+os 
+terminais 
+do 
+cliente
+\Terminal\Common\File.
+Exemplo de leitura de tabela a partir de um arquivo criado pelo código no exemplo em DatabaseExport
+:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+ {
+</code></pre>
+<p>
+  string csv_filename;
+</p>
+<pre><code class="language-mql5">
+//--- obtemos os nomes dos arquivos de texto a serem carregados da pasta comum dos ter
+</code></pre>
+<p>
+  string filenames[];
+  if(FileSelectDialog(&quot;Selecione o arquivo CSV para carregamento da tabela&quot;, NULL,
+</p>
+<pre><code class="language-mql5">
+                      &quot;Text files (*.csv)|*.csv&quot;,
+                      FSD_WRITE_FILE|FSD_COMMON_FOLDER, filenames, &quot;data.csv&quot;)&gt;0)
+   {
+    //--- exibimos o nome de cada arquivo selecionado
+    if(ArraySize(filenames)==1)
+      csv_filename=filenames[0];
+    else
+     {
+      Print(&quot;Erro desconhecido durante a seleção do arquivo. Código de erro &quot;, GetLast
+      return;
+     }
+   }
+</code></pre>
+<p>
+  else
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;arquivo CSV não selecionado&quot;);
+    return;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3041
+</p>
+<pre><code class="language-mql5">
+   }
+//--- criamos ou abrimos um banco de dados
+</code></pre>
+<p>
+  string db_filename=&quot;test.sqlite&quot;;
+  int db=DatabaseOpen(db_filename, DATABASE_OPEN_READWRITE|DATABASE_OPEN_CREATE);
+</p>
+<pre><code class="language-mql5">
+//--- verificamos a presença da tabela TEST
+</code></pre>
+<p>
+  if(DatabaseTableExists(db, &quot;TEST&quot;))
+</p>
+<pre><code class="language-mql5">
+   {
+    //--- removemos a tabela TEST
+    if(!DatabaseExecute(db, &quot;DROP TABLE IF EXISTS TEST&quot;))
+     {
+      Print(&quot;Failed to drop the TEST table with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   }
+  //--- importamos os registros desde um arquivo para uma tabela TEST
+</code></pre>
+<p>
+  long imported=DatabaseImport(db, &quot;TEST&quot;, csv_filename, DATABASE_IMPORT_HEADER|DATABA
+  if(imported&gt;0)
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(imported,&quot; lines imported in table TEST&quot;);
+    DatabasePrint(db,&quot;SELECT * FROM TEST&quot;,DATABASE_PRINT_NO_INDEX);
+   }
+</code></pre>
+<p>
+  else
+</p>
+<pre><code class="language-mql5">
+    {
+     Print(&quot;DatabaseImport() failed. Error &quot;,GetLastError());
+    }
+//--- fechamos o arquivo do banco de dados e relatamos isso
+</code></pre>
+<p>
+<h3>DatabaseClose(db);</h3>
+<h3>PrintFormat(&quot;Database: %s closed&quot;, db_filename);</h3>
+ }
+<h3>Veja também</h3>
+<h3>DatabaseOpen, DatabasePrint</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3042
+<h3>DatabaseExport</h3>
+Exporta uma tabela ou resultado sobre a execução da consulta SQL para um arquivo CSV. O arquivo é
+criado com codificação UTF-8.
+long  DatabaseExport(
+</p>
+<pre><code class="language-mql5">
+   int           database,           // identificador de banco de dados recebido em Da
+   const string  table_or_sql,       // nome da tabela ou consulta SQL
+   const string  filename,           // nome do arquivo CSV para exportação de dados
+   uint          flags,              // combinação de sinalizadores
+   const string  separator           // separador de dados no arquivo CVS
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador do banco de dados, obtido em DatabaseOpen().
+table_or_sql
+[in]  Nome da tabela ou o texto da consulta SQL, cujos resultados serão exportados para o arquivo
+especificado.
+filename
+[in]  Nome do arquivo para exportar dados. O caminho é definido em relação à pasta MQL5\Files.
+flags
+[in]  Combinação de sinalizadores a partir da enumeração ENUM_DATABASE_EXPORT_FLAGS.
+separator
+[in]  Separador de dados. Se especificado NULL, como separador será utilizado o símbolo de
+tabulação &#x27;\t&#x27;. Linha vazia &quot;&quot; é considerada um delimitador válido, mas o arquivo CSV não pode ser
+lido como tabela, pois será um conjunto de linhas.
+<h3>Valor retornado</h3>
+Retorna o número de registros exportados ou um valor negativo em caso de erro. Para obter o
+código de erro, use GetLastError(), respostas possíveis:
+· ERR_INTERNAL_ERROR (4001)                       – erro crítico de tempo de execução do sistema;
+· ERR_INVALID_PARAMETER (4003)                  – caminho para o arquivo de banco de dados
+contendo uma string vazia ou definida uma combinação incompatível de sinalizadores;
+· ERR_NOT_ENOUGH_MEMORY (4004)             – memória insuficiente;
+· ERR_FUNCTION_NOT_ALLOWED(4014)           – o canal especificado não é permitido;
+· ERR_PROGRAM_STOPPED(4022)                    – operação cancelada (o programa MQL parou);
+· ERR_WRONG_FILENAME (5002)                     - nome de arquivo inválido;
+· ERR_TOO_LONG_FILENAME (5003)                 - o caminho absoluto para o arquivo excedeu o
+tamanho máximo;
+· ERR_CANNOT_OPEN_FILE(5004)                    – erro ao abrir o arquivo para gravação;
+· ERR_FILE_WRITEERROR(5026)                      – erro ao gravar no arquivo;
+· ERR_DATABASE_INTERNAL (5120)                 – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)      – identificador de banco de dados inválido;</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3043
+· ERR_DATABASE_QUERY_PREPARE(5125)        – erro ao criar a consulta;
+· ERR_DATABASE_QUERY_NOT_READONLY       – somente é permitida uma solicitação de leitura.
+<h3>Observação</h3>
+Se os resultados da consulta forem exportados, a consulta SQL deverá começar com &quot;SELECT&quot; ou
+&quot;select&quot;. Em outras palavras, a consulta SQL não pode alterar o estado do banco de dados, caso
+contrário DatabaseExport() falhará.
+Os valores de string no banco de dados podem conter um caractere de conversão (&#x27;\r&#x27; ou &#x27;\r\n&#x27; ), além
+de um caractere separador de valores especificado no parâmetro separator. Nesse caso, é
+necessário usar o sinalizador DATABASE_EXPORT_QUOTED_STRINGS no parâmetro flags. Se esse
+sinalizador estiver presente, todas as linhas exibidas serão colocadas entre aspas duplas, mas se a
+linha contiver aspas duplas, ela será substituída por duas aspas duplas.
+<h3>ENUM_DATABASE_EXPORT_FLAGS</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>DATABASE_EXPORT_HEADER</h3>
+Exibe os nomes dos campos na primeira linha
+<h3>DATABASE_EXPORT_INDEX</h3>
+<h3>Exibe os números das linhas</h3>
+<h3>DATABASE_EXPORT_NO_BOM</h3>
+Não insere uma etiqueta BOM no início do
+arquivo (a BOM é inserida por padrão)
+<h3>DATABASE_EXPORT_CRLF</h3>
+Usa CRLF (por padrão, LF) para quebras de
+linha
+<h3>DATABASE_EXPORT_APPEND</h3>
+Adiciona dados ao final de um arquivo
+existente 
+(por 
+padrão, 
+o 
+arquivo 
+é
+sobregravado). Se o arquivo não existir, ele
+será criado.
+<h3>DATABASE_EXPORT_QUOTED_STRINGS</h3>
+Exibe valores de string em aspas duplas.
+<h3>DATABASE_EXPORT_COMMON_FOLDER</h3>
+<h3>O</h3>
+arquivo 
+<h3>CSV</h3>
+será 
+criado 
+na 
+pasta
+compartilhada 
+de 
+todos 
+os 
+terminais
+\Terminal\Common\File.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+input int InpRates=100;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+ {
+</code></pre>
+<p>
+<h3>MqlRates rates[];</h3>
+</p>
+<pre><code class="language-mql5">
+//--- lembramos a hora de início antes de obter as barras
+</code></pre>
+<p>
+  ulong start=GetMicrosecondCount();</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3044
+</p>
+<pre><code class="language-mql5">
+//--- solicitamos as últimas 100 barras no período gráfico H1
+</code></pre>
+<p>
+  if(CopyRates(Symbol(), PERIOD_H1, 1, InpRates, rates)&lt;InpRates)
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;CopyRates() failed,, Error &quot;, GetLastError());
+    return;
+   }
+</code></pre>
+<p>
+  else
+</p>
+<pre><code class="language-mql5">
+   {
+    //--- quantidade de barras e em quanto tempo elas foram recebidas
+    PrintFormat(&quot;%s: CopyRates received %d bars in %d ms &quot;,
+                _Symbol, ArraySize(rates), (GetMicrosecondCount()-start)/1000);
+   }
+//--- formamos o nome do arquivo para armazenar o banco de dados
+</code></pre>
+<p>
+  string filename=_Symbol+&quot;_&quot;+EnumToString(PERIOD_H1)+&quot;_&quot;+TimeToString(TimeCurrent())+
+  StringReplace(filename, &quot;:&quot;, &quot;-&quot;); // o símbolo &quot;:&quot; é proibido nos nomes dos arquivo
+</p>
+<pre><code class="language-mql5">
+//--- abrimos/criamos um banco de dados na pasta comum do terminal
+</code></pre>
+<p>
+  int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE|DATABASE_OPEN_CREATE|DATABASE_
+  if(db==INVALID_HANDLE)
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;Database: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+    return;
+   }
+</code></pre>
+<p>
+  else
+</p>
+<pre><code class="language-mql5">
+    Print(&quot;Database: &quot;, filename, &quot; opened successfully&quot;);
+//--- verificamos a presença da tabela RATES
+</code></pre>
+<p>
+  if(DatabaseTableExists(db, &quot;RATES&quot;))
+</p>
+<pre><code class="language-mql5">
+   {
+    //--- removemos a tabela RATES
+    if(!DatabaseExecute(db, &quot;DROP TABLE IF EXISTS RATES&quot;))
+     {
+      Print(&quot;Failed to drop the RATES table with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   }
+//--- criamos a tabela RATES
+</code></pre>
+<p>
+  if(!DatabaseExecute(db, &quot;CREATE TABLE RATES(&quot;
+</p>
+<pre><code class="language-mql5">
+                      &quot;SYMBOL             CHAR(10),&quot;
+                      &quot;TIME               INT NOT NULL,&quot;
+                      &quot;OPEN               REAL,&quot;
+                      &quot;HIGH               REAL,&quot;
+                      &quot;LOW                REAL,&quot;
+                      &quot;CLOSE              REAL,&quot;
+                      &quot;TICK_VOLUME        INT,&quot;
+                      &quot;SPREAD             INT,&quot;
+                      &quot;REAL_VOLUME        INT);&quot;))
+   {
+    Print(&quot;DB: &quot;, filename, &quot; create table RATES with code &quot;, GetLastError());</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3045
+</p>
+<pre><code class="language-mql5">
+    DatabaseClose(db);
+    return;
+   }
+//--- mostramos a lista de todos os campos na tabela RATES
+</code></pre>
+<p>
+  if(DatabasePrint(db, &quot;PRAGMA TABLE_INFO(RATES)&quot;, 0)&lt;0)
+</p>
+<pre><code class="language-mql5">
+   {
+    PrintFormat(&quot;DatabasePrint(\&quot;PRAGMA TABLE_INFO(RATES)\&quot;) failed, error code=%d at 
+    DatabaseClose(db);
+    return;
+   }
+//--- criamos uma consulta parametrizada para adicionar barras à tabela RATES
+</code></pre>
+<p>
+  string sql=&quot;INSERT INTO RATES (SYMBOL,TIME,OPEN,HIGH,LOW,CLOSE,TICK_VOLUME,SPREAD,RE
+</p>
+<pre><code class="language-mql5">
+             &quot; VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9)&quot;; // parâmetros da consulta
+</code></pre>
+<p>
+  int request=DatabasePrepare(db, sql);
+  if(request==INVALID_HANDLE)
+</p>
+<pre><code class="language-mql5">
+   {
+    PrintFormat(&quot;DatabasePrepare() failed with code=%d&quot;, GetLastError());
+    Print(&quot;SQL request: &quot;, sql);
+    DatabaseClose(db);
+    return;
+   }
+//--- definimos o valor do primeiro parâmetro de consulta
+</code></pre>
+<p>
+<h3>DatabaseBind(request, 0, _Symbol);</h3>
+</p>
+<pre><code class="language-mql5">
+//--- lembramos a hora de início antes de adicionar as barras à tabela RATES
+</code></pre>
+<p>
+  start=GetMicrosecondCount();
+<h3>DatabaseTransactionBegin(db);</h3>
+  int total=ArraySize(rates);
+  bool request_error=false;
+  for(int i=0; i&lt;total; i++)
+</p>
+<pre><code class="language-mql5">
+   {
+    //--- definimos o resto dos parâmetros antes de adicionar uma entrada
+    ResetLastError();
+    if(!DatabaseBind(request, 1, rates[i].time))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    //--- se a chamada anterior de DatabaseBind() foi bem sucedida, definimos o seguin
+    if(!request_error &amp;&amp; !DatabaseBind(request, 2, rates[i].open))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    if(!request_error &amp;&amp; !DatabaseBind(request, 3, rates[i].high))
+     {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3046
+</p>
+<pre><code class="language-mql5">
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    if(!request_error &amp;&amp; !DatabaseBind(request, 4, rates[i].low))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    if(!request_error &amp;&amp; !DatabaseBind(request, 5, rates[i].close))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    if(!request_error &amp;&amp; !DatabaseBind(request, 6, rates[i].tick_volume))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    if(!request_error &amp;&amp; !DatabaseBind(request, 7, rates[i].spread))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    if(!request_error &amp;&amp; !DatabaseBind(request, 8, rates[i].real_volume))
+     {
+      PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+      PrintFormat(&quot;Bar #%d line=%d&quot;, i+1, __LINE__);
+      request_error=true;
+      break;
+     }
+    //--- executamos uma solicitação para inserir um registro e verificar a existência
+    if(!request_error &amp;&amp; !DatabaseRead(request) &amp;&amp; (GetLastError()!=ERR_DATABASE_NO_MO
+     {
+      PrintFormat(&quot;DatabaseRead() failed with code=%d&quot;, GetLastError());
+      DatabaseFinalize(request);
+      request_error=true;
+      break;
+     }</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3047
+</p>
+<pre><code class="language-mql5">
+    //--- reinicializamos a solicitação para o estado inicial antes da próxima atualiz
+    if(!request_error &amp;&amp; !DatabaseReset(request))
+     {
+      PrintFormat(&quot;DatabaseReset() failed with code=%d&quot;, GetLastError());
+      DatabaseFinalize(request);
+      request_error=true;
+      break;
+     }
+   } //--- terminamos, percorremos todas as barras
+//--- como correram as operações?
+</code></pre>
+<p>
+  if(request_error)
+</p>
+<pre><code class="language-mql5">
+   {
+    PrintFormat(&quot;Table RATES: failed to add %d bars &quot;, ArraySize(rates));
+    DatabaseTransactionRollback(db);
+    DatabaseClose(db);
+    return;
+   }
+</code></pre>
+<p>
+  else
+</p>
+<pre><code class="language-mql5">
+   {
+    DatabaseTransactionCommit(db);
+    PrintFormat(&quot;Table RATES: added %d bars in %d ms&quot;,
+                ArraySize(rates), (GetMicrosecondCount()-start)/1000);
+   }
+//--- salvamos a tabela RATES em um arquivo CSV
+</code></pre>
+<p>
+  string csv_filename=Symbol()+&quot;.csv&quot;;
+  long saved=DatabaseExport(db, &quot;SELECT * FROM RATES&quot;, csv_filename, DATABASE_EXPORT_H
+  if(saved&gt;0)
+</p>
+<pre><code class="language-mql5">
+    Print(&quot;Table RATES saved in &quot;, Symbol(), &quot;.csv&quot;);
+</code></pre>
+<p>
+  else
+</p>
+<pre><code class="language-mql5">
+    Print(&quot;DatabaseExport() failed. Error &quot;, GetLastError());
+//--- fechamos o arquivo do banco de dados e relatamos isso
+</code></pre>
+<p>
+<h3>DatabaseClose(db);</h3>
+  PrintFormat(&quot;Database: %s created and closed&quot;, filename);
+<h3>Veja também</h3>
+<h3>DatabasePrint, DatabaseImport</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3048
+<h3>DatabasePrint</h3>
+Exibe uma tabela ou resultado sobre a execução da consulta SQL no log do EA.
+long  DatabasePrint(
+</p>
+<pre><code class="language-mql5">
+   int           database,          // identificador de banco de dados recebido em Dat
+   const string  table_or_sql,      // tabela ou consulta SQL
+   uint          flags              // combinação de sinalizadores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador do banco de dados, obtido em DatabaseOpen().
+table_or_sql
+[in]  Nome da tabela ou o texto da consulta SQL, cujos resultados são exibidos no log do EA.
+flags
+[in]  Combinação de sinalizadores que definem a formatação de exibição. Os sinalizadores são
+definidos da seguinte maneira:
+DATABASE_PRINT_NO_HEADER      – não exibir nomes de colunas da tabela (nomes de campos)
+DATABASE_PRINT_NO_INDEX         – não exibir os números de linha
+DATABASE_PRINT_NO_FRAME        – não exibir o quadro que separa o cabeçalho e os dados
+DATABASE_PRINT_STRINGS_RIGHT – alinhar as linhas à direita.
+Se flags=0, serão exibidas colunas e linhas, o cabeçalho e os dados são separados por um quadro,
+as linhas são alinhadas à esquerda.
+<h3>Valor retornado</h3>
+Retorna o número de linhas exportadas ou -1 em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), respostas possíveis:</h3>
+· ERR_INTERNAL_ERROR (4001)                       – erro crítico de tempo de execução do sistema;
+· ERR_NOT_ENOUGH_MEMORY (4004)              - memória insuficiente;
+· ERR_DATABASE_INTERNAL (5120)                 – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)      - identificador de banco de dados inválido;  
+<h3>Observação</h3>
+Se os resultados da consulta forem exportados para o log, a consulta SQL deverá começar com
+&quot;SELECT&quot; ou &quot;select&quot;. Em outras palavras, a consulta SQL não pode alterar o estado do banco de
+dados, caso contrário DatabasePrint() falhará.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   string filename=&quot;departments.sqlite&quot;;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3049
+</p>
+<pre><code class="language-mql5">
+//--- criamos ou abrimos um banco de dados na pasta compartilhada do terminal
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE |DATAB
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+//--- criamos a tabela COMPANY
+   if(!CreataTableCompany(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//--- criamos a tabela DEPARTMENT
+   if(!CreataTableDepartment(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//--- exibimos a lista de todos os campos na tabela COMPANY e DEPARTMENT
+   PrintFormat(&quot;Try to print request \&quot;PRAGMA TABLE_INFO(COMPANY);PRAGMA TABLE_INFO(DE
+   if(DatabasePrint(db, &quot;PRAGMA TABLE_INFO(COMPANY);PRAGMA TABLE_INFO(DEPARTMENT)&quot;, 0)
+     {
+      PrintFormat(&quot;DatabasePrint(\&quot;PRAGMA TABLE_INFO()\&quot;) failed, error code=%d&quot;, GetL
+      DatabaseClose(db);
+      return;
+     }
+//--- exibimos no log a tabela COMPANY
+   PrintFormat(&quot;Try to print request \&quot;SELECT * from COMPANY\&quot;&quot;);
+   if(DatabasePrint(db, &quot;SELECT * from COMPANY&quot;, 0)&lt;0)
+     {
+      Print(&quot;DatabasePrint failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- texto da consulta para junção das tabelas COMPANY e DEPARTMENT
+   string request=&quot;SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT &quot;
+                  &quot;ON COMPANY.ID = DEPARTMENT.EMP_ID&quot;;
+//--- exibimos o resultado da junção de tabelas
+   PrintFormat(&quot;Try to print request \&quot;SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUT
+   if(DatabasePrint(db, request, 0)&lt;0)
+     {
+      Print(&quot;DatabasePrint failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- fechamos o banco de dados</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3050
+</p>
+<pre><code class="language-mql5">
+   DatabaseClose(db);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Conclusão:</h3>
+Try to print request &quot;PRAGMA TABLE_INFO(COMPANY);PRAGMA TABLE_INFO(DEPARTMENT)&quot;
+#| cid name    type     notnull dflt_value pk
+-+-------------------------------------------
+1|   0 ID      INT            1             1 
+2|   1 NAME    TEXT           1             0 
+3|   2 AGE     INT            1             0 
+4|   3 ADDRESS CHAR(50)       0             0 
+5|   4 SALARY  REAL           0             0 
+#| cid name   type     notnull dflt_value pk
+-+------------------------------------------
+1|   0 ID     INT            1             1 
+2|   1 DEPT   CHAR(50)       1             0 
+3|   2 EMP_ID INT            1             0 
+Try to print request &quot;SELECT * from COMPANY&quot;
+#| ID NAME  AGE ADDRESS     SALARY
+-+--------------------------------
+1|  1 Paul   32 California 25000.0 
+2|  2 Allen  25 Texas      15000.0 
+3|  3 Teddy  23 Norway     20000.0 
+4|  4 Mark   25 Rich-Mond  65000.0 
+5|  5 David  27 Texas      85000.0 
+6|  6 Kim    22 South-Hall 45000.0 
+7|  7 James  24 Houston    10000.0 
+Try to print request &quot;SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMEN
+#| EMP_ID NAME  DEPT       
+-+-------------------------
+1|      1 Paul  IT Billing  
+2|      2 Allen Engineering 
+3|        Teddy             
+4|        Mark              
+5|        David             
+6|        Kim               
+7|      7 James Finance     
+*/
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria a tabela COMPANY                                            |
+//+------------------------------------------------------------------+
+bool CreataTableCompany(int database)
+  {
+//--- se a tabela COMPANY existir, vamos exclui-la
+   if(DatabaseTableExists(database, &quot;COMPANY&quot;))
+     {
+      //--- excluímos a tabela
+      if(!DatabaseExecute(database, &quot;DROP TABLE COMPANY&quot;))
+        {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3051
+</p>
+<pre><code class="language-mql5">
+         Print(&quot;Failed to drop table COMPANY with code &quot;, GetLastError());
+         return(false);
+        }
+     }
+//--- criamos a tabela COMPANY
+   if(!DatabaseExecute(database, &quot;CREATE TABLE COMPANY(&quot;
+                       &quot;ID INT PRIMARY KEY     NOT NULL,&quot;
+                       &quot;NAME           TEXT    NOT NULL,&quot;
+                       &quot;AGE            INT     NOT NULL,&quot;
+                       &quot;ADDRESS        CHAR(50),&quot;
+                       &quot;SALARY         REAL );&quot;))
+     {
+      Print(&quot;DB: create table COMPANY failed with code &quot;, GetLastError());
+      return(false);
+     }
+//--- inserimos os dados na tabela COMPANY
+   if(!DatabaseExecute(database, &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VAL
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (2, &#x27;A
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (3, &#x27;T
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (4, &#x27;M
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (5, &#x27;D
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (6, &#x27;K
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (7, &#x27;J
+     {
+      Print(&quot;COMPANY insert failed with code &quot;, GetLastError());
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria a tabela DEPARTMENT                                         |
+//+------------------------------------------------------------------+
+bool CreataTableDepartment(int database)
+  {
+//--- se a tabela DEPARTMENT existir, vamos exclui-la
+   if(DatabaseTableExists(database, &quot;DEPARTMENT&quot;))
+     {
+      //--- excluímos a tabela
+      if(!DatabaseExecute(database, &quot;DROP TABLE DEPARTMENT&quot;))
+        {
+         Print(&quot;Failed to drop table DEPARTMENT  with code &quot;, GetLastError());
+         return(false);
+        }
+     }
+//--- criamos a tabela DEPARTMENT
+   if(!DatabaseExecute(database, &quot;CREATE TABLE DEPARTMENT (&quot;
+                       &quot;ID      INT PRIMARY KEY   NOT NULL,&quot;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3052
+</p>
+<pre><code class="language-mql5">
+                       &quot;DEPT    CHAR(50)          NOT NULL,&quot;
+                       &quot;EMP_ID  INT               NOT NULL);&quot;))
+     {
+      Print(&quot;DB: create table DEPARTMENT failed with code &quot;, GetLastError());
+      return(false);
+     }
+//--- inserimos os dados na tabela DEPARTMENT
+   if(!DatabaseExecute(database, &quot;INSERT INTO DEPARTMENT (ID,DEPT,EMP_ID) VALUES (1, &#x27;
+                       &quot;INSERT INTO DEPARTMENT (ID,DEPT,EMP_ID) VALUES (2, &#x27;Engineerin
+                       &quot;INSERT INTO DEPARTMENT (ID,DEPT,EMP_ID) VALUES (3, &#x27;Finance&#x27;, 
+     {
+      Print(&quot;DEPARTMENT insert failed with code &quot;, GetLastError());
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+-------------------------------------------------------------------
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>DatabaseExport, DatabaseImport</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3053
+<h3>DatabaseTableExists</h3>
+Verifica a existência de tabela no banco de dados.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseTableExists(
+   int     database,      // identificador de banco de dados recebido em DatabaseOpen
+   string  table          // nome da tabela
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador do banco de dados, obtido em DatabaseOpen().
+table
+[in]  Nome da tabela.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INVALID_PARAMETER (4003)               –  nome da tabela não está especificado (string vazia
+ou NULL);
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)   - identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)               -  erro de execução de consulta;
+· ERR_DATABASE_NO_MORE_DATA (5126)    - a tabela não existe (não é um erro, finalização
+normal);
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseFinalize</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3054
+<h3>DatabaseExecute</h3>
+Исполняет запрос к указанной базе данных.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseExecute(
+   int     database,      // identificador de banco de dados recebido em DatabaseOpen
+   string  sql,           // consulta SQL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador do banco de dados, obtido em DatabaseOpen().
+sql
+[in]  consulta SQL.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INTERNAL_ERROR (4001)                   –  erro crítico de tempo de execução do sistema;
+· ERR_INVALID_PARAMETER (4003)              –  parâmetro sql contendo string vazia;
+· ERR_NOT_ENOUGH_MEMORY (4004)          –  memória insuficiente;
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)   – identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)               –  erro de execução de consulta.
+<h3>Example:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- symbol statistics
+struct Symbol_Stats
+  {
+   string            name;             // symbol name
+   int               trades;           // number of trades for the symbol
+   double            gross_profit;     // total profit for the symbol
+   double            gross_loss;       // total loss for the symbol
+   double            total_commission; // total commission for the symbol
+   double            total_swap;       // total swaps for the symbol
+   double            total_profit;     // total profit excluding swaps and commissions
+   double            net_profit;       // net profit taking into account swaps and com
+   int               win_trades;       // number of profitable trades
+   int               loss_trades;      // number of losing trades
+   double            expected_payoff;  // expected payoff for the trade excluding swap
+   double            win_percent;      // percentage of winning trades
+   double            loss_percent;     // percentage of losing trades
+   double            average_profit;   // average profit
+   double            average_loss;     // average loss
+   double            profit_factor;    // profit factor</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3055
+  };
+</p>
+<pre><code class="language-mql5">
+//--- Magic Number statistics
+struct Magic_Stats
+  {
+   long              magic;            // EA&#x27;s Magic Number
+   int               trades;           // number of trades for the symbol
+   double            gross_profit;     // total profit for the symbol
+   double            gross_loss;       // total loss for the symbol
+   double            total_commission; // total commission for the symbol
+   double            total_swap;       // total swaps for the symbol
+   double            total_profit;     // total profit excluding swaps and commissions
+   double            net_profit;       // net profit taking into account swaps and com
+   int               win_trades;       // number of profitable trades
+   int               loss_trades;      // number of losing trades
+   double            expected_payoff;  // expected payoff for the trade excluding swap
+   double            win_percent;      // percentage of winning trades
+   double            loss_percent;     // percentage of losing trades
+   double            average_profit;   // average profit
+   double            average_loss;     // average loss
+   double            profit_factor;    // profit factor
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//--- entry hour statistics
+struct Hour_Stats
+  {
+   char              hour_in;          // market entry hour
+   int               trades;           // number of trades in this entry hour
+   double            volume;           // volume of trades in this entry hour
+   double            gross_profit;     // total profit in this entry hour
+   double            gross_loss;       // total loss in this entry hour
+   double            net_profit;       // net profit taking into account swaps and com
+   int               win_trades;       // number of profitable trades
+   int               loss_trades;      // number of losing trades
+   double            expected_payoff;  // expected payoff for the trade excluding swap
+   double            win_percent;      // percentage of winning trades
+   double            loss_percent;     // percentage of losing trades
+   double            average_profit;   // average profit
+   double            average_loss;     // average loss
+   double            profit_factor;    // profit factor
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+int ExtDealsTotal=0;;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- create the file name</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3056
+</p>
+<pre><code class="language-mql5">
+   string filename=IntegerToString(AccountInfoInteger(ACCOUNT_LOGIN))+&quot;_stats.sqlite&quot;;
+//--- open/create the database in the common terminal folder
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE | DATA
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+//--- create the DEALS table
+   if(!CreateTableDeals(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+   PrintFormat(&quot;Deals in the trading history: %d &quot;, ExtDealsTotal);
+//--- get trading statistics per symbols
+   int request=DatabasePrepare(db, &quot;SELECT r.*,&quot;
+                               &quot;   (case when r.trades != 0 then (r.gross_profit+r.gro
+                               &quot;   (case when r.trades != 0 then r.win_trades*100.0/r.
+                               &quot;   (case when r.trades != 0 then r.loss_trades*100.0/r
+                               &quot;   r.gross_profit/r.win_trades as average_profit,&quot;
+                               &quot;   r.gross_loss/r.loss_trades as average_loss,&quot;
+                               &quot;   (case when r.gross_loss!=0.0 then r.gross_profit/(-
+                               &quot;FROM &quot;
+                               &quot;   (&quot;
+                               &quot;   SELECT SYMBOL,&quot;
+                               &quot;   sum(case when entry =1 then 1 else 0 end) as trades
+                               &quot;   sum(case when profit &gt; 0 then profit else 0 end) as
+                               &quot;   sum(case when profit &lt; 0 then profit else 0 end) as
+                               &quot;   sum(swap) as total_swap,&quot;
+                               &quot;   sum(commission) as total_commission,&quot;
+                               &quot;   sum(profit) as total_profit,&quot;
+                               &quot;   sum(profit+swap+commission) as net_profit,&quot;
+                               &quot;   sum(case when profit &gt; 0 then 1 else 0 end) as win_
+                               &quot;   sum(case when profit &lt; 0 then 1 else 0 end) as loss
+                               &quot;   FROM DEALS &quot;
+                               &quot;   WHERE SYMBOL &lt;&gt; &#x27;&#x27; and SYMBOL is not NULL &quot;
+                               &quot;   GROUP BY SYMBOL&quot;
+                               &quot;   ) as r&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   Symbol_Stats stats[], symbol_stats;
+   ArrayResize(stats, ExtDealsTotal);
+   int i=0;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3057
+</p>
+<pre><code class="language-mql5">
+//--- get records from request results
+   for(; DatabaseReadBind(request, symbol_stats) ; i++)
+     {
+      stats[i].name=symbol_stats.name;
+      stats[i].trades=symbol_stats.trades;
+      stats[i].gross_profit=symbol_stats.gross_profit;
+      stats[i].gross_loss=symbol_stats.gross_loss;
+      stats[i].total_commission=symbol_stats.total_commission;
+      stats[i].total_swap=symbol_stats.total_swap;
+      stats[i].total_profit=symbol_stats.total_profit;
+      stats[i].net_profit=symbol_stats.net_profit;
+      stats[i].win_trades=symbol_stats.win_trades;
+      stats[i].loss_trades=symbol_stats.loss_trades;
+      stats[i].expected_payoff=symbol_stats.expected_payoff;
+      stats[i].win_percent=symbol_stats.win_percent;
+      stats[i].loss_percent=symbol_stats.loss_percent;
+      stats[i].average_profit=symbol_stats.average_profit;
+      stats[i].average_loss=symbol_stats.average_loss;
+      stats[i].profit_factor=symbol_stats.profit_factor;
+     }
+   ArrayResize(stats, i);
+   Print(&quot;Trade statistics by Symbol&quot;);
+   ArrayPrint(stats);
+   Print(&quot;&quot;);
+//--- delete the request
+   DatabaseFinalize(request);
+//--- get trading statistics for Expert Advisors by Magic Numbers
+   request=DatabasePrepare(db, &quot;SELECT r.*,&quot;
+                           &quot;   (case when r.trades != 0 then (r.gross_profit+r.gross_l
+                           &quot;   (case when r.trades != 0 then r.win_trades*100.0/r.trad
+                           &quot;   (case when r.trades != 0 then r.loss_trades*100.0/r.tra
+                           &quot;   r.gross_profit/r.win_trades as average_profit,&quot;
+                           &quot;   r.gross_loss/r.loss_trades as average_loss,&quot;
+                           &quot;   (case when r.gross_loss!=0.0 then r.gross_profit/(-r.gr
+                           &quot;FROM &quot;
+                           &quot;   (&quot;
+                           &quot;   SELECT MAGIC,&quot;
+                           &quot;   sum(case when entry =1 then 1 else 0 end) as trades,&quot;
+                           &quot;   sum(case when profit &gt; 0 then profit else 0 end) as gro
+                           &quot;   sum(case when profit &lt; 0 then profit else 0 end) as gro
+                           &quot;   sum(swap) as total_swap,&quot;
+                           &quot;   sum(commission) as total_commission,&quot;
+                           &quot;   sum(profit) as total_profit,&quot;
+                           &quot;   sum(profit+swap+commission) as net_profit,&quot;
+                           &quot;   sum(case when profit &gt; 0 then 1 else 0 end) as win_trad
+                           &quot;   sum(case when profit &lt; 0 then 1 else 0 end) as loss_tra
+                           &quot;   FROM DEALS &quot;
+                           &quot;   WHERE SYMBOL &lt;&gt; &#x27;&#x27; and SYMBOL is not NULL &quot;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3058
+</p>
+<pre><code class="language-mql5">
+                           &quot;   GROUP BY MAGIC&quot;
+                           &quot;   ) as r&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   Magic_Stats EA_stats[], magic_stats;
+   ArrayResize(EA_stats, ExtDealsTotal);
+   i=0;
+//--- print
+   for(; DatabaseReadBind(request, magic_stats) ; i++)
+     {
+      EA_stats[i].magic=magic_stats.magic;
+      EA_stats[i].trades=magic_stats.trades;
+      EA_stats[i].gross_profit=magic_stats.gross_profit;
+      EA_stats[i].gross_loss=magic_stats.gross_loss;
+      EA_stats[i].total_commission=magic_stats.total_commission;
+      EA_stats[i].total_swap=magic_stats.total_swap;
+      EA_stats[i].total_profit=magic_stats.total_profit;
+      EA_stats[i].net_profit=magic_stats.net_profit;
+      EA_stats[i].win_trades=magic_stats.win_trades;
+      EA_stats[i].loss_trades=magic_stats.loss_trades;
+      EA_stats[i].expected_payoff=magic_stats.expected_payoff;
+      EA_stats[i].win_percent=magic_stats.win_percent;
+      EA_stats[i].loss_percent=magic_stats.loss_percent;
+      EA_stats[i].average_profit=magic_stats.average_profit;
+      EA_stats[i].average_loss=magic_stats.average_loss;
+      EA_stats[i].profit_factor=magic_stats.profit_factor;
+     }
+   ArrayResize(EA_stats, i);
+   Print(&quot;Trade statistics by Magic Number&quot;);
+   ArrayPrint(EA_stats);
+   Print(&quot;&quot;);
+//--- delete the request
+   DatabaseFinalize(request);
+//--- make sure that hedging system for open position management is used on the accoun
+   if((ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger(ACCOUNT_MARGIN_MODE)!=ACCOUNT_MARGI
+     {
+      //--- deals cannot be transformed to trades using a simple method through transa
+      DatabaseClose(db);
+      return;
+     }
+//--- now create the TRADES table based on the DEALS table
+   if(!CreateTableTrades(db))
+     {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3059
+</p>
+<pre><code class="language-mql5">
+      DatabaseClose(db);
+      return;
+     }
+//--- fill in the TRADES table using an SQL query based on DEALS table data
+   if(DatabaseTableExists(db, &quot;DEALS&quot;))
+      //--- populate the TRADES table
+      if(!DatabaseExecute(db, &quot;INSERT INTO TRADES(TIME_IN,HOUR_IN,TICKET,TYPE,VOLUME,S
+                          &quot;SELECT &quot;
+                          &quot;   d1.time as time_in,&quot;
+                          &quot;   d1.hour as hour_in,&quot;
+                          &quot;   d1.position_id as ticket,&quot;
+                          &quot;   d1.type as type,&quot;
+                          &quot;   d1.volume as volume,&quot;
+                          &quot;   d1.symbol as symbol,&quot;
+                          &quot;   d1.price as price_in,&quot;
+                          &quot;   d2.time as time_out,&quot;
+                          &quot;   d2.price as price_out,&quot;
+                          &quot;   d1.commission+d2.commission as commission,&quot;
+                          &quot;   d2.swap as swap,&quot;
+                          &quot;   d2.profit as profit &quot;
+                          &quot;FROM DEALS d1 &quot;
+                          &quot;INNER JOIN DEALS d2 ON d1.position_id=d2.position_id &quot;
+                          &quot;WHERE d1.entry=0 AND d2.entry=1     &quot;))
+        {
+         Print(&quot;DB: fillng the table TRADES failed with code &quot;, GetLastError());
+         return;
+        }
+//--- get trading statistics by market entry hours
+   request=DatabasePrepare(db, &quot;SELECT r.*,&quot;
+                           &quot;   (case when r.trades != 0 then (r.gross_profit+r.gross_l
+                           &quot;   (case when r.trades != 0 then r.win_trades*100.0/r.trad
+                           &quot;   (case when r.trades != 0 then r.loss_trades*100.0/r.tra
+                           &quot;   r.gross_profit/r.win_trades as average_profit,&quot;
+                           &quot;   r.gross_loss/r.loss_trades as average_loss,&quot;
+                           &quot;   (case when r.gross_loss!=0.0 then r.gross_profit/(-r.gr
+                           &quot;FROM &quot;
+                           &quot;   (&quot;
+                           &quot;   SELECT HOUR_IN,&quot;
+                           &quot;   count() as trades,&quot;
+                           &quot;   sum(volume) as volume,&quot;
+                           &quot;   sum(case when profit &gt; 0 then profit else 0 end) as gro
+                           &quot;   sum(case when profit &lt; 0 then profit else 0 end) as gro
+                           &quot;   sum(profit) as net_profit,&quot;
+                           &quot;   sum(case when profit &gt; 0 then 1 else 0 end) as win_trad
+                           &quot;   sum(case when profit &lt; 0 then 1 else 0 end) as loss_tra
+                           &quot;   FROM TRADES &quot;
+                           &quot;   WHERE SYMBOL &lt;&gt; &#x27;&#x27; and SYMBOL is not NULL &quot;
+                           &quot;   GROUP BY HOUR_IN&quot;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3060
+</p>
+<pre><code class="language-mql5">
+                           &quot;   ) as r&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   Hour_Stats hours_stats[], h_stats;
+   ArrayResize(hours_stats, ExtDealsTotal);
+   i=0;
+//--- print
+   for(; DatabaseReadBind(request, h_stats) ; i++)
+     {
+      hours_stats[i].hour_in=h_stats.hour_in;
+      hours_stats[i].trades=h_stats.trades;
+      hours_stats[i].volume=h_stats.volume;
+      hours_stats[i].gross_profit=h_stats.gross_profit;
+      hours_stats[i].gross_loss=h_stats.gross_loss;
+      hours_stats[i].net_profit=h_stats.net_profit;
+      hours_stats[i].win_trades=h_stats.win_trades;
+      hours_stats[i].loss_trades=h_stats.loss_trades;
+      hours_stats[i].expected_payoff=h_stats.expected_payoff;
+      hours_stats[i].win_percent=h_stats.win_percent;
+      hours_stats[i].loss_percent=h_stats.loss_percent;
+      hours_stats[i].average_profit=h_stats.average_profit;
+      hours_stats[i].average_loss=h_stats.average_loss;
+      hours_stats[i].profit_factor=h_stats.profit_factor;
+     }
+   ArrayResize(hours_stats, i);
+   Print(&quot;Trade statistics by entry hour&quot;);
+   ArrayPrint(hours_stats);
+   Print(&quot;&quot;);
+//--- delete the request
+   DatabaseFinalize(request);
+//--- close database
+   DatabaseClose(db);
+   return;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Deals in the trading history: 2771</h3>
+<h3>Trade statistics by Symbol</h3>
+</p>
+<pre><code class="language-mql5">
+      [name] [trades] [gross_profit] [gross_loss] [total_commission] [total_swap] [tot
+</code></pre>
+<p>
+[0] &quot;AUDUSD&quot;      112      503.20000   -568.00000           -8.83000    -24.64000     
+[1] &quot;EURCHF&quot;      125      607.71000   -956.85000          -11.77000    -45.02000     
+[2] &quot;EURJPY&quot;      127     1078.49000  -1057.83000          -10.61000    -45.76000     
+[3] &quot;EURUSD&quot;      233     1685.60000  -1386.80000          -41.00000    -83.76000     
+[4] &quot;GBPCHF&quot;      125     1881.37000  -1424.72000          -22.60000    -51.56000     
+[5] &quot;GBPJPY&quot;      127     1943.43000  -1776.67000          -18.84000    -52.46000     </p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3061
+[6] &quot;GBPUSD&quot;      121     1668.50000  -1438.20000           -7.96000    -49.93000     
+[7] &quot;USDCAD&quot;       99      405.28000   -475.47000           -8.68000    -31.68000     
+[8] &quot;USDCHF&quot;      206     1588.32000  -1241.83000          -17.98000    -65.92000     
+[9] &quot;USDJPY&quot;      107      464.73000   -730.64000          -35.12000    -34.24000     
+<h3>Trade statistics by Magic Number</h3>
+</p>
+<pre><code class="language-mql5">
+    [magic] [trades] [gross_profit] [gross_loss] [total_commission] [total_swap] [tota
+</code></pre>
+<p>
+[0]     100      242     2584.80000  -2110.00000          -33.36000    -93.53000      
+[1]     200      254     3021.92000  -2834.50000          -29.45000    -98.22000      
+[2]     300      250     2489.08000  -2381.57000          -34.37000    -96.58000      
+[3]     400      224     1272.50000  -1283.00000          -24.43000    -64.80000      
+[4]     500      198     1141.23000  -1051.91000          -27.66000    -63.36000      
+[5]     600      214     1317.10000  -1396.03000          -34.12000    -68.48000      
+<h3>Trade statistics by entry hour</h3>
+</p>
+<pre><code class="language-mql5">
+     [hour_in] [trades] [volume] [gross_profit] [gross_loss] [net_profit] [win_trades]
+</code></pre>
+<p>
+[ 0]         0       50  5.00000      336.51000   -747.47000   -410.96000           21
+[ 1]         1       20  2.00000      102.56000    -57.20000     45.36000           12
+[ 2]         2        6  0.60000       38.55000    -14.60000     23.95000            5
+[ 3]         3       38  3.80000      173.84000   -200.15000    -26.31000           22
+[ 4]         4       60  6.00000      361.44000   -389.40000    -27.96000           27
+[ 5]         5       32  3.20000      157.43000   -179.89000    -22.46000           20
+[ 6]         6       18  1.80000       95.59000   -162.33000    -66.74000           11
+[ 7]         7       14  1.40000       38.48000   -134.30000    -95.82000            9
+[ 8]         8       42  4.20000      368.48000   -322.30000     46.18000           24
+[ 9]         9      118 11.80000     1121.62000   -875.21000    246.41000           72
+[10]        10      206 20.60000     2280.59000  -2021.80000    258.79000          115
+[11]        11      138 13.80000     1377.02000   -994.18000    382.84000           84
+[12]        12      152 15.20000     1247.56000  -1463.80000   -216.24000           84
+[13]        13       64  6.40000      778.27000   -516.22000    262.05000           36
+[14]        14       62  6.20000      536.93000   -427.47000    109.46000           38
+[15]        15       50  5.00000      699.92000   -413.00000    286.92000           28
+[16]        16       88  8.80000      778.55000   -514.00000    264.55000           51
+[17]        17       76  7.60000      533.92000  -1019.46000   -485.54000           44
+[18]        18       52  5.20000      237.17000   -246.78000     -9.61000           24
+[19]        19       52  5.20000      407.67000   -150.36000    257.31000           30
+[20]        20       18  1.80000       65.92000    -89.09000    -23.17000            9
+[21]        21       10  1.00000       41.86000    -32.38000      9.48000            7
+[22]        22       14  1.40000       45.55000    -83.72000    -38.17000            6
+[23]        23        2  0.20000        1.20000     -1.90000     -0.70000            1
+*/  
+  
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Creates the DEALS table                                          |
+//+------------------------------------------------------------------+
+bool CreateTableDeals(int database)
+  {
+//--- if the DEALS table already exists, delete it
+   if(!DeleteTable(database, &quot;DEALS&quot;))</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3062
+</p>
+<pre><code class="language-mql5">
+     {
+      return(false);
+     }
+//--- check if the table exists
+   if(!DatabaseTableExists(database, &quot;DEALS&quot;))
+      //--- create the table
+      if(!DatabaseExecute(database, &quot;CREATE TABLE DEALS(&quot;
+                          &quot;ID          INT KEY NOT NULL,&quot;
+                          &quot;ORDER_ID    INT     NOT NULL,&quot;
+                          &quot;POSITION_ID INT     NOT NULL,&quot;
+                          &quot;TIME        INT     NOT NULL,&quot;
+                          &quot;TYPE        INT     NOT NULL,&quot;
+                          &quot;ENTRY       INT     NOT NULL,&quot;
+                          &quot;SYMBOL      CHAR(10),&quot;
+                          &quot;VOLUME      REAL,&quot;
+                          &quot;PRICE       REAL,&quot;
+                          &quot;PROFIT      REAL,&quot;
+                          &quot;SWAP        REAL,&quot;
+                          &quot;COMMISSION  REAL,&quot;
+                          &quot;MAGIC       INT,&quot;
+                          &quot;HOUR        INT,&quot;
+                          &quot;REASON      INT);&quot;))
+        {
+         Print(&quot;DB: create the DEALS table  failed with code &quot;, GetLastError());
+         return(false);
+        }
+//---  request the entire trading history
+   datetime from_date=0;
+   datetime to_date=TimeCurrent();
+//--- request the history of deals in the specified interval
+   HistorySelect(from_date, to_date);
+   ExtDealsTotal=HistoryDealsTotal();
+//--- add deals to the table
+   if(!InsertDeals(database))
+      return(false);
+//--- the table has been successfully created
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Deletes a table with the specified name from the database        |
+//+------------------------------------------------------------------+
+bool DeleteTable(int database, string table_name)
+  {
+   if(!DatabaseExecute(database, &quot;DROP TABLE IF EXISTS &quot;+table_name))
+     {
+      Print(&quot;Failed to drop the DEALS table with code &quot;, GetLastError());
+      return(false);
+     }
+//--- the table has been successfully deleted</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3063
+</p>
+<pre><code class="language-mql5">
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Adds deals to the database table                                 |
+//+------------------------------------------------------------------+
+bool InsertDeals(int database)
+  {
+//--- Auxiliary variables
+   ulong    deal_ticket;         // deal ticket
+   long     order_ticket;        // the ticket of the order by which the deal was exec
+   long     position_ticket;     // ID of the position to which the deal belongs
+   datetime time;                // deal execution time
+   long     type ;               // deal type
+   long     entry ;              // deal direction
+   string   symbol;              // the symbol fro which the deal was executed
+   double   volume;              // operation volume
+   double   price;               // price
+   double   profit;              // financial result
+   double   swap;                // swap
+   double   commission;          // commission
+   long     magic;               // Magic number (Expert Advisor ID)
+   long     reason;              // deal execution reason or source
+   char     hour;                // deal execution hour
+   MqlDateTime time_strusture;
+//--- go through all deals and add them to the database
+   bool failed=false;
+   int deals=HistoryDealsTotal();
+// --- lock the database before executing transactions
+   DatabaseTransactionBegin(database);
+   for(int i=0; i&lt;deals; i++)
+     {
+      deal_ticket=    HistoryDealGetTicket(i);
+      order_ticket=   HistoryDealGetInteger(deal_ticket, DEAL_ORDER);
+      position_ticket=HistoryDealGetInteger(deal_ticket, DEAL_POSITION_ID);
+      time= (datetime)HistoryDealGetInteger(deal_ticket, DEAL_TIME);
+      type=           HistoryDealGetInteger(deal_ticket, DEAL_TYPE);
+      entry=          HistoryDealGetInteger(deal_ticket, DEAL_ENTRY);
+      symbol=         HistoryDealGetString(deal_ticket, DEAL_SYMBOL);
+      volume=         HistoryDealGetDouble(deal_ticket, DEAL_VOLUME);
+      price=          HistoryDealGetDouble(deal_ticket, DEAL_PRICE);
+      profit=         HistoryDealGetDouble(deal_ticket, DEAL_PROFIT);
+      swap=           HistoryDealGetDouble(deal_ticket, DEAL_SWAP);
+      commission=     HistoryDealGetDouble(deal_ticket, DEAL_COMMISSION);
+      magic=          HistoryDealGetInteger(deal_ticket, DEAL_MAGIC);
+      reason=         HistoryDealGetInteger(deal_ticket, DEAL_REASON);
+      TimeToStruct(time, time_strusture);
+      hour= (char)time_strusture.hour;
+      //--- add each deal to the table using the following request
+      string request_text=StringFormat(&quot;INSERT INTO DEALS (ID,ORDER_ID,POSITION_ID,TIM</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3064
+</p>
+<pre><code class="language-mql5">
+                                       &quot;VALUES (%d, %d, %d, %d, %d, %d, &#x27;%s&#x27;, %G, %G, 
+                                       deal_ticket, order_ticket, position_ticket, tim
+      if(!DatabaseExecute(database, request_text))
+        {
+         PrintFormat(&quot;%s: failed to insert deal #%d with code %d&quot;, __FUNCTION__, deal_
+         PrintFormat(&quot;i=%d: deal #%d  %s&quot;, i, deal_ticket, symbol);
+         failed=true;
+         break;
+        }
+     }
+//--- check for transaction execution errors
+   if(failed)
+     {
+      //--- roll back all transactions and unlock the database
+      DatabaseTransactionRollback(database);
+      PrintFormat(&quot;%s: DatabaseExecute() failed with code &quot;, __FUNCTION__, GetLastErro
+      return(false);
+     }
+//--- all transactions have been performed successfully - record changes and unlock th
+   DatabaseTransactionCommit(database);
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Creates the TRADES table                                         |
+//+------------------------------------------------------------------+
+bool CreateTableTrades(int database)
+  {
+//--- if the TRADES table already exists, delete it
+   if(!DeleteTable(database, &quot;TRADES&quot;))
+      return(false);
+//--- check if the table exists
+   if(!DatabaseTableExists(database, &quot;TRADES&quot;))
+      //--- create the table
+      if(!DatabaseExecute(database, &quot;CREATE TABLE TRADES(&quot;
+                          &quot;TIME_IN     INT     NOT NULL,&quot;
+                          &quot;HOUR_IN     INT     NOT NULL,&quot;
+                          &quot;TICKET      INT     NOT NULL,&quot;
+                          &quot;TYPE        INT     NOT NULL,&quot;
+                          &quot;VOLUME      REAL,&quot;
+                          &quot;SYMBOL      CHAR(10),&quot;
+                          &quot;PRICE_IN    REAL,&quot;
+                          &quot;TIME_OUT    INT     NOT NULL,&quot;
+                          &quot;PRICE_OUT   REAL,&quot;
+                          &quot;COMMISSION  REAL,&quot;
+                          &quot;SWAP        REAL,&quot;
+                          &quot;PROFIT      REAL);&quot;))
+        {
+         Print(&quot;DB: create the TRADES table failed with code &quot;, GetLastError());
+         return(false);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3065
+</p>
+<pre><code class="language-mql5">
+        }
+//--- the table has been successfully created
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseFinalize</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3066
+<h3>DatabasePrepare</h3>
+Cria um identificador de consulta, que pode ser executado usando DatabaseRead().
+</p>
+<pre><code class="language-mql5">
+int  DatabasePrepare(
+   int     database,      // identificador de banco de dados recebido em DatabaseOpen
+   string  sql,           // consulta SQL
+           ...            // parâmetros de consulta
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador do banco de dados, obtido em DatabaseOpen().
+sql
+[in]   Consulta SQL que pode conter parâmetros de substituição automática com nomes ?1,?2,...
+...
+[in]  Parâmetros de consulta substituídos automaticamente.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna o identificador para a consulta SQL, caso contrário, retorna
+INVALID_HANDLE. Para obter o código de erro, use GetLastError(), possíveis respostas:
+· ERR_INVALID_PARAMETER (4003)                  – caminho para o arquivo de banco de dados
+contendo uma string vazia ou definida uma combinação incompatível de sinalizadores;
+· ERR_NOT_ENOUGH_MEMORY (4004)              - memória insuficiente;
+· ERR_WRONG_STRING_PARAMETER (5040)      – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INVALID_HANDLE (5121)       - identificador de banco de dados inválido;
+· ERR_DATABASE_TOO_MANY_OBJECTS (5122) - excedido número máximo de objetos Database;
+· ERR_DATABASE_PREPARE (5125)                   - erro ao criar consulta.        
+<h3>Observação</h3>
+A função DatabasePrepare() não realiza a consulta relacionada ao banco de dados. Seu objetivo é
+verificar se os parâmetros da consulta são corretos e retornar o identificador com base nos
+resultados dessa verificação para executar a consulta SQL. A consulta em si será executada na
+primeira chamada de DatabaseRead().
+<h3>Example:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- Structure to store the deal
+struct Deal
+  {
+   ulong             ticket;           // DEAL_TICKET
+   long              order_ticket;     // DEAL_ORDER
+   long              position_ticket;  // DEAL_POSITION_ID
+   datetime          time;             // DEAL_TIME
+   char              type;             // DEAL_TYPE
+   char              entry;            // DEAL_ENTRY
+   string            symbol;           // DEAL_SYMBOL</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3067
+</p>
+<pre><code class="language-mql5">
+   double            volume;           // DEAL_VOLUME
+   double            price;            // DEAL_PRICE
+   double            profit;           // DEAL_PROFIT
+   double            swap;             // DEAL_SWAP
+   double            commission;       // DEAL_COMMISSION
+   long              magic;            // DEAL_MAGIC
+   char              reason;           // DEAL_REASON
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//--- Structure to store the trade: the order of members corresponds to the position i
+struct Trade
+  {
+   datetime          time_in;          // entry time
+   ulong             ticket;           // position ID
+   char              type;             // buy or sell
+   double            volume;           // volume
+   string            symbol;           // symbol
+   double            price_in;         // entry price
+   datetime          time_out;         // exit time
+   double            price_out;        // exit price
+   double            commission;       // entry and exit commission
+   double            swap;             // swap
+   double            profit;           // profit or loss
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- create the file name
+   string filename=IntegerToString(AccountInfoInteger(ACCOUNT_LOGIN))+&quot;_trades.sqlite&quot;
+//--- open/create the database in the common terminal folder
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE | DATA
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+//--- create the DEALS table
+   if(!CreateTableDeals(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//---  request the entire trading history
+   datetime from_date=0;
+   datetime to_date=TimeCurrent();
+//--- request the history of deals in the specified interval
+   HistorySelect(from_date, to_date);
+   int deals_total=HistoryDealsTotal();</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3068
+</p>
+<pre><code class="language-mql5">
+   PrintFormat(&quot;Deals in the trading history: %d &quot;, deals_total);
+//--- add deals to the table
+   if(!InsertDeals(db))
+      return;
+//--- show the first 10 deals
+   Deal deals[], deal;
+   ArrayResize(deals, 10);
+   int request=DatabasePrepare(db, &quot;SELECT * FROM DEALS&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   int i;
+   for(i=0; DatabaseReadBind(request, deal); i++)
+     {
+      if(i&gt;=10)
+         break;
+      deals[i].ticket=deal.ticket;
+      deals[i].order_ticket=deal.order_ticket;
+      deals[i].position_ticket=deal.position_ticket;
+      deals[i].time=deal.time;
+      deals[i].type=deal.type;
+      deals[i].entry=deal.entry;
+      deals[i].symbol=deal.symbol;
+      deals[i].volume=deal.volume;
+      deals[i].price=deal.price;
+      deals[i].profit=deal.profit;
+      deals[i].swap=deal.swap;
+      deals[i].commission=deal.commission;
+      deals[i].magic=deal.magic;
+      deals[i].reason=deal.reason;
+     }
+//--- print the deals
+   if(i&gt;0)
+     {
+      ArrayResize(deals, i);
+      PrintFormat(&quot;The first %d deals:&quot;, i);
+      ArrayPrint(deals);
+     }
+//--- delete request after use
+   DatabaseFinalize(request);
+//--- make sure that hedging system for open position management is used on the accoun
+   if((ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger(ACCOUNT_MARGIN_MODE)!=ACCOUNT_MARGI
+     {
+      //--- deals cannot be transformed to trades using a simple method through transa</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3069
+</p>
+<pre><code class="language-mql5">
+      DatabaseClose(db);
+      return;
+     }
+//--- now create the TRADES table based on the DEALS table
+   if(!CreateTableTrades(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//--- fill in the TRADES table using an SQL query based on DEALS table data
+   ulong start=GetMicrosecondCount();
+   if(DatabaseTableExists(db, &quot;DEALS&quot;))
+      //--- populate the TRADES table
+      if(!DatabaseExecute(db, &quot;INSERT INTO TRADES(TIME_IN,TICKET,TYPE,VOLUME,SYMBOL,PR
+                          &quot;SELECT &quot;
+                          &quot;   d1.time as time_in,&quot;
+                          &quot;   d1.position_id as ticket,&quot;
+                          &quot;   d1.type as type,&quot;
+                          &quot;   d1.volume as volume,&quot;
+                          &quot;   d1.symbol as symbol,&quot;
+                          &quot;   d1.price as price_in,&quot;
+                          &quot;   d2.time as time_out,&quot;
+                          &quot;   d2.price as price_out,&quot;
+                          &quot;   d1.commission+d2.commission as commission,&quot;
+                          &quot;   d2.swap as swap,&quot;
+                          &quot;   d2.profit as profit &quot;
+                          &quot;FROM DEALS d1 &quot;
+                          &quot;INNER JOIN DEALS d2 ON d1.position_id=d2.position_id &quot;
+                          &quot;WHERE d1.entry=0 AND d2.entry=1     &quot;))
+        {
+         Print(&quot;DB: fillng the TRADES table failed with code &quot;, GetLastError());
+         return;
+        }
+   ulong transaction_time=GetMicrosecondCount()-start;
+   
+//--- show the first 10 deals
+   Trade trades[], trade;
+   ArrayResize(trades, 10);
+   request=DatabasePrepare(db, &quot;SELECT * FROM TRADES&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   for(i=0; DatabaseReadBind(request, trade); i++)
+     {
+      if(i&gt;=10)</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3070
+</p>
+<pre><code class="language-mql5">
+         break;
+      trades[i].time_in=trade.time_in;
+      trades[i].ticket=trade.ticket;
+      trades[i].type=trade.type;
+      trades[i].volume=trade.volume;
+      trades[i].symbol=trade.symbol;
+      trades[i].price_in=trade.price_in;
+      trades[i].time_out=trade.time_out;
+      trades[i].price_out=trade.price_out;
+      trades[i].commission=trade.commission;
+      trades[i].swap=trade.swap;
+      trades[i].profit=trade.profit;
+     }
+//--- print trades
+   if(i&gt;0)
+     {
+      ArrayResize(trades, i);
+      PrintFormat(&quot;\r\nThe first %d trades:&quot;, i);
+      ArrayPrint(trades);
+      PrintFormat(&quot;Filling the TRADES table took %.2f milliseconds&quot;,double(transaction
+     }
+//--- delete request after use
+   DatabaseFinalize(request);
+//--- close the database
+   DatabaseClose(db);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Results:</h3>
+</p>
+<pre><code class="language-mql5">
+   Deals in the trading history: 2741 
+   The first 10 deals:
+       [ticket] [order_ticket] [position_ticket]              [time] [type] [entry] [s
+   [0] 34429573              0                 0 2019.09.05 22:39:59      2       0 &quot;&quot;
+   [1] 34432127       51447238          51447238 2019.09.06 06:00:03      0       0 &quot;U
+   [2] 34432128       51447239          51447239 2019.09.06 06:00:03      1       0 &quot;U
+   [3] 34432450       51447565          51447565 2019.09.06 07:00:00      0       0 &quot;E
+   [4] 34432456       51447571          51447571 2019.09.06 07:00:00      1       0 &quot;A
+   [5] 34432879       51448053          51448053 2019.09.06 08:00:00      1       0 &quot;U
+   [6] 34432888       51448064          51448064 2019.09.06 08:00:00      0       0 &quot;U
+   [7] 34435147       51450470          51450470 2019.09.06 10:30:00      1       0 &quot;E
+   [8] 34435152       51450476          51450476 2019.09.06 10:30:00      0       0 &quot;G
+   [9] 34435154       51450479          51450479 2019.09.06 10:30:00      1       0 &quot;E
+   The first 10 trades:
+                 [time_in] [ticket] [type] [volume] [symbol] [price_in]          [time
+   [0] 2019.09.06 06:00:03 51447238      0  0.10000 &quot;USDCAD&quot;    1.32320 2019.09.06 18:
+   [1] 2019.09.06 06:00:03 51447239      1  0.10000 &quot;USDCHF&quot;    0.98697 2019.09.06 18:
+   [2] 2019.09.06 07:00:00 51447565      0  0.10000 &quot;EURUSD&quot;    1.10348 2019.09.09 03:
+   [3] 2019.09.06 07:00:00 51447571      1  0.10000 &quot;AUDUSD&quot;    0.68203 2019.09.09 03:</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3071
+</p>
+<pre><code class="language-mql5">
+   [4] 2019.09.06 08:00:00 51448053      1  0.10000 &quot;USDCHF&quot;    0.98701 2019.09.06 18:
+   [5] 2019.09.06 08:00:00 51448064      0  0.10000 &quot;USDJPY&quot;  106.96200 2019.09.06 18:
+   [6] 2019.09.06 10:30:00 51450470      1  0.10000 &quot;EURUSD&quot;    1.10399 2019.09.06 14:
+   [7] 2019.09.06 10:30:00 51450476      0  0.10000 &quot;GBPUSD&quot;    1.23038 2019.09.06 14:
+   [8] 2019.09.06 10:30:00 51450479      1  0.10000 &quot;EURJPY&quot;  118.12000 2019.09.06 14:
+   [9] 2019.09.06 10:30:00 51450480      0  0.10000 &quot;GBPJPY&quot;  131.65300 2019.09.06 14:
+   Filling the TRADES table took 12.51 milliseconds
+</code></pre>
+<p>
+*/  
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Creates the DEALS table                                          |
+//+------------------------------------------------------------------+
+bool CreateTableDeals(int database)
+  {
+//--- if the DEALS table already exists, delete it
+   if(!DeleteTable(database, &quot;DEALS&quot;))
+     {
+      return(false);
+     }
+//--- check if the table exists
+   if(!DatabaseTableExists(database, &quot;DEALS&quot;))
+      //--- create the table
+      if(!DatabaseExecute(database, &quot;CREATE TABLE DEALS(&quot;
+                          &quot;ID          INT KEY NOT NULL,&quot;
+                          &quot;ORDER_ID    INT     NOT NULL,&quot;
+                          &quot;POSITION_ID INT     NOT NULL,&quot;
+                          &quot;TIME        INT     NOT NULL,&quot;
+                          &quot;TYPE        INT     NOT NULL,&quot;
+                          &quot;ENTRY       INT     NOT NULL,&quot;
+                          &quot;SYMBOL      CHAR(10),&quot;
+                          &quot;VOLUME      REAL,&quot;
+                          &quot;PRICE       REAL,&quot;
+                          &quot;PROFIT      REAL,&quot;
+                          &quot;SWAP        REAL,&quot;
+                          &quot;COMMISSION  REAL,&quot;
+                          &quot;MAGIC       INT,&quot;
+                          &quot;REASON      INT );&quot;))
+        {
+         Print(&quot;DB: create the DEALS table failed with code &quot;, GetLastError());
+         return(false);
+        }
+//--- the table has been successfully created
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Deletes a table with the specified name from the database        |
+//+------------------------------------------------------------------+
+bool DeleteTable(int database, string table_name)
+  {
+   if(!DatabaseExecute(database, &quot;DROP TABLE IF EXISTS &quot;+table_name))</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3072
+</p>
+<pre><code class="language-mql5">
+     {
+      Print(&quot;Failed to drop the DEALS table  with code &quot;, GetLastError());
+      return(false);
+     }
+//--- the table has been successfully deleted
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Adds deals to the database table                                 |
+//+------------------------------------------------------------------+
+bool InsertDeals(int database)
+  {
+//--- Auxiliary variables
+   ulong    deal_ticket;         // deal ticket
+   long     order_ticket;        // the ticket of the order by which the deal was exec
+   long     position_ticket;     // ID of the position to which the deal belongs
+   datetime time;                // deal execution time
+   long     type ;               // deal type
+   long     entry ;              // deal direction
+   string   symbol;              // the symbol fro which the deal was executed
+   double   volume;              // operation volume
+   double   price;               // price
+   double   profit;              // financial result
+   double   swap;                // swap
+   double   commission;          // commission
+   long     magic;               // Magic number (Expert Advisor ID)
+   long     reason;              // deal execution reason or source
+//--- go through all deals and add them to the database
+   bool failed=false;
+   int deals=HistoryDealsTotal();
+// --- lock the database before executing transactions
+   DatabaseTransactionBegin(database);
+   for(int i=0; i&lt;deals; i++)
+     {
+      deal_ticket=    HistoryDealGetTicket(i);
+      order_ticket=   HistoryDealGetInteger(deal_ticket, DEAL_ORDER);
+      position_ticket=HistoryDealGetInteger(deal_ticket, DEAL_POSITION_ID);
+      time= (datetime)HistoryDealGetInteger(deal_ticket, DEAL_TIME);
+      type=           HistoryDealGetInteger(deal_ticket, DEAL_TYPE);
+      entry=          HistoryDealGetInteger(deal_ticket, DEAL_ENTRY);
+      symbol=         HistoryDealGetString(deal_ticket, DEAL_SYMBOL);
+      volume=         HistoryDealGetDouble(deal_ticket, DEAL_VOLUME);
+      price=          HistoryDealGetDouble(deal_ticket, DEAL_PRICE);
+      profit=         HistoryDealGetDouble(deal_ticket, DEAL_PROFIT);
+      swap=           HistoryDealGetDouble(deal_ticket, DEAL_SWAP);
+      commission=     HistoryDealGetDouble(deal_ticket, DEAL_COMMISSION);
+      magic=          HistoryDealGetInteger(deal_ticket, DEAL_MAGIC);
+      reason=         HistoryDealGetInteger(deal_ticket, DEAL_REASON);
+      //--- add each deal to the table using the following request</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3073
+</p>
+<pre><code class="language-mql5">
+      string request_text=StringFormat(&quot;INSERT INTO DEALS (ID,ORDER_ID,POSITION_ID,TIM
+                                       &quot;VALUES (%d, %d, %d, %d, %d, %d, &#x27;%s&#x27;, %G, %G, 
+                                       deal_ticket, order_ticket, position_ticket, tim
+      if(!DatabaseExecute(database, request_text))
+        {
+         PrintFormat(&quot;%s: failed to insert deal #%d with code %d&quot;, __FUNCTION__, deal_
+         PrintFormat(&quot;i=%d: deal #%d  %s&quot;, i, deal_ticket, symbol);
+         failed=true;
+         break;
+        }
+     }
+//--- check for transaction execution errors
+   if(failed)
+     {
+      //--- roll back all transactions and unlock the database
+      DatabaseTransactionRollback(database);
+      PrintFormat(&quot;%s: DatabaseExecute() failed with code %d&quot;, __FUNCTION__, GetLastEr
+      return(false);
+     }
+//--- all transactions have been performed successfully - record changes and unlock th
+   DatabaseTransactionCommit(database);
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Creates the TRADES table                                          |
+//+------------------------------------------------------------------+
+bool CreateTableTrades(int database)
+  {
+//--- if the TRADES table already exists, delete it
+   if(!DeleteTable(database, &quot;TRADES&quot;))
+      return(false);
+//--- check if the table exists
+   if(!DatabaseTableExists(database, &quot;TRADES&quot;))
+      //--- create the table
+      if(!DatabaseExecute(database, &quot;CREATE TABLE TRADES(&quot;
+                          &quot;TIME_IN     INT     NOT NULL,&quot;
+                          &quot;TICKET      INT     NOT NULL,&quot;
+                          &quot;TYPE        INT     NOT NULL,&quot;
+                          &quot;VOLUME      REAL,&quot;
+                          &quot;SYMBOL      CHAR(10),&quot;
+                          &quot;PRICE_IN    REAL,&quot;
+                          &quot;TIME_OUT    INT     NOT NULL,&quot;
+                          &quot;PRICE_OUT   REAL,&quot;
+                          &quot;COMMISSION  REAL,&quot;
+                          &quot;SWAP        REAL,&quot;
+                          &quot;PROFIT      REAL);&quot;))
+        {
+         Print(&quot;DB: create the TRADES table failed with code &quot;, GetLastError());
+         return(false);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3074
+</p>
+<pre><code class="language-mql5">
+        }
+//--- the table has been successfully created
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>DatabaseExecute, DatabaseFinalize</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3075
+<h3>DatabaseReset</h3>
+Redefine a consulta para seu status inicial, como após uma chamada de DatabasePrepare().
+</p>
+<pre><code class="language-mql5">
+int  DatabaseReset(
+   int  request      // identificador de consulta recebido em DatabasePrepare
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador de consulta recebido em DatabasePrepare().
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) - identificador de banco de dados inválido;
+· código de erro SQLite, começando com ERR_DATABASE_ERROR(5601).
+<h3>Observação</h3>
+A função DatabaseReset() é projetada para execução múltipla de uma consulta com diferentes
+valores de parâmetro. Por exemplo, ao adicionar em massa dados a uma tabela usando o comando
+INSERT, para cada registro, é necessário criar um conjunto próprio de valores para cada campo.
+Ao contrário de DatabasePrepare(), a chamada de DatabaseReset() não compila strings com
+comandos SQL em uma nova consulta, por isso, DatabaseReset() é muito mais rápido do que
+DatabasePrepare().
+DatabaseReset() é usado juntamente com a função DatabaseBind() e/ou DatabaseBindArray(), se for
+necessário alterar os valores dos parâmetros da consulta após a execução de DatabaseRead(). Isso
+significa que antes de definir novos valores de parâmetros de consulta (antes do bloco de chamada
+de DatabaseBind/DatabaseBindArray) é necessário chamar DatabaseReset() para redefini-lo ao seu
+estado inicial. A própria consulta parametrizada deve ser criada com a ajuda de DatabasePrepare().
+Tanto DatabaseReset() quanto DatabasePrepare() não consultam o banco de dados. A consulta direta
+é executada ao chamar DatabaseRead() ou DatabaseReadBind().
+A chamada de DatabaseReset() não redefine os valores dos parâmetros na consulta, se eles foram
+definidos através da chamada de DatabaseBind()/DatabaseBindArray(), ou seja, os parâmetros
+mantêm os seus valores. Assim, é possível alterar o valor de apenas um parâmetro, pois não há
+necessidade de registrar novamente todos os parâmetros de consulta após chamar DatabaseReset().
+Não se pode passar ao DatabaseReset() o identificador da consulta que foi excluída com a ajuda de
+DatabaseFinalize(). Isso causa um erro.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3076
+</p>
+<pre><code class="language-mql5">
+//--- criamos ou abrimos o banco de dados
+   string filename=&quot;symbols.sqlite&quot;;
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE);
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+   else
+      Print(&quot;Database: &quot;, filename, &quot; opened successfully&quot;);
+//--- se a tabela SYMBOLS existir, vamos exclui-la
+   if(DatabaseTableExists(db, &quot;SYMBOLS&quot;))
+     {
+      //--- excluímos a tabela
+      if(!DatabaseExecute(db, &quot;DROP TABLE SYMBOLS&quot;))
+        {
+         Print(&quot;Failed to drop table SYMBOLS with code &quot;, GetLastError());
+         DatabaseClose(db);
+         return;
+        }
+     }
+//--- criamos a tabela SYMBOLS
+   if(!DatabaseExecute(db, &quot;CREATE TABLE SYMBOLS(&quot;
+                       &quot;NAME           TEXT    NOT NULL,&quot;
+                       &quot;DESCRIPTION    TEXT            ,&quot;
+                       &quot;PATH           TEXT            ,&quot;
+                       &quot;SPREAD         INT             ,&quot;
+                       &quot;POINT          REAL    NOT NULL,&quot;
+                       &quot;DIGITS         INT     NOT NULL,&quot;
+                       &quot;JSON           BLOB );&quot;))
+     {
+      Print(&quot;DB: &quot;, filename, &quot; create table failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- exibimos uma lista contendo todos os campos na tabela SYMBOLS
+   if(DatabasePrint(db, &quot;PRAGMA TABLE_INFO(SYMBOLS)&quot;, 0)&lt;0)
+     {
+      PrintFormat(&quot;DatabasePrint(\&quot;PRAGMA TABLE_INFO(SYMBOLS)\&quot;) failed, error code=%d
+      DatabaseClose(db);
+      return;
+     }
+//--- criamos a consulta parametrizada para adicionar símbolos à tabela SYMBOLS
+   string sql=&quot;INSERT INTO SYMBOLS (NAME,DESCRIPTION,PATH,SPREAD,POINT,DIGITS,JSON)&quot;
+              &quot; VALUES (?1,?2,?3,?4,?5,?6,?7);&quot;; // parâmetros de consulta
+   int request=DatabasePrepare(db, sql);
+   if(request==INVALID_HANDLE)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3077
+</p>
+<pre><code class="language-mql5">
+      PrintFormat(&quot;DatabasePrepare() failed with code=%d&quot;, GetLastError());
+      Print(&quot;SQL request: &quot;, sql);
+      DatabaseClose(db);
+      return;
+     }
+//--- percorremos todos os símbolos e os adicionamos à tabela SYMBOLS
+   int symbols=SymbolsTotal(false);
+   bool request_error=false;
+   DatabaseTransactionBegin(db);   
+   for(int i=0; i&lt;symbols; i++)
+     {
+      //--- definimos o valor dos parâmetros antes de adicionar um símbolo
+      ResetLastError();
+      string symbol=SymbolName(i, false);
+      if(!DatabaseBind(request, 0, symbol))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas
+         request_error=true;
+         break;
+        }
+      //--- se a chamada anterior de DatabaseBind() foi bem-sucedida, definimos o segu
+      if(!DatabaseBind(request, 1, SymbolInfoString(symbol, SYMBOL_DESCRIPTION)))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas
+         request_error=true;
+         break;
+        }
+      if(!DatabaseBind(request, 2, SymbolInfoString(symbol, SYMBOL_PATH)))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas
+         request_error=true;
+         break;
+        }
+      if(!DatabaseBind(request, 3, SymbolInfoInteger(symbol, SYMBOL_SPREAD)))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas
+         request_error=true;
+         break;
+        }
+      if(!DatabaseBind(request, 4, SymbolInfoDouble(symbol, SYMBOL_POINT)))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas
+         request_error=true;
+         break;
+        }
+      if(!DatabaseBind(request, 5, SymbolInfoInteger(symbol, SYMBOL_DIGITS)))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3078
+</p>
+<pre><code class="language-mql5">
+         request_error=true;
+         break;
+        }
+      if(!DatabaseBind(request, 6, GetSymBolAsJson(symbol)))
+        {
+         PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, GetLas
+         request_error=true;
+         break;
+        }
+      //--- executamos a consulta para inserir o registro e verificamos se há erros
+      if(!DatabaseRead(request)&amp;&amp;(GetLastError()!=ERR_DATABASE_NO_MORE_DATA))
+        {
+         PrintFormat(&quot;DatabaseRead() failed with code=%d&quot;, GetLastError());
+         DatabaseFinalize(request);
+         request_error=true;
+         break;
+        }
+      else
+         PrintFormat(&quot;%d: added %s&quot;, i+1, symbol);
+      //--- redefinimos a consulta para seu status inicial antes da seguinte atualizaç
+      if(!DatabaseReset(request))
+        {
+         PrintFormat(&quot;DatabaseReset() failed with code=%d&quot;, GetLastError());
+         DatabaseFinalize(request);
+         request_error=true;
+         break;
+        }
+     } //--- acabamos por aqui, passamos por todos os símbolos
+//--- resultado da transação
+   if(request_error)
+     {
+      PrintFormat(&quot;Table SYMBOLS: failed to add %d symbols&quot;, symbols);
+      DatabaseTransactionRollback(db);
+      DatabaseClose(db);
+      return;
+     }
+   else
+     {
+      DatabaseTransactionCommit(db);
+      PrintFormat(&quot;Table SYMBOLS: added %d symbols&quot;,symbols);
+     }
+//--- salvamos a tabela SYMBOLS em um arquivo CSV
+   string csv_filename=&quot;symbols.csv&quot;;
+   if(DatabaseExport(db, &quot;SELECT * FROM SYMBOLS&quot;, csv_filename,
+                     DATABASE_EXPORT_HEADER|DATABASE_EXPORT_INDEX|DATABASE_EXPORT_QUOT
+      Print(&quot;Database: table SYMBOLS saved in &quot;, csv_filename);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3079
+</p>
+<pre><code class="language-mql5">
+   else
+      Print(&quot;Database: DatabaseExport(\&quot;SELECT * FROM SYMBOLS\&quot;) failed with code&quot;, Ge
+//--- fechamos o arquivo contendo o banco de dados e relatamos isso
+   DatabaseClose(db);
+   PrintFormat(&quot;Database: %s created and closed&quot;, filename);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a especificação do símbolo como JSON                     |
+//+------------------------------------------------------------------+
+string GetSymBolAsJson(string symbol)
+  {
+//--- recuos
+   string indent1=Indent(1);
+   string indent2=Indent(2);
+   string indent3=Indent(3);
+//---
+   int digits=(int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
+   string json=&quot;{&quot;+
+               &quot;\n&quot;+indent1+&quot;\&quot;ConfigSymbols\&quot;:[&quot;+
+               &quot;\n&quot;+indent2+&quot;{&quot;+
+               &quot;\n&quot;+indent3+&quot;\&quot;Symbol\&quot;:\&quot;&quot;+symbol+&quot;\&quot;,&quot;+
+               &quot;\n&quot;+indent3+&quot;\&quot;Path\&quot;:\&quot;&quot;+SymbolInfoString(symbol, SYMBOL_PATH)+&quot;\&quot;,&quot;+
+               &quot;\n&quot;+indent3+&quot;\&quot;CurrencyBase\&quot;:\&quot;&quot;+SymbolInfoString(symbol, SYMBOL_CURR
+               &quot;\n&quot;+indent3+&quot;\&quot;CurrencyProfit\&quot;:\&quot;&quot;+SymbolInfoString(symbol, SYMBOL_CU
+               &quot;\n&quot;+indent3+&quot;\&quot;CurrencyMargin\&quot;:\&quot;&quot;+SymbolInfoString(symbol, SYMBOL_CU
+               &quot;\n&quot;+indent3+&quot;\&quot;ColorBackground\&quot;:\&quot;&quot;+ColorToString((color)SymbolInfoIn
+               &quot;\n&quot;+indent3+&quot;\&quot;Digits\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbol, 
+               &quot;\n&quot;+indent3+&quot;\&quot;Point\&quot;:\&quot;&quot;+DoubleToString(SymbolInfoDouble(symbol, SYM
+               &quot;\n&quot;+indent3+&quot;\&quot;TickBookDepth\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(s
+               &quot;\n&quot;+indent3+&quot;\&quot;ChartMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbo
+               &quot;\n&quot;+indent3+&quot;\&quot;TradeMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbo
+               &quot;\n&quot;+indent3+&quot;\&quot;TradeCalcMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(s
+               &quot;\n&quot;+indent3+&quot;\&quot;OrderMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbo
+               &quot;\n&quot;+indent3+&quot;\&quot;CalculationMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger
+               &quot;\n&quot;+indent3+&quot;\&quot;ExecutionMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(s
+               &quot;\n&quot;+indent3+&quot;\&quot;ExpirationMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger
+               &quot;\n&quot;+indent3+&quot;\&quot;FillFlags\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbo
+               &quot;\n&quot;+indent3+&quot;\&quot;ExpirFlags\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symb
+               &quot;\n&quot;+indent3+&quot;\&quot;Spread\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbol, 
+               &quot;\n&quot;+indent3+&quot;\&quot;TickValue\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;, (SymbolInfoDouble(sy
+               &quot;\n&quot;+indent3+&quot;\&quot;TickSize\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;, (SymbolInfoDouble(sym
+               &quot;\n&quot;+indent3+&quot;\&quot;ContractSize\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble
+               &quot;\n&quot;+indent3+&quot;\&quot;StopsLevel\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symb
+               &quot;\n&quot;+indent3+&quot;\&quot;VolumeMin\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble(sym
+               &quot;\n&quot;+indent3+&quot;\&quot;VolumeMax\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble(sym
+               &quot;\n&quot;+indent3+&quot;\&quot;VolumeStep\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble(sy
+               &quot;\n&quot;+indent3+&quot;\&quot;VolumeLimit\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble(s
+               &quot;\n&quot;+indent3+&quot;\&quot;SwapMode\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbol</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3080
+</p>
+<pre><code class="language-mql5">
+               &quot;\n&quot;+indent3+&quot;\&quot;SwapLong\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble(symb
+               &quot;\n&quot;+indent3+&quot;\&quot;SwapShort\&quot;:\&quot;&quot;+StringFormat(&quot;%G&quot;,(SymbolInfoDouble(sym
+               &quot;\n&quot;+indent3+&quot;\&quot;Swap3Day\&quot;:\&quot;&quot;+IntegerToString(SymbolInfoInteger(symbol
+               &quot;\n&quot;+indent2+&quot;}&quot;+
+               &quot;\n&quot;+indent1+&quot;]&quot;+
+               &quot;\n}&quot;;
+   return(json);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria o recuo de espaços                                          |
+//+------------------------------------------------------------------+
+string Indent(const int number, const int characters=3)
+  {
+   int length=number*characters;
+   string indent=NULL;
+   StringInit(indent, length, &#x27; &#x27;);
+   return indent;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+<h3>Database: symbols.sqlite opened successfully</h3>
+  #| cid name        type notnull dflt_value pk
+  -+-------------------------------------------
+  1|   0 NAME        TEXT       1             0 
+  2|   1 DESCRIPTION TEXT       0             0 
+  3|   2 PATH        TEXT       0             0 
+  4|   3 SPREAD      INT        0             0 
+  5|   4 POINT       REAL       1             0 
+  6|   5 DIGITS      INT        1             0 
+  7|   6 JSON        BLOB       0             0 
+  1: added EURUSD
+  2: added GBPUSD
+  3: added USDCHF
+  ...
+  82: added USDCOP
+  83: added USDARS
+  84: added USDCLP
+<h3>Table SYMBOLS: added 84 symbols</h3>
+<h3>Database: table SYMBOLS saved in symbols.csv</h3>
+<h3>Database: symbols.sqlite created and closed</h3>
+*/
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseBind, DatabaseBindArray, DatabaseFinalize</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3081
+<h3>DatabaseBind</h3>
+Define o valor do parâmetro na consulta.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseBind(
+   int  request,      // manipulador da consulta criada em DatabasePrepare
+   int  index,        // índice do parâmetro na consulta
+   T    value         // valor de parâmetro de tipo simples
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta criada em DatabasePrepare().
+index
+[in]  Índice do parâmetro na consulta para o qual é necessário definir o valor. A numeração começa
+do zero.
+value
+[in]  Valor do parâmetro que é necessário definir. São permitidos os tipos: bool, char, uchar,
+short, ushart, int, uint, color, datetime, long, ulong, float, double, string.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INVALID_PARAMETER (4003)             – tipo não suportado;
+· ERR_DATABASE_INVALID_HANDLE (5121)  - identificador de banco de dados inválido;
+· ERR_DATABASE_NOT_READY (5128)         - não se pode usar a função para consulta no momento.
+A consulta está sendo realizada ou já foi concluída, é necessário chamar DatabaseReset().
+<h3>Observação</h3>
+Esta função deve ser usada caso a consulta SQL contenha os valores parametrizáveis &quot;?&quot; ou&quot;?N&quot;,
+onde N é o número do parâmetro (começando de um). Ao mesmo tempo, a indexação de parâmetros
+no DatabaseBind() começa do zero.
+<h3>Por exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+     INSERT INTO table VALUES (?,?,?)
+     SELECT * FROM table WHERE id=?
+</code></pre>
+<p>
+Esta função pode ser chamada imediatamente quer após criada a consulta parametrizável em
+DatabasePrepare() quer após redefinir a consulta para o status inicial com a ajuda do
+DatabaseReset().
+Use esta função juntamente com o DatabaseReset(), para executar a consulta quantas vezes forem
+necessárias com diferentes valores de parâmetros.
+A função é projetada para trabalhar com parâmetros de tipos simples. Se o parâmetro precisar
+mapear a matriz, use a função DatabaseBindArray().</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3082
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   MqlTick ticks[];
+//--- lembramo-nos da hora de início antes de receber ticks
+   uint start=GetTickCount();
+//--- consultamos o histórico de ticks do dia
+   ulong to=TimeCurrent()*1000;
+   ulong from=to-PeriodSeconds(PERIOD_D1)*1000;
+   if(CopyTicksRange(_Symbol, ticks, COPY_TICKS_ALL, from, to)==-1)
+     {
+      PrintFormat(&quot;%s: CopyTicksRange(%s - %s) failed, error=%d&quot;,
+                  _Symbol, TimeToString(datetime(from/1000)), TimeToString(datetime(to
+      return;
+     }
+   else
+     {
+      //--- quantidade de ticks obtidos em determinado intervalo de tempo
+      PrintFormat(&quot;%s: CopyTicksRange received %d ticks in %d ms (from %s to %s)&quot;,
+                  _Symbol, ArraySize(ticks), GetTickCount()-start,
+                  TimeToString(datetime(from/1000)), TimeToString(datetime(to/1000)));
+     }
+//--- criamos um nome de arquivo para armazenar o banco de dados
+   string filename=_Symbol+&quot; &quot;+TimeToString(datetime(from/1000))+&quot; - &quot;+TimeToString(da
+   StringReplace(filename, &quot;:&quot;, &quot;.&quot;); // o caractere &quot;:&quot; não é permitido nos nomes dos
+//--- abrimos/criamos o banco de dados na pasta do terminal compartilhado
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE | DATA
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;Database: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+   else
+      Print(&quot;Database: &quot;, filename, &quot; opened successfully&quot;);
+//--- criamos a tabela TICKS
+   if(!DatabaseExecute(db, &quot;CREATE TABLE TICKS(&quot;
+                       &quot;SYMBOL             CHAR(10),&quot;
+                       &quot;TIME               INT NOT NULL,&quot;
+                       &quot;BID                REAL,&quot;
+                       &quot;ASK                REAL,&quot;
+                       &quot;LAST               REAL,&quot;
+                       &quot;VOLUME             INT,&quot;
+                       &quot;TIME_MSC           INT,&quot;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3083
+</p>
+<pre><code class="language-mql5">
+                       &quot;VOLUME_REAL        REAL);&quot;))
+     {
+      Print(&quot;DB: &quot;, filename, &quot; create table TICKS failed with code &quot;, GetLastError())
+      DatabaseClose(db);
+      return;
+     }
+//--- exibimos uma lista contendo todos os campos na tabela TICKS
+   if(DatabasePrint(db, &quot;PRAGMA TABLE_INFO(TICKS)&quot;, 0)&lt;0)
+     {
+      PrintFormat(&quot;DatabasePrint(\&quot;PRAGMA TABLE_INFO(TICKS)\&quot;) failed, error code=%d a
+      DatabaseClose(db);
+      return;
+     }
+//--- criamos a consulta parametrizada para adicionar ticks à tabela TICKS
+   string sql=&quot;INSERT INTO TICKS (SYMBOL,TIME,BID,ASK,LAST,VOLUME,TIME_MSC,VOLUME_REAL
+              &quot; VALUES (?1,?2,?3,?4,?5,?6,?7,?8)&quot;; // parâmetro de consulta
+   int request=DatabasePrepare(db, sql);
+   if(request==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;DatabasePrepare() failed with code=%d&quot;, GetLastError());
+      Print(&quot;SQL request: &quot;, sql);
+      DatabaseClose(db);
+      return;
+     }
+//--- definimos o valor do primeiro parâmetro da consulta
+   DatabaseBind(request, 0, _Symbol);
+//--- lembramo-nos da hora de início antes de adicionar ticks à tabela TICKS
+   start=GetTickCount();
+   DatabaseTransactionBegin(db);
+   int total=ArraySize(ticks);
+   bool request_error=false;
+   for(int i=0; i&lt;total; i++)
+     {
+      //--- definimos o valor dos restantes parâmetros antes de adicionar um registro
+      ResetLastError();
+      if(!DatabaseBind(request, 1, ticks[i].time))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;
+        }
+      //--- se a chamada anterior de DatabaseBind() foi bem-sucedida, definimos o segu
+      if(!request_error &amp;&amp; !DatabaseBind(request, 2, ticks[i].bid))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3084
+</p>
+<pre><code class="language-mql5">
+        }
+      if(!request_error &amp;&amp; !DatabaseBind(request, 3, ticks[i].ask))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;
+        }
+      if(!request_error &amp;&amp; !DatabaseBind(request, 4, ticks[i].last))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;
+        }
+      if(!request_error &amp;&amp; !DatabaseBind(request, 5, ticks[i].volume))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;
+        }
+      if(!request_error &amp;&amp; !DatabaseBind(request, 6, ticks[i].time_msc))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;
+        }
+      if(!request_error &amp;&amp; !DatabaseBind(request, 7, ticks[i].volume_real))
+        {
+         PrintFormat(&quot;DatabaseBind() failed with code=%d&quot;, GetLastError());
+         PrintFormat(&quot;Tick #%d line=%d&quot;, i+1, __LINE__);
+         request_error=true;
+         break;
+        }
+      //--- executamos a consulta para inserir o registro e verificamos se há erros
+      if(!request_error &amp;&amp; !DatabaseRead(request) &amp;&amp; (GetLastError()!=ERR_DATABASE_NO_
+        {
+         PrintFormat(&quot;DatabaseRead() failed with code=%d&quot;, GetLastError());
+         DatabaseFinalize(request);
+         request_error=true;
+         break;
+        }
+      //--- redefinimos a consulta para seu status inicial antes da seguinte atualizaç
+      if(!request_error &amp;&amp; !DatabaseReset(request))
+        {
+         PrintFormat(&quot;DatabaseReset() failed with code=%d&quot;, GetLastError());</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3085
+</p>
+<pre><code class="language-mql5">
+         DatabaseFinalize(request);
+         request_error=true;
+         break;
+        }
+     } //--- acabamos por aqui, passamos por todos os ticks
+//--- resultado da transação
+   if(request_error)
+     {
+      PrintFormat(&quot;Table TICKS: failed to add %d ticks &quot;, ArraySize(ticks));
+      DatabaseTransactionRollback(db);
+      DatabaseClose(db);
+      return;
+     }
+   else
+     {
+      DatabaseTransactionCommit(db);
+      PrintFormat(&quot;Table TICKS: added %d ticks in %d ms&quot;,
+                  ArraySize(ticks), GetTickCount()-start);
+     }
+//--- fechamos o arquivo contendo o banco de dados e relatamos isso
+   DatabaseClose(db);
+   PrintFormat(&quot;Database: %s created and closed&quot;, filename);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+  EURUSD: CopyTicksRange received 268061 ticks in 47 ms (from 2020.03.18 12:40 to 2020
+  Database: EURUSD 2020.03.18 12.40 - 2020.03.19 12.40.sqlite opened successfully
+  #| cid name        type     notnull dflt_value pk
+  -+-----------------------------------------------
+  1|   0 SYMBOL      CHAR(10)       0             0 
+  2|   1 TIME        INT            1             0 
+  3|   2 BID         REAL           0             0 
+  4|   3 ASK         REAL           0             0 
+  5|   4 LAST        REAL           0             0 
+  6|   5 VOLUME      INT            0             0 
+  7|   6 TIME_MSC    INT            0             0 
+  8|   7 VOLUME_REAL REAL           0             0 
+  Table TICKS: added 268061 ticks in 797 ms
+  Database: EURUSD 2020.03.18 12.40 - 2020.03.19 12.40.sqlite created and closed
+  OnCalculateCorrelation=0.87 2020.03.19 13:00:  EURUSD vs GBPUSD  PERIOD_M30 
+*/
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseReset, DatabaseRead, DatabaseBindArray</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3086
+<h3>DatabaseBindArray</h3>
+Define a matriz como um valor de parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseBind(
+   int  request,      // manipulador da consulta criada em DatabasePrepare
+   int  index,        // índice do parâmetro na consulta
+   T&amp;   array[]       // valor de parâmetro como uma matriz
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta criada em DatabasePrepare().
+index
+[in]  Índice do parâmetro na consulta para o qual é necessário definir o valor. A numeração começa
+do zero.
+array[]
+[in]  Matriz que deve ser definida como valor do parâmetro da consulta.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INVALID_PARAMETER (4003)              – tipo não suportado;
+· ERR_ARRAY_BAD_SIZE (4011)                    - tamanho de matriz em bytes excede o valor INT_MAX;
+· ERR_DATABASE_INVALID_HANDLE (5121)  - identificador de banco de dados inválido;
+· ERR_DATABASE_NOT_READY (5128)    - não se pode usar a função para consulta no momento (a
+consulta está sendo realizada ou já foi concluída, é necessário chamar DatabaseReset).
+<h3>Observação</h3>
+Esta função deve ser usada caso a consulta SQL contenha os valores parametrizáveis &quot;?&quot; ou&quot;?N&quot;,
+onde N é o número do parâmetro (começando de um). Além disso, a indexação de parâmetros no
+DatabaseBindArray() começa do zero.
+<h3>Por exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+     INSERT INTO table VALUES (?,?,?)
+</code></pre>
+<p>
+Esta função pode ser chamada imediatamente quer após criada a consulta parametrizável em
+DatabasePrepare() quer após redefinir a consulta para o status inicial com a ajuda do
+DatabaseReset().
+Use esta função juntamente com o DatabaseReset(), para executar a consulta quantas vezes forem
+necessárias com diferentes valores de parâmetros.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3087
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- abrimos a caixa de diálogo para selecionar arquivos com extensão DAT
+   string selected_files[];
+   if(!FileSelectDialog(&quot;Selecione arquivos para carregamento&quot;, NULL,
+                       &quot;Data files (*.dat)|*.dat|All files (*.*)|*.*&quot;,
+                       FSD_ALLOW_MULTISELECT, selected_files, &quot;tester.dat&quot;)&gt;0)
+     {
+      Print(&quot;Files not selected. Exit&quot;);
+      return;
+     }
+//--- obtemos os parâmetros de arquivos
+   ulong filesize[];
+   int filehandle[];
+   int files=ArraySize(selected_files);
+   ArrayResize(filesize, files);
+   ZeroMemory(filesize);
+   ArrayResize(filehandle, files);
+   double total_size=0;
+   for(int i=0; i&lt;files; i++)
+     {
+      filehandle[i]=FileOpen(selected_files[i], FILE_READ|FILE_BIN);
+      if(filehandle[i]!=INVALID_HANDLE)
+        {
+         filesize[i]=FileSize(filehandle[i]);
+         //PrintFormat(&quot;%d, %s handle=%d %d bytes&quot;, i, selected_files[i], filehandle[i
+         total_size+=(double)filesize[i];
+        }
+     }
+//--- verificamos o tamanho total do arquivo
+   if(total_size==0)
+     {
+      PrintFormat(&quot;Total files size is 0. Exit&quot;);
+      return;
+     }
+//--- criamos ou abrimos um banco de dados na pasta compartilhada do terminal
+   string filename=&quot;dat_files.sqlite&quot;;
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE);
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+   else
+      Print(&quot;Database: &quot;, filename, &quot; opened successfully&quot;);
+//--- se a tabela FILES existir, devemos exclui-la
+   if(DatabaseTableExists(db, &quot;FILES&quot;))
+     {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3088
+</p>
+<pre><code class="language-mql5">
+      //--- excluímos a tabela
+      if(!DatabaseExecute(db, &quot;DROP TABLE FILES&quot;))
+        {
+         Print(&quot;Failed to drop table FILES with code &quot;, GetLastError());
+         DatabaseClose(db);
+         return;
+        }
+     }
+//--- criamos a tabela FILES
+   if(!DatabaseExecute(db, &quot;CREATE TABLE FILES(&quot;
+                       &quot;NAME           TEXT NOT NULL,&quot;
+                       &quot;SIZE           INT  NOT NULL,&quot;
+                       &quot;PERCENT_SIZE   REAL NOT NULL,&quot;
+                       &quot;DATA           BLOB NOT NULL);&quot;))
+     {
+      Print(&quot;DB: failed to create table FILES with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- exibimos uma lista contendo todos os campos na tabela FILES
+   if(DatabasePrint(db, &quot;PRAGMA TABLE_INFO(FILES)&quot;, 0)&lt;0)
+     {
+      PrintFormat(&quot;DatabasePrint(\&quot;PRAGMA TABLE_INFO(FILES)\&quot;) failed, error code=%d a
+      DatabaseClose(db);
+      return;
+     }
+//--- criamos a consulta parametrizada para adicionar arquivos à tabela FILES
+   string sql=&quot;INSERT INTO FILES (NAME,SIZE,PERCENT_SIZE,DATA)&quot;
+              &quot; VALUES (?1,?2,?3,?4);&quot;; // parâmetros de consulta
+   int request=DatabasePrepare(db, sql);
+   if(request==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;DatabasePrepare() failed with code=%d&quot;, GetLastError());
+      Print(&quot;SQL request: &quot;, sql);
+      DatabaseClose(db);
+      return;
+     }
+//--- percorremos todos os arquivos e os adicionamos à tabela FILES
+   bool request_error=false;
+   DatabaseTransactionBegin(db);
+   int count=0;
+   uint size;
+   for(int i=0; i&lt;files; i++)
+     {
+      if(filehandle[i]!=INVALID_HANDLE)
+        {
+         char data[];</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3089
+</p>
+<pre><code class="language-mql5">
+         size=FileReadArray(filehandle[i], data);
+         if(size==0)
+           {
+            PrintFormat(&quot;FileReadArray(%s) failed with code %d&quot;, selected_files[i], Ge
+            continue;
+           }
+         count++;
+         //--- definimos o valor dos parâmetros antes adicionar um arquivo à tabela
+         if(!DatabaseBind(request, 0, selected_files[i]))
+           {
+            PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, Get
+            request_error=true;
+            break;
+           }
+         if(!DatabaseBind(request, 1, size))
+           {
+            PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, Get
+            request_error=true;
+            break;
+           }
+         if(!DatabaseBind(request, 2, double(size)*100./total_size))
+           {
+            PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, Get
+            request_error=true;
+            break;
+           }
+         if(!DatabaseBindArray(request, 3, data))
+           {
+            PrintFormat(&quot;DatabaseBind() failed at line %d with code=%d&quot;, __LINE__, Get
+            request_error=true;
+            break;
+           }
+         //--- executamos a consulta para inserir o registro e verificamos se há erros
+         if(!DatabaseRead(request)&amp;&amp;(GetLastError()!=ERR_DATABASE_NO_MORE_DATA))
+           {
+            PrintFormat(&quot;DatabaseRead() failed with code=%d&quot;, GetLastError());
+            DatabaseFinalize(request);
+            request_error=true;
+            break;
+           }
+         else
+            PrintFormat(&quot;%d. %s: %d bytes&quot;, count, selected_files[i],size);
+         //--- redefinimos a consulta para seu status inicial antes da seguinte atuali
+         if(!DatabaseReset(request))
+           {
+            PrintFormat(&quot;DatabaseReset() failed with code=%d&quot;, GetLastError());
+            DatabaseFinalize(request);
+            request_error=true;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3090
+</p>
+<pre><code class="language-mql5">
+            break;
+           }
+        }
+     }
+//--- resultado da transação
+   if(request_error)
+     {
+      PrintFormat(&quot;Table FILES: failed to add %d files&quot;, count);
+      DatabaseTransactionRollback(db);
+      DatabaseClose(db);
+      return;
+     }
+   else
+     {
+      DatabaseTransactionCommit(db);
+      PrintFormat(&quot;Table FILES: added %d files&quot;, count);
+     }
+//--- fechamos o arquivo contendo o banco de dados e relatamos isso
+   DatabaseClose(db);
+   PrintFormat(&quot;Database: %s created and closed&quot;, filename);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseReset, DatabaseRead, DatabaseBind</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3091
+<h3>DatabaseRead</h3>
+Realiza o a transição para o próximo registro como resultado de uma consulta.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseRead(
+   int  request      // identificador de consulta recebido em DatabasePrepare
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador de consulta recebido em DatabasePrepare().
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INVALID_PARAMETER (4003)               –  nome da tabela não está especificado (string vazia
+ou NULL);
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)    – identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)                –  erro de execução de consulta;
+· ERR_DATABASE_NO_MORE_DATA (5126)    – a tabela não existe (não é um erro, finalização
+normal).
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseReadBind</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3092
+<h3>DatabaseReadBind</h3>
+Realiza o a transição para o próximo registro e lê dados dele na estrutura.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseReadBind(
+   int    request,           // manipulador da consulta criada no DatabasePrepare
+   void&amp;  struct_object      // referência para a estrutura para leitura do registro
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta criada em DatabasePrepare().
+struct_object
+[out]  Referência para a estrutura em que serão lidos os dados do registro atual. A estrutura deve
+ter como membros apenas tipos numéricos e/ou strings (arrays não são permitidos) e não pode
+ser um herdeiro.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INVALID_PARAMETER (4003)               –  nome da tabela não está especificado (string vazia
+ou NULL);
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)    – identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)                –  erro de execução de consulta;
+· ERR_DATABASE_NO_MORE_DATA (5126)    – a tabela não existe (não é um erro, finalização
+normal).
+<h3>Observação</h3>
+O número de campos na estrutura struct_object não pode exceder DatabaseColumnsCount(). Se o
+número de campos na estrutura struct_object for menor que o número de campos no registro, será
+realizada uma leitura parcial. Os dados restantes podem ser obtidos explicitamente usando as
+funções correspondentes DatabaseColumnText(), DatabaseColumnInteger() e assim por diante
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+struct Person
+  {
+   int               id;
+   string            name;
+   int               age;
+   string            address;
+   double            salary;
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3093
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   int db;
+   string filename=&quot;company.sqlite&quot;;
+//--- open
+   db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE |DATABASE_
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+//--- if the table COMPANY exists then drop the table
+   if(DatabaseTableExists(db, &quot;COMPANY&quot;))
+     {
+      //--- delete the table
+      if(!DatabaseExecute(db, &quot;DROP TABLE COMPANY&quot;))
+        {
+         Print(&quot;Failed to drop table COMPANY with code &quot;, GetLastError());
+         DatabaseClose(db);
+         return;
+        }
+     }
+//--- create table
+   if(!DatabaseExecute(db, &quot;CREATE TABLE COMPANY(&quot;
+                       &quot;ID INT PRIMARY KEY     NOT NULL,&quot;
+                       &quot;NAME           TEXT    NOT NULL,&quot;
+                       &quot;AGE            INT     NOT NULL,&quot;
+                       &quot;ADDRESS        CHAR(50),&quot;
+                       &quot;SALARY         REAL );&quot;))
+     {
+      Print(&quot;DB: &quot;, filename, &quot; create table failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- insert data
+   if(!DatabaseExecute(db, &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (1
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (2, &#x27;A
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (3, &#x27;T
+                       &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (4, &#x27;M
+     {
+      Print(&quot;DB: &quot;, filename, &quot; insert failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- prepare the request
+   int request=DatabasePrepare(db, &quot;SELECT * FROM COMPANY WHERE SALARY&gt;15000&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3094
+</p>
+<pre><code class="language-mql5">
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+//--- print records
+   Person person;
+   Print(&quot;Persons with salary &gt; 15000:&quot;);
+   for(int i=0; DatabaseReadBind(request, person); i++)
+      Print(i, &quot;:  &quot;, person.id, &quot; &quot;, person.name, &quot; &quot;, person.age, &quot; &quot;, person.addres
+//--- delete request after use
+   DatabaseFinalize(request);
+   Print(&quot;Some statistics:&quot;);
+//--- prepare new request about total salary
+   request=DatabasePrepare(db, &quot;SELECT SUM(SALARY) FROM COMPANY&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      DatabaseClose(db);
+      return;
+     }
+   while(DatabaseRead(request))
+     {
+      double total_salary;
+      DatabaseColumnDouble(request, 0, total_salary);
+      Print(&quot;Total salary=&quot;, total_salary);
+     }
+//--- delete request after use
+   DatabaseFinalize(request);
+//--- prepare new request about average salary
+   request=DatabasePrepare(db, &quot;SELECT AVG(SALARY) FROM COMPANY&quot;);
+   if(request==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; request failed with code &quot;, GetLastError());
+      ResetLastError();
+      DatabaseClose(db);
+      return;
+     }
+   while(DatabaseRead(request))
+     {
+      double aver_salary;
+      DatabaseColumnDouble(request, 0, aver_salary);
+      Print(&quot;Average salary=&quot;, aver_salary);
+     }
+//--- delete request after use
+   DatabaseFinalize(request);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3095
+</p>
+<pre><code class="language-mql5">
+//--- close database
+   DatabaseClose(db);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+-------------------------------------------------------------------
+/*
+</code></pre>
+<p>
+<h3>Output:</h3>
+<h3>Persons with salary &gt; 15000:</h3>
+0:  1 Paul 32 California 25000.0
+1:  3 Teddy 23 Norway 20000.0
+2:  4 Mark 25 Rich-Mond  65000.0
+<h3>Some statistics:</h3>
+<h3>Total salary=125000.0</h3>
+<h3>Average salary=31250.0</h3>
+*/
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseRead</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3096
+<h3>DatabaseFinalize</h3>
+Exclui uma consulta criada em DatabasePrepare().
+</p>
+<pre><code class="language-mql5">
+void  DatabaseFinalize(
+   int  request      // identificador de consulta recebido em DatabasePrepare
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador de consulta recebido em DatabasePrepare().
+<h3>Valor retornado</h3>
+Não.
+<h3>Observação</h3>
+No caso de um identificador válido, a função mostrará o erro ERR_DATABASE_INVALID_HANDLE. O
+erro pode ser verificado usando GetLastError().
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseExecute</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3097
+<h3>DatabaseTransactionBegin</h3>
+Начинает выполнение транзакции. 
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseTransactionBegin(
+   int  database      // identificador de banco de dados recebido em DatabaseOpen
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador de banco de dados recebido em DatabaseOpen().
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INTERNAL_ERROR (4001)                   –  erro crítico de tempo de execução do sistema;
+· ERR_INVALID_PARAMETER (4003)              –  parâmetro sql contendo string vazia;
+· ERR_NOT_ENOUGH_MEMORY (4004)          –  memória insuficiente;
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)   – identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)               –  erro de execução de consulta.
+<h3>Observação</h3>
+A função DatabaseTransactionBegin() deve ser chamada antes que realizar uma transação. Qualquer
+transação deve começar com uma chamada de DatabaseTransactionBegin() e terminar com uma
+chamada de DatabaseTransactionCommit().
+<h3>Example:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- create the file name
+   string filename=AccountInfoString(ACCOUNT_SERVER) +&quot;_&quot;+IntegerToString(AccountInfoI
+//--- open/create the database in the common terminal folder
+   int db=DatabaseOpen(filename, DATABASE_OPEN_READWRITE | DATABASE_OPEN_CREATE | DATA
+   if(db==INVALID_HANDLE)
+     {
+      Print(&quot;DB: &quot;, filename, &quot; open failed with code &quot;, GetLastError());
+      return;
+     }
+//--- if the DEALS table already exists, delete it
+   if(!DeleteTable(db, &quot;DEALS&quot;))
+     {
+      DatabaseClose(db);
+      return;
+     }</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3098
+</p>
+<pre><code class="language-mql5">
+//--- create the DEALS table
+   if(!CreateTableDeals(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//---  request the entire trading history
+   datetime from_date=0;
+   datetime to_date=TimeCurrent();
+//--- request the history of deals in the specified interval
+   HistorySelect(from_date, to_date);
+   int deals_total=HistoryDealsTotal();
+   PrintFormat(&quot;Deals in the trading history: %d &quot;, deals_total);
+//--- measure the transaction execution speed using DatabaseTransactionBegin/DatabaseT
+   ulong start=GetMicrosecondCount();
+   bool fast_transactions=true;
+   InsertDeals(db, fast_transactions);
+   double fast_transactions_time=double(GetMicrosecondCount()-start)/1000;
+   PrintFormat(&quot;Transations WITH    DatabaseTransactionBegin/DatabaseTransactionCommit
+//--- delete the DEALS table, and then create it again
+   if(!DeleteTable(db, &quot;DEALS&quot;))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//--- create a new DEALS table
+   if(!CreateTableDeals(db))
+     {
+      DatabaseClose(db);
+      return;
+     }
+//--- test again, this time without using DatabaseTransactionBegin/DatabaseTransaction
+   fast_transactions=false;
+   start=GetMicrosecondCount();
+   InsertDeals(db, fast_transactions);
+   double slow_transactions_time=double(GetMicrosecondCount()-start)/1000;
+   PrintFormat(&quot;Transations WITHOUT DatabaseTransactionBegin/DatabaseTransactionCommit
+//--- report gain in time
+   PrintFormat(&quot;Use of DatabaseTransactionBegin/DatabaseTransactionCommit provided acc
+//--- close the database
+   DatabaseClose(db);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Results:</h3>
+</p>
+<pre><code class="language-mql5">
+   Deals in the trading history: 2737
+   Transations WITH    DatabaseTransactionBegin/DatabaseTransactionCommit: time=48.5 m</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3099
+</p>
+<pre><code class="language-mql5">
+   Transations WITHOUT DatabaseTransactionBegin/DatabaseTransactionCommit: time=25818.
+   Use of DatabaseTransactionBegin/DatabaseTransactionCommit provided acceleration by 
+</code></pre>
+<p>
+*/
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Deletes a table with the specified name from the database        |
+//+------------------------------------------------------------------+
+bool DeleteTable(int database, string table_name)
+  {
+   if(!DatabaseExecute(database, &quot;DROP TABLE IF EXISTS &quot;+table_name))
+     {
+      Print(&quot;Failed to drop table DEALS with code &quot;, GetLastError());
+      return(false);
+     }
+//--- the table has been successfully deleted
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Creates the DEALS table                                          |
+//+------------------------------------------------------------------+
+bool CreateTableDeals(int database)
+  {
+//--- check if the table exists
+   if(!DatabaseTableExists(database, &quot;DEALS&quot;))
+      //--- create the table
+      if(!DatabaseExecute(database, &quot;CREATE TABLE DEALS(&quot;
+                          &quot;ID          INT KEY NOT NULL,&quot;
+                          &quot;ORDER_ID    INT     NOT NULL,&quot;
+                          &quot;POSITION_ID INT     NOT NULL,&quot;
+                          &quot;TIME        INT     NOT NULL,&quot;
+                          &quot;TYPE        INT     NOT NULL,&quot;
+                          &quot;ENTRY       INT     NOT NULL,&quot;
+                          &quot;SYMBOL      CHAR(10),&quot;
+                          &quot;VOLUME      REAL,&quot;
+                          &quot;PRICE       REAL,&quot;
+                          &quot;PROFIT      REAL,&quot;
+                          &quot;SWAP        REAL,&quot;
+                          &quot;COMMISSION  REAL,&quot;
+                          &quot;MAGIC       INT,&quot;
+                          &quot;REASON      INT );&quot;))
+        {
+         Print(&quot;DB: create table failed with code &quot;, GetLastError());
+         return(false);
+        }
+//--- the table has been successfully created
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Adds deals to the database table                                 |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3100
+</p>
+<pre><code class="language-mql5">
+bool InsertDeals(int database, bool begintransaction=true)
+  {
+//--- Auxiliary variables
+   ulong    deal_ticket;         // deal ticket
+   long     order_ticket;        // the ticket of the order by which the deal was exec
+   long     position_ticket;     // ID of the position to which the deal belongs
+   datetime time;                // deal execution time
+   long     type ;               // deal type
+   long     entry ;              // deal direction
+   string   symbol;              // the symbol fro which the deal was executed
+   double   volume;              // operation volume
+   double   price;               // price
+   double   profit;              // financial result
+   double   swap;                // swap
+   double   commission;          // commission
+   long     magic;               // Magic number
+   long     reason;              // deal execution reason or source
+//--- go through all deals and add to the database
+   bool failed=false;
+   int deals=HistoryDealsTotal();
+//--- if fast transaction performance method is used
+   if(begintransaction)
+     {
+      // --- lock the database before executing transactions
+      DatabaseTransactionBegin(database);
+     }
+   for(int i=0; i&lt;deals; i++)
+     {
+      deal_ticket=    HistoryDealGetTicket(i);
+      order_ticket=   HistoryDealGetInteger(deal_ticket, DEAL_ORDER);
+      position_ticket=HistoryDealGetInteger(deal_ticket, DEAL_POSITION_ID);
+      time= (datetime)HistoryDealGetInteger(deal_ticket, DEAL_TIME);
+      type=           HistoryDealGetInteger(deal_ticket, DEAL_TYPE);
+      entry=          HistoryDealGetInteger(deal_ticket, DEAL_ENTRY);
+      symbol=         HistoryDealGetString(deal_ticket, DEAL_SYMBOL);
+      volume=         HistoryDealGetDouble(deal_ticket, DEAL_VOLUME);
+      price=          HistoryDealGetDouble(deal_ticket, DEAL_PRICE);
+      profit=         HistoryDealGetDouble(deal_ticket, DEAL_PROFIT);
+      swap=           HistoryDealGetDouble(deal_ticket, DEAL_SWAP);
+      commission=     HistoryDealGetDouble(deal_ticket, DEAL_COMMISSION);
+      magic=          HistoryDealGetInteger(deal_ticket, DEAL_MAGIC);
+      reason=         HistoryDealGetInteger(deal_ticket, DEAL_REASON);
+      //--- add each deal using the following request
+      string request_text=StringFormat(&quot;INSERT INTO DEALS (ID,ORDER_ID,POSITION_ID,TIM
+                                       &quot;VALUES (%d, %d, %d, %d, %d, %d, &#x27;%s&#x27;, %G, %G, 
+                                       deal_ticket, order_ticket, position_ticket, tim
+      if(!DatabaseExecute(database, request_text))
+        {
+         PrintFormat(&quot;%s: failed to insert deal #%dwith code %d&quot;, __FUNCTION__, deal_t</p>
+<p></code></pre>
+<p>
+<h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3101
+</p>
+<pre><code class="language-mql5">
+         PrintFormat(&quot;i=%d: deal #%d  %s&quot;, i, deal_ticket, symbol);
+         failed=true;
+         break;
+        }
+     }
+//--- check for transaction execution errors
+   if(failed)
+     {
+      //--- if fast transaction performance method is used
+      if(begintransaction)
+        {
+         //--- roll back all transactions and unlock the database
+         DatabaseTransactionRollback(database);
+        }
+      Print(&quot;%s: DatabaseExecute() failed with code &quot;, __FUNCTION__, GetLastError());
+      return(false);
+     }
+//--- if fast transaction performance method is used
+   if(begintransaction)
+     {
+      //--- all transactions have been performed successfully - record changes and unl
+      DatabaseTransactionCommit(database);
+     }
+//--- successful completion
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+DatabaseExecute, DatabasePrepare, DatabaseTransactionCommit, DatabaseTransactionRollback</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3102
+<h3>DatabaseTransactionCommit</h3>
+Conclui a execução da transação.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseTransactionCommit(
+   int  database      // identificador de banco de dados recebido em DatabaseOpen
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador de banco de dados recebido em DatabaseOpen().
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INTERNAL_ERROR (4001)                   –  erro crítico de tempo de execução do sistema;
+· ERR_INVALID_PARAMETER (4003)              –  parâmetro sql contendo string vazia;
+· ERR_NOT_ENOUGH_MEMORY (4004)          –  memória insuficiente;
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)   – identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)               –  erro de execução de consulta.
+<h3>Observação</h3>
+A função DatabaseTransactionCommit() conclui todas as transações que foram executadas após a
+chamada da função DatabaseBeginTransaction(). Para uma conclusão bem-sucedida, toda transação
+deve começar com uma chamada de DatabaseTransactionBegin() e terminar com uma chamada de
+DatabaseTransactionCommit().
+<h3>Veja também</h3>
+DatabaseExecute, DatabasePrepare, DatabaseTransactionBegin, DatabaseTransactionRollback</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3103
+<h3>DatabaseTransactionRollback</h3>
+Выполняет откат транзакций. 
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseTransactionRollback(
+   int  database      // identificador de banco de dados recebido em DatabaseOpen
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+database
+[in]  Identificador de banco de dados recebido em DatabaseOpen().
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_INTERNAL_ERROR (4001)                    –  erro crítico de tempo de execução do sistema;
+· ERR_INVALID_PARAMETER (4003)               –  parâmetro sql contendo string vazia;
+· ERR_NOT_ENOUGH_MEMORY (4004)           –  memória insuficiente;
+· ERR_WRONG_STRING_PARAMETER (5040)  – erro ao converter a consulta em uma string UTF-8;
+· ERR_DATABASE_INTERNAL (5120)              – erro interno do banco de dados;
+· ERR_DATABASE_INVALID_HANDLE (5121)    – identificador de banco de dados inválido;
+· ERR_DATABASE_EXECUTE (5124)                –  erro de execução de consulta;
+<h3>Observação</h3>
+A chamada de DatabaseTransactionRollback() cancela todas as transações que foram executadas
+após a chamada da função DatabaseTransactionBegin (). A função DatabaseTransactionRollback() é
+necessária para reverter as alterações no banco de dados se ocorrerem erros durante a transação.
+<h3>Veja também</h3>
+DatabaseExecute, DatabasePrepare, DatabaseTransactionBegin, DatabaseTransactionCommit</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3104
+<h3>DatabaseColumnsCount</h3>
+Obtém o número de campos na consulta.
+</p>
+<pre><code class="language-mql5">
+int  DatabaseColumnsCount(
+   int  request      // identificador de consulta recebido em DatabasePrepare
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+<h3>Valor retornado</h3>
+Número de campos ou -1 em caso de erro. Para obter o código de erro, use GetLastError(), possíveis
+respostas:
+· ERR_DATABASE_INVALID_HANDLE (5121) - identificador de consulta inválido.
+<h3>Observação</h3>
+Para obter o número de campos de consulta criados em DatabasePrepare(), não é necessário chamar
+a função DatabaseRead(). Para outras funções do tipo DatabaseColumnXXXX(), primeiro você precisa
+chamar DatabaseRead().
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseFinalize, DatabaseClose</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3105
+<h3>DatabaseColumnName</h3>
+Получает имя поля по номеру.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseColumnName(
+   int      request,     // identificador de consulta recebido em DatabasePrepare
+   int      column,      // número do campo na consulta
+   string&amp;  name         // link para a variável para obter o nome do campo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+nome
+[out]  Variável para registrar o nome do campo.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseColumnsCount, DatabaseColumnType</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3106
+<h3>DatabaseColumnType</h3>
+Получает тип поля по номеру.
+<h3>ENUM_DATABASE_FIELD_TYPE  DatabaseColumnType(</h3>
+</p>
+<pre><code class="language-mql5">
+   int  request,     // identificador de consulta recebido em DatabasePrepare
+   int  column       // número do campo na consulta
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+<h3>Valor retornado</h3>
+Возвращает тип поля из перечисления ENUM_DATABASE_FIELD_TYPE. Para obter o código de erro,
+use GetLastError(), possíveis respostas:
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+<h3>ENUM_DATABASE_FIELD_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>DATABASE_FIELD_TYPE_INVALID</h3>
+Erro ao obter o tipo, o código do erro pode ser
+obtido usando int GetLastError()
+<h3>DATABASE_FIELD_TYPE_INTEGER</h3>
+<h3>Tipo inteiro</h3>
+<h3>DATABASE_FIELD_TYPE_FLOAT</h3>
+<h3>Tipo real</h3>
+<h3>DATABASE_FIELD_TYPE_TEXT</h3>
+<h3>Tipo string</h3>
+<h3>DATABASE_FIELD_TYPE_BLOB</h3>
+<h3>Tipo binário</h3>
+<h3>DATABASE_FIELD_TYPE_NULL</h3>
+<h3>Tipo especial NULL</h3>
+<h3>Veja também</h3>
+<h3>DatabasePrepare, DatabaseColumnsCount, DatabaseColumnName</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3107
+<h3>DatabaseColumnSize</h3>
+Получает размер поля в байтах.
+</p>
+<pre><code class="language-mql5">
+int  DatabaseColumnSize(
+   int  request,     // identificador de consulta recebido em DatabasePrepare
+   int  column       // número do campo na consulta
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna o tamanho do campo em bytes, caso contrário, -1. Para obter o código
+de erro, use GetLastError(), possíveis respostas:
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseColumnBlob, DatabaseColumnsCount, DatabaseColumnName,
+<h3>DatabaseColumnType</h3></p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3108
+<h3>DatabaseColumnText</h3>
+Obtém o valor do campo do registro atual como uma string.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseColumnText(
+   int      request,     // identificador de consulta recebido em DatabasePrepare
+   int      column,      // número do campo na consulta
+   string&amp;  value        // link para a variável para obter o valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+value
+[out] Link para a variável para registrar o valor do campo.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+Para ler os valores do próximo registro, você deve primeiro chamar DatabaseRead().
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseColumnsCount, DatabaseColumnType, DatabaseColumnName</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3109
+<h3>DatabaseColumnInteger</h3>
+Obtém um valor int do registro atual.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseColumnInteger(
+   int   request,     // identificador de consulta recebido em DatabasePrepare
+   int   column,      // número do campo na consulta
+   int&amp;  value        // link para a variável para obter o valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+value
+[out]  Link para a variável para registrar o valor do campo.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+Para ler os valores do próximo registro, você deve primeiro chamar DatabaseRead().
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseColumnsCount, DatabaseColumnType, DatabaseColumnName</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3110
+<h3>DatabaseColumnLong</h3>
+Obtém um valor long do registro atual.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseColumnLong(
+   int    request,     // identificador de consulta recebido em DatabasePrepare
+   int    column,      // número do campo na consulta
+   long&amp;  value        // link para a variável para obter o valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+value
+[out]  Link para a variável para registrar o valor do campo.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+Para ler os valores do próximo registro, você deve primeiro chamar DatabaseRead().
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseColumnsCount, DatabaseColumnType, DatabaseColumnName</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3111
+<h3>DatabaseColumnDouble</h3>
+Obtém um valor double do registro atual.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseColumnDouble(
+   int      request,     // identificador de consulta recebido em DatabasePrepare
+   int      column,      // número do campo na consulta
+   double&amp;  value        // link para a variável para obter o valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+value
+[out]  Link para a variável para registrar o valor do campo.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+Para ler os valores do próximo registro, você deve primeiro chamar DatabaseRead().
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseColumnsCount, DatabaseColumnType, DatabaseColumnName</p>
+<p><h3>Trabalhar com bancos de dados</h3>
+© 2000-2025, MetaQuotes Ltd.
+3112
+<h3>DatabaseColumnBlob</h3>
+Obtém o valor do campo do registro atual como um array.
+</p>
+<pre><code class="language-mql5">
+bool  DatabaseColumnBlob(
+   int    request,     // identificador de consulta recebido em DatabasePrepare
+   int    column,      // número do campo na consulta
+   void&amp;  data[]       // link para a variável para obter o valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+request
+[in]  Identificador da consulta recebido em DatabasePrepare().
+column
+[in]  Número do campo na consulta. A numeração dos campos começa em zero e não pode exceder
+o valor DatabaseColumnsCount() - 1.
+data[]
+[out]  Link para um array para registrar o valor do campo.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso ou false, em caso de erro. Para obter o código de erro, use
+<h3>GetLastError(), possíveis respostas:</h3>
+· ERR_DATABASE_INVALID_HANDLE (5121) – identificador de consulta inválido;
+· ERR_DATABASE_NO_MORE_DATA 
+(5126) 
+ 
+– 
+índice 
+column 
+maior 
+do 
+que 
+o 
+valor
+DatabaseColumnsCount() -1.
+<h3>Observação</h3>
+O valor pode ser obtido apenas se antes para a consulta request pelo menos tiver sido feita uma
+chamada de DatabaseRead().
+Para ler os valores do próximo registro, você deve primeiro chamar DatabaseRead().
+<h3>Veja também</h3>
+DatabasePrepare, DatabaseColumnSize, DatabaseColumnsCount, DatabaseColumnType,
+<h3>DatabaseColumnName</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

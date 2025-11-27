@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificando Estado - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class="active"><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Verificando Estado</h1>
+        </header>
+        
+        <article>
+            <p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1902
+<h3>Verificação de Estado</h3>
+Funções que retornam parâmetros do estado corrente do terminal cliente
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>GetLastError</h3>
+<h3>Retorna o último erro</h3>
+<h3>IsStopped</h3>
+Retorna true, se um programa mql5 foi ordenado a interromper sua
+operação
+<h3>UninitializeReason</h3>
+Retorna o código do motivo da desinicialização
+<h3>TerminalInfoInteger</h3>
+Retorna um valor inteiro de uma propriedade correspondente do
+ambiente de um programa mql5
+<h3>TerminalInfoDouble</h3>
+Retorna um valor de double de uma propriedade correspondente do
+ambiente de um programa mql5
+<h3>TerminalInfoString</h3>
+Retorna um valor de string de uma propriedade correspondente do
+ambiente de um programa mql5
+<h3>MQLInfoInteger</h3>
+Retorna um valor inteiro de uma propriedade correspondente de um
+programa mql5 em execução
+<h3>MQLInfoString</h3>
+Retorna um valor de string de uma propriedade correspondente de um
+programa mql5 em execução
+<h3>Symbol</h3>
+Retorna o nome do ativo do gráfico corrente
+<h3>Period</h3>
+Retorna a janela de tempo do gráfico corrente
+<h3>Digits</h3>
+Retorna o número de dígitos decimais determinando a precisão do
+valor do preço do ativo do gráfico corrente
+<h3>Point</h3>
+Retorna o tamanho do ponto do símbolo atual na moeda de cotação.</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1903
+<h3>GetLastError</h3>
+Retorna o conteúdo da variável de sistema _LastError.
+</p>
+<pre><code class="language-mql5">
+int  GetLastError();
+</code></pre>
+<p>
+<h3>Valor de Retorno</h3>
+Retorna o valor do último erro que ocorreu durante a execução de um programa mql5.
+<h3>Observação</h3>
+Após a chamada da função, o conteúdo de _LastError não é zerado. Para zerar esta variável, você
+precisa chamar ResetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   MqlRates rates[1]={};   // aqui escrevemos os dados da barra atual
+   
+//--- chamar deliberadamente uma função com parâmetros incorretos
+   int res=CopyRates(NULL, PERIOD_CURRENT, 0, 2, rates);
+   if(res!=2)
+      PrintFormat(&quot;CopyRates() returned %d. LastError %d&quot;, res, GetLastError());
+//--- redefinimos o código do último erro antes de copiar os dados da barra atual para
+   ResetLastError();
+//--- se a função funcionar incorretamente, o código de erro será diferente de 0
+   CopyRates(NULL, PERIOD_CURRENT, 0, 1, rates);
+   Print(&quot;CopyRates() error &quot;, GetLastError());
+     
+//--- imprimimos o array de valores obtidos
+   ArrayPrint(rates);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Códigos de Retorno do Servidor de Negociação</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1904
+<h3>IsStopped</h3>
+Verifica um encerramento forçado de um programa mql5.
+</p>
+<pre><code class="language-mql5">
+bool  IsStopped();
+</code></pre>
+<p>
+<h3>Valor de Retorno</h3>
+Retorna true, se a variável de sistema _StopFlag contém um valor diferente de 0. Um valor não-zero
+é escrito em _StopFlag, se um programa mql5 foi ordenado a concluir sua operação. Neste caso,
+você deve imediatamente finalizar o programa, caso contrário o programa será encerrado
+forçadamente do lado de fora após 3 segundos.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- em um loop infinito com verificação de parada
+   while(!IsStopped())
+     {
+      //--- exibimos a hora local do computador no gráfico
+      Comment(&quot;Time Local: &quot;, TimeToString(TimeLocal(), TIME_DATE|TIME_MINUTES|TIME_SE
+      Sleep(16);
+     }
+   Print(&quot;The StopFlag is set. The program will be stopped.&quot;);
+//--- limpamos o que for preciso
+   Comment(&quot;&quot;);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1905
+<h3>UninitializeReason</h3>
+Retorna o código do motivo para desinicialização.
+</p>
+<pre><code class="language-mql5">
+int  UninitializeReason();
+</code></pre>
+<p>
+<h3>Valor de Retorno</h3>
+Retorna o valor de _UninitReason que é formado antes de OnDeinit() ser chamado. O valor depende
+dos motivos que levaram à desinicialização.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- obtemos o código do motivo da desinicialização na variável reason
+   int reason=UninitializeReason();
+//--- criamos a string da mensagem com o motivo da desinicialização e enviamos a mensa
+   string message=StringFormat(&quot;%s: Uninitialize reason code: %d (%s)&quot;,__FUNCTION__, r
+   Print(message);
+//--- sucesso
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- criamos a string da mensagem com o código do motivo da desinicialização a partir
+   string message=StringFormat(&quot;%s: Uninitialize reason code: %d (%s)&quot;,__FUNCTION__, r
+   Print(message);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a descrição do motivo da desinicialização                |
+//+------------------------------------------------------------------+
+string UninitializeReasonDescription(const int reason)
+  {
+   switch(reason)
+     {
+      //--- o expert interrompeu sua tarefa chamando a função ExpertRemove()
+      case REASON_PROGRAM :</p>
+<p></code></pre>
+<p>
+<h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1906
+</p>
+<pre><code class="language-mql5">
+        return(&quot;Expert Advisor terminated its operation by calling the ExpertRemove() 
+      //--- programa removido do gráfico
+      case REASON_REMOVE :
+        return(&quot;Program has been deleted from the chart&quot;);
+      //--- programa recompilado
+      case REASON_RECOMPILE :
+        return(&quot;Program has been recompiled&quot;);
+      //--- o símbolo ou o período do gráfico foi alterado
+      case REASON_CHARTCHANGE :
+        return(&quot;Symbol or chart period has been changed&quot;);
+      //--- gráfico encerrado
+      case REASON_CHARTCLOSE :
+        return(&quot;Chart has been closed&quot;);
+      //--- os parâmetros de entrada foram alterados pelo usuário
+      case REASON_PARAMETERS :
+        return(&quot;Input parameters have been changed by a user&quot;);
+      //--- outra conta foi ativada ou ocorreu uma reconexão ao servidor de negociação
+      case REASON_ACCOUNT :
+        return(&quot;Another account has been activated or reconnection to the trade server
+      //--- aplicado um novo modelo de gráfico
+      case REASON_TEMPLATE :
+        return(&quot;A new template has been applied&quot;);
+      //--- sinal de que o manipulador OnInit() retornou um valor diferente de zeroе
+      case REASON_INITFAILED :
+        return(&quot;This value means that OnInit() handler has returned a nonzero value&quot;);
+      //--- o terminal foi fechado
+      case REASON_CLOSE :
+        return(&quot;Terminal has been closed&quot;);
+     }
+//--- motivo desconhecido para a desinicialização
+   return(&quot;Unknown reason&quot;);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1907
+<h3>TerminalInfoInteger</h3>
+Retorna o valor de uma propriedade correspondente do ambiente de um programa mql5.
+</p>
+<pre><code class="language-mql5">
+int  TerminalInfoInteger(
+   int  property_id      // identificador de uma propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in] Identificador de uma propriedade. Can be one of the values of the enumeration
+ENUM_TERMINAL_INFO_INTEGER.
+<h3>Valor de Retorno</h3>
+Valor de tipo int.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o número de compilação do terminal em execução e seus atributos &quot;termina
+   int  build = TerminalInfoInteger(TERMINAL_BUILD);
+   bool x64   = TerminalInfoInteger(TERMINAL_X64);
+   
+//--- imprimimos no log os dados recebidos para o terminal
+   PrintFormat(&quot;MetaTrader 5 %s build %d&quot;, (x64 ? &quot;x64&quot; : &quot;x32&quot;), build);
+   /*
+   resultado:
+   MetaTrader 5 x64 build 4330
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1908
+<h3>TerminalInfoDouble</h3>
+Retorna o valor da propriedade necessária a partir do ambiente do programa mql5.
+</p>
+<pre><code class="language-mql5">
+double  TerminalInfoDouble(
+   int  property_id      // identificador de uma propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in] Identificador de uma 
+propriedade. 
+<h3>Pode</h3>
+ser 
+um 
+dos 
+valores 
+da 
+enumeração
+ENUM_TERMINAL_INFO_DOUBLE.
+<h3>Retornar Valor</h3>
+Valor do tipo double.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o saldo do usuário na MQL5.community
+   double balance = TerminalInfoDouble(TERMINAL_COMMUNITY_BALANCE);
+//--- enviamos o valor obtido para o log
+   PrintFormat(&quot;Balance in MQL5.community: %.2f&quot;, balance);
+   /*
+   resultado
+   Balance in MQL5.community: 230.50
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1909
+<h3>TerminalInfoString</h3>
+A função retorna o valor da propriedade necessária a partir do ambiente de um programa mql5. A
+propriedade deve ser do tipo string.
+</p>
+<pre><code class="language-mql5">
+string  TerminalInfoString(
+   int  property_id      // identificador de uma propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in] Identificador de uma 
+propriedade. 
+<h3>Pode</h3>
+ser 
+um 
+dos 
+valores 
+da 
+enumeração
+ENUM_TERMINAL_INFO_STRING.
+<h3>Valor de Retorno</h3>
+Valor de tipo string.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos dados do sistema operacional e do terminal
+   string os_ver  = TerminalInfoString(TERMINAL_OS_VERSION);      // nome do sistema o
+   string name    = TerminalInfoString(TERMINAL_NAME);            // nome do terminal
+   string path    = TerminalInfoString(TERMINAL_PATH);            // pasta a partir da
+   string data    = TerminalInfoString(TERMINAL_DATA_PATH);       // pasta onde os dad
+   string common  = TerminalInfoString(TERMINAL_COMMONDATA_PATH); // pasta comum de to
+//--- enviamos os dados obtidos para o log
+   PrintFormat(&quot;OS: %s\nTerminal: %s\n- Path: %s\n- Data path: %s\n- Common Data path:
+   /*
+   OS: Windows 10 build 19045
+   Terminal: MetaTrader 5
+   - Path: E:\MetaQuotes\MetaTrader 5
+   - Data path: E:\MetaQuotes\MetaTrader 5
+   - Common Data path: C:\Users\admin\AppData\Roaming\MetaQuotes\Terminal\Common
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1910
+<h3>MQLInfoInteger</h3>
+Retorna o valor de uma propriedade correspondente de um programa mql5 em execução.
+</p>
+<pre><code class="language-mql5">
+int  MQLInfoInteger(
+   int  property_id      // identificador de uma propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in] Identificador 
+de 
+uma 
+propriedade. 
+<h3>Podem</h3>
+ser 
+usados 
+valores 
+da 
+enumeração
+ENUM_MQL_INFO_INTEGER.
+<h3>Valor de Retorno</h3>
+Valor de tipo int.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos os valores de memória disponível e consumida para programas MQL
+   int limit = MQLInfoInteger(MQL_MEMORY_LIMIT);   // tamanho máximo possível da memór
+   int used  = MQLInfoInteger(MQL_MEMORY_USED);    // tamanho da memória usada pelo pr
+   
+//--- exibimos os valores obtidos no log
+   PrintFormat(&quot;Maximum possible amount of dynamic memory for MQL5 program: %d Mb\n&quot;+
+               &quot;Memory used by MQL5 program: %d Mb&quot;, limit, used);
+   /*
+   resultado
+   Maximum possible amount of dynamic memory for MQL5 program: 8388608 Mb
+   Memory used by MQL5 program: 2 Mb
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1911
+<h3>MQLInfoString</h3>
+Retorna o valor de uma propriedade correspondente de um programa mql5 em execução.
+</p>
+<pre><code class="language-mql5">
+string  MQLInfoString(
+   int  property_id      // Identificador de uma propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in] Identificador de uma 
+propriedade. 
+<h3>Pode</h3>
+ser 
+um 
+dos 
+valores 
+da 
+enumeração
+ENUM_MQL_INFO_STRING.
+<h3>Valor de Retorno</h3>
+Valor de tipo string.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos os dados do programa em execução
+   string name = MQLInfoString(MQL_PROGRAM_NAME);  // nome do programa MQL5 em execuçã
+   string path = MQLInfoString(MQL_PROGRAM_PATH);  // caminho para esse programa em ex
+   
+//--- enviamos os dados obtidos para o log
+   PrintFormat(&quot;Name of the running MQL program: &#x27;%s&#x27;\nPath of the running MQL program
+   /*
+   resultado:
+   Name of the running MQL program: &#x27;MQLInfoString&#x27;
+   Path of the running MQL program: E:\MetaQuotes\MetaTrader 5\MQL5\Scripts\MQLInfoStr
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1912
+<h3>Symbol</h3>
+Retorna o nome do ativo do gráfico atual.
+</p>
+<pre><code class="language-mql5">
+string  Symbol();
+</code></pre>
+<p>
+<h3>Valor de Retorno</h3>
+Valor da variável de sistema _Symbol, que armazena o nome do ativo presente no gráfico atual.
+<h3>Observação</h3>
+Ao contrário de EAs, indicadores e scripts, os serviços não estão vinculados a um gráfico específico.
+Assim, Symbol() retorna a linha em branco (&quot;&quot;) para o serviço.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o nome do símbolo no gráfico atual
+   string name = Symbol();
+   
+//--- exibimos no log os dados obtidos
+   PrintFormat(&quot;Current chart symbol name: &#x27;%s&#x27;&quot;, name);
+   /*
+   resultado
+   Current chart symbol name: &#x27;EURUSD&#x27;
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1913
+<h3>Period</h3>
+Retorna a janela de tempo do gráfico atual.
+<h3>ENUM_TIMEFRAMES  Period();</h3>
+<h3>Valor de Retorno</h3>
+O conteúdo da variável _Period que representa o valor da janela de tempo do gráfico atual. O valor
+pode ser um dos valores da enumeração ENUM_TIMEFRAMES.
+<h3>Observação</h3>
+Ao contrário de EAs, indicadores e scripts, os serviços não estão vinculados a um gráfico específico.
+Portanto, para o serviço, Period() retorna 0.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o valor do timeframe do gráfico atual e sua descrição
+   ENUM_TIMEFRAMES period    = Period();
+   string          timeframe = StringSubstr(EnumToString(period), 7);
+   
+//--- exibimos no log os dados obtidos
+   PrintFormat(&quot;Current chart timeframe: %s\nTimeframe value: %s (%d)&quot;,
+               timeframe, EnumToString(period), period);
+   /*
+   resultado:
+   Current chart timeframe: H4
+   Timeframe value: PERIOD_H4 (16388)
+   */
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+PeriodSeconds, Janelas de tempo de gráficos, Data e Hora, Visibilidade de objetos</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1914
+<h3>Digits</h3>
+Retorna o número de dígitos decimais que determina a precisão do preço do ativo no gráfico atual.
+</p>
+<pre><code class="language-mql5">
+int  Digits();
+</code></pre>
+<p>
+<h3>Valor de Retorno</h3>
+O valor da variável _Digits que armazena o número de dígitos decimais determina a precisão do
+preço do ativo no gráfico atual.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o número de casas decimais após o ponto decimal para o símbolo do gráfic
+   int digits = Digits();
+   
+//--- exibimos no log os dados obtidos
+   Print(&quot;Number of decimal digits for the current chart symbol: &quot;, digits);
+   /*
+   resultado:
+   Number of decimal digits for the current chart symbol: 5
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Verificando Estado</h3>
+© 2000-2025, MetaQuotes Ltd.
+1915
+<h3>Point</h3>
+Retorna o tamanho do ponto do ativo atual na moeda de cotação.
+</p>
+<pre><code class="language-mql5">
+double  Point();
+</code></pre>
+<p>
+<h3>Valor de Retorno</h3>
+O valor da variável _Point que armazena o tamanho do ponto do ativo atual na moeda de cotação.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o tamanho do ponto do instrumento atual na moeda da cotação
+   double point = Point();
+   
+//--- exibimos no log os dados obtidos
+   Print(&quot;Point size of the current symbol in the quote currency: &quot;, DoubleToString(po
+   /*
+   resultado:
+   Point size of the current symbol in the quote currency: 0.00001
+   */
+</code></pre>
+<p>
+  }
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

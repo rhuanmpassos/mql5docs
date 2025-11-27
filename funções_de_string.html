@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de String - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class="active"><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções de String</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1854
+<h3>Funções de String</h3>
+Este é um grupo de funções destinado a trabalhar com dados do tipo string.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>StringAdd</h3>
+Adiciona uma string no final de uma outra string
+<h3>StringBufferLen</h3>
+Retorna o tamanho de buffer alocado para uma string
+<h3>StringCompare</h3>
+Compara duas string e retorna 1 se a primeira string for maior que a
+segunda; 0 - se as string são iguais; -1 (menos 1) - se a primeira string
+</p>
+<pre><code class="language-mql5">
+for menor que a segunda.
+</code></pre>
+<p>
+<h3>StringConcatenate</h3>
+<h3>Forma uma string dos parâmetros passados</h3>
+<h3>StringFill</h3>
+Preenche uma string especificada com símbolos selecionados
+<h3>StringFind</h3>
+Busca por uma substring em uma string
+<h3>StringGetCharacter</h3>
+Retorna o valor de um número localizado na posição de string
+especificada
+<h3>StringInit</h3>
+Inicializa uma string com símbolos especificados e fornece o
+comprimento da string especificada
+<h3>StringLen</h3>
+Retorna o número de símbolos em uma string
+<h3>StringSetLength</h3>
+Define para a string um comprimento especificado em caracteres
+<h3>StringReplace</h3>
+Substitui todas as substrings encontradas em uma string por uma
+seqüência de símbolos
+<h3>StringReserve</h3>
+Reserva na memória para uma string um buffer de tamanho especificado
+<h3>StringSetCharacter</h3>
+Retorna uma cópia de uma string com o valor alterado de um símbolo
+na posição especificada
+<h3>StringSplit</h3>
+Obtém substrings a partir de um separador especificado da string
+especificada, retorna o número de substrings obtidas
+<h3>StringSubstr</h3>
+Extrai uma substring a partir de uma string de texto começando a
+partir de uma posição especificada
+<h3>StringToLower</h3>
+Transforma todos os símbolos de uma string selecionada para
+minúscula pela localização
+<h3>StringToUpper</h3>
+Transforma todos os símbolos de uma string selecionada para
+maiúscula pela localização
+<h3>StringTrimLeft</h3>
+Remove caracteres de quebra de linha, espaços e tabs na parte
+esquerda da string
+<h3>StringTrimRight</h3>
+Remove caracteres de quebra de linha, espaços e tabs na parte direita
+da string</p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1855
+<h3>StringAdd</h3>
+A função adiciona uma substring no final de uma string.
+</p>
+<pre><code class="language-mql5">
+bool  StringAdd(
+   string&amp;  string_var,        // string, na qual nós adicionados
+   string   add_substring      // string, que é adicionada
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String, na qual uma outra string é adicionada.
+add_substring
+[in]  String que é adicionada ao final de uma string fonte.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna verdadeiro, caso contrário falso. A fim de obter o código de erro, a
+função GetLastError() deve ser chamada.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   long length=1000000;
+   string a=&quot;a&quot;,b=&quot;b&quot;,c;
+//--- primeiro método
+   uint start=GetTickCount(),stop;
+   long i;
+   for(i=0;i&lt;length;i++)
+     {
+      c=a+b;
+     }
+   stop=GetTickCount();
+   Print(&quot;tempo para &#x27;c = a + b&#x27; = &quot;,(stop-start),&quot; milissegundos, i = &quot;,i);
+//--- segundo método
+   start=GetTickCount();
+   for(i=0;i&lt;length;i++)
+     {
+      StringAdd(a,b);
+     }
+   stop=GetTickCount();
+   Print(&quot;tempo para &#x27;c = a + b&#x27; = &quot;,(stop-start),&quot; milissegundos, i = &quot;,i);
+//--- terceiro método
+   start=GetTickCount();
+   a=&quot;a&quot;; // reinicializa a variável a
+   for(i=0;i&lt;length;i++)</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1856
+</p>
+<pre><code class="language-mql5">
+     {
+      StringConcatenate(c,a,b);
+     }
+   stop=GetTickCount();
+   Print(&quot;tempo para &#x27;StringConcatenate(c,a,b)&#x27; = &quot;,(stop-start),&quot; milissegundos, i = 
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>StringConcatenate, StringSplit, StringSubstr</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1857
+<h3>StringBufferLen</h3>
+A função retorna o tamanho de buffer alocado para a string.
+</p>
+<pre><code class="language-mql5">
+int  StringBufferLen(
+   string  string_var      // string
+   )
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in]  Seqüência.
+<h3>Valor do Retorno</h3>
+O valor 0 significa que a string é constante e o tamanho do buffer não pode ser alterado. -1
+significa que a string pertence ao terminal cliente, e modificações no conteúdo do buffer pode ter
+resultados indeterminados.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   long length=1000;
+   string a=&quot;a&quot;,b=&quot;b&quot;;
+//---
+   long i;
+   Print(&quot;antes: StringBufferLen(a) = &quot;,StringBufferLen(a),
+         &quot;  StringLen(a) = &quot;,StringLen(a));
+   for(i=0;i&lt;length;i++)
+     {
+      StringAdd(a,b);
+     }
+   Print(&quot;após: StringBufferLen(a) = &quot;,StringBufferLen(a),
+         &quot;  StringLen(a) = &quot;,StringLen(a));
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>StringAdd, StringInit, StringLen, StringFill</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1858
+<h3>StringCompare</h3>
+A função compara duas strings e retorna o resultada da comparação na forma de um inteiro.
+</p>
+<pre><code class="language-mql5">
+int  StringCompare(
+   const string&amp;  string1,                 // a primeira string na comparação
+   const string&amp;  string2,                 // a segunda string na comparação
+   bool           case_sensitive=true      // seleção do modo sensibilidade à maiúscul
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string1
+[in]  A primeira string.
+string2
+[in]  A segunda string.
+case_sensitive=true
+[in]  Seleção do modo de sensibilidade à maiúscula/minúscula. Se for true, então &quot;A&quot;&gt;&quot;a&quot;. Se for
+false, então &quot;A&quot;=&quot;a&quot;. Por default, o valor é igual a true.
+<h3>Valor do Retorno</h3>
+· -1 (menos um), se string1&lt;string2
+· 0 (zero), se string1=string2
+· 1 (um), se string1&gt;string2
+<h3>Observação</h3>
+As strings são comparadas símbolo a símbolo, os símbolos são comparados na ordem alfabética em
+concordância como o código de página corrente.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- qual é maior - apple ou home?
+   string s1=&quot;Apple&quot;;
+   string s2=&quot;home&quot;;
+//--- compara com sensibilidade à maiúscula/minúscula 
+   int result1=StringCompare(s1,s2);
+   if(result1&gt;0) PrintFormat(&quot;Comparação sensível caso: %s &gt; %s&quot;,s1,s2);
+   else
+     {
+      if(result1&lt;0)PrintFormat(&quot;Comparação sensível caso: %s &lt; %s&quot;,s1,s2);
+      else PrintFormat(&quot;Comparação sensível caso: %s = %s&quot;,s1,s2);
+     }
+//--- Comparação insensível caso
+   int result2=StringCompare(s1,s2,false);
+   if(result2&gt;0) PrintFormat(&quot;Comparação insensível caso: %s &gt; %s&quot;,s1,s2);
+   else</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1859
+</p>
+<pre><code class="language-mql5">
+     {
+      if(result2&lt;0)PrintFormat(&quot;Comparação insensível caso: %s &lt; %s&quot;,s1,s2);
+      else PrintFormat(&quot;Comparação insensível caso: %s = %s&quot;,s1,s2);
+     }
+/* Resultado:
+    Comparação sensível caso: Apple &lt; home
+    Comparação insensível caso: Apple &lt; home
+</code></pre>
+<p>
+*/
+  }
+<h3>Também Veja</h3>
+Tipo de String, CharToString(), ShortToString(), StringToCharArray(), StringToShortArray(),
+StringGetCharacter(), Uso de um Código de Página</p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1860
+<h3>StringConcatenate</h3>
+A função forma uma string de parâmetros passados e retorna o tamanho da string formada.
+Parâmetros podem ser de qualquer tipo. O número de parâmetros não pode ser menor que 2 ou maior
+que 64.
+</p>
+<pre><code class="language-mql5">
+int  StringConcatenate(
+   string&amp;  string_var,   // string para formar
+   void argument1         // primeiro parâmetro de qualquer tipo simples
+   void argument2         // segundo parâmetro de qualquer tipo simples
+   ...                    // próximo parâmetro de qualquer tipo simples
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[out]  String que será formada como resultado da concatenação.
+argumentN
+[in]  Quaisquer valores separados por vírgula. De 2 a 63 parâmetros de qualquer tipo simples.
+<h3>Valor do Retorno</h3>
+Retorna o comprimento da string, formada pela concatenação dos parâmetros transformados em
+tipo string. Os parâmetros são transformados em strings em concordância com as mesmas regras
+aplicadas em Print() e Comment().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- declaramos e definimos as variáveis envolvidas na concatenação
+   string text=&quot;&quot;;
+   string text1=&quot;This script shows how the StringConcatenate() function works.\n&quot;;
+   string text2=&quot;This is the second line, at the end of which there is a line break co
+   string text3=&quot;This is line number &quot;;
+   int    num3=3;
+   string text31=&quot;, the number of which is entered into the function as a separate par
+   string textN=&quot;\n&quot;;
+   string text4=&quot;This is line number 4, preceded by a separate parameter with a line b
+   int    length=StringConcatenate(text, text1, text2, text3, num3, text31, textN, tex
+   Print(text, &quot;\nLength of the resulting string = &quot;, length);
+   
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   This script shows how the StringConcatenate() function works.
+   This is the second line, at the end of which there is a line break control code.
+   This is line number 3, the number of which is entered into the function as a separa
+   This is line number 4, preceded by a separate parameter with a line break code.
+   Line 5 includes a real number: 0.12345
+   Length of the resulting string = 358</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1861
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringAdd, StringSplit, StringSubstr</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1862
+<h3>StringFill</h3>
+Preenche uma string selecionada com um símbolo especificado.
+</p>
+<pre><code class="language-mql5">
+bool  StringFill(
+   string&amp;   string_var,       // string a preencher
+   ushort    character         // símbolos que preencherão a string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String, que será preenchida pelo símbolo selecionado.
+character
+[in]  Símbolo a partir do qual a string será preenchida.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna true, caso contrário - false. Para obter o código de erro chame
+GetLastError().
+<h3>Observação</h3>
+Preencher uma string no lugar significa que os símbolos são inseridos diretamente na string sem
+operações transitórias de criar ou copiar uma nova string. Isso permite economizar o tempo da
+operação.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   string str;
+   StringInit(str,20,&#x27;_&#x27;);
+   Print(&quot;str = &quot;,str);
+   StringFill(str,0);
+   Print(&quot;str = &quot;,str,&quot;: StringBufferLen(str) = &quot;, StringBufferLen(str));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+// Resultado
+//   str = ____________________
+//   str =  : StringBufferLen(str) = 20
+//
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>StringBufferLen, StringLen, StringInit</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1863
+<h3>StringFind</h3>
+Busca por uma substring em uma string.
+</p>
+<pre><code class="language-mql5">
+int  StringFind(
+   string  string_value,        // string na qual a busca é feita
+   string  match_substring,     // o que é procurado
+   int     start_pos=0          // a partir de qual posição a busca inicia
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_value
+[in]  String, na qual a a busca é feita.
+match_substring
+[in]  Substring procurada.
+start_pos=0
+[in]  Posição na string a partir da qual a busca é iniciada.
+<h3>Valor do Retorno</h3>
+Retorna o número da posição na string, a partir da qual a substring procurada começa, ou -1, se a
+substring não foi encontrada.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define   RESERVE    100
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos a moeda base do instrumento e a moeda do lucro
+   string symbol_currency_base  =SymbolInfoString(Symbol(), SYMBOL_CURRENCY_BASE);
+   string symbol_currency_profit=SymbolInfoString(Symbol(), SYMBOL_CURRENCY_PROFIT);
+   PrintFormat(&quot;Symbol Currency Base: %s\nSymbol Currency Profit: %s&quot;, symbol_currency
+   
+//--- em um loop por todos os símbolos disponíveis no servidor
+   int total=SymbolsTotal(false), pos=-1;
+   for(int i=0; i&lt;total; i++)
+     {
+      //--- obtemos o nome do próximo símbolo
+      string name=SymbolName(i, false);
+      
+      //--- no nome do símbolo, procuramos uma substring com o nome da moeda base e
+      //--- se a substring for encontrada, imprimiremos no log o nome do instrumento, 
+      pos = StringFind(name, symbol_currency_base);
+      if(pos &gt;= 0)</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1864
+</p>
+<pre><code class="language-mql5">
+         PrintFormat(&quot;The &#x27;%s&#x27; symbol at index %u in the list contains the &#x27;%s&#x27; curren
+         
+      //--- no nome do símbolo, procuramos uma substring com o nome da moeda cotada e
+      //--- se a substring for encontrada, imprimiremos no log o nome do instrumento, 
+      pos = StringFind(name, symbol_currency_profit);
+      if(pos &gt;= 0)
+         PrintFormat(&quot;The &#x27;%s&#x27; symbol at index %u in the list contains the &#x27;%s&#x27; curren
+     }
+      
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   StringFind (EURUSD,D1)   Symbol Currency Base: EUR
+   StringFind (EURUSD,D1)   Symbol Currency Profit: USD
+   The &#x27;EURUSD&#x27; symbol at index 0 in the list contains the &#x27;EUR&#x27; currency. Substring p
+   The &#x27;EURUSD&#x27; symbol at index 0 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;GBPUSD&#x27; symbol at index 1 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDCHF&#x27; symbol at index 2 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDJPY&#x27; symbol at index 3 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDCNH&#x27; symbol at index 4 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDRUB&#x27; symbol at index 5 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;AUDUSD&#x27; symbol at index 6 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;NZDUSD&#x27; symbol at index 7 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDCAD&#x27; symbol at index 8 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDSEK&#x27; symbol at index 9 in the list contains the &#x27;USD&#x27; currency. Substring p
+   The &#x27;USDHKD&#x27; symbol at index 10 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDSGD&#x27; symbol at index 11 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDNOK&#x27; symbol at index 12 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDDKK&#x27; symbol at index 13 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDTRY&#x27; symbol at index 14 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDZAR&#x27; symbol at index 15 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDCZK&#x27; symbol at index 16 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDHUF&#x27; symbol at index 17 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDPLN&#x27; symbol at index 18 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDRUR&#x27; symbol at index 19 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;EURAUD&#x27; symbol at index 27 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURCAD&#x27; symbol at index 28 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURCHF&#x27; symbol at index 29 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURCZK&#x27; symbol at index 30 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURDKK&#x27; symbol at index 31 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURGBP&#x27; symbol at index 32 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURHKD&#x27; symbol at index 33 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURHUF&#x27; symbol at index 34 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURJPY&#x27; symbol at index 35 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURNOK&#x27; symbol at index 36 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURNZD&#x27; symbol at index 37 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURPLN&#x27; symbol at index 38 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURRUR&#x27; symbol at index 39 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURRUB&#x27; symbol at index 40 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURSEK&#x27; symbol at index 41 in the list contains the &#x27;EUR&#x27; currency. Substring </p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1865
+</p>
+<pre><code class="language-mql5">
+   The &#x27;EURTRY&#x27; symbol at index 42 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;EURZAR&#x27; symbol at index 43 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;XAUUSD&#x27; symbol at index 47 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;XAUEUR&#x27; symbol at index 48 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;XAGUSD&#x27; symbol at index 50 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;XAGEUR&#x27; symbol at index 51 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;USDCRE&#x27; symbol at index 53 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;XPDUSD&#x27; symbol at index 65 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;XPTUSD&#x27; symbol at index 66 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDGEL&#x27; symbol at index 67 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDMXN&#x27; symbol at index 68 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;EURMXN&#x27; symbol at index 69 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;USDCOP&#x27; symbol at index 75 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDARS&#x27; symbol at index 76 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDCLP&#x27; symbol at index 77 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;EURSGD&#x27; symbol at index 89 in the list contains the &#x27;EUR&#x27; currency. Substring 
+   The &#x27;USDILS&#x27; symbol at index 95 in the list contains the &#x27;USD&#x27; currency. Substring 
+   The &#x27;USDTHB&#x27; symbol at index 122 in the list contains the &#x27;USD&#x27; currency. Substring
+   The &#x27;USDRMB&#x27; symbol at index 123 in the list contains the &#x27;USD&#x27; currency. Substring
+   The &#x27;EURILS&#x27; symbol at index 126 in the list contains the &#x27;EUR&#x27; currency. Substring
+   The &#x27;EURCNH&#x27; symbol at index 137 in the list contains the &#x27;EUR&#x27; currency. Substring
+   The &#x27;USDBRL&#x27; symbol at index 139 in the list contains the &#x27;USD&#x27; currency. Substring
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringSubstr, StringGetCharacter, StringLen, StringLen</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1866
+<h3>StringGetCharacter</h3>
+Retorna o valor de um símbolo, localizado na posição especificada de uma string.
+ushort  StringGetCharacter(
+</p>
+<pre><code class="language-mql5">
+   string  string_value,     // string
+   int     pos               // posição do símbolo na string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_value
+[in]  Seqüência.
+pos
+[in]  Posição de um símbolo na string. Pode ser de 0 a StringLen(text) -1.
+<h3>Valor do Retorno</h3>
+Código do símbolo ou 0 em caso de um erro. Para obter o código de erro chame GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- apagamos todos os comentários no gráfico
+   Comment(&quot;&quot;);
+//--- declaramos uma string da qual obteremos valores de códigos de símbolos e memoriz
+   string message = &quot;The script demonstrates the operation of the StringGetCharacter()
+   int    length  = StringLen(message);
+//--- declaramos uma variável de string à qual adicionaremos os símbolos recuperados d
+   string text    = &quot;&quot;;
+//--- em um loop pelo tamanho da string de demonstração
+   for(int i=0; i&lt;length; i++)
+     {
+      //--- esperamos 1/10 segundos
+      Sleep(100);
+      //--- obtemos o símbolo a partir da string localizada no índice do loop que está
+      ushort char_code=StringGetCharacter(message, i);
+      //--- adicionamos um símbolo à string de saída e exibimos a string resultante co
+      text+=ShortToString(char_code);
+      Comment(text);
+     }
+//--- esperamos por dois segundos e removemos o comentário do gráfico.
+   Sleep(2000);
+   Comment(&quot;&quot;);
+   
+  /*
+</code></pre>
+<p>
+  Resultado: a string de demonstração aparece letra por letra na tela
+</p>
+<pre><code class="language-mql5">
+   The script demonstrates the operation of the StringGetCharacter() function
+</code></pre>
+<p>
+  */</p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1867
+  }
+<h3>Também Veja</h3>
+StringSetCharacter, StringBufferLen, StringLen, StringFill, StringInit, StringToCharArray,
+<h3>StringToShortArray</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1868
+<h3>StringInit</h3>
+Inicializa uma string com um símbolo especificado e fornece o tamanho da string especificada.
+</p>
+<pre><code class="language-mql5">
+bool  StringInit(
+   string&amp;   string_var,       // string para inicialização
+   int       new_len=0,        // comprimento da string requerida após inicialização
+   ushort    character=0       // símbolo, com o qual a string será preenchida
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String que deve ser inicializada e desinicializada.
+new_len=0
+[in]  Comprimento da string após inicialização. Se length=0, ela desinicializa a string, isto é, o
+buffer da string é limpo e o endereço do buffer é zerado.
+character=0
+[in]  Símbolo para preencher a string.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna true, caso contrário - false. Para obter o código de erro chame
+GetLastError().
+<h3>Observação</h3>
+Se character=0 e o comprimento new_len&gt;0, o buffer da string de comprimento indicado será
+alocado e preenchido com zeros. O comprimento da string será igual a zero, porque o buffer inteiro
+será preenchido com terminadores de string.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//---
+   string str;
+   StringInit(str,200,0);
+   Print(&quot;str = &quot;,str,&quot;: StringBufferLen(str) = &quot;,
+         StringBufferLen(str),&quot;  StringLen(str) = &quot;,StringLen(str));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*  Resultado:
+</code></pre>
+<p>
+str = : StringBufferLen(str) = 200   StringLen(str) = 0
+*/
+<h3>Também Veja</h3>
+<h3>StringBufferLen, StringLen</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1869
+<h3>StringLen</h3>
+Retorna o número de símbolos em uma string.
+</p>
+<pre><code class="language-mql5">
+int  StringLen(
+   string  string_value      // string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_value
+[in]  String para calcular o comprimento.
+<h3>Valor do Retorno</h3>
+O número de símbolos em uma string sem o zero final.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- definimos a string de teste
+   string text=&quot;123456789012345&quot;;
+//--- obtemos o número de símbolos na string
+   int str_len=StringLen(text);
+//--- imprimimos no log a string e o número de símbolos nela contidos
+   PrintFormat(&quot;The StringLen() function returned the value of %d chars in string: &#x27;%s
+   
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   The StringLen() function returned the value of 15 chars in string: &#x27;123456789012345
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+StringBufferLen, StringTrimLeft, StringTrimRight, StringToCharArray, StringToShortArray</p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1870
+<h3>StringSetLength</h3>
+Define para a string um comprimento especificado em caracteres.
+</p>
+<pre><code class="language-mql5">
+bool  StringSetLength(
+   string&amp;    string_var,      // string
+   uint       new_length       // novo comprimento de string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String para a qual qual você deseja especificar um novo comprimento em caracteres.
+new_capacity
+[in]  Comprimento necessário de string em caracteres. Se o novo tamanho new_length for menor
+do que o tamanho atual, os caracteres não selecionados serão descartados.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+A função StringSetLength() não altera o tamanho do buffer alocado para a string.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- definimos a string
+   string text=&quot;123456789012345&quot;;
+   
+//--- exibimos no log a string e seu tamanho
+   PrintFormat(&quot;Before StringSetLength() the string &#x27;%s&#x27; has a size of %d characters&quot;,
+   
+//--- reduzimos o tamanho da string para 10 caracteres
+   StringSetLength(text, 10);
+   
+//--- exibimos no log a string alterada como resultado da operação StringSetLength() e
+   PrintFormat(&quot;After StringSetLength() the string is now &#x27;%s&#x27;, and has a size of %d c
+   
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Before StringSetLength() the string &#x27;123456789012345&#x27; has a size of 15 characters
+   After StringSetLength() the string is now &#x27;1234567890&#x27;, and has a size of 10 charac
+</code></pre>
+<p>
+  */
+  }
+<h3>Veja também</h3>
+StringLen, StringBufferLen, StringReserve StringInit, StringSetCharacter</p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1871
+<h3>StringReplace</h3>
+Substitui todas as substrings encontradas de uma string por uma seqüência de símbolos.
+</p>
+<pre><code class="language-mql5">
+int  StringReplace(
+   string&amp;         str,              // a string na qual substrings serão substituídas
+   const string    find,             // a substring procurada
+   const string    replacement       // a substring que será inserida nas posições enc
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+str
+[in][out]  A string na qual você irá substituir substrings.
+find
+[in]  A substring que deseja substituir.
+replacement
+[in]  A string que será inserida na lugar da encontrada.
+<h3>Valor do Retorno</h3>
+A função retorna o número de substituições no caso de sucesso, caso contrário -1. Para obter o
+código do erro chame a função GetLastError().
+<h3>Observação</h3>
+Se a função rodou com sucesso, mas nenhuma substituição foi feita (a substring a ser substituída
+não foi encontrada), ela retorna 0.
+O erro pode resultar de parâmetros str ou find incorretos (vazio ou string não inicializada, veja
+StringInit() ). Além disso, o erro ocorre se não houver memória suficiente para concluir a
+substituição.
+<h3>Exemplo:</h3>
+  string text=&quot;The quick brown fox jumped over the lazy dog.&quot;;
+  int replaced=StringReplace(text,&quot;quick&quot;,&quot;slow&quot;);
+  replaced+=StringReplace(text,&quot;brown&quot;,&quot;black&quot;);
+  replaced+=StringReplace(text,&quot;fox&quot;,&quot;bear&quot;);
+  Print(&quot;Replaced: &quot;, replaced,&quot;. Result=&quot;,text);
+  
+</p>
+<pre><code class="language-mql5">
+//  Resultado
+//  Substituído: 3. Resultado=The slow black bear jumped over the lazy dog.
+//
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>StringSetCharacter(), StringSubstr()</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1872
+<h3>StringReserve</h3>
+Reserva na memória para uma string um buffer de tamanho especificado.
+</p>
+<pre><code class="language-mql5">
+bool  StringReserve(
+   string&amp;    string_var,       // strings
+   uint       new_capacity      // tamanho do buffer para armazenar a string.
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String para a qual você deseja alterar o tamanho do buffer.
+new_capacity
+[in]  Tamanho do buffer necessário de acordo com a string. Se o novo tamanho new_capacity for
+menor que o comprimento da string, o tamanho do buffer atual não será alterado.
+<h3>Valor retornado</h3>
+Se for bem-sucedido, retorna true, caso contrário, false. Para obter o código do erro é preciso
+chamar a função GetLastError().
+<h3>Observação</h3>
+O tamanho da string não é igual ao tamanho do buffer para armazenar a string. Como regra, ao
+criar uma string, o buffer para ela é alocado com reserva. A função StringReserve() permite
+controlar o tamanho do buffer e especificar o tamanho ideal para operações futuras.
+Ao contrário da  StringInit(), a função StringReserve() ) não altera o conteúdo da string e não a
+preenche com caracteres.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   string s;
+//--- verifica a velocidade sem usar StringReserve
+   ulong t0=GetMicrosecondCount();
+   for(int i=0; i&lt; 1024; i++)
+      s+=&quot; &quot;+(string)i;
+   ulong msc_no_reserve=GetMicrosecondCount()-t0;
+   s=NULL;
+//--- agora mede usando a StringReserve
+   StringReserve(s,1024 * 3);
+   t0=GetMicrosecondCount();
+   for(int i=0; i&lt; 1024; i++)
+      s+=&quot; &quot;+(string)i;
+   ulong msc_reserve=GetMicrosecondCount()-t0;
+//--- verifica o tempo
+   Print(&quot;Test with StringReserve passed for &quot;+(string)msc_reserve+&quot; msc&quot;);   
+   Print(&quot;Test without StringReserve passed for &quot;+(string)msc_no_reserve+&quot; msc&quot;);     
+/* Resultado:</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1873
+</p>
+<pre><code class="language-mql5">
+     Test with StringReserve passed for 50 msc
+     Test without StringReserve passed for 121 msc
+</code></pre>
+<p>
+*/
+  }
+<h3>Veja também</h3>
+StringBufferLen, StringSetLength, StringInit, StringSetCharacter</p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1874
+<h3>StringSetCharacter</h3>
+Retorna uma cópia de uma string com um caractere alterado na posição especificada.
+</p>
+<pre><code class="language-mql5">
+bool  StringSetCharacter(
+   string&amp;   string_var,       // string
+   int       pos,              // posição
+   ushort    character         // caractere
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String.
+pos
+[in]  Posição de um caractere em uma string. Pode ser de 0 a StringLen(text).
+character
+[in]  Código Unicode de um símbolo.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna verdadeiro, caso contrário falso. A fim de obter o código de erro, a
+função GetLastError() deve ser chamada.
+<h3>Observação</h3>
+Se pos for menor que o comprimento da string e o valor de código do símbolo = 0, a string é
+truncada (mas o tamanho de buffer, alocado para a string permanece inalterado). O comprimento da
+</p>
+<pre><code class="language-mql5">
+string se torna igual a pos. 
+</code></pre>
+<p>
+Se pos for igual ao comprimento da string, o símbolo especificado é adicionado ao final da string, e
+o comprimento é aumentado em um.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   string str=&quot;0123456789&quot;;
+   Print(&quot;antes: str = &quot;,str,&quot;,StringBufferLen(str) = &quot;,
+         StringBufferLen(str),&quot;  StringLen(str) = &quot;,StringLen(str));
+//--- adicionado valor zero no meio
+   StringSetCharacter(str,6,0);
+   Print(&quot;após: str = &quot;,str,&quot;,StringBufferLen(str) = &quot;,
+         StringBufferLen(str),&quot;  StringLen(str) = &quot;,StringLen(str));
+//--- adiciona símbolo no final
+   int size=StringLen(str);
+   StringSetCharacter(str,size,&#x27;+&#x27;);
+   Print(&quot;adição: str = &quot;,str,&quot;,StringBufferLen(str) = &quot;,
+         StringBufferLen(str),&quot;  StringLen(str) = &quot;,StringLen(str));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/* Resultado</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1875
+</p>
+<pre><code class="language-mql5">
+   antes: str = 0123456789 ,StringBufferLen(str) = 0   StringLen(str) = 10
+    após: str = 012345 ,StringBufferLen(str) = 16   StringLen(str) = 6
+   adição: str = 012345+ ,StringBufferLen(str) = 16   StringLen(str) = 7
+</code></pre>
+<p>
+*/
+<h3>Também Veja</h3>
+StringBufferLen, StringLen, StringFill, StringInit, CharToString, ShortToString, CharArrayToString,
+<h3>ShortArrayToString</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1876
+<h3>StringSplit</h3>
+Obtém substrings por meio um separador especificado a partir de uma string especificada, retorna o
+número de substrings obtidas.
+</p>
+<pre><code class="language-mql5">
+int  StringSplit(
+   const string   string_value,       // A string que será pesquisada
+   const ushort   separator,          // Um separador usado para buscar substrings
+   string         &amp; result[]          // Um array passado por referencia para obter as
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_value
+[in]  Uma string da qual você necessita obter substrings. A string não será alterada.
+pos
+[in]  O código do caractere separador. Para obter o código, você pode usar a função
+StringGetCharacter().
+result[]
+[out]  Um array de strings onde as substrings obtidas estão localizadas.
+<h3>Valor do Retorno</h3>
+O número de substrings no array result[]. Se o separador não for encontrado na string passada,
+somente uma string fonte será colocada no array.
+Se string_value for vazia ou NULL, a função retornará zero. No caso de um erro, a função retorna -
+1. Para obter o código do erro, chame a função GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+string to_split=&quot;_life_is_good_&quot;; // Um string para dividir em substrings
+   string sep=&quot;_&quot;;                // Um separador como um caractere
+   ushort u_sep;                  // O código do caractere separador
+   string result[];               // Um array para obter strings
+   //--- Obtém o código do separador
+   u_sep=StringGetCharacter(sep,0);
+   //--- Divide a string em substrings
+   int k=StringSplit(to_split,u_sep,result);
+   //--- Exibe um comentário
+   PrintFormat(&quot;Strings obtidos: %d. Usado separador &#x27;%s&#x27; com o código %d&quot;,k,sep,u_sep
+   //--- Agora imprime todos os resultados obtidos
+   if(k&gt;0)
+     {
+      for(int i=0;i&lt;k;i++)
+        {
+         PrintFormat(&quot;result[%d]=\&quot;%s\&quot;&quot;,i,result[i]);
+        }
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1877
+<h3>Também Veja</h3>
+<h3>StringReplace(), StringSubstr(), StringConcatenate()</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1878
+<h3>StringSubstr</h3>
+Extrai uma substring de uma string de texto iniciando de uma posição especificada.
+</p>
+<pre><code class="language-mql5">
+string  StringSubstr(
+   string  string_value,     // string
+   int     start_pos,        // posição de início
+   int     length=-1         // comprimento da string extraída
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_value
+[in]  String de onde será extraída uma substring.
+start_pos
+[in]  Posição inicial de uma substring. Pode ser de 0 a StringLen(text) -1.
+length=-1
+[in] Comprimento de uma substring extraída. Se o valor do parâmetro for igual a -1 ou o
+parâmetro não for definido, a substring será extraída da posição indicada até a final da string.
+<h3>Valor do Retorno</h3>
+Cópia de uma substring extraída, se possível. Caso contrário, retorna uma string vazia.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- obtemos o nome do símbolo atual
+   string name = Symbol();
+   
+//--- obtemos as moedas base e cotadas do símbolo
+   string base   = StringSubstr(name, 0, 3);
+   string quoted = StringSubstr(name, 3, 3);
+   
+//--- imprimimos no log as moedas dos símbolos recebidos
+   PrintFormat(&quot;Symbol: %s. Currency base: %s, currency quoted: %s&quot;, name, base, quote
+  
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Symbol: EURUSD. Currency base: EUR, currency quoted: USD
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringSplit, StringFind, StringGetCharacter</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1879
+<h3>StringToLower</h3>
+Transforma todos os símbolos de uma string selecionada em minúscula por localização.
+</p>
+<pre><code class="language-mql5">
+bool  StringToLower(
+   string&amp;  string_var      // string para processar
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna true, caso contrário - false. Para obter o código de erro chame
+GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- definimosa string de origem em letras maiúsculas
+   string text=&quot; - THIS STRING, WRITTEN IN UPPERCASE, MUST BE WRITTEN IN LOWERCASE&quot;;
+//--- exibimos no log a string de origem
+   Print(&quot;Source line:\n&quot;, text);
+//--- convertemos todos os símbolos da string em letras minúsculas e enviamos o result
+   if(StringToLower(text))
+      Print(&quot;The original string after using the StringToLower() function:\n&quot;, text);
+      
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Source line:
+    - THIS STRING, WRITTEN IN UPPERCASE, MUST BE WRITTEN IN LOWERCASE
+   The original string after using the StringToLower() function:
+    - this string, written in uppercase, must be written in lowercase
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringToUpper, StringTrimLeft, StringTrimRight</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1880
+<h3>StringToUpper</h3>
+Transforma todos os símbolos de uma string selecionada em maiúscula por localização.
+</p>
+<pre><code class="language-mql5">
+bool  StringToUpper(
+   string&amp;  string_var      // string para processar
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna true, caso contrário - false. Para obter o código de erro chame
+GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- definimos a string de origem em letras minúsculas
+   string text=&quot; - this string, written in lowercase, must be written in uppercase&quot;;
+//--- exibimos no log a string de origem
+   Print(&quot;Source line:\n&quot;, text);
+//--- convertemos todos os símbolos da string em letras maiúsculas e enviamos o result
+   if(StringToUpper(text))
+      Print(&quot;The original string after using the StringToUpper() function:\n&quot;, text);
+      
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Source line:
+    - this string, written in lowercase, must be written in uppercase
+   The original string after using the StringToUpper() function:
+    - THIS STRING, WRITTEN IN LOWERCASE, MUST BE WRITTEN IN UPPERCASE
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringToLower, StringTrimLeft, StringTrimRight</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1881
+<h3>StringTrimLeft</h3>
+A função remove caracteres de quebra de linha, espaços e tabs na parte esquerda da string até o
+primeiro símbolo significativo. A string é modificada no lugar.
+</p>
+<pre><code class="language-mql5">
+int  StringTrimLeft(
+   string&amp;  string_var      // string para cortar
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String que será cortada a partir da esquerda.
+<h3>Valor do Retorno</h3>
+Retorna o número de símbolos removidos.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- definimos uma string de origem com seis espaços no lado esquerdo da string
+   string text=&quot;      All spaces on the left will be removed from this string&quot;;
+//--- exibimos no log a string de origem
+   PrintFormat(&quot;Source line:\n&#x27;%s&#x27;&quot;, text);
+//--- excluímos todos os espaços à esquerda e enviamos o número de símbolos excluídos 
+   int num=StringTrimLeft(text);
+   PrintFormat(&quot;The StringTrimLeft() function removed %d chars from the left side. Now
+   
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Source line:
+   &#x27;      All spaces on the left will be removed from this string&#x27;
+   The StringTrimLeft() function removed 6 chars from the left side. Now the line look
+   &#x27;All spaces on the left will be removed from this string&#x27;
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringTrimRight, StringToLower, StringToUpper</h3></p>
+<p><h3>Funções de String</h3>
+© 2000-2025, MetaQuotes Ltd.
+1882
+<h3>StringTrimRight</h3>
+A função remove caracteres de quebra de linha, espaços e tabs na parte direita da string após o último
+símbolo significativo. A string é modificada no lugar.
+</p>
+<pre><code class="language-mql5">
+int  StringTrimRight(
+   string&amp;  string_var      // string para cortar
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+string_var
+[in][out]  String que será cortada a partir da direita.
+<h3>Valor do Retorno</h3>
+Retorna o número de símbolos removidos.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- definimos a string de origem com seis espaços no lado direito da string
+   string text=&quot;All spaces on the right will be removed from this string      &quot;;
+//--- exibimos no log a string de origem
+   PrintFormat(&quot;Source line:\n&#x27;%s&#x27;&quot;, text);
+//--- excluímos os espaços do lado direito e enviamos o número de símbolos excluídos e
+   int num=StringTrimRight(text);
+   PrintFormat(&quot;The StringTrimRight() function removed %d chars from the right side. N
+   
+  /*
+</code></pre>
+<p>
+<h3>Resultado</h3>
+</p>
+<pre><code class="language-mql5">
+   Source line:
+   &#x27;All spaces on the right will be removed from this string      &#x27;
+   The StringTrimRight() function removed 6 chars from the right side. Now the line lo
+   &#x27;All spaces on the right will be removed from this string&#x27;
+</code></pre>
+<p>
+  */
+  }
+<h3>Também Veja</h3>
+<h3>StringTrimLeft, StringToLower, StringToUpper</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

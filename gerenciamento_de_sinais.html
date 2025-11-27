@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de sinais - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class="active"><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Gerenciamento de sinais</h1>
+        </header>
+        
+        <article>
+            <p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2391
+<h3>Gerenciamento de sinais</h3>
+Grupo de funções para gerenciar sinais de negociação. Essas funções permitem:
+· receber informações sobre os sinais de negociação disponíveis para cópia,
+· ler ou configurar a cópia de sinais de negociação
+· assinar um sinal, bem como a sua exclusão usando linguagem MQL5.
+função
+<h3>Ação</h3>
+<h3>SignalBaseGetDouble</h3>
+Retorna o valor da propriedade do tipo double para o sinal
+selecionado
+<h3>SignalBaseGetInteger</h3>
+Retorna o valor da propriedade do tipo integer para o sinal
+selecionado
+<h3>SignalBaseGetString</h3>
+Retorna o valor da propriedade do tipo string para o sinal
+selecionado
+<h3>SignalBaseSelect</h3>
+Seleciona o sinal na base de sinais de negociação disponíveis no
+terminal
+<h3>SignalBaseTotal</h3>
+Retorna o número total de sinais disponíveis no terminal
+<h3>SignalInfoGetDouble</h3>
+Retorna, a partir das configurações de cópia do sinal de negociação,
+o valor do tipo double
+<h3>SignalInfoGetInteger</h3>
+Retorna, a partir das configurações de cópia do sinal de negociação,
+o valor do tipo integer
+<h3>SignalInfoGetString</h3>
+Retorna, a partir das configurações de cópia do sinal de negociação,
+o valor do tipo string
+<h3>SignalInfoSetDouble</h3>
+Define, nas configurações de cópia do sinal de negociação, o valor
+do tipo double
+<h3>SignalInfoSetInteger</h3>
+Define, nas configurações de cópia do sinal de negociação, o valor
+do tipo integer
+<h3>SignalSubscribe</h3>
+Realiza uma assinatura para copiar o sinal de negociação
+<h3>SignalUnsubscribe</h3>
+Cancela a assinatura para copiar o sinal de negociação</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2392
+<h3>SignalBaseGetDouble</h3>
+Retorna o valor da propriedade do tipo double para o sinal selecionado.
+</p>
+<pre><code class="language-mql5">
+double  SignalBaseGetDouble(
+   ENUM_SIGNAL_BASE_DOUBLE     property_id,     // identificador da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade do sinal. Pode ser um dos valores da enumeração
+ENUM_SIGNAL_BASE_DOUBLE.
+valor de retorno
+O valor do tipo double da propriedade indicada do sinal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2393
+<h3>SignalBaseGetInteger</h3>
+Retorna o valor da propriedade do tipo integer para o sinal selecionado
+long  SignalBaseGetInteger(
+</p>
+<pre><code class="language-mql5">
+   ENUM_SIGNAL_BASE_INTEGER     property_id,     // identificador da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade do sinal. Pode ser um dos valores da enumeração
+ENUM_SIGNAL_BASE_INTEGER.
+valor de retorno
+O valor do tipo integer da propriedade indicada do sinal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2394
+<h3>SignalBaseGetString</h3>
+Retorna o valor da propriedade do tipo string para o sinal selecionado
+</p>
+<pre><code class="language-mql5">
+string  SignalBaseGetString(
+   ENUM_SIGNAL_BASE_STRING     property_id,     // identificador da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade do sinal. Pode ser um dos valores da enumeração
+ENUM_SIGNAL_BASE_STRING.
+valor de retorno
+O valor do tipo string da propriedade indicada do sinal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2395
+<h3>SignalBaseSelect</h3>
+Seleciona o sinal na base de sinais de negociação disponíveis no terminal.
+</p>
+<pre><code class="language-mql5">
+bool  SignalBaseSelect(
+   int     index     // índice de registro do sinal
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+index
+[in]  Índice de registro do sinal na base dos sinais de negociação.
+valor de retorno
+Retorna true se a função for bem-sucedida ou false no caso de erro. Para obter informações sobre o
+erro, você deve chamar a função GetLastError ().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+// --- pedimos o número total de sinais na base de dados
+   int total=SignalBaseTotal();
+// --- ciclo de acordo com todos os sinais
+   for(int i=0;i&lt;total;i++)
+     {
+      //--- selecionamos um sinal para o trabalho futuro
+      if(SignalBaseSelect(i))
+        {
+         //--- obtenção das propriedades do sinal
+         long   id    =SignalBaseGetInteger(SIGNAL_BASE_ID);          // id do sinal
+         long   pips  =SignalBaseGetInteger(SIGNAL_BASE_PIPS);        // resultado da 
+         long   subscr=SignalBaseGetInteger(SIGNAL_BASE_SUBSCRIBERS); // número de ass
+         string name  =SignalBaseGetString(SIGNAL_BASE_NAME);         // nome do sinal
+         double price =SignalBaseGetDouble(SIGNAL_BASE_PRICE);        // preço de assi
+         string curr  =SignalBaseGetString(SIGNAL_BASE_CURRENCY);     // moeda do sina
+         //--- exibimos todos os sinais rentáveis livres com zero de assinantes
+         if(price==0.0 &amp;&amp; pips&gt;0 &amp;&amp; subscr&gt;0)
+            PrintFormat(&quot;id=%d, name=\&quot;%s\&quot;, currency=%s, pips=%d, subscribers=%d&quot;,id,
+        }
+      else PrintFormat(&quot;Erro na seleção do sinal. Código de erro=%d&quot;,GetLastError());
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2396
+<h3>SignalBaseTotal</h3>
+Retorna o número total de sinais disponíveis no terminal.
+</p>
+<pre><code class="language-mql5">
+int  SignalBaseTotal();
+</code></pre>
+<p>
+valor de retorno
+Número total de sinais disponíveis no terminal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2397
+<h3>SignalInfoGetDouble</h3>
+Retorna, a partir das configurações de cópia do sinal de negociação, o valor do tipo double.
+</p>
+<pre><code class="language-mql5">
+double  SignalInfoGetDouble(
+   ENUM_SIGNAL_INFO_DOUBLE     property_id,     // identificador da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade para configurar a cópia do sinal de negociação.. Pode ser um dos
+valores da enumeração ENUM_SIGNAL_INFO_DOUBLE.
+valor de retorno
+O valor do tipo double da propriedade indicada do sinal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2398
+<h3>SignalInfoGetInteger</h3>
+Retorna, a partir das configurações de cópia do sinal de negociação, o valor do tipo integer.
+long  SignalInfoGetInteger(
+</p>
+<pre><code class="language-mql5">
+   ENUM_SIGNAL_INFO_INTEGER     property_id,     // identificador da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade para configurar a cópia do sinal de negociação.. Pode ser um dos
+valores da enumeração ENUM_SIGNAL_INFO_INTEGER.
+valor de retorno
+O valor do tipo integer da propriedade indicada do sinal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2399
+<h3>SignalInfoGetString</h3>
+Retorna, a partir das configurações de cópia do sinal de negociação, o valor do tipo string.
+</p>
+<pre><code class="language-mql5">
+string  SignalInfoGetString(
+   ENUM_SIGNAL_INFO_STRING     property_id,     // identificador da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade para configurar a cópia do sinal de negociação.. O valor pode ser
+um dos valores da enumeração ENUM_SIGNAL_INFO_STRING.
+valor de retorno
+O valor do tipo string da propriedade indicada do sinal.</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2400
+<h3>SignalInfoSetDouble</h3>
+Define, nas configurações de cópia do sinal de negociação, o valor do tipo double.
+</p>
+<pre><code class="language-mql5">
+bool  SignalInfoSetDouble(
+   ENUM_SIGNAL_INFO_DOUBLE      property_id,     // identificador da propriedade
+   double                       value            // valor da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade para configurar a cópia do sinal de negociação.. Pode ser um dos
+valores da enumeração ENUM_SIGNAL_INFO_DOUBLE.
+value
+[in]  Valor da propriedade para configurar a cópia do sinal de negociação.
+valor de retorno
+Retorna true, se a alteração da propriedade for bem-sucedida, caso contrário, retorna false. Para
+mais informações sobre o erro, você deve chamar a função GetLastError().</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2401
+<h3>SignalInfoSetInteger</h3>
+Define, nas configurações de cópia do sinal de negociação, o valor do tipo integer.
+</p>
+<pre><code class="language-mql5">
+bool  SignalInfoSetInteger(
+   ENUM_SIGNAL_INFO_INTEGER     property_id,     // identificador da propriedade
+   long                         value            // valor da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+property_id
+[in]  Identificador da propriedade para configurar a cópia do sinal de negociação.. Pode ser um dos
+valores da enumeração ENUM_SIGNAL_INFO_INTEGER.
+value
+[in]  Valor da propriedade para configurar a cópia do sinal de negociação.
+valor de retorno
+Retorna true, se a alteração da propriedade for bem-sucedida, caso contrário, retorna false. Para
+mais informações sobre o erro, você deve chamar a função GetLastError().</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2402
+<h3>SignalSubscribe</h3>
+Realiza uma assinatura para copiar o sinal de negociação.
+</p>
+<pre><code class="language-mql5">
+bool  SignalSubscribe(
+   long     signal_id     // id do sinal
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+signal_id
+[in]  Identificador do sinal.
+valor de retorno
+Retorna true, se a assinatura para copiar o sinal de negociação for bem-sucedida, caso contrário,
+retorna false. Para mais informações sobre o erro, você deve chamar a função GetLastError().</p>
+<p><h3>Gerenciamento de sinais</h3>
+© 2000-2025, MetaQuotes Ltd.
+2403
+<h3>SignalUnsubscribe</h3>
+ Cancela a assinatura para copiar o sinal de negociação 
+</p>
+<pre><code class="language-mql5">
+bool  SignalUnsubscribe();
+</code></pre>
+<p>
+valor de retorno
+Retorna true, se a cancelação da assinatura do sinal de negociação for bem-sucedida, caso contrário,
+retorna false. false. Para mais informações sobre o GetLastError().
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

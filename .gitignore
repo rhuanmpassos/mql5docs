@@ -1,0 +1,39 @@
+# Python
+*.py
+!render.yaml
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# PDF e documentos fonte
+*.pdf
+*.chm
+
+# JSON de build (não necessário para o site)
+search.json
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node (caso use no futuro)
+node_modules/
+
+# Temporários
+*.tmp
+*.temp
+

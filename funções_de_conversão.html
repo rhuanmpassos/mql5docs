@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de Conversão - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class="active"><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções de Conversão</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1720
+<h3>Funções de Conversão</h3>
+Este é um grupo de funções que fornece conversão de dados de um formato para outro.
+The NormalizeDouble() function must be specially noted as it provides the necessary accuracy of the
+price presentation. Em operações de negociação, nenhum preço não normalizado deve ser usado caso
+sua precisão exceder, mesmo que por um dígito, daquilo que é requerida pelo servidor de negociação.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>CharToString</h3>
+Converte um código de símbolo em um string de um caractere.
+<h3>DoubleToString</h3>
+Converte um valor numérico para um linha de texto com a precisão
+especificada
+<h3>EnumToString</h3>
+Converte um valor de enumeração de qualquer tipo para string
+<h3>NormalizeDouble</h3>
+Arredonda um número de ponto flutuando para uma precisão
+especificada
+<h3>StringToDouble</h3>
+Converte uma string contendo um representação de símbolo de
+número em um número de tipo double
+<h3>StringToInteger</h3>
+Converte uma string contendo uma representação de símbolo de
+número em um número de tipo long
+<h3>StringToTime</h3>
+Converte uma string contendo hora ou data no formato
+&quot;yyyy.mm.dd [hh:mi]&quot; em um tipo datetime
+<h3>TimeToString</h3>
+Converte um valor contendo hora em segundos decorridos deste
+01.01.1970 em uma string de formato &quot;yyyy.mm.dd hh:mi&quot;
+<h3>IntegerToString</h3>
+Converte int em uma string de comprimento predefinido
+<h3>ShortToString</h3>
+Converte código de símbolo (unicode) em string de um símbolo
+<h3>ShortArrayToString</h3>
+Copia parte de um array em uma string
+<h3>StringToShortArray</h3>
+Copia símbolo a símbolo uma string para uma parte selecionada de
+array de tipo ushort
+<h3>CharArrayToString</h3>
+Converte código de símbolo (ansi) em um array de um símbolo
+<h3>StringToCharArray</h3>
+Copia símbolo a símbolo uma string convertida de Unicode para
+ANSI, para um lugar selecionado de um array de tipo uchar
+<h3>CharArrayToStruct</h3>
+Copia uma matriz do tipo uchar para a estrutura POD
+<h3>StructToCharArray</h3>
+Copia a estrutura POD para a matriz do tipo uchar
+<h3>ColorToARGB</h3>
+Converte tipo color para tipo uint para receber representação ARGB
+da cor.
+<h3>ColorToString</h3>
+Converte um valor de color em uma string como &quot;R,G,B&quot;
+<h3>StringToColor</h3>
+Converte uma string &quot;R,G,B&quot; ou uma string com nome de cor em
+valor de tipo color</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1721
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>StringFormat</h3>
+Converte um número em string de acordo com um formato
+predefinido
+<h3>Também Veja</h3>
+Uso de um Código de Página (Codepage)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1722
+<h3>CharToString</h3>
+Converte um código de símbolo em uma string de um caractere.
+</p>
+<pre><code class="language-mql5">
+string  CharToString(
+   uchar  char_code      // código numérico de um símbolo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+char_code
+[in]  Código de um símbolo ANSI.
+<h3>Valor do Retorno</h3>
+String com um símbolo ANSI.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+string ExtStrArray[224];
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- em um ciclo a partir do código do caractere 32 (espaço) até o código 255(UCHAR_M
+//--- preenchemos o array com códigos de caracteres convertidos em uma string de acord
+   for(int i=32; i&lt;=UCHAR_MAX; i++)
+      ExtStrArray[i-32]=CharToString((uchar)i);
+//--- imprimimos no log o título e a tabela de caracteres
+   Print(&quot;Table of symbols:&quot;);
+   ArrayPrint(ExtStrArray,_Digits,&quot; | &quot;);
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   Table of symbols:
+   [  0] &quot; &quot; | &quot;!&quot; | &quot;&quot;&quot; | &quot;#&quot; | &quot;$&quot; | &quot;%&quot; | &quot;&amp;&quot; | &quot;&#x27;&quot; | &quot;(&quot; | &quot;)&quot; | &quot;*&quot; | &quot;+&quot; | &quot;,&quot; 
+   [ 25] &quot;9&quot; | &quot;:&quot; | &quot;;&quot; | &quot;&lt;&quot; | &quot;=&quot; | &quot;&gt;&quot; | &quot;?&quot; | &quot;@&quot; | &quot;A&quot; | &quot;B&quot; | &quot;C&quot; | &quot;D&quot; | &quot;E&quot; 
+   [ 50] &quot;R&quot; | &quot;S&quot; | &quot;T&quot; | &quot;U&quot; | &quot;V&quot; | &quot;W&quot; | &quot;X&quot; | &quot;Y&quot; | &quot;Z&quot; | &quot;[&quot; | &quot;\&quot; | &quot;]&quot; | &quot;^&quot; 
+   [ 75] &quot;k&quot; | &quot;l&quot; | &quot;m&quot; | &quot;n&quot; | &quot;o&quot; | &quot;p&quot; | &quot;q&quot; | &quot;r&quot; | &quot;s&quot; | &quot;t&quot; | &quot;u&quot; | &quot;v&quot; | &quot;w&quot; 
+   [100] &quot;„&quot; | &quot;…&quot; | &quot;†&quot; | &quot;‡&quot; | &quot;€&quot; | &quot;‰&quot; | &quot;Љ&quot; | &quot;‹&quot; | &quot;Њ&quot; | &quot;Ќ&quot; | &quot;Ћ&quot; | &quot;Џ&quot; | &quot;ђ&quot; 
+   [125] &quot;ќ&quot; | &quot;ћ&quot; | &quot;џ&quot; | &quot; &quot; | &quot;Ў&quot; | &quot;ў&quot; | &quot;Ј&quot; | &quot;¤&quot; | &quot;Ґ&quot; | &quot;¦&quot; | &quot;§&quot; | &quot;Ё&quot; | &quot;©&quot; 
+   [150] &quot;¶&quot; | &quot;·&quot; | &quot;ё&quot; | &quot;№&quot; | &quot;є&quot; | &quot;»&quot; | &quot;ј&quot; | &quot;Ѕ&quot; | &quot;ѕ&quot; | &quot;ї&quot; | &quot;А&quot; | &quot;Б&quot; | &quot;В&quot; 
+   [175] &quot;П&quot; | &quot;Р&quot; | &quot;С&quot; | &quot;Т&quot; | &quot;У&quot; | &quot;Ф&quot; | &quot;Х&quot; | &quot;Ц&quot; | &quot;Ч&quot; | &quot;Ш&quot; | &quot;Щ&quot; | &quot;Ъ&quot; | &quot;Ы&quot; 
+   [200] &quot;и&quot; | &quot;й&quot; | &quot;к&quot; | &quot;л&quot; | &quot;м&quot; | &quot;н&quot; | &quot;о&quot; | &quot;п&quot; | &quot;р&quot; | &quot;с&quot; | &quot;т&quot; | &quot;у&quot; | &quot;ф&quot; 
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1723
+<h3>StringToCharArray, ShortToString, StringGetCharacter</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1724
+<h3>CharArrayToString</h3>
+Copia e converte parte de um array de tipo uchar em uma string retornada
+</p>
+<pre><code class="language-mql5">
+string  CharArrayToString(
+   uchar  array[],              // array
+   int    start=0,              // posição de início no array
+   int    count=-1              // número de símbolos
+   uint    codepage=CP_ACP      // código de página
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array de tipo uchar.
+start=0
+[in]  Posição a partir da qual a cópia começa. por default 0 é usado.
+count=-1
+[in]  Número de elementos do array para cópia. Define o comprimento de uma string resultante.
+Valor padrão é -1, que significa copiar até o fim do array, ou até o terminador 0.
+codepage=CP_ACP
+[in]  O valor do código de página. Para os mais usados códigos de página forneça as constantes
+apropriadas.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- criamos um array de códigos de caracteres
+   uchar array[]= { 84, 104, 105, 115,  32, 105, 115,  32,  97,  32,
+                   116, 101, 115, 116,  32, 111, 102,  32, 116, 104,
+                   101,  32,  67, 104,  97, 114,  65, 114, 114,  97,
+                   121,  84, 111,  83, 116, 114, 105, 110, 103,  40,
+                    41,  32, 102, 117, 110,  99, 116, 105, 111, 110
+//--- imprimimos no log um array de códigos convertidos em uma string
+   Print(CharArrayToString(array));
+//--- criamos um array de códigos de caracteres e com terminal zero
+   uchar array_z[]= { 84, 104, 105, 115,  32, 105, 115,  32,  97,  32,
+                     116, 101, 115, 116,   0,  32, 111, 102,  32, 116,</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1725
+</p>
+<pre><code class="language-mql5">
+                     104, 101,  32,  67, 104,  97, 114,  65, 114, 114,
+                      97, 121,  84, 111,  83, 116, 114, 105, 110, 103,
+                      40,  41,  32, 102, 117, 110,  99, 116, 105, 111, 110
+                    };
+//--- imprimimos no log o segundo array de códigos com o terminal zero
+   PrintFormat(&quot;%s ...&quot;, CharArrayToString(array_z));
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   This is a test of the CharArrayToString() function
+   This is a test ...
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+StringToCharArray, ShortArrayToString, Uso de um Código de Página (Codepage)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1726
+<h3>CharArrayToStruct</h3>
+Copia uma matriz do tipo uchar para a estrutura POD.
+</p>
+<pre><code class="language-mql5">
+bool  CharArrayToStruct(
+   void&amp;         struct_object,    // estrutura
+   const uchar&amp;  char_array[],     // matriz
+   uint          start_pos=0       // posição inicial na matriz
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+struct_object
+[in]  Referência para qualquer tipo de estrutura POD (estruturas contendo apenas tipos de dados
+simples).
+char_array[]
+[in]  Matriz do tipo uchar.
+start_pos=0
+[in]  Posição na matriz a partir da qual serão copiados os dados.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define DATA_TOTAL 4
+</code></pre>
+<p>
+<h3>MqlRates ExtDataRates[DATA_TOTAL];</h3>
+uchar    ExtCharArray[];
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- copiamos os dados das últimas quatro barras para a matriz uchar
+   ResetLastError();
+   for(int i=0; i&lt;DATA_TOTAL; i++)
+     {
+      if(!CopyRatesToCharArray(i, ExtCharArray))
+         return;
+     }
+//--- copiamos todos os dados disponíveis da matriz uchar para a matriz de estruturas 
+   for(int i=0; i&lt;DATA_TOTAL; i++)
+     {
+      ResetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1727
+</p>
+<pre><code class="language-mql5">
+      if(!CharArrayToStruct(ExtDataRates[i], ExtCharArray, sizeof(MqlRates)*i))
+        {
+         Print(&quot;CharArrayToStruct() failed. Error code: &quot;, GetLastError());
+         return;
+        }
+      //--- caso a cópia de dados da matriz uchar para a estrutura MqlRates seja bem-s
+      //--- imprimimos no log os dados copiados para a estrutura
+      MqlRatesPrint(ExtDataRates[i]);
+     }
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   MqlRates data:
+    Time = 2024.02.21 09:00;
+    Open = 1.08116;
+    High = 1.08141;
+    Low = 1.08062;
+    Close = 1.08124;
+    Tick volume = 5344;
+    Spread = 1;
+    Real volume = 0
+   MqlRates data:
+    Time = 2024.02.21 08:00;
+    Open = 1.08149;
+    High = 1.08153;
+    Low = 1.08073;
+    Close = 1.08114;
+    Tick volume = 3607;
+    Spread = 2;
+    Real volume = 0
+   MqlRates data:
+    Time = 2024.02.21 07:00;
+    Open = 1.08143;
+    High = 1.08165;
+    Low = 1.08122;
+    Close = 1.08150;
+    Tick volume = 2083;
+    Spread = 0;
+    Real volume = 0
+   MqlRates data:
+    Time = 2024.02.21 06:00;
+    Open = 1.08178;
+    High = 1.08190;
+    Low = 1.08132;
+    Close = 1.08142;
+    Tick volume = 1733;</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1728
+</p>
+<pre><code class="language-mql5">
+    Spread = 0;
+    Real volume = 0
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Copia os dados da barra pelo índice especificado                 |
+//| através da estrutura MqlRates em uma matriz uchar                |
+//+------------------------------------------------------------------+
+bool CopyRatesToCharArray(const int index, uchar &amp;data_array[])
+  {
+   MqlRates rates[1];
+   uint     start=sizeof(MqlRates);
+   ResetLastError();
+   if(CopyRates(Symbol(), PERIOD_CURRENT, index, 1, rates)!=1)
+     {
+      Print(&quot;CopyRates() failed. Error code: &quot;, GetLastError());
+      return(false);
+     }
+   if(!StructToCharArray(rates[0], data_array, start*index))
+     {
+      Print(&quot;StructToCharArray() failed. Error code: &quot;, GetLastError());
+      return(false);
+     }
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprimimos no log os campos da estrutura MqlRates                |
+//+------------------------------------------------------------------+
+void MqlRatesPrint(MqlRates &amp;rates)
+  {
+//--- criamos uma string de saída
+   string text=StringFormat(&quot; Time = %s;\n&quot;
+                            &quot; Open = %.*f;\n&quot;
+                            &quot; High = %.*f;\n&quot;
+                            &quot; Low = %.*f;\n&quot;
+                            &quot; Close = %.*f;\n&quot;
+                            &quot; Tick volume = %I64u;\n&quot;
+                            &quot; Spread = %d;\n&quot;
+                            &quot; Real volume = %I64u&quot;,
+                            TimeToString(rates.time),
+                            _Digits, rates.open,
+                            _Digits, rates.high,
+                            _Digits, rates.low,
+                            _Digits, rates.close,
+                            rates.tick_volume,
+                            rates.spread,
+                            rates.real_volume);</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1729
+</p>
+<pre><code class="language-mql5">
+//--- imprimimos no log o título e a string de saída
+   Print(&quot;MqlRates data:\n&quot;, text, &quot;\n&quot;);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+StringToCharArray, ShortArrayToString, StructToCharArray, Uso da página de código,
+<h3>FileReadStruct, União (union), MathSwap</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1730
+<h3>StructToCharArray</h3>
+Copia a estrutura POD para a matriz do tipo uchar.
+</p>
+<pre><code class="language-mql5">
+bool  StructToCharArray(
+   const void&amp;  struct_object,     // estrutura
+   uchar&amp;       char_array[],      // matriz
+   uint         start_pos=0        // posição inicial na matriz
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+struct_object
+[in]  Referência para qualquer tipo de estrutura POD (estruturas contendo apenas tipos de dados
+simples).
+char_array[]
+[in]  Matriz do tipo uchar.
+start_pos=0
+[in]  Posição na matriz a partir da qual serão copiados os dados.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Observação</h3>
+Ao copiar, a matriz dinâmica é expandida automaticamente (ArrayResize) se não houver espaço
+suficiente. Se não for possível expandir a matriz para o valor requerido, a função retornará um erro.
+<h3>Exemplo:</h3>
+uchar    ExtCharArray[];
+<h3>MqlRates ExtRates[1];</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- copiamos na estrutura MqlRates os dados de uma barra atual
+   if(CopyRates(Symbol(), PERIOD_CURRENT, 0, 1, ExtRates)!=1)
+     {
+      Print(&quot;CopyRates() failed. Error code: &quot;, GetLastError());
+      return;
+     }
+//--- imprimimos no log os dados recebidos na estrutura MqlRates
+   Print(&quot;Data in the structure immediately after receiving it:&quot;);
+   MqlRatesPrint(ExtRates[0]);</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1731
+</p>
+<pre><code class="language-mql5">
+//--- copiamos a estrutura da página em um array do tipo uchar
+   ResetLastError();
+   if(!StructToCharArray(ExtRates[0], ExtCharArray))
+     {
+      Print(&quot;StructToCharArray() failed. Error code: &quot;, GetLastError());
+      return;
+     }
+//--- limpamos a estrutura
+   ZeroMemory(ExtRates[0]);
+//--- imprimimos os dados na estrutura após a limpeza
+   Print(&quot;\nData in the structure after ZeroMemory():&quot;);
+   MqlRatesPrint(ExtRates[0]);
+//--- agora vamos copiar os dados do array uchar para a estrutura MqlRates
+   if(!CharArrayToStruct(ExtRates[0], ExtCharArray))
+     {
+      Print(&quot;CharArrayToStruct() failed. Error code: &quot;, GetLastError());
+      return;
+     }
+//--- imprimimos os dados na estrutura MqlRates depois de copiá-los do array uchar
+   Print(&quot;\nData in the MqlRates structure after copying it from a uchar array:&quot;);
+   MqlRatesPrint(ExtRates[0]);
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   Data in the structure immediately after receiving it:
+   MqlRates data:
+    Time = 2024.02.21 07:00;
+    Open = 1.08143;
+    High = 1.08158;
+    Low = 1.08122;
+    Close = 1.08137;
+    Tick volume = 1341;
+    Spread = 4;
+    Real volume = 0
+   Data in the structure after ZeroMemory():
+   MqlRates data:
+    Time = 0;
+    Open = 0.00000;
+    High = 0.00000;
+    Low = 0.00000;
+    Close = 0.00000;
+    Tick volume = 0;
+    Spread = 0;
+    Real volume = 0</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1732
+</p>
+<pre><code class="language-mql5">
+   Data in the MqlRates structure after copying it from a uchar array:
+   MqlRates data:
+    Time = 2024.02.21 07:00;
+    Open = 1.08143;
+    High = 1.08158;
+    Low = 1.08122;
+    Close = 1.08137;
+    Tick volume = 1341;
+    Spread = 4;
+    Real volume = 0
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprimimos no log os campos da estrutura MqlRates                |
+//+------------------------------------------------------------------+
+void MqlRatesPrint(MqlRates &amp;rates)
+  {
+//--- criamos uma string de saída
+   string text=StringFormat(&quot; Time = %s;\n&quot;
+                            &quot; Open = %.*f;\n&quot;
+                            &quot; High = %.*f;\n&quot;
+                            &quot; Low = %.*f;\n&quot;
+                            &quot; Close = %.*f;\n&quot;
+                            &quot; Tick volume = %I64u;\n&quot;
+                            &quot; Spread = %d;\n&quot;
+                            &quot; Real volume = %I64u&quot;,
+                            TimeToString(rates.time),
+                            _Digits, rates.open,
+                            _Digits, rates.high,
+                            _Digits, rates.low,
+                            _Digits, rates.close,
+                            rates.tick_volume,
+                            rates.spread,
+                            rates.real_volume);
+//--- imprimimos no log o título e a string de saída
+   Print(&quot;MqlRates data:\n&quot;, text);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+StringToCharArray, ShortArrayToString,CharArrayToStruct, Uso da página de código,
+<h3>FileWriteStruct, União (union), MathSwap</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1733
+<h3>ColorToARGB</h3>
+A função converte o tipo color em tipo uint para obter a representação ARGB da cor. O formato de cor
+ARGB é usado para gerar recurso gráfico, exibição de texto, assim como a classe da biblioteca padrão
+CCanvas.
+uint  ColorToARGB(
+</p>
+<pre><code class="language-mql5">
+   color  clr,          // converte color em formato de cor
+   uchar  alpha=255     // canal alfa para gerenciamente da transparência de cor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+clr
+[in]  Valor da cor em variável de tipo color.
+alpha
+[in]  O valor do canal alfa usado para receber a cor em formato ARGB. O valor pode ser definido de
+0 (uma cor de um pixel de primeiro plano não altera a exibição de um pixel subjacente) até 255
+(uma cor de um pixel subjacente é completamente substituída pela cor do pixel do primeiro plano).
+Transparência de cor em termos de percentagem é calculada como (1-alpha/255)*100%. Em outras
+palavras, quanto menor o valor de canal alfa, mais transparente é a cor.
+<h3>Valor de retorno</h3>
+Apresenta a cor em formato ARGB onde os valores Alfa, Red, Green, Blue (canal alfa, vermelho,
+verde, azul) são definidos em séries de quatro bytes de tipo uint.
+<h3>Observação</h3>
+RGB é um formato básico e comumente usado para descrever cor de pixel em uma tela em gráficos
+de computador. Nomes de cores básicas são usadas para atribuir componentes de cor vermelho,
+verde e azul. Cada componente é descrito por um byte especificando a saturação de cor em uma
+faixa de 0 a 255 (0x00 a 0XFF formato hexadecimal). Já que a cor branca contém todas as cores, ela
+é descrita como 0xFFFFFF, ou seja, cada um dos três componentes está presente pelo valor máximo
+de 0xFF.
+Entretanto, algumas tarefas requerem especificar a transparência da cor para descrever a aparência
+de uma imagem no caso dela ficar coberta, através de uma cor com algum grau de transparência. O
+conceito de canal alfa é introduzido para tais casos. Ele é implementado como componente adicional
+do formato RGB. A estrutura do ARGB é mostrado abaixo.
+Valores ARGB são tipicamente expressos usando formato hexadecimal com cada par de dígitos
+representando os valores dos canais Alpha, Green, e Blue, respectivamente. Por exemplo, a cor
+80FFFF00 representa 50.2% amarelo opaco. Inicialmente, 0x80 define valor alfa de 50.2%, uma vez
+que é 50.2% de valor 0xFF. Então, o primeiro par FF define o valor mais alto do componente
+vermelho; o próximo par FF é como o anterior mas para o componente verde; e par final 00
+representa o valor mais baixo do componente azul que pode haver (ausência de azul). Combinação</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1734
+de cores verde e vermelha resultam na cor amarela. Se o canal alfa não for usado, a entrada pode
+ser reduzida para 6 RRGGBB dígitos, é por isso que os valores de canal alfa são armazenados nos
+bits de topo do tipo inteiro uint.
+Dependendo do contexto, dígitos hexadecimais podem ser escritos com o prefixo &#x27;0x&#x27; ou &#x27;#&#x27;, por
+exemplo, 80FFFF00, 0x80FFFF00 ou #80FFFF00.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- define transparência
+   uchar alpha=0x55;  // 0x55 significa 55/255=21.6 % de transparência
+   //--- fazer conversão de ARGB para cor clrBlue
+   PrintFormat(&quot;0x%.8X - clrBlue&quot;,clrBlue);
+   PrintFormat(&quot;0x%.8X - clrBlue ARGB com alpha=0x55 (transparency 21.6%%)&quot;,ColorToARG
+   //--- fazer conversão de ARGB para cor clrGreen
+   PrintFormat(&quot;0x%.8X - clrGreen&quot;,clrGreen);
+   PrintFormat(&quot;0x%.8X - clrGreen ARGB com alpha=0x55 (transparency 21.6%%)&quot;,ColorToAR
+   //--- fazer conversão de ARGB para cor clrRed
+   PrintFormat(&quot;0x%.8X - clrRed&quot;,clrRed);
+   PrintFormat(&quot;0x%.8X - clrRed ARGB com alpha=0x55 (transparency 21.6%%)&quot;,ColorToARGB
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Recursos, ResourceCreate(), TextOut(), Tipo color, Tipos char, short, int e long</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1735
+<h3>ColorToString</h3>
+Converte valor de cor em string na forma de &quot;R,G,B&quot;.
+</p>
+<pre><code class="language-mql5">
+string  ColorToString(
+   color  color_value,     // valor da cor
+   bool   color_name       // mostrar ou não nome da cor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+color_value
+[in]  Valor da cor em variável de tipo color.
+color_name
+[in]  Sinaliza a necessidade de retornar o nome da cor, se o nome da cor for idêntica a uma das
+constantes de cor  predefinidas.
+<h3>Valor do Retorno</h3>
+Representação de string da cor como &quot;R,G,B&quot;, onde R, G e B são constantes decimais de 0 a 255
+convertidos em uma string. Se o parâmetro color_name=true for definido, a função tentará
+converter o valor da cor no nome da cor.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   string clr=ColorToString(C&#x27;0,255,0&#x27;); // cor verde
+   Print(clr);
+   clr=ColorToString(C&#x27;0,255,0&#x27;,true);   // obtém a constante de cor
+   Print(clr);
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>StringToColor, ColorToARGB</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1736
+<h3>DoubleToString</h3>
+Converte um valor numérico em string de texto.
+</p>
+<pre><code class="language-mql5">
+string  DoubleToString(
+   double  value,      // número
+   int     digits=8    // numero de dígitos depois do ponto decimal
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Valor com um ponto flutuante.
+digits
+[in]  Formato de precisão. Se o valor de digits estiver na faixa entre 0 e 16, um representação de
+</p>
+<pre><code class="language-mql5">
+string de um número com a quantidade especificada de dígitos depois do ponto será obtida. Se o
+</code></pre>
+<p>
+valor de digits estiver na faixa entre -1 e -16, uma representação de string de um número em
+notação científica com a quantidade especificada de dígitos depois do ponto decimal será obtida.
+Em todos os outros casos, o valor da string conterá 8 dígitos depois do ponto decimal.
+<h3>Valor do Retorno</h3>
+String contendo uma representação de um número com a precisão especificada.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   Print(&quot;DoubleToString(120.0 + M_PI) : &quot;,DoubleToString(120.0+M_PI));
+   Print(&quot;DoubleToString(120.0 + M_PI,16) : &quot;,DoubleToString(120.0+M_PI,16));
+   Print(&quot;DoubleToString(120.0 + M_PI,-16) : &quot;,DoubleToString(120.0+M_PI,-16));
+   Print(&quot;DoubleToString(120.0 + M_PI,-1) : &quot;,DoubleToString(120.0+M_PI,-1));
+   Print(&quot;DoubleToString(120.0 + M_PI,-20) : &quot;,DoubleToString(120.0+M_PI,-20));
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>NormalizeDouble, StringToDouble</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1737
+<h3>EnumToString</h3>
+Converte um valor de enumeração de qualquer tipo para forma de texto.
+</p>
+<pre><code class="language-mql5">
+string  EnumToString(
+   any_enum  value      // qualquer tipo de valor de enumeração
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Qualquer tipo de valor de enumeração.
+<h3>Valor do Retorno</h3>
+Uma string com uma representação de texto da enumeração. Para obter a mensagem de erro chame
+a função GetLastError().
+<h3>Observação</h3>
+A função pode definir os seguintes valores de erro na variável _LastError:
+· ERR_INTERNAL_ERROR – erro do ambiente de execução
+· ERR_NOT_ENOUGH_MEMORY – sem memória suficiente para concluir a operação
+· ERR_INVALID_PARAMETER – não pode permitir o nome do valor da enumeração
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+enum interval  // Enumeração de constantes nomeadas
+  {
+   month=1,     // intervalo de um mês
+   two_months,  // dois meses
+   quarter,     // três meses - um quadrimestre
+   halfyear=6,  // meio ano
+   year=12,     // um ano - 12 months
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- define o intervalo de tempo igual a um mês
+   interval period=month;
+   Print(EnumToString(period)+&quot;=&quot;+IntegerToString(period));
+//--- define o intervalo de tempo igual a um quadrimestre (três meses)
+   period=quarter;
+   Print(EnumToString(period)+&quot;=&quot;+IntegerToString(period));
+//--- define o intervalo de tempo igual a um ano (12 meses)
+   period=year;</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1738
+</p>
+<pre><code class="language-mql5">
+   Print(EnumToString(period)+&quot;=&quot;+IntegerToString(period));
+//--- verifica como o tipo de ordem é mostrado
+   ENUM_ORDER_TYPE type=ORDER_TYPE_BUY;
+   Print(EnumToString(type)+&quot;=&quot;+IntegerToString(type));
+//--- verifica como valores incorretos são mostrados
+   type=WRONG_VALUE;
+   Print(EnumToString(type)+&quot;=&quot;+IntegerToString(type));
+// Resultado:
+// month=1
+// quarter=3
+// year=12
+// ORDER_TYPE_BUY=0
+// ENUM_ORDER_TYPE::-1=-1
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>Enumerações, Variáveis de entrada</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1739
+<h3>IntegerToString</h3>
+Esta função converte um valor de tipo inteiro em uma string de comprimento especificado e retorna a
+</p>
+<pre><code class="language-mql5">
+string obtida.
+string  IntegerToString(
+   long    number,              // número
+   int     str_len=0,           // comprimento da string resultado
+   ushort  fill_symbol=&#x27; &#x27;      // símbolo de preenchimento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+number
+[in]  Número para conversão.
+str_len=0
+[in]  Comprimento da string. Se o comprimento da string resultante for maior que aquele
+especificado, a string não é truncada. Se ela for menor, os símbolos de preenchimento (filler)
+serão adicionados a esquerda.
+fill_symbol=&#x27; &#x27;
+[in]  Símbolo de preenchimento. Por padrão, ele é um espaço.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define DATA_TOTAL 1001
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- em um ciclo percorrendo DATA_TOTAL, exibimos as strings com índice divisível por
+//--- na string é exibido o valor do índice no formato de quatro caracteres
+//--- caso o comprimento da string seja menor que 4 caracteres, o valor do índice do c
+//--- na string é precedido por zeros à esquerda
+   for(int i=0; i&lt;DATA_TOTAL; i++)
+     {
+      if(i%100==0)
+         Print(&quot;Converted index value: &quot;,IntegerToString(i,4,&#x27;0&#x27;));
+     }
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   Converted index value: 0000
+   Converted index value: 0100</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1740
+</p>
+<pre><code class="language-mql5">
+   Converted index value: 0200
+   Converted index value: 0300
+   Converted index value: 0400
+   Converted index value: 0500
+   Converted index value: 0600
+   Converted index value: 0700
+   Converted index value: 0800
+   Converted index value: 0900
+   Converted index value: 1000
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>StringToInteger</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1741
+<h3>ShortToString</h3>
+Converte um código de símbolo (unicode) em uma string de um símbolo e retorna a string resultante.
+</p>
+<pre><code class="language-mql5">
+string  ShortToString(
+   ushort  symbol_code      // símbolo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_code
+[in]  Código do símbolo. Ao invés de um código de símbolo, você pode usar uma string literal
+contendo um símbolo ou uma string literal com código hexadecimal de 2-bytes correspondente ao
+símbolo da tabela Unicode.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- em um ciclo imprimimos 18 caracteres, começando pelo caractere com o número Unic
+   for(int i=0; i&lt;18; i++)
+     {
+      ushort code=0x23E9+(ushort)i;
+      PrintFormat(&quot;Unicode number U+%hX: %s&quot;,code,ShortToString(code));
+     }
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   Unicode number U+23E9: ⏩
+   Unicode number U+23EA: ⏪
+   Unicode number U+23EB: ⏫
+   Unicode number U+23EC: ⏬
+   Unicode number U+23ED: ⏭
+   Unicode number U+23EE: ⏮
+   Unicode number U+23EF: ⏯
+   Unicode number U+23F0: ⏰
+   Unicode number U+23F1: ⏱
+   Unicode number U+23F2: ⏲
+   Unicode number U+23F3: ⏳
+   Unicode number U+23F4: ⏴
+   Unicode number U+23F5: ⏵
+   Unicode number U+23F6: ⏶
+   Unicode number U+23F7: ⏷</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1742
+</p>
+<pre><code class="language-mql5">
+   Unicode number U+23F8: ⏸
+   Unicode number U+23F9: ⏹
+   Unicode number U+23FA: ⏺
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>StringToCharArray, CharToString, StringGetCharacter</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1743
+<h3>ShortArrayToString</h3>
+Copia parte de um array em uma string retornada.
+</p>
+<pre><code class="language-mql5">
+string  ShortArrayToString(
+   ushort  array[],      // array
+   int     start=0,      // posição de começo do array
+   int     count=-1      // número de símbolos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+array[]
+[in]  Array de tipo ushort (análogo ao tipo wchar_t).
+start=0
+[in] Posição, a partir da qual a cópia começa, Default - 0.
+count=-1
+[in]  Número de elemento do array para copiar. Define o comprimento de uma string resultante.
+Valor padrão é -1, que significa copiar até o fim do array, ou até o terminador 0.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define ROW_SIZE 16
+</code></pre>
+<p>
+ushort ExtShortArray[]={0x2190,0x2191,0x2192,0x2193,0x2194,0x2195,0x2196,0x2197,0x2198
+</p>
+<pre><code class="language-mql5">
+                        0x21A0,0x21A1,0x21A2,0x21A3,0x21A4,0x21A5,0x21A6,0x21A7,0x21A8
+                        0x21B0,0x21B1,0x21B2,0x21B3,0x21B4,0x21B5,0x21B6,0x21B7,0x21B8
+                        0x21C0,0x21C1,0x21C2,0x21C3,0x21C4,0x21C5,0x21C6,0x21C7,0x21C8
+                        0x21D0,0x21D1,0x21D2,0x21D3,0x21D4,0x21D5,0x21D6,0x21D7,0x21D8
+                        0x21E0,0x21E1,0x21E2,0x21E3,0x21E4,0x21E5,0x21E6,0x21E7,0x21E8
+                        0x21F0,0x21F1,0x21F2,0x21F3,0x21F4,0x21F5,0x21F6,0x21F7,0x21F8
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- calculamos o número de linhas na tabela de caracteres 7x16
+   int total=(int)ExtShortArray.Size()/ROW_SIZE;
+//--- em um ciclo pelas linhas da tabela imprimimos no log 7 conjuntos de setas, 16 em
+   for(int i=0; i&lt;total; i++)
+     {
+      int row=i*ROW_SIZE;
+      PrintFormat(&quot;Arrow set %u: %s&quot;,i+1,ShortArrayToString(ExtShortArray,row,ROW_SIZE</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1744
+</p>
+<pre><code class="language-mql5">
+     }
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   Arrow set 1: ←↑→↓↔↕↖↗↘↙↚↛↜↝↞↟
+   Arrow set 2: ↠↡↢↣↤↥↦↧↨↩↪↫↬↭↮↯
+   Arrow set 3: ↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿
+   Arrow set 4: ⇀⇁⇂⇃⇄⇅⇆⇇⇈⇉⇊⇋⇌⇍⇎⇏
+   Arrow set 5: ⇐⇑⇒⇓⇔⇕⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟
+   Arrow set 6: ⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇫⇬⇭⇮⇯
+   Arrow set 7: ⇰⇱⇲⇳⇴⇵⇶⇷⇸⇹⇺⇻⇼⇽⇾⇿
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+StringToShortArray, CharArrayToString, Uso de um Código de Página (Codepage)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1745
+<h3>TimeToString</h3>
+Converte um valor contendo hora em segundos decorridos deste 01.01.1970 em uma string de formato
+&quot;yyyy.mm.dd hh:mi&quot;.
+</p>
+<pre><code class="language-mql5">
+string  TimeToString(
+   datetime  value,                           // número
+   int       mode=TIME_DATE|TIME_MINUTES      // formato de saída
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  Hora em segundos a partir de 00:00 1970/01/01.
+mode=TIME_DATE|TIME_MINUTES
+[in] Modo de entrada de dados adicionais. Pode ser um ou sinalizador combinado: 
+<h3>TIME_DATE obtém como resultado &quot;yyyy.mm.dd&quot;,</h3>
+<h3>TIME_MINUTES obtém como resultado &quot;hh:mi&quot;,</h3>
+TIME_SECONDS obêm resultados como &quot;hh:mi:ss&quot;.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Exemplo:</h3>
+datetime ExtBarTimeOpen;
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- definimos valor do cronômetro como um segundo
+   EventSetTimer(1);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Custom indicator deinitialization function                       |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+   Comment(&quot;&quot;);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Custom indicator iteration function                              |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1746
+</p>
+<pre><code class="language-mql5">
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- obtemos o tempo de abertura da barra atual
+   ExtBarTimeOpen=time[rates_total-1];
+//--- return value of prev_calculated for next call
+   return(rates_total);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Timer function                                                   |
+//+------------------------------------------------------------------+
+void OnTimer()
+  {
+//--- registramos o tempo de abertura da barra anterior
+   static datetime bar_open_time=ExtBarTimeOpen;
+//--- calculamos a quantidade de segundos que passaram desde a abertura da barra
+   static int seconds=int(TimeCurrent()-ExtBarTimeOpen);
+//--- se o tempo de abertura anterior não é igual ao atual, então é uma nova barra
+//--- registramos o novo tempo de abertura como o anterior e zeramos os segundos
+   if(bar_open_time!=ExtBarTimeOpen)
+     {
+      bar_open_time=ExtBarTimeOpen;
+      seconds=0;
+     }
+//--- incrementamos e ajustamos a quantidade de segundos passados desde a abertura da 
+   seconds++;
+   if(seconds&gt;PeriodSeconds(PERIOD_CURRENT))
+      seconds=0;
+//--- descrição do tempo de abertura da barra no formato yyyy.mm.dd hh:mi
+   string bar_time_open=TimeToString(ExtBarTimeOpen);
+//--- descrição do tempo atual no formato yyyy.mm.dd hh:mi:ss
+   string time_current=TimeToString(TimeCurrent(),TIME_DATE|TIME_MINUTES|TIME_SECONDS)
+//--- quantidade de segundos restantes até a abertura da próxima barra
+   int    sec_left=PeriodSeconds(PERIOD_CURRENT)-seconds;
+//--- descrição do tempo restante até o fechamento da barra atual no formato hh:mm:ss
+   string time_left=TimeToString(sec_left,TIME_MINUTES|TIME_SECONDS);
+//--- criamos a string de saída
+   string txt=StringFormat(&quot;Opening time of the current bar: %s\n&quot;+
+                           &quot;Time Current: %s\n&quot;+
+                           &quot;Seconds have passed since the bar opened: %d\n&quot;+
+                           &quot;Approximately seconds left before bar closes: %d\n&quot;+
+                           &quot;Time remaining until bar closes: %s&quot;,bar_time_open,time_cu</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1747
+</p>
+<pre><code class="language-mql5">
+//--- exibimos no comentário do gráfico o tempo de abertura da barra, o tempo atual,
+//--- a quantidade de segundos que passaram desde a abertura da barra atual e os resta
+//--- o tempo restante até o fechamento da barra atual
+   Comment(txt);
+   /*
+   resultado em M1:
+   Opening time of the current bar: 2024.02.22 18:06
+   Time Current: 2024.02.22 18:06:24
+   Seconds have passed since the bar opened: 25
+   Approximately seconds left before bar closes: 35
+   Time remaining until bar closes: 00:00:35
+   resultado em M5:
+   Opening time of the current bar: 2024.02.22 18:05
+   Time Current: 2024.02.22 18:07:28
+   Seconds have passed since the bar opened: 149
+   Approximately seconds left before bar closes: 151
+   Time remaining until bar closes: 00:02:31
+   resultado em H1:
+   Opening time of the current bar: 2024.02.22 18:00
+   Time Current: 2024.02.22 18:08:13
+   Seconds have passed since the bar opened: 494
+   Approximately seconds left before bar closes: 3106
+   Time remaining until bar closes: 00:51:46
+   
+   resultado em D1:
+   Opening time of the current bar: 2024.02.22 00:00
+   Time Current: 2024.02.22 18:11:01
+   Seconds have passed since the bar opened: 65462
+   Approximately seconds left before bar closes: 20938
+   Time remaining until bar closes: 05:48:58
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>StringToTime, TimeToStruct</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1748
+<h3>NormalizeDouble</h3>
+Arredonda um número de ponto flutuante para uma precisão especificada.
+</p>
+<pre><code class="language-mql5">
+double  NormalizeDouble(
+   double  value,      // número normalizado
+   int     digits      // número de dígitos depois do ponto decimal
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in] Valor com um ponto flutuante.
+digits
+[in]  Formato de precisão, número de dígitos depois do ponto (0-8).
+<h3>Valor do Retorno</h3>
+Valor de tipo double com precisão predefinida.
+<h3>Observação</h3>
+Valores calculados de StopLoss, TakeProfit, e valores de preços de abertura para ordens pendentes
+devem ser normalizados com a precisão obtida através de Digits().
+Favor notar que ao imprimir no Diário usando a função Print(), um número normalizado pode conter
+um número maior de posições decimais do que o esperado. Por exemplo, para:
+</p>
+<pre><code class="language-mql5">
+   double a=76.671;             // Um número normalizado com três posições decimais
+   Print(&quot;Print(76.671)=&quot;,a);   // Imprime como é
+   Print(&quot;DoubleToString(a,8)=&quot;,DoubleToString(a,8)); // Imprime com um precisão prede
+</code></pre>
+<p>
+você terá o seguinte no terminal:
+<h3>DoubleToString(a,8)=76.67100000</h3>
+<h3>Print(76.671)=76.67100000000001</h3>
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   double pi=M_PI;
+   Print(&quot;pi = &quot;,DoubleToString(pi,16));
+      
+   double pi_3=NormalizeDouble(M_PI,3);
+   Print(&quot;NormalizeDouble(pi,3) = &quot;,DoubleToString(pi_3,16))
+   ;
+   double pi_8=NormalizeDouble(M_PI,8);
+   Print(&quot;NormalizeDouble(pi,8) = &quot;,DoubleToString(pi_8,16));
+   
+   double pi_0=NormalizeDouble(M_PI,0);
+   Print(&quot;NormalizeDouble(pi,0) = &quot;,DoubleToString(pi_0,16));</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1749
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   pi= 3.1415926535897931
+   NormalizeDouble(pi,3)= 3.1419999999999999
+   NormalizeDouble(pi,8)= 3.1415926499999998
+   NormalizeDouble(pi,0)= 3.0000000000000000
+</code></pre>
+<p>
+*/
+<h3>Também Veja</h3>
+DoubleToString, Tipos reais (double, float), Conversão de Tipo (Typecasting)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1750
+<h3>StringToCharArray</h3>
+Copia símbolo a símbolo uma string convertida de Unicode para ANSI, para um lugar selecionado de um
+array de tipo uchar. Retorna o número de elementos copiados.
+</p>
+<pre><code class="language-mql5">
+int  StringToCharArray(
+   string  text_string,         // string fonte
+   uchar&amp;  array[],             // array
+   int     start=0,             // posição de começo no array
+   int     count=-1             // número de símbolos
+   uint    codepage=CP_ACP      // código de página
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+text_string
+[in]  String para copiar.
+array[]
+[out]  Array de tipo uchar.
+start=0
+[in]  Posição a partir da qual a cópia começa. Default - 0.
+count=-1
+[in]  Número de elemento do array para copiar. Define o comprimento de uma string resultante.
+Valor padrão é -1, que significa copiar até o fim do array, ou até o terminador 0. Terminador 0
+será também copiado para o array destino, neste caso o tamanho de um array dinâmico pode ser
+aumentado se necessário para o tamanho da string. Se o tamanho do array inicializado não é
+especificado, ele é determinado pelo compilador, baseado no tamanho da seqüência de
+inicialização.
+codepage=CP_ACP
+[in]  O valor do código de página. Para os mais usados códigos de página forneça as constantes
+apropriadas.
+<h3>Valor do Retorno</h3>
+Número de elementos copiados.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- string to convert
+   string text = &quot;This is a test of the StringToCharArray() function&quot;;
+//--- convertemos a string de entrada em um array uchar de acordo com o conjunto de ca</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1751
+</p>
+<pre><code class="language-mql5">
+   uchar char_array[];
+   int   copied=StringToCharArray(text, char_array);
+   PrintFormat(&quot;String length: %u\nNumber of characters copied (with terminal 0): %d\n
+               StringLen(text), copied, text);
+//--- imprimimos no log o array resultante
+   ArrayPrint(char_array, 0, &quot; | &quot;);
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   String length: 50
+   Number of characters copied (with terminal 0): 51
+   Array of characters for the string &#x27;This is a test of the StringToCharArray() funct
+   [ 0]  84 | 104 | 105 | 115 |  32 | 105 | 115 |  32 |  97 |  32 | 116 | 101 | 115 | 
+   [17]  32 | 116 | 104 | 101 |  32 |  83 | 116 | 114 | 105 | 110 | 103 |  84 | 111 | 
+   [34]  65 | 114 | 114 |  97 | 121 |  40 |  41 |  32 | 102 | 117 | 110 |  99 | 116 | 
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+CharArrayToString, StringToShortArray, Uso de um Código de Página (Codepage)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1752
+<h3>StringToColor</h3>
+Converte uma string &quot;R,G,B&quot; ou uma string com o nome da cor em valor de tipo color.
+color  StringToColor(
+</p>
+<pre><code class="language-mql5">
+   string  color_string      // representação de string de cor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+color_string
+[in]  Representação de string de uma cor de tipo &quot;R,G,B&quot; ou nome de uma das Web-cores
+predefinidas.
+<h3>Valor do Retorno</h3>
+Valor da cor.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   color str_color=StringToColor(&quot;0,127,0&quot;);
+   Print(str_color);
+   Print((string)str_color);
+//--- altera a cor um pouco
+   str_color=StringToColor(&quot;0,128,0&quot;);
+   Print(str_color);
+   Print((string)str_color);
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>ColorToString, ColorToARGB</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1753
+<h3>StringToDouble</h3>
+A função converte uma string contendo uma representação de um número em um número de tipo
+double.
+</p>
+<pre><code class="language-mql5">
+double  StringToDouble(
+   string  value      // string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  String contém uma representação do símbolo de um número.
+<h3>Valor do Retorno</h3>
+Valor de tipo double.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- string to convert
+   string str = &quot;12345.54321&quot;;
+//--- convertemos a string de entrada como um número real em uma variável do tipo doub
+   double converted=StringToDouble(str);
+//--- imprimimos no log o número obtido com uma precisão de 8 casas decimais
+   PrintFormat(&quot;The string &#x27;%s&#x27; is converted to the real number %.8f&quot;, str, converted)
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   The string &#x27;12345.54321&#x27; is converted to the real number 12345.54321000
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+NormalizeDouble, Tipos reais (double, float), Conversão de Tipo (Typecasting)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1754
+<h3>StringToInteger</h3>
+A função converte uma string contendo uma representação de símbolo de um número em um número
+de tipo long (inteiro).
+long  StringToInteger(
+</p>
+<pre><code class="language-mql5">
+   string  value      // string
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value
+[in]  String contendo um número.
+<h3>Valor do Retorno</h3>
+Valor de tipo long.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- string to convert
+   string str = &quot;12345.54321&quot;;
+//--- convertemos a string de entrada como um número em uma variável de tipo long
+   long converted=StringToInteger(str);
+//--- imprimimos no log o número obtido com a parte fracionária cortada
+   PrintFormat(&quot;The string &#x27;%s&#x27; is converted to the integer number %I64d&quot;, str, conver
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   The string &#x27;12345.54321&#x27; is converted to the integer number 12345
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+IntegerToString, Tipos reais (double, float), Conversão de Tipo (Typecasting)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1755
+<h3>StringToShortArray</h3>
+A função copia símbolo a símbolo uma string em um lugar especificado de um array de tipo ushort.
+Retorna o número de elementos copiados.
+</p>
+<pre><code class="language-mql5">
+int  StringToShortArray(
+   string  text_string,     // string fonte
+   ushort&amp; array[],         // array
+   int     start=0,         // posição de começo no array
+   int     count=-1         // número de símbolos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+text_string
+[in]  String para copiar
+array[]
+[out]  Array de tipo ushort (análogo ao tipo wchar_t).
+start=0
+[in]  Posição, a partir da qual a cópia começa. Default - 0.
+count=-1
+[in]  Número de elemento do array para copiar. Define o comprimento de uma string resultante.
+Valor padrão é -1, que significa copiar até o final do array, ou até o terminador 0. O terminador 0
+será copiado para o array destino, neste caso o tamanho de um array dinâmico pode ser
+aumentado se necessário para o tamanho da string. Se o tamanho do array inicializado não é
+especificado, ele é determinado pelo compilador, baseado no tamanho da seqüência de
+inicialização.
+<h3>Valor do Retorno</h3>
+Número de elementos copiados.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- string with chars to convert
+   string text = &quot;Chars: ❤♫☎✈✣☏☀✉☆☁♕♠®✧❆♣   &quot;;
+   ushort short_array[];
+//--- na string de entrada encontramos a posição do caractere &quot;:&quot; e extraímos a substr
+   int    pos=StringFind(text, &quot;:&quot;);
+   string str=(pos&lt;0 ? text : StringSubstr(text, pos+1));
+//--- removemos -da esquerda e da direita da string resultante- os caracteres de retor
+   StringTrimLeft(str);</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1756
+</p>
+<pre><code class="language-mql5">
+   StringTrimRight(str);
+//--- copiamos a string recebida em um array ushort e imprimimos o array recebido no l
+   int copied=StringToShortArray(str, short_array);
+   PrintFormat(&quot;String of characters length: %u\n&quot;
+               &quot;Number of characters copied (with terminal 0): %d\n&quot;
+               &quot;Array of chars for the string &#x27;%s&#x27;:&quot;,
+               StringLen(str), copied, str);
+   ArrayPrint(short_array, 0, &quot; | &quot;);
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   String of characters length: 16
+   Number of characters copied (with terminal 0): 17
+   Array of chars for the string &#x27;❤♫☎✈✣☏☀✉☆☁♕♠®✧❆♣&#x27;:
+   10084 |  9835 |  9742 |  9992 | 10019 |  9743 |  9728 |  9993 |  9734 |  9729 |  98
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+ShortArrayToString, StringToCharArray, Uso de um Código de Página (Codepage)</p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1757
+<h3>StringToTime</h3>
+Converte uma string contendo a hora e/ou data no formato &quot;aaaa.mm.dd [hh:mi]&quot; para o tipo
+datetime.
+datetime  StringToTime(
+</p>
+<pre><code class="language-mql5">
+   const string  time_string      // string data
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+time_string
+[in]  String em um dos formatos especificados:
+·   &quot;yyyy.mm.dd [hh:mi]&quot;
+·   &quot;yyyy.mm.dd [hh:mi:ss]&quot;
+·   &quot;yyyymmdd [hh:mi:ss]&quot;
+·   &quot;yyyymmdd [hhmiss]&quot;
+·   &quot;yyyy/mm/dd [hh:mi:ss]&quot;
+·   &quot;yyyy-mm-dd [hh:mi:ss]&quot;
+<h3>Valor retornado</h3>
+O valor do tipo datetime contendo o número de segundos desde 1º de janeiro de 1970.
+<h3>Observação</h3>
+Qualquer sequência de tabulação e de espaços entre data e hora é contada como um espaço, de
+modo que não é necessário nenhum processamento adicional da linha time_string antes de chamar a
+StringToTime().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input group    &quot;The date can be entered in any of the formats:&quot;
+input group    &quot;yyyy.mm.dd [hh:mi], yyyy.mm.dd [hh:mi:ss]&quot;
+input group    &quot;yyyymmdd [hh:mi:ss], yyyymmdd [hhmiss]&quot;
+input group    &quot;yyyy/mm/dd [hh:mi:ss], yyyy-mm-dd [hh:mi:ss]&quot;
+input string   InpDateStr;    // Please enter the date here as a string
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- convertemos a hora inserida nos parâmetros de entrada como uma string em um valo
+   datetime time=StringToTime(InpDateStr);
+//--- imprimimos no log a string inserida e o tempo obtido</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1758
+</p>
+<pre><code class="language-mql5">
+   PrintFormat(&quot;Date entered as a string in the form &#x27;%s&#x27; is converted to datetime in 
+               InpDateStr, TimeToString(time, TIME_DATE|TIME_MINUTES|TIME_SECONDS));
+//--- criamos uma linha vertical na data-hora obtida e deslocamos o gráfico para esse 
+   if(CreateVLine(time))
+      ChartNavigateToTime(time);
+   /*
+</code></pre>
+<p>
+  resultado:
+</p>
+<pre><code class="language-mql5">
+   Date entered as a string in the form &#x27;&#x27; is converted to datetime in the form &#x27;1970.
+   Date entered as a string in the form &#x27;2024&#x27; is converted to datetime in the form &#x27;2
+   Date entered as a string in the form &#x27;202400&#x27; is converted to datetime in the form 
+   Date entered as a string in the form &#x27;20240000&#x27; is converted to datetime in the for
+   Date entered as a string in the form &#x27;2024022410&#x27; is converted to datetime in the f
+   Date entered as a string in the form &#x27;20240224 10&#x27; is converted to datetime in the 
+   Date entered as a string in the form &#x27;20240224 01&#x27; is converted to datetime in the 
+   Date entered as a string in the form &#x27;20240224 0030&#x27; is converted to datetime in th
+   Date entered as a string in the form &#x27;20240224 0100&#x27; is converted to datetime in th
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um objeto de linha vertical                                 |
+//+------------------------------------------------------------------+
+bool CreateVLine(const datetime line_time)
+  {
+   ResetLastError();
+   string name=MQLInfoString(MQL_PROGRAM_NAME)+&quot;_VLINE&quot;;
+   if(!ObjectCreate(0, name, OBJ_VLINE, 0, line_time, 0))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;, GetLastError());
+      return(false);
+     }
+   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_DOT);
+   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, true);
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Desloca o gráfico pelo tempo de abertura da barra especificado   |
+//+------------------------------------------------------------------+
+bool ChartNavigateToTime(const datetime time)
+  {
+   ChartSetInteger(0, CHART_AUTOSCROLL, false);
+   ResetLastError();
+   int bar=iBarShift(_Symbol, PERIOD_CURRENT, time);
+   if(bar&lt;0)
+     {
+      PrintFormat(&quot;%s: iBarShift() failed. Error code: %d&quot;, __FUNCTION__, GetLastError
+      return(false);</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1759
+</p>
+<pre><code class="language-mql5">
+     }
+   long first=0;
+   if(!ChartGetInteger(0, CHART_FIRST_VISIBLE_BAR, 0, first))
+     {
+      PrintFormat(&quot;%s: ChartGetInteger() failed. Error code: %d&quot;, __FUNCTION__, GetLas
+      return(false);
+     }
+   return(ChartNavigate(0, CHART_CURRENT_POS, (int)first-bar));
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>TimeToString, TimeToStruct</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1760
+<h3>StringFormat</h3>
+A função formata parâmetros obtidos e retorna uma string.
+</p>
+<pre><code class="language-mql5">
+string  StringFormat(
+   string  format,     // string com descrição de formato
+   ...     ...         // parâmetros
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+format
+[in]  String contendo método de formatação. As regras de formação são as mesmas da função
+PrintFormat.
+...
+[in]  Parâmetros, separados por vírgula.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Exemplo:</h3></p>
+<p><h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1761
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- string variables
+   string output_string;
+   string temp_string;
+   string format_string;
+//--- prepare the specification header
+   temp_string=StringFormat(&quot;Contract specification for %s:\n&quot;,_Symbol);
+   StringAdd(output_string,temp_string);
+//--- int value output
+   int digits=(int)SymbolInfoInteger(_Symbol,SYMBOL_DIGITS);
+   temp_string=StringFormat(&quot;   SYMBOL_DIGITS = %d (number of digits after the decimal
+                            digits);
+   StringAdd(output_string,temp_string);
+//--- double value output with variable number of digits after the decimal point
+   double point_value=SymbolInfoDouble(_Symbol,SYMBOL_POINT);
+   format_string=StringFormat(&quot;   SYMBOL_POINT = %%.%df (point value)\n&quot;,
+                              digits);
+   temp_string=StringFormat(format_string,point_value);
+   StringAdd(output_string,temp_string);
+//--- int value output
+   int spread=(int)SymbolInfoInteger(_Symbol,SYMBOL_SPREAD);
+   temp_string=StringFormat(&quot;   SYMBOL_SPREAD = %d (current spread in points)\n&quot;,
+                            spread);
+   StringAdd(output_string,temp_string);
+//--- int value output
+   int min_stop=(int)SymbolInfoInteger(_Symbol,SYMBOL_TRADE_STOPS_LEVEL);
+   temp_string=StringFormat(&quot;   SYMBOL_TRADE_STOPS_LEVEL = %d (minimal indention in po
+                            min_stop);
+   StringAdd(output_string,temp_string);
+//--- double value output without the fractional part
+   double contract_size=SymbolInfoDouble(_Symbol,SYMBOL_TRADE_CONTRACT_SIZE);
+   temp_string=StringFormat(&quot;   SYMBOL_TRADE_CONTRACT_SIZE = %.f (contract size)\n&quot;,
+                            contract_size);
+   StringAdd(output_string,temp_string);
+//--- double value output with default accuracy
+   double tick_size=SymbolInfoDouble(_Symbol,SYMBOL_TRADE_TICK_SIZE);
+   temp_string=StringFormat(&quot;   SYMBOL_TRADE_TICK_SIZE = %f (minimal price change)\n&quot;,
+                            tick_size);
+   StringAdd(output_string,temp_string);
+//--- determining the swap calculation mode
+   int swap_mode=(int)SymbolInfoInteger(_Symbol,SYMBOL_SWAP_MODE);
+   string str_swap_mode;
+   switch(swap_mode)
+     {
+      case SYMBOL_SWAP_MODE_DISABLED: str_swap_mode=&quot;SYMBOL_SWAP_MODE_DISABLED (no swa
+      case SYMBOL_SWAP_MODE_POINTS: str_swap_mode=&quot;SYMBOL_SWAP_MODE_POINTS (in points)
+      case SYMBOL_SWAP_MODE_CURRENCY_SYMBOL: str_swap_mode=&quot;SYMBOL_SWAP_MODE_CURRENCY_
+      case SYMBOL_SWAP_MODE_CURRENCY_MARGIN: str_swap_mode=&quot;SYMBOL_SWAP_MODE_CURRENCY_
+      case SYMBOL_SWAP_MODE_CURRENCY_DEPOSIT: str_swap_mode=&quot;SYMBOL_SWAP_MODE_CURRENCY
+      case SYMBOL_SWAP_MODE_INTEREST_CURRENT: str_swap_mode=&quot;SYMBOL_SWAP_MODE_INTEREST
+      case SYMBOL_SWAP_MODE_INTEREST_OPEN: str_swap_mode=&quot;SYMBOL_SWAP_MODE_INTEREST_OP
+      case SYMBOL_SWAP_MODE_REOPEN_CURRENT: str_swap_mode=&quot;SYMBOL_SWAP_MODE_REOPEN_CUR
+      case SYMBOL_SWAP_MODE_REOPEN_BID: str_swap_mode=&quot;SYMBOL_SWAP_MODE_REOPEN_BID (by
+     }
+//--- string value output
+   temp_string=StringFormat(&quot;   SYMBOL_SWAP_MODE = %s\n&quot;,
+                            str_swap_mode);
+   StringAdd(output_string,temp_string);
+//--- double value output with default accuracy
+   double swap_long=SymbolInfoDouble(_Symbol,SYMBOL_SWAP_LONG);</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1762
+</p>
+<pre><code class="language-mql5">
+   temp_string=StringFormat(&quot;   SYMBOL_SWAP_LONG = %f (long swap value)\n&quot;,
+                            swap_long);
+   StringAdd(output_string,temp_string);
+//--- double value output with default accuracy
+   double swap_short=SymbolInfoDouble(_Symbol,SYMBOL_SWAP_SHORT);
+   temp_string=StringFormat(&quot;   SYMBOL_SWAP_SHORT = %f (short swap value)\n&quot;,
+                            swap_short);
+   StringAdd(output_string,temp_string);
+//--- determining the trading mode
+   int trade_mode=(int)SymbolInfoInteger(_Symbol,SYMBOL_TRADE_MODE);
+   string str_trade_mode;
+   switch(trade_mode)
+     {
+      case SYMBOL_TRADE_MODE_DISABLED: str_trade_mode=&quot;SYMBOL_TRADE_MODE_DISABLED (tra
+      case SYMBOL_TRADE_MODE_LONGONLY: str_trade_mode=&quot;SYMBOL_TRADE_MODE_LONGONLY (onl
+      case SYMBOL_TRADE_MODE_SHORTONLY: str_trade_mode=&quot;SYMBOL_TRADE_MODE_SHORTONLY (o
+      case SYMBOL_TRADE_MODE_CLOSEONLY: str_trade_mode=&quot;SYMBOL_TRADE_MODE_CLOSEONLY (o
+      case SYMBOL_TRADE_MODE_FULL: str_trade_mode=&quot;SYMBOL_TRADE_MODE_FULL (no trade re
+     }
+//--- string value output
+   temp_string=StringFormat(&quot;   SYMBOL_TRADE_MODE = %s\n&quot;,
+                            str_trade_mode);
+   StringAdd(output_string,temp_string);
+//--- double value output in a compact format
+   double volume_min=SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_MIN);
+   temp_string=StringFormat(&quot;   SYMBOL_VOLUME_MIN = %g (minimal volume for a deal)\n&quot;,
+   StringAdd(output_string,temp_string);
+//--- double value output in a compact format
+   double volume_step=SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_STEP);
+   temp_string=StringFormat(&quot;   SYMBOL_VOLUME_STEP = %g (minimal volume change step)\n
+   StringAdd(output_string,temp_string);
+//--- double value output in a compact format
+   double volume_max=SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_MAX);
+   temp_string=StringFormat(&quot;   SYMBOL_VOLUME_MAX = %g (maximal volume for a deal)\n&quot;,
+   StringAdd(output_string,temp_string);
+//--- determining the contract price calculation mode
+   int calc_mode=(int)SymbolInfoInteger(_Symbol,SYMBOL_TRADE_CALC_MODE);
+   string str_calc_mode;
+   switch(calc_mode)
+     {
+      case SYMBOL_CALC_MODE_FOREX:str_calc_mode=&quot;SYMBOL_CALC_MODE_FOREX (Forex)&quot;;break
+      case SYMBOL_CALC_MODE_FUTURES:str_calc_mode=&quot;SYMBOL_CALC_MODE_FUTURES (futures)&quot;
+      case SYMBOL_CALC_MODE_CFD:str_calc_mode=&quot;SYMBOL_CALC_MODE_CFD (CFD)&quot;;break;
+      case SYMBOL_CALC_MODE_CFDINDEX:str_calc_mode=&quot;SYMBOL_CALC_MODE_CFDINDEX (CFD for
+      case SYMBOL_CALC_MODE_CFDLEVERAGE:str_calc_mode=&quot;SYMBOL_CALC_MODE_CFDLEVERAGE (C
+      case SYMBOL_CALC_MODE_EXCH_STOCKS:str_calc_mode=&quot;SYMBOL_CALC_MODE_EXCH_STOCKS (t
+      case SYMBOL_CALC_MODE_EXCH_FUTURES:str_calc_mode=&quot;SYMBOL_CALC_MODE_EXCH_FUTURES 
+      case SYMBOL_CALC_MODE_EXCH_FUTURES_FORTS:str_calc_mode=&quot;SYMBOL_CALC_MODE_EXCH_FU
+     }
+//--- string value output
+   temp_string=StringFormat(&quot;   SYMBOL_TRADE_CALC_MODE = %s\n&quot;,
+                            str_calc_mode);
+   StringAdd(output_string,temp_string);
+//--- double value output with 2 digits after the decimal point
+   double margin_initial=SymbolInfoDouble(_Symbol,SYMBOL_MARGIN_INITIAL);
+   temp_string=StringFormat(&quot;   SYMBOL_MARGIN_INITIAL = %.2f (initial margin)\n&quot;,
+                            margin_initial);
+   StringAdd(output_string,temp_string);
+//--- double value output with 2 digits after the decimal point
+   double margin_maintenance=SymbolInfoDouble(_Symbol,SYMBOL_MARGIN_MAINTENANCE);
+   temp_string=StringFormat(&quot;   SYMBOL_MARGIN_MAINTENANCE = %.2f (maintenance margin)\</p>
+<p></code></pre>
+<p>
+<h3>Funções de Conversão</h3>
+© 2000-2025, MetaQuotes Ltd.
+1763
+</p>
+<pre><code class="language-mql5">
+                            margin_maintenance);
+   StringAdd(output_string,temp_string);
+//--- int value output
+   int freeze_level=(int)SymbolInfoInteger(_Symbol,SYMBOL_TRADE_FREEZE_LEVEL);
+   temp_string=StringFormat(&quot;   SYMBOL_TRADE_FREEZE_LEVEL = %d (order freeze level in 
+                            freeze_level);
+   StringAdd(output_string,temp_string);
+   Print(output_string);
+   Comment(output_string);
+/* execution result
+   Contract specification for EURUSD:
+     SYMBOL_DIGITS = 5 (number of digits after the decimal point)
+     SYMBOL_POINT = 0.00001 (point value)
+     SYMBOL_SPREAD = 10 (current spread in points)
+     SYMBOL_TRADE_STOPS_LEVEL = 18 (minimal indention in points for Stop orders)
+     SYMBOL_TRADE_CONTRACT_SIZE = 100000 (contract size)
+     SYMBOL_TRADE_TICK_SIZE = 0.000010 (minimal price change)
+     SYMBOL_SWAP_MODE = SYMBOL_SWAP_MODE_POINTS (in points)
+     SYMBOL_SWAP_LONG = -0.700000 (buy order swap value)
+     SYMBOL_SWAP_SHORT = -1.000000 (sell order swap value)
+     SYMBOL_TRADE_MODE = SYMBOL_TRADE_MODE_FULL (no trade restrictions)
+     SYMBOL_VOLUME_MIN = 0.01 (minimal volume for a deal)
+     SYMBOL_VOLUME_STEP = 0.01 (minimal volume change step)
+     SYMBOL_VOLUME_MAX = 500 (maximal volume for a deal)
+     SYMBOL_TRADE_CALC_MODE = SYMBOL_CALC_MODE_FOREX (Forex)
+     SYMBOL_MARGIN_INITIAL = 0.00 (initial margin)
+     SYMBOL_MARGIN_MAINTENANCE = 0.00 (maintenance margin)
+     SYMBOL_TRADE_FREEZE_LEVEL = 0 (order freeze level in points)
+</code></pre>
+<p>
+*/
+  }
+<h3>Também Veja</h3>
+<h3>PrintFormat, DoubleToString,ColorToString, TimeToString</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

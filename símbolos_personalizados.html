@@ -1,0 +1,3988 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Símbolos personalizados - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class="active"><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Símbolos personalizados</h1>
+        </header>
+        
+        <article>
+            <p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2140
+<h3>Símbolos personalizados</h3>
+Funções para criar e editar as propriedades dos símbolos personalizados.
+Ao conectar o terminal a um determinado servidor de negociação, o usuário pode trabalhar com os
+TimeSeries dos instrumentos financeiros que fornece a corretora. A lista de símbolos - mostrada na
+janela da Observação do mercado - exibe os instrumentos financeiros disponíveis, e um grupo
+separado de funções permite obter informações sobre as propriedades do símbolo, sessões de
+negociação e atualizações do livro de ofertas.
+O grupo de funções nesta seção permite criar seus próprios símbolos personalizados. Para fazer isso, é
+possível criar os símbolos existentes do servidor de negociação, arquivos de texto ou históricos de
+dados externos.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>CustomSymbolCreate</h3>
+Cria um símbolo personalizado com o nome especificado no
+grupo definido
+<h3>CustomSymbolDelete</h3>
+Remove o símbolo personalizado com o nome especificado
+<h3>CustomSymbolSetInteger</h3>
+Define o valor do tipo inteiro para o símbolo personalizado
+<h3>CustomSymbolSetDouble</h3>
+Define o valor do tipo real para o símbolo personalizado
+<h3>CustomSymbolSetString</h3>
+Define o valor do tipo cadeia de caracteres para o símbolo
+personalizado
+<h3>CustomSymbolSetMarginRate</h3>
+Define o coeficiente de cobrança da margem - dependendo do
+tipo e direção da ordem - para o símbolo personalizado
+<h3>CustomSymbolSetSessionQuote</h3>
+Define a hora de início e fim da sessão de cotação especificada
+para o símbolo especificado e dia da semana
+<h3>CustomSymbolSetSessionTrade</h3>
+Define a hora de início e fim da sessão de negociação
+especificada para o símbolo especificado e dia da semana
+<h3>CustomRatesDelete</h3>
+Exclui todas as barras no histórico de preço do instrumento
+personalizado, no intervalo de tempo selecionado
+<h3>CustomRatesReplace</h3>
+<h3>Substitui</h3>
+todo 
+o 
+histórico 
+de 
+preço 
+do 
+instrumento
+personalizado pelos dados na matriz do tipo MqlRates, no
+intervalo de tempo definido
+<h3>CustomRatesUpdate</h3>
+Adiciona ao histórico do instrumento personalizado as barras
+que faltam e substitui os dados existentes na matriz do tipo
+<h3>MqlRates</h3>
+<h3>CustomTicksAdd</h3>
+Adds data from an array of the MqlTick type to the price
+history of a custom symbol. The custom symbol must be
+selected in the Market Watch window. 
+<h3>CustomTicksDelete</h3>
+Exclui todos os ticks no histórico de preço do instrumento
+personalizado, no intervalo de tempo selecionado</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2141
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>CustomTicksReplace</h3>
+<h3>Substitui</h3>
+todo 
+o 
+histórico 
+de 
+preço 
+do 
+instrumento
+personalizado pelos dados na matriz do tipo MqlTick, no
+intervalo de tempo definido
+<h3>CustomBookAdd</h3>
+Envia o estado do livro de ofertas 
+do 
+instrumento
+personalizado</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2142
+<h3>CustomSymbolCreate</h3>
+Cria um símbolo personalizado com o nome especificado no grupo definido.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolCreate(
+   const string     symbol_name,         // nome do símbolo personalizado
+   const string     symbol_path=&quot;&quot;,      // nome do grupo em que será criado o símbolo
+   const string     symbol_origin=NULL   // nome do símbolo com base no qual será cria
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado. Ele não deve conter grupos ou sub-grupos em que se
+encontre o símbolo.
+symbol_path=&quot;&quot;
+[in]  Nome do grupo em que é criado o símbolo.
+symbol_origin=NULL
+[in]  Nome do símbolo a partir do qual serão copiadas as propriedades do símbolo personalizado
+gerado. Depois de criar um símbolo personalizado, você pode alterar qualquer propriedade para o
+valor desejado com as funções correspondentes.
+<h3>Valor retornado</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+Todos os símbolos personalizados são gerados na seção especial Custom. Se o nome de grupo não
+</p>
+<pre><code class="language-mql5">
+for especificado (o parâmetro symbol_path na função CustomSymbolCreate contém uma string vazia
+</code></pre>
+<p>
+ou NULL), o símbolo personalizado será criado na raiz da seção Custom. Aqui você pode fazer uma
+analogia com o sistema de arquivos, onde grupos e subgrupos podem ser vistos como pastas e
+subpastas
+O nome do símbolo e descrição do grupo são definidos apenas por caracteres latinos sem pontuação,
+espaços e caracteres especiais (são permitidos &quot;.&quot;, &quot;_&quot;, &quot;&amp;&quot; e &quot;#&quot;). Não é recomendado usar - nos
+nomes dos símbolos - os caracteres &lt;, &gt;, :, &quot;, /, |, ?, *.
+O nome do símbolo personalizado deve ser único, independentemente do nome do grupo em que ele
+é criado. Se já existir um símbolo com o mesmo nome, a função CustomSymbolCreate() retornará
+false, 
+enquanto 
+a 
+chamada 
+subsequente 
+de 
+<h3>GetLastError()</h3>
+gerará 
+o 
+erro 
+5300
+(ERR_NOT_CUSTOM_SYMBOL) ou 5304 (ERR_CUSTOM_SYMBOL_EXIST). 
+O nome do símbolo não deve exceder 31 caracteres, caso contrário, CustomSymbolCreate()
+retornará false e será gerado o ero 5302 – ERR_CUSTOM_SYMBOL_NAME_LONG.
+Parâmetro symbol_path pode ser definido de duas maneiras:
+· apenas o nome do grupo sem o nome do símbolo personalizado, por exemplo – &quot;CFD\\Metals&quot;. É
+melhor usar essa opção para evitar erros.
+· ou nome de &lt;grupo&gt; + separador de grupo &quot;\\&quot;+&lt;nome de símbolo personalizado&gt;, por exemplo –
+&quot;CFD\\Metals\\Platinum&quot;. Nesse caso, o nome do grupo deve terminar com o nome exato do</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2143
+símbolo personalizado. Mesmo em caso de incompatibilidade, o símbolo personalizado será criado,
+mas não no grupo pretendido. Por exemplo, se symbol_path=&quot;CFD\\Metals\\Platinum&quot;
+e symbol_name=&quot;platinum&quot; (erro no registro), será criado o símbolo personalizado com o nome
+&quot;platinum&quot; 
+no 
+grupo 
+&quot;Custom\CFD\Metals\Platinum&quot;. 
+<h3>Nesse</h3>
+caso, 
+a 
+função
+<h3>SymbolInfoGetString(&quot;platinum&quot;,SYMBOL_PATH)</h3>
+retornará 
+o 
+valor
+&quot;Custom\CFD\Metals\Platinum\platinum&quot;. 
+Deve-se ter em mente que a propriedade SYMBOL_PATH retorna o caminho com o nome do símbolo
+no final. Portanto, você não pode simplesmente copiá-lo sem alterações, se quiser criar um símbolo
+personalizado exatamente no mesmo grupo. Nesse caso, é necessário cortar o nome do símbolo para
+não obter o resultado descrito acima. 
+Se como parâmetro symbol_origin for especificado um símbolo inexistente, o símbolo personalizado
+será criado vazio, como se o parâmetro symbol_origin não tivesse sido especificado. Nesse caso,
+será gerado o erro 4301 – ERR_MARKET_UNKNOWN_SYMBOL.
+O comprimento do parâmetro symbol_path não deve exceder 127 caracteres considerando &quot;Custom\
+\&quot;, separador de grupo &quot;\\&quot; e nome do símbolo se for indicado no final.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           CustomSymbolCreate.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- se não for possível criar o símbolo personalizado, informamos no log
+   if(!CustomSymbolCreate(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL_ORIGIN
+     {
+      Print(&quot;CustomSymbolCreate() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- verificamos a existência do símbolo criado e obtemos o grupo onde ele foi criado
+   bool   custom= false;
+   bool   exist = SymbolExist(CUSTOM_SYMBOL_NAME, custom);</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2144
+</p>
+<pre><code class="language-mql5">
+   string path  = SymbolInfoString(CUSTOM_SYMBOL_NAME, SYMBOL_PATH);
+//--- imprimimos no log o resultado da criação do símbolo e o nome do grupo, definido 
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; created\n&quot;+
+               &quot;Symbol &#x27;%s&#x27; is exist: %s\n&quot;+
+               &quot;Symbol &#x27;%s&#x27; is custom: %s\n&quot;+
+               &quot;Path specified in the settings: &#x27;%s&#x27;\n&quot;+
+               &quot;Path returned from the &#x27;SYMBOL_PATH&#x27; property: &#x27;%s&#x27;&quot;,
+               CUSTOM_SYMBOL_NAME, 
+               CUSTOM_SYMBOL_NAME, (string)exist, 
+               CUSTOM_SYMBOL_NAME, (string)custom,
+               CUSTOM_SYMBOL_PATH,
+               path);
+//--- aguardamos dois segundos e excluímos o símbolo criado com uma mensagem sobre o r
+   Sleep(2000);
+   ResetLastError();
+   bool deleted = CustomSymbolDelete(CUSTOM_SYMBOL_NAME);
+   Print(deleted ? StringFormat(&quot;Custom symbol &#x27;%s&#x27; removed&quot;, CUSTOM_SYMBOL_NAME) : St
+   /*
+   resultado:
+   Custom symbol &#x27;EURUSD.C&#x27; created
+   Symbol &#x27;EURUSD.C&#x27; is exist: true
+   Symbol &#x27;EURUSD.C&#x27; is custom: true
+   Path specified in the settings: &#x27;Forex&#x27;
+   Path returned from the &#x27;SYMBOL_PATH&#x27; property: &#x27;Custom\Forex\EURUSD.C&#x27;
+   Custom symbol &#x27;EURUSD.C&#x27; removed
+   */
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SymbolName, SymbolSelect, CustomSymbolDelete</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2145
+<h3>CustomSymbolDelete</h3>
+Remove o símbolo personalizado com o nome especificado.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolDelete(
+   const string     symbol_name          // nome do símbolo personalizado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do símbolo personalizado. Não deve corresponder ao nome do símbolo existente.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+O símbolo personalizado que aparece na observação do mercado (Market Watch) ou que abre o
+gráfico não pode ser excluído.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           CustomSymbolDelete.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- se não for possível criar o símbolo personalizado, informamos no log
+   if(!CustomSymbolCreate(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL_ORIGIN
+     {
+      Print(&quot;CustomSymbolCreate() failed. Error &quot;, GetLastError());
+      return;
+     }</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2146
+</p>
+<pre><code class="language-mql5">
+//--- verificamos a existência do símbolo criado e imprimimos no log o resultado
+   bool custom= false;
+   bool exist = SymbolExist(CUSTOM_SYMBOL_NAME, custom);
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; exists: %s&quot;, CUSTOM_SYMBOL_NAME, (string)exist);
+   
+//--- aguardamos dois segundos e excluímos o símbolo criado com uma mensagem sobre o r
+   Sleep(2000);
+   ResetLastError();
+   bool deleted = CustomSymbolDelete(CUSTOM_SYMBOL_NAME);
+   Print(deleted ? StringFormat(&quot;Custom symbol &#x27;%s&#x27; removed&quot;, CUSTOM_SYMBOL_NAME) : St
+//--- verificamos a existência do símbolo criado e imprimimos no log o resultado
+   exist = SymbolExist(CUSTOM_SYMBOL_NAME, custom);
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; exists: %s&quot;, CUSTOM_SYMBOL_NAME, (string)exist);
+   /*
+   resultado:
+   Custom symbol &#x27;EURUSD.C&#x27; exists: true
+   Custom symbol &#x27;EURUSD.C&#x27; removed
+   Custom symbol &#x27;EURUSD.C&#x27; exists: false
+   */
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SymbolName, SymbolSelect, CustomSymbolCreate</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2147
+<h3>CustomSymbolSetInteger</h3>
+Define o valor do tipo inteiro para o símbolo personalizado.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolSetInteger(
+   const string              symbol_name,      // nome do símbolo
+   ENUM_SYMBOL_INFO_INTEGER  property_id,      // identificador de propriedade
+   long                      property_value    // valor de propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado.
+property_id
+[in]  Identificador da propriedade do símbolo. O valor pode ser um dos valores da enumeração
+ENUM_SYMBOL_INFO_INTEGER.
+property_value
+[in]  Variável de tipo long contendo o valor da propriedade.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+Histórico de minuto e de ticks do símbolo personalizado é completamente removido, se, na
+especificação do símbolo, for alterada qualquer uma destas propriedades:
+· SYMBOL_CHART_MODE – tipo de preço usado para plotagem de barras (Bid ou Last)
+· SYMBOL_DIGITS – número de casas decimais para exibição do preço
+Após a remoção do histórico personalizado, o terminal tentará criar um novo histórico usando as
+propriedades atualizadas. A mesma coisa acontece quando você altera manualmente as
+propriedades do símbolo personalizado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                       CustomSymbolSetInteger.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2148
+</p>
+<pre><code class="language-mql5">
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+      
+//--- obtemos e imprimimos no log as propriedades do símbolo, com base no qual o símbo
+//--- (modo de realização de transações, nível de colocação de ordens Stop e distância
+   ENUM_SYMBOL_TRADE_EXECUTION origin_exe_mode = (ENUM_SYMBOL_TRADE_EXECUTION)SymbolIn
+   int origin_stops_level = (int)SymbolInfoInteger(CUSTOM_SYMBOL_ORIGIN, SYMBOL_TRADE_
+   int origin_freeze_level= (int)SymbolInfoInteger(CUSTOM_SYMBOL_ORIGIN, SYMBOL_TRADE_
+   
+   PrintFormat(&quot;The &#x27;%s&#x27; symbol from which the custom &#x27;%s&#x27; was created:\n&quot;+
+               &quot;  Deal execution mode: %s\n  Stops Level: %d\n  Freeze Level: %d&quot;,
+               CUSTOM_SYMBOL_ORIGIN, CUSTOM_SYMBOL_NAME,
+               StringSubstr(EnumToString(origin_exe_mode), 23), origin_stops_level, or
+   
+//--- definimos outros valores para essas propriedades do símbolo personalizado
+   ResetLastError();
+   bool res=true;
+   res &amp;=CustomSymbolSetInteger(CUSTOM_SYMBOL_NAME, SYMBOL_TRADE_EXEMODE, SYMBOL_TRADE
+   res &amp;=CustomSymbolSetInteger(CUSTOM_SYMBOL_NAME, SYMBOL_TRADE_STOPS_LEVEL, 10);
+   res &amp;=CustomSymbolSetInteger(CUSTOM_SYMBOL_NAME, SYMBOL_TRADE_FREEZE_LEVEL, 3);
+//--- se houver erro ao definir qualquer uma das propriedades, informamos no log
+   if(!res)
+      Print(&quot;CustomSymbolSetInteger() failed. Error &quot;, GetLastError());
+   
+//--- obtemos e imprimimos no log as propriedades alteradas do símbolo personalizado
+//--- (modo de realização de transações, nível de colocação de ordens Stop e distância
+   ENUM_SYMBOL_TRADE_EXECUTION custom_exe_mode = (ENUM_SYMBOL_TRADE_EXECUTION)SymbolIn
+   int custom_stops_level = (int)SymbolInfoInteger(CUSTOM_SYMBOL_NAME, SYMBOL_TRADE_ST
+   int custom_freeze_level= (int)SymbolInfoInteger(CUSTOM_SYMBOL_NAME, SYMBOL_TRADE_FR
+   
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; based on &#x27;%s&#x27;:\n&quot;+
+               &quot;  Deal execution mode: %s\n  Stops Level: %d\n  Freeze Level: %d&quot;,
+               CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_ORIGIN, 
+               StringSubstr(EnumToString(custom_exe_mode), 23), custom_stops_level, cu
+   
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2149
+</p>
+<pre><code class="language-mql5">
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   The &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created:
+     Deal execution mode: INSTANT
+     Stops Level: 0
+     Freeze Level: 0
+   Custom symbol &#x27;EURUSD.C&#x27; based on &#x27;EURUSD&#x27;:
+     Deal execution mode: MARKET
+     Stops Level: 10
+     Freeze Level: 3
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2150
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SymbolInfoInteger</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2151
+<h3>CustomSymbolSetDouble</h3>
+Define o valor do tipo real para o símbolo personalizado.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolSetDouble(
+   const string              symbol_name,      // nome do símbolo
+   ENUM_SYMBOL_INFO_DOUBLE   property_id,      // identificador de propriedade
+   double                    property_value    // valor da propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado.
+property_id
+[in]  Identificador da propriedade do símbolo. O valor pode ser um dos valores da enumeração
+ENUM_SYMBOL_INFO_DOUBLE.
+property_value
+[in]  Variável de tipo double contendo o valor da propriedade.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+Histórico de minuto e de ticks do símbolo personalizado é completamente removido, se, na
+especificação do símbolo, for alterada qualquer uma destas propriedades:
+· SYMBOL_POINT – valor de um ponto
+· SYMBOL_TRADE_TICK_SIZE – valor do tick que define o variação mínima permitida no preço
+· SYMBOL_TRADE_TICK_VALUE – custo quado o preço varia um tick para posição lucrativa
+Após a remoção do histórico personalizado, o terminal tentará criar um novo histórico usando as
+propriedades atualizadas. A mesma coisa acontece quando você altera manualmente as
+propriedades do símbolo personalizado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                        CustomSymbolSetDouble.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2152
+</p>
+<pre><code class="language-mql5">
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+      
+//--- obtemos e imprimimos no log as propriedades do símbolo, com base no qual o símbo
+//--- (volume mínimo, volume máximo, passo mínimo de mudança de volume para a realizaç
+   double origin_vol_min = SymbolInfoDouble(CUSTOM_SYMBOL_ORIGIN, SYMBOL_VOLUME_MIN);
+   double origin_vol_max = SymbolInfoDouble(CUSTOM_SYMBOL_ORIGIN, SYMBOL_VOLUME_MAX);
+   double origin_vol_step= SymbolInfoDouble(CUSTOM_SYMBOL_ORIGIN, SYMBOL_VOLUME_STEP);
+   
+   PrintFormat(&quot;The &#x27;%s&#x27; symbol from which the custom &#x27;%s&#x27; was created:\n&quot;+
+               &quot;  Volume Min: %.2f\n  Volume Max: %.2f\n  Volume Step: %.2f&quot;,
+               CUSTOM_SYMBOL_ORIGIN, CUSTOM_SYMBOL_NAME,
+               origin_vol_min, origin_vol_max, origin_vol_step);
+   
+//--- definimos outros valores para essas propriedades do símbolo personalizado
+   ResetLastError();
+   bool res=true;
+   res &amp;=CustomSymbolSetDouble(CUSTOM_SYMBOL_NAME, SYMBOL_VOLUME_MIN, 0.1);
+   res &amp;=CustomSymbolSetDouble(CUSTOM_SYMBOL_NAME, SYMBOL_VOLUME_MAX, 1000);
+   res &amp;=CustomSymbolSetDouble(CUSTOM_SYMBOL_NAME, SYMBOL_VOLUME_STEP, 0.1);
+//--- se houver erro ao definir qualquer uma das propriedades, informamos no log
+   if(!res)
+      Print(&quot;CustomSymbolSetDouble() failed. Error &quot;, GetLastError());
+   
+//--- obtemos e imprimimos no log as propriedades alteradas do símbolo personalizado
+//--- (volume mínimo, volume máximo, passo mínimo de mudança de volume para a realizaç
+   double custom_vol_min = SymbolInfoDouble(CUSTOM_SYMBOL_NAME, SYMBOL_VOLUME_MIN);
+   double custom_vol_max = SymbolInfoDouble(CUSTOM_SYMBOL_NAME, SYMBOL_VOLUME_MAX);
+   double custom_vol_step= SymbolInfoDouble(CUSTOM_SYMBOL_NAME, SYMBOL_VOLUME_STEP);
+   
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; based on &#x27;%s&#x27;:\n&quot;+
+               &quot;  Volume Min: %.2f\n  Volume Max: %.2f\n  Volume Step: %.2f&quot;,
+               CUSTOM_SYMBOL_ORIGIN, CUSTOM_SYMBOL_NAME,
+               custom_vol_min, custom_vol_max, custom_vol_step);
+   
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2153
+</p>
+<pre><code class="language-mql5">
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   The &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created:
+     Volume Min: 0.01
+     Volume Max: 500.00
+     Volume Step: 0.01
+   Custom symbol &#x27;EURUSD&#x27; based on &#x27;EURUSD.C&#x27;:
+     Volume Min: 0.10
+     Volume Max: 1000.00
+     Volume Step: 0.10
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2154
+</p>
+<pre><code class="language-mql5">
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SymbolInfoDouble</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2155
+<h3>CustomSymbolSetString</h3>
+Define o valor do tipo cadeia de caracteres para o símbolo personalizado.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolSetString(
+   const string              symbol_name,      // nome do símbolo
+   ENUM_SYMBOL_INFO_STRING   property_id,      // identificador de propriedade
+   string                    property_value    // valor de propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado.
+property_id
+[in]  Identificador da propriedade do símbolo. O valor pode ser um dos valores da enumeração
+ENUM_SYMBOL_INFO_STRING.
+property_value
+[in]  Variável de tipo string contendo o valor da propriedade.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+Histórico de minuto e de ticks do símbolo personalizado é completamente removido, se, na
+especificação do símbolo, for alterada a propriedade SYMBOL_FORMULA, ela define a fórmula para
+plotagem do preço do símbolo personalizado. Após a remoção do histórico personalizado, o terminal
+tentará criar um novo histórico com base na nova fórmula. A mesma coisa acontece quando você
+altera manualmente a fórmula do símbolo personalizado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                        CustomSymbolSetString.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2156
+</p>
+<pre><code class="language-mql5">
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+      
+//--- obtemos e imprimimos no log as propriedades do símbolo, com base no qual o símbo
+//--- (volume mínimo, volume máximo, passo mínimo de mudança de volume para a realizaç
+   string origin_basis    = SymbolInfoString(CUSTOM_SYMBOL_ORIGIN, SYMBOL_BASIS);
+   string origin_category = SymbolInfoString(CUSTOM_SYMBOL_ORIGIN, SYMBOL_CATEGORY);
+   string origin_formula  = SymbolInfoString(CUSTOM_SYMBOL_ORIGIN, SYMBOL_FORMULA);
+   
+   PrintFormat(&quot;The &#x27;%s&#x27; symbol from which the custom &#x27;%s&#x27; was created:\n&quot;+
+               &quot;  Basis: %s\n  Category: %s\n  Formula: %s&quot;,
+               CUSTOM_SYMBOL_ORIGIN, CUSTOM_SYMBOL_NAME,
+               origin_basis, origin_category, origin_formula);
+   
+//--- definimos outros valores para essas propriedades do símbolo personalizado
+   ResetLastError();
+   bool res=true;
+   res &amp;=CustomSymbolSetString(CUSTOM_SYMBOL_NAME, SYMBOL_BASIS, CUSTOM_SYMBOL_ORIGIN)
+   res &amp;=CustomSymbolSetString(CUSTOM_SYMBOL_NAME, SYMBOL_CATEGORY, &quot;FX&quot;);
+   res &amp;=CustomSymbolSetString(CUSTOM_SYMBOL_NAME, SYMBOL_FORMULA, (&quot;1.0 / &quot;+CUSTOM_SY
+//--- se houver erro ao definir qualquer uma das propriedades, informamos no log
+   if(!res)
+      Print(&quot;CustomSymbolSetString() failed. Error &quot;, GetLastError());
+   
+//--- obtemos e imprimimos no log as propriedades alteradas do símbolo personalizado
+//--- (volume mínimo, volume máximo, passo mínimo de mudança de volume para a realizaç
+   string custom_basis    = SymbolInfoString(CUSTOM_SYMBOL_NAME, SYMBOL_BASIS);
+   string custom_category = SymbolInfoString(CUSTOM_SYMBOL_NAME, SYMBOL_CATEGORY);
+   string custom_formula  = SymbolInfoString(CUSTOM_SYMBOL_NAME, SYMBOL_FORMULA);
+   
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; based on &#x27;%s&#x27;:\n&quot;+
+               &quot;  Basis: %s\n  Category: %s\n  Formula: %s&quot;,
+               CUSTOM_SYMBOL_ORIGIN, CUSTOM_SYMBOL_NAME,
+               custom_basis, custom_category, custom_formula);
+   
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2157
+</p>
+<pre><code class="language-mql5">
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   The &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created:
+     Basis: 
+     Category: 
+     Formula: 
+   Custom symbol &#x27;EURUSD&#x27; based on &#x27;EURUSD.C&#x27;:
+     Basis: EURUSD
+     Category: FX
+     Formula: 1.0 / EURUSD
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2158
+</p>
+<pre><code class="language-mql5">
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>SymbolInfoString</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2159
+<h3>CustomSymbolSetMarginRate</h3>
+Define o coeficiente de cobrança da margem - dependendo do tipo e direção da ordem - para o símbolo
+personalizado.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolSetMarginRate(
+   const string       symbol_name,              // nome do símbolo
+   ENUM_ORDER_TYPE    order_type,               // tipo de ordem
+   double             initial_margin_rate,      // coeficiente de cobrança da margem i
+   double             maintenance_margin_rate   // coeficiente de cobrança da margem d
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado.
+order_type
+[in]  Tipo de ordem.
+initial_margin_rate
+[in] Variável de tipo double com o valor de coeficiente de cobrança da margem inicial. A margem
+inicial é o tamanho da soma de garantia (margem) das transações concluídas com volume de um
+lote para a direção correspondente. Ao multiplicar o coeficiente pela margem inicial, nós podemos
+obter o montante que será reservado na conta ao colocar a ordem do tipo especificado.
+maintenance_margin_rate
+[in] Variável do tipo double com o valor de coeficiente de cobrança da margem de manutenção. A
+margem de manutenção é a quantidade mínima para manter uma posição aberta com volume de
+um lote para a direção correspondente. Ao multiplicar o coeficiente pela margem de manutenção,
+nós podemos obter o montante que será reservado na conta após a ativação da ordem do tipo
+especificado.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                    CustomSymbolSetMarginRate.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2160
+</p>
+<pre><code class="language-mql5">
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   INITIAL_MARGIN_RATE       1.5         // coeficiente de cobrança da margem i
+#define   MAINTENANCE_MARGIN_RATE   1.5         // coeficiente de cobrança da margem d
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+      
+//--- obtemos e imprimimos no log as propriedades do símbolo, com base no qual o símbo
+//--- (coeficientes de cobrança da margem inicial e de manutenção para ordens Buy e Se
+   double initial_margin_rate_buy=0;
+   double maintenance_margin_rate_buy=0;
+   double initial_margin_rate_sell=0;
+   double maintenance_margin_rate_sell=0;
+   
+   if(!GetSymbolMarginRate(CUSTOM_SYMBOL_ORIGIN, ORDER_TYPE_BUY, initial_margin_rate_b
+      return;
+   if(!GetSymbolMarginRate(CUSTOM_SYMBOL_ORIGIN, ORDER_TYPE_SELL,initial_margin_rate_s
+      return;
+   
+   PrintFormat(&quot;The &#x27;%s&#x27; symbol from which the custom &#x27;%s&#x27; was created:\n&quot;+
+               &quot;  Buy order initial margin rate: %f\n  Buy order maintenance margin ra
+               &quot;  Sell order initial margin rate: %f\n  Sell order maintenance margin 
+               CUSTOM_SYMBOL_ORIGIN, CUSTOM_SYMBOL_NAME,
+               initial_margin_rate_buy, maintenance_margin_rate_buy, initial_margin_ra
+   
+//--- definimos outros valores para essas propriedades do símbolo personalizado
+   ResetLastError();
+   bool res=true;
+   res &amp;=CustomSymbolSetMarginRate(CUSTOM_SYMBOL_NAME, ORDER_TYPE_BUY, INITIAL_MARGIN_
+   res &amp;=CustomSymbolSetMarginRate(CUSTOM_SYMBOL_NAME, ORDER_TYPE_SELL,INITIAL_MARGIN_
+//--- se houver erro ao definir qualquer uma das propriedades, informamos no log
+   if(!res)
+      Print(&quot;CustomSymbolSetMarginRate() failed. Error &quot;, GetLastError());
+   
+//--- obtemos e imprimimos no log as propriedades alteradas do símbolo personalizado
+//--- (coeficientes de cobrança da margem inicial e de manutenção para ordens Buy e Se
+   if(!GetSymbolMarginRate(CUSTOM_SYMBOL_NAME, ORDER_TYPE_BUY, initial_margin_rate_buy</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2161
+</p>
+<pre><code class="language-mql5">
+      return;
+   if(!GetSymbolMarginRate(CUSTOM_SYMBOL_NAME, ORDER_TYPE_SELL,initial_margin_rate_sel
+      return;
+   
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; based on &#x27;%s&#x27;:\n&quot;+
+               &quot;  Buy order initial margin rate: %f\n  Buy order maintenance margin ra
+               &quot;  Sell order initial margin rate: %f\n  Sell order maintenance margin 
+               CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_ORIGIN, 
+               initial_margin_rate_buy, maintenance_margin_rate_buy, initial_margin_ra
+   
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   The &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created:
+     Buy order initial margin rate: 1.000000
+     Buy order maintenance margin rate: 0.000000
+     Sell order initial margin rate: 1.000000
+     Sell order maintenance margin rate: 0.000000
+   Custom symbol &#x27;EURUSD.C&#x27; based on &#x27;EURUSD&#x27;:
+     Buy order initial margin rate: 1.500000
+     Buy order maintenance margin rate: 1.500000
+     Sell order initial margin rate: 1.500000
+     Sell order maintenance margin rate: 1.500000
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   </p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2162
+</p>
+<pre><code class="language-mql5">
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna os coeficientes de cobrança da margem                    |
+//+------------------------------------------------------------------+
+bool GetSymbolMarginRate(const string symbol, const ENUM_ORDER_TYPE order_type, double
+  {
+   ResetLastError();
+   if(!SymbolInfoMarginRate(symbol, order_type, initial_margin_rate, maintenance_margi
+     {
+      PrintFormat(&quot;%s: SymbolInfoMarginRate(%s, %s) failed. Error %d&quot;,__FUNCTION__, sy
+      return false;
+     }
+   return true;
+</code></pre>
+<p>
+  }</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2163
+<h3>Veja também</h3>
+<h3>SymbolInfoMarginRate</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2164
+<h3>CustomSymbolSetSessionQuote</h3>
+Define a hora de início e fim da sessão de cotação especificada para o símbolo especificado e dia da
+semana.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolSetSessionQuote(
+   const string      symbol_name,         // nome do símbolo
+   ENUM_DAY_OF_WEEK  day_of_week,         // dia da semana
+   uint              session_index,       // número de sessão
+   datetime          from,                // hora de início da sessão
+   datetime          to                   // hora de fim da sessão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado.
+<h3>ENUM_DAY_OF_WEEK</h3>
+[in]  Dia da semana toma um valor da enumeração ENUM_DAY_OF_WEEK.
+uint
+[in] Número de ordem da sessão para a qual é necessário definir a hora de início e fim. Indexação
+de sessões começa por 0.
+from
+[in]  Hora de início de sessão em segundos - a partir de 00:00 -, o valor da data será ignorado na
+variável.
+to
+[in]  Hora de fim de sessão em segundos - a partir de 00:00 -, o valor da data será ignorado na
+variável.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+Se a sessão com o session_index definido já existir, a função simplesmente editará o início e fim da
+sessão.
+Se transferidos parâmetros nulos de início e fim para a sessão, isto é, especificados from=0 e to=0,
+a sessão correspondente com índice session_index será removida, enquanto a numeração das
+sessões será deslocada para baixo.
+É possível adicionar sessões só sequencialmente, isto é, a sessão com índice session_index=1 pode
+ser adicionada apenas se já existir uma sessão com um índice igual a 0. Ao violar esta regra, não é
+criada uma nova sessão, e a função retornará false.
+<h3>Exemplo:</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2165
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                  CustomSymbolSetSessionQuote.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   SESSION_0_FROM         D&#x27;1970.01.01 00:15:00&#x27;  // hora de início da sessão 0
+#define   SESSION_0_TO           D&#x27;1970.01.01 11:59:00&#x27;  // hora de término da sessão 
+#define   SESSION_1_FROM         D&#x27;1970.01.01 12:15:00&#x27;  // hora de início da sessão 1
+#define   SESSION_1_TO           D&#x27;1970.01.01 23:59:00&#x27;  // hora de término da sessão 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+    
+//--- imprimimos o cabeçalho com o símbolo base e o índice da sessão e
+//--- no loop pelos dias da semana de SEG a SEX, imprimimos no log a hora de início e 
+   for(int session=0; session&lt;2; session++)
+     {
+      PrintFormat(&quot;Quote session %d of &#x27;%s&#x27; symbol from which the custom &#x27;%s&#x27; was crea
+      for(int day_of_week=MONDAY; day_of_week&lt;SATURDAY; day_of_week++) 
+         SymbolInfoSessionQuotePrint(CUSTOM_SYMBOL_ORIGIN, (ENUM_DAY_OF_WEEK)day_of_we
+     }
+     
+//--- no loop por duas sessões
+   bool res=true;
+   for(int session=0; session&lt;2; session++)
+     {
+      datetime from = SESSION_0_FROM;
+      datetime to   = SESSION_0_TO;
+      if(session&gt;0)
+        {
+         from = SESSION_1_FROM;
+         to   = SESSION_1_TO;</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2166
+</p>
+<pre><code class="language-mql5">
+        }
+      //--- para o símbolo personalizado, definimos o horário das sessões de cotação p
+      ResetLastError();
+      for(int day_of_week=MONDAY; day_of_week&lt;SATURDAY; day_of_week++)
+         res &amp;=CustomSymbolSetSessionQuote(CUSTOM_SYMBOL_NAME, (ENUM_DAY_OF_WEEK)day_o
+     }
+//--- se houver erro ao definir qualquer uma das sessões, informamos no log
+   if(!res)
+      Print(&quot;CustomSymbolSetSessionQuote() failed. Error &quot;, GetLastError());
+   
+//--- imprimimos o cabeçalho com o símbolo personalizado e o índice da sessão e
+//--- no loop pelos dias da semana de SEG a SEX, imprimimos no log a hora de início e 
+   for(int session=0; session&lt;2; session++)
+     {
+      PrintFormat(&quot;Quote session %d of custom symbol &#x27;%s&#x27; based on &#x27;%s&#x27;&quot;, session, CUS
+      for(int day_of_week=MONDAY; day_of_week&lt;SATURDAY; day_of_week++) 
+         SymbolInfoSessionQuotePrint(CUSTOM_SYMBOL_NAME, (ENUM_DAY_OF_WEEK)day_of_week
+     }
+     
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Quote session 0 of &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created
+   - Monday     00:15 - 23:55
+   - Tuesday    00:15 - 23:55
+   - Wednesday  00:15 - 23:55
+   - Thursday   00:15 - 23:55
+   - Friday     00:15 - 23:55
+   Quote session 1 of &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created
+   - Monday     Session not set
+   - Tuesday    Session not set
+   - Wednesday  Session not set
+   - Thursday   Session not set</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2167
+</p>
+<pre><code class="language-mql5">
+   - Friday     Session not set
+   Quote session 0 of custom symbol &#x27;EURUSD.C&#x27; based on &#x27;EURUSD&#x27;
+   - Monday     00:15 - 11:59
+   - Tuesday    00:15 - 11:59
+   - Wednesday  00:15 - 11:59
+   - Thursday   00:15 - 11:59
+   - Friday     00:15 - 11:59
+   Quote session 1 of custom symbol &#x27;EURUSD.C&#x27; based on &#x27;EURUSD&#x27;
+   - Monday     12:15 - 23:59
+   - Tuesday    12:15 - 23:59
+   - Wednesday  12:15 - 23:59
+   - Thursday   12:15 - 23:59
+   - Friday     12:15 - 23:59
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2168
+</p>
+<pre><code class="language-mql5">
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprime no log o horário de início e término da sessão |
+//| de cotação para o símbolo e dia da semana especificados |
+//+------------------------------------------------------------------+ 
+void SymbolInfoSessionQuotePrint(const string symbol, const ENUM_DAY_OF_WEEK day_of_we
+  { 
+//--- declaramos variáveis para armazenar o início e término da sessão de cotação
+   datetime date_from;  // hora de início da sessão
+   datetime date_to;    // hora de término da sessão
+    
+//--- criamos o nome do dia da semana a partir da constante de enumeração
+   string week_day=EnumToString(day_of_week); 
+   if(week_day.Lower()) 
+      week_day.SetChar(0, ushort(week_day.GetChar(0)-32)); 
+  
+//--- obtemos os dados da sessão de cotação para o símbolo e dia da semana
+   if(!SymbolInfoSessionQuote(symbol, day_of_week, session_index, date_from, date_to))
+     { 
+      int err=GetLastError();
+      string message=(err==4307 ? StringFormat(&quot;- %-10s Session not set&quot;, week_day) : 
+                      StringFormat(&quot;SymbolInfoSessionQuote(%s, %s, session %d) failed.
+      Print(message); 
+      return; 
+     } 
+      
+//--- imprimimos no log os dados da sessão de cotação especificada
+   PrintFormat(&quot;- %-10s %s - %s&quot;, week_day, TimeToString(date_from, TIME_MINUTES), Tim
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+SymbolInfoSessionQuote, Informações sobre o instrumento , TimeToStruct, Estrutura de data</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2169
+<h3>CustomSymbolSetSessionTrade</h3>
+Define a hora de início e fim da sessão de negociação especificada para o símbolo especificado e dia
+da semana.
+</p>
+<pre><code class="language-mql5">
+bool  CustomSymbolSetSessionTrade(
+   constg            symbol_name,         // nome do símbolo
+   ENUM_DAY_OF_WEEK  day_of_week,         // dia da semana
+   uint              session_index,       // número de sessão
+   datetime          from,                // hora de início da sessão
+   datetime          to                   // hora de fim da sessão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol_name
+[in]  Nome do símbolo personalizado.
+<h3>ENUM_DAY_OF_WEEK</h3>
+[in]  Dia da semana toma um valor da enumeração ENUM_DAY_OF_WEEK.
+uint
+[in] Número de ordem da sessão para a qual é necessário definir a hora de início e fim. Indexação
+de sessões começa por 0.
+from
+[in]  Hora de início de sessão em segundos - a partir de 00:00 -, o valor da data será ignorado na
+variável.
+to
+[in]  Hora de fim de sessão em segundos - a partir de 00:00 -, o valor da data será ignorado na
+variável.
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Observação</h3>
+Se a sessão com o session_index definido já existir, a função simplesmente editará o início e fim da
+sessão.
+Se transferidos parâmetros nulos de início e fim para a sessão, isto é, especificados from=0 e to=0,
+a sessão correspondente com índice session_index será removida, enquanto a numeração das
+sessões será deslocada para baixo.
+É possível adicionar sessões só sequencialmente, isto é, a sessão com índice session_index=1 pode
+ser adicionada apenas se já existir uma sessão com um índice igual a 0. Ao violar esta regra, não é
+criada uma nova sessão, e a função retornará false.
+<h3>Exemplo:</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2170
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                  CustomSymbolSetSessionTrade.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   SESSION_0_FROM         D&#x27;1970.01.01 00:15:00&#x27;  // hora de início da sessão 0
+#define   SESSION_0_TO           D&#x27;1970.01.01 11:59:00&#x27;  // hora de término da sessão 
+#define   SESSION_1_FROM         D&#x27;1970.01.01 12:15:00&#x27;  // hora de início da sessão 1
+#define   SESSION_1_TO           D&#x27;1970.01.01 23:59:00&#x27;  // hora de término da sessão 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+    
+//--- imprimimos o cabeçalho com o símbolo base e o índice da sessão e
+//--- no loop pelos dias da semana de SEG a SEX, imprimimos no log a hora de início e 
+   for(int session=0; session&lt;2; session++)
+     {
+      PrintFormat(&quot;Trade session %d of the &#x27;%s&#x27; symbol from which the custom &#x27;%s&#x27; was 
+      for(int day_of_week=MONDAY; day_of_week&lt;SATURDAY; day_of_week++) 
+         SymbolInfoSessionQuotePrint(CUSTOM_SYMBOL_ORIGIN, (ENUM_DAY_OF_WEEK)day_of_we
+     }
+     
+//--- no loop por duas sessões
+   bool res=true;
+   for(int session=0; session&lt;2; session++)
+     {
+      datetime from = SESSION_0_FROM;
+      datetime to   = SESSION_0_TO;
+      if(session&gt;0)
+        {
+         from = SESSION_1_FROM;
+         to   = SESSION_1_TO;</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2171
+</p>
+<pre><code class="language-mql5">
+        }
+      //--- para o símbolo personalizado, definimos o horário das sessões de cotação p
+      ResetLastError();
+      for(int day_of_week=MONDAY; day_of_week&lt;SATURDAY; day_of_week++)
+         res &amp;=CustomSymbolSetSessionQuote(CUSTOM_SYMBOL_NAME, (ENUM_DAY_OF_WEEK)day_o
+     }
+//--- se houver erro ao definir qualquer uma das sessões, informamos no log
+   if(!res)
+      Print(&quot;CustomSymbolSetSessionTrade() failed. Error &quot;, GetLastError());
+   
+//--- imprimimos o cabeçalho com o símbolo personalizado e o índice da sessão e
+//--- no loop pelos dias da semana de SEG a SEX, imprimimos no log a hora de início e 
+   for(int session=0; session&lt;2; session++)
+     {
+      PrintFormat(&quot;Trade session %d of a custom symbol &#x27;%s&#x27; based on &#x27;%s&#x27;&quot;, session, C
+      for(int day_of_week=MONDAY; day_of_week&lt;SATURDAY; day_of_week++) 
+         SymbolInfoSessionQuotePrint(CUSTOM_SYMBOL_NAME, (ENUM_DAY_OF_WEEK)day_of_week
+     }
+     
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Trade session 0 of the &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created
+   - Monday     00:15 - 23:55
+   - Tuesday    00:15 - 23:55
+   - Wednesday  00:15 - 23:55
+   - Thursday   00:15 - 23:55
+   - Friday     00:15 - 23:55
+   Trade session 1 of the &#x27;EURUSD&#x27; symbol from which the custom &#x27;EURUSD.C&#x27; was created
+   - Monday     Session not set
+   - Tuesday    Session not set
+   - Wednesday  Session not set
+   - Thursday   Session not set</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2172
+</p>
+<pre><code class="language-mql5">
+   - Friday     Session not set
+   Trade session 0 of a custom symbol &#x27;EURUSD.C&#x27; based on &#x27;EURUSD&#x27;
+   - Monday     00:15 - 11:59
+   - Tuesday    00:15 - 11:59
+   - Wednesday  00:15 - 11:59
+   - Thursday   00:15 - 11:59
+   - Friday     00:15 - 11:59
+   Trade session 1 of a custom symbol &#x27;EURUSD.C&#x27; based on &#x27;EURUSD&#x27;
+   - Monday     12:15 - 23:59
+   - Tuesday    12:15 - 23:59
+   - Wednesday  12:15 - 23:59
+   - Thursday   12:15 - 23:59
+   - Friday     12:15 - 23:59
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2173
+</p>
+<pre><code class="language-mql5">
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Imprime no log o horário de início e término da sessão |
+//| de negociação para o símbolo e dia da semana especificados |
+//+------------------------------------------------------------------+ 
+void SymbolInfoSessionTradePrint(const string symbol, const ENUM_DAY_OF_WEEK day_of_we
+  { 
+//--- declaramos variáveis para armazenar o início e término da sessão de cotação
+   datetime date_from;  // hora de início da sessão
+   datetime date_to;    // hora de término da sessão
+    
+//--- criamos o nome do dia da semana a partir da constante de enumeração
+   string week_day=EnumToString(day_of_week); 
+   if(week_day.Lower()) 
+      week_day.SetChar(0, ushort(week_day.GetChar(0)-32)); 
+  
+//--- obtemos os dados da sessão de cotação para o símbolo e dia da semana
+   if(!SymbolInfoSessionTrade(symbol, day_of_week, session_index, date_from, date_to))
+     { 
+      int err=GetLastError();
+      string message=(err==4307 ? StringFormat(&quot;- %-10s Session not set&quot;, week_day) : 
+                      StringFormat(&quot;SymbolInfoSessionTrade(%s, %s, session %d) failed.
+      Print(message); 
+      return; 
+     } 
+      
+//--- imprimimos no log os dados da sessão de negociação especificada
+   PrintFormat(&quot;- %-10s %s - %s&quot;, week_day, TimeToString(date_from, TIME_MINUTES), Tim
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+SymbolInfoSessionTrade, Informações sobre o instrumento, TimeToStruct, Estrutura de data</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2174
+<h3>CustomRatesDelete</h3>
+Exclui todas as barras do histórico de preço do instrumento personalizado no intervalo de tempo
+selecionado.
+</p>
+<pre><code class="language-mql5">
+int  CustomRatesDelete(
+   const string     symbol,       // nome do símbolo
+   datetime         from,         // a partir de qual data
+   datetime         to            // até qual data
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento personalizado.
+from
+[in]  Tempo da primeira barra no histórico de preço dentro do intervalo a ser excluído.
+to
+[in]  Tempo da última barra no histórico de preço dentro do intervalo a ser excluído.
+<h3>Valor de retorno</h3>
+Número de barras removidas ou -1 em caso de erro.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            CustomRatesDelete.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   DATARATES_COUNT        4                 // número de barras a serem exibida
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2175
+</p>
+<pre><code class="language-mql5">
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+//--- obtemos o número de barras do símbolo padrão
+   int bars=Bars(CUSTOM_SYMBOL_ORIGIN, PERIOD_M1);
+      
+//--- obtemos os dados de todas as barras do timeframe de minutos de um símbolo padrão
+   MqlRates rates[]={};
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_ORIGIN, PERIOD_M1, 0, bars, rates)!=bars)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_OR
+      return;
+     }
+//--- definimos os dados copiados para o histórico de minutos do símbolo personalizado
+   ResetLastError();
+   if(CustomRatesUpdate(CUSTOM_SYMBOL_NAME, rates)&lt;0)
+     {
+      PrintFormat(&quot;CustomRatesUpdate(%s) failed. Error %d&quot;, CUSTOM_SYMBOL_NAME, GetLas
+      return;
+     }
+     
+//--- após atualizar os dados históricos, obtemos o número de barras do símbolo person
+   bars=Bars(CUSTOM_SYMBOL_NAME, PERIOD_M1);
+   
+//--- obtemos os dados de todas as barras do timeframe de minutos do símbolo personali
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_NAME, PERIOD_M1, 0, bars, rates)!=bars)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_NA
+      return;
+     }
+//--- imprimimos no log as últimas barras DATARATES_COUNT do histórico de minutos do s
+   int digits=(int)SymbolInfoInteger(CUSTOM_SYMBOL_NAME, SYMBOL_DIGITS);
+   PrintFormat(&quot;Last %d bars of the custom symbol&#x27;s minute history:&quot;, DATARATES_COUNT)
+   ArrayPrint(rates, digits, NULL, bars-DATARATES_COUNT, DATARATES_COUNT);
+   
+//--- excluímos as duas penúltimas barras de dados presentes no histórico de minutos d
+   datetime time_from= rates[bars-3].time;
+   datetime time_to  = rates[bars-2].time;
+   ResetLastError();
+   int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, time_from, time_to);
+   if(deleted&lt;0)
+     {
+      PrintFormat(&quot;CustomRatesDelete(%s) failed. Error %d&quot;, CUSTOM_SYMBOL_NAME, GetLas</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2176
+</p>
+<pre><code class="language-mql5">
+      return;
+     }
+     
+ //--- após excluir duas barras dos dados históricos, obtemos novamente o número de ba
+   bars=Bars(CUSTOM_SYMBOL_NAME, PERIOD_M1);
+   
+//--- obtemos novamente os dados de todas as barras restantes do timeframe de minutos 
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_NAME, PERIOD_M1, 0, bars, rates)!=bars)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_NA
+      return;
+     }
+//--- imprimimos no log as últimas barras DATARATES_COUNT do histórico de minutos atua
+   PrintFormat(&quot;\nLast %d bars after applying CustomRatesDelete() with %d deleted bars
+   ArrayPrint(rates, digits, NULL, bars-DATARATES_COUNT, DATARATES_COUNT);
+     
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado e seus dados
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         //--- excluímos os dados das barras
+         int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history bars of the custom symbol &#x27;%s&#x27; were successfully d
+         
+         //--- excluímos os dados de ticks
+         deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history ticks of the custom symbol &#x27;%s&#x27; were successfully 
+         
+         //--- excluímos o símbolo
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Last 4 bars of the custom symbol&#x27;s minute history:
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2177
+</p>
+<pre><code class="language-mql5">
+   [0] 2024.06.18 20:53:00 1.07341 1.07347 1.07336 1.07343            38        0     
+   [1] 2024.06.18 20:54:00 1.07344 1.07354 1.07344 1.07353            21        0     
+   [2] 2024.06.18 20:55:00 1.07353 1.07362 1.07351 1.07356            32        0     
+   [3] 2024.06.18 20:56:00 1.07356 1.07358 1.07352 1.07354            24        0     
+   
+   Last 4 bars after applying CustomRatesDelete() with 2 deleted bars:
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea
+   [0] 2024.06.18 20:51:00 1.07357 1.07358 1.07347 1.07349            25        0     
+   [1] 2024.06.18 20:52:00 1.07349 1.07350 1.07336 1.07341            31        0     
+   [2] 2024.06.18 20:53:00 1.07341 1.07347 1.07336 1.07343            38        0     
+   [3] 2024.06.18 20:56:00 1.07356 1.07358 1.07352 1.07354            24        0     
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2178
+</p>
+<pre><code class="language-mql5">
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>CustomRatesReplace, CustomRatesUpdate, CopyRates</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2179
+<h3>CustomRatesReplace</h3>
+Substitui todo o histórico de preço do instrumento personalizado pelos dados na matriz do tipo
+MqlRates, no intervalo de tempo definido.
+</p>
+<pre><code class="language-mql5">
+int  CustomRatesReplace(
+   const string     symbol,             // nome do símbolo
+   datetime         from,               // a partir de qual data
+   datetime         to,                 // até qual data
+   const MqlRates&amp;  rates[],            // matriz com dados que é necessário aplicar a
+   uint             count=WHOLE_ARRAY   // número de elementos a serem usados na matri
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento personalizado.
+from
+[in]  Tempo da primeira barra no histórico de preço, na faixa definida a ser atualizada.
+to
+[in]  Tempo da última barra no histórico de preço, na faixa definida a ser atualizada.
+rates[]
+[in]   Matriz de dados históricos do tipo MqlRates para o período M1.
+count=WHOLE_ARRAY
+[in]  Número de elementos da matriz rates[] a serem usados para substituição. O valor
+WHOLE_ARRAY indica que para substituição é necessário usar todos os elementos da matriz
+rates[].
+<h3>Valor de retorno</h3>
+Número de barras atualizadas ou -1 em caso de erro.
+<h3>Geral</h3>
+Se a barra na matriz rates[] ficar fora do intervalo definido, ela será ignorada. Se essa barra existir
+no histórico de preço e ficar dentro do intervalo definido, ela será substituída. Todas as outras
+barras - no histórico de preço atual - fora do intervalo definido permanecem inalteradas. Os dados
+da matriz rates[] devem estar corretas em relação aos preços OHLC, enquanto o tempo de abertura
+de barras deve corresponder ao período M1.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           CustomRatesReplace.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2180
+</p>
+<pre><code class="language-mql5">
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   DATARATES_COUNT        4                 // número de barras a serem exibida
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+//--- obtemos o número de barras do símbolo padrão
+   int bars=Bars(CUSTOM_SYMBOL_ORIGIN, PERIOD_M1);
+      
+//--- obtemos os dados de todas as barras do timeframe de minutos de um símbolo padrão
+   MqlRates rates[]={};
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_ORIGIN, PERIOD_M1, 0, bars, rates)!=bars)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_OR
+      return;
+     }
+//--- definimos os dados copiados para o histórico de minutos do símbolo personalizado
+   ResetLastError();
+   if(CustomRatesUpdate(CUSTOM_SYMBOL_NAME, rates)&lt;0)
+     {
+      PrintFormat(&quot;CustomRatesUpdate(%s) failed. Error %d&quot;, CUSTOM_SYMBOL_NAME, GetLas
+      return;
+     }
+     
+//--- após atualizar os dados históricos, obtemos o número de barras do símbolo person
+   bars=Bars(CUSTOM_SYMBOL_NAME, PERIOD_M1);
+   
+//--- obtemos os dados de todas as barras do timeframe de minutos do símbolo personali
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_NAME, PERIOD_M1, 0, bars, rates)!=bars)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2181
+</p>
+<pre><code class="language-mql5">
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_NA
+      return;
+     }
+//--- imprimimos no log as últimas barras DATARATES_COUNT do histórico de minutos do s
+   int digits=(int)SymbolInfoInteger(CUSTOM_SYMBOL_NAME, SYMBOL_DIGITS);
+   PrintFormat(&quot;Last %d bars of the custom symbol&#x27;s minute history:&quot;, DATARATES_COUNT)
+   ArrayPrint(rates, digits, NULL, bars-DATARATES_COUNT, DATARATES_COUNT);
+   
+//--- alteramos as duas penúltimas barras de dados no histórico de minutos do símbolo 
+   datetime time_from= rates[bars-3].time;
+   datetime time_to  = rates[bars-2].time;
+   
+//--- no array rates, fazemos todos os preços das duas penúltimas barras iguais aos pr
+   rates[bars-3].high=rates[bars-3].open;
+   rates[bars-3].low=rates[bars-3].open;
+   rates[bars-3].close=rates[bars-3].open;
+   
+   rates[bars-2].high=rates[bars-2].open;
+   rates[bars-2].low=rates[bars-2].open;
+   rates[bars-2].close=rates[bars-2].open;
+   
+//--- substituímos as barras existentes com os dados do array rates modificado
+   ResetLastError();
+   int replaced=CustomRatesUpdate(CUSTOM_SYMBOL_NAME, rates);
+   if(replaced&lt;0)
+     {
+      PrintFormat(&quot;CustomRatesUpdate(%s) failed. Error %d&quot;, CUSTOM_SYMBOL_NAME, GetLas
+      return;
+     }
+     
+//--- após alterar duas barras de dados históricos, obtemos novamente o número de barr
+   bars=Bars(CUSTOM_SYMBOL_NAME, PERIOD_M1);
+   
+//--- obtemos novamente os dados de todas as barras do timeframe de minutos do símbolo
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_NAME, PERIOD_M1, 0, bars, rates)!=bars)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_NA
+      return;
+     }
+//--- imprimimos no log as últimas barras DATARATES_COUNT do histórico de minutos atua
+   PrintFormat(&quot;\nLast %d bars after applying CustomRatesUpdate() with %d replaced bar
+   ArrayPrint(rates, digits, NULL, bars-DATARATES_COUNT, DATARATES_COUNT);
+     
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2182
+</p>
+<pre><code class="language-mql5">
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado e seus dados
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         //--- excluímos os dados das barras
+         int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history bars of the custom symbol &#x27;%s&#x27; were successfully d
+         
+         //--- excluímos os dados de ticks
+         deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history ticks of the custom symbol &#x27;%s&#x27; were successfully 
+         
+         //--- excluímos o símbolo
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Last 4 bars of the custom symbol&#x27;s minute history:
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea
+   [0] 2024.07.29 13:37:00 1.08394 1.08396 1.08388 1.08390            16        1     
+   [1] 2024.07.29 13:38:00 1.08389 1.08400 1.08389 1.08398            35        1     
+   [2] 2024.07.29 13:39:00 1.08398 1.08410 1.08394 1.08410            29        1     
+   [3] 2024.07.29 13:40:00 1.08409 1.08414 1.08408 1.08414            14        1     
+   
+   Last 4 bars after applying CustomRatesUpdate() with 250820 replaced bars:
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea
+   [0] 2024.07.29 13:37:00 1.08394 1.08396 1.08388 1.08390            16        1     
+   [1] 2024.07.29 13:38:00 1.08389 1.08389 1.08389 1.08389            35        1     
+   [2] 2024.07.29 13:39:00 1.08398 1.08398 1.08398 1.08398            29        1     
+   [3] 2024.07.29 13:40:00 1.08409 1.08414 1.08408 1.08414            14        1     
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   </p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2183
+</p>
+<pre><code class="language-mql5">
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>CustomRatesDelete, CustomRatesUpdate, CopyRates</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2184
+<h3>CustomRatesUpdate</h3>
+Adiciona ao histórico do instrumento personalizado as barras que faltam e substitui os dados
+existentes na matriz do tipo MqlRates.
+</p>
+<pre><code class="language-mql5">
+int  CustomRatesUpdate(
+   const string     symbol,             // nome do símbolo personalizado
+   const MqlRates&amp;  rates[],            // matriz com dados que devem ser aplicadas ao
+   uint             count=WHOLE_ARRAY   // número de elementos a serem usados na matri
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento personalizado.
+rates[]
+[in]   Matriz de dados históricos do tipo MqlRates para o período M1.
+count=WHOLE_ARRAY
+[in]  Número de elementos da matriz rates[] a serem usados para atualização. O valor
+WHOLE_ARRAY indica que é necessário usar todos os elementos da matriz rates[].
+<h3>Valor de retorno</h3>
+Número de barras atualizadas ou -1 em caso de erro.
+<h3>Geral</h3>
+Se a barra na matriz rates[] não existir no histórico atual do instrumento personalizado, ela será
+adicionada. Se essa barra já existir, ela será é substituída. Todas as outras barras no histórico de
+preço atual permanecem inalteradas. Os dados da matriz rates[] devem estar corretas em relação
+aos preços OHLC, enquanto o tempo de abertura de barras deve corresponder ao período M1.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            CustomRatesUpdate.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   DATARATES_COUNT        4                 // número de barras a serem exibida</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2185
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+//--- obtemos e imprimimos no log o número de barras do símbolo personalizado padrão
+   int bars_origin=Bars(CUSTOM_SYMBOL_ORIGIN, PERIOD_M1);
+   PrintFormat(&quot;The symbol &#x27;%s&#x27; from which the custom &#x27;%s&#x27; was created has %d bars of 
+      
+//--- obtemos e imprimimos no log o número de barras do símbolo personalizado
+   int bars_custom=Bars(CUSTOM_SYMBOL_NAME, PERIOD_M1);
+   PrintFormat(&quot;Custom symbol &#x27;%s&#x27; created from symbol &#x27;%s&#x27; has %d bars of minute hist
+      
+//--- obtemos os dados de todas as barras do timeframe de minutos de um símbolo padrão
+   MqlRates rates[]={};
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_ORIGIN, PERIOD_M1, 0, bars_origin, rates)!=bars_origin)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_OR
+      return;
+     }
+//--- definimos os dados copiados para o histórico de minutos do símbolo personalizado
+   ResetLastError();
+   int updated=CustomRatesUpdate(CUSTOM_SYMBOL_NAME, rates);
+   if(updated&lt;0)
+     {
+      PrintFormat(&quot;CustomRatesUpdate(%s) failed. Error %d&quot;, CUSTOM_SYMBOL_NAME, GetLas
+      return;
+     }
+//--- obtemos e imprimimos no log o número de barras do símbolo personalizado após adi
+   bars_custom=Bars(CUSTOM_SYMBOL_NAME, PERIOD_M1);
+   PrintFormat(&quot;\nAfter CustomRatesUpdate(), the custom symbol &#x27;%s&#x27; has %d bars of min
+//--- obtemos os dados de todas as barras do timeframe de minutos do símbolo personali
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_NAME, PERIOD_M1, 0, bars_custom, rates)!=bars_custom)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_NA
+      return;
+     }</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2186
+</p>
+<pre><code class="language-mql5">
+//--- imprimimos no log as últimas quatro barras do histórico de minutos do símbolo pe
+   int digits=(int)SymbolInfoInteger(CUSTOM_SYMBOL_NAME, SYMBOL_DIGITS);
+   PrintFormat(&quot;Last %d bars of the custom symbol&#x27;s minute history:&quot;, DATARATES_COUNT)
+   ArrayPrint(rates, digits, NULL, bars_custom-DATARATES_COUNT, DATARATES_COUNT);
+   
+//--- alteramos os dados no array MqlRates para os calculados usando fórmula 1.0 / Sym
+   for(int i=0; i&lt;bars_custom; i++)
+     {
+      rates[i].open  =(rates[i].open !=0  ? 1.0 / rates[i].open  : rates[i].open);
+      rates[i].high  =(rates[i].high !=0  ? 1.0 / rates[i].high  : rates[i].high);
+      rates[i].low   =(rates[i].low  !=0  ? 1.0 / rates[i].low   : rates[i].low);
+      rates[i].close =(rates[i].close!=0  ? 1.0 / rates[i].close : rates[i].close);
+     }
+//--- definimos os dados alterados no histórico de minutos do símbolo personalizado
+   ResetLastError();
+   updated=CustomRatesUpdate(CUSTOM_SYMBOL_NAME, rates);
+   if(updated&lt;0)
+     {
+      PrintFormat(&quot;CustomRatesUpdate(%s) failed. Error %d&quot;, CUSTOM_SYMBOL_NAME, GetLas
+      return;
+     }
+//--- obtemos novamente no array MqlRates os dados de todas as barras do timeframe de 
+   ResetLastError();
+   if(CopyRates(CUSTOM_SYMBOL_NAME, PERIOD_M1, 0, bars_custom, rates)!=bars_custom)
+     {
+      PrintFormat(&quot;CopyRates(%s, PERIOD_M1, 0, %d) failed. Error %d&quot;, CUSTOM_SYMBOL_NA
+      return;
+     }
+//--- imprimimos no log as últimas quatro barras do histórico de minutos atualizado do
+   Print(&quot;\nLast %d bars after changing the custom symbol calculation formula:&quot;, DATAR
+   ArrayPrint(rates, digits, NULL, bars_custom-DATARATES_COUNT, DATARATES_COUNT);
+   
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado e seus dados
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         //--- excluímos os dados das barras
+         int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history bars of the custom symbol &#x27;%s&#x27; were successfully d</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2187
+</p>
+<pre><code class="language-mql5">
+         
+         //--- excluímos os dados de ticks
+         deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history ticks of the custom symbol &#x27;%s&#x27; were successfully 
+         
+         //--- excluímos o símbolo
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   The symbol &#x27;EURUSD&#x27; from which the custom &#x27;EURUSD.C&#x27; was created has 250488 bars of
+   Custom symbol &#x27;EURUSD.C&#x27; created from symbol &#x27;EURUSD&#x27; has 0 bars of minute history
+   
+   After CustomRatesUpdate(), the custom symbol &#x27;EURUSD.C&#x27; has 250488 bars of minute h
+   Last 4 bars of the custom symbol&#x27;s minute history:
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea
+   [0] 2024.06.18 11:14:00 1.07235 1.07239 1.07232 1.07239            24        0     
+   [1] 2024.06.18 11:15:00 1.07238 1.07239 1.07232 1.07235            44        0     
+   [2] 2024.06.18 11:16:00 1.07234 1.07238 1.07227 1.07234            37        0     
+   [3] 2024.06.18 11:17:00 1.07234 1.07234 1.07217 1.07225            41        0     
+   
+   Last 4 bars after changing the custom symbol calculation formula:
+                    [time]  [open]  [high]   [low] [close] [tick_volume] [spread] [rea
+   [0] 2024.06.18 11:14:00 0.93253 0.93250 0.93256 0.93250            24        0     
+   [1] 2024.06.18 11:15:00 0.93251 0.93250 0.93256 0.93253            44        0     
+   [2] 2024.06.18 11:16:00 0.93254 0.93251 0.93260 0.93254            37        0     
+   [3] 2024.06.18 11:17:00 0.93254 0.93254 0.93269 0.93262            41        0     
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2188
+</p>
+<pre><code class="language-mql5">
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>CustomRatesReplace, CustomRatesDelete, CopyRates</h3></p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2189
+<h3>CustomTicksAdd</h3>
+Adds data from an array of the MqlTick type to the price history of a custom symbol. The custom
+symbol must be selected in the Market Watch window. 
+</p>
+<pre><code class="language-mql5">
+bool  CustomTicksAdd(
+   const string     symbol,             // Symbol name
+   const MqlTick&amp;   ticks[],            // The array with tick data that should be app
+   uint             count=WHOLE_ARRAY   // número de elementos a serem usados a partir
+   );
+</code></pre>
+<p>
+<h3>Parameters</h3>
+symbol
+[in]  The name of the custom symbol.
+ticks[]
+[in]   An array of tick data of the MqlTick type arranged in order of time from earlier data to more
+recent ones, i.e. ticks[k].time_msc &lt;= ticks[n].time_msc, if k&lt;n.
+count=WHOLE_ARRAY
+[in]  Número de elementos da matriz ticks[] a serem utilizados para adição. O valor
+WHOLE_ARRAY indica que é necessário usar todos os elementos da matriz ticks[].
+<h3>Return Value</h3>
+Número de ticks adicionados ou -1 em caso de erro.
+<h3>Further Note</h3>
+The CustomTicksAdd function only works for custom symbols opened in the Market Watch window. If
+the symbol is not selected in Market Watch, then you should add ticks using CustomTicksReplace.
+A função CustomTicksAdd permite transmitir ticks como se chegassem desde o servidor da
+corretora. Os dados não são salvos diretamente no banco de dados de ticks, em vez disso, são
+enviados para a janela &quot;Observação do mercado&quot;. É a partir dela que o terminal armazena os ticks
+em sua base. Quando a quantidade de dados transferidos por chamada é grande, a função altera seu
+comportamento para poupar recursos. Se forem transferidos mais de 256 ticks, os dados serão
+divididos em duas partes. A primeira parte (grande) é imediatamente carregada diretamente na
+base de ticks (como faz a CustomTicksReplace). A segunda parte, que consiste nos últimos 128
+ticks, é transferida para a janela &quot;Observação do mercado&quot; e, em seguida, é salva pelo terminal no
+banco de dados de ticks.
+A estrutura MqlTick possui dois valores de campo com valores temporais, isto é, time (hora do tick
+em segundos) e time_msc (hora de tick em milissegundos). Eles realizam o cálculo desde 01 de
+janeiro de 1970. Nos ticks adicionados, o processamento destes campos é realizado acordo com as
+seguintes regras na ordem estabelecida:
+1. se o valor for ticks[k].time_msc!=0, usamo-lo para preenchimento do campo ticks[k].time, quer
+dizer, para o tick é definido o tempo ticks[k].time=ticks[k].time_msc/1000 (divisão inteira)
+2. se ticks[k].time_msc==0 e ticks[k].time!=0, a hora em milissegundos é obtida pela multiplicação
+por 1000, isto é, ticks[k].time_msc=ticks[k].time*1000
+3. se ticks[k].time_msc==0 e ticks[k].time==0, nestes campos é registrado o tempo atual do
+servidor de negociação em milissegundos quando chamada a funçãoCustomTicksAdd.</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2190
+Se o valor dos campos ticks[k].bid, ticks[k].ask, ticks[k].last ou ticks[k].volume for maior do que
+zero, no campo  ticks[k].flags, é escrita a combinação dos sinalizadores correspondentes:
+· TICK_FLAG_BID – tick alterou o preço Bid
+· TICK_FLAG_ASK  – tick alterou o preço Ask
+· TICK_FLAG_LAST – tick alterou o preço da última transação
+· TICK_FLAG_VOLUME – tick mudou o volume
+Se o valor de campo é menor ou igual a zero, o sinalizador correspondente não é gravado nos campo
+ticks[k].flags.
+Sinalizadores TICK_FLAG_BUY e TICK_FLAG_SELL não são adicionados no histórico do instrumento
+personalizado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                               CustomTicksAdd.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   DATATICKS_TO_COPY      UINT_MAX          // quantidade de ticks copiados
+#define   DATATICKS_TO_PRINT     20                // quantidade de ticks exibidos no 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+//--- obtemos no array MqlTick os dados de ticks do símbolo padrão
+   MqlTick array[]={};
+   if(!GetTicksToArray(CUSTOM_SYMBOL_ORIGIN, DATATICKS_TO_COPY, array))
+      return;
+   </p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2191
+</p>
+<pre><code class="language-mql5">
+//--- imprimimos o horário do primeiro e último tick obtido do símbolo padrão
+   int total=(int)array.Size();
+   PrintFormat(&quot;First tick time: %s.%03u, Last tick time: %s.%03u&quot;,
+               TimeToString(array[0].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo padrão
+   PrintFormat(&quot;\nThe last %d ticks for the standard symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO_PRINT
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));
+     }
+   
+//--- adicionamos o símbolo personalizado na janela MarketWatch (observação do mercado
+   ResetLastError();
+   if(!SymbolSelect(CUSTOM_SYMBOL_NAME, true))
+     {
+      Print(&quot;SymbolSelect() failed. Error &quot;, GetLastError());
+      return;
+     }
+     
+//--- adicionamos à história de preços do símbolo personalizado os dados do array de t
+   Print(&quot;...&quot;);
+   uint start=GetTickCount();
+   PrintFormat(&quot;Start of adding %u ticks to the history of the custom symbol &#x27;%s&#x27;&quot;, ar
+   int added=CustomTicksAdd(CUSTOM_SYMBOL_NAME, array);
+   PrintFormat(&quot;Added %u ticks to the history of the custom symbol &#x27;%s&#x27; in %u ms&quot;, add
+   
+//--- obtemos no array MqlTick os dados de ticks do símbolo personalizado
+   Print(&quot;...&quot;);
+   if(!GetTicksToArray(CUSTOM_SYMBOL_NAME, array.Size(), array))
+      return;
+   
+//--- imprimimos o horário do primeiro e último tick obtido do símbolo personalizado
+   total=(int)array.Size();
+   PrintFormat(&quot;First tick time: %s.%03u, Last tick time: %s.%03u&quot;,
+               TimeToString(array[0].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo personalizado
+   PrintFormat(&quot;\nThe last %d ticks for the custom symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO_PRINT, 
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));
+     }</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2192
+</p>
+<pre><code class="language-mql5">
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado e seus dados
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         //--- excluímos os dados das barras
+         int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history bars of the custom symbol &#x27;%s&#x27; were successfully d
+         
+         //--- excluímos os dados de ticks
+         deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history ticks of the custom symbol &#x27;%s&#x27; were successfully 
+         
+         //--- excluímos o símbolo
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Requested 4294967295 ticks to download tick history for the symbol &#x27;EURUSD&#x27;
+   The tick history for the &#x27;EURUSD&#x27; symbol is received in the amount of 351183943 tic
+   First tick time: 2011.12.19 00:00:08.000, Last tick time: 2024.06.20 21:18:12.010
+   
+   The last 20 ticks for the standard symbol &#x27;EURUSD&#x27;:
+     351183923th Tick: 2024.06.20 21:17:46.380 Bid=1.07124 (Info tick)
+     351183924th Tick: 2024.06.20 21:17:47.779 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183925th Tick: 2024.06.20 21:17:48.584 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183926th Tick: 2024.06.20 21:17:49.481 Ask=1.07125 (Info tick)
+     351183927th Tick: 2024.06.20 21:17:49.985 Ask=1.07122 Bid=1.07122 (Info tick)
+     351183928th Tick: 2024.06.20 21:17:50.482 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183929th Tick: 2024.06.20 21:17:51.584 Ask=1.07123 Bid=1.07123 (Info tick)
+     351183930th Tick: 2024.06.20 21:17:52.786 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183931th Tick: 2024.06.20 21:17:53.487 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183932th Tick: 2024.06.20 21:17:53.989 Ask=1.07126 Bid=1.07126 (Info tick)
+     351183933th Tick: 2024.06.20 21:17:55.789 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183934th Tick: 2024.06.20 21:17:58.495 Ask=1.07126 Bid=1.07126 (Info tick)
+     351183935th Tick: 2024.06.20 21:18:00.102 Bid=1.07126 (Info tick)
+     351183936th Tick: 2024.06.20 21:18:00.698 Ask=1.07129 Bid=1.07129 (Info tick)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2193
+</p>
+<pre><code class="language-mql5">
+     351183937th Tick: 2024.06.20 21:18:03.699 Bid=1.07129 (Info tick)
+     351183938th Tick: 2024.06.20 21:18:04.699 Ask=1.07128 Bid=1.07128 (Info tick)
+     351183939th Tick: 2024.06.20 21:18:05.901 Ask=1.07129 Bid=1.07129 (Info tick)
+     351183940th Tick: 2024.06.20 21:18:07.606 Ask=1.07128 Bid=1.07128 (Info tick)
+     351183941th Tick: 2024.06.20 21:18:11.512 Ask=1.07127 Bid=1.07127 (Info tick)
+     351183942th Tick: 2024.06.20 21:18:12.010 Ask=1.07126 Bid=1.07126 (Info tick)
+   ...
+   Start of adding 351183943 ticks to the history of the custom symbol &#x27;EURUSD.C&#x27;
+   Added 351183943 ticks to the history of the custom symbol &#x27;EURUSD.C&#x27; in 269890 ms
+   ...
+   Requested 351183943 ticks to download tick history for the symbol &#x27;EURUSD.C&#x27;
+   The tick history for the &#x27;EURUSD.C&#x27; symbol is received in the amount of 351183943 t
+   First tick time: 2011.12.19 00:00:08.000, Last tick time: 2024.06.20 21:18:12.010
+   
+   The last 20 ticks for the custom symbol &#x27;EURUSD.C&#x27;:
+     351183923th Tick: 2024.06.20 21:17:46.380 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183924th Tick: 2024.06.20 21:17:47.779 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183925th Tick: 2024.06.20 21:17:48.584 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183926th Tick: 2024.06.20 21:17:49.481 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183927th Tick: 2024.06.20 21:17:49.985 Ask=1.07122 Bid=1.07122 (Info tick)
+     351183928th Tick: 2024.06.20 21:17:50.482 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183929th Tick: 2024.06.20 21:17:51.584 Ask=1.07123 Bid=1.07123 (Info tick)
+     351183930th Tick: 2024.06.20 21:17:52.786 Ask=1.07124 Bid=1.07124 (Info tick)
+     351183931th Tick: 2024.06.20 21:17:53.487 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183932th Tick: 2024.06.20 21:17:53.989 Ask=1.07126 Bid=1.07126 (Info tick)
+     351183933th Tick: 2024.06.20 21:17:55.789 Ask=1.07125 Bid=1.07125 (Info tick)
+     351183934th Tick: 2024.06.20 21:17:58.495 Ask=1.07126 Bid=1.07126 (Info tick)
+     351183935th Tick: 2024.06.20 21:18:00.102 Ask=1.07126 Bid=1.07126 (Info tick)
+     351183936th Tick: 2024.06.20 21:18:00.698 Ask=1.07129 Bid=1.07129 (Info tick)
+     351183937th Tick: 2024.06.20 21:18:03.699 Ask=1.07129 Bid=1.07129 (Info tick)
+     351183938th Tick: 2024.06.20 21:18:04.699 Ask=1.07128 Bid=1.07128 (Info tick)
+     351183939th Tick: 2024.06.20 21:18:05.901 Ask=1.07129 Bid=1.07129 (Info tick)
+     351183940th Tick: 2024.06.20 21:18:07.606 Ask=1.07128 Bid=1.07128 (Info tick)
+     351183941th Tick: 2024.06.20 21:18:11.512 Ask=1.07127 Bid=1.07127 (Info tick)
+     351183942th Tick: 2024.06.20 21:18:12.010 Ask=1.07126 Bid=1.07126 (Info tick)
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2194
+</p>
+<pre><code class="language-mql5">
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Obtém a quantidade especificada de ticks no array               |
+//+------------------------------------------------------------------+
+bool GetTicksToArray(const string symbol, const uint count, MqlTick &amp;array[])
+  {
+//--- informamos sobre o início do carregamento dos dados históricos
+   PrintFormat(&quot;Requested %u ticks to get tick history for the symbol &#x27;%s&#x27;&quot;, count, sy
+   
+//--- fazemos 3 tentativas de obter ticks
+   int attempts=0;
+   while(attempts&lt;3)
+     {
+ //--- medimos o tempo de início antes de obter ticks
+      uint start=GetTickCount();
+      
+ //--- solicitamos a história de ticks desde 1970.01.01 00:00.001 (parâmetro from=1 ms
+      int received=CopyTicks(symbol, array, COPY_TICKS_ALL, 1, count);
+      if(received!=-1)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2195
+</p>
+<pre><code class="language-mql5">
+        {
+ //--- informamos sobre a quantidade de ticks e o tempo gasto
+         PrintFormat(&quot;The tick history for the &#x27;%s&#x27; symbol is received in the amount o
+         
+ //--- se a história de ticks estiver sincronizada, o código de erro é zero - retornam
+         if(GetLastError()==0)
+            return(true);
+         PrintFormat(&quot;%s: Ticks are not synchronized yet, %d ticks received for %d ms.
+                     symbol, received, GetTickCount()-start, GetLastError());
+        }
+ //--- contamos as tentativas
+      attempts++; 
+ //--- pausa de 1 segundo aguardando a conclusão da sincronização da base de ticks
+      Sleep(1000);
+     }
+//--- não foi possível copiar ticks em 3 tentativas
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+ 
+//| retorna a descrição do tick em formato string                    |
+//+------------------------------------------------------------------+ 
+string GetTickDescription(MqlTick &amp;tick) 
+  { 
+   string desc=StringFormat(&quot;%s.%03u &quot;, TimeToString(tick.time, TIME_DATE|TIME_MINUTES
+   
+//--- verificamos os flags do tick
+   bool buy_tick   = ((tick.flags &amp;TICK_FLAG_BUY)   == TICK_FLAG_BUY); 
+   bool sell_tick  = ((tick.flags &amp;TICK_FLAG_SELL)  == TICK_FLAG_SELL); 
+   bool ask_tick   = ((tick.flags &amp;TICK_FLAG_ASK)   == TICK_FLAG_ASK); 
+   bool bid_tick   = ((tick.flags &amp;TICK_FLAG_BID)   == TICK_FLAG_BID); 
+   bool last_tick  = ((tick.flags &amp;TICK_FLAG_LAST)  == TICK_FLAG_LAST); 
+   bool volume_tick= ((tick.flags &amp;TICK_FLAG_VOLUME)== TICK_FLAG_VOLUME); 
+   
+//--- verificamos primeiro os flags de negociação do tick (para CustomTicksAdd() não h
+   if(buy_tick || sell_tick) 
+     { 
+      //--- formatamos a saída para um tick de negociação
+      desc += (buy_tick ? StringFormat(&quot;Buy Tick: Last=%G Volume=%d &quot;, tick.last, tick
+      desc += (sell_tick? StringFormat(&quot;Sell Tick: Last=%G Volume=%d &quot;,tick.last, tick
+      desc += (ask_tick ? StringFormat(&quot;Ask=%G &quot;, tick.ask) : &quot;&quot;); 
+      desc += (bid_tick ? StringFormat(&quot;Bid=%G &quot;, tick.ask) : &quot;&quot;); 
+      desc += &quot;(Trade tick)&quot;; 
+     } 
+   else 
+     { 
+      //--- para um tick de informação, formatamos a saída de forma um pouco diferente
+      desc += (ask_tick   ? StringFormat(&quot;Ask=%G &quot;,  tick.ask)    : &quot;&quot;); 
+      desc += (bid_tick   ? StringFormat(&quot;Bid=%G &quot;,  tick.ask)    : &quot;&quot;); </p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2196
+</p>
+<pre><code class="language-mql5">
+      desc += (last_tick  ? StringFormat(&quot;Last=%G &quot;, tick.last)   : &quot;&quot;); 
+      desc += (volume_tick? StringFormat(&quot;Volume=%d &quot;,tick.volume): &quot;&quot;); 
+      desc += &quot;(Info tick)&quot;; 
+     } 
+//--- retornamos a descrição do tick
+   return(desc); 
+</code></pre>
+<p>
+  } 
+<h3>Veja também</h3>
+CustomRatesDelete, CustomRatesUpdate, CustomTicksReplace, CopyTicks, CopyTicksRange</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2197
+<h3>CustomTicksDelete</h3>
+Exclui todos os ticks no histórico de preço do instrumento personalizado, no intervalo de tempo
+selecionado.
+</p>
+<pre><code class="language-mql5">
+int  CustomTicksDelete(
+   const string     symbol,            // nome do símbolo
+   long             from_msc,          // a partir de qual data
+   long             to_msc             // até qual data
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento personalizado.
+from_msc
+[in]  Tempo do primeiro tick no histórico de preço, na faixa definida a ser removida. Tempo em
+milissegundos desde 01.01.1970.
+to_msc
+[in]  Tempo do último tick no histórico de preço, na faixa definida a ser removida. Tempo em
+milissegundos desde 01.01.1970.
+<h3>Valor de retorno</h3>
+Número de ticks removidos ou -1 em caso de erro.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            CustomTicksDelete.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   DATATICKS_TO_COPY      UINT_MAX          // quantidade de ticks copiados
+#define DATATICKS_TO_DELETE 10 // quantidade de ticks a serem deletados
+#define   DATATICKS_TO_PRINT     20                // quantidade de ticks exibidos no 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2198
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+//--- obtemos no array MqlTick os dados de ticks do símbolo padrão
+   MqlTick array[]={};
+   if(!GetTicksToArray(CUSTOM_SYMBOL_ORIGIN, DATATICKS_TO_COPY, array))
+      return;
+   
+//--- imprimimos o horário do primeiro e último tick obtido do símbolo padrão
+   int total=(int)array.Size();
+   PrintFormat(&quot;First tick time: %s.%03u, Last tick time: %s.%03u&quot;,
+               TimeToString(array[0].time,TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo padrão
+   PrintFormat(&quot;\nThe last %d ticks for the standard symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO_PRINT
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));
+     }
+   
+//--- adicionamos o símbolo personalizado na janela MarketWatch (observação do mercado
+   ResetLastError();
+   if(!SymbolSelect(CUSTOM_SYMBOL_NAME, true))
+     {
+      Print(&quot;SymbolSelect() failed. Error &quot;, GetLastError());
+      return;
+     }
+     
+//--- adicionamos à história de preços do símbolo personalizado os dados do array de t
+   Print(&quot;...&quot;);
+   uint start=GetTickCount();
+   PrintFormat(&quot;Start of adding %u ticks to the history of the custom symbol &#x27;%s&#x27;&quot;, ar
+   int added=CustomTicksAdd(CUSTOM_SYMBOL_NAME, array);
+   PrintFormat(&quot;Added %u ticks to the history of the custom symbol &#x27;%s&#x27; in %u ms&quot;, add
+   
+//--- obtemos no array MqlTick os dados de ticks recém-adicionados do símbolo personal
+   Print(&quot;...&quot;);
+   if(!GetTicksToArray(CUSTOM_SYMBOL_NAME, array.Size(), array))
+      return;
+   </p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2199
+</p>
+<pre><code class="language-mql5">
+//--- imprimimos o horário do primeiro e último tick obtido do símbolo personalizado
+   total=(int)array.Size();
+   PrintFormat(&quot;First tick time: %s.%03u, Last tick time: %s.%03u&quot;,
+               TimeToString(array[0].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo personalizado
+   PrintFormat(&quot;\nThe last %d ticks for the custom symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO_PRINT, 
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));
+     }
+//--- obtemos da história o horário do tick em milissegundos, a partir do qual iremos 
+   long time_from=array[total-DATATICKS_TO_DELETE-1].time_msc;
+     
+//--- deletamos o intervalo de DATATICKS_TO_DELETE últimos ticks do símbolo personaliz
+   Print(&quot;...&quot;);
+   start=GetTickCount();
+   PrintFormat(&quot;Start deleting %u ticks in the history of the custom symbol &#x27;%s&#x27;&quot;, DAT
+   int deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, time_from, array[total-2].time_ms
+   PrintFormat(&quot;Deleted %u ticks in the history of the custom symbol &#x27;%s&#x27; in %u ms&quot;, d
+   
+//--- obtemos no array MqlTick os dados de ticks recém-alterados do símbolo personaliz
+   Print(&quot;...&quot;);
+   if(!GetTicksToArray(CUSTOM_SYMBOL_NAME, array.Size(), array))
+      return;
+   
+//--- imprimimos o horário do primeiro e último tick do símbolo personalizado com o in
+   total=(int)array.Size();
+   PrintFormat(&quot;Time of the first tick from the changed history: %s.%03u, Time of the 
+               TimeToString(array[0].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo personalizado
+   PrintFormat(&quot;\nThe last %d ticks of custom symbol &#x27;%s&#x27; with modified history:&quot;, DAT
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));
+     }
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2200
+</p>
+<pre><code class="language-mql5">
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado e seus dados
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         //--- excluímos os dados das barras
+         int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history bars of the custom symbol &#x27;%s&#x27; were successfully d
+         
+         //--- excluímos os dados de ticks
+         deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history ticks of the custom symbol &#x27;%s&#x27; were successfully 
+         
+         //--- excluímos o símbolo
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Requested 4294967295 ticks to get tick history for the symbol &#x27;EURUSD&#x27;
+   The tick history for the &#x27;EURUSD&#x27; symbol is received in the amount of 351199027 tic
+   First tick time: 2011.12.19 00:00:08.000, Last tick time: 2024.06.21 10:10:40.392
+   
+   The last 20 ticks for the standard symbol &#x27;EURUSD&#x27;:
+     351199007th Tick: 2024.06.21 10:10:23.045 Bid=1.07032 (Info tick)
+     351199008th Tick: 2024.06.21 10:10:24.045 Ask=1.07031 Bid=1.07031 (Info tick)
+     351199009th Tick: 2024.06.21 10:10:24.545 Ask=1.07032 (Info tick)
+     351199010th Tick: 2024.06.21 10:10:25.146 Bid=1.07032 (Info tick)
+     351199011th Tick: 2024.06.21 10:10:25.649 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199012th Tick: 2024.06.21 10:10:27.050 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199013th Tick: 2024.06.21 10:10:28.153 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199014th Tick: 2024.06.21 10:10:29.157 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199015th Tick: 2024.06.21 10:10:29.658 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199016th Tick: 2024.06.21 10:10:30.258 Bid=1.07036 (Info tick)
+     351199017th Tick: 2024.06.21 10:10:30.872 Ask=1.07035 Bid=1.07035 (Info tick)
+     351199018th Tick: 2024.06.21 10:10:31.358 Ask=1.07036 (Info tick)
+     351199019th Tick: 2024.06.21 10:10:31.859 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199020th Tick: 2024.06.21 10:10:32.377 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199021th Tick: 2024.06.21 10:10:32.962 Ask=1.0704 Bid=1.0704 (Info tick)
+     351199022th Tick: 2024.06.21 10:10:33.961 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199023th Tick: 2024.06.21 10:10:34.667 Ask=1.0704 (Info tick)
+     351199024th Tick: 2024.06.21 10:10:35.170 Bid=1.0704 (Info tick)
+     351199025th Tick: 2024.06.21 10:10:38.266 Ask=1.07041 Bid=1.07041 (Info tick)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2201
+</p>
+<pre><code class="language-mql5">
+     351199026th Tick: 2024.06.21 10:10:40.392 Ask=1.07042 Bid=1.07042 (Info tick)
+   ...
+   Start of adding 351199027 ticks to the history of the custom symbol &#x27;EURUSD.C&#x27;
+   Added 351199027 ticks to the history of the custom symbol &#x27;EURUSD.C&#x27; in 261594 ms
+   ...
+   Requested 351199027 ticks to get tick history for the symbol &#x27;EURUSD.C&#x27;
+   The tick history for the &#x27;EURUSD.C&#x27; symbol is received in the amount of 351199027 t
+   First tick time: 2011.12.19 00:00:08.000, Last tick time: 2024.06.21 10:10:40.392
+   
+   The last 20 ticks for the custom symbol &#x27;EURUSD.C&#x27;:
+     351199007th Tick: 2024.06.21 10:10:23.045 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199008th Tick: 2024.06.21 10:10:24.045 Ask=1.07031 Bid=1.07031 (Info tick)
+     351199009th Tick: 2024.06.21 10:10:24.545 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199010th Tick: 2024.06.21 10:10:25.146 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199011th Tick: 2024.06.21 10:10:25.649 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199012th Tick: 2024.06.21 10:10:27.050 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199013th Tick: 2024.06.21 10:10:28.153 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199014th Tick: 2024.06.21 10:10:29.157 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199015th Tick: 2024.06.21 10:10:29.658 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199016th Tick: 2024.06.21 10:10:30.258 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199017th Tick: 2024.06.21 10:10:30.872 Ask=1.07035 Bid=1.07035 (Info tick)
+     351199018th Tick: 2024.06.21 10:10:31.358 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199019th Tick: 2024.06.21 10:10:31.859 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199020th Tick: 2024.06.21 10:10:32.377 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199021th Tick: 2024.06.21 10:10:32.962 Ask=1.0704 Bid=1.0704 (Info tick)
+     351199022th Tick: 2024.06.21 10:10:33.961 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199023th Tick: 2024.06.21 10:10:34.667 Ask=1.0704 Bid=1.0704 (Info tick)
+     351199024th Tick: 2024.06.21 10:10:35.170 Ask=1.0704 Bid=1.0704 (Info tick)
+     351199025th Tick: 2024.06.21 10:10:38.266 Ask=1.07041 Bid=1.07041 (Info tick)
+     351199026th Tick: 2024.06.21 10:10:40.392 Ask=1.07042 Bid=1.07042 (Info tick)
+   ...
+   Start deleting 10 ticks in the history of the custom symbol &#x27;EURUSD.C&#x27;
+   Deleted 10 ticks in the history of the custom symbol &#x27;EURUSD.C&#x27; in 188 ms
+   ...
+   Requested 351199027 ticks to get tick history for the symbol &#x27;EURUSD.C&#x27;
+   The tick history for the &#x27;EURUSD.C&#x27; symbol is received in the amount of 351199017 t
+   Time of the first tick from the changed history: 2011.12.19 00:00:08.000, Time of t
+   
+   The last 20 ticks of custom symbol &#x27;EURUSD.C&#x27; with modified history:
+     351198997th Tick: 2024.06.21 10:10:14.935 Ask=1.07036 Bid=1.07036 (Info tick)
+     351198998th Tick: 2024.06.21 10:10:15.533 Ask=1.07035 Bid=1.07035 (Info tick)
+     351198999th Tick: 2024.06.21 10:10:17.736 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199000th Tick: 2024.06.21 10:10:18.540 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199001th Tick: 2024.06.21 10:10:19.046 Ask=1.07038 Bid=1.07038 (Info tick)
+     351199002th Tick: 2024.06.21 10:10:19.542 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199003th Tick: 2024.06.21 10:10:20.041 Ask=1.07035 Bid=1.07035 (Info tick)
+     351199004th Tick: 2024.06.21 10:10:21.041 Ask=1.07035 Bid=1.07035 (Info tick)
+     351199005th Tick: 2024.06.21 10:10:21.544 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199006th Tick: 2024.06.21 10:10:22.344 Ask=1.07032 Bid=1.07032 (Info tick)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2202
+</p>
+<pre><code class="language-mql5">
+     351199007th Tick: 2024.06.21 10:10:23.045 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199008th Tick: 2024.06.21 10:10:24.045 Ask=1.07031 Bid=1.07031 (Info tick)
+     351199009th Tick: 2024.06.21 10:10:24.545 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199010th Tick: 2024.06.21 10:10:25.146 Ask=1.07032 Bid=1.07032 (Info tick)
+     351199011th Tick: 2024.06.21 10:10:25.649 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199012th Tick: 2024.06.21 10:10:27.050 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199013th Tick: 2024.06.21 10:10:28.153 Ask=1.07039 Bid=1.07039 (Info tick)
+     351199014th Tick: 2024.06.21 10:10:29.157 Ask=1.07037 Bid=1.07037 (Info tick)
+     351199015th Tick: 2024.06.21 10:10:29.658 Ask=1.07036 Bid=1.07036 (Info tick)
+     351199016th Tick: 2024.06.21 10:10:40.392 Ask=1.07042 Bid=1.07042 (Info tick)
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2203
+</p>
+<pre><code class="language-mql5">
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Obtém a quantidade especificada de ticks no array               |
+//+------------------------------------------------------------------+
+bool GetTicksToArray(const string symbol, const uint count, MqlTick &amp;array[])
+  {
+//--- informamos sobre o início do carregamento dos dados históricos
+   PrintFormat(&quot;Requested %u ticks to get tick history for the symbol &#x27;%s&#x27;&quot;, count, sy
+   
+//--- fazemos 3 tentativas de obter ticks
+   int attempts=0;
+   while(attempts&lt;3)
+     {
+ //--- medimos o tempo de início antes de obter ticks
+      uint start=GetTickCount();
+      
+ //--- solicitamos a história de ticks desde 1970.01.01 00:00.001 (parâmetro from=1 ms
+      int received=CopyTicks(symbol, array, COPY_TICKS_ALL, 1, count);
+      if(received!=-1)
+        {
+ //--- informamos sobre a quantidade de ticks e o tempo gasto
+         PrintFormat(&quot;The tick history for the &#x27;%s&#x27; symbol is received in the amount o
+         
+ //--- se a história de ticks estiver sincronizada, o código de erro é zero - retornam
+         if(GetLastError()==0)
+            return(true);
+         PrintFormat(&quot;%s: Ticks are not synchronized yet, %d ticks received for %d ms.
+                     symbol, received, GetTickCount()-start, GetLastError());
+        }
+ //--- contamos as tentativas
+      attempts++; 
+ //--- pausa de 1 segundo aguardando a conclusão da sincronização da base de ticks
+      Sleep(1000);
+     }
+//--- não foi possível copiar ticks em 3 tentativas
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+ 
+//| retorna a descrição do tick em formato string                    |
+//+------------------------------------------------------------------+ 
+string GetTickDescription(MqlTick &amp;tick) 
+  { 
+   string desc=StringFormat(&quot;%s.%03u &quot;, TimeToString(tick.time, TIME_DATE|TIME_MINUTES</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2204
+</p>
+<pre><code class="language-mql5">
+   
+//--- verificamos os flags do tick
+   bool buy_tick   = ((tick.flags &amp;TICK_FLAG_BUY)   == TICK_FLAG_BUY); 
+   bool sell_tick  = ((tick.flags &amp;TICK_FLAG_SELL)  == TICK_FLAG_SELL); 
+   bool ask_tick   = ((tick.flags &amp;TICK_FLAG_ASK)   == TICK_FLAG_ASK); 
+   bool bid_tick   = ((tick.flags &amp;TICK_FLAG_BID)   == TICK_FLAG_BID); 
+   bool last_tick  = ((tick.flags &amp;TICK_FLAG_LAST)  == TICK_FLAG_LAST); 
+   bool volume_tick= ((tick.flags &amp;TICK_FLAG_VOLUME)== TICK_FLAG_VOLUME); 
+   
+//--- verificamos primeiro os flags de negociação do tick (para CustomTicksAdd() não h
+   if(buy_tick || sell_tick) 
+     { 
+      //--- formatamos a saída para um tick de negociação
+      desc += (buy_tick ? StringFormat(&quot;Buy Tick: Last=%G Volume=%d &quot;, tick.last, tick
+      desc += (sell_tick? StringFormat(&quot;Sell Tick: Last=%G Volume=%d &quot;,tick.last, tick
+      desc += (ask_tick ? StringFormat(&quot;Ask=%G &quot;, tick.ask) : &quot;&quot;); 
+      desc += (bid_tick ? StringFormat(&quot;Bid=%G &quot;, tick.ask) : &quot;&quot;); 
+      desc += &quot;(Trade tick)&quot;; 
+     } 
+   else 
+     { 
+      //--- para um tick de informação, formatamos a saída de forma um pouco diferente
+      desc += (ask_tick   ? StringFormat(&quot;Ask=%G &quot;,  tick.ask)    : &quot;&quot;); 
+      desc += (bid_tick   ? StringFormat(&quot;Bid=%G &quot;,  tick.ask)    : &quot;&quot;); 
+      desc += (last_tick  ? StringFormat(&quot;Last=%G &quot;, tick.last)   : &quot;&quot;); 
+      desc += (volume_tick? StringFormat(&quot;Volume=%d &quot;,tick.volume): &quot;&quot;); 
+      desc += &quot;(Info tick)&quot;; 
+     } 
+//--- retornamos a descrição do tick
+   return(desc); 
+</code></pre>
+<p>
+  } 
+<h3>Veja também</h3>
+CustomRatesDelete, CustomRatesUpdate, CustomTicksReplace, CopyTicks, CopyTicksRange</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2205
+<h3>CustomTicksReplace</h3>
+Substitui todo o histórico de preço do instrumento personalizado pelos dados na matriz do tipo
+MqlTick, no intervalo de tempo definido.
+</p>
+<pre><code class="language-mql5">
+int  CustomTicksReplace(
+   const string     symbol,            // nome do símbolo
+   datetime         from_msc,          // a partir de qual data
+   datetime         to_msc,            // até qual data
+   const MqlTick&amp;   ticks[],           // matriz com dados de tick que se devem aplica
+   uint             count=WHOLE_ARRAY  // número de elementos a serem usados a partir 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento personalizado.
+from_msc
+[in]  Tempo do primeiro tick no histórico de preço, na faixa definida a ser removida. Tempo em
+milissegundos desde 01.01.1970.
+to_msc
+[in]  Tempo do último tick no histórico de preço, na faixa definida a ser removida. Tempo em
+milissegundos desde 01.01.1970.
+ticks[]
+[in]   Matriz dos dados de tick - de tipo MqlTick - classificados segundo o tempo em ordem
+crescente.
+count=WHOLE_ARRAY
+[in]  Número de elementos da matriz ticks[] que será usado para substituir no intervalo de tempo
+especificado. O valor WHOLE_ARRAY indica que é necessário usar todos os elementos da matriz
+ticks[].
+<h3>Valor de retorno</h3>
+true, em caso de sucesso, caso contrário, false. Para obter informações sobre o erro, você deve
+chamar a função GetLastError().
+<h3>Geral</h3>
+Como, no canal de cotações, muitas vezes alguns ticks podem ter o mesmo tempo com uma
+precisão de milissegundos (a hora do tick é armazenado no campo time_msc da estrutura MqlTick),
+a função CustomTicksReplace não classifica automaticamente os elementos da matriz ticks[] de
+acordo com o tempo. Portanto, a matriz de ticks deve ser pré-ordenada por tempo ascendente. 
+Os ticks são substituídos sequencialmente, dia após dia, até a hora especificada em to_msc ou até
+que ocorra um erro. Primeiro, é processado o primeiro dia da faixa especificada, em seguida, o
+seguinte, e assim por diante. Assim que encontrada uma discrepância no tempo do tick quanto à
+ordem crescente (não decrescente), é interrompido o processo de substituição de ticks para o dia
+atual. Ao acontecer isto, os ticks do dia anterior são substituídos com sucesso, enquanto o dia atual</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2206
+(no momento do tick errado) e todos os dias restantes no intervalo definido permanecerão
+inalterados.
+Se, na matriz ticks[], não existirem dados de tick um certo dia (de um modo geral, um intervalo de
+qualquer duração), após serem implementados os ticks da ticks[], no histórico do instrumento
+personalizado é formado um &quot;buraco&quot;, que corresponde aos dados em falta. Em outras palavras, a
+chamada de CustomTicksReplace com os ticks em falta para uma determinada faixa será
+equivalente à remoção da parte do histórico de negociação, como se fosse chamado
+CustomTicksDelete com um intervalo &quot;buracado&quot;. 
+Se não houver dados no banco de dados de ticks no intervalo de tempo especificado, a
+CustomTicksReplace simplesmente adicionará os ticks da matriz ticks[] a ele.
+A função CustomTicksReplace funciona diretamente com o banco de dados de ticks.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                           CustomTicksReplace.mq5 |
+//|                                  Copyright 2024, MetaQuotes Ltd. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#define   CUSTOM_SYMBOL_NAME     Symbol()+&quot;.C&quot;     // nome do símbolo personalizado
+#define   CUSTOM_SYMBOL_PATH     &quot;Forex&quot;           // nome do grupo onde o símbolo ser
+#define   CUSTOM_SYMBOL_ORIGIN   Symbol()          // nome do símbolo usado como base 
+#define   DATATICKS_TO_COPY      UINT_MAX          // quantidade de ticks copiados
+#define   DATATICKS_TO_PRINT     20                // quantidade de ticks exibidos no 
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o código de erro ao criar o símbolo personalizado
+   int create=CreateCustomSymbol(CUSTOM_SYMBOL_NAME, CUSTOM_SYMBOL_PATH, CUSTOM_SYMBOL
+   
+//--- se o código de erro não for 0 (criação bem-sucedida do símbolo) e não for 5304 
+   if(create!=0 &amp;&amp; create!=5304)
+      return;
+//--- obtemos no array MqlTick os dados de ticks do símbolo padrão
+   MqlTick array[]={};
+   if(!GetTicksToArray(CUSTOM_SYMBOL_ORIGIN, DATATICKS_TO_COPY, array))
+      return;</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2207
+</p>
+<pre><code class="language-mql5">
+   
+//--- imprimimos o horário do primeiro e último tick obtido do símbolo padrão
+   int total=(int)array.Size();
+   PrintFormat(&quot;First tick time: %s.%03u, Last tick time: %s.%03u&quot;,
+               TimeToString(array[0].time,TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo padrão
+   PrintFormat(&quot;\nThe last %d ticks for the standard symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO_PRINT
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));
+     }
+   
+//--- adicionamos o símbolo personalizado na janela MarketWatch (observação do mercado
+   ResetLastError();
+   if(!SymbolSelect(CUSTOM_SYMBOL_NAME, true))
+     {
+      Print(&quot;SymbolSelect() failed. Error &quot;, GetLastError());
+      return;
+     }
+     
+//--- adicionamos à história de preços do símbolo personalizado os dados do array de t
+   Print(&quot;...&quot;);
+   uint start=GetTickCount();
+   PrintFormat(&quot;Start of adding %u ticks to the history of the custom symbol &#x27;%s&#x27;&quot;, ar
+   int added=CustomTicksAdd(CUSTOM_SYMBOL_NAME, array);
+   PrintFormat(&quot;Added %u ticks to the history of the custom symbol &#x27;%s&#x27; in %u ms&quot;, add
+   
+//--- obtemos no array MqlTick os dados de ticks recém-adicionados do símbolo personal
+   Print(&quot;...&quot;);
+   if(!GetTicksToArray(CUSTOM_SYMBOL_NAME, array.Size(), array))
+      return;
+   
+//--- imprimimos o horário do primeiro e último tick obtido do símbolo personalizado
+   total=(int)array.Size();
+   PrintFormat(&quot;First tick time: %s.%03u, Last tick time: %s.%03u&quot;,
+               TimeToString(array[0].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks do símbolo personalizado
+   PrintFormat(&quot;\nThe last %d ticks for the custom symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO_PRINT, 
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Tick: %s&quot;, i, GetTickDescription(array[i]));</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2208
+</p>
+<pre><code class="language-mql5">
+     }
+//--- agora, alteramos os valores Ask e Bid dos ticks no array usando a fórmula Ask(Sy
+   for(int i=0; i&lt;total; i++)
+     {
+      array[i].ask = (array[i].ask !=0 ? 1.0 / array[i].ask : array[i].ask);
+      array[i].bid = (array[i].bid !=0 ? 1.0 / array[i].bid : array[i].bid);
+     }
+   Print(&quot;\nNow the ticks are changed&quot;);
+//--- substituímos a história de ticks do símbolo personalizado com os dados do array 
+   Print(&quot;...&quot;);
+   start=GetTickCount();
+   PrintFormat(&quot;Start replacing %u changed ticks in the history of the custom symbol &#x27;
+   int replaced=CustomTicksReplace(CUSTOM_SYMBOL_NAME, array[0].time_msc, array[total-
+   PrintFormat(&quot;Replaced %u ticks in the history of the custom symbol &#x27;%s&#x27; in %u ms&quot;, 
+   
+//--- obtemos no array MqlTick os dados de ticks recém-substituídos do símbolo persona
+   Print(&quot;...&quot;);
+   if(!GetTicksToArray(CUSTOM_SYMBOL_NAME, array.Size(), array))
+      return;
+   
+//--- imprimimos o horário do primeiro e último tick alterado do símbolo personalizado
+   total=(int)array.Size();
+   PrintFormat(&quot;First changed tick time: %s.%03u, Last changed tick time: %s.%03u&quot;,
+               TimeToString(array[0].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS), array
+               TimeToString(array[total-1].time, TIME_DATE|TIME_MINUTES|TIME_SECONDS),
+               
+//--- imprimimos no log os últimos DATATICKS_TO_PRINT ticks alterados do símbolo perso
+   PrintFormat(&quot;\nThe last %d changed ticks for the custom symbol &#x27;%s&#x27;:&quot;, DATATICKS_TO
+   for(int i=total-DATATICKS_TO_PRINT; i&lt;total; i++)
+     {
+      if(i&lt;0)
+         continue;
+      PrintFormat(&quot;  %dth Changed tick: %s&quot;, i, GetTickDescription(array[i]));
+     }
+//--- no comentário do gráfico exibimos a dica sobre as chaves de encerramento do scri
+   Comment(StringFormat(&quot;Press &#x27;Esc&#x27; to exit or &#x27;Del&#x27; to delete the &#x27;%s&#x27; symbol and ex
+//--- em um loop infinito, esperamos as teclas Esc ou Del para sair
+   while(!IsStopped() &amp;&amp; TerminalInfoInteger(TERMINAL_KEYSTATE_ESCAPE)==0)
+     {
+      Sleep(16);
+      //--- ao pressionar Del, excluímos o símbolo personalizado criado e seus dados
+      if(TerminalInfoInteger(TERMINAL_KEYSTATE_DELETE)&lt;0)
+        {
+         //--- excluímos os dados das barras
+         int deleted=CustomRatesDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2209
+</p>
+<pre><code class="language-mql5">
+            PrintFormat(&quot;%d history bars of the custom symbol &#x27;%s&#x27; were successfully d
+         
+         //--- excluímos os dados de ticks
+         deleted=CustomTicksDelete(CUSTOM_SYMBOL_NAME, 0, LONG_MAX);
+         if(deleted&gt;0)
+            PrintFormat(&quot;%d history ticks of the custom symbol &#x27;%s&#x27; were successfully 
+         
+         //--- excluímos o símbolo
+         if(DeleteCustomSymbol(CUSTOM_SYMBOL_NAME))
+            PrintFormat(&quot;Custom symbol &#x27;%s&#x27; deleted successfully&quot;, CUSTOM_SYMBOL_NAME)
+         break;
+        }
+     }
+//--- antes de sair, limpamos o gráfico
+   Comment(&quot;&quot;);
+   /*
+   resultado:
+   Requested 4294967295 ticks to get tick history for the symbol &#x27;EURUSD&#x27;
+   The tick history for the &#x27;EURUSD&#x27; symbol is received in the amount of 351195822 tic
+   First tick time: 2011.12.19 00:00:08.000, Last tick time: 2024.06.21 08:39:03.113
+   
+   The last 20 ticks for the standard symbol &#x27;EURUSD&#x27;:
+     351195802th Tick: 2024.06.21 08:38:10.076 Ask=1.07194 (Info tick)
+     351195803th Tick: 2024.06.21 08:38:13.162 Ask=1.07195 (Info tick)
+     351195804th Tick: 2024.06.21 08:38:13.872 Bid=1.07195 (Info tick)
+     351195805th Tick: 2024.06.21 08:38:14.866 Ask=1.07194 Bid=1.07194 (Info tick)
+     351195806th Tick: 2024.06.21 08:38:17.374 Bid=1.07194 (Info tick)
+     351195807th Tick: 2024.06.21 08:38:18.883 Bid=1.07194 (Info tick)
+     351195808th Tick: 2024.06.21 08:38:19.771 Bid=1.07194 (Info tick)
+     351195809th Tick: 2024.06.21 08:38:20.873 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195810th Tick: 2024.06.21 08:38:22.278 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195811th Tick: 2024.06.21 08:38:22.775 Bid=1.07196 (Info tick)
+     351195812th Tick: 2024.06.21 08:38:23.477 Bid=1.07196 (Info tick)
+     351195813th Tick: 2024.06.21 08:38:38.194 Ask=1.07197 (Info tick)
+     351195814th Tick: 2024.06.21 08:38:38.789 Ask=1.07196 (Info tick)
+     351195815th Tick: 2024.06.21 08:38:39.290 Ask=1.07197 (Info tick)
+     351195816th Tick: 2024.06.21 08:38:43.695 Ask=1.07196 (Info tick)
+     351195817th Tick: 2024.06.21 08:38:52.203 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195818th Tick: 2024.06.21 08:38:55.105 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195819th Tick: 2024.06.21 08:38:57.607 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195820th Tick: 2024.06.21 08:39:00.512 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195821th Tick: 2024.06.21 08:39:03.113 Ask=1.07195 Bid=1.07195 (Info tick)
+   ...
+   Start of adding 351195822 ticks to the history of the custom symbol &#x27;EURUSD.C&#x27;
+   Added 351195822 ticks to the history of the custom symbol &#x27;EURUSD.C&#x27; in 349407 ms
+   ...
+   Requested 351195822 ticks to get tick history for the symbol &#x27;EURUSD.C&#x27;
+   The tick history for the &#x27;EURUSD.C&#x27; symbol is received in the amount of 351195822 t
+   First tick time: 2011.12.19 00:00:08.000, Last tick time: 2024.06.21 08:39:03.113</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2210
+</p>
+<pre><code class="language-mql5">
+   
+   The last 20 ticks for the custom symbol &#x27;EURUSD.C&#x27;:
+     351195802th Tick: 2024.06.21 08:38:10.076 Ask=1.07194 Bid=1.07194 (Info tick)
+     351195803th Tick: 2024.06.21 08:38:13.162 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195804th Tick: 2024.06.21 08:38:13.872 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195805th Tick: 2024.06.21 08:38:14.866 Ask=1.07194 Bid=1.07194 (Info tick)
+     351195806th Tick: 2024.06.21 08:38:17.374 Ask=1.07194 Bid=1.07194 (Info tick)
+     351195807th Tick: 2024.06.21 08:38:18.883 Ask=1.07194 Bid=1.07194 (Info tick)
+     351195808th Tick: 2024.06.21 08:38:19.771 Ask=1.07194 Bid=1.07194 (Info tick)
+     351195809th Tick: 2024.06.21 08:38:20.873 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195810th Tick: 2024.06.21 08:38:22.278 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195811th Tick: 2024.06.21 08:38:22.775 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195812th Tick: 2024.06.21 08:38:23.477 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195813th Tick: 2024.06.21 08:38:38.194 Ask=1.07197 Bid=1.07197 (Info tick)
+     351195814th Tick: 2024.06.21 08:38:38.789 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195815th Tick: 2024.06.21 08:38:39.290 Ask=1.07197 Bid=1.07197 (Info tick)
+     351195816th Tick: 2024.06.21 08:38:43.695 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195817th Tick: 2024.06.21 08:38:52.203 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195818th Tick: 2024.06.21 08:38:55.105 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195819th Tick: 2024.06.21 08:38:57.607 Ask=1.07195 Bid=1.07195 (Info tick)
+     351195820th Tick: 2024.06.21 08:39:00.512 Ask=1.07196 Bid=1.07196 (Info tick)
+     351195821th Tick: 2024.06.21 08:39:03.113 Ask=1.07195 Bid=1.07195 (Info tick)
+   
+   Now the ticks are changed
+   ...
+   Start replacing 351195822 changed ticks in the history of the custom symbol &#x27;EURUSD
+   Replaced 351195822 ticks in the history of the custom symbol &#x27;EURUSD.C&#x27; in 452266 m
+   ...
+   Requested 351195822 ticks to get tick history for the symbol &#x27;EURUSD.C&#x27;
+   The tick history for the &#x27;EURUSD.C&#x27; symbol is received in the amount of 351195822 t
+   First changed tick time: 2011.12.19 00:00:08.000, Last changed tick time: 2024.06.2
+   
+   The last 20 changed ticks for the custom symbol &#x27;EURUSD.C&#x27;:
+     351195802th Changed tick: 2024.06.21 08:38:10.076 Ask=0.93289 Bid=0.93289 (Info t
+     351195803th Changed tick: 2024.06.21 08:38:13.162 Ask=0.93288 Bid=0.93288 (Info t
+     351195804th Changed tick: 2024.06.21 08:38:13.872 Ask=0.93288 Bid=0.93288 (Info t
+     351195805th Changed tick: 2024.06.21 08:38:14.866 Ask=0.93289 Bid=0.93289 (Info t
+     351195806th Changed tick: 2024.06.21 08:38:17.374 Ask=0.93289 Bid=0.93289 (Info t
+     351195807th Changed tick: 2024.06.21 08:38:18.883 Ask=0.93289 Bid=0.93289 (Info t
+     351195808th Changed tick: 2024.06.21 08:38:19.771 Ask=0.93289 Bid=0.93289 (Info t
+     351195809th Changed tick: 2024.06.21 08:38:20.873 Ask=0.93288 Bid=0.93288 (Info t
+     351195810th Changed tick: 2024.06.21 08:38:22.278 Ask=0.93287 Bid=0.93287 (Info t
+     351195811th Changed tick: 2024.06.21 08:38:22.775 Ask=0.93287 Bid=0.93287 (Info t
+     351195812th Changed tick: 2024.06.21 08:38:23.477 Ask=0.93287 Bid=0.93287 (Info t
+     351195813th Changed tick: 2024.06.21 08:38:38.194 Ask=0.93286 Bid=0.93286 (Info t
+     351195814th Changed tick: 2024.06.21 08:38:38.789 Ask=0.93287 Bid=0.93287 (Info t
+     351195815th Changed tick: 2024.06.21 08:38:39.290 Ask=0.93286 Bid=0.93286 (Info t
+     351195816th Changed tick: 2024.06.21 08:38:43.695 Ask=0.93287 Bid=0.93287 (Info t
+     351195817th Changed tick: 2024.06.21 08:38:52.203 Ask=0.93288 Bid=0.93288 (Info t</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2211
+</p>
+<pre><code class="language-mql5">
+     351195818th Changed tick: 2024.06.21 08:38:55.105 Ask=0.93287 Bid=0.93287 (Info t
+     351195819th Changed tick: 2024.06.21 08:38:57.607 Ask=0.93288 Bid=0.93288 (Info t
+     351195820th Changed tick: 2024.06.21 08:39:00.512 Ask=0.93287 Bid=0.93287 (Info t
+     351195821th Changed tick: 2024.06.21 08:39:03.113 Ask=0.93288 Bid=0.93288 (Info t
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um símbolo personalizado, retorna o código de erro         |
+//+------------------------------------------------------------------+
+int CreateCustomSymbol(const string symbol_name, const string symbol_path, const strin
+  {
+//--- definimos o nome do símbolo usado como base para criar o símbolo personalizado
+   string origin=(symbol_origin==NULL ? Symbol() : symbol_origin);
+   
+//--- se não for possível criar o símbolo personalizado, e isso não for um erro 5304, 
+   ResetLastError();
+   int error=0;
+   if(!CustomSymbolCreate(symbol_name, symbol_path, origin))
+     {
+      error=GetLastError();
+      if(error!=5304)
+         PrintFormat(&quot;CustomSymbolCreate(%s, %s, %s) failed. Error %d&quot;, symbol_name, s
+     }
+//--- sucesso
+   return(error);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui o símbolo personalizado                                   |
+//+------------------------------------------------------------------+
+bool DeleteCustomSymbol(const string symbol_name)
+  {
+//--- ocultamos o símbolo da janela Observação do Mercado
+   ResetLastError();
+   if(!SymbolSelect(symbol_name, false))
+     {
+      PrintFormat(&quot;SymbolSelect(%s, false) failed. Error %d&quot;, GetLastError());
+      return(false);
+     }
+      
+//--- se não for possível excluir o símbolo personalizado, informamos no log e retorna
+   ResetLastError();
+   if(!CustomSymbolDelete(symbol_name))
+     {
+      PrintFormat(&quot;CustomSymbolDelete(%s) failed. Error %d&quot;, symbol_name, GetLastError
+      return(false);
+     }
+//--- sucesso
+   return(true);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2212
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Obtém a quantidade especificada de ticks no array               |
+//+------------------------------------------------------------------+
+bool GetTicksToArray(const string symbol, const uint count, MqlTick &amp;array[])
+  {
+//--- informamos sobre o início do carregamento dos dados históricos
+   PrintFormat(&quot;Requested %u ticks to get tick history for the symbol &#x27;%s&#x27;&quot;, count, sy
+   
+//--- fazemos 3 tentativas de obter ticks
+   int attempts=0;
+   while(attempts&lt;3)
+     {
+ //--- medimos o tempo de início antes de obter ticks
+      uint start=GetTickCount();
+      
+ //--- solicitamos a história de ticks desde 1970.01.01 00:00.001 (parâmetro from=1 ms
+      int received=CopyTicks(symbol, array, COPY_TICKS_ALL, 1, count);
+      if(received!=-1)
+        {
+ //--- informamos sobre a quantidade de ticks e o tempo gasto
+         PrintFormat(&quot;The tick history for the &#x27;%s&#x27; symbol is received in the amount o
+         
+ //--- se a história de ticks estiver sincronizada, o código de erro é zero - retornam
+         if(GetLastError()==0)
+            return(true);
+         PrintFormat(&quot;%s: Ticks are not synchronized yet, %d ticks received for %d ms.
+                     symbol, received, GetTickCount()-start, GetLastError());
+        }
+ //--- contamos as tentativas
+      attempts++; 
+ //--- pausa de 1 segundo aguardando a conclusão da sincronização da base de ticks
+      Sleep(1000);
+     }
+//--- não foi possível copiar ticks em 3 tentativas
+   return(false);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+ 
+//| retorna a descrição do tick em formato string                    |
+//+------------------------------------------------------------------+ 
+string GetTickDescription(MqlTick &amp;tick) 
+  { 
+   string desc=StringFormat(&quot;%s.%03u &quot;, TimeToString(tick.time, TIME_DATE|TIME_MINUTES
+   
+//--- verificamos os flags do tick
+   bool buy_tick   = ((tick.flags &amp;TICK_FLAG_BUY)   == TICK_FLAG_BUY); 
+   bool sell_tick  = ((tick.flags &amp;TICK_FLAG_SELL)  == TICK_FLAG_SELL); 
+   bool ask_tick   = ((tick.flags &amp;TICK_FLAG_ASK)   == TICK_FLAG_ASK); 
+   bool bid_tick   = ((tick.flags &amp;TICK_FLAG_BID)   == TICK_FLAG_BID); </p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2213
+</p>
+<pre><code class="language-mql5">
+   bool last_tick  = ((tick.flags &amp;TICK_FLAG_LAST)  == TICK_FLAG_LAST); 
+   bool volume_tick= ((tick.flags &amp;TICK_FLAG_VOLUME)== TICK_FLAG_VOLUME); 
+   
+//--- verificamos primeiro os flags de negociação do tick (para CustomTicksAdd() não h
+   if(buy_tick || sell_tick) 
+     { 
+      //--- formatamos a saída para um tick de negociação
+      desc += (buy_tick ? StringFormat(&quot;Buy Tick: Last=%G Volume=%d &quot;, tick.last, tick
+      desc += (sell_tick? StringFormat(&quot;Sell Tick: Last=%G Volume=%d &quot;,tick.last, tick
+      desc += (ask_tick ? StringFormat(&quot;Ask=%G &quot;, tick.ask) : &quot;&quot;); 
+      desc += (bid_tick ? StringFormat(&quot;Bid=%G &quot;, tick.ask) : &quot;&quot;); 
+      desc += &quot;(Trade tick)&quot;; 
+     } 
+   else 
+     { 
+      //--- para um tick de informação, formatamos a saída de forma um pouco diferente
+      desc += (ask_tick   ? StringFormat(&quot;Ask=%G &quot;,  tick.ask)    : &quot;&quot;); 
+      desc += (bid_tick   ? StringFormat(&quot;Bid=%G &quot;,  tick.ask)    : &quot;&quot;); 
+      desc += (last_tick  ? StringFormat(&quot;Last=%G &quot;, tick.last)   : &quot;&quot;); 
+      desc += (volume_tick? StringFormat(&quot;Volume=%d &quot;,tick.volume): &quot;&quot;); 
+      desc += &quot;(Info tick)&quot;; 
+     } 
+//--- retornamos a descrição do tick
+   return(desc); 
+</code></pre>
+<p>
+  } 
+<h3>Veja também</h3>
+CustomRatesDelete, CustomRatesUpdate, CustomTicksDelete, CopyTicks, CopyTicksRange</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2214
+<h3>CustomBookAdd</h3>
+Envia o estado do livro de ofertas do instrumento personalizado. A função permite transmitir o livro
+de ofertas como se ele viesse do servidor da corretora.
+</p>
+<pre><code class="language-mql5">
+int  CustomBookAdd(
+   const string        symbol,            // nome do símbolo
+   const MqlBookInfo&amp;  books[]            // array com as descrições dos elementos do 
+   uint                count=WHOLE_ARRAY  // número de elementos a serem usados
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Nome do instrumento personalizado.
+books[]
+[in]   Array de dados do tipo MqlBookInfo descrevendo completamente o estado do livro de ofertas
+— todos os pedidos de compra e de venda. O estado de livro de ofertas enviado substitui
+completamente o anterior.
+count=WHOLE_ARRAY
+[in]   Número do elementos do array books que deve ser enviado para a função. Por padrão, é
+usado o array inteiro.
+<h3>Valor retornado</h3>
+Número de ticks adicionados ou -1 no caso de erro.
+<h3>Observação</h3>
+Função CustomBookAdd funciona apenas para símbolos personalizados em que o livro de ofertas
+está aberto — por meio da interface da plataforma ou função MarketBookAdd.
+Ao adicionar ao livro de ofertas, os preços Bid e Ask do instrumento não são atualizados. Você deve
+controlar de forma independente a mudança dos melhores preços e adicionar ticks com a ajuda de
+CustomTicksAdd.
+É verificada a exatidão dos dados transmitidos: para cada elemento devem ser indicados tipo, preço
+e volume. Além disso, MqlBookInfo.volume e MqlBookInfo.volume_real não devem ser zero ou
+negativos, se ambos os volumes forem negativos, isso será considerado um erro.  Você pode
+especificar qualquer um dos volumes ou ambos, sendo que será tomado aquele que é indicado ou é
+positivo:
+volume=-1 &amp;&amp; volume_real=2 — será usado volume_real=2,
+a volume=3 &amp;&amp; volume_real=0 — será usado volume=3.
+O volume com maior precisão MqlBookInfo.volume_real tem uma prioridade mais alta que o habitual
+MqlBookInfo.volume. Se, para o elemento do livro de ofertas, ambos os valores forem
+especificados, será usado volume_real.
+A sequência de elementos MqlBookInfo no array books não importa. Ao salvar dados, o terminal os
+classifica por preço independentemente.</p>
+<p><h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2215
+<h3>Ao</h3>
+salvar 
+dados, 
+é 
+verificado 
+o 
+parâmetro 
+&quot;Profundidade 
+do 
+livro 
+de
+ofertas&quot; (SYMBOL_TICKS_BOOKDEPTH) recebendo o instrumentos personalizado. Se, no livro de
+ofertas transmitido, o número de pedidos de venda exceder esse valor, os níveis excedentes são
+descartados. Da mesma forma, para pedidos de compra.
+Veja como é preenchido o array books:
+<h3>Estado</h3>
+do 
+livro 
+de
+ofertas
+<h3>Preenchimento de books[]</h3>
+books[0].type=BOOK_TYPE_SELL;
+books[0].price=1.14337;
+books[0].volume=100;   
+books[1].type=BOOK_TYPE_SELL;
+books[1].price=1.14330;
+books[1].volume=50;   
+books[2].type=BOOK_TYPE_SELL;
+books[2].price=1.14335;
+books[2].volume=40;   
+books[3].type=BOOK_TYPE_SELL;
+books[3].price=1.14333;
+books[3].volume=10;   
+books[4].type=BOOK_TYPE_BUY;
+books[4].price=1.14322;
+books[4].volume=10;   
+books[5].type=BOOK_TYPE_BUY;
+books[5].price=1.14320;
+books[5].volume=90;  
+books[6].type=BOOK_TYPE_BUY;
+books[6].price=1.14319;
+books[6].volume=100;   
+books[7].type=BOOK_TYPE_BUY;
+books[7].price=1.14318;
+books[7].volume=10;
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- ativamos o livro de ofertas para o instrumento a partir do qual vamos tomas dado
+   MarketBookAdd(Symbol());
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Tick function                                                    |
+//+------------------------------------------------------------------+
+void OnTick(void)
+  {
+   MqlTick ticks[];
+   ArrayResize(ticks,1);</p>
+<p></code></pre>
+<p>
+<h3>Símbolos personalizados</h3>
+© 2000-2025, MetaQuotes Ltd.
+2216
+</p>
+<pre><code class="language-mql5">
+//--- copiamos os preços atuais a partir de um instrumento habitual para um instrument
+   if(SymbolInfoTick(Symbol(),ticks[0]))
+     {
+      string symbol_name=Symbol()+&quot;.SYN&quot;;
+      CustomTicksAdd(symbol_name,ticks);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Book function                                                    |
+//+------------------------------------------------------------------+
+void OnBookEvent(const string &amp;book_symbol)
+  {
+//--- copiamos o estado atual do livro de ofertas a partir de um instrumento habitual 
+   if(book_symbol==Symbol())
+     {
+      MqlBookInfo book_array[];
+      if(MarketBookGet(Symbol(),book_array))
+        {
+         string symbol_name=Symbol()+&quot;.SYN&quot;;
+         CustomBookAdd(symbol_name,book_array);
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Veja também</h3>
+<h3>MarketBookAdd, CustomTicksAdd, OnBookEvent</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

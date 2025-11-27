@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrando do MQL4 - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class="active"><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Migrando do MQL4</h1>
+        </header>
+        
+        <article>
+            <p><h3>Migrando do MQL4</h3>
+© 2000-2025, MetaQuotes Ltd.
+6810
+Migrando da linguagem de programação MQL4 para MQL5
+MQL5 é a evolução do seu antecessor - a linguagem de programação MQL4, onde inúmeros
+indicadores, scripts e Expert Advisors foram escritos. Apesar do fato de que a nova linguagem de
+programação é grandemente compatível com a linguagem da geração anterior, ainda existem algumas
+diferenças entre as linguagens. E quando migrar de programas, essas diferenças devem ser
+observadas.
+Esta seção contém informações destinadas a facilitar a adaptação dos códigos para a nova linguagem
+MQL5 ao programadores que conhecem MQL4.
+<h3>Em primeiro lugar, deve-se observar:</h3>
+· A nova linguagem não contém funções start(), init() e deinit().
+· Não há limite para o número de buffers de indicador.
+· DLLs são carregadas imediatamente após o carregamento de um Expert Advisor (ou qualquer outro
+programa MQL5).
+· Verificação das condições lógicas é reduzida.
+· Quando os limites de um matriz forem ultrapassados, o desempenho em curso é finalizado
+(criticamente - com a saída de um erro).
+· Originários de operadores em C++.
+· A linguagem oferece o tipo de conversão implícita (mesmo de string para um número).
+· As variáveis locais não são inicializados automaticamente (exceto para strings).
+· Matrizes de local comum são excluídas automaticamente.
+<h3>Funções Especiais init, start e deinit</h3>
+A linguagem MQL4 contém apenas estas três funções pré-definidas que são usadas no indicador, script
+ou Expert Advisor (não contando a inclusão dos arquivos *.mqh e dos arquivos de biblioteca). Em
+MQL5 não existem estas funções, mas foram criadas funções análogas. A tabela mostra a
+correspondência aproximada das funções.
+<h3>MQL4</h3>
+<h3>MQL5</h3>
+init
+<h3>OnInit</h3>
+start
+<h3>OnStart</h3>
+deinit
+<h3>OnDeinit</h3>
+Funções OnInit e OnDeinit desempenham o mesmo papel que as funções init e deinit em MQL4 - elas
+são projetadas para encontrar o código, que será realizado durante a inicialização e finalização dos
+programas MQL5. Você pode simplesmente renomear estas funções em conformidade, ou deixá-las
+como estão, mas deve adicionar chamadas dessas funções em lugares correspondentes.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnInit()
+  {
+//--- Função nomeada durante a inicialização</p>
+<p></code></pre>
+<p>
+<h3>Migrando do MQL4</h3>
+© 2000-2025, MetaQuotes Ltd.
+6811
+</p>
+<pre><code class="language-mql5">
+   init();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+void OnDeinit(const int reason)
+  {
+//--- Função nomeada durante a desinicialização
+   deinit();
+//---
+</code></pre>
+<p>
+  }
+A função start é substituída por OnStart apenas em scripts. Em Expert Advisors e indicadores será
+renomeado para OnTick e OnCalculate, respectivamente. O código que está para ser executado
+durante a operação do programa MQL5 será centrado nestas três funções:
+programa mql5
+principal função
+script
+<h3>OnStart</h3>
+indicador
+<h3>OnCalculate</h3>
+<h3>Expert Advisor</h3>
+<h3>OnTick</h3>
+Se o código do indicador ou script não contém a função principal, ou o nome da função é diferente,
+esta função não será executada. Isso significa que se o código fonte de um script não contém OnStart,
+esse código será compilado como um Expert Advisor.
+Se um código de indicador não contém a função OnCalculate, a compilação deste indicador será
+impossível.
+<h3>Variáveis Predefinidas</h3>
+Em MQL5 não existem as variáveis pré-definidas como Ask, Bid, Bars. As variáveis de Point e Digits
+têm uma grafia ligeiramente diferente:
+<h3>MQL4</h3>
+<h3>MQL5</h3>
+<h3>Digits</h3>
+_Digits
+<h3>Point</h3>
+_Point
+_LastError
+_Period
+_Symbol
+_StopFlag
+_UninitReason
+<h3>Acesso as Timeseries</h3></p>
+<p><h3>Migrando do MQL4</h3>
+© 2000-2025, MetaQuotes Ltd.
+6812
+Em MQL5 não existem as timeseries predefinidas como Open[], High[], Low[], Close[], Volume[] e
+Time[]. A profundidade necessária de uma timeseries agora pode ser definida através das funções
+correspondentes para acessar as timeseries.
+<h3>Expert Advisors</h3>
+Expert Advisors em MQL5 não requerem a presença obrigatória de funções que manipulam os eventos
+de recebimento de um novo tick - OnTick, com é realizado em MQL4 (a função de arranque em MQL4 é
+executado quando um novo tick é recebido). Em MQL5, os Expert Advisors podem conter funções pré-
+definidas do manipulador de vários tipos de eventos:
+· OnTick – recebimento de um novo tick;
+· OnTimer – evento de timer;
+· OnTrade - evento de trade;
+· OnChartEvent – eventos de entrada do teclado e mouse, eventos de um objeto gráfico em
+movimento, evento de edição de texto completo na entrada da etiqueta do objeto LabelEdit;
+· OnBookEvent – evento do status de mudança da Profundidade do Mercado.
+<h3>Indicadores Customizados</h3>
+Em MQL4, o número de buffers de indicador é limitado e não pode ultrapassar a 8. Em MQL5 não
+existem estas limitações, mas deve ser lembrado que cada buffer de indicador requer a alocação de
+uma certa parte da memória para a sua localização no terminal, por isto esta nova possibilidade não
+deve ser utilizada abusivamente.
+MQL4 oferece apenas 6 tipos de plotagem de indicadores personalizados, enquanto MQL5 agora
+oferece 18 estilos de desenho. Os nomes dos tipos de desenho não mudaram, mas a ideologia da
+representação gráfica dos indicadores mudou significativamente.
+A direção da indexação nos buffers de indicador também é diferente. Por padrão, em MQL5 todos os
+buffers de indicador tem o comportamento de matrizes comuns, ou seja, o elemento 0 (zero) indexado
+é o mais antigo no histórico e, como os índices aumentam, passamos dos dados mais antigos para os
+mais recentes.
+A única função para trabalhar com indicadores personalizados que foi preservado da linguagem MQL4 é
+a função SetIndexBuffer, mas para ser utilizada; agora deve ser especificado o tipo de dado a ser
+armazenado em um matriz, ligada ao buffer do indicador.
+As propriedades de indicadores personalizados também foram modificadas e ampliadas. Novas funções
+para acesso a timeseries foram adicionadas, de modo que o algoritmo de cálculo total deve ser
+reexaminado.
+<h3>Graphical Objects</h3>
+O número de objetos gráficos em MQL5 foi aumentado significativamente. Além disso, objetos
+gráficos agora são posicionados no gráfico com a precisão de um segundo em qualquer período de
+tempo - agora objetos de pontos de ancoragem não são arredondados para o tempo de abertura da
+barra de preço no gráfico em curso.</p>
+<p><h3>Migrando do MQL4</h3>
+© 2000-2025, MetaQuotes Ltd.
+6813
+Agora para Setas, Textos e Objetos de Etiqueta você pode especificar métodos de vinculação, e para a
+Etiqueta, Botão, Gráfico, Etiqueta Bitmap e Editar, os objetos podem ser configurados no canto do
+gráfico onde um objeto está ligado.
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

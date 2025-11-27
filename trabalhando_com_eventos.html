@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Eventos - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class="active"><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Trabalhando com Eventos</h1>
+        </header>
+        
+        <article>
+            <p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2983
+<h3>Funções de Eventos</h3>
+Este grupo contém funções para trabalhar com eventos personalizados e eventos de timer. Além deste
+grupo, há funções especiais para manipulação de eventos pré-definidos.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>EventSetMillisecondTimer</h3>
+Inicia gerador de eventos de timer de alta resolução com um
+período de menos de 1 segundo para o gráfico em curso
+<h3>EventSetTimer</h3>
+Inicia o gerador de eventos do time com a periodicidade
+especificada para o gráfico atual
+<h3>EventKillTimer</h3>
+Interrompe a geração de eventos pelo timer no quadro atual
+<h3>EventChartCustom</h3>
+Gera um evento personalizado para o gráfico especificado
+<h3>Também Veja</h3>
+<h3>Tipos de Eventos de Gráficos</h3></p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2984
+<h3>EventSetMillisecondTimer</h3>
+A função indica ao terminal de cliente que eventos de timer devem ser gerados em intervalos
+inferiores a um segundo, para este Expert Advisor ou aquele indicador.
+</p>
+<pre><code class="language-mql5">
+bool  EventSetMillisecondTimer(
+   int  milliseconds      // número de milissegundos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+milliseconds
+[in]  Número de milissegundos que definem a freqüência de eventos de timer.
+<h3>Valor de retorno</h3>
+No caso de sucesso na execução, retorna true, do contrário - false. Para receber um código de erro,
+a função GetLastError() deverá ser utilizada.
+<h3>Observação</h3>
+Este recurso é projetado para os casos em que é necessário timer de alta resolução. Em outras
+palavras, eventos de timer devem ser recebidos com mais freqüência do que uma vez por segundo.
+Se um timer convencional, com o período de mais de um segundo é o suficiente para você, use o
+evento EventSetTimer().
+Em geral, quando o período do timer é reduzido, o tempo de teste é maior, então o manipulador de
+eventos de timer é utilizado mais frequentemente. Ao trabalhar em modo de tempo real, os eventos
+de timer são gerados não mais do que uma vez em 10-16 milissegundos, devido a limitações de
+hardware.
+Normalmente, esta função será chamada pela função OnInit() ou no construtor de classe. Para
+manipular eventos provenientes do timer, um Expert Advisor ou um indicador deve usar a função
+OnTimer(). 
+Cada Expert Advisor e cada indicador trabalha com o seu próprio timer, recebendo eventos
+exclusivamente deste timer. Durante fechamento do aplicativo MQL5, o cronômetro é forçosamente
+encerrado caso tenha sido criado, mas não foi desativado pela função EventKillTimer().
+Apenas um timer pode ser utilizado para cada programa. Cada aplicativo MQL5 e gráfico tem sua
+própria lista de eventos, onde todos os novos eventos são colocados. Se a lista já contém eventos
+de Timer ou este evento está em fase de processamento, então o novo evento de Timer não é
+adicionado a fila do aplicativo MQL5. </p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2985
+<h3>EventSetTimer</h3>
+A função indica ao terminal do cliente que para este indicador ou Expert Advisor, eventos do timer
+devem ser gerados com a periodicidade especificada.
+</p>
+<pre><code class="language-mql5">
+bool  EventSetTimer(
+   int  seconds      // número de segundos
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+seconds
+[in] Número de segundos que determinam a freqüência de ocorrência do evento timer.
+<h3>Valor do Retorno</h3>
+Em caso de sucesso retorna verdadeiro, caso contrário falso. A fim de obter o código de erro, a
+função GetLastError() deve ser chamada.
+<h3>Observação</h3>
+Normalmente, esta função deve ser chamada a partir da função OnInit() ou de uma classe
+construtor. A fim de manipular eventos provenientes do timer, o Expert Advisor deve ter a função
+OnTimer().
+Todo Expert Advisor, assim como todo indicador funciona com seu próprio timer e recebe eventos
+apenas a partir dele. Assim quando um programa MQL5 deixa de funcionar, o timer é destruído
+forçadamente se ele foi criado, mas ainda não foi desativado pela função EventKillTimer().
+Para cada programa não mais de que um timer pode ser executado. Cada programa MQL5 e cada
+gráfico tem a sua própria fila de eventos em que todos os eventos recentemente recebidos são
+colocados. Se o evento Timer está presente ou está a ser processado, o novo evento de timer não
+será colocado na fila do programa MQL5. </p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2986
+<h3>EventKillTimer</h3>
+Especifica o terminal do cliente o que é necessário para finalizar a geração de eventos do Timer.
+</p>
+<pre><code class="language-mql5">
+void  EventKillTimer();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+Normalmente, esta função deve ser chamada a partir de uma função OnDeinit(), se a função
+EventSetTimer() for chamada de OnInit(). Esta função também pode ser chamada para formar o
+destruidor de classe, se a função EventSetTimer() foi chamada no construtor dessa classe.
+Todo Expert Advisor, assim como todo indicador funciona com seu próprio timer e recebe eventos
+apenas a partir dele. Assim quando programa MQL5 deixa de funcionar, o timer é destruído
+forçadamente se ele foi criado, mas ainda não foi desativado pela função EventKillTimer().</p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2987
+<h3>EventChartCustom</h3>
+A função gera um evento personalizado para o gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+bool  EventChartCustom(
+   long    chart_id,            // identificador do evento recebendo gráfico
+   ushort  custom_event_id,     // identificador de evento
+   long    lparam,              // parâmetro do tipo long
+   double  dparam,              // parâmetro do tipo double
+   string  sparam               // parâmetro de string do evento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in] Identificador gráfico. Significa o gráfico atual.
+custom_event_id
+[in] ID dos usuários do evento. Este identificador é automaticamente adicionado ao valor
+CHARTEVENT_CUSTOM e convertido para o tipo integer.
+lparam
+[in] Evento parâmetro do tipo long passado para a função OnChartEvent.
+dparam
+[in] Evento parâmetro do tipo double passado para a função OnChartEvent.
+sparam
+[in] Evento parâmetro do tipo string passado para a função OnChartEvent. Se a string é maior do
+que 63 caracteres, será truncado.
+<h3>Valor do Retorno</h3>
+Retorna verdadeiro se um evento personalizado foi colocada com sucesso na fila do gráfico de
+eventos que recebe os eventos. Em caso de falha, ele retorna false. Use GetLastError() para obter o
+código de erro.
+<h3>Observação</h3>
+Um Expert Advisor ou o indicador ligado a tabela especificada manipula o evento utilizando a função
+OnChartEvent(int event_id, long&amp; lparam, double&amp; dparam, string&amp; sparam).
+Para cada tipo de evento, os parâmetros de entrada da função OnChartEvent() têm valores definidos
+que são requeridos para o processamento deste evento. Os eventos e valores passados através destes
+parâmetros são listados na tabela abaixo.
+<h3>Evento</h3>
+<h3>Valor</h3>
+do
+parâmetro id
+<h3>Valor</h3>
+do
+parâmetro
+lparam
+<h3>Valor</h3>
+do
+parâmetro
+dparam
+<h3>Valor</h3>
+do
+parâmetro
+sparam
+<h3>Evento de uma</h3>
+teclada
+<h3>CHARTEVENT_KE</h3>
+<h3>YDOWN</h3>
+código de uma
+tecla pressionada
+<h3>Repita</h3>
+a
+contagem 
+(o
+número de vezes
+<h3>O valor da string</h3>
+de uma pequena
+máscara 
+de</p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2988
+<h3>Evento</h3>
+<h3>Valor</h3>
+do
+parâmetro id
+<h3>Valor</h3>
+do
+parâmetro
+lparam
+<h3>Valor</h3>
+do
+parâmetro
+dparam
+<h3>Valor</h3>
+do
+parâmetro
+sparam
+que a tecla é
+repetida 
+como
+um resultado de
+que 
+o 
+usuário
+pressiona 
+a
+tecla)
+descrever 
+o
+estado de botões
+do teclado
+<h3>Evento do mouse</h3>
+(se 
+a
+propriedade
+<h3>CHART_EVENT_</h3>
+<h3>MOUSE_MOVE=tr</h3>
+ue, 
+então 
+é
+definido para o
+gráfico)
+<h3>CHARTEVENT_MO</h3>
+<h3>USE_MOVE</h3>
+a coordenada X
+a coordenada Y
+<h3>O valor de string</h3>
+de uma máscara
+de 
+bites
+descrevendo 
+o
+estado de botões
+de mouse
+<h3>Evento</h3>
+de
+criação 
+de
+objeto 
+gráfico
+(se
+<h3>CHART_EVENT_O</h3>
+<h3>BJECT_CREATE=t</h3>
+rue, 
+então 
+é
+definido para o
+gráfico)
+<h3>CHARTEVENT_OB</h3>
+<h3>JECT_CREATE</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico criado
+<h3>Evento</h3>
+de
+mudança de uma
+propriedade 
+de
+objeto via janela
+de 
+diálogo 
+de
+propriedades
+<h3>CHARTEVENT_OB</h3>
+<h3>JECT_CHANGE</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico
+modificado
+<h3>Caso</h3>
+de
+apagamento
+objeto 
+gráfico
+(se
+<h3>CHART_EVENT_O</h3>
+<h3>BJECT_DELETE=t</h3>
+rue, 
+então 
+é
+definido para o
+gráfico)
+<h3>CHARTEVENT_OB</h3>
+<h3>JECT_DELETE</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico excluído
+<h3>Evento de</h3>
+um
+click de mouse
+no gráfico
+<h3>CHARTEVENT_C</h3>
+<h3>LICK</h3>
+a coordenada X
+a coordenada Y
+—
+<h3>Evento de</h3>
+um
+click de mouse
+<h3>CHARTEVENT_OB</h3>
+<h3>JECT_CLICK</h3>
+a coordenada X
+a coordenada Y
+<h3>Nome do objeto</h3>
+gráfico, na qual</p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2989
+<h3>Evento</h3>
+<h3>Valor</h3>
+do
+parâmetro id
+<h3>Valor</h3>
+do
+parâmetro
+lparam
+<h3>Valor</h3>
+do
+parâmetro
+dparam
+<h3>Valor</h3>
+do
+parâmetro
+sparam
+num 
+objeto
+gráfico
+pertencente 
+ao
+gráfico
+o evento ocorreu
+<h3>Evento de</h3>
+um
+objeto 
+gráfico
+arrastado usando
+o mouse
+<h3>CHARTEVENT_OB</h3>
+<h3>JECT_DRAG</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico movido
+<h3>Evento da edição</h3>
+de 
+texto
+finalizada 
+na
+caixa de entrada
+do objeto gráfico
+<h3>LabelEdit</h3>
+<h3>CHARTEVENT_OB</h3>
+<h3>JECT_ENDEDIT</h3>
+—
+—
+<h3>Nome do objeto</h3>
+gráfico
+<h3>LabelEdit,</h3>
+cuja
+edição de texto
+foi concluída
+<h3>Evento</h3>
+de
+mudança 
+no
+gráfico
+<h3>CHARTEVENT_C</h3>
+<h3>HART_CHANGE</h3>
+—
+—
+—
+<h3>ID do evento de</h3>
+usuário 
+sob 
+<h3>N</h3>
+número
+<h3>CHARTEVENT_CU</h3>
+<h3>STOM+N</h3>
+<h3>Valor</h3>
+definido
+pela 
+função
+<h3>EventChartCusto</h3>
+m()
+<h3>Valor</h3>
+definido
+pela 
+função
+<h3>EventChartCusto</h3>
+m()
+<h3>Valor</h3>
+definido
+pela 
+função
+<h3>EventChartCusto</h3>
+m()
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            ButtonClickExpert.mq5 |
+//|                         Copyright 2000-2024, MetaQuotes Ltd. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;2009, MetaQuotes Software Corp.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+string buttonID=&quot;Botão&quot;;
+string labelID=&quot;Informação&quot;;
+int broadcastEventID=5000;
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- Criar um botão para enviar eventos personalizados
+   ObjectCreate(0,buttonID,OBJ_BUTTON,0,100,100);
+   ObjectSetInteger(0,buttonID,OBJPROP_COLOR,clrWhite);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2990
+</p>
+<pre><code class="language-mql5">
+   ObjectSetInteger(0,buttonID,OBJPROP_BGCOLOR,clrGray);
+   ObjectSetInteger(0,buttonID,OBJPROP_XDISTANCE,100);
+   ObjectSetInteger(0,buttonID,OBJPROP_YDISTANCE,100);
+   ObjectSetInteger(0,buttonID,OBJPROP_XSIZE,200);
+   ObjectSetInteger(0,buttonID,OBJPROP_YSIZE,50);
+   ObjectSetString(0,buttonID,OBJPROP_FONT,&quot;Arial&quot;);
+   ObjectSetString(0,buttonID,OBJPROP_TEXT,&quot;Botão&quot;);
+   ObjectSetInteger(0,buttonID,OBJPROP_FONTSIZE,10);
+   ObjectSetInteger(0,buttonID,OBJPROP_SELECTABLE,0);
+//--- Criar uma etiqueta para exibir informações
+   ObjectCreate(0,labelID,OBJ_LABEL,0,100,100);
+   ObjectSetInteger(0,labelID,OBJPROP_COLOR,clrRed);
+   ObjectSetInteger(0,labelID,OBJPROP_XDISTANCE,100);
+   ObjectSetInteger(0,labelID,OBJPROP_YDISTANCE,50);
+   ObjectSetString(0,labelID,OBJPROP_FONT,&quot;Trebuchet MS&quot;);
+   ObjectSetString(0,labelID,OBJPROP_TEXT,&quot;Não informado&quot;);
+   ObjectSetInteger(0,labelID,OBJPROP_FONTSIZE,20);
+   ObjectSetInteger(0,labelID,OBJPROP_SELECTABLE,0);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//---
+   ObjectDelete(0,buttonID);
+   ObjectDelete(0,labelID);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &amp;lparam,
+                  const double &amp;dparam,
+                  const string &amp;sparam)
+  {
+//--- Verifique o evento pressionando um botão do mouse
+   if(id==CHARTEVENT_OBJECT_CLICK)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2991
+</p>
+<pre><code class="language-mql5">
+      string clickedChartObject=sparam;
+      //--- Se você clicar sobre o objeto com o nome buttonID
+      if(clickedChartObject==buttonID)
+        {
+         //--- Estado do botão - pressionado ou não
+         bool selected=ObjectGetInteger(0,buttonID,OBJPROP_STATE);
+         //--- registrar uma mensagem de depuração
+         Print(&quot;Botão pressionado = &quot;,selected);
+         int customEventID; // Número do evento personalizado para enviar
+         string message;    // Mensagem a ser enviada no caso
+         //--- Se o botão for pressionado
+         if(selected)
+           {
+            message=&quot;Botão pressionado&quot;;
+            customEventID=CHARTEVENT_CUSTOM+1;
+           }
+         else // Botão não está pressionado
+           {
+            message=&quot;Botão não está pressionado&quot;;
+            customEventID=CHARTEVENT_CUSTOM+999;
+           }
+         //--- Enviar um evento personalizado &quot;nosso&quot; gráfico
+         EventChartCustom(0,customEventID-CHARTEVENT_CUSTOM,0,0,message);
+         ///--- Envie uma mensagem para todos os gráficos abertos
+         BroadcastEvent(ChartID(),0,&quot;Transmissão de mensagem&quot;);
+         //--- Depurar mensagem
+         Print(&quot;Enviar um evento com ID = &quot;,customEventID);
+        }
+      ChartRedraw();// Redesenho forçado de todos os objetos de gráfico
+     }
+//--- Verificar o evento pertence ao evento de utilizador
+   if(id&gt;CHARTEVENT_CUSTOM)
+     {
+      if(id==broadcastEventID)
+        {
+         Print(&quot;Tem transmissão de mensagem a partir de um gráfico com id = &quot;+lparam);
+        }
+      else
+        {
+         //--- Nós lemos uma mensagem de texto no evento
+         string info=sparam;
+         Print(&quot;Manipular o evento do usuário com o ID = &quot;,id);
+         //--- Exibe uma mensagem numa etiqueta
+         ObjectSetString(0,labelID,OBJPROP_TEXT,sparam);
+         ChartRedraw();// Redesenho forçado de todos os objetos de gráfico
+        }
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Trabalhando com Eventos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2992
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Enviar evento de transmissão para todos os gráficos abertos      |
+//+------------------------------------------------------------------+
+void BroadcastEvent(long lparam,double dparam,string sparam)
+  {
+   int eventID=broadcastEventID-CHARTEVENT_CUSTOM;
+   long currChart=ChartFirst();
+   int i=0;
+   while(i&lt;CHARTS_MAX)                 // Temos, certamente, não mais do que CHARTS_MA
+     {
+      EventChartCustom(currChart,eventID,lparam,dparam,sparam);
+      currChart=ChartNext(currChart); // Recebemos um novo gráfico do anterior
+      if(currChart==-1) break;        // Alcançado o final da lista de gráficos
+      i++;// Não esqueça de aumentar o contador
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+Eventos do Terminal Cliente, Funções de Manipulação de Evento
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

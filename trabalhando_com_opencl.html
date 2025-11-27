@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com OpenCL - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class="active"><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Trabalhando com OpenCL</h1>
+        </header>
+        
+        <article>
+            <p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2993
+<h3>Trabalhando com OpenCL</h3>
+Programas em OpenCLsão utilizados para a realização de cálculos sobre placas de vídeo que suportam
+OpenCL 1.1 ou superior. Placas de vídeo modernas contêm centenas de pequenos processadores
+especializados que podem executar simultaneamente operações matemáticas simples, com fluxos de
+dados de entrada. A linguagem OpenCL organiza computação paralela e proporciona maior velocidade
+para uma certa classe de tarefas.
+Em algumas placas de vídeo, o modo com números de tipo double está desativado por padrão, o que
+leva a o erro de compilação 5105. Para ativar o modo de suporte de números double, no texto do
+programa OpenCl, é preciso adicionar a diretiva  #pragma OPENCL EXTENSION cl_khr_fp64 : enable.
+No entanto, se a placa de vídeo não suportar double, a desativação dessa diretiva não irá ajudar.
+É recomendado escrever o código-fonte OpenCL em arquivos CL separados, que podem então ser
+ligados ao programa MQL5 usando variáveis ​de recursos.
+<h3>Processamento de erros em programas OpenCL</h3>
+Para obter informações sobre o erro mais recente no OpenCL, use as funções CLGetInfoInteger e
+CLGetInfoString, que proporcionam um código de erro e uma descrição de texto.
+Código do último erro OpenCL: Para obter o erro OpenCL mais recente, use a chamada
+CLGetInfoInteger. Aqui o parâmetro handle é ignorado, ou seja, não importa (você pode especificar
+zero). 
+<h3>Descrição</h3>
+de 
+erros: 
+https://registry.khronos.org/OpenCL/specs/3.0-
+unified/html/OpenCL_API.html#CL_SUCCESS.
+Para o código de erro desconhecido, &quot;unknown OpenCL error N&quot; é retornado, aqui N é o código de erro.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- o primeiro identificador de parâmetro é ignorado ao receber o código do último e
+int code = (int)CLGetInfoInteger(0,CL_LAST_ERROR);
+</code></pre>
+<p>
+Descrição de texto do erro OpenCL: Para obter o erro OpenCL mais recente, use a chamada
+CLGetInfoString. Aqui é necessário passa o código de erro como parâmetro handle.
+<h3>Descrição</h3>
+de 
+erros: 
+https://registry.khronos.org/OpenCL/specs/3.0-
+unified/html/OpenCL_API.html#CL_SUCCESS. Se for passado CL_LAST_ERROR no lugar do código do
+erro, então a função retornará a descrição do último erro. Exemplo:
+</p>
+<pre><code class="language-mql5">
+//--- obtém o código do último erro OpenCL
+int    code = (int)CLGetInfoInteger(0,CL_LAST_ERROR);
+string desc; // obtém a descrição de texto do erro
+//--- usa o código de erro para obter uma descrição de texto do erro
+</code></pre>
+<p>
+if(!CLGetInfoString(code,CL_ERROR_DESCRIPTION,desc))
+</p>
+<pre><code class="language-mql5">
+   desc = &quot;cannot get OpenCL error description, &quot; + (string)GetLastError();
+</code></pre>
+<p>
+<h3>Print(desc);</h3>
+</p>
+<pre><code class="language-mql5">
+//--- para obter a descrição do último erro OpenCL sem obter o código primeiro, é nece
+</code></pre>
+<p>
+if(!CLGetInfoString(CL_LAST_ERROR,CL_ERROR_DESCRIPTION, desc))
+</p>
+<pre><code class="language-mql5">
+   desc = &quot;cannot get OpenCL error description, &quot; + (string)GetLastError();
+</code></pre>
+<p>
+<h3>Print(desc);;</h3></p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2994
+Atualmente, como explicação do erro, é fornecido o nome da enumeração interna cuja decodificação
+pode 
+ser 
+encontrada 
+na 
+página 
+https://registry.khronos.org/OpenCL/specs/3.0-
+unified/html/OpenCL_API.html#CL_SUCCESS. Por exemplo, se o valor CL_INVALID_KERNEL_ARGS for
+recebido, a descrição dele será &quot;Returned when enqueuing a kernel when some kernel arguments have
+not been set or are invalid.&quot; 
+Funções para os programas em execução em OpenCL:
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>CLHandleType</h3>
+Retorna o tipo do manipulador de OpenCL como valor da
+enumeração ENUM_OPENCL_HANDLE_TYPE
+<h3>CLGetInfoInteger</h3>
+Retorna o valor da propriedade de uma integer para um objeto ou
+dispositivo OpenCL
+<h3>CLContextCreate</h3>
+<h3>Cria um contexto OpenCL</h3>
+<h3>CLContextFree</h3>
+<h3>Remove um contexto OpenCL</h3>
+<h3>CLGetDeviceInfo</h3>
+<h3>Receives device property from OpenCL driver</h3>
+<h3>CLProgramCreate</h3>
+Cria um programa OpenCL a partir de um código fonte
+<h3>CLProgramFree</h3>
+<h3>Remove um programa OpenCL</h3>
+<h3>CLKernelCreate</h3>
+<h3>Cria uma função de partida OpenCL</h3>
+<h3>CLKernelFree</h3>
+<h3>Remove uma função de partida OpenCL</h3>
+<h3>CLSetKernelArg</h3>
+Define um parâmetro para a função OpenCL
+<h3>CLSetKernelArgMem</h3>
+Define um buffer OpenCL como um parâmetro da função OpenCL
+<h3>CLSetKernelArgMemLocal</h3>
+<h3>CLBufferCreate</h3>
+<h3>Cria um buffer OpenCL</h3>
+<h3>CLBufferFree</h3>
+<h3>Exclui um buffer OpenCL</h3>
+<h3>CLBufferWrite</h3>
+<h3>Grava um array num buffer OpenCL</h3>
+<h3>CLBufferRead</h3>
+Lê um buffer de OpenCL num array
+<h3>CLExecute</h3>
+<h3>Executa um programa OpenCL</h3>
+<h3>CLExecutionStatus</h3>
+<h3>Também Veja</h3>
+<h3>OpenCL, Recursos</h3></p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2995
+<h3>CLHandleType</h3>
+<h3>Retorna</h3>
+o 
+tipo 
+de 
+um 
+manipulador 
+de 
+<h3>OpenCL</h3>
+como 
+um 
+valor 
+do 
+enumerador
+ENUM_OPENCL_HANDLE_TYPE.
+<h3>ENUM_OPENCL_HANDLE_TYPE  CLHandleType(</h3>
+</p>
+<pre><code class="language-mql5">
+   int  handle     // Manipulação de um objeto OpenCL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+handle
+[in]  Um manipulador para um objeto OpenCL: um contexto, um kernel ou um programa OpenCL.
+<h3>Valor do Retorno</h3>
+O tipo de manipulador de OpenCL como valor do enumerador ENUM_OPENCL_HANDLE_TYPE.
+<h3>ENUM_OPENCL_HANDLE_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>OPENCL_INVALID</h3>
+<h3>Manipulador incorreto</h3>
+<h3>OPENCL_CONTEXT</h3>
+<h3>Um manipulador de contexto OpenCL</h3>
+<h3>OPENCL_PROGRAM</h3>
+<h3>Um manipulador do programa OpenCL</h3>
+<h3>OPENCL_KERNEL</h3>
+<h3>Um manipulador do kernel OpenCL</h3>
+<h3>OPENCL_BUFFER</h3>
+<h3>Um manipulador do buffer OpenCL</h3></p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2996
+<h3>CLGetInfoInteger</h3>
+Retorna o valor de uma propriedade integer para um objeto ou dispositivo OpenCL.
+long  CLGetInfoInteger(
+</p>
+<pre><code class="language-mql5">
+   int  handle,                           // O manipulador do objeto OpenCL ou o númer
+   ENUM_OPENCL_PROPERTY_INTEGER  prop     // Propriedade solicitada
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+handle
+[in]  Um manipulador para o objeto OpenCL ou o número do dispositivo OpenCL. A numeração dos
+dispositivos OpenCL começa com um zero.
+prop
+[in]  O tipo de uma propriedade solicitada do enumerador ENUM_OPENCL_PROPERTY_INTEGER, o
+valor que você deseja obter.
+<h3>Valor do Retorno</h3>
+O valor da propriedade, se for bem-sucedido ou -1 em caso de erro. Para obter informações sobre o
+erro, utilize a função GetLastError().
+<h3>ENUM_OPENCL_PROPERTY_INTEGER</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>Tipo</h3>
+<h3>CL_DEVICE_COUNT</h3>
+<h3>O número de dispositivos com</h3>
+suporte 
+a 
+OpenCL. 
+<h3>Esta</h3>
+propriedade 
+não 
+requer 
+a
+especificação 
+do 
+primeiro
+parâmetro, ou seja, você pode
+passar um valor zero para o
+parâmetro do manipulador.
+int
+<h3>CL_DEVICE_TYPE</h3>
+<h3>Tipo de dispositivo</h3>
+<h3>ENUM_CL_DEVICE_TYPE</h3>
+<h3>CL_DEVICE_VENDOR_ID</h3>
+<h3>Identificador</h3>
+único 
+do
+fornecedor
+uint
+<h3>CL_DEVICE_MAX_COMPUTE_UN</h3>
+<h3>ITS</h3>
+<h3>Número de tarefas paralelas</h3>
+calculados 
+em 
+dispositivos
+<h3>OpenCL. Um grupo de trabalho</h3>
+resolve 
+uma 
+tarefa
+computacional. O menor valor
+é 1
+uint
+<h3>CL_DEVICE_MAX_CLOCK_FREQ</h3>
+<h3>UENCY</h3>
+<h3>Define a maior freqüência do</h3>
+dispositivo em MHz.
+uint
+<h3>CL_DEVICE_GLOBAL_MEM_SIZ</h3>
+<h3>E</h3>
+<h3>Tamanho da memória global</h3>
+do dispositivo em bites
+ulong</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2997
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>Tipo</h3>
+<h3>CL_DEVICE_LOCAL_MEM_SIZE</h3>
+<h3>Tamanho</h3>
+dos 
+dados
+processados 
+(cena) 
+de
+memória local, em bites
+uint
+<h3>CL_BUFFER_SIZE</h3>
+<h3>Actual size of the OpenCL</h3>
+buffer in bytes.
+ulong
+<h3>CL_DEVICE_MAX_WORK_GROU</h3>
+<h3>P_SIZE</h3>
+<h3>Número total de grupos locais</h3>
+de trabalho disponíveis para
+um dispositivo OpenCL.
+ulong
+<h3>CL_KERNEL_WORK_GROUP_SIZ</h3>
+<h3>E</h3>
+<h3>Número total de grupos locais</h3>
+de trabalho disponíveis para
+um programa OpenCL.
+ulong
+<h3>CL_KERNEL_LOCAL_MEM_SIZE</h3>
+<h3>Tamanho da memória local em</h3>
+bytes, 
+que 
+é 
+usada 
+pelo
+<h3>OpenCL do programa para</h3>
+todas as tarefas simultâneas
+no 
+grupo. 
+<h3>Utilize</h3>
+<h3>CL_DEVICE_LOCAL_MEM_SIZE</h3>
+para 
+obter 
+o 
+máximo
+disponível.
+ulong
+<h3>CL_KERNEL_PRIVATE_MEM_SIZ</h3>
+<h3>E</h3>
+<h3>Tamanho mínimo de memória</h3>
+privada em bytes a ser usado
+por cada tarefa na kernel do
+programa OpenCL.
+ulong
+<h3>CL_LAST_ERROR</h3>
+<h3>Valor do último último erro</h3>
+<h3>OpenCL</h3>
+int
+O enumerador ENUM_CL_DEVICE_TYPE contém possíveis tipos de dispositivos que suportam OpenCL.
+Você pode receber o tipo de dispositivo pelo seu número ou o manipulador do objeto OpenCL,
+chamando CLGetInfoInteger(handle_or_deviceN, CL_DEVICE_TYPE).
+<h3>ENUM_CL_DEVICE_TYPE</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>CL_DEVICE_ACCELERATOR</h3>
+<h3>Aceleradores OpenCL dedicados (por exemplo, a</h3>
+<h3>IBM</h3>
+<h3>CELL</h3>
+Blade). 
+<h3>Estes</h3>
+dispositivos 
+se
+comunicam com o processador hospedeiro
+utilizando uma interconexão de periféricos,
+como PCIe.
+<h3>CL_DEVICE_CPU</h3>
+Um dispositivo OpenCL que é o processador
+hospedeiro. O processador hospedeiro executa</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2998
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+as implementações OpenCL, sendo uma única
+ou multi-core CPU.
+<h3>CL_DEVICE_GPU</h3>
+Um dispositivo OpenCL que é uma GPU.
+<h3>CL_DEVICE_DEFAULT</h3>
+O dispositivo padrão OpenCL no sistema. O
+dispositivo padrão não pode ser um dispositivo
+CL_DEVICE_TYPE_CUSTOM.
+<h3>CL_DEVICE_CUSTOM</h3>
+<h3>Aceleradores dedicados que não suportam</h3>
+programas escritos em OpenCL C.
+<h3>CL_ERROR_DESCRIPTION</h3>
+<h3>Descrição de texto do erro OpenCL</h3>
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   int cl_ctx;
+//--- inicializar contexto OpenCL
+   if((cl_ctx=CLContextCreate(CL_USE_GPU_ONLY))==INVALID_HANDLE)
+     {
+      Print(&quot;OpenCL não encontrado&quot;);
+      return;
+     }
+//--- Exibir informações sobre a plataforma
+   Print(&quot;Tipo OpenCL: &quot;,EnumToString((ENUM_CL_DEVICE_TYPE)CLGetInfoInteger(cl_ctx,CL_
+   Print(&quot;Fornecedor ID OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_VENDOR_ID));
+   Print(&quot;Unidades OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_MAX_COMPUTE_UNITS));
+   Print(&quot;Freqüência OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_MAX_CLOCK_FREQUENCY),
+   Print(&quot;Memória global OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_GLOBAL_MEM_SIZE),
+   Print(&quot;Memória local OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_LOCAL_MEM_SIZE),&quot; 
+//--- free OpenCL context
+   CLContextFree(cl_ctx);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+2999
+<h3>CLGetInfoString</h3>
+Retorna valor string de uma propriedade para o objeto OpenCL ou dispositivo.
+</p>
+<pre><code class="language-mql5">
+bool  CLGetInfoString(
+   int  handle,                           // Objeto manipulador de OpenCL ou número de
+   ENUM_OPENCL_PROPERTY_STRING  prop,     // propriedade solicitada
+   string&amp;  value                         // string referenciada
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+handle
+[in]  Objeto manipulador de OpenCL ou número de dispositivo OpenCL. A numeração dos
+dispositivos OpenCL começa com um zero.
+prop
+[in]  Tipo de propriedade requerida do enumerador ENUM_OPENCL_PROPERTY_STRING, o valor do
+qual deve ser obtido.
+value
+[out]  String para receber o valor da propriedade.
+<h3>Valor de retorno</h3>
+true se bem sucedido, caso contrário false. Para obter informações sobre o erro, utilize a função
+GetLastError().
+<h3>ENUM_OPENCL_PROPERTY_STRING</h3>
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>CL_PLATFORM_PROFILE</h3>
+<h3>CL_PLATFORM_PROFILE - Perfil OpenCL. Nome do</h3>
+perfil pode ser um dos seguintes valores:
+· FULL_PROFILE - implementação suporta
+<h3>OpenCL (funcionalidade é definida como a</h3>
+parte da especificação do kernel sem
+necessidade de extensões adicionais para o
+apoio OpenCL);
+· EMBEDDED_PROFILE 
+- 
+implementação
+suporta OpenCL como um suplemento. Perfil
+alterado é definido como um subconjunto
+para cada versão OpenCL.
+<h3>CL_PLATFORM_VERSION</h3>
+<h3>Versão OpenCL</h3>
+<h3>CL_PLATFORM_VENDOR</h3>
+<h3>Nome do fornecedor da Plataforma</h3>
+<h3>CL_PLATFORM_EXTENSIONS</h3>
+Lista de extensões suportadas pela plataforma.
+Nomes de extensão deve ser suportado por todos
+os dispositivos relacionados com esta plataforma
+<h3>CL_DEVICE_NAME</h3>
+<h3>O nome do dispositivo</h3></p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3000
+<h3>Identificador</h3>
+<h3>Descrição</h3>
+<h3>CL_DEVICE_VENDOR</h3>
+<h3>Nome do fornecedor</h3>
+<h3>CL_DRIVER_VERSION</h3>
+<h3>Versão</h3>
+do 
+driver 
+<h3>OpenCL</h3>
+em 
+formato
+major_number.minor_number
+<h3>CL_DEVICE_PROFILE</h3>
+Perfil de dispositivo OpenCL. Nome do perfil pode
+ser um dos seguintes valores:
+· FULL_PROFILE - implementação suporta
+<h3>OpenCL (funcionalidade é definida como a</h3>
+parte da especificação do kernel sem
+necessidade de extensões adicionais para o
+apoio OpenCL);
+· EMBEDDED_PROFILE 
+- 
+implementação
+suporta OpenCL como um suplemento. Perfil
+alterado é definido como um subconjunto
+para cada versão OpenCL.
+<h3>CL_DEVICE_VERSION</h3>
+<h3>OpenCL</h3>
+versão 
+em 
+formato
+&quot;OpenCL&lt;space&gt;&lt;major_version.minor_version&gt;&lt;s
+pace&gt;&lt;vendor-specific information&gt;&quot;
+<h3>CL_DEVICE_EXTENSIONS</h3>
+Lista de extensões suportadas pelo dispositivo. A
+lista pode conter extensões suportadas pelo
+fornecedor, bem como um ou mais nomes
+aprovados:
+</p>
+<pre><code class="language-mql5">
+    cl_khr_int64_base_atomics
+    cl_khr_int64_extended_atomics
+    cl_khr_fp16
+    cl_khr_gl_sharing
+    cl_khr_gl_event
+    cl_khr_d3d10_sharing
+    cl_khr_dx9_media_sharing
+    cl_khr_d3d11_sharing
+</code></pre>
+<p>
+<h3>CL_DEVICE_BUILT_IN_KERNELS</h3>
+A lista de kernels suportados separados por &quot;;&quot;.
+<h3>CL_DEVICE_OPENCL_C_VERSION</h3>
+A versão máximo suportado pelo compilador para
+este dispositivo. Versão formato:
+&quot;OpenCL&lt;space&gt;C&lt;space&gt;&lt;major_version.minor_v
+ersion&gt;&lt;space&gt;&lt;vendor-specific information&gt; &quot;
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   int cl_ctx;
+   string str;
+//--- inicializar contexto OpenCL
+   if((cl_ctx=CLContextCreate(CL_USE_GPU_ONLY))==INVALID_HANDLE)
+     {
+      Print(&quot;OpenCL não encontrado&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3001
+</p>
+<pre><code class="language-mql5">
+      return;
+     }
+//--- Exibir informações sobre a plataforma
+   if(CLGetInfoString(cl_ctx,CL_PLATFORM_NAME,str))
+      Print(&quot;Nome da plataforma OpenCL: &quot;);
+   if(CLGetInfoString(cl_ctx,CL_PLATFORM_VENDOR,str))
+      Print(&quot;Fornecedor da plataforma OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_PLATFORM_VERSION,str))
+      Print(&quot;Versão da plataforma OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_PLATFORM_PROFILE,str))
+      Print(&quot;Perfil da plataforma OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_PLATFORM_EXTENSIONS,str))
+      Print(&quot;Extensão da plataforma OpenCL: &quot;,str);
+//--- Exibir informações sobre o dispositivo
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_NAME,str))
+      Print(&quot;Nome do dispositivo OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_PROFILE,str))
+      Print(&quot;Perfil do dispositivo OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_BUILT_IN_KERNELS,str))
+      Print(&quot;Kernels dispositivo OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_EXTENSIONS,str))
+      Print(&quot;Extensão do dispositivo OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_VENDOR,str))
+      Print(&quot;Fornecedor do dispositivo OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_VERSION,str))
+      Print(&quot;Versão do dispositivo OpenCL: &quot;,str);
+   if(CLGetInfoString(cl_ctx,CL_DEVICE_OPENCL_C_VERSION,str))
+      Print(&quot;Versão do c OpenCL: &quot;,str);
+//--- Exibir informações gerais sobre o dispositivo OpenCL
+   Print(&quot;Tipo OpenCL: &quot;,EnumToString((ENUM_CL_DEVICE_TYPE)CLGetInfoInteger(cl_ctx,CL_
+   Print(&quot;Fornecedor ID OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_VENDOR_ID));
+   Print(&quot;Unidades OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_MAX_COMPUTE_UNITS));
+   Print(&quot;Freqüência OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_MAX_CLOCK_FREQUENCY))
+   Print(&quot;Memória global OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_GLOBAL_MEM_SIZE))
+   Print(&quot;Memória local OpenCL: &quot;,CLGetInfoInteger(cl_ctx,CL_DEVICE_LOCAL_MEM_SIZE));
+//--- free OpenCL context
+   CLContextFree(cl_ctx);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3002
+<h3>CLContextCreate</h3>
+Cria um contexto OpenCL e retorna seu manipulador.
+</p>
+<pre><code class="language-mql5">
+int  CLContextCreate(
+   int  device=CL_USE_ANY     // Número de série do dispositivo OpenCL ou macro
+   );
+</code></pre>
+<p>
+<h3>Parâmetro</h3>
+device
+[in]  O número ordinal do dispositivo-OpenCL no sistema. Em vez de um número específico, você
+pode especificar um dos seguintes valores:
+· CL_USE_ANY – Qualquer dispositivo disponível com suporte OpenCL é permitido;
+· CL_USE_CPU_ONLY – Somente a emulação OpenCL na CPU é permitida;
+· CL_USE_GPU_ONLY – A emulação OpenCL é proibida e somente dispositivos especializados com
+suporte OpenCL (placas de vídeo) podem ser usados;
+· CL_USE_GPU_DOUBLE_ONLY – só GPUs que suportam o tipo podem ser usadas double.
+<h3>Valor do Retorno</h3>
+Um manipulador para o contexto OpenCL se for bem sucedido, caso contrário, -1. Para obter
+informações sobre o erro, utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3003
+<h3>CLContextFree</h3>
+Remove um contexto OpenCL.
+</p>
+<pre><code class="language-mql5">
+void  CLContextFree(
+   int  context     // Manipulador para um contexto OpenCL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Manipula o contexto OpenCL.
+<h3>Valor do Retorno</h3>
+Nenhum. No caso de um erro interno o valor do modificador _LastError. Para obter informações
+sobre o erro, utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3004
+<h3>CLGetDeviceInfo</h3>
+A função recebe a propriedade do dispositivo do driver OpenCL.
+</p>
+<pre><code class="language-mql5">
+bool  CLGetDeviceInfo(
+   int     handle,          // manipulador de dispositivo OpenCL
+   int     property_id,     // solicitado propriedade ID
+   uchar&amp;  data[],          // array para recebimento de dados
+   uint&amp;   size             // deslocamento na array de elementos, 0 por padrão
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+manipulador
+[in]  OpenCL identificador de dispositivo ou identificador OpenCL criado pela função
+CLContextCreate().
+property_id
+[in]  ID da propriedade do dispositivo OpenCL que deve ser recebida. Os valores podem ser de um
+dos predeterminados listados na tabela abaixo.
+data[]
+[out]  O array para receber dados sobre a propriedade solicitada.
+tamanho
+[out]  Tamanho dos dados recebidos no array data[].
+<h3>Valor de retorno</h3>
+true se bem sucedido, caso contrário false. Para obter informações sobre o erro, utilize a função
+GetLastError().
+<h3>Observação</h3>
+Para array unidimensionais, o número do elemento, com o qual a leitura de dados para a escrita
+num buffer de OpenCL começa, é calculado tendo em conta os sinalizadores AS_SERIES. 
+A lista de IDs disponíveis das propriedades do dispositivo OpenCL
+Descrição exata da propriedade e suas funções podem ser encontradas no site oficial do OpenCL.
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>CL_DEVICE_TYPE</h3>
+0x1000
+<h3>CL_DEVICE_VENDOR_ID</h3>
+0x1001
+<h3>CL_DEVICE_MAX_COMPUTE_UNITS</h3>
+0x1002
+<h3>CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS</h3>
+0x1003
+<h3>CL_DEVICE_MAX_WORK_GROUP_SIZE</h3>
+0x1004
+<h3>CL_DEVICE_MAX_WORK_ITEM_SIZES</h3>
+0x1005</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3005
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHA</h3>
+<h3>R</h3>
+0x1006
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHO</h3>
+<h3>RT</h3>
+0x1007
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT</h3>
+0x1008
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_LON</h3>
+<h3>G</h3>
+0x1009
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLO</h3>
+<h3>AT</h3>
+0x100A
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOU</h3>
+<h3>BLE</h3>
+0x100B
+<h3>CL_DEVICE_MAX_CLOCK_FREQUENCY</h3>
+0x100C
+<h3>CL_DEVICE_ADDRESS_BITS</h3>
+0x100D
+<h3>CL_DEVICE_MAX_READ_IMAGE_ARGS</h3>
+0x100E
+<h3>CL_DEVICE_MAX_WRITE_IMAGE_ARGS</h3>
+0x100F
+<h3>CL_DEVICE_MAX_MEM_ALLOC_SIZE</h3>
+0x1010
+<h3>CL_DEVICE_IMAGE2D_MAX_WIDTH</h3>
+0x1011
+<h3>CL_DEVICE_IMAGE2D_MAX_HEIGHT</h3>
+0x1012
+<h3>CL_DEVICE_IMAGE3D_MAX_WIDTH</h3>
+0x1013
+<h3>CL_DEVICE_IMAGE3D_MAX_HEIGHT</h3>
+0x1014
+<h3>CL_DEVICE_IMAGE3D_MAX_DEPTH</h3>
+0x1015
+<h3>CL_DEVICE_IMAGE_SUPPORT</h3>
+0x1016
+<h3>CL_DEVICE_MAX_PARAMETER_SIZE</h3>
+0x1017
+<h3>CL_DEVICE_MAX_SAMPLERS</h3>
+0x1018
+<h3>CL_DEVICE_MEM_BASE_ADDR_ALIGN</h3>
+0x1019
+<h3>CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE</h3>
+0x101A
+<h3>CL_DEVICE_SINGLE_FP_CONFIG</h3>
+0x101B
+<h3>CL_DEVICE_GLOBAL_MEM_CACHE_TYPE</h3>
+0x101C
+<h3>CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE</h3>
+0x101D
+<h3>CL_DEVICE_GLOBAL_MEM_CACHE_SIZE</h3>
+0x101E
+<h3>CL_DEVICE_GLOBAL_MEM_SIZE</h3>
+0x101F
+<h3>CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE</h3>
+0x1020</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3006
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>CL_DEVICE_MAX_CONSTANT_ARGS</h3>
+0x1021
+<h3>CL_DEVICE_LOCAL_MEM_TYPE</h3>
+0x1022
+<h3>CL_DEVICE_LOCAL_MEM_SIZE</h3>
+0x1023
+<h3>CL_DEVICE_ERROR_CORRECTION_SUPPORT</h3>
+0x1024
+<h3>CL_DEVICE_PROFILING_TIMER_RESOLUTION</h3>
+0x1025
+<h3>CL_DEVICE_ENDIAN_LITTLE</h3>
+0x1026
+<h3>CL_DEVICE_AVAILABLE</h3>
+0x1027
+<h3>CL_DEVICE_COMPILER_AVAILABLE</h3>
+0x1028
+<h3>CL_DEVICE_EXECUTION_CAPABILITIES</h3>
+0x1029
+<h3>CL_DEVICE_QUEUE_PROPERTIES</h3>
+0x102A
+<h3>CL_DEVICE_NAME</h3>
+0x102B
+<h3>CL_DEVICE_VENDOR</h3>
+0x102C
+<h3>CL_DRIVER_VERSION</h3>
+0x102D
+<h3>CL_DEVICE_PROFILE</h3>
+0x102E
+<h3>CL_DEVICE_VERSION</h3>
+0x102F
+<h3>CL_DEVICE_EXTENSIONS</h3>
+0x1030
+<h3>CL_DEVICE_PLATFORM</h3>
+0x1031
+<h3>CL_DEVICE_DOUBLE_FP_CONFIG</h3>
+0x1032
+<h3>CL_DEVICE_PREFERRED_VECTOR_WIDTH_HAL</h3>
+<h3>F</h3>
+0x1034
+<h3>CL_DEVICE_HOST_UNIFIED_MEMORY</h3>
+0x1035
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR</h3>
+0x1036
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT</h3>
+0x1037
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_INT</h3>
+0x1038
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG</h3>
+0x1039
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT</h3>
+0x103A
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE</h3>
+0x103B
+<h3>CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF</h3>
+0x103C
+<h3>CL_DEVICE_OPENCL_C_VERSION</h3>
+0x103D
+<h3>CL_DEVICE_LINKER_AVAILABLE</h3>
+0x103E
+<h3>CL_DEVICE_BUILT_IN_KERNELS</h3>
+0x103F</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3007
+<h3>Identificador</h3>
+<h3>Valor</h3>
+<h3>CL_DEVICE_IMAGE_MAX_BUFFER_SIZE</h3>
+0x1040
+<h3>CL_DEVICE_IMAGE_MAX_ARRAY_SIZE</h3>
+0x1041
+<h3>CL_DEVICE_PARENT_DEVICE</h3>
+0x1042
+<h3>CL_DEVICE_PARTITION_MAX_SUB_DEVICES</h3>
+0x1043
+<h3>CL_DEVICE_PARTITION_PROPERTIES</h3>
+0x1044
+<h3>CL_DEVICE_PARTITION_AFFINITY_DOMAIN</h3>
+0x1045
+<h3>CL_DEVICE_PARTITION_TYPE</h3>
+0x1046
+<h3>CL_DEVICE_REFERENCE_COUNT</h3>
+0x1047
+<h3>CL_DEVICE_PREFERRED_INTEROP_USER_SYNC</h3>
+0x1048
+<h3>CL_DEVICE_PRINTF_BUFFER_SIZE</h3>
+0x1049
+<h3>CL_DEVICE_IMAGE_PITCH_ALIGNMENT</h3>
+0x104A
+<h3>CL_DEVICE_IMAGE_BASE_ADDRESS_ALIGNMEN</h3>
+<h3>T</h3>
+0x104B
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- 
+   int dCount= CLGetInfoInteger(0,CL_DEVICE_COUNT);
+   for(int i = 0; i&lt;dCount; i++)
+     {
+      int clCtx=CLContextCreate(i);
+      if(clCtx == -1)
+         Print(&quot;ERRO na CLContextCreate&quot;);
+      string device;
+      CLGetInfoString(clCtx,CL_DEVICE_NAME,device);
+      Print(i,&quot;: &quot;,device);
+      uchar data[1024];
+      uint size;
+      CLGetDeviceInfo(clCtx,CL_DEVICE_VENDOR,data,size);
+      Print(&quot;tamanho = &quot;,size);
+      string str=CharArrayToString(data);
+      Print(str);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//--- Exemplo de entradas no diário Experts
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      2: Advanced Micro Devices, Inc.
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      size = 32
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      Tahiti
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      Intel(R) Corporation</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3008
+</p>
+<pre><code class="language-mql5">
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      size = 21
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      1:        Intel(R) Core(TM) i7-377
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      NVIDIA Corporation
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      size = 19
+//  2013.07.24 10:50:48     opencl (EURUSD,H1)      0: GeForce GTX 580</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3009
+<h3>CLProgramCreate</h3>
+Cria um programa OpenCL a partir de um código fonte.
+</p>
+<pre><code class="language-mql5">
+int  CLProgramCreate(
+   int           context,     // Manipulador para um contexto OpenCL
+   const string  source       // O código-fonte
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Manipula o contexto OpenCL.
+source
+[in]  String com o código-fonte do programa OpenCL.
+<h3>Valor do Retorno</h3>
+Um manipulador para um objeto OpenCL se for bem sucedido. Em caso de erro é retornado -1. Para
+obter informações sobre o erro, utilize a função GetLastError().
+<h3>Observação</h3>
+Até o momento, são utilizados os seguintes códigos de erro:
+· ERR_OPENCL_INVALID_HANDLE – manipulador inválido para lidar com o OpenCL contexto.
+· ERR_INVALID_PARAMETER – parâmetro inválido de string.
+· ERR_NOT_ENOUGH_MEMORY – não há memória suficiente para concluir a operação.
+· ERR_OPENCL_PROGRAM_CREATE – erro interno do OpenCL ou erro de compilação.
+Em alguns cartões gráficos, o trabalho com números do tipo double são desativados por padrão. Isso
+pode levar ao erro de compilação 5105. Para ativar o suporte para os números de tipo duplo,
+adicione a seguinte diretiva ao seu programa OpenCL: #pragma OPENCL EXTENSION cl_khr_fp64 :
+ativado
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| OpenCL kernel                                                    |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+const string
+cl_src=
+</p>
+<pre><code class="language-mql5">
+       //--- por padrão alguns GPUs não suportam doubles
+       //--- a directiva cl_khr_fp64 é usada para habilitar o trabalho com doubles
+       &quot;#pragma OPENCL EXTENSION cl_khr_fp64 : enable      \r\n&quot;
+       //--- função OpenCL kernel
+       &quot;__kernel void Test_GPU(__global double *data,      \r\n&quot;
+       &quot;                       const    int N,             \r\n&quot;
+       &quot;                       const    int total_arrays)  \r\n&quot;
+       &quot;  {                                                \r\n&quot;
+       &quot;   uint kernel_index=get_global_id(0);             \r\n&quot;
+       &quot;   if (kernel_index&gt;total_arrays) return;          \r\n&quot;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3010
+</p>
+<pre><code class="language-mql5">
+       &quot;   uint local_start_offset=kernel_index*N;         \r\n&quot;
+       &quot;   for(int i=0; i&lt;N; i++)                          \r\n&quot;
+       &quot;     {                                             \r\n&quot;
+       &quot;       data[i+local_start_offset] *= 2.0;          \r\n&quot;
+       &quot;     }                                             \r\n&quot;
+       &quot;  }                                                \r\n&quot;;
+//+------------------------------------------------------------------+
+//| Test_CPU                                                         |
+//+------------------------------------------------------------------+
+bool Test_CPU(double &amp;data[],const int N,const int id,const int total_arrays)
+  {
+//--- checar tamanho do array
+   if(ArraySize(data)==0) return(false);
+//--- checar índice do array
+   if(id&gt;total_arrays) return(false);
+//--- Calcular deslocamento local para o array com id do índice
+   int local_start_offset=id*N;
+//--- multiplicar elementos por 2
+   for(int i=0; i&lt;N; i++)
+     {
+      data[i+local_start_offset]*=2.0;
+     }
+   return true;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//---
+#define ARRAY_SIZE   100  // tamanho do array
+#define TOTAL_ARRAYS 5    // total de arrays
+//--- manipulador OpenCL
+int cl_ctx;  // contexto do manipulador OpenCL
+int cl_prg;  // programa do manipulador OpenCL
+int cl_krn;  // Kernel do manipulador OpenCL
+int cl_mem;  // buffer do manipulador OpenCL
+//---
+double DataArray1[]; // dados do array para cálculo do CPU
+double DataArray2[]; // dados do array para cálculo do GPU
+//+------------------------------------------------------------------+
+//| Função de início do programa script                              |
+//+------------------------------------------------------------------+
+int OnStart()
+  {
+//--- inicializar objetos do OpenCL
+//--- Criar contexto do OpenCL
+   if((cl_ctx=CLContextCreate())==INVALID_HANDLE)
+     {
+      Print(&quot;OpenCL não encontrado. Error=&quot;,GetLastError());
+      return(1);
+     }
+//--- criar programa OpenCL
+   if((cl_prg=CLProgramCreate(cl_ctx,cl_src))==INVALID_HANDLE)</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3011
+</p>
+<pre><code class="language-mql5">
+     {
+      CLContextFree(cl_ctx);
+      Print(&quot;criação programa OpenCL falhou. Error=&quot;,GetLastError());
+      return(1);
+     }
+//--- criar kernel do OpenCL
+   if((cl_krn=CLKernelCreate(cl_prg,&quot;Test_GPU&quot;))==INVALID_HANDLE)
+     {
+      CLProgramFree(cl_prg);
+      CLContextFree(cl_ctx);
+      Print(&quot;criação do kernel do OpenCL falhou. Error=&quot;,GetLastError());
+      return(1);
+     }
+//--- criar buffer do OpenCL
+   if((cl_mem=CLBufferCreate(cl_ctx,ARRAY_SIZE*TOTAL_ARRAYS*sizeof(double),CL_MEM_READ
+     {
+      CLKernelFree(cl_krn);
+      CLProgramFree(cl_prg);
+      CLContextFree(cl_ctx);
+      Print(&quot;criação do buffer do OpenCL falhou. Error=&quot;,GetLastError());
+      return(1);
+     }
+//--- Definir parâmetros de constante do kernel OpenCL
+   CLSetKernelArgMem(cl_krn,0,cl_mem);
+   CLSetKernelArg(cl_krn,1,ARRAY_SIZE);
+   CLSetKernelArg(cl_krn,2,TOTAL_ARRAYS);
+//--- preparar dados dos arrays
+   ArrayResize(DataArray1,ARRAY_SIZE*TOTAL_ARRAYS);
+   ArrayResize(DataArray2,ARRAY_SIZE*TOTAL_ARRAYS);
+//--- preencher arrays com dados
+   for(int j=0; j&lt;TOTAL_ARRAYS; j++)
+     {
+      //--- Calcular o deslocamento de partida local para a jth array
+      uint local_offset=j*ARRAY_SIZE;
+      //--- preparar array com o índice j
+      for(int i=0; i&lt;ARRAY_SIZE; i++)
+        {
+         //--- Preencher arrays com funções MathCos(i+j);
+         DataArray1[i+local_offset]=MathCos(i+j);
+         DataArray2[i+local_offset]=MathCos(i+j);
+        }
+     };
+//--- teste de cálculo do CPU
+   for(int j=0; j&lt;TOTAL_ARRAYS; j++)
+     {
+      //--- cálculo do array com o índice j
+      Test_CPU(DataArray1,ARRAY_SIZE,j,TOTAL_ARRAYS);
+     }
+//--- preparar os parâmetros do CLExecute</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3012
+</p>
+<pre><code class="language-mql5">
+   uint  offset[]={0};
+//--- tamanho do trabalho global
+   uint  work[]={TOTAL_ARRAYS};
+//--- escrever dados para o buffer do OpenCL
+   CLBufferWrite(cl_mem,DataArray2);
+//--- executar kernel do OpenCL
+   CLExecute(cl_krn,1,offset,work);
+//--- Ler dados do buffer OpenCL
+   CLBufferRead(cl_mem,DataArray2);
+//--- total de erros
+   double total_error=0;
+//--- Comparar os resultados e calcular o erro
+   for(int j=0; j&lt;TOTAL_ARRAYS; j++)
+     {
+      //--- Calcular deslocamento local para o jth array
+      uint local_offset=j*ARRAY_SIZE;
+      //--- comparar os resultados
+      for(int i=0; i&lt;ARRAY_SIZE; i++)
+        {
+         double v1=DataArray1[i+local_offset];
+         double v2=DataArray2[i+local_offset];
+         double delta=MathAbs(v2-v1);
+         total_error+=delta;
+         //--- Mostrar primeiro e último arrays
+         if((j==0) || (j==TOTAL_ARRAYS-1))
+            PrintFormat(&quot;array %d of %d, element [%d]:  %f, %f, [error]=%f&quot;,j+1,TOTAL_
+        }
+     }
+   PrintFormat(&quot;Total error: %f&quot;,total_error);
+//--- deletar objetos do OpenCL
+//--- buffer OpenCL livre
+   CLBufferFree(cl_mem);
+//--- kernel OpenCL livre
+   CLKernelFree(cl_krn);
+//--- programa OpenCL livre
+   CLProgramFree(cl_prg);
+//--- contexto OpenCL livre
+   CLContextFree(cl_ctx);
+//---
+   return(0);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3013
+<h3>CLProgramFree</h3>
+Remove um programa OpenCL.
+</p>
+<pre><code class="language-mql5">
+void  CLProgramFree(
+   int  program     // Manipulador para um objeto OpenCL 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+program
+[in]  Manipulador para um objeto OpenCL.
+<h3>Valor do Retorno</h3>
+Nenhum. No caso de um erro interno o valor do modificador _LastError. Para obter informações
+sobre o erro, utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3014
+<h3>CLKernelCreate</h3>
+Cria o kernel do programa OpenCL e retorna seu manipulador.
+</p>
+<pre><code class="language-mql5">
+int  CLKernelCreate(
+   int           program,        // Manipulador para um objeto OpenCL
+   const string  kernel_name     // Nome do kernel
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+program
+[in]  Manipulador para um objeto do programa OpenCL.
+kernel_name
+[in]  O nome da função do kernel no programa apropriado OpenCL, em que a execução se inicia.
+<h3>Valor do Retorno</h3>
+Um manipulador para um objeto OpenCL se for bem sucedido. Em caso de erro é retornado -1. Para
+obter informações sobre o erro, utilize a função GetLastError().
+<h3>Observação</h3>
+Até o momento, são utilizados os seguintes códigos de erro:
+· ERR_OPENCL_INVALID_HANDLE - manipulador inválido para lidar com o programa OpenCL.
+· ERR_INVALID_PARAMETER - parâmetro inválido de string.
+· ERR_OPENCL_TOO_LONG_KERNEL_NAME - nome do kernel contém mais de 127 caracteres.
+· ERR_OPENCL_KERNEL_CREATE - Ocorreu um erro interno durante a criação de um objeto OpenCL.</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3015
+<h3>CLKernelFree</h3>
+Remove uma função inicial OpenCL.
+</p>
+<pre><code class="language-mql5">
+void  CLKernelFree(
+   int  kernel     // Manipulador para o kernel de um programa OpenCL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+kernel_name
+[in]  Manipulador do objeto do kernel.
+<h3>Valor do Retorno</h3>
+Nenhum. No caso de um erro interno o valor do modificador _LastError. Para obter informações
+sobre o erro, utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3016
+<h3>CLSetKernelArg</h3>
+Define um parâmetro para a função OpenCL.
+</p>
+<pre><code class="language-mql5">
+bool  CLSetKernelArg(
+   int   kernel,        // Manipulador para o kernel de um programa OpenCL
+   uint  arg_index,     // O número do argumento da função OpenCL
+   void  arg_value      // Código-fonte
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+kernel
+[in]  Manipulador para um kernel do programa OpenCL.
+arg_index
+[in]  O número do argumento da função, a numeração começa com zero.
+arg_value
+[in]  O valor do argumento da função.
+<h3>Valor do Retorno</h3>
+Retorna true se for bem sucedido, caso contrário retorna false. Para obter informações sobre o erro,
+utilize a função GetLastError().
+<h3>Observação</h3>
+Até o momento, são utilizados os seguintes códigos de erro:
+· ERR_INVALID_PARAMETER,
+· ERR_OPENCL_INVALID_HANDLE – manipulador inválido para o kernel OpenCL.
+· ERR_OPENCL_SET_KERNEL_PARAMETER - erro interno do OpenCL.</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3017
+<h3>CLSetKernelArgMem</h3>
+Define um buffer OpenCL como um parâmetro da função OpenCL.
+</p>
+<pre><code class="language-mql5">
+bool  CLSetKernelArgMem(
+   int   kernel,           // Manipulador para o kernel de um programa OpenCL
+   uint  arg_index,        // O número do argumento da função OpenCL
+   int   cl_mem_handle     // Manipulador para buffer de OpenCL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+kernel
+[in]  Manipulador para um kernel do programa OpenCL.
+arg_index
+[in]  O número do argumento da função, a numeração começa com zero.
+cl_mem_handle
+[in]  Um manipulador para um buffer OpenCL.
+<h3>Valor do Retorno</h3>
+Retorna true se for bem sucedido, caso contrário retorna false. Para obter informações sobre o erro,
+utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3018
+<h3>CLSetKernelArgMemLocal</h3>
+Ele define o buffer local como argumento da função kernel.
+</p>
+<pre><code class="language-mql5">
+bool  CLSetKernelArgMemLocal(
+   int    kernel,           // identificador para a kernel do programa OpenCL
+   uint   arg_index,        // número do argumento OpenCL de função
+   ulong  local_mem_size    // tamanho do buffer
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+kernel
+[in]  Identificador para a kernel do programa OpenCL.
+arg_index
+[in]  Número de argumento de função, a numeração começa em zero.
+local_mem_size
+[in]  Tamanho do buffer em bytes.
+<h3>Valor de retorno</h3>
+Retorna true se a execução for bem-sucedida, caso contrario, false. Para obter informações sobre o
+erro utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3019
+<h3>CLBufferCreate</h3>
+Cria um buffer OpenCL e retorna seu manipulador.
+</p>
+<pre><code class="language-mql5">
+int  CLBufferCreate(
+   int   context,     // Manipulador para um contexto OpenCL
+   uint  size,        // Tamanho do buffer
+   uint  flags        // Combinação de sinalizadores que especifique as propriedades d
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+context
+[in]  Um manipulador de contexto OpenCL.
+size
+[in]  Tamanho do buffer em bites.
+flags
+[in] 
+ 
+<h3>Propriedades</h3>
+de 
+buffer 
+que 
+são 
+definidas 
+usando 
+uma 
+combinação 
+de
+sinalizadores: CL_MEM_READ_WRITE, 
+<h3>CL_MEM_WRITE_ONLY,</h3>
+<h3>CL_MEM_READ_ONLY,</h3>
+CL_MEM_ALLOC_HOST_PTR.
+<h3>Valor do Retorno</h3>
+Um manipulador para um buffer OpenCL se for bem sucedido. Em caso de erro é retornado -1. Para
+obter informações sobre o erro, utilize a função GetLastError().
+<h3>Observação</h3>
+Até o momento, são utilizados os seguintes códigos de erro:
+· ERR_OPENCL_INVALID_HANDLE  - inválido manipulador ao contexto OpenCL.
+· ERR_NOT_ENOUGH_MEMORY – memória insuficiente.
+· ERR_OPENCL_BUFFER_CREATE – erro interno criando buffers.</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3020
+<h3>CLBufferFree</h3>
+Exclui um buffer de OpenCL.
+</p>
+<pre><code class="language-mql5">
+void  CLBufferFree(
+   int   buffer     // Manipulador para um buffer OpenCL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+buffer
+[in]  Um manipulador para um buffer OpenCL.
+<h3>Valor do Retorno</h3>
+Nenhum. No caso de um erro interno o valor do modificador _LastError. Para obter informações
+sobre o erro, utilize a função GetLastError().</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3021
+<h3>CLBufferWrite</h3>
+Escreve para o buffer OpenCL e retorna o número de elementos escritos.
+uint  CLBufferWrite(
+</p>
+<pre><code class="language-mql5">
+   int          buffer,                    // Um manipulador para o buffer OpenCL
+   const void&amp;  data[],                    // Uma array de valores
+   uint         buffer_offset=0,           // Um deslocamento no buffer OpenCL em bite
+   uint         data_offset=0,             // Um deslocamento na array de elementos, 0
+   uint         data_count=WHOLE_ARRAY     // O número de valores a partir do array pa
+   );
+</code></pre>
+<p>
+Existem também versões para trabalhar com matrizes e vetores.
+Escreve os valores do array para o buffer e retorna true se bem-sucedido.
+uint  CLBufferWrite(
+</p>
+<pre><code class="language-mql5">
+   int           buffer,                    // Um manipulador para o buffer OpenCL
+   uint          buffer_offset,             // O deslocamento no buffer OpenCL em byte
+   matrix&lt;T&gt;     &amp;mat                       // O array de valores para registro no buf
+   );
+</code></pre>
+<p>
+Escreve valores para o buffer a partir do vetor e retorna true se bem sucedido.
+uint  CLBufferWrite(
+</p>
+<pre><code class="language-mql5">
+   int           buffer,                    // Um manipulador para o buffer OpenCL
+   uint          buffer_offset,             // O deslocamento no buffer OpenCL em byte
+   vector&lt;T&gt;     &amp;vec                       // O vetor de valores a serem escritos no 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+buffer
+[in]  O manipulador do buffer OpenCL.
+data[]
+[in]  Um array de valores que deve ser escrito no buffer OpenCL. Passado por referência.
+buffer_offset
+[in]  Uma compensação no buffer OpenCL em bites, a partir do qual começa a escrita. Por padrão,
+a escrita começa com o início do buffer.
+data_offset
+[in]  O índice do primeiro elemento array, começando a partir do qual valores de array são escritos
+no buffer OpenCL. Por padrão, são tomados os valores desde o início do array.
+data_count
+[in]  O número de valores que devem ser escritos. Todos os valores do array, por padrão.
+mat
+[out]  O array para a leitura dos dados do buffer pode ser de qualquer um dos três tipos — matrix,
+matrixf ou matrixc.</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3022
+vec
+[out]  O vetor de leitura dos dados do buffer pode ser de qualquer um dos três tipos — vector,
+vectorf ou vectorc.
+<h3>Valor do Retorno</h3>
+O número de elementos escritos. 0 (zero) é devolvido em caso de erro. Para obter informações
+sobre o erro, utilize a função GetLastError().
+true quando executado com sucesso ao trabalhar com uma matriz ou vetor, no caso de um erro, ele
+retorna false. 
+<h3>Observação</h3>
+Para arrays unidimensionais, o número do elemento, com o qual a leitura de dados para a escrita
+num buffer de OpenCL começa, é calculado tendo em conta os sinalizadores AS_SERIES. 
+Um array de duas ou mais dimensões é apresentado como unidimensional. Neste caso, data_offset é
+o número de elementos que devem ser ignorados na apresentação, e não o número de elementos na
+primeira dimensão.
+Exemplo de multiplicação de arrray por meio do método MatMul e computação paralela em OpenCL
+</p>
+<pre><code class="language-mql5">
+#define M       3000      // O número de filas no primeiro array
+#define K       2000      // O número de colunas no primeiro array é igual ao número d
+#define N       3000      // O número de colunas no segundo array
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+const string clSrc=
+  &quot;#define N     &quot;+IntegerToString(N)+&quot;                              \r\n&quot;
+  &quot;#define K     &quot;+IntegerToString(K)+&quot;                              \r\n&quot;
+  &quot;                                                                  \r\n&quot;
+  &quot;__kernel void matricesMul( __global float *in1,                   \r\n&quot;
+  &quot;                           __global float *in2,                   \r\n&quot;
+  &quot;                           __global float *out  )                 \r\n&quot;
+  &quot;{                                                                 \r\n&quot;
+  &quot;  int m = get_global_id( 0 );                                     \r\n&quot;
+  &quot;  int n = get_global_id( 1 );                                     \r\n&quot;
+  &quot;  float sum = 0.0;                                                \r\n&quot;
+  &quot;  for( int k = 0; k &lt; K; k ++ )                                   \r\n&quot;
+  &quot;     sum += in1[ m * K + k ] * in2[ k * N + n ];                  \r\n&quot;
+  &quot;  out[ m * N + n ] = sum;                                         \r\n&quot;
+  &quot;}                                                                 \r\n&quot;;
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+ {
+//--- Inicializa o gerador de números aleatórios
+</code></pre>
+<p>
+<h3>MathSrand((int)TimeCurrent());</h3></p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3023
+</p>
+<pre><code class="language-mql5">
+//--- preenche o array de um determinado tamanho com valores aleatórios
+</code></pre>
+<p>
+  matrixf mat1(M, K, MatrixRandom) ;    // O primeiro array
+  matrixf mat2(K, N, MatrixRandom);     // O segundo arraty
+</p>
+<pre><code class="language-mql5">
+//--- Calcula o produto dos arrays de uma maneira ingênua
+</code></pre>
+<p>
+  uint start=GetTickCount();
+  matrixf matrix_naive=matrixf::Zeros(M, N);// aqui escrevemos o resultado da multipli
+  for(int m=0; m&lt;M; m++)
+</p>
+<pre><code class="language-mql5">
+    for(int k=0; k&lt;K; k++)
+      for(int n=0; n&lt;N; n++)
+        matrix_naive[m][n]+=mat1[m][k]*mat2[k][n];
+</code></pre>
+<p>
+  uint time_naive=GetTickCount()-start;   
+</p>
+<pre><code class="language-mql5">
+     
+//--- Calcula o produto dos arrays por meio de MatMull
+</code></pre>
+<p>
+  start=GetTickCount();
+  matrixf matrix_matmul=mat1.MatMul(mat2);
+  uint time_matmul=GetTickCount()-start;     
+  
+</p>
+<pre><code class="language-mql5">
+//--- Calculamos o produto de dois arrays em OpenCL
+</code></pre>
+<p>
+  matrixf matrix_opencl=matrixf::Zeros(M, N);
+  int cl_ctx;             // O manipulador do contexto
+  if((cl_ctx=CLContextCreate(CL_USE_GPU_ONLY))==INVALID_HANDLE)
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;OpenCL não encontrado, saímos&quot;);
+    return;
+   }
+</code></pre>
+<p>
+  int cl_prg;             // O manipulador do programa 
+  int cl_krn;             // O manipulador do kernel
+  int cl_mem_in1;         // O manipulador do primeiro buffer (de saída)
+  int cl_mem_in2;         // O manipulador do segundo buffer (de saída)
+  int cl_mem_out;         // O manipulador do terceiro buffer (de saída)
+</p>
+<pre><code class="language-mql5">
+//--- Cria o programa e o kernel
+</code></pre>
+<p>
+  cl_prg = CLProgramCreate(cl_ctx, clSrc);
+  cl_krn = CLKernelCreate(cl_prg, &quot;matricesMul&quot;);
+</p>
+<pre><code class="language-mql5">
+//--- Cria os três buffers para os três arrays
+</code></pre>
+<p>
+  cl_mem_in1=CLBufferCreate(cl_ctx, M*K*sizeof(float), CL_MEM_READ_WRITE);
+  cl_mem_in2=CLBufferCreate(cl_ctx, K*N*sizeof(float), CL_MEM_READ_WRITE);
+</p>
+<pre><code class="language-mql5">
+//--- terceiro array - de saída
+</code></pre>
+<p>
+  cl_mem_out=CLBufferCreate(cl_ctx, M*N*sizeof(float), CL_MEM_READ_WRITE);
+</p>
+<pre><code class="language-mql5">
+//--- Define o argumento do kernel
+</code></pre>
+<p>
+<h3>CLSetKernelArgMem(cl_krn, 0, cl_mem_in1);</h3>
+<h3>CLSetKernelArgMem(cl_krn, 1, cl_mem_in2);</h3>
+<h3>CLSetKernelArgMem(cl_krn, 2, cl_mem_out);</h3>
+</p>
+<pre><code class="language-mql5">
+//--- Escreve os arrays nos buffers do dispositivo
+</code></pre>
+<p>
+<h3>CLBufferWrite(cl_mem_in1, 0, mat1);</h3>
+<h3>CLBufferWrite(cl_mem_in2, 0, mat2);</h3>
+<h3>CLBufferWrite(cl_mem_out, 0, matrix_opencl);</h3>
+</p>
+<pre><code class="language-mql5">
+//--- Início do tempo de execução do código OpenCL
+</code></pre>
+<p>
+  start=GetTickCount();</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3024
+</p>
+<pre><code class="language-mql5">
+//--- Define os parâmetros da área de trabalho e executa o programa OpenCL
+</code></pre>
+<p>
+  uint  offs[2] = {0, 0};
+  uint works[2] = {M, N};
+  start=GetTickCount();  
+  bool ex=CLExecute(cl_krn, 2, offs, works);
+</p>
+<pre><code class="language-mql5">
+//--- Calcula o resultado no array
+</code></pre>
+<p>
+  if(CLBufferRead(cl_mem_out, 0, matrix_opencl))
+</p>
+<pre><code class="language-mql5">
+    PrintFormat(&quot;Matriz lida [%d x %d]: &quot;, matrix_opencl.Rows(), matrix_opencl.Cols())
+   else
+      Print(&quot;CLBufferRead(cl_mem_out, 0, matrix_opencl failed. Error &quot;,GetLastError())
+</code></pre>
+<p>
+  uint time_opencl=GetTickCount()-start;   
+  Print(&quot;Comparamos o tempo de cálculo com cada método&quot;);
+  PrintFormat(&quot;Naive product time = %d ms&quot;,time_naive);
+  PrintFormat(&quot;MatMul product time = %d ms&quot;,time_matmul);
+  PrintFormat(&quot;OpenCl product time = %d ms&quot;,time_opencl);  
+</p>
+<pre><code class="language-mql5">
+//--- Libera todos os contextos OpenCL
+</code></pre>
+<p>
+  CLFreeAll(cl_ctx, cl_prg, cl_krn, cl_mem_in1, cl_mem_in2, cl_mem_out);
+</p>
+<pre><code class="language-mql5">
+//--- Compara todos os arrays de resultados obtidos uns com os outros
+</code></pre>
+<p>
+  Print(&quot;Quantos erros de divergência existem entre os arrays de resultados?&quot;);
+  ulong errors=matrix_naive.Compare(matrix_matmul,(float)1e-12);
+  Print(&quot;matrix_direct.Compare(matrix_matmul,1e-12)=&quot;,errors);
+  errors=matrix_matmul.Compare(matrix_opencl,float(1e-12));
+  Print(&quot;matrix_matmul.Compare(matrix_opencl,1e-12)=&quot;,errors);
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   
+   Matriz lida [3000 x 3000]: 
+</code></pre>
+<p>
+  Compara o tempo de cálculo com cada método
+</p>
+<pre><code class="language-mql5">
+   Naive product time = 54750 ms
+   MatMul product time = 4578 ms
+   OpenCl product time = 922 ms
+   Quantos erros de divergência existem entre os arrays de resultados?
+   matrix_direct.Compare(matrix_matmul,1e-12)=0
+   matrix_matmul.Compare(matrix_opencl,1e-12)=0
+</code></pre>
+<p>
+*/  
+ }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Preenche o array com valores aleatórios                          |
+//+------------------------------------------------------------------+
+void MatrixRandom(matrixf&amp; m)
+ {
+</code></pre>
+<p>
+  for(ulong r=0; r&lt;m.Rows(); r++)
+</p>
+<pre><code class="language-mql5">
+   {
+    for(ulong c=0; c&lt;m.Cols(); c++)
+     {
+      m[r][c]=(float)((MathRand()-16383.5)/32767.);
+     }
+   }</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3025
+ }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Libera todos os contextos OpenCL                                   |
+//+------------------------------------------------------------------+
+void CLFreeAll(int cl_ctx, int cl_prg, int cl_krn,
+               int cl_mem_in1, int cl_mem_in2, int cl_mem_out)
+ {
+//--- Remove qualquer contexto OpenCL criado em ordem inversa
+</code></pre>
+<p>
+<h3>CLBufferFree(cl_mem_in1);</h3>
+<h3>CLBufferFree(cl_mem_in2);</h3>
+<h3>CLBufferFree(cl_mem_out);</h3>
+<h3>CLKernelFree(cl_krn);</h3>
+<h3>CLProgramFree(cl_prg);</h3>
+<h3>CLContextFree(cl_ctx);</h3>
+ }</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3026
+<h3>CLBufferRead</h3>
+Lê um buffer de OpenCL em uma array e retorna o número de elementos de leitura.
+uint  CLBufferRead(
+</p>
+<pre><code class="language-mql5">
+   int          buffer,                    // Um manipulador para o buffer OpenCL
+   const void&amp;  data[],                    // Uma array de valores
+   uint         buffer_offset=0,           // Um deslocamento no buffer OpenCL em bite
+   uint         data_offset=0,             // Um deslocamento na array de elementos, 0
+   uint         data_count=WHOLE_ARRAY     // O número de valores a partir da buffer d
+   );
+</code></pre>
+<p>
+Existem também versões para trabalhar com matrizes e vetores.
+Lê o buffer OpenCL em um array e retorna true se for bem-sucedido.
+uint  CLBufferRead(
+</p>
+<pre><code class="language-mql5">
+   int           buffer,                    // Um manipulador para o buffer OpenCL
+   uint          buffer_offset,             // O deslocamento no buffer OpenCL em byte
+   const matrxi&amp; mat,                       // Um array para obter o valor desde o buf
+   ulong         rows=-1,                   // A quantidade de linhas no array
+   ulong         cols=-1                    // A quantidade de colunas no array
+   );
+</code></pre>
+<p>
+Lê o buffer OpenCL no vetor e retorna true se bem-sucedido.
+uint  CLBufferRead(
+</p>
+<pre><code class="language-mql5">
+   int           buffer,                    // Um manipulador para o buffer OpenCL
+   uint          buffer_offset,             // O deslocamento no buffer OpenCL em byte
+   const vector&amp; vec,                       // O vetor para obter valores a partir do 
+   ulong         size-1,                    // O tamanho do vetor 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+buffer
+[in]   Um manipulador do buffer OpenCL.
+data[]
+[in]  Um array para receber os valores do buffer OpenCL. Passado por referência.
+buffer_offset
+[in]  Um deslocamento no buffer OpenCL em bites, a partir da qual se inicia a leitura. Por padrão,
+a leitura começa com o início do buffer.
+data_offset
+[in]  O índice do primeiro elemento array para escrever os valores de buffer OpenCL. Por padrão, a
+escrita dos valores lidos em um array começa a partir do índice zero.
+data_count
+[in]  O número de valores que devem ser lidos. Todo o buffer OpenCL é lido por padrão.
+mat</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3027
+[out]  O array para a leitura dos dados do buffer pode ser de qualquer um dos três tipos — matrix,
+matrixf ou matrixc.
+vec
+[out]  O vetor de leitura dos dados do buffer pode ser de qualquer um dos três tipos — vector,
+vectorf ou vectorc.
+rows=-1
+[in]  Se o parâmetro for especificado, o parâmetro cols também deve ser especificado. Se não
+forem especificadas novas dimensões do array, serão utilizadas as dimensões atuais. Se o valor
+</p>
+<pre><code class="language-mql5">
+for -1, o número de linhas não mudará.
+</code></pre>
+<p>
+cols=-1
+[in]  Se não for especificado nenhum parâmetro, o parâmetro rows também deve ser omitido. A
+regra básica para um array é especificar ambos os parâmetros, ou nenhum deles, caso contrário,
+ocorrerá um erro. Se os dois parâmetros (rows e cols) forem especificados, a matriz será
+redimensionada. Se o valor for -1, o número de colunas não mudará.
+size=-1
+[in]  Se o parâmetro não for especificado ou o valor for -1, o comprimento do vetor não mudará.
+<h3>Valor do Retorno</h3>
+O número de elementos de leitura. 0 (zero) é devolvido em caso de erro. Para obter informações
+sobre o erro, utilize a função GetLastError().
+true quando executado com sucesso ao trabalhar com uma matriz ou vetor, no caso de um erro, ele
+retorna false. 
+<h3>Observação</h3>
+Para arrays unidimensionais, o número do elemento, em que a escrita de dados num buffer de
+OpenCL inicia, é calculado tendo em conta os sinalizadores AS_SERIES.
+Um array de duas ou mais dimensões é apresentado como unidimensional. Neste caso, data_offset é
+o número de elementos que devem ser ignorados na apresentação, e não o número de elementos na
+primeira dimensão.
+Exemplode cálculo do número Pi com a fórmula:
+</p>
+<pre><code class="language-mql5">
+#define  _num_steps        1000000000
+#define  _divisor          40000
+#define  _step             1.0 / _num_steps
+#define  _intrnCnt         _num_steps / _divisor
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3028
+</p>
+<pre><code class="language-mql5">
+//|                                                                  |
+//+------------------------------------------------------------------+
+string D2S(double arg, int digits) { return DoubleToString(arg, digits); }
+string I2S(int arg)                { return IntegerToString(arg); }
+//--- OpenCL programm code
+</code></pre>
+<p>
+const string clSource=
+  &quot;#define _step &quot;+D2S(_step, 12)+&quot;                   \r\n&quot;
+  &quot;#define _intrnCnt &quot;+I2S(_intrnCnt)+&quot;               \r\n&quot;
+  &quot;                                                   \r\n&quot;
+  &quot;__kernel void Pi( __global double *out )           \r\n&quot;
+  &quot;{                                                  \r\n&quot;
+  &quot;  int i = get_global_id( 0 );                      \r\n&quot;
+  &quot;  double partsum = 0.0;                            \r\n&quot;
+  &quot;  double x = 0.0;                                  \r\n&quot;
+  &quot;  long from = i * _intrnCnt;                       \r\n&quot;
+  &quot;  long to = from + _intrnCnt;                      \r\n&quot;
+  &quot;  for( long j = from; j &lt; to; j ++ )               \r\n&quot;
+  &quot;  {                                                \r\n&quot;
+  &quot;     x = ( j + 0.5 ) * _step;                      \r\n&quot;
+  &quot;     partsum += 4.0 / ( 1. + x * x );              \r\n&quot;
+  &quot;  }                                                \r\n&quot;
+  &quot;  out[ i ] = partsum;                              \r\n&quot;
+  &quot;}                                                  \r\n&quot;;
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+int OnStart()
+ {
+</code></pre>
+<p>
+  Print(&quot;Pi Calculation: step = &quot;+D2S(_step, 12)+&quot;; _intrnCnt = &quot;+I2S(_intrnCnt));
+</p>
+<pre><code class="language-mql5">
+//--- prepare OpenCL contexts
+</code></pre>
+<p>
+  int clCtx;
+  if((clCtx=CLContextCreate(CL_USE_GPU_ONLY))==INVALID_HANDLE)
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;OpenCL not found&quot;);
+    return(-1);
+   }
+</code></pre>
+<p>
+  int clPrg = CLProgramCreate(clCtx, clSource);
+  int clKrn = CLKernelCreate(clPrg, &quot;Pi&quot;);
+  int clMem=CLBufferCreate(clCtx, _divisor*sizeof(double), CL_MEM_READ_WRITE);
+<h3>CLSetKernelArgMem(clKrn, 0, clMem);</h3>
+  const uint offs[1]  = {0};
+  const uint works[1] = {_divisor};
+</p>
+<pre><code class="language-mql5">
+//--- launch OpenCL program
+</code></pre>
+<p>
+  ulong start=GetMicrosecondCount();
+  if(!CLExecute(clKrn, 1, offs, works))
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;CLExecute(clKrn, 1, offs, works) failed! Error &quot;, GetLastError());</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3029
+</p>
+<pre><code class="language-mql5">
+    CLFreeAll(clMem, clKrn, clPrg, clCtx);
+    return(-1);
+   }
+//--- get results from OpenCL device
+</code></pre>
+<p>
+  vector buffer(_divisor);
+  if(!CLBufferRead(clMem, 0, buffer))
+</p>
+<pre><code class="language-mql5">
+   {
+    Print(&quot;CLBufferRead(clMem, 0, buffer) failed! Error &quot;, GetLastError());
+    CLFreeAll(clMem, clKrn, clPrg, clCtx);
+    return(-1);
+   }
+//--- sum all values to calculate Pi
+</code></pre>
+<p>
+  double Pi=buffer.Sum()*_step;
+  double time=(GetMicrosecondCount()-start)/1000.;
+  Print(&quot;OpenCL: Pi calculated for &quot;+D2S(time, 2)+&quot; ms&quot;);
+<h3>Print(&quot;Pi = &quot;+DoubleToString(Pi, 12));</h3>
+</p>
+<pre><code class="language-mql5">
+//--- free memory
+</code></pre>
+<p>
+<h3>CLFreeAll(clMem, clKrn, clPrg, clCtx);</h3>
+</p>
+<pre><code class="language-mql5">
+//--- success
+</code></pre>
+<p>
+  return(0);
+ }
+</p>
+<pre><code class="language-mql5">
+  /*
+</code></pre>
+<p>
+  Pi Calculation: step = 0.000000001000; _intrnCnt = 25000
+<h3>OpenCL: GPU device &#x27;Ellesmere&#x27; selected</h3>
+<h3>OpenCL: Pi calculated for 99.98 ms</h3>
+<h3>Pi = 3.141592653590</h3>
+  */ 
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Auxiliary routine to free memory                                 |
+//+------------------------------------------------------------------+
+void CLFreeAll(const int clMem, const int clKrn, const int clPrg, const int clCtx)
+ {
+</code></pre>
+<p>
+<h3>CLBufferFree(clMem);</h3>
+<h3>CLKernelFree(clKrn);</h3>
+<h3>CLProgramFree(clPrg);</h3>
+<h3>CLContextFree(clCtx);</h3>
+ }</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3030
+<h3>CLExecute</h3>
+A função executa um programa OpenCL. Existem três versões da função:
+1. Lançamento das funções kernel usando um kernel
+</p>
+<pre><code class="language-mql5">
+bool  CLExecute(
+   int          kernel                    // Manipulador para o kernel de um programa 
+   );
+</code></pre>
+<p>
+2. Lançamento de várias cópias do kernel (função OpenCL) com descrição do espaço de tarefas
+</p>
+<pre><code class="language-mql5">
+bool  CLExecute(
+   int          kernel,                   // Manipulador para o kernel de um programa 
+   uint         work_dim,                 // Dimensão do espaço de tarefas
+   const uint&amp;  global_work_offset[],     // Compensação inicial no espaço de tarefas
+   const uint&amp;  global_work_size[]        // Número total de tarefas
+   );
+</code></pre>
+<p>
+3. Lançamento de várias cópias do kernel (função OpenCL) com descrição do espaço de tarefa e
+especificação do tamanho de subconjunto de tarefa local do grupo
+</p>
+<pre><code class="language-mql5">
+bool  CLExecute(
+   int          kernel,                   // Manipulador para o kernel de um programa 
+   uint         work_dim,                 // Dimensão do espaço de tarefas
+   const uint&amp;  global_work_offset[],     // Compensação inicial no espaço de tarefas
+   const uint&amp;  global_work_size[],       // Número total de tarefas
+   const uint&amp;  local_work_size[]         // Número de tarefas no grupo local
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+kernel
+[in]  Manipulador para o kernel OpenCL.
+work_dim
+[in]  Dimensão do espaço tarefas.
+global_work_offset[]
+[in]  Compensação inicial no espaço de tarefas.
+global_work_size[]
+[in]  O tamanho de um subconjunto de tarefas.
+local_work_size[]
+[in]  O tamanho do subconjunto de tarefa local do grupo.
+<h3>Valor do Retorno</h3>
+Retorna true se for bem sucedido, caso contrário retorna false. Para obter informações sobre o erro,
+utilize a função GetLastError().
+<h3>Observação</h3></p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3031
+Considerar o uso dos parâmetros no exemplo a seguir:
+· work_dim especifica work_items[] da dimensão do array descrevendo as tarefas. Se work_dim=3,
+array tridimensional work_items[N1, N2, N3] é usado.
+· global_work_size[] contém os valores definindo o tamanho array do work_items[]. Se
+work_dim=3, array do global_work_size[3] pode ser {40, 100, 320}. Então nós temos
+work_items[40, 100, 320]. Assim, o número total de tarefas é 40 х 100 х 320 = 1 280 000. 
+· local_work_size[] define o subconjunto das tarefas que serão executadas pelo kernel específico
+de programa OpenCL. A sua dimensão é igual a dimensãowork_items[] e permite a divisão exata
+da tarefa comum de subconjunto dentro de subconjuntos menores. Na verdade, os tamanhos do
+array do local_work_size[] devem ser selecionados de modo a dividir a tarefa global work_items[]
+definindo dentro de subconjuntos menores. local_work_size[3]={10, 10, 10} vai se encaixar no
+exemplo corrente, como work_items[40, 100, 320] podem ser obtidos a partir do array do
+local_items[10, 10, 10] sem excesso.</p>
+<p><h3>Trabalhando com OpenCL</h3>
+© 2000-2025, MetaQuotes Ltd.
+3032
+<h3>CLExecutionStatus</h3>
+Retornar o estado de execução do programa OpenCL.
+</p>
+<pre><code class="language-mql5">
+int  CLExecutionStatus(
+   int   kernel            // identificador para a kernel do programa OpenCL
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+kernel
+[in]  Identificador para a kernel do programa OpenCL.
+<h3>Valor de retorno</h3>
+Retorna o estado do programa OpenCL, o valor pode ser um dos seguintes:
+· CL_COMPLETE=0  - programa concluído,
+· CL_RUNNING=1 – em execução,
+· CL_SUBMITTED=2 – enviado para execução,
+· CL_QUEUED=3 – encontra-se na fila para execução,
+· -1 (menos um) – teve lugar erro durante a execução de CLExecutionStatus().
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

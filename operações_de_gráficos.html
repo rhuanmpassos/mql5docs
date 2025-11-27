@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações de Gráficos - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class="active"><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Operações de Gráficos</h1>
+        </header>
+        
+        <article>
+            <p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2217
+<h3>Operações de Gráficos</h3>
+As funções para definir as propriedades do gráfico (ChartSetInteger, ChartSetDouble e ChartSetString)
+são assíncronas e servem para o envio de alterações para o gráfico. Quando essas funções são
+executadas com sucesso, o comando entra na fila geral de eventos do gráfico. A alteração das
+propriedades do gráfico é feita durante o processamento da fila de eventos de dado gráfico. 
+Por esse motivo, você não deve esperar uma atualização imediata do gráfico, após chamar funções
+assíncronas. Para forçar a atualização de aparência e propriedades do gráfico, use a função
+ChartRedraw().
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>ChartApplyTemplate</h3>
+Aplica o modelo específico de um arquivo especificado para o gráfico
+<h3>ChartSaveTemplate</h3>
+Salva as configurações atuais do gráfico em um modelo com um
+nome especificado
+<h3>ChartWindowFind</h3>
+Retorna o número de uma sub-janela onde um indicador é plotado
+<h3>ChartTimePriceToXY</h3>
+Converte as coordenadas do gráfico a partir da representação
+tempo/preço para as coordenadas X e Y
+<h3>ChartXYToTimePrice</h3>
+Converte as coordenadas X e Y no gráfico para os valores de tempo e
+preço
+<h3>ChartOpen</h3>
+Abre um novo gráfico com o símbolo e período especificados
+<h3>ChartClose</h3>
+<h3>Fecha um gráfico especificado</h3>
+<h3>ChartFirst</h3>
+Retorna o ID do primeiro gráfico do terminal do cliente
+<h3>ChartNext</h3>
+Retorna o ID do gráfico do próximo gráfico para um especificado
+<h3>ChartSymbol</h3>
+Retorna o nome do símbolo do gráfico especificado
+<h3>ChartPeriod</h3>
+Retorna o valor do período do gráfico especificado
+<h3>ChartRedraw</h3>
+Chama um redesenho forçado de um gráfico especificado
+<h3>ChartSetDouble</h3>
+Define o valor duplo para uma propriedade correspondente do gráfico
+especificado
+<h3>ChartSetInteger</h3>
+Define um valor inteiro (datetime, int, color, bool ou char) para uma
+propriedade correspondente do gráfico especificado
+<h3>ChartSetString</h3>
+Define o valor da sequência para uma propriedade do gráfico
+especificado
+<h3>ChartGetDouble</h3>
+Retorna a propriedade de valor duplo do gráfico especificado
+<h3>ChartGetInteger</h3>
+Retorna a propriedade de valor inteiro do gráfico especificado
+<h3>ChartGetString</h3>
+Retorna a propriedade de valor da sequência do gráfico especificado
+<h3>ChartNavigate</h3>
+<h3>Executa</h3>
+deslocamento 
+do 
+gráfico 
+especificado 
+no 
+número
+especificado de barras em relação à posição definida no gráfico</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2218
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>ChartID</h3>
+<h3>Retorna o ID do gráfico atual</h3>
+<h3>ChartIndicatorAdd</h3>
+Adiciona um indicador com o identificador definido a uma janela do
+gráfico especificado
+<h3>ChartIndicatorDelete</h3>
+Remove um indicador com um nome definido a partir de janela do
+gráfico especificado
+<h3>ChartIndicatorGet</h3>
+Retorna o manuseio do indicador com nome abreviado definido na
+janela do gráfico especificado
+<h3>ChartIndicatorName</h3>
+Retorna o nome abreviado do indicador pelo número na lista de
+indicadores sobre a janela do gráfico especificado
+<h3>ChartIndicatorsTotal</h3>
+Retorna o número total de indicadores utilizados para a janela do
+gráfico especificado
+<h3>ChartWindowOnDropped</h3>
+Retorna o número (índice) da sub-janela do gráfico, o Expert Advisor
+ou o script foi solto pelo mouse
+<h3>ChartPriceOnDropped</h3>
+Retorna a coordenada de preço do ponto do gráfico em que o Expert
+Advisor ou o script foi solto pelo mouse
+<h3>ChartTimeOnDropped</h3>
+Retorna a coordenada de tempo do ponto do gráfico em que o Expert
+Advisor ou Script foi solto pelo mouse
+<h3>ChartXOnDropped</h3>
+Retorna a coordenada X do ponto do gráfico em que o Expert Advisor
+ou script foi solto
+<h3>ChartYOnDropped</h3>
+Retorna a coordenada Y do ponto do gráfico em que o Expert Advisor
+ou script foi solto
+<h3>ChartSetSymbolPeriod</h3>
+Modifica o valor do símbolo e um período do gráfico especificado
+<h3>ChartScreenShot</h3>
+Fornece uma captura de tela do gráfico de seu estado atual em
+formato GIF, PNG ou BMP, dependendo da extensão especificada</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2219
+<h3>ChartApplyTemplate</h3>
+Aplica-se um modelo específico de um arquivo especificado para o gráfico. O comando é adicionado
+para plotar uma fila de mensagens de gráfico e será executado após o processamento de todos os
+comandos anteriores. 
+</p>
+<pre><code class="language-mql5">
+bool  ChartApplyTemplate(
+   long          chart_id,     // ID Gráfico
+   const string  filename      // Nome Arquivo Modelo (Template)
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+filename
+[in]  O nome do arquivo contendo o modelo.
+<h3>Valor do Retorno</h3>
+Retorna verdadeiro se o comando foi adicionado à fila do gráfico, caso contrário será falso. Para
+obter uma informação sobre o erro, chamar a função GetLastError().
+<h3>Observação</h3>
+O Assessor Especialista (Expert Advisor) será descarregado e não poderá ser capaz de continuar
+operando em caso de carregamento bem sucedido de um novo modelo de gráfico que estiver
+anexado.
+Ao aplicar o modelo ao gráfico, permissões de negociação podem ser limitadas devido a razões de
+segurança:
+A permissão de negociação ao vivo não pode ser estendida para os Expert Advisors
+lançados aplicando o modelo usando a função ChartApplyTemplate().
+Se o programa mql5 chamar a função ChartApplyTemplate() não possuir permissão para negociar, o
+Expert Advisor lançado através do modelo também não será capaz de negociar, independentemente
+das configurações do modelo.
+Se o programa mql5 chamar a função ChartApplyTemplate() possuir permissão para negociar,
+enquanto não há tal permissão nas configurações do modelo, o Expert Advisor lançado através do
+modelo não será capaz de negociar.
+<h3>Usando Modelos (Templates)</h3>
+Os recursos da linguagem MQL5 permitem a configuração de propriedades de múltiplos gráficos,
+incluindo cores usando a função ChartSetInteger():
+· Cor do fundo do gráfico;
+· Cor dos eixos, escala e da linha OHLC;
+· Cor da grade;
+· Cor de volumes e níveis de posições abertas;</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2220
+· Cor da barra de alta, sombra e borda da barra de alta (também denominado como castiçal ou vela de
+alta);
+· Cor da barra de baixa, sombra e borda da barra de baixa (também denominado como castiçal ou
+vela de baixa);
+· Cor da linha do gráfico e barra Doji (também denominado como castiçal ou vela Doji);
+· Cor do corpo da barra de alta (também denominado como castiçal ou vela de alta);
+· Cor do corpo da barra de baixa (também denominado como castiçal ou vela de baixa);
+· Cor da linha do preço de compra;
+· Cor da linha do preço de venda;
+· Cor da linha do último acordo de preço (Last);
+· Cor dos níveis das ordens de paradas, Parar Perda e Tomar Lucro (Stop Loss e Take Profit).
+Além disso, pode haver múltiplos  objetos gráficos e  indicadores sobre um gráfico. Você pode
+configurar um gráfico com todos os indicadores necessários uma única vez e salvar como um modelo
+(template). Este modelo salvo poderá ser aplicado em qualquer gráfico. 
+A função ChartApplyTemplate() é destinada ao uso de um modelo (template) salvo previamente, e
+pode ser usada em qualquer programa MQL5. O caminho para o arquivo que armazena o modelo
+(template) é passado como o segundo parâmetro para o ChartApplyTemplate(). O arquivo do modelo
+(template) é procurado de acordo com as seguintes regras:
+· se a barra invertida &quot;\&quot; separador (escrito como &quot;\\&quot;) é colocada no início do percurso, o modelo
+(template) é procurado em relação ao caminho _terminal_dados_diretório\ MQL5 (path
+_terminal_data_directory\MQL5);
+· se não existir uma barra invertida, o modelo é procurado em relação ao arquivo executável EX5, em
+que é chamado o ChartApplyTemplate();
+· se um modelo não é encontrado nas duas primeiras variantes, a pesquisa é executada na pasta
+terminal_diretorio\Profiles\Templates\.
+Aqui o terminal_directory é a pasta onde o Terminal do Cliente MetaTrader 5 está sendo executado, e
+o terminal_dados_diretório (terminal_data_directory) é a pasta em que os arquivos editáveis são
+armazenados, a sua localização depende do sistema operacional,nome do usuário e as configurações
+de segurança do computador. Normalmente, eles são pastas diferentes, mas em alguns casos, eles
+podem coincidir.
+A localização das pastas terminal_data_directory e terminal_directory pode ser obtida utilizando a
+função TerminalInfoString().
+</p>
+<pre><code class="language-mql5">
+//--- diretório de onde o terminal é iniciado
+   string terminal_path=TerminalInfoString(TERMINAL_PATH);
+   Print(&quot;Terminal diretório:&quot;,terminal_path);
+//--- terminal dados diretório, em que a pasta MQL5 com os EAs e indicadores estão loc
+   string terminal_data_path=TerminalInfoString(TERMINAL_DATA_PATH);
+   Print(&quot;Terminal dados diretório:&quot;,terminal_data_path);
+</code></pre>
+<p>
+<h3>Por exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- busca de um modelo (template) no terminal_dados_diretório\MQL5\
+</code></pre>
+<p>
+<h3>ChartApplyTemplate(0,&quot;\\primeiro_modelo.tpl&quot;))</h3>
+</p>
+<pre><code class="language-mql5">
+//--- busca de um modelo em diretório_de_EX5_arquivo\, em seguida a pasta terminal_dad
+</code></pre>
+<p>
+<h3>ChartApplyTemplate(0,&quot;segundo_modelo.tpl&quot;))</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2221
+</p>
+<pre><code class="language-mql5">
+//--- busca de um modelo em diretório_de_EX5_arquivo\My_templates\, em seguida a pasta
+</code></pre>
+<p>
+ChartApplyTemplate(0,&quot;My_templates\\terceiro_modelo.tpl&quot;))
+Os modelos não são recursos, eles não podem ser incluídos em um arquivo executável EX5.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de início do programa script                              |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- Exemplo de aplicação do modelo, localizado em \MQL5\Files
+   if(FileIsExist(&quot;my_template.tpl&quot;))
+     {
+      Print(&quot;O arquivo my_template.tpl foi encontrado em \Files&#x27;&quot;);
+      //--- Aplicar modelo
+      if(ChartApplyTemplate(0,&quot;\\Files\\my_template.tpl&quot;))
+        {
+         Print(&quot;O modelo &#x27;my_template.tpl&#x27; foi aplicado com sucesso&quot;);
+         //--- redesenhar gráfico
+         ChartRedraw();
+        }
+      else
+         Print(&quot;Falha ao aplicar&#x27;my_template.tpl&#x27;, código de erro &quot;,GetLastError());
+     }
+   else
+     {
+      Print(&quot;Arquivo &#x27;my_template.tpl&#x27; não encontrado em&quot;
+            +TerminalInfoString(TERMINAL_PATH)+&quot;\\MQL5\\Files&quot;);
+     }
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>Recursos</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2222
+<h3>ChartSaveTemplate</h3>
+Salva as configurações atuais do gráfico em um template (modelo) com um nome especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ChartSaveTemplate(
+   long          chart_id,     // ID Gráfico
+   const string  filename      // Nome do arquivo para salvar o template (modelo)
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+filename
+[in]  O nome do arquivo para salvar o template (modelo). A extensão &quot;.tpl&quot; será adicionada
+automaticamente no arquivo, onde não é preciso especificá-lo. O template (modelo) é salvo no
+terminal_directory\Profiles\Templates\ e pode ser utilizado para a aplicação manual no terminal.
+Se já existir um template (modelo) com o mesmo nome de arquivo, os conteúdos deste arquivo
+serão substituídos.
+<h3>Valor do Retorno</h3>
+Se bem sucedida, a função retorna true, caso contrário ela retorna false. Para obter informação
+sobre o erro, chamar a função GetLastError().
+<h3>Observação</h3>
+Usando templates (modelos), você pode salvar as configurações de gráfico com todos os indicadores
+e objetos gráficos aplicados, para depois aplicá-los em outro gráfico.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                       Test_ChartSaveTemplate.mq5 |
+//|                         Copyright 2000-2024, MetaQuotes Ltd. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property script_show_inputs
+//--- parâmetros de entrada
+input string               symbol=&quot;GBPUSD&quot;;  // O símbolo do novo gráfico
+input ENUM_TIMEFRAMES      period=PERIOD_H3; // O prazo do novo gráfico
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- Primeiros indicadores anexados ao gráfico
+   int handle;</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2223
+</p>
+<pre><code class="language-mql5">
+//--- Preparar indicador para uso
+   if(!PrepareZigzag(NULL,0,handle)) return; // Falhou, sair
+//--- Anexar o indicador ao atual gráfico, mas em janela separada.
+   if(!ChartIndicatorAdd(0,1,handle))
+     {
+      PrintFormat(&quot;Falha para anexar no gráfico %s/%s um indicador com o handle=%d. Có
+                  _Symbol,
+                  EnumToString(_Period),
+                  handle,
+                  GetLastError());
+      //--- Finalizar a operação do programa
+      return;
+     }
+//--- Atualizar o gráfico para ver o indicator
+   ChartRedraw();
+//--- Encontre as duas últimas fracturas do zigzag
+   double two_values[];
+   datetime two_times[];
+   if(!GetLastTwoFractures(two_values,two_times,handle))
+     {
+      PrintFormat(&quot;Falha para localizar duas últimas fracturas no ZigZag!&quot;);
+      //--- Finalizar a operação do programa
+      return;
+     }
+//--- Anexar agora um canal de desvio padrão
+   string channel=&quot;StdDeviation Channel&quot;;
+   if(!ObjectCreate(0,channel,OBJ_STDDEVCHANNEL,0,two_times[1],0))
+     {
+      PrintFormat(&quot;Falha ao criar objeto %s. Código de erro %d&quot;,
+                  EnumToString(OBJ_STDDEVCHANNEL),GetLastError());
+      return;
+     }
+   else
+     {
+      //--- O canal foi criado, definir o segundo ponto
+      ObjectSetInteger(0,channel,OBJPROP_TIME,1,two_times[0]);
+      //--- Define uma dica de contexto (tooltip) para o canal
+      ObjectSetString(0,channel,OBJPROP_TOOLTIP,&quot;Demonstração no ajuda MQL5&quot;);
+      //--- Atualizar o gráfico
+      ChartRedraw();
+     }
+//--- Salve o resultado em um template (modelo)
+   ChartSaveTemplate(0,&quot;StdDevChannelOnZigzag&quot;);
+//--- Abrir um novo gráfico e aplicar um modelo salvo a ele
+   long new_chart=ChartOpen(symbol,period);
+   //--- Habilitar uma dica de contexto (tootips) para objetos gráficos
+   ChartSetInteger(new_chart,CHART_SHOW_OBJECT_DESCR,true);
+   if(new_chart!=0)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2224
+</p>
+<pre><code class="language-mql5">
+      //--- Aplicar uma template (modelo) salvo para o gráfico
+      ChartApplyTemplate(new_chart,&quot;StdDevChannelOnZigzag&quot;);
+     }
+   Sleep(10000);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Cria um manipulador ziguezague e garante disponibilidade de seus dados|
+//+------------------------------------------------------------------+
+bool PrepareZigzag(string sym,ENUM_TIMEFRAMES tf,int &amp;h)
+  {
+   ResetLastError();
+//--- O indicador de ziguezague deve estar localizado em terminal_data_folder\MQL5\Exa
+   h=iCustom(sym,tf,&quot;Examples\\Zigzag&quot;);
+   if(h==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;%s: Falha ao criar manipulador do indicador Zigzag. Código de erro 
+                  __FUNCTION__,GetLastError());
+      return false;
+     }
+//--- Quando é criado um manipulador de indicador, requer tempo para calcular valores
+   int k=0; // O número de tentativas de espera para o cálculo de indicadores
+//--- Aguarda até que o cálculo faça um loop (volta completa), pausando por 50 milisse
+   while(BarsCalculated(h)&lt;=0)
+     {
+      k++;
+      //--- Mostrar o número de tentativas
+      PrintFormat(&quot;%s: k=%d&quot;,__FUNCTION__,k);
+      //--- Espera 50 milissegundos até que o indicador seja calculado
+      Sleep(50);
+      //--- Se mais de 100 tentativas, então algo está errado
+      if(k&gt;100)
+        {
+         //--- Reportar um problema
+         PrintFormat(&quot;Falha ao calcular o indicador para %d tentativas!&quot;);
+         //--- Terminar a operação do programa
+         return false;
+        }
+     }
+//--- Tudo está pronto, o indicador é criado e os valores são calculados
+   return true;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|Busca para as últimas duas fracturas de zigzag e lugar para arrays|
+//+------------------------------------------------------------------+
+bool GetLastTwoFractures(double &amp;get_values[],datetime &amp;get_times[],int handle)
+  {
+   double values[];         // Uma array para os valores de ziguezague
+   datetime times[];        // Uma array para obter tempo
+   int size=100;            // Tamanho da array</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2225
+</p>
+<pre><code class="language-mql5">
+   ResetLastError();
+//--- Copiar os últimos 100 valores do indicador
+   int copied=CopyBuffer(handle,0,0,size,values);
+//--- Conferir o número de valores copiados
+   if(copied&lt;100)
+     {
+      PrintFormat(&quot;%s: Falha para copiar valores %d do indicador com o handle=%d. Códi
+                  __FUNCTION__,size,handle,GetLastError());
+      return false;
+     }
+//--- Definir a ordem de acesso para a array como um tempo de series (timeseries)
+   ArraySetAsSeries(values,true);
+//--- Escreva aqui o número de baras, em que foram encontradas fracturas
+   int positions[];
+//--- Definir tamanhos de array
+   ArrayResize(get_values,3); ArrayResize(get_times,3); ArrayResize(positions,3);
+//--- Contadores
+   int i=0,k=0;
+//--- Comece a procurar por fracturas
+   while(i&lt;100)
+     {
+      double v=values[i];
+      //--- Nós não estamos interessados em valores vazios
+      if(v!=0.0)
+        {
+         //--- Relembra o número de barras
+         positions[k]=i;
+         //--- Relembra o valor do zigzag sobre a fractura
+         get_values[k]=values[i];
+         PrintFormat(&quot;%s: Zigzag[%d]=%G&quot;,__FUNCTION__,i,values[i]);
+         //--- Aumentar o contador
+         k++;
+         //--- Se duas fraturas encontrados, quebrar o loop (ciclo)
+         if(k&gt;2) break;
+        }
+      i++;
+     }
+//--- Definir a ordem de acesso às arrays como nas séries de tempo (timeseries)
+   ArraySetAsSeries(times,true);   ArraySetAsSeries(get_times,true);
+   if(CopyTime(_Symbol,_Period,0,size,times)&lt;=0)
+     {
+      PrintFormat(&quot;%s: Falha ao copiar valores %d a partir CopyTime(). Código de erro 
+                  __FUNCTION__,size,GetLastError());
+      return false;
+     }
+//--- Abra o tempo da abertura da barra, que ocorreu nas duas últias fracturas
+   get_times[0]=times[positions[1]];// O último, mas um valor será escrito como a prim
+   get_times[1]=times[positions[2]];// O valor em terceiro lugar, a partir do final se
+   PrintFormat(&quot;%s: primeiro=%s,  segundo=%s&quot;,__FUNCTION__,TimeToString(get_times[1]),</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2226
+</p>
+<pre><code class="language-mql5">
+//--- Bem sucedido
+   return true;
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ChartApplyTemplate(), Recursos</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2227
+<h3>ChartWindowFind</h3>
+A função retorna o número para uma sub-janela quando um indicador é desenhado. Existem 2
+variantes da função.
+1. As pesquisas de função no gráfico indicado para a sub-janela especificado com o &quot;nome abreviado&quot;
+do indicador (o nome abreviado é exibida na parte superior esquerda da sub-janela), e retorna o
+número da sub-janela em caso de sucesso.
+</p>
+<pre><code class="language-mql5">
+int  ChartWindowFind(
+   long     chart_id,                  // identificar gráfico
+   string   indicator_shortname        // nome abreviado do indicador, veja INDICATOR_
+</code></pre>
+<p>
+2. A função deve ser chamado a partir de um indicador personalizado. Retorna o número de uma sub-
+janela onde um indicador está funcionando.
+</p>
+<pre><code class="language-mql5">
+int  ChartWindowFind();
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. 0 (zero) indica a sub-janela gráfico principal.
+indicator_shortname
+[in]  Nome abreviado do indicador.
+<h3>Valor do Retorno</h3>
+Número da sub-janela em caso de sucesso. Em caso de falha a função retorna -1.
+<h3>Observação</h3>
+Se a segunda variante da função (sem parâmetros) é chamado de um script ou Expert Advisor, a
+função retorna -1.
+Não confundir o nome abreviado de um indicador e um nome de arquivo, que é especificado quando
+o indicador é criado usando as funções iCustom() e IndicatorCreate(). Se o nome abreviado de um
+indicador não é definido de forma explicita, então o nome do arquivo contendo o código-fonte do
+indicador será especificado durante a compilação. 
+É importante para formar corretamente o nome abreviado de um indicador, que é registrado na
+propriedade INDICATOR_SHORTNAME usando a função IndicatorSetString(). É recomendado que o
+nome abreviado deve conter valores de todos os parâmetros de entrada do indicador, porque sendo
+o indicador excluído do gráfico pela função ChartIndicatorDelete(), ele é identificado pelo nome
+abreviado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property script_show_inputs
+//--- parâmetros de entrada
+input string   shortname=&quot;MACD(12,26,9)&quot;;
+//+------------------------------------------------------------------+
+//| Retorna o múmero da janela do gráfico com este indicador         |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2228
+</p>
+<pre><code class="language-mql5">
+int GetIndicatorSubWindowNumber(long chartID=0,string short_name=&quot;&quot;)
+  {
+   int window=-1;
+//--- 
+   if((ENUM_PROGRAM_TYPE)MQL5InfoInteger(MQL5_PROGRAM_TYPE)==PROGRAM_INDICATOR)
+     {
+      //--- a função é chamada a partir do indicador, o nome não é necessário
+      window=ChartWindowFind();
+     }
+   else
+     {
+      //--- a função é chamada a partir de um Expert Advisor ou script
+      window=ChartWindowFind(0,short_name);
+      if(window==-1) Print(__FUNCTION__+&quot;(): Erro = &quot;,GetLastError());
+     }
+//---
+   return(window);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//---
+   int window=GetIndicatorSubWindowNumber(0,shortname);
+   if(window!=-1)
+      Print(&quot;Indicador &quot;+shortname+&quot; está na janela #&quot;+(string)window);
+   else
+      Print(&quot;Indicador &quot;+shortname+&quot; não foi encontrado. window = &quot;+(string)window);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ObjectCreate(), ObjectFind()</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2229
+<h3>ChartTimePriceToXY</h3>
+Converte as coordenadas do gráfico a partir da representação tempo/preço para as coordenadas X e Y.
+</p>
+<pre><code class="language-mql5">
+bool  ChartTimePriceToXY(
+   long           chart_id,     // ID Gráfico
+   int            sub_window,   // O número de sub-janelas
+   datetime       time,         // Tempo do gráfico
+   double         price,        // Preço no gráfico
+   int&amp;           x,            // A coordenada X para o tempo no gráfico
+   int&amp;           y             // A coordenada Y para o tempo no gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Representa o gráfico atual.
+sub_window
+[in]  O numero da sub-janela do gráfico. 0 (zero) significa a principal janela do gráfico.
+time
+[in]  O valor do tempo do gráfico, valores em pixels para o qual vai ser recebido ao longo do eixo
+X. A origem está no canto superior esquerdo da principal janela do gráfico.
+price
+[in]   O valor do preço no gráfico, valores em pixels para o qual vai ser recebido ao longo do eixo
+Y. A origem está no canto superior esquerdo da principal janela do gráfico.
+x
+[out]  A variável, dentro do qual a conversão do tempo para X será recebida.
+y
+[out]  A variável, dentro do qual a conversão do preço para Y será recebida.
+<h3>Valor retornado</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informação sobre o erro, chamamos
+a função GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define   BAR_NUMBER    0  // número da barra a partir da qual obtemos o preço e a hor
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- copiamos os dados de uma barra segundo o índice BAR_NUMBER
+   MqlRates rates[]={};
+   if(CopyRates(_Symbol, _Period, BAR_NUMBER, 1, rates)!=1)</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2230
+</p>
+<pre><code class="language-mql5">
+     {
+      PrintFormat(&quot;CopyRates() failed for bar %d. Error %d&quot;, BAR_NUMBER, GetLastError
+      return;
+     }
+       
+//--- converte os valores de preço e tempo em coordenadas de pixels para o gráfico
+   int x=0, y=0;
+   ResetLastError();
+   if(!ChartTimePriceToXY(ChartID(), 0, rates[0].time, rates[0].close, x, y))
+     {
+      Print(&quot;ChartTimePriceToXY() failed. Error &quot;, GetLastError());
+      return;
+     }
+     
+//--- imprimimos no log resultado
+   PrintFormat(&quot;For bar[%d] with opening time %s and price %.*f, the chart coordinates
+   
+   /*
+   Resultado:
+   For bar[0] with opening time 2024.08.09 15:06 and price 1.27378, the chart coordina
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ChartXYToTimePrice()</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2231
+<h3>ChartXYToTimePrice</h3>
+Converte as coordenadas X e Y no gráfico para os valores de tempo e preço.
+</p>
+<pre><code class="language-mql5">
+bool  ChartXYToTimePrice(
+   long           chart_id,     // ID Gráfico
+   int            x,            // A coordenada X no Gráfico
+   int            y,            // A coordenada Y no Gráfico
+   int&amp;           sub_window,   // O numero da sub-janela
+   datetime&amp;      time,         // Tempo no gráfico
+   double&amp;        price         // Preço no gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+x
+[in]  A coordenada X.
+y
+[in]  A coordenada Y.
+sub_window
+[out]  A variável, em que o número de sub-janela gráfico será escrito. 0 (zero) significa a principal
+janela do gráfico.
+time
+[out]  O valor do tempo do gráfico, valores em pixels para o qual vai ser recebido ao longo do eixo
+X. A origem está no canto superior esquerdo da principal janela do gráfico.
+price
+[out]  O valor do preço no gráfico, valores em pixels para o qual vai ser recebido ao longo do eixo
+Y. A origem está no canto superior esquerdo da principal janela do gráfico.
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informação sobre o erro, chamar a
+função GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função ChartEvent                                                |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &amp;lparam,
+                  const double &amp;dparam,
+                  const string &amp;sparam)
+  {
+//--- Mostra os parâmetros do evento no gráfico</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2232
+</p>
+<pre><code class="language-mql5">
+   Comment(__FUNCTION__,&quot;: id=&quot;,id,&quot; lparam=&quot;,lparam,&quot; dparam=&quot;,dparam,&quot; sparam=&quot;,spar
+//--- Se este é um evento de um mouse clicando no gráfico
+   if(id==CHARTEVENT_CLICK)
+     {
+      //--- Preparar variáveis
+      int      x     =(int)lparam;
+      int      y     =(int)dparam;
+      datetime dt    =0;
+      double   price =0;
+      int      window=0;
+      //--- Converter as coordenadas X e Y em termos de data/hora
+      if(ChartXYToTimePrice(0,x,y,window,dt,price))
+        {
+         PrintFormat(&quot;Janela=%d X=%d  Y=%d  =&gt;  Tempo=%s  Preço=%G&quot;,window,x,y,TimeToS
+         //--- Executar a conversão inversa: (X,Y) =&gt; (Tempo,Preço)
+         if(ChartTimePriceToXY(0,window,dt,price,x,y))
+            PrintFormat(&quot;Tempo=%s  Preço=%G  =&gt;  X=%d  Y=%d&quot;,TimeToString(dt),price,x,
+         else
+            Print(&quot;ChartTimePriceToXY código de erro de retorno: &quot;,GetLastError());
+         //--- delete lines
+         ObjectDelete(0,&quot;V Line&quot;);
+         ObjectDelete(0,&quot;H Line&quot;);
+         //--- create horizontal and vertical lines of the crosshair
+         ObjectCreate(0,&quot;H Line&quot;,OBJ_HLINE,window,dt,price);
+         ObjectCreate(0,&quot;V Line&quot;,OBJ_VLINE,window,dt,price);
+         ChartRedraw(0);
+        }
+      else
+         Print(&quot;ChartXYToTimePrice código de erro de retorno: &quot;,GetLastError());
+      Print(&quot;+--------------------------------------------------------------+&quot;);
+     }
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ChartTimePriceToXY()</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2233
+<h3>ChartOpen</h3>
+Abre um novo gráfico com o símbolo e período especificado.
+long  ChartOpen(
+</p>
+<pre><code class="language-mql5">
+   string           symbol,     // Nome Simbolo
+   ENUM_TIMEFRAMES  period      // Período
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+symbol
+[in]  Simbolo do gráfico. NULL significa o símbolo do gráfico de corrente (Expert Advisor é
+anexado).
+period
+[in]  Período do Gráfico (Prazo). Pode ser um dos valores de ENUM_TIMEFRAMES. 0 (zero) significa
+o período do atual gráfico.
+<h3>Valor retornado</h3>
+Se com sucesso, retorna à abertura do ID gráfico. Caso contrário, retorna 0(zero).
+<h3>Observação</h3>
+O número máximo possível de cartas abertas simultaneamente no terminal não pode exceder o valor
+CHARTS_MAX.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define CHART_SYMBOL  NULL
+#define CHART_PERIOD  PERIOD_CURRENT
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- definimos o símbolo e o período de tempo para o novo gráfico
+   string symbol=CHART_SYMBOL;
+   if(symbol==NULL)
+      symbol=Symbol();
+   ENUM_TIMEFRAMES timeframe = (CHART_PERIOD==PERIOD_CURRENT ? Period() : CHART_PERIOD
+   
+//--- abrimos um novo gráfico com o símbolo e o período especificados
+   long chart_id=ChartOpen(symbol, timeframe);
+   if(chart_id==0)
+     {
+      Print(&quot;ChartOpen() failed. Error &quot;, GetLastError());
+      return;
+     }</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2234
+</p>
+<pre><code class="language-mql5">
+//--- imprimimos no log os parâmetros do gráfico aberto
+   PrintFormat(&quot;A new chart of the %s symbol has been opened with a period of %s and C
+               symbol, StringSubstr(EnumToString(timeframe), 7), chart_id);
+   /*
+   resultado:
+   A new chart of the GBPUSD symbol has been opened with a period of M1 and ChartID 13
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2235
+<h3>ChartFirst</h3>
+Retorna o ID do primeiro gráfico do terminal de cliente.
+long  ChartFirst();
+<h3>Valor retornado</h3>
+ID Gráfico.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o identificador do primeiro gráfico aberto no terminal do cliente
+   long            chart_id= ChartFirst();
+   
+//--- mediante o identificador recebido, obtemos adicionalmente o símbolo e o período 
+   string          symbol  = ChartSymbol(chart_id);
+   ENUM_TIMEFRAMES period  = ChartPeriod(chart_id);
+   
+//--- registramos no log a descrição do primeiro gráfico do terminal do cliente
+   PrintFormat(&quot;ID of the first chart of the client terminal: %I64d, chart symbol: %s,
+   /*
+   resultado
+   ID of the first chart of the client terminal: 133246248352168440, chart symbol: EUR
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2236
+<h3>ChartNext</h3>
+Retorna o ID do gráfico do próximo gráfico para um especificado.
+long  ChartNext(
+</p>
+<pre><code class="language-mql5">
+   long  chart_id      // ID gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. 0 (zero) não significa o quadro atual. 0 (zero) significa &quot;retornar o ID do primeiro
+gráfico&quot;.
+<h3>Valor do Retorno</h3>
+ID Gráfico. Se este for o fim da lista de gráfico, ele retorna -1.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- variáveis ​para ID gráfico 
+   long currChart,prevChart=ChartFirst();
+   int i=0,limit=100;
+   Print(&quot;ChartFirst =&quot;,ChartSymbol(prevChart),&quot; ID =&quot;,prevChart);
+   while(i&lt;limit)// Temos certamente não mais do que 100 gráficos abertos
+     {
+      currChart=ChartNext(prevChart); // Obter o ID do novo gráfico usando o ID gráfic
+      if(currChart&lt;0) break;          // Ter atingido o fim da lista de gráfico
+      Print(i,ChartSymbol(currChart),&quot; ID =&quot;,currChart);
+      prevChart=currChart;// vamos salvar o ID do gráfico atual para o ChartNext()
+      i++;// Não esqueça de aumentar o contador
+     }</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2237
+<h3>ChartClose</h3>
+Fecha o gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ChartClose(
+   long  chart_id=0      // ID gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id=0
+[in]  ID Gráfico. Representa o gráfico atual.
+<h3>Valor retornado</h3>
+Se com sucesso, retorna true, caso contrário é false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- abrimos um novo gráfico com um símbolo e um período como o gráfico atual
+   long chart_id=ChartOpen(_Symbol, _Period);
+   if(chart_id==0)
+     {
+      Print(&quot;ChartOpen() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- imprimimos no log os parâmetros do gráfico aberto
+   PrintFormat(&quot;A new chart of the %s symbol has been opened with a period of %s and C
+               _Symbol, StringSubstr(EnumToString(_Period), 7), chart_id);
+//--- esperamos dois segundos e fechamos o gráfico recém aberto
+   PrintFormat(&quot;Waiting 3 seconds before closing a newly opened chart with ID %I64d ..
+   Sleep(3000);
+   ResetLastError();
+   if(!ChartClose(chart_id))
+     {
+      Print(&quot;ChartClose() failed. Error &quot;, GetLastError());
+      return;
+     }
+//--- imprimimos no log uma mensagem sobre o encerramento bem sucedido do programa
+   PrintFormat(&quot;The chart with ID %I64d was successfully closed&quot;, chart_id);
+   /*
+   resultado:
+   A new chart of the GBPUSD symbol has been opened with a period of M1 and ChartID 13</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2238
+</p>
+<pre><code class="language-mql5">
+   Waiting 3 seconds before closing a newly opened chart with ID 133346697706632016 ..
+   The chart with ID 133346697706632016 was successfully closed
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2239
+<h3>ChartSymbol</h3>
+Retorna o nome do símbolo do gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+string  ChartSymbol(
+   long  chart_id=0      // ID gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id=0
+[in]  ID Gráfico. Representa o gráfico atual.
+<h3>Valor retornado</h3>
+Se o gráfico não existe, o resultado será uma string (seqüência) vazia.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o símbolo do gráfico atual e enviamos o valor obtido para o log
+   string chart_symbol = ChartSymbol();
+   Print(&quot;Current chart symbol: &quot;, chart_symbol);
+   
+//--- pegamos o identificador de um gráfico existente (nesse caso, o atual)
+   long chart_id=ChartID();
+   chart_symbol=ChartSymbol(chart_id);
+   PrintFormat(&quot;Chart symbol with ID %I64d: %s&quot;, chart_id, chart_symbol);
+//--- definimos um identificador de gráfico aleatório quando um símbolo é recebido
+   chart_symbol = ChartSymbol(1234567890);
+   if(chart_symbol==&quot;&quot;)
+      Print(&quot;The chart with ID 1234567890 does not exist&quot;);
+   else
+      Print(&quot;Chart symbol with ID 1234567890: &quot;, chart_symbol);
+   /*
+   Resultado:
+   Current chart symbol: GBPUSD
+   Chart symbol with ID 132966427583395104: GBPUSD
+   The chart with ID 1234567890 does not exist
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ChartSetSymbolPeriod</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2240
+<h3>ChartPeriod</h3>
+Retorna o periodo do gráfico especificado.
+<h3>ENUM_TIMEFRAMES  ChartPeriod(</h3>
+</p>
+<pre><code class="language-mql5">
+   long  chart_id=0      // ID gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id=0
+[in]  ID Gráfico. Representa o gráfico atual.
+<h3>Valor retornado</h3>
+A função retorna um valor ENUM_TIMEFRAMES. Se gráfico não existir retorna 0 (zero).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o período do gráfico atual e enviamos o valor obtido para o log
+   ENUM_TIMEFRAMES period=ChartPeriod();
+   Print(&quot;Current chart period: &quot;, EnumToString(period));
+   
+//--- recebemos o identificador do gráfico existente (nesse caso, o gráfico atual)
+   long chart_id=ChartID();
+   period=ChartPeriod(chart_id);
+   PrintFormat(&quot;Chart period with ID %I64d: %s&quot;, chart_id, EnumToString(period));
+   
+//--- definimos um identificador aleatório para o gráfico
+   period=ChartPeriod(1234567890);
+   if(period==0)
+      Print(&quot;The chart with ID 1234567890 does not exist&quot;);
+   else
+      Print(&quot;Chart period with ID 1234567890: &quot;, EnumToString(period));
+   /*
+   resultado:
+   Current chart period: PERIOD_M15
+   Chart period with ID 133510090240498505: PERIOD_M15
+   The chart with ID 1234567890 does not exist
+   */
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2241
+<h3>ChartRedraw</h3>
+Chama o redesenho forçado do gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+void  ChartRedraw(
+   long  chart_id=0      // ID gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id=0
+[in]  ID Gráfico. Representa o gráfico atual.
+<h3>Observação</h3>
+Normalmente é utilizado após mudar a propriedade do objeto.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define   WIDTH      50    // largura do retângulo em barras
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o identificador do gráfico atual e definimos o nome do objeto gráfico
+   long   chart_id = ChartID();
+   string obj_name = MQLInfoString(MQL_PROGRAM_NAME)+&quot;_RectLabel&quot;;
+   
+//--- obtemos duas coordenadas de tempo do retângulo
+   datetime time1  = iTime(_Symbol, _Period, WIDTH);
+   datetime time2  = iTime(_Symbol, _Period, 0);
+   if(time1==0 || time2==0)
+     {
+      Print(&quot;Error getting time &quot;, GetLastError());
+      return;
+     }
+//--- obtemos os preços máximo e mínimo no intervalo da largura do retângulo
+   double price1 = HighestHigh(_Symbol, _Period, 0, WIDTH);
+   double price2 = LowestLow(_Symbol, _Period, 0, WIDTH);
+   if(price1==EMPTY_VALUE || price2==EMPTY_VALUE)
+      return;
+//--- criamos um objeto retângulo
+   Print(&quot;Create a wheat-colored rectangle&quot;);
+   if(!ObjectCreate(chart_id, obj_name, OBJ_RECTANGLE, 0, time1, price1, time2, price2
+     {
+      Print(&quot;ObjectCreate() failed. Error &quot;, GetLastError());
+      return;</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2242
+</p>
+<pre><code class="language-mql5">
+     }
+//--- preenchemos o retângulo com a cor original
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_FILL, true);
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_BACK, true);
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_COLOR, clrWheat);
+   ChartRedraw();
+   
+//--- aguardamos um segundo, preenchemos o retângulo com a cor “DodgerBlue” e atualiza
+   Sleep(1000);
+   Print(&quot;Change color to DodgerBlue&quot;);
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_COLOR, clrDodgerBlue);
+   ChartRedraw();
+   
+//--- aguardamos um segundo, preenchemos o retângulo com a cor “DodgerBlue” e atualiza
+   Sleep(1000);
+   Print(&quot;Change color to LimeGreen&quot;);
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_COLOR, clrLimeGreen);
+   ChartRedraw();
+   
+//--- aguardamos um segundo, preenchemos o retângulo com a cor “OrangeRed” e atualizam
+   Sleep(1000);
+   Print(&quot;Change color to OrangeRed&quot;);
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_COLOR, clrOrangeRed);
+   ChartRedraw();
+   
+//--- aguardamos um segundo, preenchemos o retângulo com a cor “Wheat” e atualizamos o
+   Sleep(1000);
+   Print(&quot;Reset color to original&quot;);
+   ObjectSetInteger(chart_id, obj_name, OBJPROP_COLOR, clrWheat);
+   ChartRedraw();
+   
+//--- após três segundos, removemos o objeto do gráfico
+   Sleep(3000);
+   Print(&quot;Delete the rectangle&quot;);
+   ObjectDelete(chart_id, obj_name);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna o High máximo no intervalo de barras especificado       |
+//+------------------------------------------------------------------+
+double HighestHigh(const string symbol, const ENUM_TIMEFRAMES timeframe, const uint st
+  {
+   ResetLastError();
+   int index=iHighest(symbol, timeframe, MODE_HIGH, count, start);
+   if(index==-1)
+     {
+      PrintFormat(&quot;%s: iHighest() failed. Error %d&quot;,__FUNCTION__, GetLastError());
+      return(EMPTY_VALUE);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2243
+</p>
+<pre><code class="language-mql5">
+   GetLastError();
+   double price=iHigh(symbol, timeframe, index);
+   if(price==0)
+     {
+      PrintFormat(&quot;%s: iHigh() failed. Error %d&quot;,__FUNCTION__, GetLastError());
+      return(EMPTY_VALUE);
+     }
+   return(price);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna o Low máximo no intervalo de barras especificado       |
+//+------------------------------------------------------------------+
+double LowestLow(const string symbol, const ENUM_TIMEFRAMES timeframe, const uint star
+  {
+   ResetLastError();
+   int index=iLowest(symbol, timeframe, MODE_LOW, count, start);
+   if(index==-1)
+     {
+      PrintFormat(&quot;%s: iLowest() failed. Error %d&quot;,__FUNCTION__, GetLastError());
+      return(EMPTY_VALUE);
+     }
+   GetLastError();
+   double price=iLow(symbol, timeframe, index);
+   if(price==0)
+     {
+      PrintFormat(&quot;%s: iLow() failed. Error %d&quot;,__FUNCTION__, GetLastError());
+      return(EMPTY_VALUE);
+     }
+   return(price);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>Funções de objetos</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2244
+<h3>ChartSetDouble</h3>
+Define um valor para uma propriedade específica de um gráfico. Propriedade de gráfico deve ser do
+tipo double. Este comando é adicionado a uma fila de mensagens de gráfico e será executado após o
+processamento de todos os comandos anteriores. 
+</p>
+<pre><code class="language-mql5">
+bool  ChartSetDouble(
+   long                           chart_id,     // ID Gráfico
+   ENUM_CHART_PROPERTY_DOUBLE     prop_id,      // ID Propriedade
+   double                         value         // Valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Representa o gráfico atual.
+prop_id
+[in]  ID Propriedade do gráfico. Pode ser um valores de ENUM_CHART_PROPERTY_DOUBLE (exceto
+apenas a leitura das propriedades).
+value
+[in] Valor da Propriedade.
+<h3>Valor retornado</h3>
+Retorna verdadeiro se o comando foi adicionado à fila do gráfico, caso contrário será falso. Para
+obter uma informação sobre o erro, chamar a função GetLastError().
+<h3>Observação</h3>
+A função é assíncrona, isto é, ela não espera a execução do comando que foi colocado com sucesso
+na fila do gráfico especificado, em vez disso, ela retorna o controle imediatamente. A propriedade
+será alterada somente após o processamento do comando na fila do gráfico. Para executar
+imediatamente comandos na fila de agendamento, você precisa chamar a função ChartRedraw.
+Se quiser alterar várias propriedades do gráfico de uma só vez, você deverá executar as funções
+correspondentes (ChartSetString, ChartSetDouble, ChartSetString) num bloco de código e, em
+seguida, chamar uma vez ChartRedraw.
+Para verificar o resultado da execução, você pode usar a função que solicita a propriedade
+especificada do gráfico (ChartGetInteger, ChartGetDouble, ChartSetString). Ao fazer isto, deve-se
+ter em mente que essas funções são síncronas e esperam o resultado da execução. 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o identificador do gráfico atual
+   long chart_id = ChartID();
+   </p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2245
+</p>
+<pre><code class="language-mql5">
+//--- lembramo-nos do recuo original da barra zero em relação à borda direita em porce
+   double shift = ChartGetDouble(chart_id, CHART_SHIFT_SIZE);
+   bool   scroll= ChartGetInteger(chart_id,CHART_AUTOSCROLL);
+   
+//--- redefinimos o sinalizador para rolagem automática do gráfico
+   ChartSetInteger(chart_id, CHART_AUTOSCROLL, true);
+   PrintFormat(&quot;Initial chart shift size: %.2f&quot;, shift);
+//--- em laços de 2,0% a 50,0% em incrementos de 0,5%
+   for(int i=20; i&lt;=500; i+=5)
+     {
+      //--- definimos o tamanho do recuo como i / 10 e imprimimos no log o valor defin
+      ChartSetDouble(chart_id, CHART_SHIFT_SIZE, i/10.0);
+      PrintFormat(&quot;Set chart shift size to %.1f%%&quot;, i/10.0);
+      
+      //--- mantemos a barra zero do gráfico à distância de recuo definida
+      ChartNavigate(chart_id, CHART_END, 0);
+      
+      //--- aguardamos um pouco mais
+      Sleep(16);
+     }
+//--- definimos o recuo inicial e a rolagem automática do gráfico
+   Print(&quot;Set the chart shift size to the initial value of &quot;, shift);
+   ChartSetDouble(ChartID(), CHART_SHIFT_SIZE, shift);
+   ChartSetInteger(chart_id, CHART_AUTOSCROLL, scroll);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2246
+<h3>ChartSetInteger</h3>
+Define um valor para a propriedade de correspondência de um gráfico especificado. Propriedade do
+gráfico deve obrigatoriamente ser datetime, int, color, bool ou char. O comando é adicionado para
+plotar uma fila de mensagens de gráfico e será executado após o processamento de todos os
+comandos anteriores. 
+</p>
+<pre><code class="language-mql5">
+bool  ChartSetInteger(
+   long                           chart_id,     // ID Gráfico
+   ENUM_CHART_PROPERTY_INTEGER    prop_id,      // ID Propriedade
+   long                           value         // Valor
+   );
+</code></pre>
+<p>
+Define o valor para a respectiva propriedade da subjanela especificada
+</p>
+<pre><code class="language-mql5">
+bool  ChartSetInteger(
+   long                           chart_id,     // ID Gráfico
+   ENUM_CHART_PROPERTY_INTEGER    prop_id,      // ID Propriedade
+   int                            sub_window,   // Número da sub-janela
+   long                           value         // Valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+prop_id
+[in]  ID Propriedade do gráfico. Pode ser um valores de ENUM_CHART_PROPERTY_INTEGER (exceto
+apenas a leitura das propriedades).
+sub_window
+[in]  Número de sub-janela do gráfico. Para o primeiro caso, o valor padrão é 0 (janela do gráfico
+principal). A maioria das propriedades não requerem uma número de sub-janela.
+value
+[in]  Valor de propriedade.
+<h3>Valor do Retorno</h3>
+Retorna verdadeiro se o comando foi adicionado à fila do gráfico, caso contrário será falso. Para
+obter uma informação sobre o erro, chamar a função GetLastError().
+<h3>Observação</h3>
+A função é assíncrona, isto é, ela não espera a execução do comando que foi colocado com sucesso
+na fila do gráfico especificado, em vez disso, ela retorna o controle imediatamente. A propriedade
+será alterada somente após o processamento do comando na fila do gráfico. Para executar
+imediatamente comandos na fila de agendamento, você precisa chamar a função ChartRedraw.
+Se quiser alterar várias propriedades gráficas de uma só vez, você deverá executar as funções
+correspondentes (ChartSetString, ChartSetDouble, ChartSetString) num bloco de código e, em
+seguida, chamar uma vez ChartRedraw.</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2247
+Para verificar o resultado da execução, você pode usar a função que solicita a propriedade
+especificada do gráfico (ChartGetInteger, ChartGetDouble, ChartSetString). Ao fazer isto, deve-se
+ter em mente que essas funções são síncronas e esperam o resultado da execução. 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+void OnInit()
+  {
+//--- incluir mensagens sobre o movimento do mouse na janela do gráfico
+   ChartSetInteger(0,CHART_EVENT_MOUSE_MOVE,1);
+//--- a atualização forçada das propriedades do gráfico garante a prontidão para o pro
+   ChartRedraw();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| MouseState                                                       |
+//+------------------------------------------------------------------+
+string MouseState(uint state)
+  {
+   string res;
+   res+=&quot;\nML: &quot;   +(((state&amp; 1)== 1)?&quot;DN&quot;:&quot;UP&quot;);   // mouse left
+   res+=&quot;\nMR: &quot;   +(((state&amp; 2)== 2)?&quot;DN&quot;:&quot;UP&quot;);   // mouse right 
+   res+=&quot;\nMM: &quot;   +(((state&amp;16)==16)?&quot;DN&quot;:&quot;UP&quot;);   // mouse middle
+   res+=&quot;\nMX: &quot;   +(((state&amp;32)==32)?&quot;DN&quot;:&quot;UP&quot;);   // mouse first X key
+   res+=&quot;\nMY: &quot;   +(((state&amp;64)==64)?&quot;DN&quot;:&quot;UP&quot;);   // mouse second X key
+   res+=&quot;\nSHIFT: &quot;+(((state&amp; 4)== 4)?&quot;DN&quot;:&quot;UP&quot;);   // shift key
+   res+=&quot;\nCTRL: &quot; +(((state&amp; 8)== 8)?&quot;DN&quot;:&quot;UP&quot;);   // control key
+   return(res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| ChartEvent function                                              |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,const long &amp;lparam,const double &amp;dparam,const string &amp;s
+  {
+   if(id==CHARTEVENT_MOUSE_MOVE)
+      Comment(&quot;POINT: &quot;,(int)lparam,&quot;,&quot;,(int)dparam,&quot;\n&quot;,MouseState((uint)sparam));
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2248
+<h3>ChartSetString</h3>
+Define um valor para a propriedade de correspondência de um gráfico especificado. Propriedade de
+Gráfico deve ser do tipo string (seqüência). O comando é adicionado para plotar uma fila de
+mensagens de gráfico e será executado após o processamento de todos os comandos anteriores. 
+</p>
+<pre><code class="language-mql5">
+bool  ChartSetString(
+   long                         chart_id,    // ID Gráfico
+   ENUM_CHART_PROPERTY_STRING   prop_id,     // ID Propriedade
+   string                       str_value    // Valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+prop_id
+[in]  ID Propriedade do gráfico. Pode ser um valores de ENUM_CHART_PROPERTY_STRING (exceto
+apenas a leitura das propriedades).
+str_value
+[in]  Valor de propriedade string. Comprimento da seqüência não pode exceder 2045 caracteres
+(caracteres extras serão truncados).
+<h3>Valor do Retorno</h3>
+Retorna verdadeiro se o comando foi adicionado à fila do gráfico, caso contrário será falso. Para
+obter uma informação sobre o erro, chamar a função GetLastError().
+<h3>Observação</h3>
+ChartSetString pode ser usado para um comentário de saída no gráfico ao invés da função
+Comment. 
+A função é assíncrona, isto é, ela não espera a execução do comando que foi colocado com sucesso
+na fila do gráfico especificado, em vez disso, ela retorna o controle imediatamente. A propriedade
+será alterada somente após o processamento do comando na fila do gráfico. Para executar
+imediatamente comandos na fila de agendamento, você precisa chamar a função ChartRedraw.
+Se quiser alterar várias propriedades gráficas de uma só vez, você deverá executar as funções
+correspondentes (ChartSetString, ChartSetDouble, ChartSetString) num bloco de código e, em
+seguida, chamar uma vez ChartRedraw.
+Para verificar o resultado da execução, você pode usar a função que solicita a propriedade
+especificada do gráfico (ChartGetInteger, ChartGetDouble, ChartSetString). Ao fazer isto, deve-se
+ter em mente que essas funções são síncronas e esperam o resultado da execução. 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnTick()
+  {
+//---
+   double Ask,Bid;</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2249
+</p>
+<pre><code class="language-mql5">
+   int Spread;
+   Ask=SymbolInfoDouble(Symbol(),SYMBOL_ASK);
+   Bid=SymbolInfoDouble(Symbol(),SYMBOL_BID);
+   Spread=SymbolInfoInteger(Symbol(),SYMBOL_SPREAD);
+   string comment=StringFormat(&quot;Выводим цены:\nAsk = %G\nBid = %G\nSpread = %d&quot;,
+                               Ask,Bid,Spread);
+   ChartSetString(0,CHART_COMMENT,comment);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>Comment, ChartGetString</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2250
+<h3>ChartGetDouble</h3>
+Retorna o valor de a propriedade correspondente do gráfico especificado. Propriedade do gráfico deve
+ser do tipo double. Existem duas variantes desta função.
+1. Retorna diretamente o valor da propriedade.
+</p>
+<pre><code class="language-mql5">
+double  ChartGetDouble(
+   long                         chart_id,         // ID Gráfico
+   ENUM_CHART_PROPERTY_DOUBLE   prop_id,          // ID Propriedade
+   int                          sub_window=0      // número da sub-janela, se necessár
+   );
+</code></pre>
+<p>
+2. Retorna true ou false, dependendo do sucesso na execução da função. Se for bem sucedido, o valor
+da propriedade é colocado num alvo variável double_var passado como referência.
+</p>
+<pre><code class="language-mql5">
+bool  ChartGetDouble(
+   long                         chart_id,         // ID Gráfico
+   ENUM_CHART_PROPERTY_DOUBLE   prop_id,          // ID Propriedade
+   int                          sub_window,       // Número da sub-janela
+   double&amp;                      double_var        // Alvo variável para a propriedade 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+prop_id
+[in] 
+ 
+<h3>ID</h3>
+<h3>Propriedade</h3>
+do 
+gráfico. 
+<h3>Este</h3>
+valor 
+pode 
+ser 
+um 
+dos 
+valores
+ENUM_CHART_PROPERTY_DOUBLE.
+sub_window
+[in]  Número de sub-janela do gráfico. Para o primeiro caso, o valor padrão é 0 (janela do gráfico
+principal). A maioria das propriedades não requerem uma número de sub-janela.
+double_var
+[out]  Variável alvo de tipo double (duplo) para a propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor de tipo double.
+Para a segunda chamada caso retorne verdadeiro (true) se a propriedade especificada está
+disponível e seu valor foi armazenado dentro da variável double_var, caso contrário retorna false.
+Para obter uma informação adicional sobre o erro, é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+A função é síncrona, isto é, ela espera a execução de todos os comandos, que foram colocados na
+fila do gráfico antes de serem chamados.
+<h3>Exemplo:</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2251
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   double priceMin=ChartGetDouble(0,CHART_PRICE_MIN,0);
+   double priceMax=ChartGetDouble(0,CHART_PRICE_MAX,0);
+   Print(&quot;CHART_PRICE_MIN =&quot;,priceMin);
+   Print(&quot;CHART_PRICE_MAX =&quot;,priceMax);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2252
+<h3>ChartGetInteger</h3>
+Retorna o valor de uma propriedade correspondente do gráfico especificado. Propriedade do gráfico é
+obrigatório ser do tipo datetime, int ou bool . Existem duas variantes das chamadas desta função.
+1. Retorna diretamente o valor da propriedade.
+long  ChartGetInteger(
+</p>
+<pre><code class="language-mql5">
+   long                          chart_id,         // ID Gráfico
+   ENUM_CHART_PROPERTY_INTEGER   prop_id,          // ID Propriedade
+   int                           sub_window=0      // número da sub-janela, se necessá
+   );
+</code></pre>
+<p>
+2. Retorna true ou false, dependendo do sucesso na execução da função. Se for bem sucedido, o valor
+da propriedade é colocado num alvo variável long_var passado como referência.
+</p>
+<pre><code class="language-mql5">
+bool  ChartGetInteger(
+   long                          chart_id,         // ID Gráfico
+   ENUM_CHART_PROPERTY_INTEGER   prop_id,          // ID Propriedade
+   int                           sub_window,       // Número da sub-janela
+   long&amp;                         long_var          // Alvo variável para a propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+prop_id
+[in] 
+ 
+<h3>ID</h3>
+<h3>Propriedade</h3>
+do 
+gráfico. 
+<h3>Este</h3>
+valor 
+pode 
+ser 
+um 
+dos 
+valores
+ENUM_CHART_PROPERTY_INTEGER.
+sub_window
+[in]  Número de sub-janela do gráfico. Para o primeiro caso, o valor padrão é 0 (janela do gráfico
+principal). A maioria das propriedades não requerem uma número de sub-janela.
+long_var
+[out]  Alvo variável do tipo long para a propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor de tipo long.
+Para a segunda chamada caso retorne true se a propriedade especificada está disponível e seu valor
+foi armazenado dentro da variável long_var, caso contrário retorna false. Para obter uma
+informação adicional sobre o error, é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+A função é síncrona, isto é, ela espera a execução de todos os comandos, que foram colocados na
+fila do gráfico antes de serem chamados.
+<h3>Exemplo:</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2253
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   int height=ChartGetInteger(0,CHART_HEIGHT_IN_PIXELS,0);
+   int width=ChartGetInteger(0,CHART_WIDTH_IN_PIXELS,0);
+   Print(&quot;CHART_HEIGHT_IN_PIXELS =&quot;,height,&quot;pixels&quot;);
+   Print(&quot;CHART_WIDTH_IN_PIXELS =&quot;,width,&quot;pixels&quot;);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2254
+<h3>ChartGetString</h3>
+Retorna o valor de uma propriedade correspondente do gráfico especificado. Propriedade de Gráfico
+deve ser do tipo string. Existem duas variantes das chamadas desta função.
+1. Retorna diretamente o valor da propriedade.
+</p>
+<pre><code class="language-mql5">
+string  ChartGetString(
+   long                         chart_id,         // ID Gráfico
+   ENUM_CHART_PROPERTY_STRING   prop_id           // ID Propriedade
+   );
+</code></pre>
+<p>
+2. Retorna true ou false, dependendo do sucesso na execução da função. Se for bem sucedido, o valor
+da propriedade é colocado num alvo variável string_var passado como referência.
+</p>
+<pre><code class="language-mql5">
+bool  ChartGetString(
+   long                         chart_id,        // ID Gráfico
+   ENUM_CHART_PROPERTY_STRING   prop_id,         // ID Propriedade
+   string&amp;                      string_var       // Alvo variável para a propriedade
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+prop_id
+[in] 
+ 
+<h3>ID</h3>
+<h3>Propriedade</h3>
+do 
+gráfico. 
+<h3>Este</h3>
+valor 
+pode 
+ser 
+um 
+dos 
+valores
+ENUM_CHART_PROPERTY_STRING.
+string_var
+[out]  Alvo variável do tipo string para a propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor de tipo string.
+Para a segunda chamada caso retorne true se a propriedade especificada está disponível e seu valor
+foi armazenado dentro da variável string_var, caso contrário retorna false. Para obter uma
+informação adicional sobre o error, é necessário chamar a função GetLastError().
+<h3>Observação</h3>
+ChartGetString pode ser usado para leitura dos comentários plotados no gráfico usando funções
+Comment ou ChartSetString.
+A função é síncrona, isto é, ela espera a execução de todos os comandos, que foram colocados na
+fila do gráfico antes de serem chamados.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+   ChartSetString(0,CHART_COMMENT,&quot;Test comment.\nSecond line.\nThird!&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2255
+</p>
+<pre><code class="language-mql5">
+   ChartRedraw();
+   Sleep(1000);
+   string comm=ChartGetString(0,CHART_COMMENT);
+   Print(comm);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>Comment, ChartSetString</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2256
+<h3>ChartNavigate</h3>
+Executa deslocamento do gráfico especificado pelo número especificado de barras em relação a
+posição especificada no gráfico.
+</p>
+<pre><code class="language-mql5">
+bool  ChartNavigate(
+   long                  chart_id,     // ID Gráfico
+   ENUM_CHART_POSITION   position,     // Posição
+   int                   shift=0       // Valor deslocamento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+position
+[in]  Posição do gráfico para realizar um deslocamento. Pode ser um dos valores
+ENUM_CHART_POSITION.
+shift=0
+[in]  Número de barras para deslocar o gráfico. Valor positivo significa que o deslocamento é para
+a direita (para o fim do gráfico), o valor negativo significa que o desvio é para a esquerda (para o
+início do gráfico). O deslocamento zero pode ser usado para navegar ao início ou para ao fim do
+gráfico.
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- manipular gráfico atual
+   long handle=ChartID();
+   string comm=&quot;&quot;;
+   if(handle&gt;0) //se bem sucedida, configurar o gráfico
+     {
+      //--- desabilitar auto rolagem
+      ChartSetInteger(handle,CHART_AUTOSCROLL,false);
+      //--- definir uma mudança da margem direita do gráfico
+      ChartSetInteger(handle,CHART_SHIFT,true);
+      //--- desenhar castiçais
+      ChartSetInteger(handle,CHART_MODE,CHART_CANDLES);
+      //--- definir o modo de exibição para volume de tick (ponto)
+      ChartSetInteger(handle,CHART_SHOW_VOLUMES,CHART_VOLUME_TICK);
+      //--- preparar um texto para a saída em Comment()</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2257
+</p>
+<pre><code class="language-mql5">
+      comm=&quot;Rolar 10 barras para a direita do começo do histórico&quot;;
+      //--- mostrar comentário
+      Comment(comm);
+      //--- rolar 10 barras para a direita do começo do histórico
+      ChartNavigate(handle,CHART_BEGIN,10);
+      //--- começar com o número da primeira barra visível no gráfico (numeração como 
+      long first_bar=ChartGetInteger(0,CHART_FIRST_VISIBLE_BAR,0);
+      //--- adicionar linha de caractere
+      comm=comm+&quot;\r\n&quot;;
+      //--- adicionar comentário
+      comm=comm+&quot;A primeira barra é o número no gráfico &quot;+IntegerToString(first_bar)+&quot;
+      //--- mostrar comentário
+      Comment(comm);
+      //--- aguardar 5 segundos para ver como o gráfico se move
+      Sleep(5000);
+      //--- adicionar texto de cometário
+      comm=comm+&quot;\r\n&quot;+&quot;Rolar 10 barras para a esquerda da margem direita do gráfico&quot;;
+      Comment(comm);
+      //--- rolar 10 barras para a esquerda da margem direita do gráfico
+      ChartNavigate(handle,CHART_END,-10);
+      //--- começar com o número da primeira barra visível no gráfico (numeração como 
+      first_bar=ChartGetInteger(0,CHART_FIRST_VISIBLE_BAR,0);
+      comm=comm+&quot;\r\n&quot;;
+      comm=comm+&quot;A primeira barra é o número no gráfico &quot;+IntegerToString(first_bar)+&quot;
+      Comment(comm);
+      //--- aguardar 5 segundos para ver como o gráfico se move
+      Sleep(5000);
+      //--- novo bloco de rolagem do gráfico
+      comm=comm+&quot;\r\n&quot;+&quot;Rolar 300 barras para a direita do início do histórico&quot;;
+      Comment(comm);
+      //--- rolar 300 barras para a direita do início do histórico
+      ChartNavigate(handle,CHART_BEGIN,300);
+      first_bar=ChartGetInteger(0,CHART_FIRST_VISIBLE_BAR,0);
+      comm=comm+&quot;\r\n&quot;;
+      comm=comm+&quot;A primeira barra é o número no gráfico &quot;+IntegerToString(first_bar)+&quot;
+      Comment(comm);
+      //--- aguardar 5 segundos para ver como o gráfico se move
+      Sleep(5000);
+      //--- novo bloco de rolagem do gráfico
+      comm=comm+&quot;\r\n&quot;+&quot;Rolar 300 barras para a esquerda da margem direita do gráfico&quot;
+      Comment(comm);
+      //--- rolar 300 barras à esquerda da margem direita do gráfico
+      ChartNavigate(handle,CHART_END,-300);
+      first_bar=ChartGetInteger(0,CHART_FIRST_VISIBLE_BAR,0);
+      comm=comm+&quot;\r\n&quot;;
+      comm=comm+&quot;A primeira barra é o número no gráfico &quot;+IntegerToString(first_bar)+&quot;</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2258
+</p>
+<pre><code class="language-mql5">
+      Comment(comm);
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2259
+<h3>ChartID</h3>
+Retorna o ID do gráfico atual.
+long  ChartID();
+<h3>Valor retornado</h3>
+Valor tipo long. 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- variáveis para identificadores de gráficos
+   long curr_chart=ChartFirst();
+   int i=0;
+   //--- imprimimos no log os dados do primeiro gráfico
+   PrintFormat(&quot;Chart[%d] ID: %I64d,  symbol: %s&quot;, i, curr_chart, ChartSymbol(curr_cha
+   
+//--- antes de atingirmos o limite do gráficos abertos (CHARTS_MAX)
+   while(!IsStopped() &amp;&amp; i &lt; CHARTS_MAX)
+     {
+      //--- incrementarmos o contador de gráficos
+      i++;
+      //--- com base no gráfico anterior, obtemos o identificador do próximo gráfico
+      curr_chart=ChartNext(curr_chart);
+      
+      //--- Caso tenhamos chegado ao final da lista de gráficos, encerramos o ciclo
+      if(curr_chart&lt;0)
+         break;
+         
+      //--- imprimimos no log os dados do próximo gráfico
+      PrintFormat(&quot;Chart[%d] ID: %I64d,  symbol: %s&quot;, i, curr_chart, ChartSymbol(curr_
+     }
+   /*
+   resultado:
+   Chart[0] ID: 133246248352168440,  symbol: EURUSD
+   Chart[1] ID: 133346697706632015,  symbol: USDJPY
+   Chart[2] ID: 133246248352168439,  symbol: GBPUSD
+   Chart[3] ID: 133346697706632009,  symbol: RU000A103661
+   Chart[4] ID: 133346697706632010,  symbol: AEM4
+   Chart[5] ID: 133346697706632011,  symbol: AA.SPB
+   Chart[6] ID: 133346697706632012,  symbol: ALLFUTMIX
+   Chart[7] ID: 133346697706632013,  symbol: EURUSD
+   Chart[8] ID: 133346697706632014,  symbol: SBER
+   */</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2260
+  }</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2261
+<h3>ChartIndicatorAdd</h3>
+Adiciona um indicador com o identificador especificado para uma janela de gráfico especificado.
+Indicador e gráfico devem ser gerados sobre o mesmo símbolo e prazo.
+</p>
+<pre><code class="language-mql5">
+bool  ChartIndicatorAdd(
+   long  chart_id,                 // ID Gráfico
+   int   sub_window                // número da sub-janela
+   int   indicator_handle          // manipulador do indicador
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+sub_window
+[in]  O número de sub-janelas do gráfico. 0 (zero) significa a principal janela do gráfico. Para
+adicionar um indicador em uma nova janela,o parâmetro obrigatoriamente deve ser maior do que
+o índice da última janela existente, isto é, igual a CHART_WINDOWS_TOTAL. Se o valor do
+parâmetro é maior que CHART_WINDOWS_TOTAL, uma nova janela não será criada, e o indicador
+não será adicionado. 
+indicator_handle
+[in]  O identificador do indicador.
+<h3>Valor do Retorno</h3>
+A função retorna verdadeira (true) em caso de sucesso, caso contrário ela retorna false. A fim de
+obter informação sobre  erro, chama a função GetLastError(). Erro 4114 significa que o gráfico e um
+indicador adicionado difere pelo seus símbolos ou prazo.
+<h3>Observação</h3>
+Se um indicador deve ser elaborado numa sub-janela separada (por exemplo, construindo um iMACD
+ou um indicador personalizado com propriedade especificada #property indicator_separate_window)
+é aplicada à janela de gráfico principal,não pode ser visível embora ainda estará presente na lista
+de indicadores. Isto significa que a escala do indicador é diferente da escala do gráfico de preço, e
+aplicado ao valor do indicador não se enquadra na faixa visualizada do gráfico de preço. Neste caso,
+GetLastError() retorna código zero indicando a ausência de um erro. Os valores de tal indicador
+&quot;invisível&quot; pode ser visto na Janela de Dados (Data Window) e recebidos a partir de outras
+aplicações MQL5.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Expert Advisor demonstrando o trabalho com a função ChartIndica
+#property description &quot;Após o lançamento no gráfico (e receber o erro no Jornal), abri
+#property description &quot;Propriedades do Expert Advisor e especificar &lt;símbolo&gt; correto 
+#property description &quot;Indicador MACD sera adicionado no grafico.&quot;
+//--- parâmetros de entrada
+input string          symbol=&quot;AUDUSD&quot;;    // nome do símbolo
+input ENUM_TIMEFRAMES period=PERIOD_M12;  // time frame</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2262
+</p>
+<pre><code class="language-mql5">
+input int    fast_ema_period=12;          // período rápido MACD
+input int    slow_ema_period=26;          // período lento MACD
+input int      signal_period=9;           // período de sinal
+input ENUM_APPLIED_PRICE apr=PRICE_CLOSE; // tipo de preço para cálculo do iMACD
+int indicator_handle=INVALID_HANDLE;
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//---
+   indicator_handle=iMACD(symbol,period,fast_ema_period,slow_ema_period,signal_period,
+//--- tentar adicionar o indicador no gráfico
+   if(!AddIndicator())
+     {
+      //--- Função AddIndicator() recusou acrescentar o indicador no gráfico
+      int answer=MessageBox(&quot;Você quer adicionar MACD do gráfico de qualquer maneira?&quot;
+                            &quot;Símbolo e/ou prazo de tempo incorreto para adicionar o in
+                            MB_YESNO // &quot;Sim&quot; e &quot;Não&quot; botões de seleção será mostrado
+                            );
+      //--- se um usuário ainda insiste no uso incorreto de ChartIndicatorAdd()
+      if(answer==IDYES)
+        {
+         //--- em primeiro lugar, uma entrada jornal será publicado sobre isso
+         PrintFormat(&quot;Atenção! %s: Tentando adicionar indicador MACD(%s/%s) em gráfico
+                     __FUNCTION__,symbol,EnumToString(period),_Symbol,EnumToString(_Pe
+         //---receber o número de uma nova sub-janela, para a qual vamos tentar adicio
+         int subwindow=(int)ChartGetInteger(0,CHART_WINDOWS_TOTAL);
+         //--- agora faz uma tentativa fadada a falhar
+         if(!ChartIndicatorAdd(0,subwindow,indicator_handle))
+            PrintFormat(&quot;Falha ao adicionar o indicador MACD %d na janela do gráfico. 
+                        subwindow,GetLastError());
+        }
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+// Assessor especialista (expert advisor) não executa nada
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função para verificar e adicionar o indicador no gráfico         |
+//+------------------------------------------------------------------+
+bool AddIndicator()</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2263
+</p>
+<pre><code class="language-mql5">
+  {
+//--- mensagem exibida
+   string message;
+//--- verificar se o símbolo do indicador e símbolo do gráfico combinam entre si
+   if(symbol!=_Symbol)
+     {
+      message=&quot;Exibindo o uso da função Demo_ChartIndicatorAdd():&quot;;
+      message=message+&quot;\r\n&quot;;
+      message=message+&quot;Não é possível adicionar o indicador calculado com outro símbol
+      message=message+&quot;\r\n&quot;;
+      message=message+&quot;Especifique o símbolo gráfico na propriedade do Expert Advisor 
+      Alert(message);
+      //---saída prematura, o indicador não será adicionado no gráfico
+      return false;
+     }
+//--- verificar se o indicador e prazo do gráfico combinam entre si
+   if(period!=_Period)
+     {
+      message=&quot;Não é possível adicionar o indicador calculado em outro prazo de tempo 
+      message=message+&quot;\r\n&quot;;
+      message=message+&quot;Especifique o prazo de tempo do gráfico na propriedades do Expe
+      Alert(message);
+      //---saída prematura, o indicador não será adicionado no gráfico
+      return false;
+     }
+//--- todas verificações completadas, simbolo e prazo do indicador corresponde ao gráf
+   if(indicator_handle==INVALID_HANDLE)
+     {
+      Print(__FUNCTION__,&quot;  Criando indicador MACD&quot;);
+      indicator_handle=iMACD(symbol,period,fast_ema_period,slow_ema_period,signal_peri
+      if(indicator_handle==INVALID_HANDLE)
+        {
+         Print(&quot;Falha para criar indicador MACD. Código de erro &quot;,GetLastError());
+        }
+     }
+//--- redefine o código de erro
+   ResetLastError();
+//--- aplicar o indicador para o gráfico
+   Print(__FUNCTION__,&quot;  Adicionando indicador MACD no gráfico&quot;);
+   Print(&quot;MACD é gerada em &quot;,symbol,&quot;/&quot;,EnumToString(period));
+//---receber o número de uma nova sub-janela, para o qual é adicionado o indicador MAC
+   int subwindow=(int)ChartGetInteger(0,CHART_WINDOWS_TOTAL);
+   PrintFormat(&quot;Adicionado indicador MACD na janela do gráfico %d&quot;,subwindow);
+   if(!ChartIndicatorAdd(0,subwindow,indicator_handle))
+     {
+      PrintFormat(&quot;Falha para adicionar indicador MACD na janela do gráfico %d. Código
+                  subwindow,GetLastError());
+     }
+//--- indicador adicionado com sucesso</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2264
+</p>
+<pre><code class="language-mql5">
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+ChartIndicatorDelete(), ChartIndicatorName(), ChartIndicatorsTotal(), iCustom(), IndicatorCreate()</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2265
+<h3>ChartIndicatorDelete</h3>
+Remove um indicador com um nome especificado a partir de janela do gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ChartIndicatorDelete(
+   long           chart_id,              // ID Gráfico
+   int            sub_window             // número da sub-janela
+   const string   indicator_shortname    // nome abreviado do indicador
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. 0 (zero) indica a sub-janela gráfico principal.
+sub_window
+[in]  Número de sub-janela do gráfico. 0 (zero) indica o sub-janela gráfico principal.
+const indicator_shortname
+[in]  O nome abreviado do indicador que é definido na propriedade do INDICATOR_SHORTNAME
+com a função IndicatorSetString(). Para obter o nome abreviado de um indicador usar a função
+ChartIndicatorName().
+<h3>Valor do Retorno</h3>
+Retorna true em caso de sucesso deletando o indicador. Do contrário ele retorna false. Para obter
+detalhes do erro use a função GetLastError().
+<h3>Observação</h3>
+Se houver dois indicadores com nove abreviados iguais na subjanela do gráfico, o primeiro da linha
+será deletado.
+Se outros indicadores neste gráfico são baseadas nos valores do indicador que está sendo deletado,
+estes indicadores também serão deletados.
+Não confundir o nome abreviado do indicador e o nome do arquivo que é especificado ao criar um
+indicador usando as funções iCustom() e IndicatorCreate(). Se o nome abreviado de um indicador
+não é definido de forma explicita, o nome do arquivo contendo o código-fonte do indicador será
+especificado durante a compilação. 
+Deletando um indicador de um gráfico não significa que seu cálculo será excluído da me mória do
+terminal. Para liberar o manuseio do indicador usar a função IndicatorRelease().
+<h3>Nome</h3>
+abreviado 
+do 
+indicador 
+deve 
+ser 
+formado 
+corretamente. 
+a 
+propriedade
+INDICATOR_SHORTNAME será escrita usando a funçãoIndicatorSetString(). Sé recomendado que o
+nome abreviado deve conter valores de todos os parâmetros de entrada do indicador, porque sendo
+o indicador excluído do gráfico pela função ChartIndicatorDelete(), ele é identificado pelo nome
+abreviado.
+Exemplo de exclusão de um indicador após inicialização ter falhado:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                    Demo_ChartIndicatorDelete.mq5 |
+//|                         Copyright 2000-2024, MetaQuotes Ltd. |</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2266
+</p>
+<pre><code class="language-mql5">
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+#property indicator_separate_window
+#property indicator_buffers 1
+#property indicator_plots   1
+//--- plotar Histograma
+#property indicator_label1  &quot;Histogram&quot;
+#property indicator_type1   DRAW_HISTOGRAM
+#property indicator_color1  clrRed
+#property indicator_style1  STYLE_SOLID
+#property indicator_width1  1
+//--- parâmetros de entrada
+input int      first_param=1;
+input int      second_param=2;
+input int      third_param=3;
+input bool     wrong_init=true;
+//--- buffers do indicador
+double         HistogramBuffer[];
+string         shortname;
+//+------------------------------------------------------------------+
+//| Função de inicialização do indicador customizado                 |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+   int res=INIT_SUCCEEDED;
+//---Vincular a array HistogramBuffer para a buffer (memória temporária) do indicador
+   SetIndexBuffer(0,HistogramBuffer,INDICATOR_DATA);
+//--- Construir um nome abreviado de indicador baseado nos parâmetro de entrada
+   shortname=StringFormat(&quot;Demo_ChartIndicatorDelete(%d,%d,%d)&quot;,
+                          first_param,second_param,third_param);
+   IndicatorSetString(INDICATOR_SHORTNAME,shortname);
+//--- Se a conclusão forçada de um indicador está definida, retornar um valor não-zero
+   if(wrong_init) res=INIT_FAILED;
+   return(res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de iteração do indicador customizado                      |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2267
+</p>
+<pre><code class="language-mql5">
+                const long &amp;volume[],
+                const int &amp;spread[])
+  {
+//--- Posição de partida para trabalhar num loop
+   int start=prev_calculated-1;
+   if(start&lt;0) start=0;
+//--- Preencher o buffer do indicador com valores
+   for(int i=start;i&lt;rates_total;i++)
+     {
+      HistogramBuffer[i]=close[i];
+     }
+//--- valor retorno de prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Um processador do evento de desinicializada (Deinit)             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+   PrintFormat(&quot;%s: Código de razão de finalização=%d&quot;,__FUNCTION__,reason);
+   if(reason==REASON_INITFAILED)
+     {
+      PrintFormat(&quot;Um indicador com um nome abreviado %s (arquivo %s) se exclui do grá
+      int window=ChartWindowFind();
+      bool res=ChartIndicatorDelete(0,window,shortname);
+      //--- Analisar o resultado de chamada de ChartIndicatorDelete()
+      if(!res)
+        {
+         PrintFormat(&quot;Falha para deletar o indicador %s partir da janela #%d. Código d
+                     shortname,window,GetLastError());
+        }
+     }
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+ChartIndicatorAdd(), ChartIndicatorName(), ChartIndicatorsTotal(), iCustom(), IndicatorCreate(), 
+<h3>IndicatorSetString()</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2268
+<h3>ChartIndicatorGet</h3>
+Retorna o manuseio do indicador com nome abreviado especificado na janela do gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+int  ChartIndicatorGet(
+   long           chart_id,              // ID gráfico\
+   int            sub_window             // O numero da sub-janela
+   const string   indicator_shortname    // Nome abreviado do indicador
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+sub_window
+[in]  O numero da sub-janela do gráfico. 0 (zero) significa a principal janela do gráfico.
+const indicator_shortname
+[in]  O nome abreviado do indicador que é definido na propriedade INDICATOR_SHORTNAME será
+escrita usando a função IndicatorSetString(). Para obter o nome abreviado de um indicador usar a
+função ChartIndicatorName().
+<h3>Valor do Retorno</h3>
+A função retorna bem sucedida, caso contrário retorna INVALID_HANDLE. Para obter informações
+sobre o erro, chame a função GetLastError().
+<h3>Observação</h3>
+O handle do indicador obtido com ajuda da função ChartIndicatorGet() aumenta o contador interno
+de uso desse indicador. O sistema de execução do terminal mantém carregados todos os indicadores
+cujo contador é maior que zero. Por isso, um handle de indicador desnecessário deve ser imediata e
+explicitamente liberado com ajuda de IndicatorRelease() no mesmo programa que o recebe,
+conforme mostrado no exemplo abaixo. Caso contrário, será impossível encontrar o identificador
+&quot;abandonado&quot; e liberá-lo corretamente desde outro programa.
+Ao criar um indicador, tenha cuidado para formar sua abreviação, o que está escrito na propriedade
+INDICATOR_SHORTNAME usando a função IndicatorSetString(). É recomendado que o nome
+abreviado deve conter valores de todos os parâmetros de entrada do indicador, porque sendo o
+indicador excluído do gráfico pela função ChartIndicatorGet() ele é identificado pelo nome
+abreviado.
+Outra forma de identificar o indicador é obtendo uma lista de seus parâmetros para um
+manipulador, usando a função IndicatorParameters() e, em seguida, analisar os valores obtidos.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   //--- O número de janelas no gráfico (ao menos uma janela principal está sempre pre</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2269
+</p>
+<pre><code class="language-mql5">
+   int windows=(int)ChartGetInteger(0,CHART_WINDOWS_TOTAL);
+   //--- Verifique todas as janelas
+   for(int w=0;w&lt;windows;w++)
+     {
+      //--- o número de indicadores nesta janela/sub-janela
+      int total=ChartIndicatorsTotal(0,w);
+      //--- Passar por todos os indicadores na janela
+      for(int i=0;i&lt;total;i++)
+        {
+         //--- obtém o nome abreviado do indicador
+         string name=ChartIndicatorName(0,w,i);
+         //--- obter o manipulador (handle) de um indicador
+         int handle=ChartIndicatorGet(0,w,name);
+         //--- Adicionar o log
+         PrintFormat(&quot;Janela=%d,  índice=%d,  nome=%s,  manipulador (handle)=%d&quot;,w,i,n
+         //--- You should obligatorily release the indicator handle when it is no long
+         IndicatorRelease(handle);
+        }
+     }
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+ChartIndicatorAdd(), ChartIndicatorName(), ChartIndicatorsTotal(), IndicatorParameters()</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2270
+<h3>ChartIndicatorName</h3>
+Retorna o nome abreviado do indicador mediante o número na lista de indicadores da janela do gráfico
+especificado.
+</p>
+<pre><code class="language-mql5">
+string  ChartIndicatorName(
+   long  chart_id,      // ID gráfico
+   int   sub_window     // numero de sub-janelas
+   int   index          // índice do indicador na lista de indicadores adicionada a su
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. 0 (zero) indica a sub-janela gráfico principal.
+sub_window
+[in]  Número de sub-janela do gráfico. 0 (zero) indica o sub-janela gráfico principal.
+index
+[in]  índice do indicador na lista de indicadores. A numeração de indicadores começam com zero,
+ou seja, o primeiro indicador da lista tem o índice 0. Para obter o código do último erro, você
+também pode usar a função ChartIndicatorsTotal().
+<h3>Valor retornado</h3>
+O nome abreviado do indicador que é definido na propriedade INDICATOR_SHORTNAME com a
+função IndicatorSetString(). Para obter detalhes do erro use a função GetLastError().
+<h3>Observação</h3>
+Não confundir o nome abreviado do indicador e o nome do arquivo que é especificado ao criar um
+indicador usando as funções iCustom() e IndicatorCreate(). Se o nome abreviado de um indicador
+não é definido de forma explicita, o nome do arquivo contendo o código-fonte do indicador será
+especificado durante a compilação.
+<h3>Nome</h3>
+abreviado 
+do 
+indicador 
+deve 
+ser 
+formado 
+corretamente. 
+a 
+propriedade
+INDICATOR_SHORTNAME será escrita usando a funçãoIndicatorSetString(). Sé recomendado que o
+nome abreviado deve conter valores de todos os parâmetros de entrada do indicador, porque, como
+o indicador excluído do gráfico pela função ChartIndicatorDelete(), ele é identificado pelo nome
+abreviado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o identificador do gráfico atual e o número de suas subjanelas, incluind
+   long chart_id = ChartID();
+   int  wnd_total= (int)ChartGetInteger(0,CHART_WINDOWS_TOTAL);
+   </p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2271
+</p>
+<pre><code class="language-mql5">
+//--- percorremos todas as janelas do gráfico atual
+   for(int w=0; w&lt;wnd_total; w++)
+     {
+      //--- obtemos o número de indicadores anexados à janela do gráfico especificada 
+      int ind_total=ChartIndicatorsTotal(chart_id, w);
+      
+      //--- imprimimos o título da janela do gráfico selecionado
+      PrintFormat(&quot;Chart window %d indicators: &quot;, w);
+      
+      //--- obtemos todos os nomes dos indicadores anexados à janela selecionada no la
+      string ind_names=&quot;&quot;;
+      for(int i=0; i&lt;ind_total; i++)
+        {
+         ind_names+=&quot;  &quot;+ChartIndicatorName(chart_id, w, i)+(i&lt;ind_total-1 ? &quot;\n&quot;: &quot;&quot;)
+        }
+      //--- imprimimos no log a lista de nomes de todos os indicadores anexados à jane
+      Print(ind_names);
+     }
+   /*
+   Resultado:
+   Chart window 0 indicators: 
+     AMA(9,2,30)
+     SAR(0.02,0.20)
+     Fractals
+   Chart window 1 indicators: 
+     RSI(14)
+     AMA(9,2,30)
+   Chart window 2 indicators: 
+     MFI(14)
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+ChartIndicatorAdd(), ChartIndicatorDelete(), ChartIndicatorsTotal(), iCustom(), IndicatorCreate(),
+<h3>IndicatorSetString()</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2272
+<h3>ChartIndicatorsTotal</h3>
+Retorna o número de todos indicadores utilizados para a janela do gráfico especificado
+</p>
+<pre><code class="language-mql5">
+int  ChartIndicatorsTotal(
+   long  chart_id,      // ID gráfico
+   int   sub_window     // numero de sub-janelas
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. 0 (zero) indica a sub-janela gráfico principal.
+sub_window
+[in]  Número de sub-janela do gráfico. 0 (zero) indica o sub-janela gráfico principal.
+<h3>Valor retornado</h3>
+O número de indicadores na janela de gráfico especificado. Para obter detalhes do erro use a função
+GetLastError().
+<h3>Observação</h3>
+A função permite uma buscar através de todos os indicadores anexados ao gráfico. A função
+permite uma pesquisa através de todos os indicadores anexados ao gráfico. O número de todas as
+janelas do gráfico pode ser obtido a partir da propriedade CHART_WINDOWS_TOTAL usando a
+função ChartGetInteger().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o identificador do gráfico atual e o número de suas subjanelas, incluind
+   long chart_id = ChartID();
+   int  wnd_total= (int)ChartGetInteger(0,CHART_WINDOWS_TOTAL);
+   
+//--- percorremos todas as janelas do gráfico atual
+   for(int w=0; w&lt;wnd_total; w++)
+     {
+      //--- obtemos o número de indicadores anexados à janela do gráfico especificada 
+      int ind_total=ChartIndicatorsTotal(chart_id, w);
+      
+      //--- imprimimos o número de indicadores anexados à janela de gráfico especifica
+      PrintFormat(&quot;Chart ID %I64d, subwindow %d. Attached indicators: %d&quot;, chart_id, w
+     }
+   /*
+   Resultado:
+   Chart ID 133246248352168439, subwindow 0. Attached indicators: 3</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2273
+</p>
+<pre><code class="language-mql5">
+   Chart ID 133246248352168439, subwindow 1. Attached indicators: 2
+   Chart ID 133246248352168439, subwindow 2. Attached indicators: 1
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+ChartIndicatorAdd(), ChartIndicatorDelete(), iCustom(), IndicatorCreate(), IndicatorSetString()</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2274
+<h3>ChartWindowOnDropped</h3>
+Retorna o número (índice) da sub-janela do gráfico, o Assessor Especialista (Expert Advisor) ou Script
+foi derrubado. 0 (zero) significa a principal janela do gráfico.
+</p>
+<pre><code class="language-mql5">
+int  ChartWindowOnDropped();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Valor do tipo int.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   int myWindow=ChartWindowOnDropped();
+   int windowsTotal=ChartGetInteger(0,CHART_WINDOWS_TOTAL);
+   Print(&quot;Script é executado na janela #&quot;+myWindow+
+         &quot;. Total de janelas no gráfico &quot;+ChartSymbol()+&quot;:&quot;,windowsTotal);
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+ChartPriceOnDropped, ChartTimeOnDropped, ChartXOnDropped, ChartYOnDropped</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2275
+<h3>ChartPriceOnDropped</h3>
+Retorna a coordenada de preço do ponto do gráfico, o Assessor Especialista (Expert Advisor) ou Script
+foi derrubado.
+</p>
+<pre><code class="language-mql5">
+double  ChartPriceOnDropped();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Value of double type.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   double p=ChartPriceOnDropped();
+   Print(&quot;ChartPriceOnDropped() = &quot;,p);
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>ChartXOnDropped, ChartYOnDropped</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2276
+<h3>ChartTimeOnDropped</h3>
+Retorna a coordenada de tempo correspondente ao ponto do gráfico, o Assessor Especialista (Expert
+Advisor) ou Script foi derrubado.
+datetime  ChartTimeOnDropped();
+<h3>Valor do Retorno</h3>
+Valor tipo datetime.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   datetime t=ChartTimeOnDropped();
+   Print(&quot;Script foi lançado sobre &quot;+t);
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+<h3>ChartXOnDropped, ChartYOnDropped</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2277
+<h3>ChartXOnDropped</h3>
+Retorna a coordenada X do ponto do gráfico, o Assessor Especialista (Expert Advisor) ou Script foi
+derrubado.
+</p>
+<pre><code class="language-mql5">
+int  ChartXOnDropped();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+O valor da coordenada X.
+<h3>Observação</h3>
+Direção do eixo X a partir da esquerda para a direita.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+   int X=ChartXOnDropped();
+   int Y=ChartYOnDropped();
+   Print(&quot;(X,Y) = (&quot;+X+&quot;,&quot;+Y+&quot;)&quot;);
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+ ChartWindowOnDropped, ChartPriceOnDropped, ChartTimeOnDropped</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2278
+<h3>ChartYOnDropped</h3>
+Retorna a coordenada X do ponto do gráfico, o Assessor Especialista (Expert Advisor) ou Script foi
+encerrado.
+</p>
+<pre><code class="language-mql5">
+int  ChartYOnDropped();
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+O valor da coordenada Y.
+<h3>Observação</h3>
+Direção do eixo Y a partir de cima para baixo.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos e imprimimos as coordenadas X e Y do ponto do gráfico, onde esse script 
+   int x=ChartXOnDropped();
+   int y=ChartYOnDropped();
+   PrintFormat(&quot;Script dropped to coordinates X = %d, Y = %d&quot;, x, y);
+   /*
+   Resultado:
+   Script dropped to coordinates X = 429, Y = 114
+   */
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+ ChartWindowOnDropped, ChartPriceOnDropped, ChartTimeOnDropped</p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2279
+<h3>ChartSetSymbolPeriod</h3>
+Modifica o valor do símbolo e o período do gráfico especificado. A função é assíncrona, ou seja, envia
+o comando e não espera a conclusão da execução. Este comando é adicionado a uma fila de
+mensagens de gráfico e será executado após o processamento de todos os comandos anteriores.
+</p>
+<pre><code class="language-mql5">
+bool  ChartSetSymbolPeriod(
+   long             chart_id,     // ID Gráfico
+   string           symbol,       // Nome símbolo
+   ENUM_TIMEFRAMES  period        // Período
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Representa o gráfico atual.
+symbol
+[in]  Simbolo do gráfico. Valor NULL significa o símbolo gráfico atual (Expert Advisor é anexado)
+period
+[in]  Período do Gráfico (Prazo). Pode ser um dos valores de ENUM_TIMEFRAMES. 0 (zero) significa
+o período do atual gráfico.
+<h3>Valor retornado</h3>
+Retorna verdadeiro se o comando foi adicionado à fila do gráfico, caso contrário será falso. Para
+obter uma informação sobre o erro, chamar a função GetLastError().
+<h3>Observação</h3>
+O símbolo/período de mudança desencadeia a reinicialização do Expert Advisor, anexado ao gráfico.
+A chamada da função ChartSetSymbolPeriod, com o mesmo símbolo e timeframe, pode ser utilizada
+para atualizar o gráfico (semelhante ao comando Refresh no terminal). A atualização do gráfico, por
+sua vez , inicia o recálculo dos indicadores vinculados a ele. Assim, você pode calcular o indicador
+no gráfico, mesmo na ausência de ticks (por exemplo, nos fins-de-semana e feriados).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define   SYMBOL    &quot;GBPUSD&quot;
+#define   PERIOD    PERIOD_H1
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos o identificador do gráfico atual, seu símbolo e período
+   long            chart_id= ChartID();
+   string          symbol  = Symbol();
+   ENUM_TIMEFRAMES period  = Period();</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2280
+</p>
+<pre><code class="language-mql5">
+//--- no log informamos sobre a alteração do símbolo e do período do gráfico atual par
+   PrintFormat(&quot;Change the %s symbol and the %s period of the chart %I64u to %s %s&quot;,
+               symbol, TimeframeDescrioption(period), chart_id, SYMBOL, TimeframeDescr
+               
+//--- alteramos o símbolo e o período do gráfico
+   ChartSetSymbolPeriod(chart_id, SYMBOL, PERIOD);
+   /*
+   Resultado:
+   Change the EURUSD symbol and the M1 period of the chart 133246248352168440 to GBPUS
+   */
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a descrição do período do gráfico                     |
+//+------------------------------------------------------------------+
+string TimeframeDescrioption(const ENUM_TIMEFRAMES timeframe)
+  {
+   return(StringSubstr(EnumToString(timeframe), 7));
+</code></pre>
+<p>
+  }
+<h3>Veja Também</h3>
+<h3>ChartSymbol, ChartPeriod</h3></p>
+<p><h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2281
+<h3>ChartScreenShot</h3>
+Providencia uma imagem do gráfico de seu estado atual para um formato GIF, PNG ou BMP
+dependendo da extensão especificada.
+</p>
+<pre><code class="language-mql5">
+bool  ChartScreenShot(
+   long             chart_id,                   // ID Gráfico
+   string           filename,                   // Nome do Símbolo
+   int              width,                      // Largura
+   int              height,                     // Altura
+   ENUM_ALIGN_MODE  align_mode=ALIGN_RIGHT      // Tipo de alinhamento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  ID Gráfico. Significa o gráfico atual.
+filename
+[in]  Nome do arquivo de imagem. Não pode exceder 63 caracteres. Arquivos de captura de tela
+são colocados no \Files diretório.
+width
+[in]  Captura de tela com largura em pixels.
+height
+[in]  Captura de tela com altura em pixels.
+align_mode=ALIGN_RIGHT
+[in]  Modo de saída de uma Captura de tela estreita. O valor da enumeração ENUM_ALIGN_MODE.
+ALIGN_RIGHT significa alinhamento para a margem direita (a saída a partir do final). ALIGN_LEFT
+significa justificar esquerda.
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false.
+<h3>Observação</h3>
+Se você precisa tomar uma captura de tela de um gráfico a partir de uma determinada posição, em
+primeiro lugar, é necessário posicionar o gráfico usando a função ChartNavigate(). Se o tamanho
+horizontal da captura de tela é menor do que a janela do gráfico, ou a parte direita da janela do
+gráfico, ou a sua parte esquerda está de saída, depende das configurações do align_mode.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;O Expert Advisor demonstra como criar uma série de captura de t
+#property description  gráfico usando a função ChartScreenShot(). Por conveniência, o 
+#property description &quot;mostrando sobre o gráfico. A altura e a largura das imagens são
+#define        WIDTH  800     // ChartScreenShot() para Chamar a largura da imagem
+#define        HEIGHT 600     // ChartScreenShot() para Chamar a altura da imagem</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2282
+</p>
+<pre><code class="language-mql5">
+//--- parâmetros de entrada
+input int      pictures=5;    // O número de imagens em série
+int            mode=-1;       // -1 denota uma mudança para a borda direita do gráfico
+int            bars_shift=300;// O número de barras de rolagem quando o gráfico está u
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+void OnInit()
+  {
+//--- Desabilita gráfico autoscroll
+   ChartSetInteger(0,CHART_AUTOSCROLL,false);
+//--- Definir o deslocamento da borda direita do gráfico
+   ChartSetInteger(0,CHART_SHIFT,true);
+//--- Mostra uma castiçal (vela ou barra) do gráfico
+   ChartSetInteger(0,CHART_MODE,CHART_CANDLES);
+//---
+   Print(&quot;Preparação do Expert Advisor está completada&quot;);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função ChartEvent                                                |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &amp;lparam,
+                  const double &amp;dparam,
+                  const string &amp;sparam)
+  {
+//--- Mostra o nome da função, chamar tempo e identificador de evento
+   Print(__FUNCTION__,TimeCurrent(),&quot;   id=&quot;,id,&quot;   mode=&quot;,mode);
+//--- Manipular o evento CHARTEVENT_CLICK (&quot;Um clique do mouse sobre o gráfico&quot;)
+   if(id==CHARTEVENT_CLICK)
+     {
+      //--- Deslocamento inicial para a borda do gráfico
+      int pos=0;
+      //--- Operação com a borda esquerda do gráfico
+      if(mode&gt;0)
+        {
+         //--- Rolar o gráfico para a borda esquerda
+         ChartNavigate(0,CHART_BEGIN,pos);
+         for(int i=0;i&lt;pictures;i++)
+           {
+            //--- Preparar o texto para mostrar no gráfico e um nome de arquivo</p>
+<p></code></pre>
+<p>
+<h3>Operações de Gráficos</h3>
+© 2000-2025, MetaQuotes Ltd.
+2283
+</p>
+<pre><code class="language-mql5">
+            string name=&quot;ChartScreenShot&quot;+&quot;CHART_BEGIN&quot;+string(pos)+&quot;.gif&quot;;
+            //--- Mostrar o nome no gráfico como um comentário
+            Comment(name);
+            //--- Salvar a captura de tela do gráfico em um arquivo no terminal_direct
+            if(ChartScreenShot(0,name,WIDTH,HEIGHT,ALIGN_LEFT))
+               Print(&quot;Nós salvamos a captura de tela &quot;,name);
+            //---
+            pos+=bars_shift;
+            //--- Dê tempo ao utilizador para olhar a nova parte nova do gráfico
+            Sleep(3000);
+            //--- Rolar o gráfico diante da atual posição do bars_shift bars para a di
+            ChartNavigate(0,CHART_CURRENT_POS,bars_shift);
+           }
+         //--- Altere o modo para o oposto
+         mode*=-1;
+        }
+      else // Operação com a borda direita do gráfico
+        {
+         //--- Rolar o gráfico para a borda direita
+         ChartNavigate(0,CHART_END,pos);
+         for(int i=0;i&lt;pictures;i++)
+           {
+            //--- Preparar o texto para mostrar no gráfico e um nome de arquivo
+            string name=&quot;ChartScreenShot&quot;+&quot;CHART_END&quot;+string(pos)+&quot;.gif&quot;;
+            //--- Mostrar o nome no gráfico como um comentário
+            Comment(name);
+            //--- Salvar a captura de tela do gráfico em um arquivo no terminal_direct
+            if(ChartScreenShot(0,name,WIDTH,HEIGHT,ALIGN_RIGHT))
+               Print(&quot;Nós salvamos a captura de tela &quot;,name);
+            //---
+            pos+=bars_shift;
+            //--- Dê tempo ao utilizador para olhar a nova parte nova do gráfico
+            Sleep(3000);
+            //--- Rolar o gráfico diante da atual posição do bars_shift bars para a di
+            ChartNavigate(0,CHART_CURRENT_POS,-bars_shift);
+           }
+         //--- Altere o modo para o oposto
+         mode*=-1;
+        }
+     }  // End of CHARTEVENT_CLICK event handling
+//--- Fim do manipulador (handler) OnChartEvent()  
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>ChartNavigate(), Recursos</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

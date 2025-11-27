@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referência MQL5 - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class="active"><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Referência MQL5</h1>
+        </header>
+        
+        <article>
+            <p> 
+© 2000-2025, MetaQuotes Ltd.
+72
+<h3>Manual MQL5</h3>
+A MetaQuotes Language 5 (MQL5) é uma linguagem de programação para indicadores técnicos, para
+robôs de negociação e para aplicativos auxiliares, providenciando automatização da negociação nos
+mercados financeiros. A MQL5 é uma linguagem moderna de alto nível desenvolvida pela MetaQuotes
+para a sua própria plataforma de negociação. A sintaxe da linguagem é tão próxima quanto possível
+da C++ e permite escrever programas no estilo da programação orientada a objetos (POO).
+Para escrever programas em MQL5, a plataforma de negociação vem com o ambiente de
+desenvolvimento do MetaEditor que tem todo um conjunto de modernas ferramentas para escrita de
+códigos, incluindo modelos, trechos de código, depuração, criação de perfis, preenchimento
+automático e armazenamento de versão integrado MQL5 Storage.
+O suporte e o desenvolvimento da linguagem são realizados no site da MQL5 Algotrading community.
+Nele existe uma extensa biblioteca de códigos gratuitos e muitos artigos. Estes artigos abrangem
+todos os tópicos da negociação moderna: redes neurais, estatísticas e análise, negociação de alta
+frequência, arbitragem, testes e otimização de estratégias de negociação, uso de robôs para
+automatizar a negociação e muito mais.
+Traders e desenvolvedores de programas MQL5 podem interagir no fórum, realizar encomendas no
+serviço Freelance, comprar e vender programas seguros no Mercado - uma loja de aplicativos prontos
+para negociação automática.
+A linguagem MQL5 contém funções de negociação especializadas e manipuladores de ventos pré-
+definidos para escrita de Expert Advisors. Os Expert Advisors gerenciam automaticamente os
+processos de negociação com base nas regras comerciais estabelecidas neles. Você também pode criar
+em MQL5 seus próprios indicadores técnicos, scripts e bibliotecas de funções.
+O manual MQL5 contém - divididas por categorias - funções, operações, palavras reservadas e outras
+construções da linguagem. Além disso, permite encontrar a descrição de cada elemento da linguagem.
+Também o manual descreve as classes da Biblioteca padrão para criar estratégias de negociação,
+painéis de controle, gráficos personalizados e trabalhar com arquivos.
+Separadamente do manual, o CodeBase dispõe de uma biblioteca de análise numérica ALGLIB que
+permite resolver inúmeros problemas matemáticos. 
+<h3>Manuais de algotrading</h3>
+Começar a aprender algo novo nunca é fácil. Para ajudar os iniciantes, lançamos dois manuais sobre
+programação na linguagem MQL5, destinados a todos que desejam dominar a criação de robôs de
+negociação e aplicativos para trading algorítmico.
+Nossos manuais oferecem aos leitores uma apresentação sistemática e estruturada do material, o que
+facilita bastante o processo de aprendizado do MQL5. Exemplos de código detalhados, que explicam
+passo a passo a criação de robôs de negociação e aplicativos, permitem compreender melhor e
+dominar as sutilezas do algotrading. Os livros contêm muitos exercícios práticos, que ajudarão a
+consolidar o conhecimento adquirido e a desenvolver habilidades de programação em condições reais
+de negociação.
+&quot;Programação em MQL5 para traders Manual de MQL5&quot; — o manual mais completo e detalhado sobre
+MQL5, adequado para programadores de todos os níveis. Os iniciantes serão apresentados aos</p>
+<p> 
+© 2000-2025, MetaQuotes Ltd.
+73
+fundamentos: aprenderão as ferramentas de desenvolvimento e os conceitos básicos de programação.
+Criarão o primeiro programa, irão compilá-lo e executá-lo na plataforma de negociação MetaTrader 5.
+Usuários com experiência em programação em outras linguagens podem ir diretamente para a parte
+prática: as possibilidades do MQL5 para a criação de robôs de negociação e aplicativos analíticos.
+&quot;Redes neurais no algotrading com MQL5&quot; — um guia sobre o uso de métodos de aprendizado de
+máquina na criação de robôs de negociação na plataforma MetaTrader 5. Você será apresentado
+sequencialmente aos fundamentos das redes neurais e suas possibilidades de aplicação no algotrading.
+À medida que avança, você criará e treinará sua própria inteligência artificial, adicionando
+gradualmente novas funções a ela. Além de estudar MQL5, você aprenderá a programar em Python e
+OpenCL, além de descobrir métodos integrados de matrizes e vetores, que permitem resolver
+problemas matemáticos complexos com código conciso e rápido.
+Artigos sobre desenvolvimento de aplicativos de negociação
+Um excelente guia para estudar todas as possibilidades da linguagem são os artigos sobre MQL5, que
+abordam muitas tarefas práticas relacionadas ao algotrading. Para facilitar a busca, todos os artigos
+são divididos por categorias: Exemplos, Expert Advisors, Aprendizado de Máquina e assim por diante.
+Todo mês, no site MQL5 Algotrading community são publicadas dezenas de novos artigos, escritos
+pelos próprios traders para outros traders. Leia e discuta os artigos, eles abordam todos os aspectos
+do algotrading moderno. Para os iniciantes, preparamos uma lista de 16 artigos recomendados para
+uma imersão rápida no MQL5.
+<h3>Tipos de aplicativos em MQL5</h3>
+A fim de executar tarefas específicas para automatizar operações de negociação, os programas MQL5
+são divididos em cinco tipos especializados:
+· Expert Advisor — sistema de negociação automática que está ligado a um gráfico específico. O
+Expert Advisor contém as funções manipuladoras dos eventos predefinidos que, ao ocorrerem,
+desencadeiam os respectivos elementos da estratégia de negociação. Esses eventos podem ser a
+inicialização e a desinicialização do programa, a chegada de um novo tick, a ativação do
+temporizador, a mudança no livro de ofertas, nos eventos do gráfico e nos eventos do usuário.
+O Expert Advisor pode, além de calcular sinais de negociação segundo as regras estabelecidas,
+realizar trades automaticamente na conta de negociação, direcionando-os diretamente para o
+servidor 
+de 
+negociação. 
+<h3>Os</h3>
+<h3>Expert</h3>
+<h3>Advisor</h3>
+são 
+armazenados 
+no
+&lt;diretório_do_terminal&gt;\MQL5\Experts.
+· Indicador personalizado — indicador técnico escrito pelo usuário, além dos indicadores já
+integrados na plataforma de negociação. Os indicadores personalizados, assim como os indicadores
+embutidos, não podem ser trocados automaticamente e se destinam apenas à implementação de
+funções analíticas. Os indicadores personalizados podem usar os valores de outros indicadores em
+seus cálculos, e eles próprios podem ser chamados nos próprios Expert Advisors.
+Os indicadores personalizados são armazenados no &lt;diretório_do_terminal&gt;\MQL5\Indicators.
+· Script — programa projetado para a execução única de certa ação. Ao contrário dos Expert
+Advisors, os scripts não lidam com eventos, exceto com aqueles que são de inicialização e
+desinicialização. Para executar o script em seu código, deve haver uma função manipulador
+OnStart. Os scripts são armazenados no  &lt;diretório_do_terminal&gt;\MQL5\Scripts.</p>
+<p> 
+© 2000-2025, MetaQuotes Ltd.
+74
+· Serviço – um programa que, ao contrário de indicadores, EAs e scripts, não estão vinculados a um
+gráfico para o seu trabalho. Como os scripts, os serviços processam apenas eventos de
+inicialização. Para executar o serviço em seu código, deve estar presenta uma função manipulador
+OnStart. Os serviços aceitam apenas o evento o Start, mas podem enviar aos gráficos eventos
+personalizados 
+usando 
+EventChartCustom. 
+<h3>Os</h3>
+serviços 
+são 
+armazenados 
+no 
+diretório
+&lt;diretório_do_terminal&gt;\MQL5\Services.
+· Biblioteca — biblioteca de funções personalizadas projetada para armazenar e distribuir blocos -
+usados com frequência - de programas do usuário. As bibliotecas não podem ser executadas por
+conta própria.
+As bibliotecas são armazenadas no &lt;As bibliotecas não podem ser executadas por conta
+própria.&gt;\MQL5\Libraries
+· Arquivo de inclusão — código fonte de blocos - usados com frequência - de programas do usuário.
+Esses arquivos podem ser incluídos nos códigos fonte de Expert Advisors, de scripts, de indicadores
+personalizados e de bibliotecas durante fase de compilação. Devido à sobrecarga adicional ao
+chamar funções de biblioteca, é melhor usar arquivos de inclusão do que bibliotecas. 
+Arquivos de inclusão podem estar no mesmo diretório que o código fonte, neste caso é usada a
+diretiva #include com aspas duplas. Outro local para armazenar os arquivos de inclusão está no
+&lt;diretório_do_terminal&gt;\MQL5\Include, neste caso, é utilizada a diretiva #include com colchetes
+angulares.
+© 2000-2025, MetaQuotes Ltd
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

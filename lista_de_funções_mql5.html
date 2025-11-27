@@ -1,0 +1,3391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Funções MQL5 - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class="active"><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Lista de Funções MQL5</h1>
+        </header>
+        
+        <article>
+            <p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6814
+<h3>Lista de Funções MQL5</h3>
+Todas as funções MQL5 em ordem alfabética.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>AccountInfoDouble</h3>
+<h3>Retorna um valor de tipo double</h3>
+da correspondente propriedade da
+conta
+<h3>Informações de Conta</h3>
+<h3>AccountInfoInteger</h3>
+<h3>Retorna um valor de tipo inteiro</h3>
+(bool, 
+</p>
+<pre><code class="language-mql5">
+int 
+</code></pre>
+<p>
+ou 
+long) 
+da
+correspondente propriedade da
+conta
+<h3>Informações de Conta</h3>
+<h3>AccountInfoString</h3>
+Retorna um valor de tipo string da
+correspondente propriedade da
+conta
+<h3>Informações de Conta</h3>
+acos
+<h3>Retorna o arco-cosseno de x em</h3>
+radianos
+<h3>Funções Matemáticas</h3>
+<h3>Alert</h3>
+<h3>Exibe uma mensagem em uma</h3>
+janela separada
+<h3>Funções Comuns</h3>
+<h3>ArrayBsearch</h3>
+Searches for a specified value in a
+multidimensional numeric array
+sorted ascending
+<h3>Funções para Array</h3>
+<h3>ArrayCompare</h3>
+<h3>Retorna</h3>
+o 
+resultado 
+da
+comparação entre dois arrays de
+tipos 
+simples 
+ou 
+estruturas
+personalizados 
+sem 
+objetos
+complexos
+<h3>Funções para Array</h3>
+<h3>ArrayCopy</h3>
+<h3>Copia um array em outro array</h3>
+<h3>Funções para Array</h3>
+<h3>ArrayFill</h3>
+<h3>Preenche um array com o valor</h3>
+especificado
+<h3>Funções para Array</h3>
+<h3>ArrayFree</h3>
+<h3>Libera buffer de qualquer array</h3>
+dinâmico e define o tamanho da
+dimensão zero em 0.
+<h3>Funções para Array</h3>
+<h3>ArrayGetAsSeries</h3>
+<h3>Verifica a direção da indexação de</h3>
+um array
+<h3>Funções para Array</h3>
+<h3>ArrayInitialize</h3>
+<h3>Define todos os elementos de um</h3>
+array numérico para um único
+valor
+<h3>Funções para Array</h3>
+<h3>ArrayIsDynamic</h3>
+<h3>Verifica se um array é dinâmico</h3>
+<h3>Funções para Array</h3>
+<h3>ArrayIsSeries</h3>
+Verifica se um é array é uma série
+de tempo
+<h3>Funções para Array</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6815
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>ArrayMaximum</h3>
+<h3>Searches for the largest element</h3>
+in the first dimension of a
+multidimensional numeric array
+<h3>Funções para Array</h3>
+<h3>ArrayMinimum</h3>
+<h3>Searches for the lowest element</h3>
+in the first dimension of a
+multidimensional numeric array
+<h3>Funções para Array</h3>
+<h3>ArrayRange</h3>
+<h3>Retorna o número de elementos</h3>
+na dimensão especifica do array
+<h3>Funções para Array</h3>
+<h3>ArrayResize</h3>
+<h3>Define</h3>
+o 
+novo 
+tamanho 
+da
+primeira dimensão do array
+<h3>Funções para Array</h3>
+<h3>ArraySetAsSeries</h3>
+<h3>Define a direção de indexação de</h3>
+um array
+<h3>Funções para Array</h3>
+<h3>ArraySize</h3>
+<h3>Retorna o número de elemento no</h3>
+array
+<h3>Funções para Array</h3>
+<h3>ArraySort</h3>
+<h3>Ordena</h3>
+arrays 
+números 
+pela
+primeira dimensão
+<h3>Funções para Array</h3>
+<h3>ArrayPrint</h3>
+No log, exibe uma matriz de tipo
+ou estrutura simples
+<h3>Funções para Array</h3>
+<h3>ArrayInsert</h3>
+<h3>Insere na matriz de destino o</h3>
+número 
+especificado 
+de
+elementos da matriz de origem,
+iniciando no índice especificado
+<h3>Funções para Array</h3>
+<h3>ArrayRemove</h3>
+<h3>Remove o número especificado de</h3>
+elementos da matriz, iniciando no
+índice especificado
+<h3>Funções para Array</h3>
+<h3>ArrayReverse</h3>
+<h3>Expande o número de elementos</h3>
+especificado na matriz, iniciando
+no índice especificado
+<h3>Funções para Array</h3>
+<h3>ArraySwap</h3>
+Troca entre si o conteúdo de duas
+matrizes do tipo dinâmico
+<h3>Funções para Array</h3>
+asin
+<h3>Retorna o arco-seno de x em</h3>
+radianos
+<h3>Funções Matemáticas</h3>
+atan
+<h3>Retorna o arco-tangente de x em</h3>
+radianos
+<h3>Funções Matemáticas</h3>
+<h3>Bars</h3>
+<h3>Retorna o número de barras do</h3>
+histórico para um ativo e período
+especificados
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>BarsCalculated</h3>
+<h3>Retorna o número de</h3>
+dados
+calculados em um buffer 
+de
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6816
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+indicador ou -1 em caso de erro
+(os dados não foram calculados
+ainda)
+<h3>CalendarCountryById</h3>
+<h3>Obtém uma descrição do país por</h3>
+seu ID
+<h3>Calendário econômico</h3>
+<h3>CalendarEventById</h3>
+<h3>Obtém a descrição do evento por</h3>
+seu ID
+<h3>Calendário econômico</h3>
+<h3>CalendarValueById</h3>
+<h3>Obtém uma descrição do valor do</h3>
+evento por seu ID
+<h3>Calendário econômico</h3>
+<h3>CalendarCountries</h3>
+<h3>Obtém um array de descrições dos</h3>
+países disponíveis no calendário.
+<h3>Calendário econômico</h3>
+<h3>CalendarEventByCountry</h3>
+<h3>Obtém um array de descrições de</h3>
+todos os eventos disponíveis no
+<h3>Calendário, segundo o código do</h3>
+país especificado
+<h3>Calendário econômico</h3>
+<h3>CalendarEventByCurrency</h3>
+<h3>Obtém um array de descrições de</h3>
+todos os eventos disponíveis no
+calendário, de acordo com a
+moeda especificada
+<h3>Calendário econômico</h3>
+<h3>CalendarValueHistoryByEvent</h3>
+<h3>Obtém um array de valores de</h3>
+todos os eventos no intervalo de
+tempo especificado, segundo o ID
+do evento
+<h3>Calendário econômico</h3>
+<h3>CalendarValueHistory</h3>
+<h3>Obtém uma matriz de valores de</h3>
+todos 
+os 
+eventos 
+num
+determinado intervalo de tempo
+com um filtro por país e/ou
+moeda
+<h3>Calendário econômico</h3>
+<h3>CalendarValueLastByEvent</h3>
+<h3>Obtém um array de valores do</h3>
+eventos por seu ID desde o
+momento em que criado do banco
+de dados do Calendário com o
+change_id definido
+<h3>Calendário econômico</h3>
+<h3>CalendarValueLast</h3>
+<h3>Obtém um array de valores de</h3>
+todos os eventos com filtro por
+país 
+e/ou 
+moeda 
+desde 
+o
+momento em que criado do banco
+de dados do Calendário com o
+change_id definido
+<h3>Calendário econômico</h3>
+ceil
+<h3>Retorna o valor numérico inteiro</h3>
+mais próximo do acima
+<h3>Funções Matemáticas</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6817
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>CharArrayToString</h3>
+<h3>Converte código de símbolo (ansi)</h3>
+em um array de um símbolo
+<h3>Funções de Conversão</h3>
+<h3>ChartApplyTemplate</h3>
+<h3>Aplica-se um modelo específico de</h3>
+um arquivo especificado para o
+gráfico
+<h3>Operações de Gráficos</h3>
+<h3>ChartClose</h3>
+<h3>Fecha um gráfico especificado</h3>
+<h3>Operações de Gráficos</h3>
+<h3>ChartFirst</h3>
+<h3>Retorna o ID do primeiro gráfico</h3>
+do terminal do cliente
+<h3>Operações de Gráficos</h3>
+<h3>ChartGetDouble</h3>
+<h3>Retorna a propriedade de valor</h3>
+duplo do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartGetInteger</h3>
+<h3>Retorna a propriedade de valor</h3>
+inteiro do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartGetString</h3>
+<h3>Retorna a propriedade de valor da</h3>
+seqüência do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartID</h3>
+<h3>Retorna o ID do gráfico atual</h3>
+<h3>Operações de Gráficos</h3>
+<h3>ChartIndicatorAdd</h3>
+<h3>Adiciona</h3>
+um 
+indicador 
+com
+identificador especificado para
+uma 
+janela 
+do 
+gráfico
+especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartIndicatorDelete</h3>
+<h3>Remove um indicador com um</h3>
+nome especificado a partir de
+janela do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartIndicatorGet</h3>
+<h3>Retorna o manuseio do indicador</h3>
+com nome abreviado especificado
+na janela do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartIndicatorName</h3>
+<h3>Retorna o nome abreviado do</h3>
+indicador pelo número na lista de
+indicadores sobre a janela do
+gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartIndicatorsTotal</h3>
+<h3>Retorna o</h3>
+número 
+de 
+todos
+indicadores 
+utilizados 
+para 
+a
+janela do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartNavigate</h3>
+<h3>Executa deslocamento do gráfico</h3>
+especificado 
+pelo 
+número
+especificado de barras em relação
+a posição especificada no gráfico
+<h3>Operações de Gráficos</h3>
+<h3>ChartNext</h3>
+<h3>Retorna o ID do gráfico do</h3>
+próximo 
+gráfico 
+para 
+um
+especificado
+<h3>Operações de Gráficos</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6818
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>ChartOpen</h3>
+<h3>Abre um novo gráfico com o</h3>
+símbolo e período especificado
+<h3>Operações de Gráficos</h3>
+<h3>CharToString</h3>
+<h3>Converte um código de símbolo</h3>
+em um string de um caractere.
+<h3>Funções de Conversão</h3>
+<h3>ChartPeriod</h3>
+<h3>Retorna o valor do período do</h3>
+gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartPriceOnDropped</h3>
+<h3>Retorna a coordenada de preço do</h3>
+ponto do gráfico, o Assessor
+<h3>Especialista (Expert Advisor) ou</h3>
+<h3>Script foi derrubado</h3>
+<h3>Operações de Gráficos</h3>
+<h3>ChartRedraw</h3>
+<h3>Chama um redesenho forçado de</h3>
+um gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartSaveTemplate</h3>
+<h3>Salva as configurações atuais do</h3>
+gráfico em um modelo com um
+nome especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartScreenShot</h3>
+<h3>Providencia</h3>
+uma 
+imagem 
+do
+gráfico de seu estado atual para
+um formato GIF, PNG ou BMP
+dependendo 
+da 
+extensão
+especificada
+<h3>Operações de Gráficos</h3>
+<h3>ChartSetDouble</h3>
+<h3>Define o valor duplo para uma</h3>
+propriedade correspondente do
+gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartSetInteger</h3>
+<h3>Define</h3>
+um 
+valor 
+inteiro
+(datetime, int, color, bool ou
+char) 
+para 
+uma 
+propriedade
+correspondente 
+do 
+gráfico
+especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartSetString</h3>
+<h3>Define o valor da seqüência para</h3>
+uma 
+propriedade 
+do 
+gráfico
+especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartSetSymbolPeriod</h3>
+Modifica o valor do símbolo e um
+período do gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartSymbol</h3>
+<h3>Retorna o nome do símbolo do</h3>
+gráfico especificado
+<h3>Operações de Gráficos</h3>
+<h3>ChartTimeOnDropped</h3>
+<h3>Retorna a coordenada de tempo</h3>
+do ponto do gráfico, o Assessor
+<h3>Especialista (Expert Advisor) ou</h3>
+<h3>Script foi derrubado</h3>
+<h3>Operações de Gráficos</h3>
+<h3>ChartTimePriceToXY</h3>
+<h3>Converte</h3>
+as 
+coordenadas 
+do
+gráfico a partir da representação
+<h3>Operações de Gráficos</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6819
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+tempo/preço para as coordenadas
+<h3>X e Y</h3>
+<h3>ChartWindowFind</h3>
+<h3>Retorna o número de uma sub-</h3>
+janela onde 
+um 
+indicador 
+é
+elaborado
+<h3>Operações de Gráficos</h3>
+<h3>ChartWindowOnDropped</h3>
+<h3>Retorna o número (índice) da sub-</h3>
+janela do gráfico, o Assessor
+<h3>Especialista (Expert Advisor) ou</h3>
+<h3>Script foi derrubado</h3>
+<h3>Operações de Gráficos</h3>
+<h3>ChartXOnDropped</h3>
+<h3>Retorna a coordenada X do ponto</h3>
+do 
+gráfico, 
+o 
+<h3>Assessor</h3>
+<h3>Especialista (Expert Advisor) ou</h3>
+<h3>Script foi derrubado</h3>
+<h3>Operações de Gráficos</h3>
+<h3>ChartXYToTimePrice</h3>
+Converte as coordenadas X e Y no
+gráfico para os valores de tempo
+e preço
+<h3>Operações de Gráficos</h3>
+<h3>ChartYOnDropped</h3>
+<h3>Retorna a coordenada Y do ponto</h3>
+do 
+gráfico, 
+o 
+<h3>Assessor</h3>
+<h3>Especialista (Expert Advisor) ou</h3>
+<h3>Script foi derrubado</h3>
+<h3>Operações de Gráficos</h3>
+<h3>CheckPointer</h3>
+<h3>Retorna o tipo do ponteiro de</h3>
+objeto
+<h3>Funções Comuns</h3>
+<h3>CLBufferCreate</h3>
+<h3>Cria um buffer OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLBufferFree</h3>
+<h3>Exclui um buffer OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLBufferRead</h3>
+<h3>Lê um buffer de OpenCL num</h3>
+array
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLBufferWrite</h3>
+<h3>Grava um array</h3>
+num 
+buffer
+<h3>OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLContextCreate</h3>
+<h3>Cria um contexto OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLContextFree</h3>
+<h3>Remove um contexto OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLExecute</h3>
+<h3>Executa um programa OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLGetDeviceInfo</h3>
+<h3>Receives device property from</h3>
+<h3>OpenCL driver</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLGetInfoInteger</h3>
+<h3>Retorna o valor da propriedade de</h3>
+uma integer para um objeto ou
+dispositivo OpenCL
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLHandleType</h3>
+<h3>Retorna o tipo do manipulador de</h3>
+<h3>OpenCL</h3>
+como 
+valor 
+da
+<h3>Trabalhando com OpenCL</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6820
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+enumeração
+<h3>ENUM_OPENCL_HANDLE_TYPE</h3>
+<h3>CLKernelCreate</h3>
+<h3>Cria uma função</h3>
+de 
+partida
+<h3>OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLKernelFree</h3>
+<h3>Remove uma função de partida</h3>
+<h3>OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLProgramCreate</h3>
+<h3>Cria um programa OpenCL a</h3>
+partir de um código fonte
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLProgramFree</h3>
+<h3>Remove um programa OpenCL</h3>
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLSetKernelArg</h3>
+<h3>Define um parâmetro para a</h3>
+função OpenCL
+<h3>Trabalhando com OpenCL</h3>
+<h3>CLSetKernelArgMem</h3>
+<h3>Define um buffer OpenCL como</h3>
+um parâmetro da função OpenCL
+<h3>Trabalhando com OpenCL</h3>
+<h3>ColorToARGB</h3>
+<h3>Converte tipo color para tipo uint</h3>
+para receber representação ARGB
+da cor.
+<h3>Funções de Conversão</h3>
+<h3>ColorToString</h3>
+<h3>Converte um valor de color em</h3>
+uma string como &quot;R,G,B&quot;
+<h3>Funções de Conversão</h3>
+<h3>Comment</h3>
+<h3>Gera um comentário no canto</h3>
+superior esquerdo do gráfico
+<h3>Funções Comuns</h3>
+<h3>CopyBuffer</h3>
+<h3>Copia</h3>
+dados 
+de 
+um 
+buffer
+especificado de um 
+indicador
+especificado em um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyClose</h3>
+<h3>Obtém histórico de dados sobre</h3>
+preço de fechamento de barra
+para 
+um 
+ativo 
+e 
+período
+especificados em um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyHigh</h3>
+<h3>Obtém histórico de dados sobre</h3>
+preço de barra máximo para um
+ativo e período especificados em
+um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyLow</h3>
+<h3>Obtém histórico de dados sobre</h3>
+preço de barra minimo para um
+ativo e período especificados em
+um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyOpen</h3>
+<h3>Obtém dados históricos sobre</h3>
+preço de abertura de barras para
+um ativo e período especificados
+em um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6821
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>CopyRates</h3>
+<h3>Obtém</h3>
+dados 
+históricos 
+da
+estrutura Rates para um ativo e
+período especificados em 
+um
+array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyRealVolume</h3>
+<h3>Obtém dados históricos sobre</h3>
+volumes de negociação para um
+ativo e período especificados em
+um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopySpread</h3>
+<h3>Obtém histórico de dados sobre</h3>
+spreads para um ativo e período
+especificados em um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyTicks</h3>
+<h3>Gets ticks accumulated by the</h3>
+terminal for the current working
+session into an array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyTickVolume</h3>
+<h3>Obtém histórico de dados sobre</h3>
+volumes de tick para um ativo e
+período especificados em 
+um
+array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>CopyTime</h3>
+<h3>Obtém dados históricos sobre</h3>
+hora de abertura de barras para
+um ativo e período especificados
+em um array
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+cos
+<h3>Retorna o cosseno de um número</h3>
+<h3>Funções Matemáticas</h3>
+<h3>CryptDecode</h3>
+<h3>Performs</h3>
+the 
+inverse
+transformation of the data from
+array
+<h3>Funções Comuns</h3>
+<h3>CryptEncode</h3>
+<h3>Transforms the data from array</h3>
+with the specified method
+<h3>Funções Comuns</h3>
+<h3>CustomSymbolCreate</h3>
+<h3>Cria um símbolo personalizado</h3>
+com o nome especificado no
+grupo definido
+<h3>Símbolos personalizados</h3>
+<h3>CustomSymbolDelete</h3>
+<h3>Remove o símbolo personalizado</h3>
+com o nome especificado
+<h3>Símbolos personalizados</h3>
+<h3>CustomSymbolSetInteger</h3>
+Define o valor do tipo inteiro para
+o símbolo personalizado
+<h3>Símbolos personalizados</h3>
+<h3>CustomSymbolSetDouble</h3>
+Define o valor do tipo real para o
+símbolo personalizado
+<h3>Símbolos personalizados</h3>
+<h3>CustomSymbolSetString</h3>
+Define o valor do tipo cadeia de
+caracteres 
+para 
+o 
+símbolo
+personalizado
+<h3>Símbolos personalizados</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6822
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>CustomSymbolSetMarginRate</h3>
+<h3>Define o coeficiente de cobrança</h3>
+da margem - dependendo do tipo
+e direção da ordem - para o
+símbolo personalizado
+<h3>Símbolos personalizados</h3>
+<h3>CustomSymbolSetSessionQuo</h3>
+te
+Define a hora de início e fim da
+sessão de cotação especificada
+para o símbolo especificado e dia
+da semana
+<h3>Símbolos personalizados</h3>
+<h3>CustomSymbolSetSessionTra</h3>
+de
+Define a hora de início e fim da
+sessão 
+de 
+negociação
+especificada 
+para 
+o 
+símbolo
+especificado e dia da semana
+<h3>Símbolos personalizados</h3>
+<h3>CustomRatesDelete</h3>
+<h3>Exclui todas as barras no histórico</h3>
+de 
+preço 
+do 
+instrumento
+personalizado, no intervalo de
+tempo selecionado
+<h3>Símbolos personalizados</h3>
+<h3>CustomRatesReplace</h3>
+<h3>Substitui todo o histórico de preço</h3>
+do 
+instrumento 
+personalizado
+pelos dados na matriz do tipo
+<h3>MqlRates, no intervalo de tempo</h3>
+definido
+<h3>Símbolos personalizados</h3>
+<h3>CustomRatesUpdate</h3>
+<h3>Adiciona</h3>
+ao 
+histórico 
+do
+instrumento 
+personalizado 
+as
+barras que faltam e substitui os
+dados existentes na matriz do
+tipo MqlRates
+<h3>Símbolos personalizados</h3>
+<h3>CustomTicksAdd</h3>
+Adds data from an array of the
+<h3>MqlTick type to the price history</h3>
+of a custom symbol. The custom
+symbol must be selected in the
+Market Watch window. 
+<h3>Símbolos personalizados</h3>
+<h3>CustomTicksDelete</h3>
+<h3>Exclui todos os ticks no histórico</h3>
+de 
+preço 
+do 
+instrumento
+personalizado, no intervalo de
+tempo selecionado
+<h3>Símbolos personalizados</h3>
+<h3>CustomTicksReplace</h3>
+<h3>Substitui todo o histórico de preço</h3>
+do 
+instrumento 
+personalizado
+pelos dados na matriz do tipo
+<h3>MqlTick, no intervalo de tempo</h3>
+definido
+<h3>Símbolos personalizados</h3>
+<h3>CustomBookAdd</h3>
+Envia o estado do livro de ofertas
+do instrumento personalizado
+<h3>Símbolos personalizados</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6823
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>DatabaseOpen</h3>
+Abre ou cria um banco de dados
+no arquivo especificado
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseClose</h3>
+<h3>Fecha um banco de dados</h3>
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseImport</h3>
+<h3>Importa para uma tabela dados de</h3>
+um arquivo
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseExport</h3>
+<h3>Exporta uma tabela ou resultado</h3>
+sobre a execução da consulta SQL
+para um arquivo CSV
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabasePrint</h3>
+<h3>Exibe uma tabela ou resultado</h3>
+sobre a execução da consulta SQL
+no log do EA
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseTableExists</h3>
+<h3>Verifica a existência de tabela no</h3>
+banco de dados
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseExecute</h3>
+<h3>Executa uma consulta no banco de</h3>
+dados especificado
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabasePrepare</h3>
+<h3>Cria um identificador de consulta,</h3>
+que pode ser executado usando
+<h3>DatabaseRead()</h3>
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseReset</h3>
+<h3>Redefine a consulta para seu</h3>
+status inicial, como após uma
+chamada de DatabasePrepare()
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseBind</h3>
+<h3>Define o valor do parâmetro na</h3>
+consulta
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseBindArray</h3>
+Define a matriz como um valor de
+parâmetro
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseRead</h3>
+<h3>Realiza o a transição para o</h3>
+próximo registro como resultado
+de uma consulta
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseReadBind</h3>
+<h3>Moves to the next record and</h3>
+reads data into the structure from
+it
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseFinalize</h3>
+<h3>Exclui uma consulta criada em</h3>
+<h3>DatabasePrepare()</h3>
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseTransactionBegin</h3>
+<h3>Inicia a execução da transação</h3>
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseTransactionCommit</h3>
+<h3>Conclui a execução da transação</h3>
+<h3>Trabalhar com bancos de</h3>
+dados</p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6824
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>DatabaseTransactionRollback</h3>
+<h3>Executa a reversão de transações</h3>
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnsCount</h3>
+<h3>Obtém o número de campos na</h3>
+consulta
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnName</h3>
+<h3>Obtém o nome do campo pelo</h3>
+número
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnType</h3>
+<h3>Obter tipo de campo por número</h3>
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnSize</h3>
+<h3>Obtém o tamanho do campo em</h3>
+bytes
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnText</h3>
+<h3>Obtém o valor do campo do</h3>
+registro atual como uma string
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnInteger</h3>
+<h3>Obtém um valor int do registro</h3>
+atual
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnLong</h3>
+<h3>Obtém um valor long do registro</h3>
+atual
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnDouble</h3>
+<h3>Obtém</h3>
+um 
+valor 
+</p>
+<pre><code class="language-mql5">
+double 
+</code></pre>
+<p>
+do
+registro atual
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DatabaseColumnBlob</h3>
+<h3>Obtém o valor do campo do</h3>
+registro atual como um array
+<h3>Trabalhar com bancos de</h3>
+dados
+<h3>DebugBreak</h3>
+<h3>Ponto de parada de programa em</h3>
+depuração
+<h3>Funções Comuns</h3>
+<h3>Digits</h3>
+<h3>Retorna o número de dígitos</h3>
+decimais determinando a precisão
+do valor do preço do ativo do
+gráfico corrente
+<h3>Verificando Estado</h3>
+<h3>DoubleToString</h3>
+<h3>Converte um valor numérico para</h3>
+um linha de texto com a precisão
+especificada
+<h3>Funções de Conversão</h3>
+<h3>DXContextCreate</h3>
+<h3>Cria um contexto gráfico para</h3>
+renderizar quadros do tamanho
+especificado
+<h3>Trabalho com DirectX</h3>
+<h3>DXContextSetSize</h3>
+<h3>Altera o tamanho do quadro do</h3>
+contexto 
+gráfico 
+criado 
+em
+<h3>DXContextCreate()</h3>
+<h3>Trabalho com DirectX</h3>
+<h3>DXContextSetSize</h3>
+<h3>Obtém o tamanho do quadro do</h3>
+contexto 
+gráfico 
+criado 
+em
+DXContextCreate().
+<h3>Trabalho com DirectX</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6825
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>DXContextClearColors</h3>
+<h3>Define,</h3>
+para 
+o 
+buffer 
+de
+renderização, todos os pixeis na
+cor especificada
+<h3>Trabalho com DirectX</h3>
+<h3>DXContextClearDepth</h3>
+<h3>Limpa o buffer de profundidade</h3>
+<h3>Trabalho com DirectX</h3>
+<h3>DXContextGetColors</h3>
+<h3>Obtém, do contexto gráfico, uma</h3>
+imagem com o tamanho e o
+deslocamento especificados
+<h3>Trabalho com DirectX</h3>
+<h3>DXContextGetDepth</h3>
+<h3>Obtém o buffer de profundidade</h3>
+do quadro renderizado
+<h3>Trabalho com DirectX</h3>
+<h3>DXBufferCreate</h3>
+<h3>Cria</h3>
+um 
+buffer 
+com 
+tipo
+especificado baseado em uma
+matriz de dados
+<h3>Trabalho com DirectX</h3>
+<h3>DXTextureCreate</h3>
+<h3>Cria uma textura bidimensional, a</h3>
+partir de um 
+retângulo 
+com
+determinado tamanho cortado da
+imagem transferida
+<h3>Trabalho com DirectX</h3>
+<h3>DXInputCreate</h3>
+<h3>Cria os parâmetros de entrada do</h3>
+sombreador
+<h3>Trabalho com DirectX</h3>
+<h3>DXInputSet</h3>
+<h3>Define os parâmetros de entrada</h3>
+do sombreador
+<h3>Trabalho com DirectX</h3>
+<h3>DXShaderCreate</h3>
+<h3>Cria um sombreador com tipo</h3>
+especificado
+<h3>Trabalho com DirectX</h3>
+<h3>DXShaderSetLayout</h3>
+Define o layout do vértice para o
+sombreador de vértice
+<h3>Trabalho com DirectX</h3>
+<h3>DXShaderInputsSet</h3>
+<h3>Define os parâmetros de entrada</h3>
+do sombreador
+<h3>Trabalho com DirectX</h3>
+<h3>DXShaderTexturesSet</h3>
+Define a textura do sombreador.
+<h3>Trabalho com DirectX</h3>
+<h3>DXDraw</h3>
+<h3>Desenha os vértices do buffer de</h3>
+vértice definido em DXBufferSet()
+<h3>Trabalho com DirectX</h3>
+<h3>DXDrawIndexed</h3>
+<h3>Desenha as primitivas gráficas</h3>
+descritas pelo buffer de índice de
+<h3>DXBufferSet()</h3>
+<h3>Trabalho com DirectX</h3>
+<h3>DXPrimiveTopologySet</h3>
+<h3>Define o tipo de primitivas para</h3>
+renderização 
+usando
+<h3>DXDrawIndexed()</h3>
+<h3>Trabalho com DirectX</h3>
+<h3>DXBufferSet</h3>
+<h3>Define</h3>
+o 
+buffer 
+para 
+a
+renderização atual
+<h3>Trabalho com DirectX</h3>
+<h3>DXShaderSet</h3>
+<h3>Define</h3>
+o 
+sombreador 
+para
+renderização
+<h3>Trabalho com DirectX</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6826
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>DXHandleType</h3>
+<h3>Retorna o tipo de identificador</h3>
+<h3>Trabalho com DirectX</h3>
+<h3>DXRelease</h3>
+<h3>Libera o identificador</h3>
+<h3>Trabalho com DirectX</h3>
+<h3>EnumToString</h3>
+<h3>Converte um valor de enumeração</h3>
+de qualquer tipo para string
+<h3>Funções de Conversão</h3>
+<h3>EventChartCustom</h3>
+<h3>Gera um evento personalizado</h3>
+para o gráfico especificado
+<h3>Trabalhando com Eventos</h3>
+<h3>EventKillTimer</h3>
+<h3>Interrompe a geração de eventos</h3>
+pelo timer no quadro atual
+<h3>Trabalhando com Eventos</h3>
+<h3>EventSetMillisecondTimer</h3>
+<h3>Inicia gerador de eventos de</h3>
+timer de alta resolução com um
+período de menos de 1 segundo
+para o gráfico em curso
+<h3>Trabalhando com Eventos</h3>
+<h3>EventSetTimer</h3>
+<h3>Inicia o gerador de eventos do</h3>
+time 
+com 
+a 
+periodicidade
+especificada para o gráfico atual
+<h3>Trabalhando com Eventos</h3>
+exp
+<h3>Retorna o exponencial de um</h3>
+número
+<h3>Funções Matemáticas</h3>
+<h3>ExpertRemove</h3>
+<h3>Interrompe um Expert Advisor e o</h3>
+descarrega do gráfico
+<h3>Funções Comuns</h3>
+fabs
+<h3>Retorna o valor absoluto (modulo)</h3>
+do valor numérico especificado
+<h3>Funções Matemáticas</h3>
+<h3>FileClose</h3>
+<h3>Fecha</h3>
+um 
+arquivo 
+aberto
+previamente
+<h3>Funções de Arquivo</h3>
+<h3>FileCopy</h3>
+<h3>Copia o arquivo original a partir</h3>
+de um local ou de uma pasta
+compartilhada em outro arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileDelete</h3>
+<h3>Deleta um arquivo especificado</h3>
+<h3>Funções de Arquivo</h3>
+<h3>FileFindClose</h3>
+<h3>Fecha o manipulador de busca</h3>
+<h3>Funções de Arquivo</h3>
+<h3>FileFindFirst</h3>
+<h3>Começa a busca de arquivos em</h3>
+um diretório de acordo com o
+filtro especificado
+<h3>Funções de Arquivo</h3>
+<h3>FileFindNext</h3>
+<h3>Continua a busca iniciada pela</h3>
+função FileFindFirst()
+<h3>Funções de Arquivo</h3>
+<h3>FileFlush</h3>
+<h3>Escreve para um disco todos os</h3>
+dados remanescentes dentro da
+entrada/saída do arquivo buffer
+<h3>Funções de Arquivo</h3>
+<h3>FileGetInteger</h3>
+<h3>Obtém uma propriedade inteira</h3>
+de um arquivo
+<h3>Funções de Arquivo</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6827
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>FileIsEnding</h3>
+<h3>Define o final do arquivo em</h3>
+processo de leitura
+<h3>Funções de Arquivo</h3>
+<h3>FileIsExist</h3>
+<h3>Verifica a e existência de um</h3>
+arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileIsLineEnding</h3>
+Define o final da linha do arquivo
+de texto em processo de leitura
+<h3>Funções de Arquivo</h3>
+<h3>FileMove</h3>
+<h3>Move ou renomeia um arquivo</h3>
+<h3>Funções de Arquivo</h3>
+<h3>FileOpen</h3>
+Abre um arquivo com o nome e
+bandeira especificada
+<h3>Funções de Arquivo</h3>
+<h3>FileReadArray</h3>
+<h3>Lê arrays de qualquer tipo, exceto</h3>
+para a seqüência a partir do
+arquivo do tipo BIN
+<h3>Funções de Arquivo</h3>
+<h3>FileReadBool</h3>
+Lê a partir de arquivo do tipo CSV
+uma seqüência a partir da posição
+atual até um delimitador (ou até o
+fim de uma linha de texto) e
+converte a seqüência de leitura
+para um valor do tipo bool
+<h3>Funções de Arquivo</h3>
+<h3>FileReadDatetime</h3>
+Lê a partir do arquivo do tipo CSV
+uma 
+seqüência 
+de 
+um 
+dos
+formatos: 
+&quot;YYYY.MM.DD
+<h3>HH:MM:SS&quot;,</h3>
+&quot;YYYY.MM.DD&quot; 
+or
+&quot;HH:MM:SS&quot; 
+- 
+e 
+converte-os
+dentro de valor de datetime
+<h3>Funções de Arquivo</h3>
+<h3>FileReadDouble</h3>
+Lê um valor double a partir da
+posição atual do ponteiro de
+arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileReadFloat</h3>
+Lê um valor float a partir da
+posição atual do ponteiro de
+arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileReadInteger</h3>
+Lê um valor int, short ou char a
+partir 
+da 
+posição 
+atual 
+do
+ponteiro de arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileReadLong</h3>
+Lê um valor do tipo long a partir
+da posição atual do ponteiro de
+arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileReadNumber</h3>
+Lê a partir de arquivo do tipo CSV
+uma seqüência a partir da posição
+atual até um delimitador (ou até o
+fim de uma linha de texto) e
+<h3>Funções de Arquivo</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6828
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+converte a seqüência de leitura
+em um valor double
+<h3>FileReadString</h3>
+<h3>Lê uma seqüência a partir da</h3>
+posição atual do ponteiro a partir
+de um arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileReadStruct</h3>
+<h3>Lê o conteúdo de um arquivo</h3>
+binário em uma estrutura passada
+como um parâmetro, a partir da
+posição atual do ponteiro do
+arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileSeek</h3>
+<h3>Move a posição do ponteiro de</h3>
+arquivo 
+por 
+um 
+determinado
+número de bytes em relação à
+posição especificada
+<h3>Funções de Arquivo</h3>
+<h3>FileSize</h3>
+<h3>Retorna o tamanho da abertura de</h3>
+um arquivo correspondente
+<h3>Funções de Arquivo</h3>
+<h3>FileTell</h3>
+<h3>Retorna</h3>
+a 
+posição 
+atual 
+do
+ponteiro 
+de 
+um 
+arquivo 
+da
+abertura 
+de 
+arquivo
+correspondente
+<h3>Funções de Arquivo</h3>
+<h3>FileWrite</h3>
+<h3>Escreve dados para um arquivo de</h3>
+<h3>CSV ou tipo TXT</h3>
+<h3>Funções de Arquivo</h3>
+<h3>FileWriteArray</h3>
+<h3>Escreve arrays de qualquer tipo</h3>
+exceto para seqüência em um
+arquivo do tipo BIN
+<h3>Funções de Arquivo</h3>
+<h3>FileWriteDouble</h3>
+<h3>Escreve valor do tipo double a</h3>
+partir da posição atual de um
+ponteiro de 
+arquivo 
+em 
+um
+arquivo binário
+<h3>Funções de Arquivo</h3>
+<h3>FileWriteFloat</h3>
+Escreve o valor do tipo float a
+partir da posição atual de um
+ponteiro de 
+arquivo 
+em 
+um
+arquivo binário
+<h3>Funções de Arquivo</h3>
+<h3>FileWriteInteger</h3>
+Escreve o valor do tipo int a partir
+da posição atual de um ponteiro
+de arquivo em um arquivo binário
+<h3>Funções de Arquivo</h3>
+<h3>FileWriteLong</h3>
+Escreve o valor do tipo long a
+partir da posição atual de um
+ponteiro de 
+arquivo 
+em 
+um
+arquivo binário
+<h3>Funções de Arquivo</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6829
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>FileWriteString</h3>
+<h3>Escreve o valor de um parâmetro</h3>
+da string em um arquivo BIN ou
+<h3>TXT iniciando a partir da posição</h3>
+atual do ponteiro de arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FileWriteStruct</h3>
+<h3>Escreve o conteúdo</h3>
+de 
+uma
+estrutura 
+passada 
+como 
+um
+parâmetro 
+em 
+um 
+arquivo
+binário, começando a partir da
+posição atual do ponteiro de
+arquivo
+<h3>Funções de Arquivo</h3>
+floor
+<h3>Retorna o valor numérico inteiro</h3>
+mais próximo do abaixo
+<h3>Funções Matemáticas</h3>
+fmax
+<h3>Retorna o valor máximo entre</h3>
+dois valores numéricos
+<h3>Funções Matemáticas</h3>
+fmin
+<h3>Retorna de valor mínimo entre</h3>
+dois valores numéricos
+<h3>Funções Matemáticas</h3>
+fmod
+Retorna o resto real da divisão de
+dois números
+<h3>Funções Matemáticas</h3>
+<h3>FolderClean</h3>
+<h3>Deleta todos os arquivos dentro</h3>
+da pasta especificada
+<h3>Funções de Arquivo</h3>
+<h3>FolderCreate</h3>
+<h3>Cria</h3>
+uma 
+pasta 
+dentro 
+do
+diretório de arquivo
+<h3>Funções de Arquivo</h3>
+<h3>FolderDelete</h3>
+Remove um diretório selecionado.
+<h3>Se a pasta não estiver vazia,</h3>
+então ele não pode ser removido
+<h3>Funções de Arquivo</h3>
+<h3>FrameAdd</h3>
+<h3>Adiciona um quadro com dados</h3>
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>FrameFilter</h3>
+<h3>Define a estrutura do filtro de</h3>
+leitura e move o ponteiro para o
+início
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>FrameFirst</h3>
+<h3>Move um ponteiro de leitura de</h3>
+quadro para o início e redefine
+previamente 
+um 
+conjunto 
+de
+filtros
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>FrameInputs</h3>
+<h3>Recebe parâmetros de entrada,</h3>
+no qual o quadro é formado
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>FrameNext</h3>
+Lê um quadro e move o ponteiro
+para o próximo
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>GetLastError</h3>
+<h3>Retorna o último erro</h3>
+<h3>Verificando Estado</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6830
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>GetPointer</h3>
+<h3>Retorna o ponteiro de objeto</h3>
+<h3>Funções Comuns</h3>
+<h3>GetTickCount</h3>
+<h3>Retorno</h3>
+o 
+número 
+de
+milissegundos decorridos desde
+que o sistema foi iniciado
+<h3>Funções Comuns</h3>
+<h3>GlobalVariableCheck</h3>
+<h3>Verifica a existência de uma</h3>
+variável global com 
+o 
+nome
+especificado
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableDel</h3>
+<h3>Exclui uma variável global</h3>
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableGet</h3>
+<h3>Retorna o valor da variável global</h3>
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableName</h3>
+<h3>Retorna o nome de uma variável</h3>
+global, que é o número ordinal
+dentro da lista de 
+variáveis
+globais
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariablesDeleteAll</h3>
+<h3>Exclui as variáveis globais com</h3>
+especificação prefixada em seus
+nomes
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableSet</h3>
+<h3>Define o novo valor para uma</h3>
+variável global
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableSetOnConditio</h3>
+n
+<h3>Define</h3>
+um 
+novo 
+valor 
+de
+existência de variável global pela
+condição estabelecida
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariablesFlush</h3>
+<h3>Salva forçadamente o conteúdo de</h3>
+todas as varáveis globais num
+disco
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariablesTotal</h3>
+<h3>Retorna</h3>
+o 
+número 
+total 
+de
+<h3>Variáveis Globais</h3>
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableTemp</h3>
+<h3>Define o novo valor para uma</h3>
+variável 
+global, 
+que 
+existe
+somente na sessão geral do
+terminal
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>GlobalVariableTime</h3>
+<h3>Retorna o tempo do último acesso</h3>
+para a variável global
+<h3>Variáveis Globais do</h3>
+<h3>Terminal</h3>
+<h3>HistoryDealGetDouble</h3>
+<h3>Retorna a propriedade solicitada</h3>
+de 
+um 
+acordo 
+no 
+histórico
+(double)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryDealGetInteger</h3>
+<h3>Retorna a propriedade solicitada</h3>
+de 
+um 
+acordo 
+no 
+histórico
+(datetime ou int)
+<h3>Funções de Negociação</h3>
+(Trade)</p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6831
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>HistoryDealGetString</h3>
+<h3>Retorna a propriedade solicitada</h3>
+de uma operação no histórico
+(string)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryDealGetTicket</h3>
+<h3>Devolve um</h3>
+bilhete 
+de 
+uma
+quantidade 
+correspondente 
+no
+histórico
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryDealSelect</h3>
+<h3>Seleciona um negócio no histórico</h3>
+para posterior chamada através
+de funções apropriadas
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryDealsTotal</h3>
+<h3>Retorna o número de ofertas no</h3>
+histórico
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryOrderGetDouble</h3>
+<h3>Retorna a propriedade solicitada</h3>
+de 
+uma 
+ordem 
+no 
+histórico
+(double)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryOrderGetInteger</h3>
+<h3>Retorna a propriedade solicitada</h3>
+de 
+uma 
+ordem 
+no 
+histórico
+(datetime ou int)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryOrderGetString</h3>
+<h3>Retorna a propriedade solicitada</h3>
+de 
+uma 
+ordem 
+no 
+histórico
+(string)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryOrderGetTicket</h3>
+<h3>Retornar bilhete ordem de uma</h3>
+ordem 
+correspondente 
+no
+histórico
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryOrderSelect</h3>
+<h3>Seleciona uma ordem no histórico</h3>
+para 
+posteriormente 
+trabalhar
+com ele
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistoryOrdersTotal</h3>
+<h3>Retorna o número de pedidos no</h3>
+histórico
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistorySelect</h3>
+<h3>Recupera</h3>
+o 
+histórico 
+de
+transações 
+e 
+ordens 
+para 
+o
+período do tempo de servidor
+especificado
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>HistorySelectByPosition</h3>
+<h3>Pedido de histórico de acordo com</h3>
+um 
+identificador 
+de 
+posição
+especificada.
+<h3>Funções de Negociação</h3>
+(Trade)
+iBars
+Retorna o número de barras - no
+histórico - do símbolo e do
+período correspondentes
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iBarShift
+Retorna o índice da barra na qual
+o tempo especificado coincide
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6832
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+iClose
+<h3>Retorna o valor do preço de</h3>
+fechamento da barra (indicado
+pelo parâmetro shift) do gráfico
+correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iHigh
+<h3>Retorna o valor do preço máximo</h3>
+da 
+barra 
+(especificado 
+pelo
+parâmetro 
+shift) 
+do 
+gráfico
+correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iHighest
+<h3>Retorna o índice do maior valor</h3>
+encontrado 
+(deslocamento
+relativo à barra atual) do gráfico
+correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iLow
+<h3>Retorna o valor do preço mínimo</h3>
+da barra (indicado pelo parâmetro
+shift) do gráfico correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iLowest
+<h3>Retorna o índice do menor valor</h3>
+encontrado 
+(deslocamento
+relativo à barra atual) do gráfico
+correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iOpen
+<h3>Retorna o valor do preço de</h3>
+abertura da barra (indicado pelo
+parâmetro 
+shift) 
+do 
+gráfico
+correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iTime
+<h3>Retorna o valor do tempo de</h3>
+abertura da barra (indicado pelo
+parâmetro 
+shift) 
+do 
+gráfico
+correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iTickVolume
+Retorna o valor do volume de tick
+(especificado 
+pelo 
+parâmetro
+shift) do gráfico correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iRealVolume
+Retorna o valor do volume real da
+barra (indicado pelo parâmetro
+shift) do gráfico correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iVolume
+Retorna o valor do volume de tick
+(especificado 
+pelo 
+parâmetro
+shift) do gráfico correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iSpread
+<h3>Retorna o valor do spread da</h3>
+barra (indicado pelo parâmetro
+shift) do gráfico correspondente
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+iAD
+<h3>Accumulation/Distribution</h3>
+<h3>Indicadores Técnicos</h3>
+iADX
+<h3>Average Directional Index</h3>
+<h3>Indicadores Técnicos</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6833
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+iADXWilder
+<h3>Average</h3>
+<h3>Directional</h3>
+<h3>Index</h3>
+by
+<h3>Welles Wilder</h3>
+<h3>Indicadores Técnicos</h3>
+iAlligator
+<h3>Alligator</h3>
+<h3>Indicadores Técnicos</h3>
+iAMA
+<h3>Adaptive Moving Average</h3>
+<h3>Indicadores Técnicos</h3>
+iAO
+<h3>Awesome Oscillator</h3>
+<h3>Indicadores Técnicos</h3>
+iATR
+<h3>Average True Range</h3>
+<h3>Indicadores Técnicos</h3>
+iBands
+<h3>Bollinger Bands®</h3>
+<h3>Indicadores Técnicos</h3>
+iBearsPower
+<h3>Bears Power</h3>
+<h3>Indicadores Técnicos</h3>
+iBullsPower
+<h3>Bulls Power</h3>
+<h3>Indicadores Técnicos</h3>
+iBWMFI
+<h3>Market Facilitation Index by Bill</h3>
+<h3>Williams</h3>
+<h3>Indicadores Técnicos</h3>
+iCCI
+<h3>Commodity Channel Index</h3>
+<h3>Indicadores Técnicos</h3>
+iChaikin
+<h3>Chaikin Oscillator</h3>
+<h3>Indicadores Técnicos</h3>
+iCustom
+<h3>Custom indicator</h3>
+<h3>Indicadores Técnicos</h3>
+iDEMA
+<h3>Double</h3>
+<h3>Exponential</h3>
+<h3>Moving</h3>
+<h3>Average</h3>
+<h3>Indicadores Técnicos</h3>
+iDeMarker
+<h3>DeMarker</h3>
+<h3>Indicadores Técnicos</h3>
+iEnvelopes
+<h3>Envelopes</h3>
+<h3>Indicadores Técnicos</h3>
+iForce
+<h3>Force Index</h3>
+<h3>Indicadores Técnicos</h3>
+iFractals
+<h3>Fractals</h3>
+<h3>Indicadores Técnicos</h3>
+iFrAMA
+<h3>Fractal Adaptive Moving Average</h3>
+<h3>Indicadores Técnicos</h3>
+iGator
+<h3>Gator Oscillator</h3>
+<h3>Indicadores Técnicos</h3>
+iIchimoku
+<h3>Ichimoku Kinko Hyo</h3>
+<h3>Indicadores Técnicos</h3>
+iMA
+<h3>Moving Average</h3>
+<h3>Indicadores Técnicos</h3>
+iMACD
+<h3>Moving Averages Convergence-</h3>
+<h3>Divergence</h3>
+<h3>Indicadores Técnicos</h3>
+iMFI
+<h3>Money Flow Index</h3>
+<h3>Indicadores Técnicos</h3>
+iMomentum
+<h3>Momentum</h3>
+<h3>Indicadores Técnicos</h3>
+<h3>IndicatorCreate</h3>
+<h3>Retorna o handle para o indicador</h3>
+técnico especificado criado por
+um array de parâmetros de tipo
+<h3>MqlParam</h3>
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6834
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>IndicatorParameters</h3>
+<h3>Baseado no handle especificado,</h3>
+retorna o número de parâmetros
+de entrada do indicador, bem
+como os valores e tipos dos
+parâmetros
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>IndicatorRelease</h3>
+<h3>Remove um handle de indicador e</h3>
+libera o bloco de cálculo do
+indicador, se ele não for usado
+por ninguém mais
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>IndicatorSetDouble</h3>
+<h3>Define o valor da propriedade de</h3>
+um indicador do tipo double
+<h3>Indicadores Customizados</h3>
+<h3>IndicatorSetInteger</h3>
+<h3>Define o valor da propriedade de</h3>
+um indicador do tipo int
+<h3>Indicadores Customizados</h3>
+<h3>IndicatorSetString</h3>
+<h3>Define o valor da propriedade de</h3>
+um indicador do tipo string
+<h3>Indicadores Customizados</h3>
+<h3>IntegerToString</h3>
+<h3>Converte int em uma string de</h3>
+comprimento predefinido
+<h3>Funções de Conversão</h3>
+iOBV
+<h3>On Balance Volume</h3>
+<h3>Indicadores Técnicos</h3>
+iOsMA
+<h3>Moving</h3>
+<h3>Average</h3>
+of 
+<h3>Oscillator</h3>
+(MACD histogram)
+<h3>Indicadores Técnicos</h3>
+iRSI
+<h3>Relative Strength Index</h3>
+<h3>Indicadores Técnicos</h3>
+iRVI
+<h3>Relative Vigor Index</h3>
+<h3>Indicadores Técnicos</h3>
+iSAR
+<h3>Parabolic</h3>
+<h3>Stop</h3>
+<h3>And</h3>
+<h3>Reverse</h3>
+<h3>System</h3>
+<h3>Indicadores Técnicos</h3>
+<h3>IsStopped</h3>
+<h3>Retorna true, se um programa</h3>
+mql5 foi ordenado a interromper
+sua operação
+<h3>Verificando Estado</h3>
+iStdDev
+<h3>Standard Deviation</h3>
+<h3>Indicadores Técnicos</h3>
+iStochastic
+<h3>Stochastic Oscillator</h3>
+<h3>Indicadores Técnicos</h3>
+iTEMA
+<h3>Triple</h3>
+<h3>Exponential</h3>
+<h3>Moving</h3>
+<h3>Average</h3>
+<h3>Indicadores Técnicos</h3>
+iTriX
+<h3>Triple</h3>
+<h3>Exponential</h3>
+<h3>Moving</h3>
+<h3>Averages Oscillator</h3>
+<h3>Indicadores Técnicos</h3>
+iVIDyA
+<h3>Variable Index Dynamic Average</h3>
+<h3>Indicadores Técnicos</h3>
+iVolumes
+<h3>Volumes</h3>
+<h3>Indicadores Técnicos</h3>
+iWPR
+<h3>Williams&#x27; Percent Range</h3>
+<h3>Indicadores Técnicos</h3>
+log
+<h3>Retorna o logaritmo natural</h3>
+<h3>Funções Matemáticas</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6835
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+log10
+<h3>Retorna o logaritmo decimal (de</h3>
+um número na base 10)
+<h3>Funções Matemáticas</h3>
+<h3>MarketBookAdd</h3>
+<h3>Fornece abertura da Profundidade</h3>
+de 
+<h3>Mercado</h3>
+para 
+um 
+ativo
+selecionado, e subscrever para
+receber notificações de alterações
+do DOM (Depth of Market)
+<h3>Informações de Mercado</h3>
+<h3>MarketBookGet</h3>
+<h3>Retorna um array de estrutura</h3>
+<h3>MqlBookInfo contendo registros da</h3>
+<h3>Profundidade de Mercado de uma</h3>
+ativo especificado
+<h3>Informações de Mercado</h3>
+<h3>MarketBookRelease</h3>
+<h3>Fornece</h3>
+fechamento 
+da
+<h3>Profundidade de Mercado para um</h3>
+ativo selecionado, e cancelar a
+subscrição 
+para 
+receber
+notificações de alterações do DOM
+<h3>Informações de Mercado</h3>
+<h3>MathAbs</h3>
+<h3>Retorna o valor absoluto (modulo)</h3>
+do valor numérico especificado
+<h3>Funções Matemáticas</h3>
+<h3>MathArccos</h3>
+<h3>Retorna o arco-cosseno de x em</h3>
+radianos
+<h3>Funções Matemáticas</h3>
+<h3>MathArcsin</h3>
+<h3>Retorna o arco-seno de x em</h3>
+radianos
+<h3>Funções Matemáticas</h3>
+<h3>MathArctan</h3>
+<h3>Retorna o arco-tangente de x em</h3>
+radianos
+<h3>Funções Matemáticas</h3>
+<h3>MathCeil</h3>
+<h3>Retorna o valor numérico inteiro</h3>
+mais próximo do acima
+<h3>Funções Matemáticas</h3>
+<h3>MathCos</h3>
+<h3>Retorna o cosseno de um número</h3>
+<h3>Funções Matemáticas</h3>
+<h3>MathExp</h3>
+<h3>Retorna o exponencial de um</h3>
+número
+<h3>Funções Matemáticas</h3>
+<h3>MathFloor</h3>
+<h3>Retorna o valor numérico inteiro</h3>
+mais próximo do abaixo
+<h3>Funções Matemáticas</h3>
+<h3>MathIsValidNumber</h3>
+<h3>Verifica a validade de um número</h3>
+real
+<h3>Funções Matemáticas</h3>
+<h3>MathLog</h3>
+<h3>Retorna o logaritmo natural</h3>
+<h3>Funções Matemáticas</h3>
+<h3>MathLog10</h3>
+<h3>Retorna o logaritmo decimal (de</h3>
+um número na base 10)
+<h3>Funções Matemáticas</h3>
+<h3>MathMax</h3>
+<h3>Retorna o valor máximo entre</h3>
+dois valores numéricos
+<h3>Funções Matemáticas</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6836
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>MathMin</h3>
+<h3>Retorna de valor mínimo entre</h3>
+dois valores numéricos
+<h3>Funções Matemáticas</h3>
+<h3>MathMod</h3>
+Retorna o resto real da divisão de
+dois números
+<h3>Funções Matemáticas</h3>
+<h3>MathPow</h3>
+<h3>Eleva uma base a um expoente</h3>
+especificado
+<h3>Funções Matemáticas</h3>
+<h3>MathRand</h3>
+<h3>Retorna</h3>
+um 
+valor 
+pseudo-
+aleatório entre 0 e 32767
+<h3>Funções Matemáticas</h3>
+<h3>MathRound</h3>
+<h3>Arredonda um valor para o inteiro</h3>
+mais próximo
+<h3>Funções Matemáticas</h3>
+<h3>MathSin</h3>
+<h3>Retorna o seno de um número</h3>
+<h3>Funções Matemáticas</h3>
+<h3>MathSqrt</h3>
+<h3>Retorna a raiz quadrada</h3>
+<h3>Funções Matemáticas</h3>
+<h3>MathSrand</h3>
+<h3>Define</h3>
+o 
+ponto 
+inicial 
+para
+geração de uma série de inteiros
+pseudo-aleatórios
+<h3>Funções Matemáticas</h3>
+<h3>MathTan</h3>
+<h3>Retorna a tangente de um número</h3>
+<h3>Funções Matemáticas</h3>
+<h3>MessageBox</h3>
+<h3>Cria,</h3>
+exibe 
+uma 
+caixa 
+de
+mensagem e o gerencia
+<h3>Funções Comuns</h3>
+<h3>MQLInfoInteger</h3>
+<h3>Retorna um valor inteiro de uma</h3>
+propriedade correspondente de
+um programa mql5 em execução
+<h3>Verificando Estado</h3>
+<h3>MQLInfoString</h3>
+<h3>Retorna um valor de string de</h3>
+uma propriedade correspondente
+de 
+um 
+programa 
+mql5 
+em
+execução
+<h3>Verificando Estado</h3>
+<h3>MT5Initialize</h3>
+<h3>Estabelece a conexão com o</h3>
+terminal MetaTrader 5
+<h3>MetaTrader para Python</h3>
+<h3>MT5Shutdown</h3>
+<h3>Fecha a conexão estabelecida</h3>
+anteriormente com o terminal
+<h3>MetaTrader 5</h3>
+<h3>MetaTrader para Python</h3>
+<h3>MT5TerminalInfo</h3>
+<h3>Obtém o estado e os parâmetros</h3>
+do 
+terminal 
+<h3>MetaTrader</h3>
+5
+conectado
+<h3>MetaTrader para Python</h3>
+<h3>MT5Version</h3>
+<h3>Retorna a versão do terminal</h3>
+<h3>MetaTrader 5</h3>
+<h3>MetaTrader para Python</h3>
+<h3>MT5CopyRatesFrom</h3>
+<h3>Recebe</h3>
+barras 
+do 
+terminal
+<h3>MetaTrader 5, a partir da data</h3>
+especificada
+<h3>MetaTrader para Python</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6837
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>MT5CopyRatesFromPos</h3>
+<h3>Recebe</h3>
+barras 
+do 
+terminal
+<h3>MetaTrader 5, a partir do índice</h3>
+especificado
+<h3>MetaTrader para Python</h3>
+<h3>MT5CopyRatesRange</h3>
+<h3>Recebe barras a partir do terminal</h3>
+<h3>MetaTrader 5, no intervalo de</h3>
+datas especificado
+<h3>MetaTrader para Python</h3>
+<h3>MT5CopyTicksFrom</h3>
+<h3>Recebe</h3>
+ticks 
+do 
+terminal
+<h3>MetaTrader 5, a partir da data</h3>
+especificada
+<h3>MetaTrader para Python</h3>
+<h3>MT5CopyTicksRange</h3>
+<h3>Recebe ticks a partir do terminal</h3>
+<h3>MetaTrader 5, no intervalo de</h3>
+datas especificado
+<h3>MetaTrader para Python</h3>
+<h3>NormalizeDouble</h3>
+<h3>Arredonda um número de ponto</h3>
+flutuando 
+para 
+uma 
+precisão
+especificada
+<h3>Funções de Conversão</h3>
+<h3>ObjectCreate</h3>
+<h3>Cria um objecto de tipo específico</h3>
+para um gráfico específico
+<h3>Funções de Objeto</h3>
+<h3>ObjectDelete</h3>
+<h3>Remove o objeto com o nome</h3>
+específico a partir de um gráfico
+específico (a partir de gráfico de
+sub-janela específica)
+<h3>Funções de Objeto</h3>
+<h3>ObjectFind</h3>
+<h3>Pesquisa um objeto com o ID</h3>
+especificado pelo nome
+<h3>Funções de Objeto</h3>
+<h3>ObjectGetDouble</h3>
+<h3>Retorna</h3>
+o 
+valor 
+</p>
+<pre><code class="language-mql5">
+double 
+</code></pre>
+<p>
+da
+propriedade 
+do 
+objeto
+correspondente
+<h3>Funções de Objeto</h3>
+<h3>ObjectGetInteger</h3>
+<h3>Retorna</h3>
+o 
+valor 
+integer 
+da
+propriedade 
+do 
+objeto
+correspondente
+<h3>Funções de Objeto</h3>
+<h3>ObjectGetString</h3>
+<h3>Retorna</h3>
+o 
+valor 
+</p>
+<pre><code class="language-mql5">
+string 
+</code></pre>
+<p>
+da
+propriedade 
+do 
+objeto
+correspondente
+<h3>Funções de Objeto</h3>
+<h3>ObjectGetTimeByValue</h3>
+Retorna o valor de tempo ao valor
+do preço do objeto especifico
+<h3>Funções de Objeto</h3>
+<h3>ObjectGetValueByTime</h3>
+Retorna o valor do preço de um
+objeto ao período especificado
+<h3>Funções de Objeto</h3>
+<h3>ObjectMove</h3>
+<h3>Muda as coordenadas do ponto de</h3>
+ancoragem do objeto especificado
+<h3>Funções de Objeto</h3>
+<h3>ObjectName</h3>
+Retorna o nome de um objeto do
+tipo 
+correspondente 
+para 
+um
+<h3>Funções de Objeto</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6838
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+gráfico específico (gráfico de sub-
+janela específica)
+<h3>ObjectsDeleteAll</h3>
+<h3>Remove todos os objetos com o</h3>
+tipo específico a partir de um
+gráfico específico (a partir de
+gráfico de sub-janela específica)
+<h3>Funções de Objeto</h3>
+<h3>ObjectSetDouble</h3>
+<h3>Define o valor da propriedade do</h3>
+objeto correspondente
+<h3>Funções de Objeto</h3>
+<h3>ObjectSetInteger</h3>
+<h3>Define o valor da propriedade do</h3>
+objeto correspondente
+<h3>Funções de Objeto</h3>
+<h3>ObjectSetString</h3>
+<h3>Define o valor da propriedade do</h3>
+objeto correspondente
+<h3>Funções de Objeto</h3>
+<h3>ObjectsTotal</h3>
+<h3>Retorna o número de objetos do</h3>
+tipo 
+especifico 
+no 
+gráfico
+especificado (gráfico 
+de 
+sub-
+janela específica)
+<h3>Funções de Objeto</h3>
+<h3>OnStart</h3>
+<h3>É chamada no script quando</h3>
+ocorre um evento Start para
+executar ações definidas no script
+<h3>Manipulação de eventos</h3>
+<h3>OnInit</h3>
+<h3>É chamada em indicadores e EAs</h3>
+quando ocorre um evento Init
+para 
+inicializar 
+um 
+programa
+<h3>MQL5 em execução</h3>
+<h3>Manipulação de eventos</h3>
+<h3>OnDeinit</h3>
+<h3>É chamada em indicadores e EAs</h3>
+quando ocorre um evento Deinit
+para desinicializar um programa
+<h3>MQL5 em execução</h3>
+<h3>Manipulação de eventos</h3>
+<h3>OnTick</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um 
+evento 
+<h3>NewTick</h3>
+para
+processar uma nova cotação
+<h3>Manipulação de eventos</h3>
+<h3>OnCalculate</h3>
+<h3>É chamada em indicadores quando</h3>
+ocorre um evento Calculate para
+processar alterações de dados de
+preço
+<h3>Manipulação de eventos</h3>
+<h3>OnTimer</h3>
+<h3>É chamada em indicadores e EAs</h3>
+no início de um evento periódico
+<h3>Timer que é gerado pelo terminal</h3>
+com o intervalo de tempo definido
+<h3>Manipulação de eventos</h3>
+<h3>OnTrade</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um evento Trade que é gerado no
+<h3>Manipulação de eventos</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6839
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+final da negociação no servidor de
+negociação
+<h3>OnTradeTransaction</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um evento TradeTransaction para
+processar os resultados de uma
+solicitação de negociação
+<h3>Manipulação de eventos</h3>
+<h3>OnBookEvent</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um 
+evento 
+<h3>BookEvent</h3>
+para
+processar alterações no livro de
+ofertas
+<h3>Manipulação de eventos</h3>
+<h3>OnChartEvent</h3>
+<h3>É chamada em indicadores e Eas</h3>
+quando 
+ocorre 
+um 
+evento
+<h3>ChartEvent</h3>
+para 
+processar
+mudanças no gráfico causadas por
+ações 
+do 
+usuário 
+ou 
+pelo
+funcionamento 
+de 
+programas
+<h3>MQL5</h3>
+<h3>Manipulação de eventos</h3>
+<h3>OnTester</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um evento Tester para executar
+as ações necessárias no final do
+teste
+<h3>Manipulação de eventos</h3>
+<h3>OnTesterInit</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um 
+evento 
+<h3>TesterInit</h3>
+para
+executar as ações necessárias
+antes do início da otimização
+<h3>Manipulação de eventos</h3>
+<h3>OnTesterDeinit</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um 
+evento 
+<h3>TesterDeinit</h3>
+para
+realizar as ações necessárias após
+a otimização do EA
+<h3>Manipulação de eventos</h3>
+<h3>OnTesterPass</h3>
+<h3>É chamada em EAs quando ocorre</h3>
+um 
+evento 
+<h3>TesterPass</h3>
+para
+processar a chegada de um novo
+quadro 
+de 
+dados 
+durante 
+a
+otimização do EA
+<h3>Manipulação de eventos</h3>
+<h3>OrderCalcMargin</h3>
+<h3>Calcula a margem necessária para</h3>
+o tipo de ordem especificado, na
+moeda de depósito
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderCalcProfit</h3>
+<h3>Calcula o lucro com base nos</h3>
+parâmetros passados​, na moeda
+de depósito
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderCheck</h3>
+<h3>Verifica se há fundos suficientes</h3>
+para executar a operação de
+<h3>Funções de Negociação</h3>
+(Trade)</p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6840
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+negócio necessária.
+<h3>OrderGetDouble</h3>
+<h3>Retorna a propriedade solicitada</h3>
+da ordem (double)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderGetInteger</h3>
+<h3>Retorna a propriedade solicitada</h3>
+da ordem (datetime ou int)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderGetString</h3>
+<h3>Retorna a propriedade solicitada</h3>
+da ordem (string)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderGetTicket</h3>
+<h3>Devolver o bilhete de uma ordem</h3>
+correspondente
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderSelect</h3>
+<h3>Seleciona</h3>
+uma 
+ordem 
+para
+posteriormente trabalhar com ele
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderSend</h3>
+<h3>Envia pedidos de negócios para</h3>
+um servidor
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrderSendAsync</h3>
+<h3>De</h3>
+forma 
+assíncrona 
+envia
+pedidos de comércio sem esperar
+a resposta da negociação do
+servidor de negócio
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>OrdersTotal</h3>
+<h3>Retorna o número de ordens</h3>
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>ParameterGetRange</h3>
+<h3>Recebe os dados na faixa de</h3>
+valores e o passo de alteração
+para uma variável de entrada ao
+otimizar um Expert Advisor no
+<h3>Testador de Estratégia</h3>
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>ParameterSetRange</h3>
+<h3>Especifica o uso de variável de</h3>
+entrada ao otimizar um Expert
+<h3>Advisor</h3>
+no 
+<h3>Testador</h3>
+de
+<h3>Estratégia: valor, mudança de</h3>
+passo, os valores iniciais e finais
+<h3>Trabalhando com Resultados</h3>
+de Otimização
+<h3>Period</h3>
+<h3>Retorna a janela de tempo do</h3>
+gráfico corrente
+<h3>Verificando Estado</h3>
+<h3>PeriodSeconds</h3>
+<h3>Retorna o número de segundos no</h3>
+período
+<h3>Funções Comuns</h3>
+<h3>PlaySound</h3>
+<h3>Toca um arquivo de som</h3>
+<h3>Funções Comuns</h3>
+<h3>PlotIndexGetInteger</h3>
+<h3>Retorna o valor da propriedade de</h3>
+linha de um indicador do tipo
+inteiro
+<h3>Indicadores Customizados</h3>
+<h3>PlotIndexSetDouble</h3>
+<h3>Define o valor da propriedade de</h3>
+linha de um indicador do tipo
+<h3>Indicadores Customizados</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6841
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+double
+<h3>PlotIndexSetInteger</h3>
+<h3>Define o valor da propriedade de</h3>
+linha de um indicador do tipo int
+<h3>Indicadores Customizados</h3>
+<h3>PlotIndexSetString</h3>
+<h3>Define o valor da propriedade de</h3>
+linha de um indicador do tipo
+string
+<h3>Indicadores Customizados</h3>
+<h3>Point</h3>
+<h3>Retorna o tamanho do ponto do</h3>
+símbolo 
+atual 
+na 
+moeda 
+de
+cotação.
+<h3>Verificando Estado</h3>
+<h3>PositionGetDouble</h3>
+<h3>Retorna a propriedade solicitado</h3>
+de uma posição aberta (double)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>PositionGetInteger</h3>
+<h3>Retorna a propriedade solicitada</h3>
+uma posição aberta (datetime ou
+int)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>PositionGetString</h3>
+<h3>Retorna a propriedade solicitada</h3>
+uma posição aberta (string)
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>PositionGetSymbol</h3>
+<h3>Retorna o símbolo correspondente</h3>
+à posição aberta
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>PositionSelect</h3>
+<h3>Escolhe uma posição aberta para</h3>
+posteriormente trabalhar com ele
+<h3>Funções de Negociação</h3>
+(Trade)
+<h3>PositionsTotal</h3>
+<h3>Retorna o número de posições em</h3>
+aberto
+<h3>Funções de Negociação</h3>
+(Trade)
+pow
+<h3>Eleva uma base a um expoente</h3>
+especificado
+<h3>Funções Matemáticas</h3>
+<h3>Print</h3>
+<h3>Exibe uma mensagem no log</h3>
+<h3>Funções Comuns</h3>
+<h3>PrintFormat</h3>
+<h3>Formata e imprime um conjunto</h3>
+de símbolos e valores em um
+arquivo de log de acordo com um
+formato predefinido
+<h3>Funções Comuns</h3>
+rand
+<h3>Retorna</h3>
+um 
+valor 
+pseudo-
+aleatório entre 0 e 32767
+<h3>Funções Matemáticas</h3>
+<h3>ResetLastError</h3>
+<h3>Define</h3>
+o 
+valor 
+da 
+variável
+predeterminada _LastError para
+zero
+<h3>Funções Comuns</h3>
+<h3>ResourceCreate</h3>
+<h3>Cria um recurso de imagem</h3>
+baseado em um conjunto de
+dados
+<h3>Funções Comuns</h3>
+<h3>ResourceFree</h3>
+<h3>Exclui</h3>
+recursos 
+criados
+dinamicamente 
+(liberando 
+a
+<h3>Funções Comuns</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6842
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+memória alocada para ele)
+<h3>ResourceReadImage</h3>
+<h3>Lê os dados do recurso gráfico</h3>
+criado 
+pela 
+função
+<h3>ResourceCreate() ou salvo em</h3>
+arquivo EX5 durante a compilação
+<h3>Funções Comuns</h3>
+<h3>ResourceSave</h3>
+<h3>Salva um recurso em um arquivo</h3>
+especificado
+<h3>Funções Comuns</h3>
+round
+<h3>Arredonda um valor para o inteiro</h3>
+mais próximo
+<h3>Funções Matemáticas</h3>
+<h3>SendFTP</h3>
+<h3>Envia um arquivo no endereço</h3>
+especificado 
+na 
+janela 
+de
+configurações da guia &quot;FTP&quot;
+<h3>Funções Comuns</h3>
+<h3>SendMail</h3>
+<h3>Envia um email no endereço</h3>
+especificado 
+na 
+janela 
+de
+configurações da guia &quot;Email&quot;
+<h3>Funções Comuns</h3>
+<h3>SendNotification</h3>
+<h3>Envia</h3>
+notificações 
+push 
+para
+terminais 
+móveis, 
+cujos
+<h3>MetaQuotes</h3>
+<h3>ID&#x27;s</h3>
+estão
+especificados 
+na 
+guia
+&quot;Notificações&quot;
+<h3>Funções Comuns</h3>
+<h3>SeriesInfoInteger</h3>
+<h3>Retorna</h3>
+informação 
+sobre 
+o
+estado dos dados históricos
+<h3>Séries Temporais e Acesso a</h3>
+<h3>Indicadores</h3>
+<h3>SetIndexBuffer</h3>
+<h3>Vincula-se o buffer de indicador</h3>
+especificado 
+com 
+dinâmica
+unidimensional 
+array 
+do 
+tipo
+double
+<h3>Indicadores Customizados</h3>
+<h3>ShortArrayToString</h3>
+Copia parte de um array em uma
+string
+<h3>Funções de Conversão</h3>
+<h3>ShortToString</h3>
+<h3>Converte</h3>
+código 
+de 
+símbolo
+(unicode) 
+em 
+</p>
+<pre><code class="language-mql5">
+string 
+</code></pre>
+<p>
+de 
+um
+símbolo
+<h3>Funções de Conversão</h3>
+<h3>SignalBaseGetDouble</h3>
+<h3>Returns the value of double type</h3>
+property for selected signal
+<h3>Trade Signals</h3>
+<h3>SignalBaseGetInteger</h3>
+<h3>Returns the value of integer type</h3>
+property for selected signal
+<h3>Trade Signals</h3>
+<h3>SignalBaseGetString</h3>
+<h3>Returns the value of string type</h3>
+property for selected signal
+<h3>Trade Signals</h3>
+<h3>SignalBaseSelect</h3>
+<h3>Selects a signal from signals,</h3>
+available in terminal for further
+working with it 
+<h3>Trade Signals</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6843
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>SignalBaseTotal</h3>
+<h3>Returns the total amount of</h3>
+signals, available in terminal
+<h3>Trade Signals</h3>
+<h3>SignalInfoGetDouble</h3>
+<h3>Returns the value of double type</h3>
+property of signal copy settings 
+<h3>Trade Signals</h3>
+<h3>SignalInfoGetInteger</h3>
+<h3>Returns the value of integer type</h3>
+property of signal copy settings 
+<h3>Trade Signals</h3>
+<h3>SignalInfoGetString</h3>
+<h3>Returns the value of string type</h3>
+property of signal copy settings 
+<h3>Trade Signals</h3>
+<h3>SignalInfoSetDouble</h3>
+<h3>Sets the value of double type</h3>
+property of signal copy settings
+<h3>Trade Signals</h3>
+<h3>SignalInfoSetInteger</h3>
+<h3>Sets the value of integer type</h3>
+property of signal copy settings
+<h3>Trade Signals</h3>
+<h3>SignalSubscribe</h3>
+<h3>Subscribes to the trading signal</h3>
+<h3>Trade Signals</h3>
+<h3>SignalUnsubscribe</h3>
+<h3>Cancels subscription</h3>
+<h3>Trade Signals</h3>
+sin
+<h3>Retorna o seno de um número</h3>
+<h3>Funções Matemáticas</h3>
+<h3>Sleep</h3>
+<h3>Suspende</h3>
+por 
+um 
+intervalo
+especificado a execução do Expert
+<h3>Advisor corrente ou script</h3>
+<h3>Funções Comuns</h3>
+<h3>SocketCreate</h3>
+<h3>Cria</h3>
+um 
+soquete 
+com 
+os
+sinalizadores 
+especificados 
+e
+retorna seu identificador
+<h3>Funções de rede</h3>
+<h3>SocketClose</h3>
+<h3>Fecha o soquete</h3>
+<h3>Funções de rede</h3>
+<h3>SocketConnect</h3>
+<h3>Conecta-se</h3>
+ao 
+servidor 
+com
+controle de tempo limite
+<h3>Funções de rede</h3>
+<h3>SocketIsConnected</h3>
+<h3>Verifica</h3>
+se 
+há 
+um 
+soquete
+conectado atualmente
+<h3>Funções de rede</h3>
+<h3>SocketIsReadable</h3>
+<h3>Obtém o número de bytes que</h3>
+podem ser lidos do soquete.
+<h3>Funções de rede</h3>
+<h3>SocketIsWritable</h3>
+<h3>Verifica se os dados podem ser</h3>
+registrados 
+no 
+soquete 
+no
+momento atual.
+<h3>Funções de rede</h3>
+<h3>SocketTimeouts</h3>
+Define os tempos limite a fim de
+receber e enviar dados para o
+objeto de sistema de soquete
+<h3>Funções de rede</h3>
+<h3>SocketRead</h3>
+<h3>Lê dados do soquete</h3>
+<h3>Funções de rede</h3>
+<h3>SocketSend</h3>
+<h3>Registra dados no soquete</h3>
+<h3>Funções de rede</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6844
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>SocketTlsHandshake</h3>
+<h3>Inicia uma conexão TLS (SSL)</h3>
+segura com o host especificado
+usando 
+o 
+protocolo 
+<h3>TLS</h3>
+<h3>Handshake</h3>
+<h3>Funções de rede</h3>
+<h3>SocketTlsCertificate</h3>
+<h3>Recebe</h3>
+informações 
+sobre 
+o
+certificado usado para proteger a
+conexão de rede.
+<h3>Funções de rede</h3>
+<h3>SocketTlsRead</h3>
+<h3>Lê dados de uma conexão TLS</h3>
+segura
+<h3>Funções de rede</h3>
+<h3>SocketTlsReadAvailable</h3>
+<h3>Lê todos os dados disponíveis a</h3>
+partir de uma conexão TLS segura
+<h3>Funções de rede</h3>
+<h3>SocketTlsSend</h3>
+<h3>Envia dados por meio de uma</h3>
+conexão TLS segura
+<h3>Funções de rede</h3>
+sqrt
+<h3>Retorna a raiz quadrada</h3>
+<h3>Funções Matemáticas</h3>
+srand
+<h3>Define</h3>
+o 
+ponto 
+inicial 
+para
+geração de uma série de inteiros
+pseudo-aleatórios
+<h3>Funções Matemáticas</h3>
+<h3>StringAdd</h3>
+<h3>Adiciona uma string no final de</h3>
+uma outra string
+<h3>Funções de String</h3>
+<h3>StringBufferLen</h3>
+<h3>Retorna o tamanho de buffer</h3>
+alocado para uma string
+<h3>Funções de String</h3>
+<h3>StringCompare</h3>
+<h3>Compara duas string e retorna 1</h3>
+se a primeira string for maior que
+a segunda; 0 - se as string são
+iguais; -1 (menos 1) - se a
+primeira string for menor que a
+segunda.
+<h3>Funções de String</h3>
+<h3>StringConcatenate</h3>
+<h3>Forma uma string dos parâmetros</h3>
+passados
+<h3>Funções de String</h3>
+<h3>StringFill</h3>
+<h3>Preenche uma string especificada</h3>
+com símbolos selecionados
+<h3>Funções de String</h3>
+<h3>StringFind</h3>
+<h3>Busca por uma substring em uma</h3>
+string
+<h3>Funções de String</h3>
+<h3>StringFormat</h3>
+<h3>Converte um número em string de</h3>
+acordo 
+com 
+um 
+formato
+predefinido
+<h3>Funções de Conversão</h3>
+<h3>StringGetCharacter</h3>
+<h3>Retorna o valor de um número</h3>
+localizado na posição de string
+especificada
+<h3>Funções de String</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6845
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>StringInit</h3>
+<h3>Inicializa uma string com símbolos</h3>
+especificados 
+e 
+fornece 
+o
+comprimento 
+da 
+string
+especificada
+<h3>Funções de String</h3>
+<h3>StringLen</h3>
+<h3>Retorna o número de símbolos em</h3>
+uma string
+<h3>Funções de String</h3>
+<h3>StringReplace</h3>
+<h3>Substitui</h3>
+todas 
+as 
+substrings
+encontradas em uma string por
+uma seqüência de símbolos
+<h3>Funções de String</h3>
+<h3>StringSetCharacter</h3>
+<h3>Retorna uma cópia de uma string</h3>
+com o valor alterado de um
+símbolo na posição especificada
+<h3>Funções de String</h3>
+<h3>StringSplit</h3>
+<h3>Obtém substrings a partir de um</h3>
+separador especificado da string
+especificada, retorna o número de
+substrings obtidas
+<h3>Funções de String</h3>
+<h3>StringSubstr</h3>
+<h3>Extrai uma substring a partir de</h3>
+uma string de texto começando a
+partir 
+de 
+uma 
+posição
+especificada
+<h3>Funções de String</h3>
+<h3>StringToCharArray</h3>
+<h3>Copia símbolo a símbolo uma</h3>
+</p>
+<pre><code class="language-mql5">
+string convertida de Unicode para
+</code></pre>
+<p>
+<h3>ANSI, para um lugar selecionado</h3>
+de um array de tipo uchar
+<h3>Funções de Conversão</h3>
+<h3>StringToColor</h3>
+<h3>Converte uma string &quot;R,G,B&quot; ou</h3>
+uma string com nome de cor em
+valor de tipo color
+<h3>Funções de Conversão</h3>
+<h3>StringToDouble</h3>
+<h3>Converte uma string contendo um</h3>
+representação 
+de 
+símbolo 
+de
+número em um número de tipo
+double
+<h3>Funções de Conversão</h3>
+<h3>StringToInteger</h3>
+<h3>Converte uma string contendo</h3>
+uma representação de símbolo de
+número em um número de tipo int
+<h3>Funções de Conversão</h3>
+<h3>StringToLower</h3>
+<h3>Transforma todos os símbolos de</h3>
+uma 
+</p>
+<pre><code class="language-mql5">
+string 
+</code></pre>
+<p>
+selecionada 
+para
+minúscula pela localização
+<h3>Funções de String</h3>
+<h3>StringToShortArray</h3>
+<h3>Copia símbolo a símbolo uma</h3>
+</p>
+<pre><code class="language-mql5">
+string para uma parte selecionada
+</code></pre>
+<p>
+de array de tipo ushort
+<h3>Funções de Conversão</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6846
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>StringToTime</h3>
+<h3>Converte uma string contendo</h3>
+hora 
+ou 
+data 
+no 
+formato
+&quot;yyyy.mm.dd [hh:mi]&quot; em um tipo
+datetime
+<h3>Funções de Conversão</h3>
+<h3>StringToUpper</h3>
+<h3>Transforma todos os símbolos de</h3>
+uma 
+</p>
+<pre><code class="language-mql5">
+string 
+</code></pre>
+<p>
+selecionada 
+para
+maiúscula pela localização
+<h3>Funções de String</h3>
+<h3>StringTrimLeft</h3>
+<h3>Remove caracteres de quebra de</h3>
+linha, espaços e tabs na parte
+esquerda da string
+<h3>Funções de String</h3>
+<h3>StringTrimRight</h3>
+<h3>Remove caracteres de quebra de</h3>
+linha, espaços e tabs na parte
+direita da string
+<h3>Funções de String</h3>
+<h3>StructToTime</h3>
+<h3>Converte uma variável do tipo</h3>
+estrutura MqlDateTime em um
+valor datetime
+<h3>Data e Hora</h3>
+<h3>Symbol</h3>
+<h3>Retorna o nome do ativo do</h3>
+gráfico corrente
+<h3>Verificando Estado</h3>
+<h3>SymbolInfoDouble</h3>
+<h3>Retorna um valor double de um</h3>
+ativo 
+para 
+a 
+propriedade
+correspondente
+<h3>Informações de Mercado</h3>
+<h3>SymbolInfoInteger</h3>
+<h3>Retorna um valor de tipo inteiro</h3>
+(long, datetime, int ou bool) de
+um ativo especificado para a
+propriedade correspondente
+<h3>Informações de Mercado</h3>
+<h3>SymbolInfoMarginRate</h3>
+<h3>Returns</h3>
+the 
+margin 
+rates
+depending on the order type and
+direction
+<h3>Informações de Mercado</h3>
+<h3>SymbolInfoSessionQuote</h3>
+Permite obter a hora de início e
+fim das sessões 
+de 
+cotação
+especificadas 
+para 
+um 
+ativo
+especificado e dia da semana.
+<h3>Informações de Mercado</h3>
+<h3>SymbolInfoSessionTrade</h3>
+Permite obter a hora de início e
+fim das sessões de negociação
+especificadas 
+para 
+um 
+ativo
+especificado e dia da semana.
+<h3>Informações de Mercado</h3>
+<h3>SymbolInfoString</h3>
+Retorna um valor do tipo string de
+um ativo especificado para a
+propriedade correspondente
+<h3>Informações de Mercado</h3>
+<h3>SymbolInfoTick</h3>
+<h3>Retorna os preços correntes para</h3>
+um ativo especificado em uma
+<h3>Informações de Mercado</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6847
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+variável do tipo MqlTick
+<h3>SymbolIsSynchronized</h3>
+<h3>Verifica se dados de um ativo</h3>
+selecionado no terminal estão
+sincronizados 
+com 
+dados 
+no
+servidor de negociações
+<h3>Informações de Mercado</h3>
+<h3>SymbolName</h3>
+<h3>Retorna o nome de um ativo</h3>
+especificado
+<h3>Informações de Mercado</h3>
+<h3>SymbolSelect</h3>
+<h3>Seleciona um ativo na janela</h3>
+<h3>Observação</h3>
+de 
+<h3>Mercado</h3>
+ou
+remove um ativo desta janela
+<h3>Informações de Mercado</h3>
+<h3>SymbolsTotal</h3>
+<h3>Retorna o número de ativos</h3>
+disponíveis 
+(selecionados 
+na
+janela Observação de Mercado ou
+todos)
+<h3>Informações de Mercado</h3>
+tan
+<h3>Retorna a tangente de um número</h3>
+<h3>Funções Matemáticas</h3>
+<h3>TerminalClose</h3>
+<h3>Ordena o terminal a finalizar a</h3>
+operação
+<h3>Funções Comuns</h3>
+<h3>TerminalInfoDouble</h3>
+<h3>Retorna um valor de double de</h3>
+uma propriedade correspondente
+do ambiente de um programa
+mql5
+<h3>Verificando Estado</h3>
+<h3>TerminalInfoInteger</h3>
+<h3>Retorna um valor inteiro de uma</h3>
+propriedade correspondente do
+ambiente de um programa mql5
+<h3>Verificando Estado</h3>
+<h3>TerminalInfoString</h3>
+<h3>Retorna um valor de string de</h3>
+uma propriedade correspondente
+do ambiente de um programa
+mql5
+<h3>Verificando Estado</h3>
+<h3>TesterStatistics</h3>
+<h3>Retorna</h3>
+o 
+valor 
+de 
+uma
+estatística específica calculada
+com base em resultados de teste
+<h3>Funções Comuns</h3>
+<h3>TextGetSize</h3>
+Retorna a largura e a altura da
+</p>
+<pre><code class="language-mql5">
+string 
+</code></pre>
+<p>
+nas 
+configurações 
+das
+fontes usadas no momento
+<h3>Funções de Objeto</h3>
+<h3>TextOut</h3>
+<h3>Transfere o texto para um array</h3>
+personalizado (buffer) projetado
+para 
+a 
+criação 
+de 
+recursos
+gráficos
+<h3>Funções de Objeto</h3>
+<h3>TextSetFont</h3>
+Define a fonte para exibir o texto
+usando métodos de desenho (Arial
+20, usado por padrão)
+<h3>Funções de Objeto</h3></p>
+<p><h3>Lista de Funções MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+6848
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Section</h3>
+<h3>TimeCurrent</h3>
+<h3>Retorna a última hora conhecida</h3>
+do servidor (hora 
+da 
+última
+cotação recebida) no formato de
+datetime(
+<h3>Data e Hora</h3>
+<h3>TimeDaylightSavings</h3>
+<h3>Retorna o sinal do ajuste do</h3>
+horário de verão
+<h3>Data e Hora</h3>
+<h3>TimeGMT</h3>
+<h3>Retorna a hora GMT em formato</h3>
+datetime com o horário de verão
+por hora local do computador, de
+onde o terminal cliente está
+executando
+<h3>Data e Hora</h3>
+<h3>TimeGMTOffset</h3>
+<h3>Retorna</h3>
+a 
+diferença 
+corrente
+entre a hora GMT e a hora do
+computador local em segundos,
+levando em consideração o ajuste
+do horário de verão
+<h3>Data e Hora</h3>
+<h3>TimeLocal</h3>
+<h3>Retorna a hora do computador</h3>
+local em formato datetime
+<h3>Data e Hora</h3>
+<h3>TimeToString</h3>
+<h3>Converte um valor contendo hora</h3>
+em segundos decorridos deste
+01.01.1970 em uma string de
+formato &quot;yyyy.mm.dd hh:mi&quot;
+<h3>Funções de Conversão</h3>
+<h3>TimeToStruct</h3>
+<h3>Converte um valor datetime em</h3>
+uma variável do tipo estrutura
+<h3>MqlDateTime</h3>
+<h3>Data e Hora</h3>
+<h3>TimeTradeServer</h3>
+<h3>Retorna a hora calculada corrente</h3>
+do servidor de negociação
+<h3>Data e Hora</h3>
+<h3>UninitializeReason</h3>
+<h3>Retorna o código do motivo da</h3>
+desinicialização
+<h3>Verificando Estado</h3>
+<h3>WebRequest</h3>
+<h3>Sends</h3>
+<h3>HTTP</h3>
+request 
+to 
+the
+specified server
+<h3>Funções Comuns</h3>
+<h3>ZeroMemory</h3>
+<h3>Redefine uma variável passada</h3>
+para ela por referência. A variável
+pode ser de qualquer tipo, exceto
+classes e estruturas que tenham
+construtores.
+<h3>Funções Comuns</h3>
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

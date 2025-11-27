@@ -1,0 +1,4033 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Comuns - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class="active"><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções Comuns</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1128
+<h3>Funções Comuns</h3>
+Funções de propósito geral não inclusas em nenhum grupo especializado estão listadas aqui.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Alert</h3>
+Exibe uma mensagem em uma janela separada
+<h3>CheckPointer</h3>
+Retorna o tipo do ponteiro de objeto
+<h3>Comment</h3>
+Gera um comentário no canto superior esquerdo do gráfico
+<h3>CryptEncode</h3>
+Transforma os dados do array com o método especificado
+<h3>CryptDecode</h3>
+Executa a transformação inversa dos dados do array
+<h3>DebugBreak</h3>
+Ponto de parada de programa em depuração
+<h3>ExpertRemove</h3>
+Interrompe um Expert Advisor e o descarrega do gráfico
+<h3>GetPointer</h3>
+<h3>Retorna o ponteiro de objeto</h3>
+<h3>GetTickCount</h3>
+Retorno o número de milissegundos decorridos desde que o sistema foi
+iniciado
+<h3>GetTickCount64</h3>
+Retorno o número de milissegundos decorridos desde que o sistema foi
+iniciado
+<h3>GetMicrosecondCount</h3>
+Retorna o número de microssegundos que decorreram desde o início
+do programa MQL5
+<h3>MessageBox</h3>
+Cria, exibe uma caixa de mensagem e o gerencia
+<h3>PeriodSeconds</h3>
+Retorna o número de segundos no período
+<h3>PlaySound</h3>
+<h3>Toca um arquivo de som</h3>
+<h3>Print</h3>
+<h3>Exibe uma mensagem no log</h3>
+<h3>PrintFormat</h3>
+Formata e imprime um conjunto de símbolos e valores em um arquivo
+de log de acordo com um formato predefinido
+<h3>ResetLastError</h3>
+Define o valor da variável predeterminada _LastError para zero
+<h3>ResourceCreate</h3>
+Cria um recurso de imagem baseado em um conjunto de dados
+<h3>ResourceFree</h3>
+Exclui recursos criados dinamicamente (liberando a memória alocada
+para ele)
+<h3>ResourceReadImage</h3>
+Lê os dados do recurso gráfico criado pela função ResourceCreate() ou
+salvo em arquivo EX5 durante a compilação
+<h3>ResourceSave</h3>
+Salva um recurso em um arquivo especificado
+<h3>SetUserError</h3>
+Define a variável predefinida _LastError para o valor igual a
+<h3>ERR_USER_ERROR_FIRST + user_error</h3>
+<h3>SetReturnError</h3>
+Define o código de retorno que devolverá um processo do terminal ao
+encerrar o trabalho</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1129
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>Sleep</h3>
+Suspende por um intervalo especificado a execução do Expert Advisor
+corrente ou script
+<h3>TerminalClose</h3>
+Ordena o terminal a finalizar a operação
+<h3>TesterHideIndicators</h3>
+Define o modo mostrar/ocultar indicadores usados no Expert Advisor
+<h3>TesterStatistics</h3>
+Retorna o valor de uma estatística específica calculada com base em
+resultados de teste
+<h3>TesterStop</h3>
+Dá o comando para encerrar o programa durante os testes.
+<h3>TesterDeposit</h3>
+Função especial para emular operações de depósito durante o teste.
+Pode ser usado em alguns sistemas de gerenciamento de capital
+<h3>TesterWithdrawal</h3>
+Função especial para emular a operação de saque de dinheiro no
+processo de teste
+<h3>TranslateKey</h3>
+Retorna o caractere Unicode de acordo com o código de tecla virtual
+<h3>ZeroMemory</h3>
+Redefine uma variável passada para ela por referência. A variável
+pode ser de qualquer tipo, exceto classes e estruturas que tenham
+construtores.</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1130
+<h3>Alert</h3>
+Exibe uma mensagem em uma janela separada.
+</p>
+<pre><code class="language-mql5">
+void  Alert(
+   argument,     // primeiro valor
+   ...           // outros valores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+argument
+[in]  Quaisquer valores separados por virgulas. Para dividir a saída da informação em várias linhas
+você pode usar o caractere de quebra de linha &quot;\n&quot; ou &quot;\r\n&quot;. O número de parâmetros não pode
+exceder 64.
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+Arrays não podem ser passados para a função Alert(). Arrays devem ser fornecidos elemento a
+elemento. Dados do tipo double são exibidos com 8 dígitos após o ponto decimal, dados do tipo float
+são exibidos com 5 dígitos após o ponto decimal. Para exibir os números reais com uma precisão
+diferente ou em notação científica, use a função DoubleToString().
+Dados do tipo bool são exibidos como strings &quot;true&quot; ou &quot;false&quot;. Datas são exibidas como
+YYYY.MM.DD HH:MM:SS. Para exibir uma data em um outro formato use a função TimeToString().
+Dados do tipo color são exibidos tanto como uma string R,G,B ou como nome de cor, se a cor estiver
+presente no conjunto de cores.
+A função Alert() não funciona no Testador de estratégias.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- enums
+enum ENUM_INTERSECT_DIRECTION
+  {
+   INTERSECT_DIRECTION_NONE= 0,  // não há intersecção
+   INTERSECT_DIRECTION_UP  = 1,  // intersecção para cima
+   INTERSECT_DIRECTION_DOWN=-1,  // intersecção para baixo
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input    uint               InpPeriod = 10;            // MA Period
+input    int                InpShift  = 0;             // MA Shift
+input    ENUM_MA_METHOD     InpMethod = MODE_SMA;      // MA Method
+input    ENUM_APPLIED_PRICE InpPrice  = PRICE_CLOSE;   // MA Applied price
+//--- global variables</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1131
+</p>
+<pre><code class="language-mql5">
+int      ExtMaHandle;
+int      ExtMaPeriod;
+double   ExtData[2];
+</code></pre>
+<p>
+<h3>MqlRates ExtRates[2];</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- o período de cálculo da média móvel será igual ao valor padrão (10) se um zero f
+   ExtMaPeriod=int(InpPeriod&lt;1 ? 10 : InpPeriod);
+//--- criamos um handle do indicador Moving Average com os parâmetros especificados
+   ExtMaHandle=iMA(Symbol(),PERIOD_CURRENT,ExtMaPeriod,InpShift,InpMethod,InpPrice);
+   ResetLastError();
+   if(ExtMaHandle==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;Failed to create iMA() handle. Error code: %d&quot;,GetLastError());
+      return(INIT_FAILED);
+     }
+     
+//--- obtemos o tempo da última atualização de preços
+   datetime tick_time=TickTime();
+//--- obtemos os dados da média móvel e os dados de preços dos últimos dois a barras
+   if(GetData(ExtMaHandle,ExtData,ExtRates) &amp;&amp; tick_time!=0)
+     {
+      //--- se o preço estiver acima da média móvel
+      if(ExtRates[1].close&gt;ExtData[1])
+        {
+         //--- criamos o texto da mensagem e exibimos um Alert
+         string message=StringFormat(&quot;Bar time: %s. The price is above the moving aver
+         Alert(message+&quot; at &quot;+TimeToString(tick_time,TIME_DATE|TIME_MINUTES|TIME_SECON
+        /*
+        Resultado:
+         Alert: Bar time: 2024.02.16 18:00. The price is above the moving average at 2
+        */
+        }
+      else
+        {
+         //--- se o preço estiver abaixo da média móvel
+         if(ExtRates[1].close&lt;ExtData[1])
+           {
+         //--- criamos o texto da mensagem e exibimos um Alert
+            string message=StringFormat(&quot;Bar time: %s. The price is below the moving a
+            Alert(message+&quot; at &quot;+TimeToString(tick_time,TIME_DATE|TIME_MINUTES|TIME_SE
+           /*
+           Resultado:
+            Alert: Bar time: 2024.02.16 19:00. The price is below the moving average a
+           */</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1132
+</p>
+<pre><code class="language-mql5">
+           }
+         else
+           {
+         //--- criamos o texto da mensagem e exibimos um Alert
+            string message=StringFormat(&quot;Bar time: %s. The price and moving average ar
+            Alert(message+&quot; at &quot;+TimeToString(tick_time,TIME_DATE|TIME_MINUTES|TIME_SE
+           /*
+           Resultado:
+            Alert: Bar time: 2024.02.16 20:00. The price and moving average are equal 
+           */
+           }
+        }
+     }
+     
+//--- Sucesso
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+   ResetLastError();
+//--- obtemos os dados da média móvel e os dados de preços dos últimos dois a barras
+   if(!GetData(ExtMaHandle,ExtData,ExtRates))
+      return;
+//--- obtemos a direção da intersecção do preço com a média móvel na nova barra
+   ENUM_INTERSECT_DIRECTION intersect=GetIntersectDirection(ExtData,ExtRates);
+//--- variável para salvar a mensagem anterior
+   static string message_prev=&quot;&quot;;
+//--- se o preço cruzou a média móvel da parte inferior para a superior na a barra atu
+   if(intersect==INTERSECT_DIRECTION_UP)
+     {
+      //--- obtemos o tempo do tick no qual ocorreu a intersecção
+      datetime tick_time=TickTime();
+      if(tick_time==0)
+         return;
+      //--- criamos o texto da mensagem
+      string message=StringFormat(&quot;Bar time: %s. The price crossed the MA from bottom 
+      //--- se a mensagem anterior não for igual à atual, exibimos um Alert com a mens
+      if(message!=message_prev)
+        {
+         Alert(message+&quot; at &quot;+TimeToString(tick_time,TIME_DATE|TIME_MINUTES|TIME_SECON
+         message_prev=message;
+        /*
+        Resultado:\
+         Alert: Bar time: 2024.02.16 09:00. The price crossed the MA from bottom to to</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1133
+</p>
+<pre><code class="language-mql5">
+        */
+        }
+     }
+//--- se o preço cruzou a média móvel de cima para baixo na a barra atual
+   if(intersect==INTERSECT_DIRECTION_DOWN)
+     {
+      //--- obtemos o tempo do tick no qual ocorreu a intersecção
+      datetime tick_time=TickTime();
+      if(tick_time==0)
+         return;
+      //--- criamos o texto da mensagem
+      string message=StringFormat(&quot;Bar time: %s. The price crossed the MA from top to 
+      //--- se a mensagem anterior não for igual à atual, exibimos um Alert com a mens
+      if(message!=message_prev)
+        {
+         Alert(message+&quot; at &quot;+TimeToString(tick_time,TIME_DATE|TIME_MINUTES|TIME_SECON
+         message_prev=message;
+        /*
+        Resultado:\
+         Alert: Bar time: 2024.02.16 10:00. The price crossed the MA from top to botto
+        */
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Obtém os dados de preço e média móvel em arrays               |
+//+------------------------------------------------------------------+
+bool GetData(int handle,double &amp;ma_data[],MqlRates &amp;price_data[])
+  {
+   ResetLastError();
+//--- obtemos os dados da média móvel das últimas duas barras
+   if(CopyBuffer(handle,0,0,2,ma_data)!=2)
+     {
+      PrintFormat(&quot;CopyBuffer() failed. Error code: %d&quot;,GetLastError());
+      return(false);
+     }
+//--- obtemos os dados de preços das últimas duas barras
+   if(CopyRates(Symbol(),PERIOD_CURRENT,0,2,price_data)!=2)
+     {
+      PrintFormat(&quot;CopyRates() failed. Error code: %d&quot;,GetLastError());
+      return(false);
+     }
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a direção da intersecção do preço com a média móvel      |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1134
+ENUM_INTERSECT_DIRECTION GetIntersectDirection(double &amp;ma_data[],MqlRates &amp;price_data
+</p>
+<pre><code class="language-mql5">
+  {
+   double ma0=ma_data[1];
+   double ma1=ma_data[0];
+   double close0=price_data[1].close;
+   double close1=price_data[0].close;
+   if(close1&lt;=ma1 &amp;&amp; close0&gt;ma0)
+      return(INTERSECT_DIRECTION_UP);
+   else
+     {
+      if(close1&gt;=ma1 &amp;&amp; close0&lt;ma0)
+         return(INTERSECT_DIRECTION_DOWN);
+      else
+         return(INTERSECT_DIRECTION_NONE);
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna o tempo do tick em segundos                              |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+datetime TickTime()
+</p>
+<pre><code class="language-mql5">
+  {
+   MqlTick tick={};
+   ResetLastError();
+   if(!SymbolInfoTick(Symbol(),tick))
+     {
+      PrintFormat(&quot;SymbolInfoTick() failed. Error code: %d&quot;,GetLastError());
+      return(0);
+     }
+   return(tick.time);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1135
+<h3>CheckPointer</h3>
+A função retorna o tipo do ponteiro de objeto.
+<h3>ENUM_POINTER_TYPE  CheckPointer(</h3>
+</p>
+<pre><code class="language-mql5">
+   object* anyobject      // ponteiro de objeto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+anyobject
+[in]  Ponteiro de objeto.
+<h3>Valor de retorno</h3>
+Retorna um valor da enumeração ENUM_POINTER_TYPE.
+<h3>Observação</h3>
+Uma tentativa de chamar um ponteiro incorreto resulta na finalização crítica de um programa. É por
+isso que é necessário chamar a função CheckPointer antes de usar um ponteiro. Um ponteiro pode
+estar incorreto nos seguintes casos:
+· o ponteiro é igual a NULL;
+· o objeto foi excluído usando o operador delete.
+Esta função pode ser usada para checar a validade do ponteiro. Um valor não zero garante que o
+ponteiro pode ser usado para acesso.
+Para uma verificação rápida, você também pode usar o operador &quot;!&quot;(exemplo) que testa sua
+validade por meio de uma chamada de função implícita CheckPointer. 
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Exclui lista através da exclusão de seus elementos               |
+//+------------------------------------------------------------------+
+void CMyList::Destroy()
+  {
+//--- ponteiro de serviço para trabalhar no loop
+   CItem* item;
+//--- percorre pelo loop e tenta excluir ponteiros dinâmicos
+   while(CheckPointer(m_items)!=POINTER_INVALID)
+     {
+      item=m_items;
+      m_items=m_items.Next();
+      if(CheckPointer(item)==POINTER_DYNAMIC)
+        {
+         Print(&quot;Dynamic object &quot;,item.Identifier(),&quot; para ser excluído&quot;);
+         delete (item);
+        }
+      else Print(&quot;Objeto não-dinâmico &quot;,item.Identifier(),&quot; cannot be deleted&quot;);
+     }</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1136
+</p>
+<pre><code class="language-mql5">
+//---
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Ponteiros de Objetos, Verificação do Ponteiro de Objeto, Exclusão de Objeto Operador delete</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1137
+<h3>Comment</h3>
+Esta função exibe um comentário definido pelo usuário no canto superior esquerdo de um gráfico.
+</p>
+<pre><code class="language-mql5">
+void  Comment(
+   argument,     // primeiro valor
+   ...           // próximos valores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+...
+[in]   Quaisquer valores, separados por vírgulas. Para delimitar a exibição da informação em
+várias linhas, um símbolo de quebra de linha &quot;\n&quot; ou &quot;\r\n&quot; é usado. O número de parâmetros não
+pode exceder 64. O comprimento total do comentário de entrada (incluindo símbolos invisíveis)
+não pode exceder 2045 caracteres (símbolos em excesso serão eliminados da exibição)
+<h3>Valor do Retorno</h3>
+<h3>Sem valor de retorno</h3>
+<h3>Observação</h3>
+Arrays não podem ser passados para a função Comment(). Arrays devem ser alimentados elemento a
+elemento.
+Dados de tipo double são impressos com precisão de até 16 dígitos após o ponto decimal, e podem
+ser impressos tanto na forma tradicional quanto na forma científica, dependendo de qual notação
+será a mais compacta. Dados do tipo float são exibidos com 5 dígitos após o ponto decimal. Para
+exibir números reais com uma outra precisão ou em um formato predefinido, use a função
+DoubleToString(). 
+Dados de tipo bool são impressos como strings &quot;true&quot; ou &quot;false&quot;. Datas são mostradas como
+YYYY.MM.DD HH:MM:SS. Para mostrar datas em um outro formato, use a função TimeToString().
+Dados de tipo color são impressos tanto como strings R,G,B quanto como nome de cor, se esta cor
+estiver presente no conjunto de cores.
+ A função Comment() não funciona no durante a otimização no Testador de Estratégias.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnTick()
+  {
+//---
+   double Ask,Bid;
+   int Spread;
+   Ask=SymbolInfoDouble(Symbol(),SYMBOL_ASK);
+   Bid=SymbolInfoDouble(Symbol(),SYMBOL_BID);
+   Spread=SymbolInfoInteger(Symbol(),SYMBOL_SPREAD);
+//--- Exibe valores em 3 linhas
+   Comment(StringFormat(&quot;Mostrar preços\nAsk = %G\nBid = %G\nSpread = %d&quot;,Ask,Bid,Spre
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1138
+<h3>ChartSetString, ChartGetString</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1139
+<h3>CryptEncode</h3>
+Transforma os dados do array com o método especificado.
+</p>
+<pre><code class="language-mql5">
+int  CryptEncode(
+   ENUM_CRYPT_METHOD   method,        // método
+   const uchar&amp;        data[],        // array fonte
+   const uchar&amp;        key[],         // key
+   uchar&amp;              result[]       // array de destino
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+método
+[in]  Método de transformação de dados. Pode ser um dos valores da enumeração
+ENUM_CRYPT_METHOD.
+data[]
+[in]  Array fonte.
+key[]
+[in]  Key array.
+result[]
+[out]  Array de destino.
+<h3>Valor retornado</h3>
+Quantidade de bytes no array de destino ou 0 em caso de erro. Para obter informações sobre o erro
+chame a função GetLastError().
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| ArrayToHex                                                       |
+//+------------------------------------------------------------------+
+string ArrayToHex(uchar &amp;arr[],int count=-1)
+  {
+   string res=&quot;&quot;;
+//--- verificar
+   if(count&lt;0 || count&gt;ArraySize(arr))
+      count=ArraySize(arr);
+//--- transformar em HEX string
+   for(int i=0; i&lt;count; i++)
+      res+=StringFormat(&quot;%.2X&quot;,arr[i]);
+//---
+   return(res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de início do programa script                              |
+//+------------------------------------------------------------------+
+void OnStart()</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1140
+</p>
+<pre><code class="language-mql5">
+  {
+   string text=&quot;A rápida raposa marrom salta sobre o cão preguiçoso&quot;;
+   string keystr=&quot;ABCDEFG&quot;;
+   uchar src[],dst[],key[];
+//--- preparar key
+   StringToCharArray(keystr,key);
+//--- copiar texto do array fonte src[]
+   StringToCharArray(text,src);
+//--- imprimir dados iniciais
+   PrintFormat(&quot;Initial data: size=%d, string=&#x27;%s&#x27;&quot;,ArraySize(src),CharArrayToString(s
+//--- encriptar src[] com a key DES 56-bit em key[]
+   int res=CryptEncode(CRYPT_DES,src,key,dst);
+//--- verificar erro
+   if(res&gt;0)
+     {
+      //--- imprimir dados encriptados
+      PrintFormat(&quot;Encoded data: size=%d %s&quot;,res,ArrayToHex(dst));
+      //--- decodificar dst[] para src[]
+      res=CryptDecode(CRYPT_DES,dst,key,src);
+      //--- verificar erro     
+      if(res&gt;0)
+        {
+         //--- imprimir dados decodificados
+         PrintFormat(&quot;Decoded data: size=%d, string=&#x27;%s&#x27;&quot;,ArraySize(src),CharArrayToSt
+        }
+      else
+         Print(&quot;Erro no CryptDecode. Error code=&quot;,GetLastError());
+     }
+   else
+      Print(&quot;Erro no CryptEncode. Error code=&quot;,GetLastError());
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>Funções do array, CryptDecode()</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1141
+<h3>CryptDecode</h3>
+Executa a transformação inversa dos dados do array, transformada pelo CryptEncode().
+</p>
+<pre><code class="language-mql5">
+int  CryptEncode(
+   ENUM_CRYPT_METHOD   method,        // método
+   const uchar&amp;        data[],        // array fonte
+   const uchar&amp;        key[],         // key
+   uchar&amp;              result[]       // array de destino
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+método
+[in]  Método de transformação de dados. Pode ser um dos valores da enumeração
+ENUM_CRYPT_METHOD.
+data[]
+[in]  Array fonte.
+key[]
+[in]  Key array.
+result[]
+[out]  Array de destino.
+<h3>Valor retornado</h3>
+Quantidade de bytes no array de destino ou 0 em caso de erro. Para obter informações sobre o erro
+chame a função GetLastError().
+<h3>Veja também</h3>
+<h3>Funções do array, CryptEncode()</h3>
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+input string InpKey = &quot;ABCDEFG&quot;;  // Encryption key
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   string text=&quot;The quick brown fox jumps over the lazy dog&quot;;
+   uchar src[],dst[],key[];
+//--- preparação da chave de criptografia
+   StringToCharArray(InpKey,key);
+//--- preparação do array de origem src[]
+   StringToCharArray(text,src);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1142
+</p>
+<pre><code class="language-mql5">
+//--- exibição dos dados de entrada
+   PrintFormat(&quot;Initial data: size=%d, string=&#x27;%s&#x27;&quot;,ArraySize(src),CharArrayToString(s
+//--- criptografia do array src[] pelo método DES com a chave de 56 bits key[]
+   int res=CryptEncode(CRYPT_DES,src,key,dst);
+//--- verificação do resultado da criptografia
+   if(res&gt;0)
+     {
+      //--- exibição dos dados criptografados
+      PrintFormat(&quot;Encoded data: size=%d %s&quot;,res,ArrayToHex(dst));
+      //--- descriptografia dos dados do array dst[] pelo método DES com a chave de 56
+      res=CryptDecode(CRYPT_DES,dst,key,src);
+      //--- verificação do resultado
+      if(res&gt;0)
+        {
+         //--- exibição dos dados descriptografados
+         PrintFormat(&quot;Decoded data: size=%d, string=&#x27;%s&#x27;&quot;,ArraySize(src),CharArrayToSt
+        }
+      else
+         Print(&quot;CryptDecode failed. Error: &quot;,GetLastError());
+     }
+   else
+      Print(&quot;CryptEncode failed. Error: &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| ArrayToHex                                                       |
+//+------------------------------------------------------------------+
+string ArrayToHex(uchar &amp;arr[],int count=-1)
+  {
+   string res=&quot;&quot;;
+//--- verificação do tamanho
+   if(count&lt;0 || count&gt;ArraySize(arr))
+      count=ArraySize(arr);
+//--- conversão para string hexadecimal
+   for(int i=0; i&lt;count; i++)
+      res+=StringFormat(&quot;%.2X&quot;,arr[i]);
+   return(res);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1143
+<h3>DebugBreak</h3>
+É um ponto de parada de programa em depuração.
+</p>
+<pre><code class="language-mql5">
+void  DebugBreak();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+A execução de um programa MQL5 é interrompido somente se ele for iniciado em modo de
+depuração. A função pode ser usada para ver valores de variáveis e/ou para avançar a execução
+passo a passo.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- compilar o arquivo pressionando F5
+//--- no modo de depuração quando i == j paramos na linha DebugBreak()  
+   for(int i=0,j=20; i&lt;20; i++,j--)
+     {
+      if(i==j)
+         DebugBreak();
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1144
+<h3>ExpertRemove</h3>
+A função interrompe um Expert Advisor e o descarrega de um gráfico.
+</p>
+<pre><code class="language-mql5">
+void  ExpertRemove();
+</code></pre>
+<p>
+<h3>Valor de retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+O Expert Advisor não é interrompido imediatamente ao chamar ExpertRemove(); apenas um flag
+para interromper a operação o EA é definido. Isso é, nenhum evento seguinte será processo,
+OnDeinit() será chamado e o Expert Advisor será descarregado e removido do gráfico.
+A chamada da ExpertRemove() no testador de estratégias dentro do manipulador OnInit() faz com
+que seja cancelado o teste no conjunto de parâmetros atual. Essa finalização é considerada um erro
+durante a inicialização. 
+Ao chamar a ExpertRemove() no testador de estratégias após a inicialização bem-sucedida do EA, o
+teste é encerrado de maneira geral com chamada da OnDeinit() e da OnTester(). Neste caso, serão
+obtidos todas as estatísticas de negociação e valores do critério de otimização.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            Test_ExpertRemove.mq5 |
+//|                        Copyright 2009, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;2009, MetaQuotes Software Corp.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+input int ticks_to_close=20;// número de ticks antes do EA descarregar
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- 
+   Print(TimeCurrent(),&quot;: &quot; ,__FUNCTION__,&quot; código de motivo = &quot;,reason);
+//--- &quot;limpa&quot; comentário
+   Comment(&quot;&quot;);
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+   static int tick_counter=0;</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1145
+</p>
+<pre><code class="language-mql5">
+//---
+   tick_counter++;
+   Comment(&quot;\nAntes de descarregar Expert Advisor &quot;,__FILE__,&quot; left&quot;,
+           (ticks_to_close-tick_counter),&quot; ticks&quot;);
+//--- antes
+   if(tick_counter&gt;=ticks_to_close)
+     {
+      ExpertRemove();
+      Print(TimeCurrent(),&quot;: &quot;,__FUNCTION__,&quot; Expert Advisor será descarregado&quot;);
+     }
+   Print(&quot;tick_counter =&quot;,tick_counter);
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+Execução de programas, Eventos do terminal Cliente</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1146
+<h3>GetPointer</h3>
+A função retorna o ponteiro de objeto.
+void*  GetPointer(
+</p>
+<pre><code class="language-mql5">
+   any_class anyobject      // objeto de qualquer classe
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+anyobject
+[in]  Objeto de qualquer classe.
+<h3>Valor do Retorno</h3>
+A função retorna o ponteiro de objeto.
+<h3>Observação</h3>
+Somente objetos de classe têm ponteiros. Instâncias de estruturas e variáveis de tipo simples não
+podem ter ponteiros. O objeto de classe não criado usando o operador new(), mas, por exemplo,
+criado automaticamente no array de objetos, tem um ponteiro. Mas este ponteiro será do tipo
+automático POINTER_AUTOMATIC, portanto o operador delete() não pode ser aplicado a ele. Além
+de que, o tipo ponteiro não difere dos ponteiros dinâmico do tipo POINTER_DYNAMIC.
+Como variáveis de tipo estrutura e de tipo simples não têm ponteiros, é proibido aplicar a função
+GetPointer() a elas. É também proibido passar o ponteiro como um argumento de função. Nos outros
+casos o resultado é indefinido.
+Uma tentativa de chamar um ponteiro incorreto causa a finalização crítica de um programa. É por
+isso que a função CheckPointer() deve ser chamada antes de usar um ponteiro. Um ponteiro pode
+estar incorreto nos seguintes casos:
+· o ponteiro é igual a NULL;
+· o objeto foi excluído usando o operador delete.
+Esta função pode ser usada para verificar a validade de um ponteiro. Um valor não-zero garante que
+o ponteiro pode ser usado para acesso.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                             Check_GetPointer.mq5 |
+//|                        Copyright 2009, MetaQuotes Software Corp. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;2009, MetaQuotes Software Corp.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+//+------------------------------------------------------------------+
+//| Classe implementando o elemento da lista                         |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1147
+</p>
+<pre><code class="language-mql5">
+class CItem
+  {
+   int               m_id;
+   string            m_comment;
+   CItem*            m_next;
+</code></pre>
+<p>
+public:
+</p>
+<pre><code class="language-mql5">
+                     CItem() { m_id=0; m_comment=NULL; m_next=NULL; }
+                    ~CItem() { Print(&quot;Destrutor de &quot;,m_id,
+                                     (CheckPointer(GetPointer(this))==POINTER_DYNAMIC)
+                                     &quot;dynamic&quot;:&quot;não dinâmico&quot;); }
+   void              Initialize(int id,string comm) { m_id=id; m_comment=comm; }
+   void              PrintMe() { Print(__FUNCTION__,&quot;:&quot;,m_id,m_comment); }
+   int               Identifier() { return(m_id); }
+   CItem*            Next() {return(m_next); }
+   void              Next(CItem *item) { m_next=item; }
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Classe mais simples de lista                                     |
+//+------------------------------------------------------------------+
+class CMyList
+  {
+   CItem*            m_items;
+</code></pre>
+<p>
+public:
+</p>
+<pre><code class="language-mql5">
+                     CMyList() { m_items=NULL; }
+                    ~CMyList() { Destroy(); }
+    bool             InsertToBegin(CItem* item);
+    void             Destroy();
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Incluindo elemento de lista no começo                            |
+//+------------------------------------------------------------------+
+bool CMyList::InsertToBegin(CItem* item)
+  {
+   if(CheckPointer(item)==POINTER_INVALID) return(false);
+//---
+   item.Next(m_items);
+   m_items=item;
+//---
+   return(true);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Excluindo a lista através da exclusão dos elementos              |
+//+------------------------------------------------------------------+
+void CMyList::Destroy()
+  {
+//--- ponteiro de serviço para trabalhar em um loop
+   CItem* item;
+//--- varre o loop e tenta excluir ponteiros dinâmicos
+   while(CheckPointer(m_items)!=POINTER_INVALID)</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1148
+</p>
+<pre><code class="language-mql5">
+     {
+      item=m_items;
+      m_items=m_items.Next();
+      if(CheckPointer(item)==POINTER_DYNAMIC)
+        {
+         Print(&quot;Dynamyc object &quot;,item.Identifier(),&quot; para ser excluído&quot;);
+         delete (item);
+        }
+      else Print(&quot;Objeto não-dinâmico &quot;,item.Identifier(),&quot; cannot be deleted&quot;);
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função start do programa script                                  |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   CMyList list;
+   CItem   items[10];
+   CItem*  item;
+//--- cria e adiciona na lista um ponteiro de objeto dinâmico
+   item=new CItem;
+   if(item!=NULL)
+     {
+      item.Initialize(100,&quot;dinâmico&quot;);
+      item.PrintMe();
+      list.InsertToBegin(item);
+     }
+//--- adiciona ponteiros automáticos na lista
+   for(int i=0; i&lt;10; i++)
+     {
+      items[i].Initialize(i,&quot;automático&quot;);
+      items[i].PrintMe();
+      item=GetPointer(items[i]);
+      if(CheckPointer(item)!=POINTER_INVALID)
+         list.InsertToBegin(item);
+     }
+//--- adiciona mais um ponteiro de objeto dinâmico no começo da lista
+   item=new CItem;
+   if(item!=NULL)
+     {
+      item.Initialize(200,&quot;dinâmico&quot;);
+      item.PrintMe();
+      list.InsertToBegin(item);
+     }
+//--- exclui todos os elementos da lista
+   list.Destroy();
+//--- todos os elementos da lista será excluídos após o script terminar
+//--- veja a guia Experts no terminal</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1149
+  }
+<h3>Também Veja</h3>
+Ponteiros de Objetos, Verificação do Ponteiro de Objeto, Exclusão de Objeto Operador delete</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1150
+<h3>GetTickCount</h3>
+A função GetTickCount() retorna o número de milissegundos decorridos desde o inicialização do
+sistema.
+uint  GetTickCount();
+<h3>Valor do Retorno</h3>
+Valor de tipo uint.
+<h3>Observação</h3>
+O contador é limitado pelas restrições do timer do sistema. O tempo é armazenado como um inteiro
+sem sinal, assim ele é sobre-preenchido a cada 49.7 dias se um computador trabalhar
+ininterruptamente.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define MAX_SIZE 40
+//+------------------------------------------------------------------+
+//| Script para medir o tempo de computação de 40 membros Fibonacci  |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- Lembra o valor inicial
+   uint start=GetTickCount();
+//--- Uma variável para obtenção do próximo número na série Fibonacci
+   long fib=0;
+//--- No loop calcular a quantidade específica de números de série de Fibonacci
+   for(int i=0;i&lt;MAX_SIZE;i++) fib=TestFibo(i);
+//--- Obtém o tempo gasto em milissegundos
+   uint time=GetTickCount()-start;
+//--- Imprime uma mensagem para o diário Experts
+   PrintFormat(&quot;Calculando %d primeiros números Fibonacci tiveram %d ms&quot;,MAX_SIZE,time
+//--- Script concluído
+   return;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função para obter número de Fibonacci pelo seu número serial     |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+long TestFibo(long n)
+</p>
+<pre><code class="language-mql5">
+  {
+//--- O primeiro membro da série Fibonacci
+   if(n&lt;2) return(1);
+//--- Todos os outros membros são calculados pela seguinte fórmula
+   return(TestFibo(n-2)+TestFibo(n-1));
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Data e Hora, EventSetMillisecondTimer, GetTickCount64, GetMicrosecondCount</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1151
+<h3>GetTickCount64</h3>
+A função GetTickCount() 64 retorna o número de milissegundos que passaram desde o início do
+sistema.
+ulong  GetTickCount64();
+<h3>Valor retornado</h3>
+Valor do tipo ulong.
+<h3>Observação</h3>
+O contador é limitado pela resolução do temporizador do sistema, que geralmente retorna um
+resultado com uma precisão de 10 a 16 milissegundos. Ao contrário da função GetTickCount, que é
+do tipo uint e, consequentemente, é abarrotada a cada 49,7 dias durante operação contínua do
+computador, GetTickCount64() pode ser usada com período de operação indefinido do computador e
+sem receio de abarrotamento.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#define MAX_SIZE 40
+//+------------------------------------------------------------------+
+//| Script para medir o tempo de cálculo de 40 números de Fibonacci  |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   long fib_array[MAX_SIZE];
+//--- armazenamos o valor inicial
+   ulong start=GetTickCount64();
+//--- ciclo no qual calculamos o número especificado de números da sequência de Fibona
+   for(int i=0;i&lt;MAX_SIZE;i++) 
+      fib_array[i]=TestFibo(i);
+//--- obtemos o tempo gasto em milissegundos
+   ulong time=GetTickCount64()-start;
+//--- exibimos uma mensagem no log &quot;Experts&quot;
+   ArrayPrint(fib_array);
+   PrintFormat(&quot;Calculating the first %d Fibonacci numbers took %I64u ms&quot;,MAX_SIZE,tim
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função para obter o número de Fibonacci pelo seu número de ordem |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+long TestFibo(long n)
+</p>
+<pre><code class="language-mql5">
+  {
+//--- o primeiro membro da sequência de Fibonacci
+   if(n&lt;2)
+      return(1);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1152
+</p>
+<pre><code class="language-mql5">
+//--- todos os membros subsequentes são calculados por esta fórmula
+   return(TestFibo(n-2)+TestFibo(n-1));
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Data e hora, EventSetMillisecondTimer, GetTickCount, GetMicrosecondCount</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1153
+<h3>GetMicrosecondCount</h3>
+A função GetMicrosecondCount() retorna o número de microssegundos que decorreram desde o início
+do programa MQL5.
+ulong  GetMicrosecondCount();
+<h3>Retornar Valor</h3>
+Valor do tipo ulong.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Teste da função                                                  |
+//+------------------------------------------------------------------+
+void Test()
+  {
+   int    res_int=0;
+   double res_double=0;
+//---  
+   for(int i=0;i&lt;10000;i++)
+     {
+      res_int+=i*i;
+      res_int++;
+      res_double+=i*i;
+      res_double++;
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de início do programa script                              |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   uint   ui=0,ui_max=0,ui_min=INT_MAX;
+   ulong  ul=0,ul_max=0,ul_min=INT_MAX;
+//--- número de medidas
+   for(int count=0;count&lt;1000;count++)
+     {
+      uint  ui_res=0;
+      ulong ul_res=0;
+      //--- 
+      for(int n=0;n&lt;2;n++)
+        {
+         //--- selecionar tipo de medida
+         if(n==0) ui=GetTickCount();
+         else     ul=GetMicrosecondCount();
+         //--- executar código 
+         Test();
+         //--- adicionar resultado da medida (dependendo do tipo)</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1154
+</p>
+<pre><code class="language-mql5">
+         if(n==0) ui_res+=GetTickCount()-ui;
+         else     ul_res+=GetMicrosecondCount()-ul;         
+        }
+      //--- Calcular o tempo mínimo e máximo para ambas as medições
+      if(ui_min&gt;ui_res) ui_min=ui_res;
+      if(ui_max&lt;ui_res) ui_max=ui_res;
+      if(ul_min&gt;ul_res) ul_min=ul_res;
+      if(ul_max&lt;ul_res) ul_max=ul_res;
+     }
+//---
+   Print(&quot;GetTickCount error(msec): &quot;,ui_max-ui_min);
+   Print(&quot;GetMicrosecondCount error(msec): &quot;,DoubleToString((ul_max-ul_min)/1000.0,2))
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>Data e hora, GetTickCount, GetTickCount64</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1155
+<h3>MessageBox</h3>
+Cria e exibe uma caixa de mensagem e o gerencia. Um caixa de mensagem contém uma mensagem e
+cabeçalho, e qualquer combinação de sinais predefinidos e botões de comando.
+</p>
+<pre><code class="language-mql5">
+int  MessageBox(
+   string  text,             // texto da mensagem
+   string  caption=NULL,     // cabeçalho da caixa
+   int     flags=0           // define o conjunto de botões na caixa
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+text
+[in]  Texto, contém a mensagem de saída.
+caption=NULL
+[in]  Texto opcional a ser exibido no cabeçalho da caixa. Se o parâmetro estiver vazio, o nome do
+Expert Advisor é exibido no cabeçalho da caixa.
+flags=0
+[in]  Flags opcionais definindo a aparência e comportamento da caixa de mensagem. Flags podem
+ser uma combinação de um grupo especial de flags.
+<h3>Valor do Retorno</h3>
+Se a função for executada com sucesso, o valor de retorno é um dos valores dos códigos de retorno
+do MessageBox().
+<h3>Observação</h3>
+A função é proibida em indicadores personalizados, uma vez que a chamada para MessageBox()
+interrompe o trabalho do thread de execução durante todo o tempo de espera pela resposta do
+usuário. Como todos os indicadores de cada símbolo são executados num único thread, o
+funcionamento de todos os gráficos em todos os períodos gráficos do símbolo em questão será
+interrompido.
+A função MessageBox() não funciona no Testador de estratégias.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| O EA mostra uma MessageBox com uma solicitação de trabalho extra |
+//| quando alcançado o limite de negociações perdedoras consecutivas |
+//| Aguarda um número especificado de barras e exibe uma MessageBox  |
+//| mostrando uma solicitação para continuar a trabalhar.            |
+//| Para verificar, abra e feche manualmente algumas posições        |
+//| com prejuízo, pois, para simplificar, o EA não                   |
+//| controla &quot;suas&quot; posições com base no magic number.               |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1156
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input uint InpMaxLossDeals      =  3;    // Max Loss deals
+input uint InpInactivityNumBars =  5;    // Number of bars of advisor inactivity
+//--- global variables
+bool     ExtFirstStart=true;             // Flag de primeira inicialização
+bool     ExtFlag=true;                   // Flag de permissão de operação do EA
+</code></pre>
+<p>
+uint     ExtNumLoss;                     // Número de negociações perdedoras consecuti
+datetime ExtTimeLastLoss;                // Tempo da última operação de fechamento de 
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- obtemos o número de negociações perdedoras consecutivas e o tempo da última oper
+   ExtNumLoss=GetNumLosingTradesInRow(ExtTimeLastLoss);
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+   Comment(&quot;&quot;);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- determinamos quantas a barras se passaram desde a última posição perdedora fecha
+   int bars_remaining=iBarShift(Symbol(),PERIOD_CURRENT,ExtTimeLastLoss);
+//--- se for a primeira inicialização
+   if(ExtFirstStart)
+     {
+      //--- se já passou o número especificado de a barras após a série de posições pe
+      if(bars_remaining&gt;(int)InpInactivityNumBars)
+         ExtFlag=true;
+      ExtFirstStart=false;
+     }
+//--- se a flag de operação do EA for removida
+   if(!ExtFlag)
+     {
+      Comment(StringFormat(&quot;The advisor is stopped for %d bars. Num Loss positions: %u
+                          (InpInactivityNumBars-bars_remaining),ExtNumLoss,TimeToStrin</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1157
+</p>
+<pre><code class="language-mql5">
+      //--- se passou o número especificado de a barras após a série de posições perde
+      if(bars_remaining&gt;(int)InpInactivityNumBars)
+        {
+         //--- exibimos uma caixa de diálogo MessageBox com o texto especificado e o t
+         //--- a janela de solicitação tem dois botões Yes/No e um ícone com um sinal 
+         //--- o botão Yes é selecionado por padrão.
+         string mb_text=&quot;The specified number of bars of EA inactivity have passed.\n 
+         string mb_caption=&quot;Please note&quot;;
+         int    mb_id=MessageBox(mb_text,mb_caption,MB_YESNO|MB_ICONQUESTION|MB_DEFBUT
+         //--- se o código de retorno do MessageBox for o botão Yes pressionado, defin
+         if(mb_id==IDYES)
+           {
+            ExtFlag=true;
+            return;
+           }
+        }
+      //--- se a flag de operação do EA for removida, saímos do OnTick()
+      return;
+     }
+//---  a flag de operação do EA está definida, o EA funciona conforme o código abaixo 
+   Comment(StringFormat(&quot;The advisor is working. Num Loss positions: %u, Time last los
+           ExtNumLoss,TimeToString(ExtTimeLastLoss,TIME_DATE|TIME_MINUTES|TIME_SECONDS
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| TradeTransaction function                                        |
+//+------------------------------------------------------------------+
+void OnTradeTransaction(const MqlTradeTransaction&amp; trans,
+                        const MqlTradeRequest&amp; request,
+                        const MqlTradeResult&amp; result)
+  {
+//--- se o tipo de transação for a adição de uma negociação ao histórico
+   if(trans.type==TRADE_TRANSACTION_DEAL_ADD)
+     {
+      //--- Obtemos o ticket da negociação e selecionamos a negociação da lista pelo t
+      ulong deal_ticket=trans.deal;
+      if(HistoryDealSelect(deal_ticket))
+        {
+         //--- se for uma negociação para sair do mercado, obtemos o número de negocia
+         ENUM_DEAL_ENTRY entry=(ENUM_DEAL_ENTRY)HistoryDealGetInteger(deal_ticket,DEAL
+         if(entry==DEAL_ENTRY_OUT || entry==DEAL_ENTRY_INOUT || entry==DEAL_ENTRY_OUT_
+            ExtNumLoss=GetNumLosingTradesInRow(ExtTimeLastLoss);
+        }
+     }
+//--- se o número de negociações perdedoras consecutivas for maior que o valor especif
+   if(ExtNumLoss&gt;=InpMaxLossDeals &amp;&amp; ExtFlag)
+     {
+         //--- exibimos uma caixa de diálogo MessageBox com o texto especificado e o t</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1158
+</p>
+<pre><code class="language-mql5">
+      //--- a janela de solicitação tem dois botões Yes/No e um ícone com um sinal de 
+      //--- o botão No é selecionado por padrão
+      string mb_text=&quot;The number of losing trades has reached the specified maximum. T
+      string mb_caption=&quot;Attention!&quot;;
+      int    mb_id=MessageBox(mb_text,mb_caption,MB_YESNO|MB_ICONQUESTION|MB_DEFBUTTON
+      //--- se o código de retorno do MessageBox for o botão No pressionado, removemos
+      if(mb_id==IDNO)
+         ExtFlag=false;
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna o número de negociações perdedoras consecutivas          |
+//| e o tempo da última operação de fechamento de posição perdedora  |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+uint GetNumLosingTradesInRow(datetime &amp;time_last_deal)
+</p>
+<pre><code class="language-mql5">
+  {
+//--- selecionamos todo o histórico
+   if(!HistorySelect(0,TimeCurrent()))
+      return(0);
+//--- no ciclo pela lista de negociações históricas, obtemos o ticket da próxima negoc
+   uint res=0;
+   uint total=HistoryDealsTotal();
+   for(int i=(int)total-1; i&gt;=0; i--)
+     {
+      ulong deal_ticket=HistoryDealGetTicket(i);
+      if(deal_ticket&gt;0)
+        {
+         //--- se a negociação não for de saída de posição, passamos para a próxima
+         ENUM_DEAL_ENTRY entry=(ENUM_DEAL_ENTRY)HistoryDealGetInteger(deal_ticket,DEAL
+         if(entry!=DEAL_ENTRY_OUT &amp;&amp; entry!=DEAL_ENTRY_OUT_BY &amp;&amp; entry!=DEAL_ENTRY_INO
+            continue;
+         //--- se o resultado do fechamento da posição tiver lucro positivo, interromp
+         if(!IsClosePositionWithLoss(deal_ticket))
+            break;
+         //--- incrementamos o contador de negociações consecutivas com prejuízo
+         res++;
+         //--- registramos na variável o tempo máximo da negociação (procuramos a últi
+         datetime deal_time=(datetime)HistoryDealGetInteger(deal_ticket,DEAL_TIME);
+         if(deal_time&gt;time_last_deal)
+            time_last_deal=deal_time;
+        }
+     }
+//--- Retornamos o número de perdas consecutivas
+   return(res);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna a flag de fechamento da posição com perda             |</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1159
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+bool IsClosePositionWithLoss(const ulong deal_ticket)
+  {
+//--- obtemos a partir da negociação os valores das propriedades que afetam o lucro
+   double profit=HistoryDealGetDouble(deal_ticket,DEAL_PROFIT);
+   double comission=HistoryDealGetDouble(deal_ticket,DEAL_COMMISSION);
+   double swap=HistoryDealGetDouble(deal_ticket,DEAL_SWAP);
+   double fee=HistoryDealGetDouble(deal_ticket,DEAL_FEE);
+//--- retornamos a flag de que o valor total das propriedades obtidas é negativo
+   return(profit+comission+swap+fee&lt;0);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1160
+<h3>PeriodSeconds</h3>
+Esta função retorna o número de segundos em um período.
+</p>
+<pre><code class="language-mql5">
+int  PeriodSeconds(
+   ENUM_TIMEFRAMES  period=PERIOD_CURRENT      // período do gráfico
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+period=PERIOD_CURRENT
+[in]  Valor do período de um gráfico proveniente da enumeração ENUM_TIMEFRAMES. Se o
+parâmetro não for especificado, ela retorna o número de segundos do período do gráfico corrente,
+no qual o programa está rodando.
+<h3>Valor do Retorno</h3>
+Número de segundos em um período selecionado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- input parameters
+input ENUM_TIMEFRAMES InpPeriod1 = PERIOD_CURRENT;   // First Period
+input ENUM_TIMEFRAMES InpPeriod2 = PERIOD_M1;        // Second Period
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtemos a quantidade de segundos nos períodos do gráfico InpPeriod1 e InpPeriod2
+   int sec1=PeriodSeconds(InpPeriod1);
+   int sec2=PeriodSeconds(InpPeriod2);
+//--- exibimos os valores obtidos no log
+   PrintFormat(&quot;Seconds in period %s: %lu, in period %s: %lu&quot;,TimeframeDescription(Inp
+//--- calculamos quantas barras do período do gráfico InpPeriod2 cabem em uma barra do
+   int res=sec1/sec2;
+   if(res==0)
+      res=1;
+//--- exibimos os valores obtidos no log
+   PrintFormat(&quot;One bar %s contains %d bars %s&quot;,TimeframeDescription(InpPeriod1),res,T
+  /*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   Seconds in period M5: 300, in period M1: 60
+   One bar M5 contains 5 bars M1
+</code></pre>
+<p>
+  */
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Retorna o nome do timeframe                                      |</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1161
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+string TimeframeDescription(const ENUM_TIMEFRAMES period)
+  {
+   return(StringSubstr(EnumToString(period==PERIOD_CURRENT ? Period() : period), 7));
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+_Period, Janelas de tempo de Gráficos, Date e Hora, Visibilidade de objetos</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1162
+<h3>PlaySound</h3>
+Toca um arquivo de som.
+</p>
+<pre><code class="language-mql5">
+bool  PlaySound(
+   string  filename      // nome do arquivo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+filename
+[in]  Caminho para um arquivo de som. Se filename=NULL, a reprodução é interrompida.
+<h3>Valor do Retorno</h3>
+true – se o arquivo for encontrado, caso contrário - false.
+<h3>Observação</h3>
+O arquivo deve estar localizado em terminal_directory\Sounds ou em sub-diretórios. Somente
+arquivos WAV são executados.
+Chamar o PlaySound() com o parâmetro NULL interrompe a reprodução.
+A função PlaySound() não funciona no Testador de Estratégias.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#include &lt;Trade\Trade.mqh&gt;
+#define MAGIC (123)
+//--- input parameters
+input string          InpFileNameOK  = &quot;ok.wav&quot;;               // arquivo de locução d
+input string          InpFileNameErr = &quot;timeout.wav&quot;;          // arquivo de mensagem 
+input ENUM_ORDER_TYPE InpOrderType   = ORDER_TYPE_BUY_LIMIT;   // tipo de ordem
+input double          InpLots        = 0.1;                    // lotes
+//--- global variables
+</code></pre>
+<p>
+<h3>CTrade ExtTrade;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- definimos o magic e o tipo de ordem de execução de acordo com as configurações d
+   ExtTrade.SetExpertMagicNumber(MAGIC);
+   ExtTrade.SetTypeFillingBySymbol(Symbol());
+//--- chamamos a função de configuração da ordem ou abertura de posição com reprodução
+   OrderSendWithAudio();
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1163
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| A função configura a ordem ou abre a posição                     |
+//| e reproduz o som de sucesso ou erro                              |
+//+------------------------------------------------------------------+
+void OrderSendWithAudio(void)
+  {
+   bool    res=true;
+   MqlTick tick= {};
+   ResetLastError();
+   if(!SymbolInfoTick(Symbol(),tick))
+     {
+      Print(&quot;SymbolInfoTick() failed. Error code: &quot;,GetLastError());
+      PlaySound(InpFileNameErr);
+      return;
+     }
+//--- enviamos uma solicitação ao servidor
+   switch(InpOrderType)
+     {
+      case ORDER_TYPE_BUY :
+         res=ExtTrade.Buy(InpLots);
+         break;
+      case ORDER_TYPE_BUY_LIMIT :
+         res=ExtTrade.BuyLimit(InpLots,NormalizeDouble(tick.ask-100*Point(),Digits()))
+         break;
+      case ORDER_TYPE_BUY_STOP :
+         res=ExtTrade.BuyStop(InpLots,NormalizeDouble(tick.ask+100*Point(),Digits()));
+         break;
+      case ORDER_TYPE_SELL :
+         res=ExtTrade.Sell(InpLots);
+         break;
+      case ORDER_TYPE_SELL_LIMIT :
+         res=ExtTrade.SellLimit(InpLots,NormalizeDouble(tick.bid+100*Point(),Digits())
+         break;
+      case ORDER_TYPE_SELL_STOP :
+         res=ExtTrade.SellStop(InpLots,NormalizeDouble(tick.bid-100*Point(),Digits()))
+         break;
+      default :
+         res=false;
+     }
+   if(!res)
+      Print(&quot;Error &quot;,GetLastError());
+   Print(ExtTrade.ResultRetcodeDescription());
+//--- se a solicitação for aceita, reproduzimos o som ok.wav
+   if(ExtTrade.ResultRetcode()==TRADE_RETCODE_DONE)
+      PlaySound(InpFileNameOK);
+   else
+      PlaySound(InpFileNameErr);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1164
+  }
+<h3>Também Veja</h3>
+<h3>Recursos</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1165
+<h3>Print</h3>
+Entra uma mensagem no log do Expert Advisor. Parâmetros podem ser de qualquer tipo.
+</p>
+<pre><code class="language-mql5">
+void  Print(
+   argument,     // primeiro valor
+   ...           // próximos valores
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+...
+[in]  Quaisquer valores separados por virgulas. O número de parâmetros não pode exceder 64.
+<h3>Observação</h3>
+Arrays não podem ser passados para a função Print(). Arrays devem ser passados elemento a
+elemento.
+Dados do tipo double são mostrados com precisão de até 16 dígitos após o ponto decimal, e podem
+ser exibidos tanto na formato tradicional como em notação científica, dependendo de qual saída
+será mais compacta. Dados do tipo float são exibidos com 5 dígitos após o ponto decimal. Para
+imprimir números reais com uma outra precisão ou em um formato predefinido, use a função
+PrintFormat() . 
+Dados do tipo bool são exibidos como strings &quot;true&quot; ou &quot;false&quot;. Datas são mostradas como
+YYYY.MM.DD HH:MM:SS. Para mostrar datas em um outro formato, use TimeToString(). Dados do
+tipo cor são retornados como string R,G,B ou como nome de cor, se esta cor estiver presente no
+conjunto de cores
+ A função Print() não funciona no durante a otimização no Testador de Estratégias.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- Imprime o DBL_MAX usando Print(), isso é equivalente a PrintFormat(%%.16G,DBL_MA
+   Print(&quot;---- como DBL_MAX aparece -----&quot;);
+   Print(&quot;Print(DBL_MAX)=&quot;,DBL_MAX);
+//--- Agora imprime o número DBL_MAX usando PrintFormat()
+   PrintFormat(&quot;PrintFormat(%%.16G,DBL_MAX)=%.16G&quot;,DBL_MAX);
+//--- Imprime no diário Experts
+// Print(DBL_MAX)=1.797693134862316e+308
+// PrintFormat(%.16G,DBL_MAX)=1.797693134862316E+308
+//--- Veja como um float é impresso
+   float c=(float)M_PI; // Nós devemos explicitamente converter para o tipo desejado
+   Print(&quot;c=&quot;,c, &quot;    Pi=&quot;,M_PI, &quot;    (float)M_PI=&quot;,(float)M_PI);
+// c=3.14159    Pi=3.141592653589793    (float)M_PI=3.14159
+   
+//--- Mostra o que pode acontecer com operações aritméticas com tipos reais
+   double a=7,b=200;
+   Print(&quot;---- Antes de operações aritméticas&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1166
+</p>
+<pre><code class="language-mql5">
+   Print(&quot;a=&quot;,a,&quot;   b=&quot;,b);
+   Print(&quot;Print(DoubleToString(b,16))=&quot;,DoubleToString(b,16));
+//--- Dividir a por b (7/200)
+   a=a/b;
+//--- Agora emula a restauração de um valor na variável b
+   b=7.0/a; // É esperado que b=7.0/(7.0/200.0)=&gt;7.0/7.0*200.0=200 - mas ele difere
+//--- Imprimi o novo valor calculado de b
+   Print(&quot;----- Após as operações aritméticas&quot;);
+   Print(&quot;Print(b)=&quot;,b);
+   Print(&quot;Print(DoubleToString(b,16))=&quot;,DoubleToString(b,16));
+//--- Imprime no diário Experts
+// Print(b)=200.0
+// Print(DoubleToString(b,16))=199.9999999999999716 (veja que b não é mais igual a 200
+//--- Cria um valor muito pequeno epsilon=1E-013
+   double epsilon=1e-13;
+   Print(&quot;---- Criando um valor muito pequeno&quot;);
+   Print(&quot;epsilon=&quot;,epsilon); // Obter epsilon=1E-013
+//--- Agora subtrai epsilon de b e novamente imprime o valor no diário Experts
+   b=b-epsilon;
+//--- Duas formas de uso
+   Print(&quot;---- Depois de subtrair epsilon da variável b&quot;);
+   Print(&quot;Print(b)=&quot;,b);
+   Print(&quot;Print(DoubleToString(b,16))=&quot;,DoubleToString(b,16));
+//--- Imprime no diário Experts
+// Print(b)=199.9999999999999  (agora o valor de b após subtrair epsilon não pode ser 
+// Print(DoubleToString(b,16))=199.9999999999998578
+//    (agora o valor de b após subtrair epsilon não podem ser arredondado para 200)
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+<h3>DoubleToString, StringFormat</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1167
+<h3>PrintFormat</h3>
+Formata e entra conjuntos de símbolos e valores no log do Expert Advisor em concordância com um
+formato predefinido.
+</p>
+<pre><code class="language-mql5">
+void  PrintFormat(
+   string format_string,   // string de formato
+   ...                     // valores de tipo simples
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+format_string
+[in]  A string de formato consiste de símbolos simples, e se a string de formato é seguido por
+argumentos, ela também contém especificações de formato.
+...
+[in]  Quaisquer valores de tipos simples separados por vírgula. Número total de parâmetros não
+pode exceder A 64, incluindo a string de formato.
+<h3>Valor do Retorno</h3>
+String.
+<h3>Observação</h3>
+A função Printformat() não funciona no durante a otimização no Testador de Estratégias.
+O número, ordem e tipo dos parâmetros devem corresponder exatamente com o conjunto de
+qualificadores, caso contrário, o resultado do print é indefinido. Ao invés de PrintFormat(), você
+pode usar printf().
+Se a string de formato for seguida por parâmetros, esta string deve conter especificações de
+formato que denotem o formato de saída destes parâmetros. Especificações de formato sempre
+começam com o sinal de percentual (%).
+Uma string de formato é lida da esquerda para direita. Quando a primeira especificação de formato
+é encontrada (se houver alguma), o valor do primeiro parâmetro após a string de formato é
+transformado e impresso de acordo com a especificação predefinida. A segunda especificação de
+formato chama a transformação e impressão do segundo parâmetro, e assim por diante até a string
+de formato acabe.
+A especificação de formato tem a seguinte forma:            
+</p>
+<pre><code class="language-mql5">
+            %[flags][largura][.precisão][{h | l | ll | I32 | I64}]tipo
+</code></pre>
+<p>
+Cada campo da especificação de formato é tanto um símbolo simples, como um número denotando
+uma opção de formato simples. A especificação de formato mais simples contém somente o sinal de
+percentagem (%) e um símbolo definindo o tipo do parâmetro de saída (por exemplo, %s). Se você
+precisar imprimir o sinal de percentual na string de formato, use o especificação de formato %%.
+flags</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1168
+<h3>Flag</h3>
+<h3>Descrição</h3>
+<h3>Comportamento Default</h3>
+–
+(meno
+s)
+Justificação a esquerda dentro da largura (width)
+predefinida
+<h3>Justificação a direita</h3>
++
+(mais)
+Imprime o sinal + ou - de valores de tipos com sinal
+<h3>O sinal somente é mostrada</h3>
+se o valor for negativo
+0
+(zero)
+Zeros são adicionados antes de um valor impresso
+com a largura predefinida. Se o flag 0 for
+especificado com um formato inteiro (i, u, x, X, o,
+d) e a especificação de precisão for definida (por
+exemplo, %04.d), então 0 é ignorado.
+<h3>Nada é adicionado</h3>
+espaço
+Um espaço é exibido antes de um valor impresso, se
+ele for um valor com sinal e positivo
+<h3>Espaços não são inseridos</h3>
+#
+Se usado em conjunto com o formato o, x ou X,
+então antes do valor de saída 0, 0x ou 0X é
+adicionado respectivamente.
+<h3>Nada é adicionado</h3>
+Se usado em conjunto com o formato e, E, a ou A, o
+valor é sempre mostrado com um ponto decimal.
+<h3>Ponto decimal é mostrado</h3>
+somente se houver um parte
+fracionária não-zero.
+Se usado em conjunto com o formato g ou G, o flag
+define a presença de um ponto decimal no valor de
+saída e evita o truncamento de zeros à esquerda. 
+O flag # é ignorado quando usado em conjunto com
+formatos c, d, i, u, s.
+<h3>Ponto decimal é mostrado</h3>
+somente se houver um parte
+fracionária não-zero. Zeros à
+esquerda são cortados.
+largura
+Um número decimal não negativo que define o número mínimo de símbolos de saída do valor
+formatado. Se o número de saída de símbolos é menor do que a largura especificada, o
+correspondente número de espaços é adicionado a partir da esquerda ou direita, dependendo do
+alinhamento (flag -). Se houver o flag zero (0), o número correspondente de zeros é adicionado
+antes do valor de saída. Se o número de saída de símbolos de saída é maior do que a largura
+especificada, o valor de saída não é cortado.
+Se um asterisco (*) for especificado como width, um valor de tipo int deve ser indicado no lugar
+correspondente da lista de parâmetros passados. Ele será usado para especificar a largura do valor
+de saída.
+precisão
+Um número decimal não negativo que define a precisão de saída - número de dígitos após o ponto
+decimal. Como diferença da especificação de largura, a especificação de precisão pode truncar a
+parte fracionário com ou sem arredondamento.
+O uso da especificação de precisão é diferente para tipos de formato diferentes.</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1169
+<h3>Tipos</h3>
+<h3>Descrição</h3>
+<h3>Comportamento Default</h3>
+a, A
+Especificação de precisão define o número de
+dígitos após o ponto decimal.
+Precisão padrão – 6.
+c, C
+<h3>Não usado</h3>
+d, 
+i,
+u, 
+o,
+x, X
+Define o número mínimo de dígitos de saída. Se o
+número de dígitos em um parâmetro correspondente
+</p>
+<pre><code class="language-mql5">
+for menor que esta precisão, zeros são adicionados
+</code></pre>
+<p>
+a esquerda do valor de saída. O valor de saída não é
+cortado, se o número de dígitos de saída é maior do
+que a precisão apurada.
+Precisão padrão – 1.
+e, E, f
+Define o número de dígitos de saída após o ponto
+decimal. O último dígito é arredondado.
+<h3>Precisão padrão – 6. Se a</h3>
+definição de precisão for 0 ou a
+parte decimal estiver ausente,
+o ponto decimal não é exibido.
+g, G
+Define o número máximo de números significativos.
+6 números significativos são
+impressos.
+s
+Define o número de saída dos símbolos de uma
+string. Se o comprimento da string excede ao
+apurado, a string e cortada.
+Toda a string é a saída.
+</p>
+<pre><code class="language-mql5">
+   PrintFormat(&quot;1. %s&quot;, _Symbol);
+   PrintFormat(&quot;2. %.3s&quot;, _Symbol);
+   int length=4;
+   PrintFormat(&quot;3. %.*s&quot;, length, _Symbol);
+   /*
+   1. EURUSD
+   2. EUR
+   3. EURU
+   /
+</code></pre>
+<p>
+h | l | ll | I32 | I64
+Especificação de tamanhos dos dados, passados como parâmetro.
+<h3>Tipo de</h3>
+<h3>Parâmet</h3>
+ro
+<h3>Prefixo Usado</h3>
+<h3>Especificador Conjunto de Tipo</h3>
+int
+l 
+(letra
+minúscula L)
+d, i, o, x, or X
+uint
+l 
+(letra
+minúscula L)
+o, u, x, or X</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1170
+<h3>Tipo de</h3>
+<h3>Parâmet</h3>
+ro
+<h3>Prefixo Usado</h3>
+<h3>Especificador Conjunto de Tipo</h3>
+long
+ll (duas letras
+minúsculas L)
+d, i, o, x, or X
+short
+h
+d, i, o, x, or X
+ushort
+h
+o, u, x, or X
+int
+<h3>I32</h3>
+d, i, o, x, or X
+uint
+<h3>I32</h3>
+o, u, x, or X
+long
+<h3>I64</h3>
+d, i, o, x, or X
+ulong
+<h3>I64</h3>
+o, u, x, or X
+tipo
+Especificador de tipo é o único campo obrigatório para a saída formatada.
+<h3>Símbol</h3>
+o
+<h3>Tipo</h3>
+<h3>Formato de Saída</h3>
+c
+int
+<h3>Símbolo de tipo short (Unicode)</h3>
+<h3>C</h3>
+int
+<h3>Símbolo de tipo char (ANSI)</h3>
+d
+int
+<h3>Inteiro decimal com sinal</h3>
+i
+int
+<h3>Inteiro decimal com sinal</h3>
+o
+int
+<h3>Inteiro octal sem sinal</h3>
+u
+int
+<h3>Inteiro decimal sem sinal</h3>
+x
+int
+<h3>Inteiro hexadecimal sem sinal, usando &quot;abcdef&quot;</h3>
+<h3>X</h3>
+int
+<h3>Inteiro hexadecimal sem sinal, usando &quot;ABCDEF&quot;</h3>
+e
+doubl
+e
+Um valor real no formato [-] d.dddde[sinal] ddd, onde d - um dígito decimal,
+dddd - um ou mais dígitos decimais, ddd - um número de três dígitos que
+determina o tamanho do exponente, sinal - mais ou menos
+<h3>E</h3>
+doubl
+e
+Semelhando ao formato de e, exceto que o sinal do expoente é impresso em
+letra maiúscula (E ao invés de e)
+f
+doubl
+e
+Um valor real no format [-] dddd.dddd, onde dddd - um ou mais dígitos
+decimais. Número de dígitos exibidos depois do ponto decimal depende do
+tamanho do valor do número. Número de dígitos após o ponto decimal
+depende da precisão requerida.
+g
+doubl
+e
+Uma saída de valor real no formato f ou edepende de qual saída é mais
+compacta.</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1171
+<h3>Símbol</h3>
+o
+<h3>Tipo</h3>
+<h3>Formato de Saída</h3>
+<h3>G</h3>
+doubl
+e
+Uma saída de valor real no formato F ou Edepende de qual saída é mais
+compacta.
+a
+doubl
+e
+Um número real no formato [−]0xh.hhhh p±dd, onde h.hhhh – mantissa na
+forma de dígitos hexadecimais, usando &quot;abcdef&quot;, dd - Um ou mais dígitos de
+expoente. Número de posições decimais é determinado pela especificação de
+precisão
+<h3>A</h3>
+doubl
+e
+Um número real no formato [−]0xh.hhhh p±dd, onde h.hhhh – mantissa na
+forma de dígitos hexadecimais, usando &quot;abcdef&quot;, dd - Um ou mais dígitos de
+expoente. Número de posições decimais é determinado pela especificação de
+precisão
+s
+string
+<h3>Saída da string</h3>
+Ao invés de PrintFormat(), você pode usar printf().
+<h3>Exemplo:</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1172
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- trade server name
+   string server=AccountInfoString(ACCOUNT_SERVER);
+//--- account number
+   int login=(int)AccountInfoInteger(ACCOUNT_LOGIN);
+//--- long value output
+   long leverage=AccountInfoInteger(ACCOUNT_LEVERAGE);
+   PrintFormat(&quot;%s %d: leverage = 1:%I64d&quot;,
+               server,login,leverage);
+//--- account currency
+   string currency=AccountInfoString(ACCOUNT_CURRENCY);
+//--- double value output with 2 digits after the decimal point
+   double equity=AccountInfoDouble(ACCOUNT_EQUITY);
+   PrintFormat(&quot;%s %d: account equity = %.2f %s&quot;,
+               server,login,equity,currency);
+//--- double value output with mandatory output of the +/- sign
+   double profit=AccountInfoDouble(ACCOUNT_PROFIT);
+   PrintFormat(&quot;%s %d: current result for open positions = %+.2f %s&quot;,
+               server,login,profit,currency);
+//--- double value output with variable number of digits after the decimal point
+   double point_value=SymbolInfoDouble(_Symbol,SYMBOL_POINT);
+   string format_string=StringFormat(&quot;%%s: point value  = %%.%df&quot;,_Digits);
+   PrintFormat(format_string,_Symbol,point_value);
+//--- int value output
+   int spread=(int)SymbolInfoInteger(_Symbol,SYMBOL_SPREAD);
+   PrintFormat(&quot;%s: current spread in points = %d &quot;,
+               _Symbol,spread);
+//--- double value output in the scientific (floating point) format with 17 meaningful
+   PrintFormat(&quot;DBL_MAX = %.17e&quot;,DBL_MAX);
+//--- double value output in the scientific (floating point) format with 17 meaningful
+   PrintFormat(&quot;EMPTY_VALUE = %.17e&quot;,EMPTY_VALUE);
+//--- output using PrintFormat() with default accuracy
+   PrintFormat(&quot;PrintFormat(EMPTY_VALUE) = %e&quot;,EMPTY_VALUE);
+//--- simple output using Print()
+   Print(&quot;Print(EMPTY_VALUE) = &quot;,EMPTY_VALUE);
+/* execution result
+   MetaQuotes-Demo 1889998: leverage = 1:100
+   MetaQuotes-Demo 1889998: account equity = 22139.86 USD
+   MetaQuotes-Demo 1889998: current result for open positions = +174.00 USD
+   EURUSD: point value  = 0.00001
+   EURUSD: current spread in points = 12 
+   DBL_MAX = 1.79769313486231570e+308
+   EMPTY_VALUE = 1.79769313486231570e+308
+   PrintFormat(EMPTY_VALUE) = 1.797693e+308
+   Print(EMPTY_VALUE) = 1.797693134862316e+308
+</code></pre>
+<p>
+*/
+  }
+<h3>Também Veja</h3>
+<h3>StringFormat, DoubleToString, Tipos reais (double, float)</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1173
+<h3>ResetLastError</h3>
+Define o valor do variável predefinida _LastError para zero.
+</p>
+<pre><code class="language-mql5">
+void  ResetLastError();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+Deve ser notado que a função GetLastError() não zera a variável _LastError. Geralmente a função
+ResetLastError() é chamada antes de chamar uma função, após o qual um surgimento de erro é
+verificado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- redefinimos o código do último erro antes de chamar a função
+//--- caso contrário, GetLastError() pode retornar o código de um erro anterior
+   long lres=SymbolInfoInteger(&quot;123456&quot;,SYMBOL_DIGITS);
+   PrintFormat(&quot;lres=%d  error=%d&quot;,lres,GetLastError());
+   lres=SymbolInfoInteger(_Symbol,SYMBOL_DIGITS);
+   PrintFormat(&quot;lres=%d  error=%d&quot;,lres,GetLastError());
+   ResetLastError();
+   lres=SymbolInfoInteger(_Symbol,SYMBOL_DIGITS);
+   PrintFormat(&quot;lres=%d  error=%d&quot;,lres,GetLastError());
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1174
+<h3>ResourceCreate</h3>
+Criar um recurso de imagem baseado em um conjunto de dados. Existe duas variantes da função:
+Criando um recurso baseado em um arquivo
+</p>
+<pre><code class="language-mql5">
+bool  ResourceCreate(
+   const string      resource_name,       // Nome do recurso
+   const string      path                 // Uma caminho relativo para o arquivo
+   );
+</code></pre>
+<p>
+Criando um recurso baseado em um array de pixels
+</p>
+<pre><code class="language-mql5">
+bool  ResourceCreate(
+   const string      resource_name,       // Nome do recurso
+   const uint&amp;       data[],              // Conjunto de dados em um array
+   uint              img_width,           // A largura do recurso de imagem
+   uint              img_height,          // A altura do recurso de imagem
+   uint              data_xoffset,        // O deslocamento horizontal para direita do
+   uint              data_yoffset,        // O deslocamento vertical para baixo do can
+   uint              data_width,          // A largura total da imagem baseada no conj
+   ENUM_COLOR_FORMAT color_format         // Método de processamento de cor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+resource_name
+[in]  Nome do recurso.
+data[][]
+[in]  Um array de uma dimensão ou duas dimensões de cores para criar uma imagem completa.
+img_width
+[in]  A largura da área da imagem retangular em pixels para ser colocada no recurso na forma de
+uma imagem. Ela não pode ser maior que o valor data_width.
+img_height
+[in]  A altura da área da imagem retangular em pixels para ser colocada no recurso na forma de
+uma imagem.
+data_xoffset
+[in]  O deslocamento horizontal para direita da área retangular da imagem.
+data_yoffset
+[in]  O deslocamento vertical para baixa da área retangular da imagem.
+data_width
+[in]  Requerido somente para arrays de uma dimensão. Denota a largura total da imagem a partir
+do conjunto de dados. Se data_width=0, é assumido ser igual a img_width. Para arrays
+bidimensionais o parâmetro é ignorado e é assumido como sendo igual à segunda dimensão do
+array data[].
+color_format</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1175
+[in]  
+<h3>Método</h3>
+de 
+processamento 
+de 
+cor, 
+a 
+partir 
+de 
+um 
+valor 
+da 
+enumeração
+ENUM_COLOR_FORMAT.
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro chame a
+função GetLastError(). Os seguintes erros podem ocorrer:
+· 4015 – ERR_RESOURCE_NAME_DUPLICATED (nomes idênticos do recurso dinâmico e estático)
+· 4016 – ERR_RESOURCE_NOT_FOUND (o recurso não foi encontrado)
+· 4017 – ERR_RESOURCE_UNSUPPORTED_TYPE (este tipo de recurso não é suportado)
+· 4018 – ERR_RESOURCE_NAME_IS_TOO_LONG (o nome do recurso é muito longo)
+<h3>Observação</h3>
+Se a segunda versão da função é chamada para criar o mesmo recurso com largura, altura e
+parâmetros de deslocamento diferentes, ela não cria um novo recurso, mas simplesmente atualiza o
+recurso existente.
+A primeira versão da função é usada para carregar imagens e sons a partir de arquivos, e a segunda
+versão é usada somente para a criação dinâmica de imagens.
+Imagens devem estar no formato BMP com um profundidade de cor de 24 ou 32 bits. Sons podem
+somente ser no formato WAV. O tamanho do recurso não deve exceder 16 Mb.
+<h3>ENUM_COLOR_FORMAT</h3>
+<h3>Identifier</h3>
+<h3>Descrição</h3>
+<h3>COLOR_FORMAT_XRGB_NOALPHA</h3>
+O componente do canal alfa é ignorado
+<h3>COLOR_FORMAT_ARGB_RAW</h3>
+Componentes de cor não são tratados pelo
+terminal (devem ser corretamente definidos
+pelo usuário)
+<h3>COLOR_FORMAT_ARGB_NORMALIZE</h3>
+Componentes de cor são tratados pelo terminal
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Atualiza os dados do recurso gráfico                             |
+//+------------------------------------------------------------------+
+void Update(const string res_name,const uint &amp;pixel_data[],const uint width,const uint
+  {
+//--- Se forem passados tamanhos nulos, saímos
+   if(width==0 || height==0)
+      return;
+//--- Atualizamos os dados do recurso e redesenhamos o gráfico
+   if(ResourceCreate(res_name,pixel_data,width,height,0,0,0,COLOR_FORMAT_ARGB_NORMALIZ
+      ChartRedraw();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1176
+</p>
+<pre><code class="language-mql5">
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos os parâmetros do recurso gráfico
+   string rc_name=&quot;Resource&quot;;
+   uint   rc_width=100;
+   uint   rc_height=100;
+   uint   rc_data[];
+   uint   rc_size=rc_width*rc_height;
+   ResetLastError();
+//--- definimos o tamanho do array de pixels
+   if(ArrayResize(rc_data,rc_size)!=rc_size)
+     {
+      Print(&quot;ArrayResize() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- preenchemos o array de pixels com cor transparente e com base nele criamos um re
+   ArrayInitialize(rc_data,0x00FFFFFF);
+   if(!ResourceCreate(rc_name,rc_data,rc_width,rc_height,0,0,0,COLOR_FORMAT_ARGB_NORMA
+     {
+      Print(&quot;ResourceCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   Print(&quot;Size of created recource array: &quot;,rc_data.Size());
+//--- verificamos o recurso gráfico criado
+//--- obtemos os dados de tempo e preço da barra atual
+   MqlTick tick={};
+   if(!SymbolInfoTick(Symbol(),tick))
+     {
+      Print(&quot;SymbolInfoTick() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- criamos um objeto &quot;Desenho&quot; nas coordenadas de preço e tempo do último tick
+   string obj_name=&quot;Bitmap&quot;;
+   if(!ObjectCreate(0,obj_name,OBJ_BITMAP,0,tick.time,tick.bid))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos para o objeto-desenho a largura e a altura iguais às do recurso gráfic
+//--- definimos o ponto de ancoragem do objeto pelo seu centro.
+   ObjectSetInteger(0,obj_name,OBJPROP_XSIZE,rc_width);
+   ObjectSetInteger(0,obj_name,OBJPROP_YSIZE,rc_height);
+   ObjectSetInteger(0,obj_name,OBJPROP_ANCHOR,ANCHOR_CENTER);
+//--- especificamos para o objeto-desenho o arquivo de imagem do recurso gráfico criad
+//--- Neste caso, para indicar o nome do recurso gráfico usado, deve-se escrever &quot;::&quot; </p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1177
+</p>
+<pre><code class="language-mql5">
+   ObjectSetString(0,obj_name,OBJPROP_BMPFILE,&quot;::&quot;+rc_name);
+   
+//--- definimos a cor DodgerBlue com transparência de 200
+   uint clr=ColorToARGB(clrDodgerBlue,200);
+//--- preenchemos com a cor definida todo o array de pixels do recurso gráfico
+   ArrayInitialize(rc_data,clr);
+//--- atualizamos os dados do recurso gráfico
+   Update(rc_name,rc_data,rc_width,rc_height,true);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Recursos, ObjectCreate(), ObjectSetString(), OBJPROP_BMPFILE</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1178
+<h3>ResourceFree</h3>
+A função exclui dinamicamente recursos criados (liberando a memória alocada para ele). 
+</p>
+<pre><code class="language-mql5">
+bool  ResourceFree(
+   const string  resource_name      // nome do recurso
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+resource_name
+[in]  Nome do recurso deve começar com &quot;::&quot;.
+<h3>Valor de retorno</h3>
+true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a função
+GetLastError().
+<h3>Observação</h3>
+ResourceFree() permite aos desenvolvedores de aplicativos MQL5 gerenciarem o consumo de
+memória quando se trabalha ativamente com recursos. Objetos gráficos vinculados ao recurso que
+será apagado da memória serão exibidos corretamente após a sua exclusão. No entanto, os objetos
+gráficos recém-criados ((OBJ_BITMAP e OBJ_BITMAP_LABEL) não poderão utilizar o recurso
+suprimido.
+A função deleta apenas recursos dinâmicos criados pelo programa.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos os parâmetros do recurso gráfico
+   string rc_name=&quot;Resource&quot;;
+   uint   rc_width=100;
+   uint   rc_height=100;
+   uint   rc_data[];
+   uint   rc_size=rc_width*rc_height;
+   ResetLastError();
+//--- definimos o tamanho do array de pixels
+   if(ArrayResize(rc_data,rc_size)!=rc_size)
+     {
+      Print(&quot;ArrayResize() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- preenchemos o array de pixels com cor transparente e com base nele criamos um re
+   ArrayInitialize(rc_data,0x00FFFFFF);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1179
+</p>
+<pre><code class="language-mql5">
+   if(!ResourceCreate(rc_name,rc_data,rc_width,rc_height,0,0,0,COLOR_FORMAT_ARGB_NORMA
+     {
+      Print(&quot;ResourceCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   Print(&quot;Size of created recource array: &quot;,rc_data.Size());
+//--- verificamos o recurso gráfico criado
+//--- obtemos os dados de tempo e preço da barra atual
+   MqlTick tick={};
+   if(!SymbolInfoTick(Symbol(),tick))
+     {
+      Print(&quot;SymbolInfoTick() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- criamos um objeto &quot;Desenho&quot; nas coordenadas de preço e tempo do último tick
+   string obj_name=&quot;Bitmap&quot;;
+   if(!ObjectCreate(0,obj_name,OBJ_BITMAP,0,tick.time,tick.bid))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos para o objeto-desenho a largura e a altura iguais às do recurso gráfic
+//--- definimos o ponto de ancoragem do objeto pelo seu centro.
+   ObjectSetInteger(0,obj_name,OBJPROP_XSIZE,rc_width);
+   ObjectSetInteger(0,obj_name,OBJPROP_YSIZE,rc_height);
+   ObjectSetInteger(0,obj_name,OBJPROP_ANCHOR,ANCHOR_CENTER);
+//--- especificamos para o objeto-desenho o arquivo de imagem do recurso gráfico criad
+//--- neste caso, para indicar o nome do recurso gráfico usado, deve-se escrever &quot;::&quot; 
+   ObjectSetString(0,obj_name,OBJPROP_BMPFILE,&quot;::&quot;+rc_name);
+   
+//--- definimos a cor DodgerBlue com transparência de 200
+   uint clr=ColorToARGB(clrDodgerBlue,200);
+//--- preenchemos com a cor definida todo o array de pixels do recurso gráfico
+   ArrayInitialize(rc_data,clr);
+//--- atualizamos os dados do recurso gráfico
+   Update(rc_name,rc_data,rc_width,rc_height,true);
+   
+//--- esperamos três segundos e mudamos a cor da imagem
+   Print(&quot;Wait 3 seconds before changing color&quot;);
+   Sleep(3000);
+//--- definimos a cor OrangeRed com transparência de 200
+   Print(&quot;Change color&quot;);
+   clr=ColorToARGB(clrOrangeRed,200);
+//--- preenchemos com a cor definida todo o array de pixels do recurso gráfico
+   ArrayInitialize(rc_data,clr);
+//--- atualizamos os dados do recurso gráfico
+   Update(rc_name,rc_data,rc_width,rc_height,true);
+   </p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1180
+</p>
+<pre><code class="language-mql5">
+//--- esperamos três segundos e liberamos o recurso gráfico
+   Print(&quot;Wait 3 seconds before ResourceFree()&quot;);
+   Sleep(3000);
+   bool res=ResourceFree(&quot;::&quot;+rc_name);
+   Print(&quot;ResourceFree: &quot;,res);
+//--- tentamos mudar a cor após a liberação do recurso
+   Print(&quot;Trying to change color to GreenYellow after ResourceFree()&quot;);
+//--- definimos a cor GreenYellow com transparência de 200
+   clr=ColorToARGB(clrGreenYellow,200);
+//--- preenchemos com a cor definida todo o array de pixels do recurso gráfico
+   ArrayInitialize(rc_data,clr);
+//--- atualizamos os dados do recurso gráfico (o desenho permanece, mas a cor não pode
+   Update(rc_name,rc_data,rc_width,rc_height,true);
+   Print(&quot;The color has not changed because the resource has been released&quot;);
+   
+//--- esperamos três segundos e deletamos o objeto-desenho
+   Print(&quot;Wait 3 seconds before deleting the Bitmap object&quot;);
+   Sleep(3000);
+   Print(&quot;Delete Bitmap object&quot;);
+   ObjectDelete(0,obj_name);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Atualizamos os dados do recurso gráfico                          |
+//+------------------------------------------------------------------+
+void Update(const string res_name,const uint &amp;pixel_data[],const uint width,const uint
+  {
+//--- se forem passados tamanhos nulos, saímos
+   if(width==0 || height==0)
+      return;
+//--- atualizamos os dados do recurso e redesenhamos o gráfico
+   if(ResourceCreate(res_name,pixel_data,width,height,0,0,0,COLOR_FORMAT_ARGB_NORMALIZ
+      ChartRedraw();
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Recursos, ObjectCreate(), PlaySound(), ObjectSetString(), OBJPROP_BMPFILE</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1181
+<h3>ResourceReadImage</h3>
+A função lê os dados do recurso gráfico criado pela função ResourceCreate() ou  salvo como arquivo
+EX5 durante a compilação.
+</p>
+<pre><code class="language-mql5">
+bool  ResourceReadImage(
+   const string      resource_name,       // nome do recurso gráfico para leitura
+   uint&amp;             data[],              // array recebendo dados a partir do recurso
+   uint&amp;             width,               // para receber a largura da imagem no recur
+   uint&amp;             height,              // para receber a altura da imagem no recurs
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+resource_name
+[in]  Nome do recurso gráfico contendo uma imagem. Para acessar novamente seus próprios
+recursos, o nome é usado em formato abreviado &quot;::resourcename&quot;. Se baixamos um recurso a
+partir de uma compilação de arquivo EX5, o nome completo seria usado com o caminho relativo do
+diretório MQL5, nomes do arquivo e recurso - &quot;path\\filename.ex5::resourcename&quot;.
+data[][]
+[in]  Array uni- ou bi-dimensional para recebimento de dados do recurso gráfico.
+img_width
+[out]  Recurso gráfico da largura da imagem em pixels.
+img_height
+[out]  Recurso gráfico da altura da imagem em pixels.
+<h3>Valor de retorno</h3>
+true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a função
+GetLastError().
+<h3>Observação</h3>
+Se é array data[], então será usado para criar um recurso gráfico, formatos de cor
+COLOR_FORMAT_ARGB_NORMALIZE ou COLOR_FORMAT_XRGB_NOALPHA devem ser utilizados. 
+Se é array data[] bidimensional e sua segunda dimensão é menor do que X (largura) tamanho do
+recurso gráfico,a função ResourceReadImage() retorna falso e a leitura não é executada. Mas se o
+recurso existe, o tamanho da imagem real é retornada pelos parâmetros de largura e altura.  Isto
+permitirá fazer outra tentativa para receber dados a partir do recurso.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos os parâmetros do recurso gráfico</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1182
+</p>
+<pre><code class="language-mql5">
+   string rc_name=&quot;Resource&quot;;
+   uint   rc_width=100;
+   uint   rc_height=100;
+   uint   rc_data[];
+   uint   rc_size=rc_width*rc_height;
+   ResetLastError();
+//--- definimos o tamanho do array de pixels
+   if(ArrayResize(rc_data,rc_size)!=rc_size)
+     {
+      Print(&quot;ArrayResize() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- preenchemos o array de pixels com cor transparente e com base nele criamos um re
+   ArrayInitialize(rc_data,0x00FFFFFF);
+   if(!ResourceCreate(rc_name,rc_data,rc_width,rc_height,0,0,0,COLOR_FORMAT_ARGB_NORMA
+     {
+      Print(&quot;ResourceCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   Print(&quot;Size of created recource array: &quot;,rc_data.Size());
+//--- verificamos o recurso gráfico criado
+//--- obtemos os dados de tempo e preço da barra atual
+   MqlTick tick={};
+   if(!SymbolInfoTick(Symbol(),tick))
+     {
+      Print(&quot;SymbolInfoTick() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- criamos um objeto &quot;Desenho&quot; nas coordenadas de preço e tempo do último tick
+   string obj_name=&quot;Bitmap&quot;;
+   if(!ObjectCreate(0,obj_name,OBJ_BITMAP,0,tick.time,tick.bid))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos para o objeto-desenho a largura e a altura iguais às do recurso gráfic
+//--- definimos o ponto de ancoragem do objeto pelo seu centro.
+   ObjectSetInteger(0,obj_name,OBJPROP_XSIZE,rc_width);
+   ObjectSetInteger(0,obj_name,OBJPROP_YSIZE,rc_height);
+   ObjectSetInteger(0,obj_name,OBJPROP_ANCHOR,ANCHOR_CENTER);
+//--- especificamos para o objeto-desenho o arquivo de imagem do recurso gráfico criad
+//--- Neste caso, para indicar o nome do recurso gráfico usado, deve-se escrever &quot;::&quot; 
+   ObjectSetString(0,obj_name,OBJPROP_BMPFILE,&quot;::&quot;+rc_name);
+   
+//--- definimos a cor DodgerBlue com transparência de 200
+   uint clr=ColorToARGB(clrDodgerBlue,200);
+//--- preenchemos com a cor definida todo o array de pixels do recurso gráfico</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1183
+</p>
+<pre><code class="language-mql5">
+   ArrayInitialize(rc_data,clr);
+//--- atualizamos os dados do recurso gráfico
+   Update(rc_name,rc_data,rc_width,rc_height,true);
+   
+//--- esperamos 3 segundos antes de ler os dados do recurso gráfico
+   Print(&quot;Wait 3 seconds before ResourceReadImage()&quot;);
+   Sleep(3000);
+//--- lemos a imagem do recurso para um novo array de pixels
+   uint rc_data_copy[];
+   uint w=0,h=0;
+   ResetLastError();
+   if(!ResourceReadImage(&quot;::&quot;+rc_name,rc_data_copy,w,h))
+     {
+      Print(&quot;ResourceReadImage() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos a cor OrangeRed com transparência de 200
+   clr=ColorToARGB(clrOrangeRed,200);
+//--- preenchemos com a cor definida todo o array de pixels e com base nele criamos um
+   ArrayInitialize(rc_data_copy,clr);
+   if(!ResourceCreate(rc_name+&quot;Copy&quot;,rc_data_copy,rc_width,rc_height,0,0,0,COLOR_FORMA
+     {
+      Print(&quot;New ResourceCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   Print(&quot;Size of created new recource array: &quot;,rc_data_copy.Size());
+   
+//--- criamos um objeto &quot;Marca Gráfica&quot; nas coordenadas de preço e tempo do último tic
+   string obj_name2=&quot;BitmapLabel&quot;;
+   if(!ObjectCreate(0,obj_name2,OBJ_BITMAP_LABEL,0,0,0))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- obtemos as coordenadas de tela com base no preço e tempo obtidos anteriormente
+   int x=0,y=0;
+   if(!ChartTimePriceToXY(0,0,tick.time,tick.bid,x,y))
+     {
+      Print(&quot;New ChartTimePriceToXY() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos para o objeto-marca gráfica a largura e a altura iguais às do recurso 
+//--- definimos o ponto de ancoragem do objeto pelo seu centro.
+   ObjectSetInteger(0,obj_name2,OBJPROP_XSIZE,rc_width);
+   ObjectSetInteger(0,obj_name2,OBJPROP_YSIZE,rc_height);
+   ObjectSetInteger(0,obj_name2,OBJPROP_ANCHOR,ANCHOR_LEFT_UPPER);
+   ObjectSetInteger(0,obj_name2,OBJPROP_XDISTANCE,x);
+   ObjectSetInteger(0,obj_name2,OBJPROP_YDISTANCE,y);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1184
+</p>
+<pre><code class="language-mql5">
+//--- especificamos para o objeto-marca gráfica o arquivo de imagem do recurso gráfico
+//--- neste caso, para indicar o nome do recurso gráfico usado, deve-se escrever &quot;::&quot; 
+   ObjectSetString(0,obj_name2,OBJPROP_BMPFILE,&quot;::&quot;+rc_name+&quot;Copy&quot;);
+   
+//--- mudamos a cor do novo objeto-marca gráfica
+   Print(&quot;Wait 3 seconds before changing color to GreenYellow&quot;);
+   Sleep(3000);
+//--- definimos a cor GreenYellow com transparência de 200
+   clr=ColorToARGB(clrGreenYellow,200);
+//--- preenchemos com a cor definida todo o array de pixels do novo recurso gráfico
+   ArrayInitialize(rc_data_copy,clr);
+//--- atualizamos os dados do recurso gráfico
+   Update(rc_name+&quot;Copy&quot;,rc_data_copy,rc_width,rc_height,true);
+   
+//--- esperamos três segundos e deletamos os recursos e ambos os objetos
+   Print(&quot;Wait 3 seconds before deleting both objects&quot;);
+   Sleep(3000);
+   Print(&quot;Deleting Resource and all Bitmap objects&quot;);
+   ResourceFree(&quot;::&quot;+rc_name);
+   ResourceFree(&quot;::&quot;+rc_name+&quot;Copy&quot;);
+   ObjectDelete(0,obj_name);
+   ObjectDelete(0,obj_name2);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Atualizamos os dados do recurso gráfico                          |
+//+------------------------------------------------------------------+
+void Update(const string res_name,const uint &amp;pixel_data[],const uint width,const uint
+  {
+//--- se forem passados tamanhos nulos, saímos
+   if(width==0 || height==0)
+      return;
+//--- atualizamos os dados do recurso e redesenhamos o gráfico
+   if(ResourceCreate(res_name,pixel_data,width,height,0,0,0,COLOR_FORMAT_ARGB_NORMALIZ
+      ChartRedraw();
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Recursos, ObjectCreate(), ObjectSetString(), OBJPROP_BMPFILE</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1185
+<h3>ResourceSave</h3>
+Salva um recurso no arquivo especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ResourceSave(
+   const string  resource_name      // Nome do recurso
+   const string  file_name          // Nome do arquivo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+resource_name
+[in]  O nome do recurso deve começar com &quot;::&quot;.
+file_name
+[in]  O nome do arquivo relativo a MQL5\Files.
+<h3>Valor do Retorno</h3>
+true – no caso de sucesso, caso contrário, false. Para informações do erro chamar GetLastError().
+<h3>Observação</h3>
+A função sempre sobre-escreve um arquivo e cria todos os diretórios intermediários requeridos no
+nome do arquivo se necessário.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- parâmetros do recurso gráfico
+string ExtResName=&quot;Resource&quot;;
+int    ExtResWidth=100;
+int    ExtResHeight=100;
+</code></pre>
+<p>
+uint   ExtResData[];
+</p>
+<pre><code class="language-mql5">
+int    ExtResSize=ExtResWidth*ExtResHeight;
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   ResetLastError();
+//--- definimos o tamanho do array de pixels
+   if(ArrayResize(ExtResData,ExtResSize)!=ExtResSize)
+     {
+      Print(&quot;ArrayResize() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- preenchemos o array de pixels com cor transparente e com base nele criamos um re
+   ArrayInitialize(ExtResData,0x00FFFFFF);
+   if(!ResourceCreate(ExtResName,ExtResData,ExtResWidth,ExtResHeight,0,0,0,COLOR_FORMA</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1186
+</p>
+<pre><code class="language-mql5">
+     {
+      Print(&quot;ResourceCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   Print(&quot;Size of created recource array: &quot;,ExtResData.Size());
+//--- verificamos o recurso gráfico criado
+//--- obtemos os dados de tempo e preço da barra atual
+   MqlTick tick={};
+   if(!SymbolInfoTick(Symbol(),tick))
+     {
+      Print(&quot;SymbolInfoTick() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- criamos um objeto &quot;Desenho&quot; nas coordenadas de preço e tempo do último tick
+   string obj_name=&quot;Bitmap&quot;;
+   if(!ObjectCreate(0,obj_name,OBJ_BITMAP,0,tick.time,tick.bid))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos para o objeto-desenho a largura e a altura iguais às do recurso gráfic
+//--- definimos o ponto de ancoragem do objeto pelo seu centro.
+   ObjectSetInteger(0,obj_name,OBJPROP_XSIZE,ExtResWidth);
+   ObjectSetInteger(0,obj_name,OBJPROP_YSIZE,ExtResHeight);
+   ObjectSetInteger(0,obj_name,OBJPROP_ANCHOR,ANCHOR_CENTER);
+//--- especificamos para o objeto-desenho o arquivo de imagem do recurso gráfico criad
+//--- neste caso, para indicar o nome do recurso gráfico usado, deve-se escrever &quot;::&quot; 
+   ObjectSetString(0,obj_name,OBJPROP_BMPFILE,&quot;::&quot;+ExtResName);
+   
+//--- definimos a cor GreenYellow com transparência de 200
+   uint clr=ColorToARGB(clrGreenYellow,200);
+//--- preenchemos com a cor definida todo o array de pixels do recurso gráfico
+   ArrayInitialize(ExtResData,clr);
+//--- traçamos a grade com a cor DodgerBlue
+   for(int x=0;x&lt;ExtResWidth;x+=9)
+      LineVertical(x,0,ExtResHeight,ColorToARGB(clrDodgerBlue,200));
+   for(int y=0;y&lt;ExtResHeight;y+=9)
+      LineHorizontal(0,ExtResWidth,y,ColorToARGB(clrDodgerBlue,200));
+//--- atualizamos os dados do recurso gráfico
+   Update(ExtResName,ExtResData,ExtResWidth,ExtResHeight,true);
+   
+//--- aguardamos 3 segundos antes de excluir o recurso e o objeto gráfico
+   Print(&quot;Wait 3 seconds before deleting the resource and graphic object&quot;);
+   Sleep(3000);
+//--- salvamos o recurso em um arquivo
+   ResetLastError();
+   if(!ResourceSave(&quot;::&quot;+ExtResName,&quot;ResourceSave\\&quot;+ExtResName+&quot;.bmp&quot;))</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1187
+</p>
+<pre><code class="language-mql5">
+     {
+      Print(&quot;ResourceSave() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- excluimos o recurso e o objeto desenho
+   if(!ResourceFree(&quot;::&quot;+ExtResName))
+     {
+      Print(&quot;ResourceFree() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   if(!ObjectDelete(0,obj_name))
+     {
+      Print(&quot;ObjectDelete() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- criamos um objeto &quot;Marca Gráfica&quot; nas coordenadas de preço e tempo do último tic
+//--- obtemos as coordenadas de tela com base no preço e tempo obtidos anteriormente
+   int x=0,y=0;
+   if(!ChartTimePriceToXY(0,0,tick.time,tick.bid,x,y))
+     {
+      Print(&quot;ChartTimePriceToXY() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+   obj_name=&quot;BitmapLabel&quot;;
+   if(!ObjectCreate(0,obj_name,OBJ_BITMAP_LABEL,0,0,0))
+     {
+      Print(&quot;ObjectCreate() failed. Error code: &quot;,GetLastError());
+      return;
+     }
+//--- definimos o ponto de ancoragem do objeto pelo seu centro.
+   ObjectSetInteger(0,obj_name,OBJPROP_ANCHOR,ANCHOR_CENTER);
+//--- definimos as coordenadas do preço e da hora do último tick, deslocadas para a es
+   ObjectSetInteger(0,obj_name,OBJPROP_XDISTANCE,x-ExtResWidth);
+   ObjectSetInteger(0,obj_name,OBJPROP_YDISTANCE,y);
+//--- para o objeto marca gráfica como um arquivo de imagem, especificamos o recurso s
+   ObjectSetString(0,obj_name,OBJPROP_BMPFILE,&quot;\\Files\\ResourceSave\\&quot;+ExtResName+&quot;.b
+//--- atualizamos o gráfico
+   ChartRedraw();
+   
+//--- aguardamos 3 segundos antes de excluir o objeto marca gráfica
+   Print(&quot;Wait 3 seconds before deleting the new graphic object&quot;);
+   Sleep(3000);
+   if(!ObjectDelete(0,obj_name))
+      Print(&quot;ObjectDelete() failed. Error code: &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Atualiza os dados do recurso gráfico                             |
+//+------------------------------------------------------------------+</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1188
+</p>
+<pre><code class="language-mql5">
+void Update(const string res_name,const uint &amp;pixel_data[],const uint width,const uint
+  {
+//--- se forem passados tamanhos nulos, saímos
+   if(width==0 || height==0)
+      return;
+//--- atualizamos os dados do recurso e redesenhamos o gráfico
+   if(ResourceCreate(res_name,pixel_data,width,height,0,0,0,COLOR_FORMAT_ARGB_NORMALIZ
+      ChartRedraw();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Desenha uma linha vertical                                       |
+//+------------------------------------------------------------------+
+void LineVertical(int x,int y1,int y2,const uint clr)
+  {
+   int tmp;
+//--- classificação por Y
+   if(y1&gt;y2)
+     {
+      tmp=y1;
+      y1 =y2;
+      y2 =tmp;
+     }
+//--- linha fora dos limites da imagem
+   if(y2&lt;0 || y1&gt;=ExtResHeight || x&lt;0 || x&gt;=ExtResWidth)
+      return;
+//--- ficamos dentro dos limites da imagem
+   if(y1&lt;0)
+      y1=0;
+   if(y2&gt;=ExtResHeight)
+      y2=ExtResHeight-1;
+//--- traçamos uma linha´
+   int index=y1*ExtResWidth+x;
+   for(int i=y1; i&lt;=y2; i++,index+=ExtResWidth)
+      ExtResData[index]=clr;
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Desenha uma linha horizontal                                     |
+//+------------------------------------------------------------------+
+void LineHorizontal(int x1,int x2,int y,const uint clr)
+  {
+   int tmp;
+//--- classificação por X
+   if(x1&gt;x2)
+     {
+      tmp=x1;
+      x1 =x2;
+      x2 =tmp;
+     }
+//--- linha fora dos limites da imagem</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1189
+</p>
+<pre><code class="language-mql5">
+   if(x2&lt;0 || x1&gt;=ExtResWidth || y&lt;0 || y&gt;=ExtResHeight)
+      return;
+//--- ficamos dentro dos limites da imagem
+   if(x1&lt;0)
+      x1=0;
+   if(x2&gt;=ExtResWidth)
+      x2=ExtResWidth-1;
+//--- traçamos uma linha´
+   ArrayFill(ExtResData,y*ExtResWidth+x1,(x2-x1)+1,clr);
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Recursos, ObjectCreate(), PlaySound(), ObjectSetString(), OBJPROP_BMPFILE</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1190
+<h3>SetReturnError</h3>
+Define o código de retorno que devolverá um processo do terminal ao encerrar o trabalho.
+</p>
+<pre><code class="language-mql5">
+void  SetReturnError(
+   int ret_code      // código de encerramento do terminal do cliente
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+ret_code
+[in]  O código de retorno que será devolvido pelo processo do terminal do cliente ao encerrar o
+trabalho.
+<h3>Valor retornado</h3>
+Não há nenhum valor de retorno.
+<h3>Observação</h3>
+A instalação desse código de retorno ret_code usando a função SetReturnError() será útil para
+analisar os motivos de encerramento do programa ao iniciar o terminal a partir da linha de
+comando.
+Ao contrário da função SetReturnError(), a função TerminalClose() não encerra o terminal, ela
+apenas define o código de retorno que devolverá o processo do terminal após seu encerramento.
+Se a função SetReturnError() foi chamada repetidamente e/eu a partir de diferentes programas
+MQL5, o terminal retornará o último código de retorno definido.
+O código exibido será devolvido no final do processo do terminal, exceto nos seguintes casos:
+· se surgir um erro crítico em tempo de execução;
+· se for chamada a função TerminalClose(int ret_code) que fornece ao terminal um comando para
+encerrar o trabalho com um código especificado.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+   matrix matrix_a =
+     {
+        {-3.474589, 1.106384, -9.091977,-3.925227 },
+        {-5.522139, 2.366887,-15.162351,-6.357512 },
+        { 8.394926,-2.960067, 22.292115, 9.524129 },
+        { 7.803242,-2.080287, 19.217706, 8.186645 }
+     };
+   matrix matrix_l(4,4);
+   matrix matrix_u(4,4);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1191
+</p>
+<pre><code class="language-mql5">
+//--- decomposição LU
+   matrix_a.LU(matrix_l,matrix_u);
+//--- verificamos se de A = L * U
+   matrix matrix_lu=matrix_l.MatMul(matrix_u);
+   int    compare_errors=(int)matrix_a.Compare(matrix_lu,1e-29);
+   Print(&quot;MatrixCompare errors=&quot;,compare_errors);
+//--- o terminal cliente ao terminar retornará o número de erros de comparação entre d
+   SetReturnError(compare_errors);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Execução de programas, Erros de execução, Causas de desinicialização, TerminalClose</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1192
+<h3>SetUserError</h3>
+Define a variável predefinida _LastError para o valor igual a ERR_USER_ERROR_FIRST + user_error
+</p>
+<pre><code class="language-mql5">
+void  SetUserError(
+   ushort user_error,   // número do erro
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+user_error
+[in]  Número do erro definido pelo usuário.
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+Depois de um erro ser definido usando a função SetUserError(user_error), GetLastError() retorna um
+valor igual a ERR_USER_ERROR_FIRST + user_error.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnStart()
+  {
+//--- define o número de erro 65537=(ERR_USER_ERROR_FIRST +1)
+   SetUserError(1);
+//--- obtém o último código de erro
+   Print(&quot;GetLastError = &quot;,GetLastError());
+/* 
+   Result
+   GetLastError = 65537
+</code></pre>
+<p>
+*/ 
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1193
+<h3>Sleep</h3>
+A função suspende a execução do Expert Advisor corrente ou script por um intervalo especificado.
+</p>
+<pre><code class="language-mql5">
+void  Sleep(
+   int  milliseconds      // intervalo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+milliseconds
+[in]  Intervalo de atraso em milissegundos.
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+A função Sleep() não pode ser chamada por indicadores customizados, porque indicadores são
+executados na thread de interface e não devem ser atrasados. A função foi incorporada para
+verificar flag interrompido a cada 0.1 segundos.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- exibimos no comentário no gráfico a contagem regressiva de 10 a 1
+   for(int i=10; i&gt;0 &amp;&amp; !IsStopped(); i--)
+     {
+      Comment(StringFormat(&quot;Wait %u seconds&quot;,i));
+      Sleep(1000);
+     }
+//--- escrevemos em um &quot;comentário em andamento&quot; um texto descrevendo a finalidade do 
+   string text=&quot;This was a test showing how the Sleep() function works&quot;;
+   string mess=&quot;&quot;;
+   for(int i=0; i&lt;(int)text.Length(); i++)
+     {
+      mess+=ShortToString(text.GetChar(i));
+      Sleep(100);
+      Comment(mess);
+     }
+//--- nos despedimos...
+   Sleep(1000);
+   for(int i=0; i&lt;6; i++)
+     {
+      mess=(i % 2 == 0 ? &quot;&quot; : &quot;  Bye!&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1194
+</p>
+<pre><code class="language-mql5">
+      Comment(mess);
+      Sleep(300);
+     }
+//--- apagamos o texto no gráficos
+   Comment(&quot;&quot;);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1195
+<h3>TerminalClose</h3>
+A função ordena o terminal a finalizar a operação.
+</p>
+<pre><code class="language-mql5">
+bool  TerminalClose(
+   int ret_code      // código de fechamento do terminal cliente
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+ret_code
+[in]  Código de retorno, retornado pelo processo do terminal cliente na finalização da operação.
+<h3>Valor do Retorno</h3>
+A função retorna true para sucesso, caso contrário - false.
+<h3>Observação</h3>
+A função TerminalClose() não interrompe o terminal imediatamente, ela apenas ordena o terminal a
+finalizar sua operação.
+O código de um Expert Advisor que chamou TerminalClose() deve ter todos os arranjos para a
+finalização imediata (por exemplo, todos os arquivo previamente abertos devem ser fechados no
+modo normal. A chamada desta função deve ser seguida pelo operador return.
+O parâmetro ret_code permite indicar o código de retorno necessário para analise dos motivos da
+finalização de programa da operação do terminal ao inicializá-lo a partir da linha de comando.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- parâmetros de entrada
+input int  tiks_before=500; // número de ticks até finalização
+input int  pips_to_go=15;   // distancia em pips
+input int  seconds_st=50;   // número de segundos dados para o Expert Advisor
+//--- globais
+</code></pre>
+<p>
+datetime   launch_time;
+</p>
+<pre><code class="language-mql5">
+int        tick_counter=0;
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//---
+   Print(__FUNCTION__,&quot; código do motivo = &quot;,reason);
+   Comment(&quot;&quot;);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+   static double first_bid=0.0;</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1196
+</p>
+<pre><code class="language-mql5">
+   MqlTick       tick;
+   double        distance;
+//---
+   SymbolInfoTick(_Symbol,tick);
+   tick_counter++;
+   if(first_bid==0.0)
+     {
+      launch_time=tick.time;
+      first_bid=tick.bid;
+      Print(&quot;first_bid =&quot;,first_bid);
+      return;
+     }
+//--- distância do preço em pips
+   distance=(tick.bid-first_bid)/_Point;
+//--- exibe uma notificação para rastrear a operação do EA
+   string comm=&quot;A partir do momento da inicial:\r\n\x25CF segundos decorridos: &quot;+
+               IntegerToString(tick.time-launch_time)+&quot; ;&quot;+
+               &quot;\r\n\x25CF ticks recebidos: &quot;+(string)tick_counter+&quot; ;&quot;+
+               &quot;\r\n\x25CF preço passou em pontos: &quot;+StringFormat(&quot;%G&quot;,distance);
+   Comment(comm);
+//--- seção para verificar condição para fechar o terminal
+   if(tick_counter&gt;=tiks_before)
+      TerminalClose(0);    // saída pela contador de tick
+   if(distance&gt;pips_to_go)
+      TerminalClose(1);    // subida pelo número de pips igual ao pips_to_go
+   if(distance&lt;-pips_to_go)
+      TerminalClose(-1);   // descida pelo número de pips igual ao pips_to_go
+   if(tick.time-launch_time&gt;seconds_st)
+      TerminalClose(100);  // finalização por timeout
+//---
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Execução de programa, Erros de execução, Motivos para desinicialização</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1197
+<h3>TesterHideIndicators</h3>
+Define o modo mostrar/ocultar indicadores usados no Expert Advisor. Esta função é usada para
+controlar a visibilidade dos indicadores utilizados somente durante o teste.
+</p>
+<pre><code class="language-mql5">
+void  TesterHideIndicators(
+   bool      hide     // sinalizador
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+hide
+[in]  Sinalizador para ocultar indicadores durante o teste. Especifique true, se você quiser ocultar
+os indicadores criados, caso contrário, false.
+<h3>Valor de retorno</h3>
+Não.
+<h3>Observação</h3>
+Por padrão, no gráfico de teste visual, são apresentados todos os indicadores que são criados no
+Expert Advisor testado. Além disso, esses indicadores são mostrados no gráfico que se abre
+automaticamente no final do teste. A função TesterHideIndicators() permite que o desenvolvedor
+especifique no código do EA a proibição da exibição dos indicadores utilizados.
+Para proibir a exibição do indicador usado durante o teste do EA, é necessário, antes de criar seu
+identificador, chamar a função TesterHideIndicators() com o parâmetro false, dessa maneira todos
+os indicadores criados após isso serão marcados com o sinalizador de ocultar. Indicadores marcados
+com o sinalizador de ocultar não são exibidos nem durante o teste visual nem no gráfico que se abre
+automaticamente após a conclusão do teste.
+Para novamente desativar o modo de ocultar os indicadores criados, basta chamar novamente a
+função TesterHideIndicators(), mas com o parâmetro true. No gráfico de teste, podem ser vistos
+apenas os indicadores que são criados diretamente a partir do EA testado. Esta regra se aplica
+apenas 
+aos 
+casos 
+em 
+que 
+não 
+há 
+um 
+modelo 
+na 
+pasta
+&lt;catálogo_de_dados&gt;MQL5\Profiles\Templates.
+<h3>Se,</h3>
+na 
+pasta 
+&lt;catálogo_de_dados&gt;MQL5\Profiles\Templates, 
+estiver 
+o 
+modelo 
+especial
+&lt;nome_do_expert&gt;.tpl, serão exibidos apenas os indicadores desse modelo, durante o teste visual e
+no gráfico de teste. Neste caso, não serão exibidos os indicadores utilizados no EA testado. Mesmo
+se, no código do EA, fosse chamada a função TesterHideIndicators() com parâmetro true.
+Se, na pasta &lt;catálogo_de_dados&gt;MQL5\Profiles\Templates, não se encontrar o modelo especial
+&lt;nome_do_expert&gt;.tpl, mas estiver o modelo tester.tpl, então, durante o teste visual e no gráfico
+de teste, serão exibidos os indicadores do modelo tester.tpl e os indicadores não exibidos devido ao
+uso da função TesterHideIndicators(). Se não estiver o modelo tester.tpl, em vez dele serão usados
+os indicadores do modelo default.tpl.
+Se o testador de estratégias não encontrar nenhum modelo adequado (&lt;nome_do_expert&gt;.tpl,
+tester.tpl ou default.tpl), a função TesterHideIndicators() controlará completamente a exibição dos
+indicadores usados no EA.
+<h3>Exemplo:</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1198
+</p>
+<pre><code class="language-mql5">
+bool CSampleExpert::InitIndicators(void)
+  {
+   TesterHideIndicators(true);
+//--- create MACD indicator
+   if(m_handle_macd==INVALID_HANDLE)
+      if((m_handle_macd=iMACD(NULL,0,12,26,9,PRICE_CLOSE))==INVALID_HANDLE)
+        {
+         printf(&quot;Error creating MACD indicator&quot;);
+         return(false);
+        }
+   TesterHideIndicators(false);
+//--- create EMA indicator and add it to collection
+   if(m_handle_ema==INVALID_HANDLE)
+      if((m_handle_ema=iMA(NULL,0,InpMATrendPeriod,0,MODE_EMA,PRICE_CLOSE))==INVALID_H
+        {
+         printf(&quot;Error creating EMA indicator&quot;);
+         return(false);
+        }
+//--- succeed
+   return(true);
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>IndicatorRelease</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1199
+<h3>TesterStatistics</h3>
+A função retorna o valor do parâmetro estatístico especificado calculado baseado em resultados de
+teste.
+</p>
+<pre><code class="language-mql5">
+double  TesterStatistics(
+   ENUM_STATISTICS statistic_id      // ID
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+statistic_id
+[in]   O ID do parâmetro estatístico a partir da enumeração ENUM_STATISTICS.
+<h3>Valor do Retorno</h3>
+O valor do parâmetro estatístico proveniente de resultados de teste.
+<h3>Observação</h3>
+A função pode ser chamada de dentro de OnTester() ou OnDeinit() no Provador de Estratégias. Nos
+outros casos o resultado é indefinido.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+// expert baseado no arquivo padrão &quot;MACD Sample.mq5&quot;
+// mostra o resultado da execução de TesterStatistics() no manipulador de eventos Test
+#define MACD_MAGIC 1234502
+//---
+#include &lt;Trade\Trade.mqh&gt;
+#include &lt;Trade\SymbolInfo.mqh&gt;
+#include &lt;Trade\PositionInfo.mqh&gt;
+#include &lt;Trade\AccountInfo.mqh&gt;
+//---
+input double InpLots          =0.1; // Lots
+input int    InpTakeProfit    =50;  // Take Profit (in pips)
+input int    InpTrailingStop  =30;  // Trailing Stop Level (in pips)
+input int    InpMACDOpenLevel =3;   // MACD open level (in pips)
+input int    InpMACDCloseLevel=2;   // MACD close level (in pips)
+input int    InpMATrendPeriod =26;  // MA trend period
+//---
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit(void)
+  {
+//--- criamos todos os objetos necessários
+   if(!ExtExpert.Init())
+      return(INIT_FAILED);
+//--- inicialização bem-sucedida</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1200
+</p>
+<pre><code class="language-mql5">
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert new tick handling function                                |
+//+------------------------------------------------------------------+
+void OnTick(void)
+  {
+   static datetime limit_time=0; // hora da última chamada com timeout
+//--- se o tempo tiver excedido o valor definido limit_time
+   if(TimeCurrent()&gt;=limit_time)
+     {
+      //--- verificamos os dados
+      if(Bars(Symbol(),Period())&gt;2*InpMATrendPeriod)
+        {
+         //--- em caso de execução bem-sucedida, aumentamos o limit_time para timeout 
+         if(ExtExpert.Processing())
+            limit_time=TimeCurrent()+ExtTimeOut;
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tester handling function                                  |
+//+------------------------------------------------------------------+
+double OnTester(void)
+  {
+   double ret=TesterStatistics(STAT_PROFIT_FACTOR);
+   double profit=TesterStatistics(STAT_PROFIT);
+   int    trades_total=(int)TesterStatistics(STAT_TRADES);
+   int    profit_total=(int)TesterStatistics(STAT_PROFIT_TRADES);
+   int    loss_total=(int)TesterStatistics(STAT_LOSS_TRADES);
+   PrintFormat(&quot;%s: Profit = %.2f, trades total: %lu, profit trades total: %lu, loss t
+   return(ret);
+  /*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   OnTester: Profit = 209.84, trades total: 13, profit trades total: 11, loss trades t
+   final balance 10209.84 USD
+   OnTester result 3.020606644198363
+</code></pre>
+<p>
+  */
+  }  </p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1201
+<h3>TesterStop</h3>
+Dá o comando para encerrar o programa durante os testes.
+</p>
+<pre><code class="language-mql5">
+void  TesterStop();
+</code></pre>
+<p>
+<h3>Valor retornado</h3>
+Não há nenhum valor de retorno.
+<h3>Observação</h3>
+A função TesterStop() se destina ao desligamento antecipado geral do EA no agente de teste, por
+exemplo, ao atingir um número especificado de transações desfavoráveis ou um nível de
+rebaixamento especificado. 
+A chamada da TesterStop() é considerada um encerramento normal do teste e, portanto, será
+chamada a função OnTester() com feedback para o testador de estratégias sobre todas as
+estatísticas de negociação acumuladas e valores dos critérios de otimização.
+A chamada da ExpertRemove() no testador de estratégia também significa o encerramento normal
+do teste e permite obter estatísticas de negociação, mas, enquanto isso, o EA é descarregado da
+memória do agente. Nesse caso, para concluir a passagem no próximo conjunto de parâmetros, será
+necessário mais tempo a fim de recarregar o programa. Portanto, para encerramento antecipado
+geral do teste, o uso da TesterStop() é a opção preferida.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- defines
+#define BALANCE_LOSS_STOP  100.0       // valor do rebaixamento do saldo durante o qua
+#define EQUITY_LOSS_STOP   100.0       // valor do rebaixamento dos fundos durante o q
+//--- input parameters
+input double          InpLots        = 0.1;                    // lotes
+input  uint    InpStopLoss    =  50;   // Stop loss em pontos
+input  uint    InpTakeProfit  =  150;  // Take Profit  em pontos
+</code></pre>
+<p>
+sinput ulong   InpMagic       =  123;  // MagicNumber
+sinput ulong   InpDeviation   =  5;    // desvio
+</p>
+<pre><code class="language-mql5">
+//--- global variables
+</code></pre>
+<p>
+CTrade      trade;                     // instância da classe de negociação
+CSymbolInfo symb;                      // instância da classe de símbolo
+CAccountInfo account;                  // instância da classe de conta de negociação
+...
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+   ...
+//--- Inicialização bem-sucedida
+   return(INIT_SUCCEEDED);</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1202
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- atualizamos as cotações atuais
+   if(!symb.RefreshRates())
+      return;
+   ...
+//--- se o saldo ou os fundos caírem mais do que o indicado nas macrosubstituições BAL
+//--- consideramos o teste falho e chamamos a função TesterStop()
+//--- verificamos a perda do saldo mais do que em BALANCE_LOSS_STOP
+   if(balance_prev!=account.Balance())
+     {
+      if(account.Balance()&lt;balance_prev-BALANCE_LOSS_STOP)
+        {
+         PrintFormat(&quot;The initial balance of %.2f %s decreased by %.2f %s, and now has
+         TesterStop();
+         /*
+        Resultado:
+         The initial balance of 10000.00 USD decreased by 100.10 USD, and now has a va
+         TesterStop() called on 9% of testing interval
+         */
+        }
+     }
+//--- verificamos a perda dos fundos mais do que em EQUITY_LOSS_STOP
+   if(equity_prev!=account.Equity())
+     {
+      if(account.Equity()&lt;equity_prev-EQUITY_LOSS_STOP)
+        {
+         PrintFormat(&quot;The initial equity of %.2f %s decreased by %.2f %s, and now has 
+         TesterStop();
+        /*
+        Resultado:
+         The initial equity of 10000.00 USD decreased by 100.10 USD, and now has a val
+         TesterStop() called on 9% of testing interval
+        */
+        }
+     }
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+Execução de programas, Teste de estratégias de negociação, ExpertRemove, SetReturnError</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1203
+<h3>TesterDeposit</h3>
+Função especial para emular operações de depósito durante o teste. Pode ser usado em alguns
+sistemas de gerenciamento de capital.
+</p>
+<pre><code class="language-mql5">
+bool  TesterDeposit(
+   double money      // tamanho do montante a ser depositado
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+money
+[in]  Quantidade de dinheiro a ser depositado na moeda de depósito.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- defines
+#define BALANCE_LOSS_DEPOSIT  100.0    // valor do rebaixamento do saldo durante o qua
+//--- input parameters
+input  double  InpLots        =  0.1;  // Lots
+input  uint    InpStopLoss    =  50;   // Stop loss in points
+input  uint    InpTakeProfit  =  150;  // Take Profit in points
+</code></pre>
+<p>
+sinput ulong   InpMagic       =  123;  // Magic number
+sinput ulong   InpDeviation   =  5;    // Deviation
+</p>
+<pre><code class="language-mql5">
+//--- global variables
+</code></pre>
+<p>
+CTrade      trade;                     // instância da classe de negociação
+CSymbolInfo symb;                      // instância da classe de símbolo
+CAccountInfo account;                  // instância da classe de conta de negociação
+...
+</p>
+<pre><code class="language-mql5">
+double      balance_dep_summ;          // total de reabastecimentos de saldo
+</code></pre>
+<p>
+uint        balance_dep_total;         // número de reabastecimentos de saldo
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+   ...
+//--- salvamos os valores do saldo inicial
+   balance_prev=account.Balance();
+   balance_dep_summ=0;
+   balance_dep_total=0;
+//--- inicialização bem-sucedida
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1204
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- atualizamos as cotações atuais
+   if(!symb.RefreshRates())
+      return;
+   ...
+//--- se o saldo cair mais do que o indicado na macrosubstituição BALANCE_LOSS_DEPOSIT
+//--- consideramos necessário depositar na conta e chamamos a função TesterDeposit()
+//--- verificamos a perda do saldo mais do que em BALANCE_LOSS_DEPOSIT
+   if(balance_prev!=account.Balance())
+     {
+      if(account.Balance()&lt;balance_prev-BALANCE_LOSS_DEPOSIT)
+        {
+         double loss=balance_prev-account.Balance();
+         PrintFormat(&quot;The initial balance of %.2f %s decreased by %.2f %s. It is neces
+         if(TesterDeposit(loss))
+           {
+            balance_dep_total++;
+            balance_dep_summ+=loss;
+            balance_prev=account.Balance();
+            PrintFormat(&quot;Funds have been deposited into the account. Account balance: 
+            PrintFormat(&quot;Total deposits: %lu. Amount of deposits: %.2f %s.&quot;,balance_de
+           }
+        /*
+        Resultado:
+         The initial balance of 10000.00 USD decreased by 116.00 USD. It is necessary 
+         deal #45 balance 116.00 [deposit] done
+         Funds have been deposited into the account. Account balance: 10000.00 USD.
+         Total deposits: 1. Amount of deposits: 116.00 USD.
+        */
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Tester function                                                  |
+//+------------------------------------------------------------------+
+double OnTester()
+  {
+//--- o valor de saída do manipulador indicará o valor máximo de drawdown do saldo em 
+   double ret=TesterStatistics(STAT_BALANCE_DD);
+//--- exibimos no jornal a mensagem sobre o rebaixamento, sobre o número de depósitos 
+   PrintFormat(&quot;%s: Maximum balance drawdown in money: %.2f %s. Total deposits: %lu. A
+//--- retornamos o resultado
+   return(ret);
+   /*</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1205
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   OnTester: Maximum balance drawdown in money: 5188.50 USD. Total deposits: 46. Amoun
+   final balance 4867.50 USD
+   OnTester result 5188.5
+   */
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>TesterWithdrawal</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1206
+<h3>TesterWithdrawal</h3>
+Função especial para emular a operação de saque de dinheiro no processo de teste. Pode ser usado em
+alguns sistemas de gerenciamento de ativos.
+</p>
+<pre><code class="language-mql5">
+bool  TesterWithdrawal(
+   double money      // a soma para sacar
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+money
+[in]  A soma de dinheiro que nós precisamos sacar (no moeda de depósito).
+<h3>Valor do Retorno</h3>
+Com sucesso, retorna verdadeiro (true), do contrário - falso.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- defines
+#define BALANCE_PROFIT_WITHDRAWAL   5  // valor do lucro no saldo, presente quando os 
+//--- input parameters
+input  double  InpLots        =  0.1;  // Lots
+input  uint    InpStopLoss    =  50;   // Stop loss in points
+input  uint    InpTakeProfit  =  150;  // Take Profit in points
+</code></pre>
+<p>
+sinput ulong   InpMagic       =  123;  // Magic number
+sinput ulong   InpDeviation   =  5;    // Deviation
+</p>
+<pre><code class="language-mql5">
+//--- global variables
+</code></pre>
+<p>
+CTrade      trade;                     // instância da classe de negociação
+CSymbolInfo symb;                      // instância da classe de símbolo
+CAccountInfo account;                  // instância da classe de conta de negociação
+...
+</p>
+<pre><code class="language-mql5">
+double      balance_op_sum;            // total de operações de saldo
+</code></pre>
+<p>
+uint        balance_op_total;          // número de operações de saldo
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+   ...
+//--- salvamos os valores do saldo inicial
+   balance_prev=account.Balance();
+   balance_op_sum=0;
+   balance_op_total=0;
+//--- inicialização bem-sucedida
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1207
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- Atualizamos as cotações atuais
+   if(!symb.RefreshRates())
+      return;
+   ...
+//--- se o lucro no saldo for maior que o saldo atual no valor indicado na macrosubsti
+//--- consideramos necessário retirar esses fundos da conta e chamamos a função Tester
+//--- Verificamos o lucro no saldo mais do que em BALANCE_PROFIT_WITHDRAWAL
+   if(balance_prev!=account.Balance())
+     {
+      if(account.Balance()&gt;balance_prev+BALANCE_PROFIT_WITHDRAWAL)
+        {
+         double profit=account.Balance()-balance_prev;
+         PrintFormat(&quot;The account balance has been increased by %.2f %s. Need to withd
+         if(TesterWithdrawal(profit))
+           {
+            balance_op_total++;
+            balance_op_summ+=profit;
+            balance_prev=account.Balance();
+            PrintFormat(&quot;Funds have been withdrawn from the account. Account balance: 
+            PrintFormat(&quot;Total withdrawals: %lu. Amount of withdrawals: %.2f %s.&quot;,bala
+           }
+         /*
+        Resultado:
+         The account balance has been increased by 21.00 USD. Need to withdraw these f
+         deal #13 balance -21.00 [withdrawal] done
+         Funds have been withdrawn from the account. Account balance: 10000.00 USD.
+         Total withdrawals: 1. Amount of withdrawals: 21.00 USD.
+         */
+        }
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Tester function                                                  |
+//+------------------------------------------------------------------+
+double OnTester()
+  {
+//--- O valor de saída do manipulador indicará o valor máximo de drawdown do saldo em 
+   double ret=TesterStatistics(STAT_BALANCE_DD);
+//--- Exibimos no jornal a mensagem sobre o drawdown, sobre o número de retiradas e se
+   PrintFormat(&quot;%s: Maximum balance drawdown in money: %.2f %s. Total withdrawals: %lu
+//--- Retornamos o resultado
+   return(ret);
+   /*</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1208
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   OnTester: Maximum balance drawdown in money: 5188.50 USD. Total withdrawals: 2. Amo
+   final balance 4867.50 USD
+   OnTester result 5188.5
+   */
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>TesterDeposit</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1209
+<h3>TranslateKey</h3>
+Retorna o caractere Unicode de acordo com o código de tecla virtual, tendo em conta o idioma de
+entrada atual e o status das teclas de controle.
+short  TranslateKey(
+</p>
+<pre><code class="language-mql5">
+   int  key_code      // código de teclas para obter o caractere Unicode
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+key_code
+[in]  Código de tecla.
+<h3>Valor de retorno</h3>
+Caractere Unicode no caso de uma conversão bem-sucedida. No caso de erro, a função retorna -1.
+<h3>Observação</h3>
+A função utiliza ToUnicodeEx para converter as teclas digitadas - pelo usuário - para caracteres
+Unicode. O erro pode surgir se não funcionar ToUnicodeEx, por exemplo, ao tentar obter o caractere
+para a tecla SHIFT.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+void OnChartEvent(const int id,const long&amp; lparam,const double&amp; dparam,const string&amp; s
+  { 
+   if(id==CHARTEVENT_KEYDOWN)
+     {
+      short sym=TranslateKey((int)lparam);
+      //--- se o caractere digitado for convertido com sucesso para Unicode
+      if(sym&gt;0)
+         Print(sym,&quot;&#x27;&quot;,ShortToString(sym),&quot;&#x27;&quot;);
+      else
+         Print(&quot;Error in TranslateKey for key=&quot;,lparam);
+     }
+</code></pre>
+<p>
+  }
+<h3>Veja também</h3>
+<h3>Eventos do terminal de cliente, OnChartEvent</h3></p>
+<p><h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1210
+<h3>ZeroMemory</h3>
+A função redefine uma variável passada para ela por referência.
+</p>
+<pre><code class="language-mql5">
+void  ZeroMemory(
+   void &amp; variable      // redefine variável
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+variable
+[in] [out]  Variável passada por referência, que você quer redefinir (inicializar com zeros).
+<h3>Valor do Retorno</h3>
+Sem valor de retorno.
+<h3>Observação</h3>
+Se o parâmetro da função é uma string, a chamada será equivalente a indicar NULL como seu valor.
+Para tipos simples e seus arrays, bem como para estruturas/classes consistindo de tais tipos, isso é
+uma simples redefinição.
+Para objetos contendo strings e arrays dinâmicos, ZeroMemory() é chamada para cada elemento.
+Para quaisquer arrays não protegidos pelo modificador const, todos os elementos são zerados.
+Para arrays de objetos complexos, ZeroMemory() é chamada para cada elemento.
+ZeroMemory() não pode ser aplicada a classes com membros protegidos ou herança.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declaramos e inicializamos a string
+   string str=&quot;Test ZeroMemory func&quot;;
+//--- imprimimos no log a string antes que ZeroMemory() seja aplicada a ela
+   PrintFormat(&quot;The line before applying ZeroMemory() to it: &#x27;%s&#x27;&quot;,str);
+//--- zeramos a linha e registramos o resultado
+   ZeroMemory(str);
+   Print(&quot;The same line after applying ZeroMemory() to it: &#x27;&quot;,str,&quot;&#x27;&quot;);
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   The line before applying ZeroMemory() to it: &#x27;Test ZeroMemory func&#x27;
+   The same line after applying ZeroMemory() to it: &#x27;&#x27;
+</code></pre>
+<p>
+*/
+</p>
+<pre><code class="language-mql5">
+//--- declaramos e inicializamos uma variável com o tipo int
+   int var=123;
+//--- imprimimos no log a string antes que ZeroMemory() seja aplicada a ela</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1211
+</p>
+<pre><code class="language-mql5">
+   PrintFormat(&quot;\nThe integer variable before applying ZeroMemory() to it: %d&quot;,var);
+//--- zeramos a variável e registramos o resultado
+   ZeroMemory(var);
+   PrintFormat(&quot;The same variable after applying ZeroMemory() to it: %d&quot;,var);
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   The integer variable before applying ZeroMemory() to it: 123
+   The same variable after applying ZeroMemory() to it: 0
+</code></pre>
+<p>
+*/
+</p>
+<pre><code class="language-mql5">
+//--- declaramos e inicializamos um array com o tipo int
+   int arr[]={0,1,2,3,4,5,6,7,8,9};
+//--- imprimimos no log o array antes que ZeroMemory() seja aplicada a ele
+   Print(&quot;\nThe integer array before applying ZeroMemory() to it:&quot;);
+   ArrayPrint(arr);
+//--- zeramos o array e registramos o resultado
+   ZeroMemory(arr);
+   Print(&quot;The same array after applying ZeroMemory() to it:&quot;);
+   ArrayPrint(arr);
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   The integer array before applying ZeroMemory() to it:
+   0 1 2 3 4 5 6 7 8 9
+   The same array after applying ZeroMemory() to it:
+   0 0 0 0 0 0 0 0 0 0
+</code></pre>
+<p>
+*/
+</p>
+<pre><code class="language-mql5">
+//--- declaramos uma estrutura de dois campos: string e inteiro
+   struct STest
+     {
+      string   var_string;
+      long     var_long;
+     };
+//--- declaramos e inicializamos um array com o tipo STest
+   STest arr_struct[]={ {&quot;0&quot;,0}, {&quot;1&quot;,1}, {&quot;2&quot;,2}, {&quot;3&quot;,3} };
+//--- imprimimos no log o array de estruturas antes que ZeroMemory() seja aplicada a e
+   Print(&quot;\nThe array struct before applying ZeroMemory() to it:&quot;);
+   ArrayPrint(arr_struct);
+//--- zeramos o array de estruturas e registramos o resultado
+   ZeroMemory(arr_struct);
+   Print(&quot;The same array struct after applying ZeroMemory() to it:&quot;);
+   ArrayPrint(arr_struct);
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   The array struct before applying ZeroMemory() to it:
+       [var_string] [var_long]
+   [0] &quot;0&quot;                   0
+   [1] &quot;1&quot;                   1
+   [2] &quot;2&quot;                   2</p>
+<p></code></pre>
+<p>
+<h3>Funções Comuns</h3>
+© 2000-2025, MetaQuotes Ltd.
+1212
+</p>
+<pre><code class="language-mql5">
+   [3] &quot;3&quot;                   3
+   The same array struct after applying ZeroMemory() to it:
+       [var_string] [var_long]
+   [0] null                  0
+   [1] null                  0
+   [2] null                  0
+   [3] null                  0
+</code></pre>
+<p>
+*/
+  }
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

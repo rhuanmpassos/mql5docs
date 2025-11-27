@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas MQL5 - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class="active"><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Programas MQL5</h1>
+        </header>
+        
+        <article>
+            <p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1058
+<h3>Programas MQL5</h3>
+Para um programa-mql5 funcionar, ele deve ser compilado (botão Compilar ou tecla F7). A compilação
+deve passar sem erros (alguns avisos são possíveis; eles devem ser analisados). Neste processo, um
+arquivo executável com o mesmo nome e com extensão EX5 deve ser criado no diretório
+correspondente, 
+terminal_dir\MQL5\Experts, 
+terminal_dir\MQL5\indicators 
+ou
+terminal_dir\MQL5\scripts. Este arquivo pode ser executado.
+Características operacionais de programas MQL5 são descritas nas seguintes seções:
+· Execução de Programa – ordem de chamada de manipuladores de eventos predefinidos.
+· Testando estratégias de negociação – características operacionais de programas MQL5 no Provador
+de Estratégias.
+· Eventos do terminal cliente – descrição de eventos, que podem ser processados em programas.
+· Chamada de funções importadas – ordem de descrição, parâmetros permitidos, detalhes de busca e
+convenção de chamada para funções importadas.
+· Erros em tempo de execução – obtenção de informações sobre erros críticos e em tempo de
+execução.
+Expert Advisors, indicadores customizados e scripts são anexados a um dos gráficos abertos através
+do método &quot;Arrastar e Soltar&quot; a partir da janela Navegador.
+Para um Expert Advisor parar de funcionar, ele deve ser removido de um gráfico. Para fazer isso
+selecione a &quot;Lista de Experts&quot; no menu de contexto do gráfico, então selecione um Expert Advisor da
+lista e clique no botão &quot;Remover&quot;. O funcionamento de Expert Advisors é também afetado pelo estado
+do botão &quot;AutoTrading&quot;.
+A fim de parar um indicador customizado, ele deve ser removido de um gráfico.
+Indicadores customizados e Expert Advisors trabalham até eles serem explicitamente removidos de um
+gráfico; informações sobre Expert Advisors e Indicadores são salvos entre sessões do terminal cliente.
+Scripts são executados uma vez e são excluídos automaticamente na conclusão da operação ou
+mudança de estado do gráfico corrente, ou no encerramento do terminal cliente. Após o reinício do
+terminal cliente, scripts não são iniciados, porque as informações sobre eles não são salvas.
+Em um gráfico podem operar no máximo um Expert Advisor, um script e um número ilimitado de
+indicadores.
+Os serviços não precisam estar vinculados ao gráfico para funcionarem e são projetados para executar
+funções auxiliares. Por exemplo, no serviço você pode criar um símbolo personalizado, abrir o gráfico
+do símbolo criado e, em um loop infinito, obter dados para ele usando funções de rede e atualizar
+continuamente. </p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1059
+<h3>Execução de Programa</h3>
+Cada script, serviço e EA é executado em seu próprio fluxo separado. Todos os indicadores calculados
+com base em um símbolo, mesmo se estiverem sendo executados em gráficos diferentes, funcionam
+no mesmo fluxo. Assim, todos os indicadores em um símbolo compartilham os recursos de um fluxo.
+Todas as outras ações associadas a um símbolo, como processamento de ticks e sincronização de
+histórico, também são consistentemente realizadas no mesmo segmento com indicadores. Isso
+significa que se uma ação infinita é realizada em um indicador, todos os outros eventos associados a
+seu ativo nunca serão realizados.
+Ao executar um Expert Advisor, certifique-se de que ele tem um ambiente de negociação real e pode
+acessar o histórico do requerido ativo e período, e sincronizar dados entre o terminal e o servidor.
+Para todos estes procedimentos, o terminal fornece um atraso de iniciação de não mais que 5
+segundos, após o qual o Expert Advisor será iniciado com os dados disponíveis. Portanto, no caso de
+não haver conexão com o servidor, isso pode levar a um atraso na iniciação de um Expert Advisor.
+A tabela abaixo contém um breve resumo sobre programas MQL5:
+<h3>Programa</h3>
+<h3>Execução</h3>
+<h3>Observação</h3>
+<h3>Serviço</h3>
+No fluxo em si, há o mesmo
+número de serviços e de fluxos de
+execução para eles
+<h3>O serviço em loop não pode</h3>
+atrapalhar outros programas
+<h3>Script</h3>
+<h3>Um segmento separado, o número</h3>
+de segmentos para scripts é igual
+ao número de scripts
+Um script em loop não é capaz de
+interromper a execução de outros
+programas
+<h3>Expert Advisor</h3>
+<h3>Um segmento separado, o número</h3>
+de segmentos para Expert Advisor
+é igual ao número de Expert
+<h3>Advisor</h3>
+Um Expert Advisor em loop não é
+capaz de interromper a execução
+de outros programas
+<h3>Indicador</h3>
+<h3>Um segmento para todos os</h3>
+indicadores de um símbolo. O
+número de segmentos é igual ao
+número 
+de 
+símbolos 
+com
+indicadores
+<h3>Um loop infinito em um indicador</h3>
+irá 
+parar 
+todos 
+os 
+outros
+indicadores sobre este ativo
+Logo após um programa ser anexado a um gráfico, ele é carregado para a memória do terminal
+cliente, bem como variáveis globais são inicializadas. Caso alguma variável global do tipo classe tiver
+um construtor, este construtor será chamado durante a inicialização das variáveis globais.
+Após isso, o programa fica esperando por um evento do terminal cliente. Cada programa-MQL5 deve
+ter ao menos um manipulador (handler) de evento, caso contrário o programa carregado não será
+executado. Handlers de evento têm nomes pré-definidos, parâmetros e tipos de retorno.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1060
+<h3>Tipo</h3>
+<h3>Nome da</h3>
+<h3>Função</h3>
+<h3>Parâmetros</h3>
+<h3>Aplicativo</h3>
+<h3>Comentário</h3>
+int
+<h3>OnInit</h3>
+nenhum
+<h3>Expert Advisors</h3>
+e indicadores
+<h3>Handler de</h3>
+evento
+<h3>Init. Ele permite usar</h3>
+o tipo de retorno
+void.
+void
+<h3>OnDeinit</h3>
+const int reason
+<h3>Expert Advisors</h3>
+e indicadores
+<h3>Handler de</h3>
+evento
+Deinit.
+void
+<h3>OnStart</h3>
+nenhum
+scripts e serviços
+<h3>Handler de</h3>
+evento
+Start.
+int
+<h3>OnCalculate</h3>
+const int rates_total,
+const 
+int
+prev_calculated,
+const datetime &amp;Time[],
+const double &amp;Open[],
+const double &amp;High[],
+const double &amp;Low[],
+const double &amp;Close[],
+const 
+long
+&amp;TickVolume[],
+const long &amp;Volume[],
+const int &amp;Spread[]
+indicadores
+<h3>Handler de</h3>
+evento
+<h3>Calculate para todos</h3>
+os preços.
+int
+<h3>OnCalculate</h3>
+const int rates_total,
+const 
+int
+prev_calculated,
+const int begin,
+const double &amp;price[]
+indicadores
+<h3>Handler de</h3>
+evento
+<h3>Calculate sobre um</h3>
+array 
+único 
+de
+dados. 
+<h3>Um</h3>
+indicador 
+não
+pode 
+ter
+simultaneamente
+dois 
+handlers 
+de
+evento.
+<h3>Neste caso apenas</h3>
+um 
+handler
+(manipulador) 
+de
+evento vai trabalhar
+na array de dados.
+void
+<h3>OnTick</h3>
+nenhum
+<h3>Expert Advisors</h3>
+<h3>Handler de</h3>
+evento
+<h3>NewTick. Enquanto o</h3>
+evento 
+de
+recebimento de um
+novo tick está sendo
+processado, nenhum
+outro evento deste
+tipo é recebido.
+void
+<h3>OnTimer</h3>
+nenhum
+<h3>Expert Advisors</h3>
+e indicadores
+<h3>Handler de</h3>
+evento
+Timer.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1061
+<h3>Tipo</h3>
+<h3>Nome da</h3>
+<h3>Função</h3>
+<h3>Parâmetros</h3>
+<h3>Aplicativo</h3>
+<h3>Comentário</h3>
+void
+<h3>OnTrade</h3>
+nenhum
+<h3>Expert Advisors</h3>
+<h3>Handler de</h3>
+evento
+Trade.
+double
+<h3>OnTester</h3>
+nenhum
+<h3>Expert Advisors</h3>
+<h3>Handler de</h3>
+evento
+Tester.
+void
+<h3>OnChartEvent</h3>
+const int id,
+const long &amp;lparam,
+const double &amp;dparam,
+const string &amp;sparam
+<h3>Expert Advisors</h3>
+e indicadores
+<h3>Handler de</h3>
+evento
+ChartEvent.
+void
+<h3>OnBookEvent</h3>
+const 
+string
+&amp;symbol_name
+<h3>Expert Advisors</h3>
+e indicadores
+<h3>Handler de</h3>
+evento
+BookEvent.
+Um terminal cliente envia novos eventos para o gráfico aberto correspondente. Os eventos podem ser
+gerados por gráficos (Eventos de gráfico) ou programas-MQL5 (eventos customizados). A geração de
+eventos de criação ou exclusão de objetos gráficos sobre um gráfico pode ser habilitado ou
+desabilitado através da definição das propriedades de gráfico CHART_EVENT_OBJECT_CREATE e
+CHART_EVENT_OBJECT_DELETE. Cada programa MQL5 e cada gráfico têm sua própria fila de eventos,
+onde todos os novos eventos que chegam são adicionados.
+Um programa recebe somente eventos do gráfico no qual ele está rodando. Todos os eventos são
+processados um após o outro na ordem que em eles são recebidos. Se um fila já tiver um evento
+NewTick, ou este evento está correntemente sendo processado, então um novo evento NewTick não é
+colocado na fila do programa MQL5. Similarmente, se ChartEvent já esta enfileirado, ou este evento
+está sendo processado, nenhum novo evento deste tipo é enfileirado. Os eventos de timer são
+tratados da mesma forma – se o evento Timer está na filha ou sendo tratado, um novo evento timer
+não é enfileirado .
+Filas de evento têm um tamanho limitado mas suficiente, de modo que a sobrecarga de uma fila em
+programas bem escritos é improvável. No caso de uma sobrecarga de fila, novos eventos são
+descartados sem enfileiramento.
+Evite usar loops infinitos para manipular eventos. As únicas exceções a essa regra são scripts e
+serviços que manipulam um único evento Start.
+Bibliotecas não tratam nenhum evento.
+Funções proibidas em Indicadores e Expert Advisors
+Indicatores, scripts e Expert Advisors são programas executáveis escritos em MQL5. Eles são
+projetados para diferentes tipos de tarefas. Portanto existem algumas restrições quanto ao uso de
+certas funções, dependendo do tipo de programa. As seguintes funções são proibidas em indicadores:
+· OrderCalcMargin();
+· OrderCalcProfit();
+· OrderCheck();</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1062
+· OrderSend();
+· SendFTP();
+· Sleep();
+· ExpertRemove();
+· MessageBox().
+Todas as funções projetadas para indicadores são proibidas em Expert Advisors e scripts:
+· SetIndexBuffer();
+· IndicatorSetDouble();
+· IndicatorSetInteger();
+· IndicatorSetString();
+· PlotIndexSetDouble();
+· PlotIndexSetInteger();
+· PlotIndexSetString();
+· PlotIndexGetInteger.
+A biblioteca (library) não é um programa independente e é executado no contexto do programa MQL5
+que a chamou: script, indicador ou Expert Advisor. Desta forma, as restrições acima se aplicam à
+biblioteca (library) chamada.
+Proibição do uso de funções nos serviços
+Os serviços não aceitam eventos, pois não estão vinculados a gráficos. Nos serviços são proibidas as
+seguintes funções:
+<h3>ExpertRemove();</h3>
+<h3>EventSetMillisecondTimer();</h3>
+<h3>EventSetTimer();</h3>
+<h3>EventKillTimer();</h3>
+<h3>SetIndexBuffer();</h3>
+<h3>IndicatorSetDouble();</h3>
+<h3>IndicatorSetInteger();</h3>
+<h3>IndicatorSetString();</h3>
+<h3>PlotIndexSetDouble();</h3>
+<h3>PlotIndexSetInteger();</h3>
+<h3>PlotIndexSetString();</h3>
+<h3>PlotIndexGetInteger();</h3>
+<h3>Carga e Descarga de Indicadores</h3></p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1063
+<h3>Indicadores são carregados nos seguintes casos:</h3>
+· um indicador é anexado a um gráfico;
+· inicio do terminal (se o indicador estava anexado a um gráfico antes do encerramento do terminal);
+· carga de um template (se o indicador anexado a um gráfico estiver especificado no template);
+· alteração de um perfil (se o indicador estiver anexado a um dos gráficos do perfil alterado);
+· alteração de um ativo e/ou período de um gráfico, no qual o indicador está anexado;
+· alteração da conta na qual o terminal está conectado;
+· após uma bem sucedida recompilação de um indicador, se o indicador estiver anexado a um gráfico;
+· alteração de parâmetros de entrada do indicador.
+<h3>Indicadores são descarregados nos seguintes casos:</h3>
+· ao desanexar um indicador de um gráfico;
+· encerramento do terminal (se o indicador estiver anexado a um gráfico);
+· carga de um template, se um indicador estiver anexado a um gráfico;
+· fechamento de um gráfico, no qual o indicador estava anexado;
+· alteração de um perfil, se o indicador estiver anexado a um dos gráficos do perfil alterado;
+· alteração de um ativo e/ou período de um gráfico, no qual o indicador está anexado;
+· alteração da conta na qual o terminal está conectado;
+· alteração de parâmetros de entrada do indicador.
+<h3>Carga e Descarga de Expert Advisors</h3>
+Expert Advisors são carregados nos seguintes casos:
+· ao anexar um Expert Advisor a um gráfico;
+· início de terminal (se o Expert Advisor estava anexado a um gráfico antes do encerramento do
+terminal);
+· carga de um template (se o Expert Advisor anexado a um gráfico está especificado no template);
+· alteração de um perfil (se o Expert Advisor está anexado a um dos gráficos do perfil);
+· conexão a uma conta, mesmo se o número da conta for o mesmo (se o Expert Advisor estava
+anexado ao gráfico antes da autorização do terminal no servidor.
+Expert Advisors são descarregados nos seguintes casos:
+· ao desanexar um Expert Advisor de um gráfico;
+· Se um novo Expert Advisor é anexo a um gráfico, e um outro Expert Advisor já estava anexado,
+este Expert Advisor é descarregado.
+· encerramento do terminal (se o Expert Advisor estiver anexado a um gráfico);
+· carga de um template, se um Expert Advisor está anexado a um gráfico;
+· fechamento de um gráfico, no qual o Expert Advisor está anexado.
+· alteração de um perfil, se o Expert Advisor está anexado a um dos gráficos do perfil alterado;</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1064
+· alteração da conta na qual o terminal está conectado (se o Expert Advisor estava anexado a um
+gráfico antes da autorização do terminal no servidor;
+· calling the ExpertRemove() function.
+Em caso de alteração de ativo ou período de um gráfico, no qual o Expert Advisor está anexado,
+Expert Advisors não são carregados ou descarregados. Neste caso o terminal cliente
+subseqüentemente chama os handlers OnDeinit() sobre o ativo/período antigo e OnInit() sobre o novo
+ativo/período; valores de variáveis globais e variáveis estáticas não são redefinidos. Todos os
+eventos que foram recebidos pelo Expert Advisor antes da inicialização ser concluída (função OnInit())
+são pulados.
+<h3>Carga e Descarga de Scripts</h3>
+Scripts são carregados imediatamente após eles serem anexados a um gráfico e descarregados
+imediatamente após eles concluírem sua operação. OnInit() e OnDeinit() não são chamados por
+scripts.
+Quando um programa é descarregado (excluído de um gráfico) o terminal cliente realiza a
+desinicialização de variáveis globais e excluí a fila de eventos. Neste caso a desinicialização significa
+a redefinição de todas as variáveis de tipo string, desalocação de objetos de array dinâmico e
+chamada de seus destrutores se eles estiverem disponíveis.
+<h3>Carga e Descarga de Serviços</h3>
+Os serviços são carregados imediatamente após o início do terminal, se, ao parar o terminal, eles são
+iniciados. Os serviços são descarregados imediatamente após o término de seu trabalho.
+Os serviços têm um único manipulador OnStart() no qual você pode organizar um loop infinito de
+recebimento e de processamento de dados, por exemplo, ao criar e atualizar símbolos personalizados
+usando funções de rede.
+Ao contrário de EAs, de indicadores e de scripts, os serviços não estão vinculados a um gráfico
+específico, portanto, para iniciar o serviço é fornecido um mecanismo separado. A criação de uma
+nova instância do serviço é feita a partir do Navegador usando o comando Adicionar serviço. Para
+iniciar, parar, remover uma instância de serviço, use seu menu. Para gerenciar todas as instâncias,
+use o menu do próprio serviço.
+Para um melhor entendimento do funcionamento de um Expert Advisor, nós recomendamos compilar o
+código do seguinte Expert Advisor e realizar ações de carga/descarga, alteração de template,
+alteração de ativo, alteração de período, etc:
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                   TestExpert.mq5 |
+//|                        Copyright 2009, MetaQuotes Software Corp. |
+//|                                              https://www.mql5.com |</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1065
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+#property copyright &quot;2009, MetaQuotes Software Corp.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+class CTestClass
+  {
+</code></pre>
+<p>
+public:  
+</p>
+<pre><code class="language-mql5">
+   CTestClass() { Print(&quot;CTestClass construtor&quot;); }
+   ~CTestClass() { Print(&quot;CTestClass destruidor&quot;); }
+</code></pre>
+<p>
+  };
+<h3>CTestClass global;</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//---
+   Print(&quot;Inicialização&quot;);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//---
+   Print(&quot;Desinicialização com motivo&quot;,reason);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+<h3>Também Veja</h3>
+Eventos do terminal cliente, Handlers de Evento</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1066
+<h3>Trade Permission</h3>
+<h3>Trade Automation</h3>
+A linguagem MQL5 fornece um grupo especial de funções de negociação projetado para o
+desenvolvimento de sistemas de negociação automatizados. Programas desenvolvidos para negociação
+automatizada sem intervenção humana são chamados Expert Advisors ou robôs de negociação. Para
+criar um Expert Advisor no MetaEditor, abra o MQL5 Wizard e selecione uma das duas opções:
+· Expert Advisor (modelo) – permite-lhe criar um modelo com uma função de manipulação de eventos
+que devem ser complementados com toda a funcionalidade necessária por meio de programação.
+· Expert 
+<h3>Advisor</h3>
+(generate) 
+– 
+permite 
+você 
+desenvolver 
+um 
+robô 
+de 
+negociação
+completoSimplesmente selecionando os módulos necessários: módulo de negociação de sinais,
+módulo de gerenciamento de dinheiro e módulo de parada final.
+As funções de negociação podem funcionar apenas em Expert Advisors e scripts. A negociação não é
+permitida para os indicadores.
+<h3>Verificando</h3>
+a 
+<h3>Permissão</h3>
+para 
+<h3>Realizar</h3>
+uma 
+<h3>Negociação</h3>
+<h3>Automatizada</h3>
+A fim de desenvolver um Expert Advisor confiável capaz de trabalhar sem intervenção humana, é
+necessário organizar um conjunto de verificações importantes. Primeiro, devemos verificar
+programaticamente se a negociação é permitida em tudo. Esta é uma verificação básica que é
+indispensável ao desenvolver qualquer sistema automatizado.
+Verificação da permissão para realizar a negociação automatizada no terminal</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1067
+As configurações de terminal fornecem a você a capacidade de permitir ou proibir a negociação
+automatizada de todos os programas.
+Você pode alternar a opção de negociação automatizada diretamente no painel Padrão do terminal:  
+·
+– negociação automatizada habilitada, funções de negociação em aplicativos
+lançados são permitidos para uso.
+·
+ – negociação automatizada desabilitada, as aplicações em execução não
+conseguem executar funções de negociação. 
+<h3>Verificar amostra:</h3>
+</p>
+<pre><code class="language-mql5">
+if (!TerminalInfoInteger(TERMINAL_TRADE_ALLOWED)) 
+   Alert(&quot;Verifique se a negociação automatizada é permitida nas configurações do term
+</code></pre>
+<p>
+Verificando se a negociação é permitida para uma determinada execução do
+<h3>Expert Advisor/script</h3>
+Você pode permitir ou proibir a negociação automatizada para um determinado programa ao lançá-lo.
+Para fazer isso, use a caixa de seleção especial nas propriedades do programa.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1068
+<h3>Verificar amostra:</h3>
+</p>
+<pre><code class="language-mql5">
+   if(!TerminalInfoInteger(TERMINAL_TRADE_ALLOWED))
+      Alert(&quot;Verifique se a negociação automatizada é permitida nas configurações do t
+   else
+     {
+      if(!MQLInfoInteger(MQL_TRADE_ALLOWED))
+         Alert(&quot;A negociação automatizada é proibida nas configurações do &quot;,__FILE__);
+     }
+</code></pre>
+<p>
+Verificando se a negociação é permitida para qualquer Expert Advisors/scripts
+para a conta corrente
+A negociação automatizada pode ser desativada no lado do servidor de negociação. Verificar amostra:
+</p>
+<pre><code class="language-mql5">
+   if(!AccountInfoInteger(ACCOUNT_TRADE_EXPERT))
+      Alert(&quot;Negociação automatizada é proibida para a conta &quot;,AccountInfoInteger(ACCO
+      &quot; no lado do servidor de negociação&quot;);
+</code></pre>
+<p>
+Se a negociação automatizada estiver desativada para uma conta de negociação, as operações de
+negociação de Expert Advisors/scripts não serão executadas.
+Verificando se a negociação é permitida para a conta corrente
+Em alguns casos, quaisquer operações de negociação são desativadas para uma determinada conta de
+negociação - nem manual nem automatizado de negociação pode ser realizada. Exemplo de verificação
+quando uma senha de investidor foi usada para conectar-se a uma conta de negociação:
+</p>
+<pre><code class="language-mql5">
+   if(!AccountInfoInteger(ACCOUNT_TRADE_ALLOWED))
+      Comment(&quot;A negociação é proibida para a conta &quot;,AccountInfoInteger(ACCOUNT_LOGIN
+            &quot;.\n Talvez uma senha de investidor tenha sido usada para conectar-se à co
+            &quot;\n Verifique o diário do terminal para a seguinte entrada:&quot;,</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1069
+</p>
+<pre><code class="language-mql5">
+            &quot;\n\&#x27;&quot;,AccountInfoInteger(ACCOUNT_LOGIN),&quot;\&#x27;: negociação foi desativada - 
+</code></pre>
+<p>
+AccountInfoInteger(ACCOUNT_TRADE_ALLOWED) deve retornar falsa nos casos seguintes:
+· Sem 
+conexão 
+com 
+o 
+servidor 
+de 
+negociação. 
+<h3>Isso</h3>
+pode 
+ser 
+verificado 
+usando
+<h3>TerminalInfoInteger(TERMINAL_CONNECTED);</h3>
+· Conta de negociação comutada para modo somente leitura (enviada para o arquivo);
+· A negociação na conta é desativada no lado do servidor de negociação;
+· A conexão com uma conta de negociação foi realizada no modo Investidor.
+<h3>Veja também</h3>
+Propriedades do terminal do cliente, Propriedades da Conta, Propriedades de um programa MQL5 em
+execução</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1070
+<h3>Eventos do Terminal Cliente</h3>
+<h3>Init</h3>
+Imediatamente após o terminal cliente carregar um programa (uma Expert Advisor ou um indicador
+customizado) e começar o processo de inicialização de variáveis globais, o evento Init será enviado, e
+será processado pelo handler de evento OnInit(), caso exista. Este evento também é gerado após um
+instrumento financeiro e / ou prazo gráfico ser alterado, depois de um programa ser recompilado no
+MetaEditor, depois dos parâmetros de entrada serem alterados a partir da janela de configuração de
+um Expert Advisor ou um indicador personalizado. Um Expert Advisor é também inicializado após a
+conta ser alterada. O evento Init não é gerado para scripts.
+<h3>Deinit</h3>
+Antes de variáveis globais serem desinicializadas e o programa (Expert Advisor ou indicador
+customizado) ser descarregado, o terminal cliente envia o evento Deinit para o programa. Deinit é
+também gerado quando o terminal cliente é encerrado, quando um gráfico é fechado, logo antes o
+ativo e/ou período ser alterado, em uma recompilação de programa bem sucedida, quando parâmetros
+de input são alterados e quando a conta é alterada.
+O motivo de desinicialização pode ser obtido a partir do parâmetro passado para a função OnDeinit().
+A execução da função OnDeinit() está restrita a 2.5 segundos. Se durante este tempo a função não for
+concluída, então ela é finalizada de forma forçada. O evento Deinit (Desinicializar) não é gerada para
+scripts.
+<h3>Start</h3>
+Evento Start – evento especial para executar um script ou serviço depois que ele é carregado. Este
+evento é tratado pela função OnStart. Evento Start não é enviado para EAs e indicadores
+personalizados.
+<h3>NewTick</h3>
+O evento NewTick é gerado caso existam novas cotações, ele é processado pelo OnTick() de Expert
+Advisors anexados. No caso de uma nova cotação ser recebida enquanto a função OnTick estiver
+processando a cotação anterior, a nova cotação será ignorada pelo Expert Advisor, porque o evento
+correspondente não será enfileirado.
+Todas as novas cotações que são recebidas enquanto o programa está rodando são ignoradas até que
+a execução da função OnTick() esteja concluída. Após isso, a função rodará somente após uma nova
+cotação ser recebida. O evento NewTick é gerado independentemente da negociação automática ser
+permitida ou não (botão &quot;AutoTrading Permite/Proíbe&quot;). A proibição de negociação automática
+significa somente que o envio de solicitações de negociação a partir de um Expert Advisor não é
+permitido, enquanto o Expert Advisor continua trabalhando.
+A proibição de negociação automática ao apertar o botão apropriado não parará a execução corrente
+da função OnTick().
+<h3>Calculate</h3>
+O evento Calculate é gerado somente para indicadores logo após o evento Init ser enviado e em
+qualquer alteração de dados de preços. Ele é processado pela função OnCalculate.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1071
+<h3>Timer</h3>
+O evento Timer é periodicamente gerado pelo terminal cliente para o Expert Advisor que ativou o
+timer através da função EventSetTimer. Geralmente, esta função é chamada na função OnInit. O
+processamento do evento Timer é realizado pela função OnTimer. Após a operação do Expert Advisor
+estar concluída, é necessário destruir o timer usando a função EventKillTimer, que é geralmente
+chamada na função OnDeinit.
+<h3>Trade</h3>
+O evento Trade é gerado quando uma operação de trade é concluída em um servidor de negociação. O
+evento Trade é tratado pela função OnTrade() para as seguintes operações de negociação:
+· envio, modificação e remoção de uma ordem pendente;
+· cancelamento de uma ordem pendente com ausência de dinheiro suficiente ou expiração;
+· ativação de uma ordem pendente;
+· abertura, acréscimo ou encerramento de uma posição (ou parte da posição);
+· modificação da posição aberta (alteração de stops - Stop Loss e/ou Take Profit).
+<h3>TradeTransaction</h3>
+Ao realizar algumas ações específicas em uma conta de negociação, seu estado muda. Tais ações
+includem:
+· Envio de uma solicitação de negociação a partir de algum aplicativo MQL5 no terminal usando as
+funções OrderSend e OrderSendAsync e sua posterior execução.
+· Envio de uma solicitação de negociação por meio da interface gráfica do terminal e sua posterior
+execução.
+· Ativação de ordens pendentes e ordens de stop no servidor.
+· Realização de operações no lado de um servidor de negociação.
+As seguintes transações de negociação são realizadas como resultado destas ações:
+· tratamento de uma solicitação de negociação
+· mudança de ordens de abertura
+· mudança de histórico de ordens
+· mudança de histórico de operações (deals)
+· mudança de posições
+Por exemplo, ao enviar uma ordem de compra de mercado, ela é tratada, uma ordem de compra
+apropriada é criada para a conta, a ordem é então executada e removida da lista de ordens em
+aberto, e então ela é adicionada ao histórico de ordens, uma apropriada operação (deal) é adicionada
+ao histórico e uma nova posição é criada. Todas estas ações são transações de negociação. A chegada
+de tal transação no terminal é um evento TradeTransaction. Este evento é tratado pela função
+OnTradeTransaction.
+<h3>Tester</h3>
+O evento Tester é gerado após um teste de um Expert Advisor sob dados de histórico ter acabado. O
+evento é tratado pela função OnTester().</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1072
+<h3>TesterInit</h3>
+O evento TesterInit é gerado no início de uma otimização no Provador de Estratégia antes do primeiro
+passo de otimização. O evento TesterInit é tratado pela função OnTesterInit().
+<h3>TesterPass</h3>
+O evento TesterPass é gerado quando uma nova estrutura de dados é recebido. O evento TesterPass é
+tratado pela função OnTesterPass().
+<h3>TesterDeinit</h3>
+O evento TesterDeinit é gerado após o fim de um otimização de um Expert Advisor no Provador de
+Estratégia. O evento TesterDeinit é tratado pela função OnTesterDeinit().
+<h3>ChartEvent</h3>
+O evento ChartEvent  é gerado  pelo terminal cliente quando um usuário está trabalhando com um
+gráfico:
+· pressionar de teclado, quando a janela de gráfico está com foco
+· objeto gráfico criado
+· objeto gráfico excluído
+· pressionar de mouse sobre um objeto gráfico do gráfico
+· movimentação do objeto gráfico usando o mouse
+· fim de edição de texto no LabelEdit
+Também existe o evento customizado ChartEvent, que pode ser enviado para um Expert Advisor
+através de qualquer programa mql5 por meio do uso da função EventChartCustom. O evento é
+processado pela função OnChartEvent.
+<h3>BookEvent</h3>
+O evento BookEvent é gerado pelo terminal cliente após a Profundida de Mercado ser alterada; ele é
+processado pela função OnBookEvent. Para começar a geração de BookEvent para um ativo
+especificado, é necessário subscrever o ativo para este evento através do uso da função
+MarketBookAdd.
+Para desfazer a subscrição de BookEvent para um ativo especificado, é necessário chamar a função
+MarketBookRelease. O evento BookEvent é um evento do tipo-transmissão - isso significa que é
+suficiente inscrever apenas um Consultor Especializado (Expert Advisor) para este evento, e todos os
+outros Consultores Especializados (Expert Advisors) que têm o manipulador de eventos OnBookEvent,
+vão recebê-lo. É por isso que é necessário analisar o nome do ativo, que é passado para um handler
+como um parâmetro.
+<h3>Também Veja</h3>
+<h3>Handlers de Evento, Execução de Programa</h3></p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1073
+<h3>Recursos</h3>
+Usando gráficos e som em programas MQL5
+Programas em MQL5 permitem trabalhar com som e arquivos gráficos:
+· PlaySound() executa um arquivo de som.
+· ObjectCreate() permite criar interfaces de usuário usando os objetos gráficos OBJ_BITMAP e
+OBJ_BITMAP_LABEL. 
+<h3>PlaySound()</h3>
+<h3>Exemplo de chamada da função PlaySound():</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| A função chama OrderSend() padrão e toca um som                  |
+//+------------------------------------------------------------------+
+void OrderSendWithAudio(MqlTradeRequest  &amp;request, MqlTradeResult &amp;result)
+  {
+  //--- envia uma solicitação para um servidor
+   OrderSend(request,result);
+   //--- se a solicitação for aceite, executa o som Ok.wav
+   if(result.retcode==TRADE_RETCODE_PLACED) PlaySound(&quot;Ok.wav&quot;);
+   //--- se falhar, toca um alarme a partir do arquivo timeout.wav
+   else PlaySound(&quot;timeout.wav&quot;);
+</code></pre>
+<p>
+  }
+O exemplo mostra como tocar sons a partir de arquivos &#x27;Ok.wav&#x27; e &#x27;timeout.wav&#x27;, que estão incluídos
+no pacote do terminal padrão. Estes arquivos estão localizados na pasta terminal_directory\Sounds.
+Aqui, terminal_directory é uma pasta, a partir do qual o terminal de cliente da MetaTrader 5 é
+iniciado. A localização do diretório do terminal pode ser encontrado a partir de um programa MQL5 da
+seguinte forma:
+</p>
+<pre><code class="language-mql5">
+//--- Pasta, na qual dados de terminal são armazenados
+   string terminal_path=TerminalInfoString(TERMINAL_PATH);
+</code></pre>
+<p>
+Você pode usar arquivos de som não somente da pasta terminal_directory\Sounds, mas também de
+qualquer sub-pasta localizada em terminal_data_directory\MQL5. Você pode descobrir a localização
+do diretório de dados do terminal a partir do menu do terminal &quot;Arquivo&quot; -&gt; &quot;Abrir&quot; dados do terminal
+ou usar um método de programa:
+</p>
+<pre><code class="language-mql5">
+//--- Pasta, na qual dados de terminal são armazenados
+   string terminal_data_path=TerminalInfoString(TERMINAL_DATA_PATH);
+</code></pre>
+<p>
+Por exemplo, se o arquivo de som &#x27;Demo.wav&#x27; está localizado em terminal_data_directory\MQL5\Files,
+então a chamada de PlaySound() deveria ser escrita da seguinte forma:
+</p>
+<pre><code class="language-mql5">
+//--- toca Demo.wav a partir da pasta terminal_directory_data\MQL5\Files\Demo.wav
+   PlaySound(&quot;\\Files\\Demo.wav&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1074
+Observe que no comentário o caminho do arquivo está escrito usando uma barra invertida &quot;\&quot;, e na
+função é usado &quot;\\&quot;.
+Ao se especificar o caminho, sempre use barras invertidas duplas como separador, porque uma única
+barra invertida é um controle de símbolo para o compilador ao lidar com constantes de cadeias de
+caracteres e constantes de caracteres no código fonte do programa. 
+Call PlaySound() function with NULL parameter to stop playback:
+</p>
+<pre><code class="language-mql5">
+//--- Chamar o PlaySound() com parâmetro NULL interrompe a reprodução
+   PlaySound(NULL);
+</code></pre>
+<p>
+<h3>ObjectCreate()</h3>
+Exemplo de um Expert Advisor, que cria um rótulo gráfico (OBJ_BITMAP_LABEL) usando a função
+ObjectCreate().
+</p>
+<pre><code class="language-mql5">
+string label_name=&quot;currency_label&quot;;        // nome do objeto OBJ_BITMAP_LABEL
+string euro      =&quot;\\Images\\euro.bmp&quot;;    // caminho do arquivo terminal_dara_directo
+string dollar    =&quot;\\Images\\dollar.bmp&quot;;  // caminho do arquivo terminal_dara_directo
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- cria um botão OBJ_BITMAP_LABEL, se ele já não tiver sido criado
+   if(ObjectFind(0,label_name)&lt;0)
+     {
+      //--- tenta criar objeto OBJ_BITMAP_LABEL
+      bool created=ObjectCreate(0,label_name,OBJ_BITMAP_LABEL,0,0,0);
+      if(created)
+        {
+         //--- vincula o botão ao canto superior esquerdo do gráfico
+         ObjectSetInteger(0,label_name,OBJPROP_CORNER,CORNER_RIGHT_UPPER);
+         //--- agora configura as propriedades do objeto
+         ObjectSetInteger(0,label_name,OBJPROP_XDISTANCE,100);
+         ObjectSetInteger(0,label_name,OBJPROP_YDISTANCE,50);
+         //--- redefine o código do último erro para 0
+         ResetLastError();
+         //--- carrega uma figura para indicador o estado &quot;Pressionado&quot; do botão
+         bool set=ObjectSetString(0,label_name,OBJPROP_BMPFILE,0,euro);
+         //--- testa o resultado
+         if(!set)
+           {
+            PrintFormat(&quot;Falha no download a partir do arquivo de imagem %s. Código de
+           }
+         ResetLastError();
+         //--- carrega uma figura para indicador do estado &quot;Não pressionado&quot; do botão</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1075
+</p>
+<pre><code class="language-mql5">
+         set=ObjectSetString(0,label_name,OBJPROP_BMPFILE,1,dollar);
+         
+         if(!set)
+           {
+            PrintFormat(&quot;Falha no download a partir do arquivo de imagem %s. Código de
+           }
+         //--- envia um comando para um gráfico para reatualização, a fim de que o bot
+         ChartRedraw(0);
+        }
+      else
+        {
+         //--- falha ao criar um objeto, notificar
+         PrintFormat(&quot;Falha ao criar objeto OBJ_BITMAP_LABEL. Error code %d&quot;,GetLastEr
+        }
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- exclui um objeto de um gráfico
+   ObjectDelete(0,label_name);
+</code></pre>
+<p>
+  }
+A criação e configuração do objeto gráfico de nome currency_label são executados na função OnInit().
+Os caminhos para os arquivos gráficos são definidos nas variáveis globais euro e dollar, uma barra
+invertida dupla é usada como separador:
+</p>
+<pre><code class="language-mql5">
+string euro      =&quot;\\Images\\euro.bmp&quot;;    // caminho do arquivo terminal_dara_directo
+string dollar    =&quot;\\Images\\dollar.bmp&quot;;  // caminho do arquivo terminal_dara_directo
+</code></pre>
+<p>
+Os arquivos estão localizados na pasta terminal_data_directory\MQL5\Images.
+O Objeto OBJ_BITMAP_LABEL é na realizada um botão, que exibe uma das duas imagens, dependendo
+do estado do botão (pressionado ou não pressionado): euro.bmp ou dollar.bmp.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1076
+O tamanho do botão com uma interface gráfico é automaticamente ajustada para o tamanho da
+figura. A imagem é alterada por um clique do botão esquerdo do mouse sob o objeto
+OBJ_BITMAP_LABEL (&quot;Disable selection&quot; deve estar definida nas propriedades). O objeto
+OBJ_BITMAP é criado da mesma forma - ele é usado para criar o pano de fundo com um imagem
+necessária. 
+O valor da propriedade OBJPROP_BMPFILE, que é responsável pela aparência dos objetos OBJ_BITMAP
+e OBJ_BITMAP_LABEL, e pode ser alterado dinamicamente. Isso permite criar várias interfaces
+interativas de usuário para programas MQL5.
+Inclusão de recursos em arquivos executáveis durante compilação
+de programas MQL5
+Um programa mql5 pode precisar de um monte de diferentes recursos baixáveis na forma de arquivos
+de imagem e som. A fim de eliminar a necessidade de transferir todos estes arquivos ao mover um
+arquivo executável em MQL5, a diretriz do compilador #resource deve ser usada:
+ #resource path_to_resource_file
+O comando #resource diz ao compilador que o recurso no caminho especificado path_to_resource_file
+deve ser incluído dentro do arquivo executável EX5. Assim, todos os sons e imagens necessários
+podem ser alocados diretamente dentro de um arquivo EX5, de modo que não exista necessidade de
+transferir separadamente os arquivos nele usados, caso você queira executar o programa em um
+terminal diferente. Qualquer arquivo EX5 pode conter recursos, e qualquer programa EX5 pode usar
+recursos de um outro programa EX5.
+Os arquivo em formato BMP e WAV são automaticamente comprimidos antes de serem incluídos em
+um arquivo EX5. Isso significa que além de criar programas completos em MQL5, o uso de recursos
+também permite reduzir o tamanho total dos arquivos necessários ao usar gráficos e sons, quando
+comparado com a forma usual de escrever um programa MQL5.
+O arquivo de recurso não deve exceder 16 Mb.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1077
+<h3>Busca por recursos específicos pelo compilador</h3>
+Um recurso é inserido usando o comando #resorce &quot;&lt;path to the resource file&gt;&quot;
+ #resource &quot;&lt;path_to_resource_file&gt;&quot;
+O comprimento da constante string &lt;path_to_resource_file&gt; não de exceder 63 caracteres.
+O compilador busca por um recurso no caminho especificado na seguinte ordem:
+· se o separador barra invertida &quot;\&quot; (escrito como &quot;\\&quot;) é colocado no começo do caminho, ele busca
+pelo recurso referente ao diretório terminal_data_directory\MQL5\,
+· se não houver barra invertida, ele busca pelo recurso referente à localização do arquivo de recurso,
+na qual o recurso foi escrito.
+O caminho do recurso não pode conter as sub-cadeias &quot;..\\&quot; e &quot;:\\&quot;.
+<h3>Exemplos de inclusão de recurso:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- correct specification of resources
+</code></pre>
+<p>
+#resource &quot;\\Images\\euro.bmp&quot; // euro.bmp está localizado em terminal_data_directory\
+#resource &quot;picture.bmp&quot;        // picture.bmp está localizado no mesmo diretoria que o
+#resource &quot;Resource\\map.bmp&quot;  // O recurso está localizado em source_file_directory\R
+</p>
+<pre><code class="language-mql5">
+//--- especificação incorreta de recursos
+</code></pre>
+<p>
+#resource &quot;:picture_2.bmp&quot;     // não deve conter &quot;:&quot;
+#resource &quot;..\\picture_3.bmp&quot;  // não deve conter &quot;..&quot;
+#resource &quot;\\Files\\Images\\Folder_First\\My_panel\\Labels\\too_long_path.bmp&quot; //mais 
+<h3>Uso de Recursos</h3>
+<h3>Nome de recurso</h3>
+Após um recurso ser declarado usando a diretiva #resource, ele pode ser usado em qualquer parte de
+um programa. O nome do recurso é seu caminho sem uma barra invertida no começo da linha, que
+define o caminho do recurso. Para usar seu próprio recurso no código, o sinal especial &quot;::&quot; deve ser
+adicionado antes do nome do recurso.
+<h3>Exemplos:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- exemplos de especificação de recurso e seus nomes em comentários
+</code></pre>
+<p>
+#resource &quot;\\Images\\euro.bmp&quot;          // nome do recurso - Images\euro.bmp
+#resource &quot;picture.bmp&quot;                 // nome do recurso - picture.bmp
+#resource &quot;Resource\\map.bmp&quot;           // nome do recurso - Resource\map.bmp
+#resource &quot;\\Files\\Pictures\\good.bmp&quot; // nome do recurso - Files\Pictures\good.bmp
+#resource &quot;\\Files\\Demo.wav&quot;;          // nome do recurso - Files\Demo.wav&quot;
+#resource &quot;\\Sounds\\thrill.wav&quot;;       // nome do recurso - Sounds\thrill.wav&quot;
+...                                  </p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1078
+</p>
+<pre><code class="language-mql5">
+//--- utilização dos recursos
+</code></pre>
+<p>
+ObjectSetString(0,bitmap_name,OBJPROP_BMPFILE,0,&quot;::Images\\euro.bmp&quot;);
+...
+ObjectSetString(0,my_bitmap,OBJPROP_BMPFILE,0,&quot;::picture.bmp&quot;);
+...
+set=ObjectSetString(0,bitmap_label,OBJPROP_BMPFILE,1,&quot;::Files\\Pictures\\good.bmp&quot;);
+...
+<h3>PlaySound(&quot;::Files\\Demo.wav&quot;);</h3>
+...
+<h3>PlaySound(&quot;::Sounds\\thrill.wav&quot;);</h3>
+Deve se notar que ao definir imagens a partir de um recurso para os objetos OBJ_BITMAP e
+OBJ_BITMAP_LABEL, o valor da propriedade OBJPROP_BMPFILE não pode ser modificado manualmente.
+Por exemplo, para criar OBJ_BITMAP_LABEL nós usados euro.bmp e dollar.bmp.
+#resource &quot;\\Images\\euro.bmp&quot;;    // euro.bmp está localizado em terminal_data_direct
+#resource &quot;\\Images\\dollar.bmp&quot;;  // dollar.bmp está localizado em terminal_data_dire
+Ao visualizar as propriedades deste objeto, veremos que as propriedades BitMap File (On) e BitMap
+File (Off) são esmaecidas e não podem ser alteradas manualmente:
+Usando os recursos em outros programas MQL5
+Existe uma outra vantagem no uso de recurso – em qualquer programa MQL5, os recursos de um outro
+arquivo EX5 podem ser usados. Assim, os recursos de um arquivo EX5 podem ser usados em muitos
+outros programas MQL5.
+A fim de usar um nome de recurso de um outro arquivo, ele deve ser especificado como
+&lt;path_EX5_file_name&gt;::&lt;resource_name&gt;. 
+<h3>Por</h3>
+exemplo, 
+suponha 
+que 
+o 
+script
+Draw_Triangles_Script.mq5 contém um recurso para uma imagem no arquivo triangle.bmp:
+ #resource &quot;\\Files\\triangle.bmp&quot;</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1079
+Então seu nome, para uso no script em si, se assemelhará a &quot;Files\triangle.bmp&quot;, e a fim de usá-lo,
+&quot;::&quot; deve ser adicionado ao nome do recurso.
+</p>
+<pre><code class="language-mql5">
+//--- usando o curso no script
+</code></pre>
+<p>
+ObjectSetString(0,my_bitmap_name,OBJPROP_BMPFILE,0,&quot;::Files\\triangle.bmp&quot;);
+A fim de usar o mesmo recurso a partir de um outro programa, por exemplo, a partir de um Expert
+Advisor, precisamos adicionar ao nome do recurso o caminho para o arquivo EX5 correspondente ao
+terminal_data_directory\MQL5\ e o nome arquivo EX5 do script - Draw_Triangles_Script.ex5.
+Suponha que o script está localizado na pasta padrão terminal_data_directory\MQL5\Scripts\, então
+o chamado deve ser escrito da seguinte forma:
+</p>
+<pre><code class="language-mql5">
+//--- usando um recurso de um script em um EA
+</code></pre>
+<p>
+ObjectSetString(0,my_bitmap_name,OBJPROP_BMPFILE,0,&quot;\\Scripts\\Draw_Triangles_Script.e
+Se o caminho para o arquivo executável não for especificado ao chamar o recurso de um outro EX5, o
+arquivo executável é procurado na mesma pasta que contém o programa que chama o recurso. Isso
+significa que se um Expert Advisor chamar um recurso de Draw_Triangles_Script.ex5 sem especificar o
+caminho, como abaixo:
+</p>
+<pre><code class="language-mql5">
+//--- chama recurso de script em um EA sem especificar o caminho
+</code></pre>
+<p>
+ObjectSetString(0,my_bitmap_name,OBJPROP_BMPFILE,0,&quot;Draw_Triangles_Script.ex5::Files\\
+então o arquivo será procurado na pasta terminal_data_directory\MQL5\Experts\, caso o Expert
+Advisor esteja localizado em terminal_data_directory\MQL5\Experts\.
+Trabalhando com indicadores personalizados que estão conectados como
+recursos
+O funcionamento de programas MQL5 pode exigir um ou mais indicadores personalizados, eles podem
+ser incluídos no código do programa executável MQL5. A inclusão de indicadores como recursos
+simplifica a distribuição de programas.
+Exemplo de conexão e utilização do indicador personalizado SampleIndicator.ex5, localizado na pasta:
+diretório_de_dados_do_terminal\MQL5\Indicators\:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                     SampleEA.mq5 |
+//|                        Copyright 2013, MetaQuotes Software Corp. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+#resource &quot;\\Indicators\\SampleIndicator.ex5&quot;
+</p>
+<pre><code class="language-mql5">
+int handle_ind;
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//---
+   handle_ind=iCustom(_Symbol,_Period,&quot;::Indicators\\SampleIndicator.ex5&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1080
+</p>
+<pre><code class="language-mql5">
+   if(handle_ind==INVALID_HANDLE)
+     {
+      Print(&quot;Expert: iCustom call: Error code=&quot;,GetLastError());
+      return(INIT_FAILED);
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+Os casos em que o indicador personalizado, na função OnInit(), cria uma ou mais cópias de si mesmo
+exigem uma análise separada. Lembre-se que para usar um recurso a partir de um programa mql5, é
+preciso especificá-lo no formato:  &lt;caminho_do_nome_do_arquivo_EX5&gt;::&lt;nome_do_recurso&gt;.
+Por exemplo, se o indicador SampleIndicator.ex5 estiver incluído no Expert Advisor SampleEA.ex5
+como um recurso, então o caminho para si mesmo será especificado ao chamar iCustom() na função
+de 
+inicialização 
+do 
+indicador 
+personalizado, 
+isso 
+será 
+da 
+seguinte 
+forma: 
+&quot;\\Experts\
+\SampleEA.ex5::Indicators\\SampleIndicator.ex5&quot;. Se for definido explicitamente o caminho, o
+indicador personalizado SampleIndicator.ex5 será firmemente ligado ao Advisor SampleEA.ex5 e
+perderá a capacidade de trabalhar de forma independente.
+O caminho para si mesmo pode ser obtido utilizando a função GetRelativeProgramPath(), a seguir, um
+exemplo de utilização:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                              SampleIndicator.mq5 |
+//|                        Copyright 2013, MetaQuotes Software Corp. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property indicator_separate_window
+#property indicator_plots 0
+int handle;
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- maneira errada para especificar uma referência para si próprio
+//--- string path=&quot;\\Experts\\SampleEA.ex5::Indicators\\SampleIndicator.ex5&quot;;   
+//--- maneira correta para obter uma referência a si mesmo
+</code></pre>
+<p>
+  string path=GetRelativeProgramPath();
+</p>
+<pre><code class="language-mql5">
+//--- indicator buffers mapping
+   handle=iCustom(_Symbol,_Period,path,0,0);
+   if(handle==INVALID_HANDLE)
+     {
+      Print(&quot;Indicator: iCustom call: Error code=&quot;,GetLastError());
+      return(INIT_FAILED);
+     }
+   else Print(&quot;Indicator handle=&quot;,handle);
+//---
+   return(INIT_SUCCEEDED);</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1081
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| GetRelativeProgramPath                                           |
+//+------------------------------------------------------------------+
+string GetRelativeProgramPath()
+  {
+   int pos2;
+//--- obtemos o caminho absoluto para o programa
+   string path=MQLInfoString(MQL_PROGRAM_PATH);
+//--- encontramos a posição da sub-cadeia de caracteres &quot;\MQL5\&quot;
+   int    pos =StringFind(path,&quot;\\MQL5\\&quot;);
+//--- sub-cadeia não encontrada - erro
+   if(pos&lt;0)
+      return(NULL);
+//--- ignoramos o diretório &quot;\MQL5&quot;
+   pos+=5;
+//--- ignoramos &#x27;\&#x27; extras
+   while(StringGetCharacter(path,pos+1)==&#x27;\\&#x27;)
+      pos++;
+//--- se se tratar de um recurso, retornamos o caminho em relação ao diretório MQL5
+   if(StringFind(path,&quot;::&quot;,pos)&gt;=0)
+      return(StringSubstr(path,pos));
+//--- encontramos o delimitador para o primeiro sub-diretório em MQL5 (por exemplo, MQ
+//--- se ele não existir, retornamos o caminho em relação ao diretório MQL5
+   if((pos2=StringFind(path,&quot;\\&quot;,pos+1))&lt;0)
+      return(StringSubstr(path,pos));
+//--- retornamos o caminho em relação ao sub-diretório (например, MQL5\Indicators)
+   return(StringSubstr(path,pos2+1));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Custom indicator iteration function                              |
+//+------------------------------------------------------------------+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const int begin,        
+                const double&amp; price[])
+  {
+//--- Valor de retorno do prev_calculated para a próxima chamada
+   return(rates_total);
+</code></pre>
+<p>
+  }
+<h3>Variáveis de recurso</h3>
+Os recursos podem ser declarados usando as variáveis de recurso, e tratá-los como se fossem uma
+variável do tipo apropriado. Formato do declaração:
+#resource caminho_para_o_arquivo_do_recurso as tipo_de_variável_de_recurso nome_de_var</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1082
+<h3>Exemplos de declaração:</h3>
+#resource &quot;data.bin&quot; as int ExtData[]             // declaração de matriz de tipo numé
+#resource &quot;data.bin&quot; as MqlRates ExtData[]        // declaração de matriz de estrutura
+</p>
+<pre><code class="language-mql5">
+//--- cadeias de caracteres
+</code></pre>
+<p>
+#resource &quot;data.txt&quot; as string ExtCode            // declaração de cadeias de caracter
+</p>
+<pre><code class="language-mql5">
+//--- recursos gráficos
+</code></pre>
+<p>
+#resource &quot;image.bmp&quot; as bitmap ExtBitmap[]       // declaração de matriz unidimension
+#resource &quot;image.bmp&quot; as bitmap ExtBitmap2[][]    // declaração de matriz bidimensiona
+Ao utilizar tal declaração, os dados deste recurso podem ser tratados por intermédio de uma variável,
+o endereçamento automático via &quot;::&lt;rsource name&gt;&quot; não funciona. 
+#resource &quot;\\Images\\euro.bmp&quot; as bitmap euro[][]
+#resource &quot;\\Images\\dollar.bmp&quot;
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|  Função de criação de objeto OBJ_BITMAP_LABEL usando o recurso|
+//+------------------------------------------------------------------+
+void Image(string name,string rc,int x,int y)
+  {
+   ObjectCreate(0,name,OBJ_BITMAP_LABEL,0,0,0);
+   ObjectSetInteger(0,name,OBJPROP_XDISTANCE,x);
+   ObjectSetInteger(0,name,OBJPROP_YDISTANCE,y);
+   ObjectSetString(0,name,OBJPROP_BMPFILE,rc);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de início do programa script                              |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- imprimimos os tamanhos da imagem [width, height], que é armazenada na variável d
+   Print(ArrayRange(euro,1),&quot;, &quot;,ArrayRange(euro,0));
+//--- alteramos a imagem no euro - desenhamos uma faixa horizontal no meio
+   for(int x=0;x&lt;ArrayRange(euro,1);x++)
+      euro[ArrayRange(euro,1)/2][x]=0xFFFF0000;
+//--- criamos o recurso gráfico usando a variável de recurso
+   ResourceCreate(&quot;euro_icon&quot;,euro,ArrayRange(euro,1),ArrayRange(euro,0),0,0,ArrayRang
+//--- criamos objeto do rótulo gráfico Euro, para o qual colocamos a imagem a partir d
+   Image(&quot;Euro&quot;,&quot;::euro_icon&quot;,10,40);
+//--- outro modo de utilizar o recurso, nós não podemos desenhar nele
+   Image(&quot;USD&quot;,&quot;::Images\\dollar.bmp&quot;,15+ArrayRange(euro,1),40);
+//--- a maneira direta de endereçamento para o recurso euro.bmp não está disponível, u
+   Image(&quot;E2&quot;,&quot;::Images\\euro.bmp&quot;,20+ArrayRange(euro,1)*2,40); // acontece o erro de 
+</code></pre>
+<p>
+  }
+Resultado de execução do script, estão criados apenas dois objetos OBJ_BITMAP_LABEL de três. Ao
+mesmo tempo, na imagem do primeiro objeto, nós vemos uma linha vermelha no meio.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1083
+Uma vantagem importante do uso de recursos é que os arquivos de recurso - antes de serem incluídos
+num arquivo EX5 executável e compilados - são comprimidos automaticamente. Assim, o uso de
+variáveis ​de recurso permite não só empacotar diretamente os dados necessários num arquivo EX5
+executável, mas também reduzir o número e o tamanho total dos arquivos em comparação com o
+método convencional de escrita de programas MQL5.
+A utilização de variáveis de recurso é particularmente útil para publicar produtos no Mercado.
+<h3>Características</h3>
+· O tipo especial de variável de recurso bitmap informa ao compilador que o recurso é uma
+representação gráfica. Essas variáveis recebem o tipo uint. 
+· A matriz-variável de recurso de tipo bitmap pode ter duas dimensões, neste caso, o tamanho da
+matriz será definido como [altura_de_imagem][largura_de_imagem]. No caso de uma matriz
+unidimensional, 
+o 
+número 
+de 
+elementos 
+será 
+definido 
+como 
+o 
+produto 
+de
+altura_de_imagem*largura_de_imagem.
+· Ao carregar imagens de 24 bits, para todos os pixels da imagem de componente de canal-alfa,
+define-se como 255.
+· Ao carregar imagens de 32 bits, para todos os pixels da imagem de componente de canal-alfa,
+define-se como 255.
+· Após carregar uma imagem de 32 bits com canal-alfa não acontece nenhuma manipulação de pixels.
+· O tamanho do arquivo de recurso não pode ser maior do que 128 MB.
+· Para arquivos de sequência de caracteres, a codificação de BOM (cabeçalho) é detectada
+automaticamente. Se não houver nenhum BOM, a codificação será determinada pelo conteúdo. São
+suportados arquivos codificados em ANSI, UTF-8 e UTF-16. Todas as cadeias de caracteres são
+convertidas para Unicode.
+<h3>Programas em OpenCL</h3></p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1084
+A utilização de variáveis - de sequências de caracteres - de recurso pode facilitar muito a escrita de
+alguns programas. Por exemplo, você pode escrever o código de um programa OpenCL num arquivo CL
+separado e, em seguida, incluir esse arquivo - como uma cadeia de caracteres - nos recursos de seu
+programa MQL5. 
+#resource &quot;seascape.cl&quot; as string cl_program
+...
+</p>
+<pre><code class="language-mql5">
+int context;
+</code></pre>
+<p>
+if((cl_program=CLProgramCreate(context,cl_program)!=INVALID_HANDLE)
+</p>
+<pre><code class="language-mql5">
+  {
+   //--- executa ações futuras com o programa OpenCL
+</code></pre>
+<p>
+  }
+Neste exemplo, sem a utilização de uma variável de recursocl_program, você teria de descrever esse
+código como uma variável de cadeia grande.
+<h3>Veja Também</h3>
+ResourceCreate(), ResourceSave(), PlaySound(), ObjectSetInteger(), ChartApplyTemplate(), Funções
+de Arquivo</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1085
+<h3>Chamadas de Funções Importadas</h3>
+Para importar funções durante a execução de um programa-mql5, o terminal cliente usar &quot;early
+binding&quot;. Isso significa que se um programa tem uma chamada de uma função importada, o
+correspondente módulo (ex5 ou dll) é carregada durante a carga do programa. MQL5 e bibliotecas DLL
+são executadas na thread do módulo da chamada.
+Não é recomendado usar o nome do módulo com especificação completa para ser carregado, como
+Drive:\Directory\FileName.Ext. 
+<h3>As</h3>
+bibliotecas 
+<h3>MQL5</h3>
+são 
+carregadas 
+a 
+partir 
+da 
+pasta
+terminal_dir\MQL5\Libraries. Se a biblioteca não for encontrada, então o terminal tenta carregá-la a
+partir da pasta terminal_dir\experts. 
+As bibliotecas de sistema (DLL) são carregadas pelas regras do sistema operacional. Se a biblioteca já
+estiver carregada (por exemplo, um outro Expert Advisor, e mesmo a partir de um outro terminal
+cliente, executando em paralelo, então ele faz solicitações para a biblioteca já carregada. Caso
+contrário, ele realiza uma busca na seguinte seqüência:
+1. Diretório do qual o módulo que importa a dll foi iniciado. O módulo aqui é um Expert Advisor, um
+script, um indicador ou uma biblioteca EX5.
+2. Diretório terminal_data_directory\MQL5\Libraries (TERMINAL_DATA_PATH\MQL5\Libraries).
+3. Diretório do qual o terminal cliente MetaTrader 5 foi iniciado.
+4. Diretório de sistema.
+5. Diretório do Windows.
+6. Diretório corrente.
+7. Diretórios listados na variável de sistema PATH.
+Se uma biblioteca DLL usa uma outra DLL no seu funcionamento, a primeira DLL não pode ser
+carregada no caso de não existir a segunda DLL.
+Antes de um Expert Advisor (script, indicador) ser carregado, uma lista comum de todos os módulos
+de biblioteca EX5 é formada. Vai ser usado a partir de um Expert Advisor carregado(script, indicador)e
+das bibliotecas desta lista. Assim, é necessário apenas uma única carga de módulos de bibliotecas EX5
+usadas muitas vezes. Bibliotecas usam variáveis predefinidas do Expert Advisor (script, indicador) que
+as chamam.
+A biblioteca importada EX5 é procurada na seguinte seqüência:
+1. Diretório, caminho correspondente ao diretório do Expert Advisor (script, indicador) que importa o
+EX5).
+2. Diretório terminal_directory\MQL5\Libraries.
+3. Diretório MQL5\Libraries no diretório comum a todos os terminais clientes MetaTrader 5
+(Common\MQL5\Libraries).
+Funções importadas DLL em um programa-mql5 devem garantir a conformidade de chamadas do
+Windows API. Para garantir tal conformidade, no texto fonte de programas escritos em C ou C++, use
+a palavra-chave _stdcall, que é específico para os compiladores Microsoft(r). Esta conformidade é
+caraterizada pelo seguinte:
+· Chamador (no nosso caso, é um programa-mql5) deve &quot;ver&quot; um proto-tipo de uma função chamada
+(importado da DLL), a fim de combinar parâmetros em uma pilha de forma apropriada.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1086
+· Chamador (em nosso caso, é um programa-mql5) coloca parâmetros na pilha em uma ordem
+reversa, da direita para esquerda - nesta ordem uma função lê os parâmetros passados para ela.
+· parâmetros são passados por valor, exceto aqueles explicitamente passados por referência (em
+nossos casos de strings)
+· Uma função importada limpa a pilha de forma independente através da leitura dos parâmetros
+passados para ela.
+Ao descrever o proto-tipo de uma função importada, parâmetros padrão podem ser usados.
+Se a biblioteca correspondente é incapaz de ser carregada, ou existe uma proibição quanto ao uso da
+DLL, ou a função importada não é encontrada - o Expert Advisor interrompe sua operação com a
+mensagem apropriada &quot;Expert Advisor stopped&quot; no Diário (arquivo de log). Neste caso o Expert
+Advisor não rodará até ser reiniciado. Um Expert Advisor pode ser reiniciado como resultado de
+recompilação ou após a tabela de suas propriedades ser aberto e OK ser pressionado.
+<h3>Passando Parâmetros</h3>
+Todos os parâmetros de tipos simples são passados por valor a menos que sejam explicitamente
+indicados que eles devem ser passados por referência. Quando uma string é passada, o endereço do
+buffer da string copiada é passado; se uma string é passada por referência, o endereço do buffer
+desta string sem copiá-la é passado para a função importada da DLL.
+Estruturas que contém arrays dinâmicos, strings, classes, outras estruturas complexas, bem como
+arrays estáticos ou dinâmicos dos objetos listados, não podem ser passados como parâmetro para uma
+função importada.
+Ao passar um array para uma DLL, o endereço do começo do buffer de dados é sempre passado
+(independentemente da flag AS_SERIES). Uma função dentro de uma DLL não sabe nada sobre a flag
+AS_SERIES, o array passado é um array estático de um comprimento indefinido; um parâmetro
+adicional deve ser usado para especificar o tamanho do array.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1087
+<h3>Erros em Tempo de Execução</h3>
+O subsistema de execução do terminal cliente tem a oportunidade de salvar o código do erro em caso
+de ocorrência durante a execução de um programa MQL5. Existe um variável predefinida _LastError
+para cada programa executável MQL5.
+Antes de iniciar a função OnInit, a variável _LastError é zerada. Em caso de uma situação de erro
+ocorrer durante a processamento de cálculos ou no processo de chamada de funções internas, o a
+variável _LastError recebe o código do erro correspondente. O valor armazenado nesta variável pode
+ser obtida usando a função GetLastError().
+Existem diversos erros críticos cuja ocorrência faz com que um programa seja encerrado
+imediatamente:
+· divisão por zero
+· ir além dos limites de um array
+· usando um ponteiro de objeto incorreto</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1088
+<h3>Testando Estratégias de Negociação</h3>
+A ideia de negociação automática é atraente pelo fato de que o robô de negociação pode trabalhar
+sem parar 24 horas por dia, sete dias por semana. O robô não fica cansado, em dúvida, ou com medo,
+ele é totalmente livre de quaisquer problemas psicológicos. Basta formalizar de forma clara as regras
+de negociação e implementá-las nos algoritmos, e o robô está pronto para trabalhar incansavelmente.
+Mas primeiro, você deve se certificar de que as duas condição importantes seguintes estão
+satisfeitas:
+· O Expert Advisor realiza operações de negociação em concordância com as regras do sistema de
+negociação;
+· A estratégia de negociação, implementada no EA, demonstra lucro no histórico.
+Para obter respostas para estas questões, nos voltamos para o Provador de Estratégia, incluído no
+terminal cliente MetaTrader 5.
+Esta seção aborda as características do teste e otimização de programa no Provador de Estratégia:
+· Function Limitations in the Strategy Tester
+· Modos de Geração de Tick
+· Simulação de Spread
+· Usando ticks reais durante os testes
+· As Variáveis Globais do Terminal Cliente
+· O Cálculo de Indicadores durante um Teste
+· Carregando Histórico durante Teste
+· Teste Multi-Moeda
+· Simulação de Tempo no Provador de Estratégia
+· Objetos Gráficos no Teste
+· A Função OnTimer() no Provador de Estratégia
+· A Função Sleep() no Provador de Estratégia
+· Usando o Provador de Estratégia para Problemas de Otimização em Cálculos Matemáticos
+· A Sincronização de Barras no modo &quot;Somente Preço de Abertura&quot;
+· A função IndicatorRelease() no Provador de Estratégia
+· Tratamento de Evento no Provador de Estratégia
+· Agentes de Teste
+· A Troca de Dados entre o Terminal e o Agente
+· Usando a Pasta Compartilhada para Todos os Terminais Cliente
+· Usando DLLs
+Limitações de memória e de espaço em disco na MQL5 Cloud
+<h3>Network</h3></p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1089
+Ao executar a otimização na MQL5 Cloud Network, há uma restrição: o Expert Advisor testado não
+pode gravar mais de 4 GB de informações no disco e usar mais de 4 GB de RAM. Se o limite for
+excedido, o agente de rede não conseguirá concluir o cálculo corretamente e você não receberá o
+resultado do teste. Além disso, você será cobrado pelo tempo já gasto nos cálculos.
+Se você precisar obter informações de cada passagem da otimização, use enviar quadros sem gravar
+no disco. Para não usar operações de arquivo nos Expert Advisors durante os cálculos na MQL5 Cloud
+<h3>Network, você pode aplicar essa verificação:</h3>
+</p>
+<pre><code class="language-mql5">
+   int handle=INVALID_HANDLE;
+   bool file_operations_allowed=true;
+   if(MQLInfoInteger(MQL_OPTIMIZATION) || MQLInfoInteger(MQL_FORWARD))
+      file_operations_allowed=false;
+   if(file_operations_allowed)
+     {
+      ...
+      handle=FileOpen(...);
+      ...
+     }
+</code></pre>
+<p>
+Restrições de trabalho das funções no testador de estratégias de
+negociação
+Existem restrições no que diz respeito ao trabalho de algumas funções no testador de estratégias de
+negociação
+<h3>Funções Comment(), Print() e PrintFormat()</h3>
+A fim de aumentar o desempenho na otimização de parâmetros do expert, não são executadas as
+funções Comment(), Print() e PrintFormat(). A exceção é o uso dessas funções dentro do manipulador
+Oninit(). Isto torna mais fácil procurar as causas de erros quando eles ocorrem.
+<h3>Funções</h3>
+<h3>Alert(),</h3>
+<h3>MessageBox(),</h3>
+<h3>PlaySound(),</h3>
+<h3>SendFTP,</h3>
+<h3>SendMail(),</h3>
+<h3>SendNotification(), WebRequest()</h3>
+Funções de interação com o &quot;mundo exterior&quot; Alert(), MessageBox(), PlaySound(), SendFTP(),
+SendMail(), SendNotification() e WebRequest() não são executadas no testador de estratégias.
+<h3>Modos de Geração de Tick</h3>
+Um Expert Advisor é um programa, escrito em MQL5, que é rodado a cada instante em resposta a
+algum evento externo. O EA tem uma função correspondente (handler de evento) para cada evento
+pré-definido.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1090
+O evento NewTick (mudança de preço) é o evento principal para o EA e, portanto, precisamos gerar
+um seqüência de ticks para testar o EA. Existem 3 modos de geração de tick implementada no
+Provador de Estratégia do terminal cliente MetaTrader 5:
+· Cada Tick
+· OHLC por minuto (preços OHLC, Open-High-Low-Close, com barras de minuto)
+· Somente Preços de Abertura
+O básico e mais detalhado é o modo &quot;Cada Tick&quot;, os outros dois modos são simplificações do modo
+básico, e serão descritos em comparação com o modo &quot;Cada Tick&quot;. Considere todos os três modos em
+ordem para entender as diferenças entre eles.
+&quot;Cada Tick&quot;
+Os dados de cotação histórica para instrumentos financeiros são transferidos do servidor de
+negociação para o terminal cliente MetaTrader 5 na forma de barras de minuto empacotadas.
+Informações detalhadas sobre a ocorrência de solicitações e a construção das janelas de tempo
+requiridas podem ser obtidas a partir do capítulo Organizando Acesso a Dados da Referência MQL5.
+O elemento mínimo do histórico de preços é a barra de minuto, a partir do qual pode-se obter
+informações sobre os quatro valores de preços:
+· Abertura (Open) - o preço em que a barra de minuto foi aberta;
+· Máximo (High) - o máximo que foi alcançado durante esta barra de minuto;
+· Mínimo (Low) - o mínimo que foi alcançado durante esta barra de minuto;
+· Fechamento (Close) - o preço de fechamento da barra.
+A nova barra de minuto não é aberta no momento que o novo minuto começa (número de segundos se
+torna igual a 0), mas quando um tick ocorre - uma alteração de preço de no mínimo um ponto. A
+figura mostra a primeira barra de minuto da nova semana de negociação, que tem a hora de abertura
+de 2011.01.10 00:00. A diferença de preços entre Sexta e Segunda, que nós vemos no gráfico é
+comum, já que taxas de moeda flutuam mesmo em fins-de-semana em resposta ao surgimento de
+notícias.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1091
+Para esta barra, nós sabemos apenas que a barra de minuto foi aberta em 10 de Janeiro de 2011 às 00
+horas 00 minutos, mas nós não sabemos nada sobre os segundos. Ela poderia ter sido aberta às
+00:00:12 ou 00:00:36 (12 ou 36 segundos após o inicio de um novo dia) ou qualquer outro instante
+dentro daquele minuto. Mas nós sabemos que o preço de Abertura do EURUSD foi de 1.28940 no
+instante de abertura da nova barra de minuto.
+Nós também não sabemos, em termos de segundos, quando o tick, correspondente ao preço de
+fechamento da barra de minuto considerada, foi recebido. Nós só sabemos uma coisa - o último preço
+de Fechamento da barra de minuto. Para este minuto, o preço foi 1.28958. Os instantes de
+aparecimento dos preços de Máximo e Mínimo também são desconhecidos, mas nós sabemos que os
+preços máximo e mínimo foram nos níveis de 1.28958 e 1.28940, respectivamente.
+Para testar a estratégia de negociação, nós precisamos de uma seqüência de ticks, na qual o trabalho
+do Expert Advisor será simulado. Assim, para toda barra de minuto, nós conhecemos os 4 pontos de
+controle, onde os preços definitivamente estiveram. Se uma barra tem apenas 4 ticks, então isso é
+informação suficiente para realizar um teste, mas geralmente o volume de tick é maior que 4.
+Portanto, existe a necessidade de gerar pontos de controle adicionais para ticks, que ocorreram entre
+os preços de Abertura, Máximo, Mínimo, e Fechamento. O princípio do modo de geração de ticks
+&quot;Cada tick&quot; é descrito dentro do O Algoritmo de Geração de Ticks dentro da Testador de Estratégia do
+Terminal MetaTrader 5, um número a partir do qual é apresentado a baixo.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1092
+Ao testar no modo &quot;Cada Tick&quot;, a função OnTick() do EA será chamado a cada ponto de controle. Cada
+ponto de controle é um tick de uma seqüência gerada. O EA receberá a hora e preço do tick simulado,
+assim como se estivesse trabalhando online.
+Importante: o modo de teste &quot;Cada Tick&quot; é o mais preciso, mas ao mesmo tempo, é o que
+consome mais tempo. Para um teste inicial da maioria das estratégias de negociação, é
+geralmente suficiente usar um dos outros dois modos de teste.
+&quot;OHLC por minuto&quot;
+O modo &quot;Cada Tick&quot; é o mais preciso dos três modos, mas é ao mesmo tempo, o mais lento. A
+execução do handler OnTick() ocorre a cada tick, a mesmo tempo que o volume de tick pode ser muito
+grande. Para uma estratégia, na qual a seqüência de ticks da movimentação de preços em toda barra
+não importa, existe um modo de simulação mais rápido e grosseiro - &quot;OHLC por minuto&quot;.
+No modo &quot;OHLC por minuto&quot;, a seqüência de ticks é construída somente pelos preços OHLC das
+barras de minuto, o número de pontos de controle gerados é significativamente reduzido - assim
+como o tempo de teste. O disparo da função OnTick() é realizada sob todos os pontos de controle, que
+são construídos pelos preços OHLC das barras de minuto.
+A opção de não gerar ticks intermediários adicionais entre os preços de Abertura, Máximo, Mínimo e
+Fechamento, leva ao aparecimento de um rígido determinismo na evolução dos preços, a partir do
+momento que o preço de Abertura é determinado. Isso torna possível criar um &quot;Teste Graal&quot;, que
+mostra um agradável gráfico ascendente do saldo do teste.
+Um exemplo de tal Graal é apresentado no Código Base - Grr-al.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1093
+A figura mostra um gráfico muito atrativo deste teste de EA. Como ele foi obtido? Nós conhecemos 4
+preços para uma barra de minuto, e nós sabemos que o primeiro é preço de Abertura, e o último é o
+preço de Fechamento. Nós temos os preços Máximo e Mínimo entre eles, e a seqüência de suas
+ocorrências é desconhecida, mas é sabido que o preço Máximo é maior ou igual que o preço de
+Abertura (e o preço Mínimo é menor ou igual ao preço de Abertura).
+É suficiente determinar o momento da recepção do preço de Abertura, e então analisar o próximo tick
+a fim de determinar que preço nós temos no momento - ou o Máximo ou o Mínimo. Se o preço for
+abaixo do preço de Abertura, então nós temos um preço Mínimo e comprarmos neste tick, o próximo
+tick corresponderá ao preço Máximo, no qual nós encerramos a compra e abrimos para venda. O
+próximo tick é o último, este é o preço de Fechamento, e encerramos a venda nele.
+Se após o preço, nós recebermos um tick com um preço maior que o preço de Abertura, então a
+seqüência de operações (deals) é invertida. Processe uma barra de minuto neste modo &quot;trapaceiro&quot;, e
+espere para pela próxima barra.
+Ao testar tal EA no histórico, tudo vai bem, mas uma vez que lançamos ele online, a verdade começa a
+ser revelada - a linha de saldo permanece regular, porém em direção descendente. Para expor este
+truque, nós simplesmente precisamos executar o EA no modo &quot;Cada Tick&quot;.
+Observação: Se os resultados do teste do EA em modos de teste grosseiros (&quot;OHLC por minuto&quot; e
+&quot;Somente Preços de Abertura&quot;) parecerem muito bons, certifique-se de testar-lo no modo &quot;Cada
+Tick&quot;.
+&quot;Somente Preços de Abertura&quot;
+Neste modo os ticks são gerados baseados nos preços OHLC das janelas de tempo selecionados para
+teste. A função OnTick() do Expert Advisor roda somente no começo da barra, no preço de Abertura.
+Devido a este característica, níveis de stop e ordens pendentes podem disparar em um preço que
+difere do preço especificado (especialmente ao testar em janelas de tempo mais altas). Em
+contrapartida, nós temos uma oportunidade de executar rapidamente um teste de avaliação do Expert
+Advisor.
+Os períodos W1 e MN1 são exceções no modo de geração de ticks &quot;Somente Preços de Abertura&quot;: para
+estas janelas de tempo, ticks são gerados para os preços OHLC de cada dia, e não preços OHLC da
+semana ou mês.
+Suponha que nós testemos um Expert Advisor sob EURUSD H1 no modo &quot;Somente Preços de Abertura&quot;.
+Neste caso o número total de ticks (pontos de controle) não será mais que 4 * número de barras de</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1094
+uma-hora dentro do intervalo testado. Mas o handler OnTick() é chamado somente na abertura da
+barra de uma-hora. As verificações requeridas para um teste correto ocorrem no resto dos ticks (que
+são &quot;escondidas&quot; do EA).
+· O cálculo de requerimentos de margem;
+· O disparo de níveis de Stop Loss e Take Profit;
+· O disparo de ordens pendentes;
+· A remoção de ordens pendentes expiradas.
+Se não existirem nenhum posição aberta ou ordens pendentes, nós não precisamos realizar destas
+verificações nos ticks escondidos, e o aumento da velocidade pode ser bastante substancial. Este
+modo &quot;Somente Preços de Abertura&quot; é bem adequado para testar estratégias que processam operações
+(deals) somente na abertura da barra e não usam ordens pendentes, bem como ordens Stop Loss e
+Take Profit. Para estratégias deste tipo, a necessidade de precisão do teste é preservada.
+Vamos usar o Expert Advisor Moving Average (Média Móvel) do pacote padrão como exemplo de um
+EA, que pode ser testado em qualquer modo. A lógica deste EA é construído de tal forma que todas as
+decisões são feitas na abertura da barra, e operações (deals) são executadas imediatamente, sem o
+uso de ordens pendentes.
+Executar um teste de EA no EURUSD H1 sobre um intervalo a partir de 2010.09.01 to 2010.12.31, e
+comparar os gráficos. A figura mostra o gráfico de saldo do relatório de teste para todos os três
+modos.
+Como se pode ver, os gráficos nos diferentes modos de teste são exatamente o mesmo para o EA
+Moving Average do pacote padrão.
+Existem algumas limitações no modo &quot;Somente Preços de Abertura&quot;:
+· Você não pode usar o modo de execução Atraso Aleatório.
+· No Expert testado, você não pode acessar os dados do período inferior do período utilizado para o
+teste/otimização. Por exemplo, se você rodar um teste em M20, você não pode acessar dados de</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1095
+M30, mas é possível acessar H1. Além disso, os períodos superiores que são acessados ​devem ser
+múltiplos do período do teste. Por exemplo, se você rodar um teste em M20, você não pode acessar
+dados de M30, mas é possível acessar H1. Estas limitações estão relacionadas com a
+impossibilidade de se obter dados de períodos inferiores ou não múltiplos de fora das barras geradas
+durante o teste/otimização.
+· Limitações no acesso a dados de outros períodos também se aplicam a outros ativos cujos dados
+são usados ​pelo Expert Advisor. Neste caso, a limitação para cada ativo depende do primeiro período
+acessado durante o teste/otimização. Suponha que durante teste em EURUSD H1, um Expert Advisor
+acesse dados de GBPUSD M20. Neste caso, o Expert será capaz de continuar a usar os dados de
+EURUSD H1, H2, etc, bem como GBPUSD M20, H1, H2, etc.
+Observação: O modo &quot;Somente Preços de Abertura&quot; tem o mais rápido tempo de teste, mas não é
+adequado para todas as estratégias de negociação. Selecione o modo de teste desejado baseado
+nas características do sistema de negociação. 
+Para concluir a seção sobre os modos de geração de tick, vamos considerar uma comparação visual
+dos diferentes modos de geração de tick para EURUSD, para duas barras de M15 no intervalo de
+2011.01.11 21:00:00 - 2011.01.11 21:30:00.
+Os ticks foram salvos em arquivos diferentes usando o EA WriteTicksFromTester.mq5 e o fim desses
+nomes de arquivos são especificados nos parâmetros de entrada filenameEveryTick, filenameOHLC e
+filenameOpenPrice input-parameters.
+Para obter três arquivos com três seqüências de tick (para cada um dos seguintes modos: &quot;Cada Tick&quot;,
+&quot;OHLC por minuto&quot; e &quot;Somente Preços de Abertura&quot;), o EA foi disparado três vezes nos modos
+correspondentes, em execuções individuais. Então, os dados destes três arquivos foram exibidos no
+gráfico usando o indicador TicksFromTester.mq5. O código do indicador está anexado neste artigo.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1096
+Por padrão, todos as operações de arquivo na linguagem MQL5 são feitas dentro da &quot;caixa de areia de
+arquivo&quot; e durante um teste o EA tem acesso somente a sua própria &quot;caixa de areia de arquivo&quot;. A fim
+de que o indicador e o EA trabalhem com arquivos provenientes de uma pasta comum durante o teste,
+nós usados o flag FILE_COMMON. Um exemplo de código do EA:
+</p>
+<pre><code class="language-mql5">
+//--- abre o arquivo
+   file=FileOpen(filename,FILE_WRITE|FILE_CSV|FILE_COMMON,&quot;;&quot;);
+//--- verifica a handle de arquivo
+   if(file==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;Erro na abertura do arquivo %s para escrever. Erro de codigo=%d&quot;,fi
+      return;
+     }
+   else
+     {
+      PrintFormat(&quot;O arquivo será criado na %s pasta&quot;,TerminalInfoString(TERMINAL_COMM
+     }
+</code></pre>
+<p>
+Para ler dos dados no indicador, nós também usamos o flag FILE_COMMON. Isso nós permite evitar
+transferir manualmente os arquivos necessários de uma pasta para outra.
+</p>
+<pre><code class="language-mql5">
+//--- abre o arquivo
+   int file=FileOpen(fname,FILE_READ|FILE_CSV|FILE_COMMON,&quot;;&quot;);
+//--- verifica a handle de arquivo
+   if(file==INVALID_HANDLE)
+     {
+      PrintFormat(&quot;Erro na abertura do arquivo %s para leitura. Erro de codigo=%d&quot;,fna
+      return;
+     }
+   else
+     {</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1097
+</p>
+<pre><code class="language-mql5">
+      PrintFormat(&quot;Arquivo será aberto a partir %s&quot;,TerminalInfoString(TERMINAL_COMMON
+     }
+</code></pre>
+<p>
+<h3>Simulação de Spread</h3>
+A diferença de preço entre os preços de Venda (Bid) e Compra (Ask) é chamado de spread. Durante um
+teste, o spread não é modelado mas é obtido a partir de dados históricos. If the spread is less than or
+equal to zero in the historical data, then the last known (at the moment of generation) spread  of is
+used by testing agent.
+No Provador de Estratégia, o spread é sempre considerado flutuante. Isto é, a função
+SymbolInfoInteger(symbol, SYMBOL_SPREAD_FLOAT) sempre retorna true.
+Além disso, os dados históricos contém valores de tick e volumes de negociação. Para o
+armazenamento e recuperação dos dados nós usamos a estrutura especial MqlRates:
+</p>
+<pre><code class="language-mql5">
+struct MqlRates
+  {
+   datetime time;         // Hora de início do período
+   double   open;         // Preço de Abertura
+   double   high;         // O mais alto preço do período
+   double   low;          // O mais baixo preço do período
+   double   close;        // Preço de Fechamento
+   long     tick_volume;  // Volume de Tick
+   int      spread;       // Spread
+   long     real_volume;  // Volume de Negociação
+</code></pre>
+<p>
+  };
+<h3>Usando ticks reais durante os testes</h3>
+O teste e a otimização de acordo com ticks reais se aproximam ao máximo das condições reais. Em
+vez de ticks gerados com base em dados de minuto, são usados ticks reais acumulados pela corretora.
+Esses são ticks provindos da bolsa e dos provedores de liquidez.
+Para garantir a maior precisão - durante os testes em modo de ticks reais - também são usadas as
+barras de minuto. Nelas são verificados e corrigidos os dados de ticks. Isto também evita a
+divergência de gráficos no testador e no terminal de cliente.
+O testador verifica a correspondência entre os dados de tick e os parâmetros da barra de minuto, isto
+é: o tick não deve ultrapassar os preços High/Low da barra; o tick que a abre e fecha o minuto deve
+coincidir com os preços Open/Close da barra. Também é comparado o volume. Se identificada uma
+diferença, são descartados todos os ticks correspondentes a esta barra de minuto. Em vez deles,
+serão utilizados os ticks gerados (como no modo &quot;Cada tick&quot;).
+Se no histórico do símbolo existir uma barra de minuto, mas, se, nesse minuto, não houver dados de
+ticks, o testador gerará ticks no modo &quot;Todos os ticks&quot;. Isto permite plotar corretamente o gráfico no
+testador, caso a corretora tenha os dados de tick incompletos.
+Se, no histórico do símbolo, não existir uma barra de minuto, mas, se, nesse minuto, houver dados de
+ticks, então, esses ticks podem ser utilizados. Por exemplo, as barras de símbolos de bolsa são
+formados de acordo com os preços Last. Se, a partir do servidor, chegarem apenas ticks com preços</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1098
+Bid/Ask sem preço Last, a barra não será formada. O testador usará estes dados de ticks, uma vez
+que eles não contradizem as de minuto.
+Os dados de ticks podem ser diferentes das barras de minuto por várias razões. Por exemplo, devido a
+desconexões ou outras falhas, quando dados são transferidos da fonte para o terminal de cliente. Ao
+testar, os dados de minuto são considerados mais confiáveis.
+Ao testar ticks reais, considere as seguintes particularidades:
+· Ao executar o teste, não só são sincronizados os dados de ticks, mas também os de minuto de
+acordo com o instrumento.
+· Os ticks são armazenados no cache do símbolo no testador de estratégias. O tamanho do cache é
+inferior a 128 000 ticks. Após chegarem novos ticks, seus dados mais antigos serão empurrados
+para fora. No entanto, com ajuda da função CopyTicks podem ser obtidos ticks fora do cache
+(somente nos testes em ticks reais). Neste caso, os dados serão solicitados a partir da base de ticks
+do testador, ela corresponde completamente à base de dados do terminal de cliente. Nesta base não
+é feito nenhum ajuste de barras de minuto. Portanto, os ticks nele podem ser diferentes dos ticks
+no cache.
+<h3>As Variáveis Globais do Terminal Cliente</h3>
+Durante um teste, as variáveis globais do terminal cliente são também emulados, mas elas não estão
+relacionadas como as variáveis globais correntes do terminal, que podem ser vistas no terminal
+usando a tecla F3. Significa que todas as operações com as variáveis globais do terminal, durante um
+teste, acontecem fora terminal cliente (no agente de teste).
+O Cálculo de Indicadores durante um Teste
+No modo tempo-real, os valores dos indicadores são calculados a cada tick.
+No testador de estratégia, os indicadores são calculados apenas quando são acessados à procura de
+dados, ou seja, apenas no momento em que os valores dos buffers dos indicadores são solicitados. A
+exceção 
+a 
+isto 
+é 
+quando 
+indicadores 
+personalizados 
+são 
+definidos 
+como 
+</p>
+<pre><code class="language-mql5">
+#property
+</code></pre>
+<p>
+tester_everytick_calculate, neste caso, o recálculo é feito a cada tick.
+No modo de teste visual, todos os indicadores são recalculados incondicionalmente com a chegada de
+um novo tick, de modo a aparecerem corretamente no gráfico de teste visual.
+O cálculo do indicador a cada tick é feito uma vez e todas as subsequentes solicitações de dados do
+indicador antes da chegada de um novo tick não provocarão um recálculo. Por isso, se, no Expert
+Advisor, o timer estiver ativo com a função EventSetTimer(), antes da chamada do handler OnTimer()
+serão solicitados os dados do indicador desde a recepção do último tick. Se o indicador ainda não tiver
+sido calculado no último tick, será iniciado o cálculo dos valores do indicador. Se os dados já tiverem
+sido preparados, eles serão fornecidos sem um novo recálculo.
+Assim, todos os cálculos do indicador são feitos da forma mais econômica possível, quer dizer, se o
+indicador já tiver sido calculado em um determinado tick, os dados do indicador serão fornecidos
+como estão, ou seja, o indicador não é será recalculado.
+<h3>Carregando Histórico durante Teste</h3></p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1099
+O histórico de um ativo a ser testado é sincronizado e carregado pelo terminal a partir do servidor de
+negociação antes de começar o processo de teste. Durante a primeira vez, o terminal carrega todo o
+histórico disponível de um ativo de forma a não requerer este histórico mais tarde. Após isso,
+somente dados novos são carregados.
+Um agente de teste recebe o histórico de um ativo a ser testado a partir do terminal cliente logo após
+o começo do teste. Se os dados de outros instrumentos são usados no processo de teste (por exemplo,
+é um Expert Advisor multi-moeda), o agente de teste solicita o histórico requerido do terminal cliente
+durante a primeira chamada a tais dados. Se os dados históricos estiverem disponíveis no terminal,
+eles são imediatamente passados para o agente de teste. Se os dados não estiverem disponíveis, o
+terminal solicita e os baixa do servidor, e então os passa para o agente de teste.
+Dados de instrumentos adicionais também são requeridos para calcular taxas-cruzadas de operações
+de negociação. Por exemplo, ao testar uma estratégia em EURCHF com a moeda de depósito em USD,
+antes de processar a primeira operação de negociação, o agente de teste solicita os dados históricos
+de EURUSD e USDCHF do terminal cliente, embora a estratégia não contenha chamadas de uso direta a
+estes ativos.
+Antes de testar um estratégia multi-moeda, é recomendável baixar todos os dados históricos
+necessários para o terminal cliente. Isso ajudará a evitar atrasos em um teste/otimização associado
+com a baixa dos dados requeridos. Você pode baixar histórico, por exemplo, via abertura dos gráficos
+apropriados e rolá-los para o começa do histórico. Um exemplo de carga forçada de histórico para o
+terminal está disponível na seção Organizando Acesso a Dados da Referência MQL5.
+Agentes de teste, por sua vez, recebem o histórico do terminal no formato compactado. Durante o
+próximo teste, o Provador de Estratégia não carrega o histórico do terminal, porque os dados
+requeridos estão disponíveis desde a execução anterior do Provador de Estratégia.
+· O termianl carrega o histórico a partir de um servidor de negociação apenas uma vez, na
+primeira vez que o agente solicita o histórico de um ativo a ser testado do terminal. O histórico
+é carregado em forma de pacote para reduzir o tráfego.
+· Ticks não são enviados pela rede, eles são gerados nos agentes de teste.
+<h3>Teste Multi-Moeda</h3>
+O Provador de Estratégia nos permite realizar um teste de estratégias, negociando em múltiplos
+ativos. Tais EAs são convencionalmente referidos como Expert Advisors multi-moedas, já que
+originalmente, um teste era realizado somente para um único ativo. No Provador de Estratégia do
+terminal MetaTrader 5, nós podemos modelar negociação para todos os ativos disponíveis.
+O Provador de Estratégia carrega o histórico dos ativos usados do terminal cliente (não do servidor
+de negociação!) automaticamente durante a primeira chamada aos dados do ativo.
+O agente de teste baixa somente o histórico faltante, com uma pequena margem para fornecer os
+dados necessários no histórico para o cálculo dos indicadores no período inicial do teste. Para as
+janelas de tempo D1 ou menor, o volume mínimo de histórico baixado é de um ano.
+Assim, se nós rodarmos um teste no intervalo 2010.11.01-2010.12.01 (teste para um intervalo de um
+mês) com um período de M15 (cada barra e igual a 15 minutos), então será solicitado ao terminal o
+histórico do instrumento para o ano inteiro de 2010. Para a janela de tempo semanal, nós
+solicitaremos um histórico de 100 barras, que é aproximadamente dois anos (um ano tem 52</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1100
+semanas). Para testar em uma janela de tempo mensal, o agente solicitará o histórico de 8 anos (12
+meses x 8 anos = 96 meses).
+Se não houver barras necessárias, a data de ínicio do teste será automaticamente deslocada do
+passado para o presente para fornecer a reserva necessária de barras antes do teste.
+Durante um teste, a janela &quot;Observação de Mercado&quot; é também emulada, a partir do qual se pode
+obter informações sobre os ativos.
+Por padrão, no começo de um teste, existe somente um ativo na &quot;Observação de Mercado&quot; do
+Provador de Estratégia - o ativo em que o teste está rodando. Todos os ativos necessários são
+conectados à janela &quot;Observação de Mercado&quot; do Provador de Estratégia (não ao terminal!)
+automaticamente quando referenciados.
+Antes de começar um teste de um Expert Advisor multi-moeda, é necessário selecionar os ativos
+requeridos para o teste na janela &quot;Observação de Mercado&quot; do terminal e carregar os dados
+requeridos. Durante a primeira chamada de um ativo &quot;estrangeiro&quot;, seu histórico será
+automaticamente sincronizado entre o agente de teste e o terminal cliente. Um ativo
+&quot;estrangeiro&quot; é o outro ativo, diferente daquele em que o teste é rodado.
+Referência aos dados de um &quot;outro&quot; ativo ocorre nos seguintes casos:
+· Ao usar a função de indicadores técnicos e IndicatorCreate() no ativo/período;
+· A solicitação aos dados da janela &quot;Observação de Mercado&quot; por de um outro ativo:
+1. SeriesInfoInteger
+2. Bars
+3. SymbolSelect
+4. SymbolIsSynchronized
+5. SymbolInfoDouble
+6. SymbolInfoInteger
+7. SymbolInfoString
+8. SymbolInfoTick
+9. SymbolInfoSessionQuote
+10.SymbolInfoSessionTrade
+11.MarketBookAdd
+12.MarketBookGet
+· Solicitação da série de tempo para um ativo/janela de tempo atráves do uso das seguintes funções:
+1. CopyBuffer
+2. CopyRates
+3. CopyTime
+4. CopyOpen
+5. CopyHigh
+6. CopyLow
+7. CopyClose</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1101
+8. CopyTickVolume
+9. CopyRealVolume
+10.CopySpread
+No momento da primeira chamada a um &quot;outro&quot; ativo, o processo de teste é interrompido e o histórico
+é baixado para o ativo/período, do terminal para o agente de teste. Ao mesmo tempo, a geração da
+seqüência de tick para este ativo é feita.
+Uma seqüência de tick individual é gerada para cada ativo, de acordo com o modo de geração de tick
+selecionado. Você também pode solicitar explicitamente o histórico dos ativos desejados através de
+chamada ao SymbolSelect() no handler OnInit() - a baixa do histórico será feita imediatamente antes
+do teste do Expert Advisor.
+Assim, não é necessário nenhum esforço extra para realizar teste de multi-moeda no terminal cliente
+MetaTrader 5. Apenas abra os gráficos dos apropriados ativos no terminal cliente. O histórico será
+automaticamente carregado do servidor de negociação para todos os ativos requeridos, contanto que
+ele contenha estes dados.
+Simulação de Tempo no Provador de Estratégia
+Durante um teste, a hora local TimeLocal() é sempre igual a hora do servidor TimeTradeServer(). Por
+sua vez, a hora do servidor é sempre igual a hora correspondente à hora GMT - TimeGMT(). Desta
+forma, todas estas funções mostram a mesma hora durante um teste.
+A ausência de diferença entre as horas GMT, local, e do servidor no Provador de Estratégia é feita
+deliberadamente para o caso de não haver conexão com o servidor. Os resultados do teste devem
+sempre ser os mesmos, independentemente de haver ou não uma conexão. Informações sobre a hora
+do servidor não é armazenado localmente, e é obtido do servidor.
+<h3>Objetos Gráficos no Teste</h3>
+Durante um teste/otimização objetos gráficos não são plotados. Assim, ao referenciar as
+propriedades de um objeto criado durante um teste/otimização, um Expert Advisor receberá valores
+zero.
+Este limitação não se aplica ao se testar em modo visual.
+A Função OnTimer() no Provador de Estratégia
+MQL5 fornece a oportunidade de tratar eventos de timer. A chamada ao handler OnTimer() é feita
+independentemente do modo do teste. Isso significa que se um teste é rodado no modo &quot;Somente
+Preços de Abertura&quot; para o período H4, e o EA tem um timer definido para uma chamada por segundo,
+então na abertura de cada barra de H4, o handler OnTick() será chamado uma vez, e o handler
+OnTimer() será chamado 14400 vezes (3600 segundos * 4 horas). A quantidade de tempo de teste do
+EA que será aumentada depende da lógica do EA.
+Para verificar a dependência do tempo de teste a partir de um dada freqüência do timer, nós temos
+que criar um EA simples sem nenhum operação de negociação.
+</p>
+<pre><code class="language-mql5">
+//--- parâmetros de entrada</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1102
+</p>
+<pre><code class="language-mql5">
+input int      timer=1;              // valor do timer, segundos
+input bool     timer_switch_on=true; // timer ativado
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- rodar o timer se timer_switch_on==true
+   if(timer_switch_on)
+     {
+      EventSetTimer(timer);
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- para o timer
+   EventKillTimer();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função Timer                                                     |
+//+------------------------------------------------------------------+
+void OnTimer()
+  {
+//---
+// nenhum ação é tomada, o corpo do handler está vazio
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+As medições de tempo de tempo são obtidas em valores diferentes do parâmetro timer (periodicidade
+do evento Timer). Sob os dados obtidos, nós plotamos o tempo do teste como função do período do
+Timer.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1103
+Pode-se ver claramente que quanto menor é o parâmetro do timer, durante a a inicialização da função
+EventSetTimer, menor é o período entre as chamadas do handler OnTimer(), e maior é o tempo de
+teste, sob as mesmas outras condições.
+A Função Sleep() no Provador de Estratégia
+A função Sleep() permite ao EA ou script suspender a execução do programa MQL5 por um tempo, ao
+trabalhar no gráfico. Isso pode ser útil ao solicitar dados, que não estão prontos no momento da
+solicitação e você precisa esperar até eles estarem prontos. Um exemplo detalhado do uso da função
+Sleep() pode ser encontrado na seção Preparativo para acesso a dados.
+O processo de teste não é atrasado por chamadas à função Sleep(). Quando você chama o Sleep(), os
+ticks gerados são &quot;jogados&quot; com um atraso especificado, que pode resultar no disparo de ordens
+pendentes, stops, etc. Após uma chamada do Sleep(), o tempo simulado no Provador de Estratégia
+aumenta em um intervalo, especificado no parâmetro da função Sleep.
+Se como resultado da execução da função Sleep(), o tempo corrente no Provador de Estratégia passar
+do período de teste, então você receberá o erro &quot;Infinite Sleep loop detected while testing&quot;. Se você
+receber este erro, os resultados do teste não serão rejeitados, todas as computações são realizadas
+em seus volumes completos (o número de operações (deals), abrandamento, etc) e os resultados deste
+teste são transmitidos para o terminal.
+A função Sleep() não funcionará em OnDeinit(), já que após ele ser chamado, será certo que o tempo
+de teste ultrapassará a faixa do intervalo de teste.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1104
+Usando o Provador de Estratégia para Problemas de Otimização em
+<h3>Cálculos Matemáticos</h3>
+O Provador de Estratégia no terminal MetaTrader 5 pode ser usado, não apenas para testar
+estratégias de negociação, mas também para cálculos matemáticos. Para usar-lo, é necessário
+selecionar o modo &quot;Cálculos matemáticos&quot;
+Neste caso, somente três funções serão chamadas: OnInit(), OnTester(), OnDeinit(). No modo
+&quot;Cálculos matemáticos&quot; o Provador de Estratégia não gera nenhum tick e não baixa o histórico.
+O Provador de Estratégia também trabalha em modo &quot;Cálculos matemáticos&quot; se você especificar a
+data inicial maior que a data final.
+Ao usar o Provador de Estratégia para resolver problemas matemáticos, a carga do histórico e a
+geração de ticks não ocorrem.
+Um problema matemático típico para ser revolvido no Provador de Estratégias do MetaTrader 5 -
+busca de um extremo de uma função com muitas variáveis.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1105
+<h3>Para resolvê-lo nos precisamos que:</h3>
+· O cálculo do valor da função deve estar localizado na função OnTester();
+· Os parâmetros da função devem estar definidos como variáveis de entrada do Expert Advisor;
+Compilar o EA, abrir a janela &quot;Provador de Estratégia&quot;. Na guia &quot;Parâmetros de entrada&quot;, selecionar as
+requeridas variáveis de entrada, e definir o conjunto de valores de parâmetros por meio da
+especificação dos valores iniciar, parar, e passo de cada uma das variáveis da função.
+Selecionar o tipo de otimização - &quot;Algoritmo completo lento&quot; (busca completa do espaço de
+parâmetros) ou &quot;Rápido (algoritmo genético)&quot;. Para uma busca simples do extremo da função, é
+melhor escolher uma otimização rápida, mas se você quiser calcular os valores para conjunto inteiro
+de variáveis, então é melhor usar a otimização lenta.
+Selecione o modo &quot;Cálculo matemático&quot; e usando o botão &quot;Iniciar&quot;, executar a procedimento de
+otimização. Note que ao otimizar, o Provador de Estratégia buscará pelos valores máximos da função
+OnTester. Para encontrar um mínimo local, retorne o inverso do valor computado da função
+proveniente da função OnTester:
+return(1/function_value);
+É necessário verificar que o function_value não é igual a zero, já que de outra forma nós podemos
+obter um erro crítico de dividir por zero.
+Existe uma outra forma, mais conveniente e que não distorce os resultados da otimização, ela foi
+sugerida pelos leitores deste artigo:
+return(-function_value);
+Esta opção não requer a verificação do function_value ser igual a zero, e a superfície dos resultados
+da otimização em uma representação em 3D tem a mesma forma, porém é espelhada da original.
+<h3>Como exemplo, fornecemos a função sink():</h3>
+O código do EA para encontrar o extremo desta função é colocada dentro do OnTester():
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                                         Sink.mq5 |
+//|                        Copyright 2011, MetaQuotes Software Corp. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+//--- parâmetros de entrada
+input double   x=-3.0; // start=-3, step=0.05, stop=3
+input double   y=-3.0; // start=-3, step=0.05, stop=3
+//+------------------------------------------------------------------+
+//| Tester function                                                  |
+//+------------------------------------------------------------------+
+double OnTester()</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1106
+</p>
+<pre><code class="language-mql5">
+  {
+//---
+   double sink=MathSin(x*x+y*y);
+//---
+   return(sink);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+Execute uma otimização e veja os resultados da otimização na forma de um gráfico 2D.
+Quanto melhor for o valor para um dado par de parâmetros (x,y), mais saturada é a cor. Como era
+esperado a partir da observação da forma da formula sink(), seus valores forma círculos concêntricos
+com centro em (0,0). Pode-se ver no gráfico 3D, que a função sink() não tem um único extremo
+global:</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1107
+A Sincronização de Barras no modo &quot;Somente Preço de Abertura&quot;
+O Provador de Estratégia no terminal cliente do MetaTrader 5 permite-nos verificar os chamados EAs
+&quot;multi-moedas&quot;. Uma EA multi-moeda - é um EA que negocia sobre dois ou mais ativos.
+O teste de estratégias, que negociam em ativos múltiplos, impõe alguns requerimentos técnicos
+adicionais ao Provador de Estratégia:
+· A geração de ticks para estes ativos;
+· O cálculo de valores de indicadores para estes ativos;
+· O cálculo de requerimentos de margem para estes ativos;
+· Sincronização das seqüências de ticks geradas para todos os ativos negociados.
+O Provador de Estratégia gera e joga uma seqüência de ticks para cada instrumento em concordância
+com o modo de negociação selecionado. Ao mesmo tempo e para cada ativo, uma nova barra é aberta,
+independentemente de como a barra abriu em outro ativo. Isso significa que ao testar um EA multi-
+moeda, uma situação pode ocorrer (e freqüentemente acontece), quando para um instrumento, uma
+nova barra já abriu, e para o outro instrumento, ela não abriu. Assim, em um teste, tudo acontece
+como na realizada.
+Esta simulação autêntica do histórico no Provador de Estratégia não causa nenhum problema contanto
+que os modos de teste &quot;Cada Tick&quot; e &quot;OHLC por minuto&quot; sejam usados. Para estes modos, ticks
+suficientes são gerados para um candlestick, para ser capaz de esperar até a sincronização das barras
+de diferentes ativos aconteça. Mas como nós testamos estratégias multi-moeda no modo &quot;Somente
+Preços de Abertura&quot;, se a sincronização das barras nos instrumentos de negociação é obrigatória?
+Neste modo, o EA é chamado somente em um tick, que corresponde ao momento de abertura das
+barras.
+Nós ilustraremos isso com um exemplo: se nós estamos testando um EA no EURUSD, e um novo
+candlestick de hora abriu em EURUSD, então podemos reconhecer facilmente este fato - em um teste
+no modo &quot;Somente Preços de Abertura&quot;, o evento NewTick corresponde ao momento da abertura da</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1108
+barra sobre o período do teste. Mas não exitem garantias que o novo candlestick abriu no ativo
+USPJPY, é que usado no EA.
+Em condições normais, é suficiente completar o trabalho da função OnTick() e verificar pelo
+surgimento de uma nova barra em USDJPY no próximo tick. Mas ao testar em modo &quot;Somente Preços
+de Abertura&quot;, não haverá um outro tick, e assim pode parecer que este modo não é adequado para
+testar EAs multi-moedas. Mas isso não é o caso - não se esqueça que o testador no MetraTrader 5 se
+comporta como se fosse no mundo real. Você pode esperar até uma nova barra ser aberta em outros
+ativos usando a função Sleep()!
+O código do EA Synchronize_Bars_Use_Sleep.mq5, que mostra um exemplo da sincronização de barras
+no modo &quot;Somente Preços de Abertura&quot;:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                   Synchronize_Bars_Use_Sleep.mq5 |
+//|                        Copyright 2011, MetaQuotes Software Corp. |
+//|                                              https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright &quot;Copyright 2000-2024, MetaQuotes Ltd.&quot;
+#property link      &quot;https://www.mql5.com&quot;
+#property version   &quot;1.00&quot;
+//--- parâmetros de entrada
+input string   other_symbol=&quot;USDJPY&quot;;
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- verifica ativo
+   if(_Symbol==other_symbol)
+     {
+      PrintFormat(&quot;Você tem de especificar outro símbolo nos parâmetros de entrada ou 
+      //--- força parar teste
+      return(INIT_PARAMETERS_INCORRECT);
+     }
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função tick (ponto) de um Expert                                 |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//--- variável estática usada para armazenar a hora da última barra
+   static datetime last_bar_time=0;
+//--- flag de sincronização
+   static bool synchonized=false;
+//--- caso a variável estática não esteja inicializada
+   if(last_bar_time==0)
+     {</p>
+<p></code></pre>
+<p>
+<h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1109
+</p>
+<pre><code class="language-mql5">
+      //--- é a primeira chamada, salva hora da barra e saiu
+      last_bar_time=(datetime)SeriesInfoInteger(_Symbol,Period(),SERIES_LASTBAR_DATE);
+      PrintFormat(&quot;A variável last_bar_time é inicializada com valor %s&quot;,TimeToString
+     }
+//--- obtém hora de abertura da última barra do ativo do gráfico
+   datetime curr_time=(datetime)SeriesInfoInteger(Symbol(),Period(),SERIES_LASTBAR_DAT
+//--- se as horas não são iguais
+   if(curr_time!=last_bar_time)
+     {
+      //--- salva a hora da barra aberta na variável estática
+      last_bar_time=curr_time;
+      //--- não sincronizado
+      synchonized=false;
+      //--- imprime mensagem
+      PrintFormat(&quot;Uma nova barra está aparecendo no símbolo %s em %s&quot;,_Symbol,TimeToS
+     }
+//--- hora de abertura da barra de outra ativo
+   datetime other_time;
+//--- loop até a hora de abertura do outro ativo ser igual a curr_time
+   while(!(curr_time==(other_time=(datetime)SeriesInfoInteger(other_symbol,Period(),SE
+     {
+      PrintFormat(&quot;Espera 5 segundos..&quot;);
+      //--- espera 5 segundos e chama SeriesInfoInteger(other_symbol,Period(),SERIES_L
+      Sleep(5000);
+     }
+//--- barras são sincronizadas
+   synchonized=true;
+   PrintFormat(&quot;Tempo de abertura da barra do símbolo %s do gráfico: é %s&quot;,_Symbol,Tim
+   PrintFormat(&quot;Tempo de abertura da barra do símbolo %s: é %s&quot;,other_symbol,TimeToStr
+//--- TimeCurrent() não é útil, usar TimeTradeServer()
+   Print(&quot;As barras são sincronizadas em &quot;,TimeToString(TimeTradeServer(),TIME_SECONDS
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+Perceba que a última linha no EA, que exibe a hora corrente quando o sincronização de fato foi
+estabelecida:
+</p>
+<pre><code class="language-mql5">
+   Print(&quot;As barras são sincronizadas em &quot;,TimeToString(TimeTradeServer(),TIME_SECONDS
+</code></pre>
+<p>
+Para exibir a hora corrente usamos a função TimeTradeServer() ao invés de TimeCurrent(). A função
+TimeCurrent() retorna o hora do último tick, que não se altera após usar Sleep(). Executa o EA no
+modo &quot;Abertura de preços apenas&quot;,e você verá uma mensagem sobre a sincronização dos barras.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1110
+Use a função TimeTradeServer() ao invés de TimeCurrent(), se você precisar obter hora corrente do
+servidor, e não a hora da chegado do último tick.
+Existe uma outra forma para sincronizar barras - usando um timer. Um exemplo de tal EA é
+Synchronize_Bars_Use_OnTimer.mq5, que está anexado neste artigo.
+A função IndicatorRelease() no Provador de Estratégia
+Após completar um teste individual, um gráfico do instrumento é automaticamente aberto, que exibe
+as operações (deals) completas e os indicadores usados no EA. Isso ajuda a verificar visualmente os
+pontos de entrada e saída, e comprará-los com os valores dos indicadores.  
+Observação: indicadores, exibidos no gráfico, que automaticamente abrem após a conclusão do
+teste, são calculados novamente após a conclusão do teste. Mesmo se estes indicadores foram
+usados no EA testado.
+Mas em alguns casos, o programador pode querer ocultar a informação sobre quais indicadores
+estavam envolvidos nos algoritmos de negociação. Por exemplo, o código do EA é alugado ou vendido
+como um arquivo executável, sem o fornecimento do código fonte. Para este propósito, a função
+IndicatorRelease() é apropriada.
+Se o terminal define um template com o nome tester.tpl no directory/profiles/templates do terminal
+cliente, então ele será aplicado ao gráfico aberto. Na usa ausência, o template padrão é aplicado.
+(default.tpl).
+A função IndicatorRelease() é originalmente destinada para liberar a porção de cálculo do indicador,
+caso ele mais mais seja necessário. Isso permite economizar tanto a memória quando os recursos de
+CPU, porque cada tick pede um cálculo do indicador. Seu segundo propósito - é proibir a exibição de
+um indicador no gráfico de teste, após uma execução de teste individual.
+Para proibir a exibição do indicador no gráfico após um teste, chame o IndicatorRelease() com o
+handle do indicator no handler OnDeinit(). A função OnDeinit() é sempre chamada após a conclusão e
+antes da exibição do gráfico de teste.
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de Desinicialização do Expert                             |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//---
+   bool hidden=IndicatorRelease(handle_ind);
+   if(hidden) Print(&quot;IndicatorRelease() completado com sucesso&quot;);
+   else Print(&quot;IndicatorRelease() retorna false. Erro de código &quot;,GetLastError());
+</code></pre>
+<p>
+  }
+A fim de proibir a exibição do indicador no gráfico, após a conclusão de um teste único, use a função
+IndicatorRelease() no handler OnDeinit().
+Tratamento de Evento no Provador de Estratégia</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1111
+A presença do handler OnTick() no EA não é obrigatória para que possa ser passível de teste em dados
+históricos no Provador de Estratégias do MetaTrader 5. É suficiente para o EA conter pelo menos as
+seguintes funções-handlers:
+· OnTick() - Handler de evento de uma nova chegada de tick;
+· OnTrade() - Handler de evento de negociação;
+· OnTimer() - Handler de evento de uma chegada de sinal do timer;
+· OnChartEvent() - um handler para eventos de cliente.
+Ao testar um EA, nós pode tratar eventos customizados usando a função OnChartEvent(), mas nos
+indicadores, esta função não pode ser chamada no testador. Mesmo se o indicador tiver o handler de
+evento OnChartEvent() e este indicador for usado em um EA testado, o indicador em si não receberá
+nenhum evento customizado.
+<h3>Durante um</h3>
+teste, 
+um 
+<h3>Indicador</h3>
+pode 
+gerar 
+eventos 
+customizados 
+usando 
+a 
+função
+EventChartCustom(), e o EA pode processar este evento no OnChartEvent().
+Além destes eventos, eventos especiais associados com o processo de teste e otimização são gerados
+no Provador de Estratégia:
+· Tester - este evento é gerado após conclusão do teste do Expert Advisor sobre dados históricos. O
+evento Tester é tratado usando a função OnTester(). Esta função pode ser usada apenas quando
+testar Expert Advisor e está destinada sobretudo para o cálculo de um valor que é usado como um
+critério máximo personalizado para otimização de parâmetros de entrada genérica.
+· TesterInit - este evento é gerado durante o início da otimização no Provador de Estratégia e antes
+do primeiro passo. O evento TesterInit é tratado usando a função OnTesterInit(). Durante o início
+da otimização, um Expert Advisor com este handler é carregado automaticamente em um gráfico de
+terminal separado com o ativo e período especificados no testador, e recebe o evento TesterInit.
+Esta função é usada para inicializar um Expert Advisor antes de iniciar a otimização para posterior
+processamento dos resultados da otimização.
+· TesterPass - este evento é gerado quanto um novo data frame é recebido. O evento TesterPass é
+tratado usando a função OnTesterPass(). Um Expert Advsor com este handler é carregado
+automaticamente em um gráfico de terminal separado com o ativo/período especificados para
+teste, e recebe um evento TesterPass quando um frame é recebido durante otimização. A função é
+usado para tratamento dinâmico de resultados de otimização &quot;in loco&quot; sem esperar pela sua
+conclusão. Frames são adicionados usando a função FrameAdd(), que pode ser chamada após o fim
+de um passo individual no handler OnTester().
+· TesterDeinit - este evento é gerado após o fim da otimização do Expert Advisor no Provador de
+Estratégia. O evento TesterDeinit é tratado usando a função OnTesterDeinit(). Um Expert Advisor
+com este handler é carregado automaticamente em um gráfico no começo da otimização, e recebe
+TesterDeInit após sua conclusão. A função é usado para o processamento final de todos os
+resultados da otimização. 
+<h3>Agentes de Teste</h3>
+O teste no terminal cliente MetaTrader 5 é realizado usando agentes de teste. Agentes locais são
+criados e habilitados automaticamente. O número padrão de agentes locais corresponde ao número de
+núcleos em um computador.
+Cada agente de teste tem sua própria cópia das variáveis globais, que não são relacionados com o
+terminal cliente. O terminal em si é o despachante, que distribui as tarefas para os agentes locais e</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1112
+remotos. Apos executar uma tarefa no teste de um EA, com os parâmetros dados, o agente retorna o
+resultado para o terminal. Para um teste individual, somente um agente é usado.
+O agente armazena o histórico, recebido do terminal, em pastas separadas, pelo nome do
+instrumento, assim o histórico para EURUSD é armazenado em uma pasta chamada EURUSD. Além
+disso, o histórico dos instrumentos é separado pelas suas fontes. A estrutura para armazenar o
+histórico tem o seguinte forma:
+tester_catalog\Agent-IPaddress-Port\bases\name_source\history\symbol_name
+Por exemplo, o histórico para EURUSD proveniente do servidor MetaQuotes-Demo pode ser
+armazenada na pasta tester_catalog\Agent-127.0.0.1-3000\bases\MetaQuotes-Demo\EURUSD.
+Um agente local, após a conclusão de um teste, entra em modo de espera, aguardando a próxima
+tarefa por mais 5 minutos, de modo a não perder tempo com o lançamento para a próxima chamada.
+Somente após o período de espera acabar, o agente local desliga e se descarrega da memória do CPU.
+No caso de uma conclusão antecipada do testador, por parte do usuário (o botão &quot;Cancelar&quot;), bem
+como com o fechamento do terminal cliente, todos os agentes locais imediatamente param seu
+trabalhar e são descarregados da memória.
+A Troca de Dados entre o Terminal e o Agente
+Ao rodar um teste, o terminal cliente prepara para enviar ao agente um número de blocos de
+parâmetros:
+· Parâmetros de input para o teste (modo de simulação, o intervalo do teste, instrumentos, critério
+de otimização, etc.)
+· A lista dos ativos selecionados na janela &quot;Observação de Mercado&quot;
+· A especificação do ativo do teste (o tamanho do contrato, as margens permitidas do mercado para
+definir um StopLoss e Takeprofit, etc)
+· O Expert Advisor (robot) para ser testado e os valores de seus parâmetros de entrada
+· Informações sobre arquivos adicionais (bibliotecas, indicadores, arquivos de dados - # property
+tester_ ...)
+tester_indicator
+string
+<h3>Nome</h3>
+de 
+um 
+indicador 
+customizado 
+no 
+formato 
+de
+&quot;indicator_name.ex5&quot;. Indicadores que requerem teste são
+definidos automaticamente a partir da chamada à função
+iCustom(), se o correspondente parâmetro estiver definido através
+de um string constante. Para todos os outros casos (use da função
+IndicatorCreate() ou uso de uma string não constante no
+parâmetro que defini o nome do indicador) esta propriedade é
+requerida
+tester_file
+string
+Nome de arquivo para um testador com a indicação de extensão,
+entre aspas duplas (como uma string constante). O arquivo
+especificado será passado para o Testador de Estratégias.
+Arquivos de entrada para serem testados, se forem necessários,
+devem sempre ser especificados.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1113
+tester_indicator
+string
+<h3>Nome</h3>
+de 
+um 
+indicador 
+customizado 
+no 
+formato 
+de
+&quot;indicator_name.ex5&quot;. Indicadores que requerem teste são
+definidos automaticamente a partir da chamada à função
+iCustom(), se o correspondente parâmetro estiver definido através
+de um string constante. Para todos os outros casos (use da função
+IndicatorCreate() ou uso de uma string não constante no
+parâmetro que defini o nome do indicador) esta propriedade é
+requerida
+tester_library
+string
+Nome da biblioteca (library) com a extensão, entre aspas duplas.
+Uma biblioteca pode ter extensão dll ou ex5. Bibliotecas que
+requerem teste são definidas automaticamente. No entanto, se
+alguma das bibliotecas é usada por um indicador customizado, esta
+propriedade é requerida
+Para cada bloco de parâmetros, uma impressão digital na forma de MD5-hash é criada, que é enviado
+para o agente. O MD5-hash é único para cada conjunto, seu volume é muito menor que a quantidade
+de informação na qual ele é calculado
+O agente recebe um hash de blocos e os compara com aqueles que ele já tem. Se a impressão digital
+do bloco de parâmetros dado não está presente no agente, ou o hash recebido é diferente daquele
+existente, o agente solicita este bloco de parâmetros. Isso reduz o tráfego entre o terminal e o
+agente.
+Após o teste, o agente retorna ao terminal todos os resultados da execução, que são exibidos nas
+guias &quot;Resultados&quot; e &quot;Resultados da Otimização&quot;: o lucro recebido, o número de operações (deals), o
+coeficiente Sharpe, o resultdo da função OnTester(), etc.
+Durante a otimização, o terminal distribui tarefas de teste para os agentes em pequenos pacotes,
+cada pacote contendo várias tarefas (cada tarefa significando testes individuais com um conjunto de
+parâmetros de entrada). Isso reduz o tempo de troca entre o terminal e o agente.
+Os agentes nunca gravam no disco rígido o arquivo EX5, obtido do terminal (EA, indicadores,
+bibliotecas, etc.) for razões de segurança, de modo que um computador com um agente em execução
+não pode usar os dados enviados. Todos os outros arquivos, incluindo DLL, são gravados na caixa de
+areia. Em agentes remotos você não pode testar EAs usando DLL.
+Os resultados do teste são adicionados pelo terminal em uma cache especial de resultados (o cache de
+resultado), para um acesso rápido a estes resultados quando necessário. Para cada conjunto de
+parâmetros, o terminal busca o cache de resultados por resultados já disponíveis a partir de execuções
+anteriores, a fim de evitar re-execuções. Se o resultado com tal conjunto de parâmetros não é
+encontrado, ao agente é dado a tarefa de conduzir o teste.
+Todo tráfego entre o terminal e o agente é encripto-grafado.
+Ticks não são enviados pela rede, eles são gerados nos agentes de teste.
+Usando a Pasta Compartilhada para Todos os Terminais Cliente
+Todos os agentes de teste são isolados uns dos outros e do terminal cliente: cada agente tem sua
+própria pasta na qual seus logs são gravados. Além disso, todas as operações de arquivo durante o</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1114
+teste do agente ocorrem na pasta agent_name/MQL5/Files. Contudo, nós podemos implementar a
+interação entre os agentes locais e o terminal cliente através de uma pasta compartilhada para todos
+os terminais clientes, se durante a abertura do arquivo você especificar a flag FILE_COMMON:
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- a pasta compartilhada para todos os terminais cliente
+   common_folder=TerminalInfoString(TERMINAL_COMMONDATA_PATH);
+//--- imprime o nome desta pasta
+   PrintFormat(&quot;Abrir o arquivo na pasta compartilhada dos terminais de cliente %s&quot;, c
+//--- abre um arquivo na pasta compartilhada (indicada pelo flag FILE_COMMON)
+   handle=FileOpen(filename,FILE_WRITE|FILE_READ|FILE_COMMON);
+</code></pre>
+<p>
+  ... novas ações
+</p>
+<pre><code class="language-mql5">
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+<h3>Usando DLLs</h3>
+Para acelerar a otimização nós podemos usar não somente agentes locais, mas também agentes
+remotos. Neste caso, existem algumas limitações para agentes remotos. Primeiramente, agentes
+remotos não exibem em seus logs os resultados da execução da função Print(), mensagens sobre a
+abertura e enceramento de posições. Um mínimo de informação é exibida no log para impedir que EAs
+escritos incorretamente de atolem o computador, no qual o agente remoto está trabalhando, com
+mensagens.
+A segunda limitação - a proibição no uso de DLL ao testar EAs. Chamadas de DLL são absolutamente
+proibidas em agentes remotos por razões de segurança. Em agentes locais, chamadas de DLL em EAs
+testados são permitidas somente com a apropriada permissão &quot;Allow import DLL&quot;.</p>
+<p><h3>Programas MQL5</h3>
+© 2000-2025, MetaQuotes Ltd.
+1115
+Observação: Ao usar os códigos recebidos dos EAs (scripts, indicadores) que requerem a
+permissão para fazer chamadas de DLL, você deve estar ciente dos riscos, que você assume ao
+permitir este opção nas configurações do terminal. Independentemente de como a EA será usada -
+para teste ou para execução em um gráfico.
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

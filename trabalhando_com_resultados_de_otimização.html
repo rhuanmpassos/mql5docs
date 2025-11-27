@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Resultados de Otimização - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class="active"><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Trabalhando com Resultados de Otimização</h1>
+        </header>
+        
+        <article>
+            <p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2971
+<h3>Trabalhando com Resultados de Otimização</h3>
+Funções para organizar processamento personalizado da otimização resultando no testador de
+estratégia. Elas podem ser chamadas durante a otimização de agentes de teste, bem como localmente
+em Expert Advisors e scripts.
+Quando você executa um Expert Advisor no testador de estratégia, você pode criar seu próprio
+conjunto de dados com base nos tipos simples ou estruturas simples (não contêm strings, objetos de
+classe ou objetos de arrays dinâmicas). Este conjunto de dados podem ser salvos utilizando a função
+FrameAdd() numa estrutura especial chamando um quadro. Durante a otimização de um Expert
+Advisor cada agente pode enviar uma série de quadros para o terminal. Todos os quadros recebidos
+são gravados no arquivo *.MQD na pasta terminal_directory/MQL5/Files/Tester expert nomeada igual
+ao Expert Advisor. Eles são escritos na ordem em que são recebidas dos agentes. O recebimento de
+um quadro no terminal do cliente a partir de um agente de teste gera o evento TesterPass.
+Os quadros podem ser armazenados na memória do computador e num arquivo com o nome
+especifico. A linguagem MQL5 não estabelece limitações sobre o número de quadros.
+Limitações de memória e de espaço em disco na MQL5 Cloud Network
+Ao executar a otimização na MQL5 Cloud Network, há uma restrição: o Expert Advisor testado não
+pode gravar mais de 4 GB de informações no disco e usar mais de 4 GB de RAM. Se o limite for
+excedido, o agente de rede não conseguirá concluir o cálculo corretamente e você não receberá o
+resultado do teste. Além disso, você será cobrado pelo tempo já gasto nos cálculos.
+Se você precisar obter informações de cada passagem da otimização, use enviar quadros sem gravar
+no disco. Para não usar operações de arquivo nos Expert Advisors durante os cálculos na MQL5 Cloud
+<h3>Network, você pode aplicar essa verificação:</h3>
+</p>
+<pre><code class="language-mql5">
+   int handle=INVALID_HANDLE;
+   bool file_operations_allowed=true;
+   if(MQLInfoInteger(MQL_OPTIMIZATION) || MQLInfoInteger(MQL_FORWARD))
+      file_operations_allowed=false;
+   if(file_operations_allowed)
+     {
+      ...
+      handle=FileOpen(...);
+      ...
+     }
+</code></pre>
+<p>
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>FrameFirst</h3>
+Move um ponteiro de leitura de quadro para o início e redefine
+previamente um conjunto de filtros
+<h3>FrameFilter</h3>
+Define a estrutura do filtro de leitura e move o ponteiro para o início
+<h3>FrameNext</h3>
+Lê um quadro e move o ponteiro para o próximo</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2972
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>FrameInputs</h3>
+Recebe parâmetros de entrada, no qual o quadro é formado
+<h3>FrameAdd</h3>
+<h3>Adiciona um quadro com dados</h3>
+<h3>ParameterGetRange</h3>
+Recebe os dados na faixa de valores e o passo de alteração para uma
+variável de entrada ao otimizar um Expert Advisor no Testador de
+<h3>Estratégia</h3>
+<h3>ParameterSetRange</h3>
+Especifica o uso de variável de entrada ao otimizar um Expert Advisor
+no Testador de Estratégia: valor, mudança de passo, os valores iniciais
+e finais
+<h3>Também Veja</h3>
+Testando Estatísticas, Propriedades de Execução do Programa MQL5</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2973
+<h3>FrameFirst</h3>
+Move um ponteiro de leitura de quadro para o início e redefine um conjunto de filtros.
+</p>
+<pre><code class="language-mql5">
+bool  FrameFirst();
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a
+função GetLastError().</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2974
+<h3>FrameFilter</h3>
+Define a estrutura do filtro de leitura e move o ponteiro para o início.
+</p>
+<pre><code class="language-mql5">
+bool  FrameFilter(
+   const string  name,         // Nome público/etiqueta
+   long          id            // ID Pública
+   );
+</code></pre>
+<p>
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a
+função GetLastError().
+<h3>Observação</h3>
+Se uma string vazia é passado como o primeiro parâmetro, o filtro funcionará apenas com um
+parâmetro numérico, ou seja, apenas quadros com o id especifico serão vistos. Se o valor do
+segundo parâmetro é ULONG_MAX, apenas o filtro de texto funcionará.
+Chamar FrameFilter(&quot;&quot;, ULONG_MAX) é equivalente a chamar FrameFirst(), ou seja, igual a não
+utilização de qualquer filtro.</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2975
+<h3>FrameNext</h3>
+Lê um quadro e move o ponteiro para o próximo. Existem duas variantes da função.
+1. Chamando para receber um valor numérico
+</p>
+<pre><code class="language-mql5">
+bool  FrameNext(
+   ulong&amp;   pass,      // O número de uma passagem na otimização, durante o qual o qua
+   string&amp;  name,      // Nome público/etiqueta
+   long&amp;    id,        // ID pública
+   double&amp;  value      // Valor
+   );
+</code></pre>
+<p>
+2. Chamando para receber todos os dados de um quadro
+</p>
+<pre><code class="language-mql5">
+bool  FrameNext(
+   ulong&amp;   pass,      // O número de uma passagem na otimização, durante o qual o qua
+   string&amp;  name,      // Nome público/etiqueta
+   long&amp;    id,        // ID pública
+   double&amp;  value,     // Valor
+   void&amp;    data[]     // Array de qualquer tipo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+pass
+[out]  O número de um passe durante a otimização do testador de estratégia.
+name
+[out]  O nome do identificador.
+id
+[out]  O valor do identificador.
+value
+[out]  Um valor numérico único.
+data
+[out]  Uma array de qualquer tipo.
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a
+função GetLastError().
+<h3>Observação</h3>
+Na segunda versão da chamada, você deve manipular corretamente os dados recebidos no array
+data[].</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2976
+<h3>FrameInputs</h3>
+Recebe parâmetros de entrada, no qual o quadro com o número especificado de passe é formado.
+</p>
+<pre><code class="language-mql5">
+bool  FrameInputs(
+   ulong    pass,                // O número de um passe na otimização
+   string&amp;  parameters[],        // Um array de strings na forma &quot;parameterN=valueN&quot;
+   uint&amp;    parameters_count     // O número total de parâmetros
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+pass
+[in]  O número de um passe durante a otimização do testador de estratégia.
+parameters
+[out]  Um array de uma string com a descrição de nomes e valores de parâmetros
+parameters_count
+[out]  O número de elementos no array parameters[].
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a
+função GetLastError().
+<h3>Observação</h3>
+Tendo obtido o número de strings parameters_count no array parameters[], pode organizar um loop
+para percorrer todos os registros. Isso ajudará você a encontrar os valores dos parâmetros de
+entrada de um Expert Advisor para o número de passe especificado.</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2977
+<h3>FrameAdd</h3>
+Adicionar um quadro com dados. Existem duas variantes da função.
+1. Adicionar dados a partir de um arquivo
+</p>
+<pre><code class="language-mql5">
+bool  FrameAdd(
+   const string  name,        // Nome público/etiqueta
+   long          id,          // ID público
+   double        value,       // Valor
+   const string  filename     // Nome de um arquivo de dados
+   );
+</code></pre>
+<p>
+2. Adicionando dados a partir de um array de qualquer tipo
+</p>
+<pre><code class="language-mql5">
+bool  FrameAdd(
+   const string  name,        // Nome público/etiqueta
+   long          id,          // ID público
+   double        value,       // Valor
+   const void&amp;   data[]       // Array de qualquer tipo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Etiqueta de um quadro Público. Ele pode ser usado para um filtro na função FrameFilter().
+id
+[in]  Um identificador público do quadro. Ele pode ser usado para um filtro na função
+FrameFilter().
+value
+[in]  Um valor numérico para escrever no quadro. Ele é utilizado para transmitir um passe único
+como resultado da função OnTester().
+filename
+[in]  O nome do arquivo que contém os dados para adicionar ao quadro. O arquivo deve ser
+localizar na pasta MQL5/Files.
+data
+[in]  Uma array de um tipo qualquer para escrever no quadro. Passado por referência.
+<h3>Valor do Retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, chamar a
+função GetLastError().</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2978
+<h3>ParameterGetRange</h3>
+Recebe os dados na faixa de valores e o passo de alteração para uma variável de entrada ao otimizar
+um Expert Advisor no Testador de Estratégia. Existem 2 variantes da função.
+1. Recebimento de dados do parâmetro de entrada para o tipo integer
+</p>
+<pre><code class="language-mql5">
+bool  ParameterGetRange(
+   const string  name,          // nome do parâmetro (variável de entrada)
+   bool&amp;         enable,        // parâmetro de otimização habilitado
+   long&amp;         value,         // o valor do parâmetro
+   long&amp;         start,         // valor inicial
+   long&amp;         step,          // alterar passo
+   long&amp;         stop           // valor final
+   );
+</code></pre>
+<p>
+2. Recebendo dados para o parâmetro de entrada tipo real
+</p>
+<pre><code class="language-mql5">
+bool  ParameterGetRange(
+   const string  name,          // nome do parâmetro (variável de entrada)
+   bool&amp;         enable,        // parâmetro de otimização habilitado
+   double&amp;       value,         // valor do parâmetro
+   double&amp;       start,         // valor inicial
+   double&amp;       step,          // alterar passo
+   double&amp;       stop           // valor final
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  variável de entrada ID. Essas variáveis são parâmetros externos de uma aplicação. Seus
+valores podem ser especificados quando do lançamento num gráfico ou durante um único teste.
+enable
+[out]  Sinaliza que este parâmetro pode ser usado para enumerar os valores durante a otimização
+no Testador de Estratégia.
+value
+[out]  Valor do parâmetro.
+start
+[out]  Valor do parâmetro inicial durante a otimização.
+step
+[out]  Parâmetro altera o passo ao enumerar os seus valores.
+stop
+[out]  Valor do parâmetro final durante a otimização.
+<h3>Valor de retorno</h3></p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2979
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, utilize a
+função GetLastError().
+<h3>Observação</h3>
+A função pode ser chamado apenas pelos manipuladores OnTesterInit(), OnTesterPass() e
+OnTesterDeinit(). Foi introduzida para receber os valores dos parâmetros de entrada do Expert
+Advisor e faixas de variação durante a otimização no Testador de Estratégia. 
+Quando chamado em OnTesterInit(), os dados obtidos podem ser usados para redefinir as regras de
+enumeração de qualquer variável de entrada usando ParameterSetRange(). Portanto, novo Start,
+Stop e valores do Step podem ser definidos no parâmetro de entrada e podem até mesmo serem
+completamente excluídos a partir da otimização, independentemente das configurações do Testador
+de Estratégia. Isto permite-lhe gerenciar a área dos parâmetros de entrada durante a otimização,
+excluindo alguns parâmetros a partir da otimização de acordo com os valores dos parâmetros
+fundamentais do Expert Advisor.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Expert Advisor para a demonstração da função ParameterGetRange
+#property description &quot;Deve ser lançado no modo de otimização do Testador de Estratégi
+//--- parâmetros de entrada
+input int                 Input1=1;
+input double              Input2=2.0;
+input bool                Input3=false;
+input ENUM_DAY_OF_WEEK    Input4=SUNDAY;
+//+------------------------------------------------------------------+
+//| Função de inicialização do Expert                                |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- Expert Advisor é projetado para operação somente no Testador de Estratégia
+   if(!MQL5InfoInteger(MQL5_OPTIMIZATION))
+     {
+      MessageBox(&quot;Deve ser lançado no modo de otimização do Testador de Estratégia!&quot;);
+      //--- finalizar a operação do Expert Advisor com antecedência e remover do gráfi
+      return(INIT_FAILED);
+     }
+//--- completada com sucesso a inicialização
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função TesterInit                                                |
+//+------------------------------------------------------------------+
+void OnTesterInit()
+  {
+//--- exemplo de parâmetros de entrada tipo long
+   string name=&quot;Input1&quot;;
+   bool enable;
+   long par1,par1_start,par1_step,par1_stop;</p>
+<p></code></pre>
+<p>
+<h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2980
+</p>
+<pre><code class="language-mql5">
+   ParameterGetRange(name,enable,par1,par1_start,par1_step,par1_stop);
+   Print(&quot;Primeiro parâmetro&quot;);
+   PrintFormat(&quot;%s=%d  habilitado=%s  a partir de %d para %d com passo=%d&quot;,
+               name,par1,(string)enable,par1_start,par1_stop,par1_step);
+//--- exemplo de parâmetros de entrada tipo double
+   name=&quot;Input2&quot;;
+   double par2,par2_start,par2_step,par2_stop;
+   ParameterGetRange(name,enable,par2,par2_start,par2_step,par2_stop);
+   Print(&quot;Segundo parâmetro&quot;);
+   PrintFormat(&quot;%s=%G  habilitado=%s  a partir de %G para %G com passo=%G&quot;,
+               name,par2,(string)enable,par2_start,par2_stop,par2_step);
+//--- exemplo de parâmetros de entrada tipo bool
+   name=&quot;Input3&quot;;
+   long par3,par3_start,par3_step,par3_stop;
+   ParameterGetRange(name,enable,par3,par3_start,par3_step,par3_stop);
+   Print(&quot;Terceiro parâmetro&quot;);
+   PrintFormat(&quot;%s=%s  habilitado=%s  a partir de %s para %s&quot;,
+               name,(string)par3,(string)enable,
+               (string)par3_start,(string)par3_stop);
+//--- exemplo de parâmetros de entrada tipo enumerador
+   name=&quot;Input4&quot;;
+   long par4,par4_start,par4_step,par4_stop;
+   ParameterGetRange(name,enable,par4,par4_start,par4_step,par4_stop);
+   Print(&quot;Quarto parâmetro&quot;);
+   PrintFormat(&quot;%s=%s  habilitado=%s  a partir de %s para %s&quot;,
+               name,EnumToString((ENUM_DAY_OF_WEEK)par4),(string)enable,
+               EnumToString((ENUM_DAY_OF_WEEK)par4_start),
+               EnumToString((ENUM_DAY_OF_WEEK)par4_stop));
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Função TesterDeinit                                              |
+//+------------------------------------------------------------------+
+void OnTesterDeinit()
+  {
+//--- esta mensagem será mostrada após a otimização ser concluída
+   Print(__FUNCTION__,&quot; Otimização concluída&quot;);
+</code></pre>
+<p>
+  }</p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2981
+<h3>ParameterSetRange</h3>
+Especifica o uso de variável de entrada ao otimizar um Expert Advisor no Testador de Estratégia:
+valor, mudança de passo, os valores iniciais e finais. Existem 2 variantes da função.
+1. Especificando os valores para o parâmetro de entrada do tipo integer
+</p>
+<pre><code class="language-mql5">
+bool  ParameterSetRange(
+   const string  name,          // nome do parâmetro (variável de entrada)
+   bool          enable,        // parâmetro de otimização habilitado
+   long          value,         // valor do parâmetro
+   long          start,         // valor inicial
+   long          step,          // mudar etapa
+   long          stop           // valor final
+   );
+</code></pre>
+<p>
+2. Especificando os valores para o parâmetro de entrada de tipo real
+</p>
+<pre><code class="language-mql5">
+bool  ParameterSetRange(
+   const string  name,          // nome do parâmetro (variável de entrada)
+   bool          enable,        // parâmetro de otimização habilitado
+   double        value,         // valor dos parâmetros
+   double        start,         // valor inicial
+   double        step,          // mudar etapa
+   double        stop           // valor final
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  input ou sinput ID variável. Essas variáveis são parâmetros externos de uma aplicação. Seus
+valores podem ser especificados quando iniciar o programa.
+enable
+[in]  Ativar este parâmetro para enumerar os valores durante a otimização no Testador de
+Estratégia.
+value
+[in]  valor do parâmetro.
+start
+[in]  Valor do parâmetro inicial durante a otimização.
+step
+[in]  Alteração de parâmetro etapa ao enumerar seus valores.
+stop
+[in]  Valor do parâmetro final durante a otimização.
+<h3>Valor de retorno</h3></p>
+<p><h3>Trabalhando com Resultados de Otimização</h3>
+© 2000-2025, MetaQuotes Ltd.
+2982
+Retorna true se bem sucedido, caso contrário false. Para obter informações sobre o erro, utilize a
+função GetLastError().
+<h3>Observação</h3>
+A função só pode ser chamado pelo manipulador OnTesterInit() ao lançar otimização a partir do
+Testador de Estratégia. Ele é projetado para especificar o alcance do parâmetro e alterar o passo. O
+parâmetro pode ser completamente excluído da otimização, independentemente das configurações
+do Testador de Estratégia. Ele também permite o uso de variáveis declaradas com modificador de
+entrada no processo de otimização.
+A função ParameterSetRange() permite que você gerencie uma otimização Expert Advisor no
+Testador de Estratégia dependendo dos valores de seus parâmetros fundamentais, incluindo ou
+excluindo os parâmetros de entrada necessários a partir da otimização e definir o intervalo
+necessário e o passo de mudança.
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

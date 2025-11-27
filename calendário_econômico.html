@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário econômico - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class="active"><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class=""><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Calendário econômico</h1>
+        </header>
+        
+        <article>
+            <p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2005
+<h3>Funções do Calendário Econômico</h3>
+Esta seção descreve as funções para trabalhar com o Calendário econômico que está disponível
+diretamente na plataforma MetaTrader. O calendário econômico é uma enciclopédia pronta com
+descrição, data de lançamento e grau de importância de indicadores macroeconômicos. Os valores
+reais dos indicadores macroeconômicos entram na plataforma MetaTrader imediatamente no momento
+da publicação e são exibidos no gráfico como tags, permitindo monitorar visualmente os indicadores
+necessários por países, por moedas e por importância. 
+Todas as funções para trabalhar com o Calendário Econômico usam o horário do servidor de
+negociação (TimeTradeServer). Isso significa que o tempo na estrutura MqlCalendarValue e os
+parâmetros de tempo de entrada nas funções CalendarValueHistoryByEvent/CalendarValueHistory são
+definidos no fuso horário do servidor de negociação e não no horário local do usuário. 
+As funções do calendário econômico permitem analisar automaticamente os eventos recebidos de
+acordo com critérios de importância individuais - países/moedas.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>CalendarCountryById</h3>
+Obtém uma descrição do país por seu ID
+<h3>CalendarEventById</h3>
+Obtém a descrição do evento por seu ID
+<h3>CalendarValueById</h3>
+Obtém uma descrição do valor do evento por seu ID
+<h3>CalendarCountries</h3>
+Obtém um array de descrições dos países disponíveis no
+calendário.
+<h3>CalendarEventByCountry</h3>
+Obtém um array de descrições de todos os eventos disponíveis no
+Calendário, segundo o código do país especificado
+<h3>CalendarEventByCurrency</h3>
+Obtém um array de descrições de todos os eventos disponíveis no
+calendário, de acordo com a moeda especificada
+<h3>CalendarValueHistoryByEvent</h3>
+Obtém um array de valores de todos os eventos no intervalo de
+tempo especificado, segundo o ID do evento
+<h3>CalendarValueHistory</h3>
+Obtém uma matriz de valores de todos os eventos num
+determinado intervalo de tempo com um filtro por país e/ou
+moeda
+<h3>CalendarValueLastByEvent</h3>
+Obtém um array de valores do eventos por seu ID desde o
+momento em que criado do banco de dados do Calendário com o
+change_id definido
+<h3>CalendarValueLast</h3>
+Obtém um array de valores de todos os eventos com filtro por país
+e/ou moeda desde o momento em que criado do banco de dados
+do Calendário com o change_id definido</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2006
+<h3>CalendarCountryById</h3>
+Obtém a descrição do país por seu ID.
+</p>
+<pre><code class="language-mql5">
+bool  CalendarCountryById(
+   const long           country_id,     // identificador do país
+   MqlCalendarCountry&amp;  country         // variável para obter a descrição do país
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+country_id
+[in]  ID do país segundo o padrão ISO 3166-1.
+country
+[out]  Variável do tipo MqlCalendarCountry para obter uma descrição do país.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter informações de erro, chame a
+função GetLastError(). Possíveis erros:
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 5402 – ERR_CALENDAR_NO_DATA (país não encontrado),
+· 5401 – ERR_CALENDAR_TIMEOUT (tempo limite de solicitação excedido),
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtenha a lista de países do Calendário Econômico
+   MqlCalendarCountry countries[];
+   int count=CalendarCountries(countries);
+//--- verifique o resultado
+   if(count==0)
+      PrintFormat(&quot;CalendarCountries() returned 0! Error %d&quot;,GetLastError());
+//--- se você tiver dois ou mais países
+   if(count&gt;=2)
+     {
+      MqlCalendarCountry country;
+      //--- agora obtenha a descrição do país pelo seu identificador
+      if(CalendarCountryById(countries[1].id, country))
+        {
+         //--- prepare a descrição do país
+         string descr=&quot;id = &quot;+IntegerToString(country.id)+&quot;\n&quot;;
+         descr+=(&quot;name = &quot; + country.name+&quot;\n&quot;);
+         descr+=(&quot;code = &quot; + country.code+&quot;\n&quot;);
+         descr+=(&quot;currency = &quot; + country.currency+&quot;\n&quot;);
+         descr+=(&quot;currency_symbol = &quot; + country.currency_symbol+&quot;\n&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2007
+</p>
+<pre><code class="language-mql5">
+         descr+=(&quot;url_name = &quot; + country.url_name);         
+         //--- imprima a descrição do país
+         Print(descr);
+        }
+      else
+         Print(&quot;CalendarCountryById() failed. Error &quot;,GetLastError());
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   id = 999
+   name = European Union
+   code = EU
+   currency = EUR
+   currency_symbol = €
+   url_name = european-union
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3>
+<h3>CalendarCountries, CalendarEventByCountry</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2008
+<h3>CalendarEventById</h3>
+Obtém uma descrição do evento por seu ID.
+</p>
+<pre><code class="language-mql5">
+bool  CalendarEventById(
+   ulong                event_id,     // ID do evento
+   MqlCalendarEvent&amp;    event         // variable para obter a descrição do evento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+event_id
+[in]  ID do evento.
+event
+[out]  Variável de tipo MqlCalendarEvent para obter uma descrição do evento.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter informações de erro, chame a
+função GetLastError(). Possíveis erros:
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 5402 – ERR_CALENDAR_NO_DATA (país não encontrado),
+· 5401 – ERR_CALENDAR_TIMEOUT (tempo limite de solicitação excedido),
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- código do país para a Alemanha de acordo com a ISO 3166-1 Alpha-2
+   string germany_code=&quot;DE&quot;;
+//--- obtenha os eventos para a Alemanha
+   MqlCalendarEvent events[];
+   int events_count=CalendarEventByCountry(germany_code,events);
+//--- imprima os eventos para a Alemanha no Diário
+   if(events_count&gt;0)
+     {
+      PrintFormat(&quot;Eventos para a Alemanha: %d&quot;,events_count);
+      ArrayPrint(events);
+     }
+   else
+     {
+      PrintFormat(&quot;Falha ao obter eventos para o código do país %s, erro %d&quot;,
+                  germany_code,GetLastError());
+      //--- conclusão antecipada do script
+      return;
+     }
+//--- obtenha a descrição do último evento do array events[]</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2009
+</p>
+<pre><code class="language-mql5">
+   MqlCalendarEvent event;
+   ulong event_id=events[events_count-1].id;
+   if(CalendarEventById(event_id,event))
+     {
+      MqlCalendarCountry country; 
+      CalendarCountryById(event.country_id,country);
+      PrintFormat(&quot;Obtida a descrição do evento com event_id=%d&quot;,event_id);
+      PrintFormat(&quot;País: %s (código do país= %d)&quot;,country.name,event.country_id);
+      PrintFormat(&quot;Nome do evento: %s&quot;,event.name);
+      PrintFormat(&quot;Código do evento: %s&quot;,event.event_code);
+      PrintFormat(&quot;Importância do evento: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_IMPORT
+      PrintFormat(&quot;Tipo de evento: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_TYPE)event.ty
+      PrintFormat(&quot;Setor do evento: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_SECTOR)event
+      PrintFormat(&quot;Frequência do evento: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_FREQUEN
+      PrintFormat(&quot;Modo de saída do evento: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_TIME
+      PrintFormat(&quot;Unidade de medida do evento: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_
+      PrintFormat(&quot;Número de casas decimais: %d&quot;,event.digits);
+      PrintFormat(&quot;Multiplicador de valor: %s&quot;,EnumToString((ENUM_CALENDAR_EVENT_MULTI
+      PrintFormat(&quot;URL da fonte: %s&quot;,event.source_url);
+     }
+   else
+      PrintFormat(&quot;Falha ao obter a descrição do evento para event_d=%s, erro %d&quot;,
+                  event_id,GetLastError());
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+<h3>Eventos para a Alemanha: 50</h3>
+</p>
+<pre><code class="language-mql5">
+             [id] [type] [sector] [frequency] [time_mode] [country_id] [unit] [importa
+   [ 0] 276010001      1        6           2           0          276      1         
+   [ 1] 276010002      1        6           2           0          276      1         
+   [ 2] 276010003      1        4           2           0          276      1         
+   [ 3] 276010004      1        4           2           0          276      1         
+   ....
+   [47] 276500001      1        8           2           0          276      0         
+   [48] 276500002      1        8           2           0          276      0         
+   [49] 276500003      1        8           2           0          276      0         
+</code></pre>
+<p>
+<h3>Descrições de evento recebidas com event_id=276500003</h3>
+  País: Germany (código do país = 276)
+<h3>Nome do evento: Markit Composite PMI</h3>
+<h3>Código do evento: markit-composite-pmi</h3>
+</p>
+<pre><code class="language-mql5">
+   Importância do evento: CALENDAR_IMPORTANCE_MODERATE
+   Tipo de evento: CALENDAR_TYPE_INDICATOR
+   Setor do evento: CALENDAR_SECTOR_BUSINESS
+   Frequência do evento: CALENDAR_FREQUENCY_MONTH
+   Modo de saída do evento: CALENDAR_TIMEMODE_DATETIME
+   Unidade de medida do evento: CALENDAR_UNIT_NONE
+</code></pre>
+<p>
+<h3>Número de casas decimais: 1</h3>
+</p>
+<pre><code class="language-mql5">
+   Multiplicador de valor: CALENDAR_MULTIPLIER_NONE
+   URL da fonte: https://www.markiteconomics.com</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2010
+*/
+<h3>Veja também</h3>
+CalendarEventByCountry, CalendarEventByCurrency, CalendarValueById</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2011
+<h3>CalendarValueById</h3>
+Obtém uma descrição do valor do evento por seu ID.
+</p>
+<pre><code class="language-mql5">
+bool  CalendarValueById(
+   ulong                value_id,     // ID do valor do evento 
+   MqlCalendarValue&amp;    value         // variável para obter o valor do evento
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+value_id
+[in]  Identificador do valor do evento.
+value
+[out]  Variável de tipo MqlCalendarValue para obter o valor do evento. Veja um exemplo de
+processamento de eventos de calendário. 
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, false. Para obter informações de erro, chame a
+função GetLastError(). Possíveis erros:
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 5402 – ERR_CALENDAR_NO_DATA (país não encontrado),
+· 5401 – ERR_CALENDAR_TIMEOUT (tempo limite de solicitação excedido)
+<h3>Observação</h3>
+Todas as funções para trabalhar com o Calendário Econômico usam o horário do servidor de
+negociação (TimeTradeServer). Isso significa que o tempo na estrutura MqlCalendarValue e os
+parâmetros de tempo de entrada nas funções CalendarValueHistoryByEvent/CalendarValueHistory
+são definidos no fuso horário do servidor de negociação e não no horário local do usuário.
+A estrutura MqlCalendarValue disponibiliza método para obter e verificar valores a partir dos campos
+actual_value, forecast_value, prev_value e revised_prev_value. Se o valor do campo não estiver
+definido, ele armazenará o valor LONG_MIN (-9223372036854775808). 
+Deve-se ter em mente que os valores nestes campos são armazenados multiplicados por um fator de
+um milhão. Isso significa que quando as funções CalendarValueById, CalendarValueHistoryByEvent,
+<h3>CalendarValueHistory, CalendarValueLastByEvent e</h3>
+<h3>CalendarValueLast recebem</h3>
+valores 
+em
+MqlCalendarValue, é necessário verificar se os valores LONG_MIN desses campos são iguais; e se no
+campo estiver definido o valor, para obter o valor deve-se dividir o valor do campo por 1000 000
+(um milhão). Outra maneira de obter valores é verificar e obter valores por funções da própria
+estrutura MqlCalendarValue.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- código do país para o Japão de acordo com a ISO 3166-1 Alpha-2</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2012
+</p>
+<pre><code class="language-mql5">
+   string japan_code=&quot;JP&quot;;
+//--- defina os limites do intervalo de onde são tomados os eventos
+   datetime date_from=D&#x27;01.01.2018&#x27;;  // defina todos os eventos de 2018
+   datetime date_to=0;                // 0 indica que todos os eventos são conhecidos 
+//--- obtenha uma matriz de valores de eventos para o Japão
+   MqlCalendarValue values[];
+   int values_count=CalendarValueHistory(values,date_from,date_to,japan_code);
+//--- passe pelos valores do evento encontrado
+   if(values_count&gt;0)
+     {
+      PrintFormat(&quot;Número de valores para eventos do Japão: %d&quot;,values_count);
+      //--- remova todos os valores &quot;vazios&quot; (actual_value==-9223372036854775808)     
+      for(int i=values_count-1;i&gt;=0;i--)
+        {
+         if(values[i].actual_value==-9223372036854775808)
+            ArrayRemove(values,i,1);
+        }
+      PrintFormat(&quot;Número de valores após a exclusão de vazios: %d&quot;,ArraySize(values))
+     }
+   else
+     {
+      PrintFormat(&quot;Falha ao obter eventos para o código do país %s, erro %d&quot;,
+                  japan_code,GetLastError());
+      //--- conclusão antecipada do script
+      return;
+     }
+//--- não deixe mais de 10 valores no array values[]
+   if(ArraySize(values)&gt;10)
+     {
+      PrintFormat(&quot;Reduza a lista de valores para 10 e exiba-a&quot;);
+      ArrayRemove(values,0,ArraySize(values)-10);
+     }
+   ArrayPrint(values);
+//--- agora exiba como, com base no value_id conhecido, obtém-se uma descrição do valo
+   for(int i=0;i&lt;ArraySize(values);i++)
+     {
+      MqlCalendarValue value;
+      CalendarValueById(values[i].id,value);
+      PrintFormat(&quot;%d: value_id=%d value=%d impact=%s&quot;,
+                  i,values[i].id,value.actual_value,EnumToString(ENUM_CALENDAR_EVENT_I
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+  Número de valores para eventos do Japão: 1734
+  Número de valores após a exclusão de vazios: 1017
+  Reduza a lista de valores para 10 e exiba-a</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2013
+</p>
+<pre><code class="language-mql5">
+        [id] [event_id]              [time]            [period] [revision] [actual_val
+   [0] 56500  392030004 2019.03.28 23:30:00 2019.03.01 00:00:00          0         900
+   [1] 56501  392030005 2019.03.28 23:30:00 2019.03.01 00:00:00          0         700
+   [2] 56502  392030006 2019.03.28 23:30:00 2019.03.01 00:00:00          0        1100
+   [3] 56544  392030007 2019.03.28 23:30:00 2019.02.01 00:00:00          0        2300
+   [4] 56556  392050002 2019.03.28 23:30:00 2019.02.01 00:00:00          0        1630
+   [5] 55887  392020003 2019.03.28 23:50:00 2019.02.01 00:00:00          0         400
+   [6] 55888  392020004 2019.03.28 23:50:00 2019.02.01 00:00:00          0       -1800
+   [7] 55889  392020002 2019.03.28 23:50:00 2019.02.01 00:00:00          0         200
+   [8] 55948  392020006 2019.03.28 23:50:00 2019.02.01 00:00:00          1        1400
+   [9] 55949  392020007 2019.03.28 23:50:00 2019.02.01 00:00:00          1       -1000
+</code></pre>
+<p>
+  Exiba informações resumidas sobre valores de eventos com base em value_id
+</p>
+<pre><code class="language-mql5">
+   0: value_id=56500 value=900000 impact=CALENDAR_IMPACT_POSITIVE
+   1: value_id=56501 value=700000 impact=CALENDAR_IMPACT_NA
+   2: value_id=56502 value=1100000 impact=CALENDAR_IMPACT_POSITIVE
+   3: value_id=56544 value=2300000 impact=CALENDAR_IMPACT_NEGATIVE
+   4: value_id=56556 value=1630000 impact=CALENDAR_IMPACT_POSITIVE
+   5: value_id=55887 value=400000 impact=CALENDAR_IMPACT_NEGATIVE
+   6: value_id=55888 value=-1800000 impact=CALENDAR_IMPACT_POSITIVE
+   7: value_id=55889 value=200000 impact=CALENDAR_IMPACT_NEGATIVE
+   8: value_id=55948 value=1400000 impact=CALENDAR_IMPACT_POSITIVE
+   9: value_id=55949 value=-1000000 impact=CALENDAR_IMPACT_NEGATIVE
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3>
+CalendarValueHistoryByEvent, CalendarValueHistory, CalendarValueLastByEvent, CalendarValueLast</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2014
+<h3>CalendarCountries</h3>
+Obtém um array de descrições dos países disponíveis no calendário.
+</p>
+<pre><code class="language-mql5">
+int  CalendarCountries(
+   MqlCalendarCountry&amp;  countries[]         // array para obter uma lista de descriçõe
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+countries[]
+[out]  Array de tipo MqlCalendarCountry para obter descrições de todos os países do Calendário.
+<h3>Valor retornado</h3>
+Número de descrições recebidas. Para obter informações de erro, chame a função GetLastError().
+<h3>Possíveis erros:</h3>
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· 5400 – ERR_CALENDAR_MORE_DATA (tamanho de array insuficiente para obter descrições de
+todos os países, portanto, eles recebem apenas o que foi incluído).
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- obtenha a lista de países do Calendário Econômico
+   MqlCalendarCountry countries[];
+   int count=CalendarCountries(countries);
+//--- Imprima o array no Diário
+   if(count&gt;0)
+      ArrayPrint(countries);
+   else
+      PrintFormat(&quot;CalendarCountries() returned 0! Error %d&quot;,GetLastError());
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+        [id]           [name] [code] [currency] [currency_symbol]       [url_name] [re
+   [ 0]    0 &quot;Worldwide&quot;      &quot;WW&quot;   &quot;ALL&quot;      &quot;&quot;                &quot;worldwide&quot;         
+   [ 1]  999 &quot;European Union&quot; &quot;EU&quot;   &quot;EUR&quot;      &quot;€&quot;               &quot;european-union&quot;    
+   [ 2]  840 &quot;United States&quot;  &quot;US&quot;   &quot;USD&quot;      &quot;$&quot;               &quot;united-states&quot;     
+   [ 3]  124 &quot;Canada&quot;         &quot;CA&quot;   &quot;CAD&quot;      &quot;$&quot;               &quot;canada&quot;            
+   [ 4]   36 &quot;Australia&quot;      &quot;AU&quot;   &quot;AUD&quot;      &quot;$&quot;               &quot;australia&quot;         
+   [ 5]  554 &quot;New Zealand&quot;    &quot;NZ&quot;   &quot;NZD&quot;      &quot;$&quot;               &quot;new-zealand&quot;       
+   [ 6]  392 &quot;Japan&quot;          &quot;JP&quot;   &quot;JPY&quot;      &quot;Ґ&quot;               &quot;japan&quot;             
+   [ 7]  156 &quot;China&quot;          &quot;CN&quot;   &quot;CNY&quot;      &quot;Ґ&quot;               &quot;china&quot;             
+   [ 8]  826 &quot;United Kingdom&quot; &quot;GB&quot;   &quot;GBP&quot;      &quot;Ј&quot;               &quot;united-kingdom&quot;    
+   [ 9]  756 &quot;Switzerland&quot;    &quot;CH&quot;   &quot;CHF&quot;      &quot;₣&quot;               &quot;switzerland&quot;       </p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2015
+</p>
+<pre><code class="language-mql5">
+   [10]  276 &quot;Germany&quot;        &quot;DE&quot;   &quot;EUR&quot;      &quot;€&quot;               &quot;germany&quot;           
+   [11]  250 &quot;France&quot;         &quot;FR&quot;   &quot;EUR&quot;      &quot;€&quot;               &quot;france&quot;            
+   [12]  380 &quot;Italy&quot;          &quot;IT&quot;   &quot;EUR&quot;      &quot;€&quot;               &quot;italy&quot;             
+   [13]  724 &quot;Spain&quot;          &quot;ES&quot;   &quot;EUR&quot;      &quot;€&quot;               &quot;spain&quot;             
+   [14]   76 &quot;Brazil&quot;         &quot;BR&quot;   &quot;BRL&quot;      &quot;R$&quot;              &quot;brazil&quot;            
+   [15]  410 &quot;South Korea&quot;    &quot;KR&quot;   &quot;KRW&quot;      &quot;₩&quot;               &quot;south-korea&quot;       
+</code></pre>
+<p>
+*/
+  }
+<h3>Veja também</h3>
+<h3>CalendarEventByCountry, CalendarCountryById</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2016
+<h3>CalendarEventByCountry</h3>
+Obtém um array de descrições de todos os eventos disponíveis no Calendário, de acordo com o código
+do país especificado.
+</p>
+<pre><code class="language-mql5">
+int  CalendarEventByCountry(
+   string               country_code,     // código do país segundo ISO 3166-1 alpha-2
+   MqlCalendarEvent&amp;    events[]          // variável para obter o array de descrições
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+country_code
+[in]  Código do país segundo ISO 3166-1 alpha-2
+events[]
+[out]  Array do tipo MqlCalendarEvent para obter descrições de todos os eventos para o país
+especificado.
+<h3>Valor retornado</h3>
+Número de descrições recebidas. Para obter informações de erro, chame a função GetLastError().
+<h3>Possíveis erros:</h3>
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 4004 – ERR_NOT_ENOUGH_MEMORY (memória insuficiente para execução da solicitação),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· falha ao executar ArrayResize()
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- código do país para a União Europeia de acordo com a ISO 3166-1 Alpha-2
+   string EU_code=&quot;EU&quot;;
+//--- obtenha os eventos para a União Europeia
+   MqlCalendarEvent events[];
+   int events_count=CalendarEventByCountry(EU_code,events);
+//--- imprima eventos para a União Europeia no Diário
+   if(events_count&gt;0)
+     {
+      PrintFormat(&quot;Eventos para a União Europeia: %d&quot;,events_count);
+      ArrayPrint(events);
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+<h3>Eventos para a União Europeia: 56</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2017
+</p>
+<pre><code class="language-mql5">
+             [id] [type]  [country_id] [unit] [importance] [multiplier] [digits] [even
+   [ 0] 999010001      0          999      0            2            0        0  &quot;ECB 
+   [ 1] 999010002      0          999      0            2            0        0  &quot;ECB 
+   [ 2] 999010003      0          999      0            3            0        0  &quot;ECB 
+   [ 3] 999010004      0          999      0            3            0        0  &quot;ECB 
+   [ 4] 999010005      0          999      0            2            0        0  &quot;ECB 
+   [ 5] 999010006      1          999      1            3            0        2  &quot;ECB 
+   [ 6] 999010007      1          999      1            3            0        2  &quot;ECB 
+   [ 7] 999010008      0          999      0            2            0        0  &quot;ECB 
+   [ 8] 999010009      1          999      2            2            3        3  &quot;ECB 
+   [ 9] 999010010      0          999      0            2            0        0  &quot;ECB 
+   [10] 999010011      0          999      0            2            0        0  &quot;ECB 
+   ...
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3>
+<h3>CalendarCountries, CalendarCountryById</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2018
+<h3>CalendarEventByCurrency</h3>
+Obtém um array de descrições de todos os eventos disponíveis no Calendário para a moeda
+especificada.
+</p>
+<pre><code class="language-mql5">
+int  CalendarEventByCurrency(
+   const string         currency,     // código da moeda do país 
+   MqlCalendarEvent&amp;    events[]      // variável para obter o array de descrições
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+currency
+[in]  Código da moeda do país
+events[]
+[out]  Array do tipo MqlCalendarEvent para obter descrições de todos os eventos da moeda
+especificada.
+<h3>Valor retornado</h3>
+Número de descrições recebidas. Para obter informações de erro, chame a função GetLastError().
+<h3>Possíveis erros:</h3>
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 4004 – ERR_NOT_ENOUGH_MEMORY (memória insuficiente para execução da solicitação),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· falha ao executar ArrayResize()
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- declare um array para receber eventos do Calendário Econômico
+      MqlCalendarEvent events[];
+//--- obtenha eventos para a moeda da União Europeia      
+      int count = CalendarEventByCurrency(&quot;EUR&quot;,events);
+      Print(&quot;count = &quot;, count);
+//--- por exemplo, 10 eventos são suficientes para nós
+      if(count&gt;10)
+         ArrayResize(events,10);
+//--- imprima eventos no Diário        
+      ArrayPrint(events);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+             [id] [type] [country_id] [unit] [importance]                             
+   [0] 999010001      0          999      0            2 &quot;https://www.ecb.europa.eu/ho</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2019
+</p>
+<pre><code class="language-mql5">
+   [1] 999010002      0          999      0            2 &quot;https://www.ecb.europa.eu/ho
+   [2] 999010003      0          999      0            3 &quot;https://www.ecb.europa.eu/ho
+   [3] 999010004      0          999      0            3 &quot;https://www.ecb.europa.eu/ho
+   [4] 999010005      0          999      0            2 &quot;https://www.ecb.europa.eu/ho
+   [5] 999010006      1          999      1            3 &quot;https://www.ecb.europa.eu/ho
+   [6] 999010007      1          999      1            3 &quot;https://www.ecb.europa.eu/ho
+   [7] 999010008      0          999      0            2 &quot;https://www.ecb.europa.eu/ho
+   [8] 999010009      1          999      2            2 &quot;https://www.ecb.europa.eu/ho
+   [9] 999010010      0          999      0            2 &quot;https://www.ecb.europa.eu/ho
+</code></pre>
+<p>
+*/  
+<h3>Veja também</h3>
+<h3>CalendarEventById, CalendarEventByCountry</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2020
+<h3>CalendarValueHistoryByEvent</h3>
+Obtém um array de valores de todos os eventos no intervalo de tempo especificado, segundo o ID do
+evento.
+</p>
+<pre><code class="language-mql5">
+int  CalendarValueHistoryByEvent(
+   ulong              event_id,          // identificador do evento 
+   MqlCalendarValue&amp;  values[],          // array para obter a descrição dos valores 
+   datetime           datetime_from,     // borda esquerda do intervalo de tempo
+   datetime           datetime_to=0      // borda direita do intervalo de tempo
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+event_id
+[in]  ID do evento.
+values[]
+[out]  Matriz de tipo MqlCalendarValue para obter valores de eventos. Veja um exemplo de
+processamento de eventos de calendário. 
+datetime_from
+[in]  Data de início do intervalo de tempo a partir do qual os eventos são selecionados pelo ID
+definido, enquanto datetime_from &lt; datetime_to.
+datetime_to=0
+[in]   Data final do intervalo de tempo a partir do qual os eventos são selecionados pelo ID
+definido. Se não for especificado o parâmetro datetime_to (ou é igual a 0), serão retornados todos
+os valores de evento da data especificada datetime_from, disponível no banco de dados do
+Calendário, incluindo os valores dos eventos planejados para o futuro.
+<h3>Valor retornado</h3>
+Retorna true em caso de sucesso, caso contrário, fals. Para obter informações de erro, chame a
+função GetLastError(). Possíveis erros:
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 4004 – ERR_NOT_ENOUGH_MEMORY (memória insuficiente para execução da solicitação),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· 5400 – ERR_CALENDAR_MORE_DATA (tamanho de array insuficiente para obter descrições de
+todos os valores, portanto, eles recebem apenas o que contêm).
+· falha ao executar ArrayResize()
+Se, para o valor de evento, não houver algum dos campos abaixo
+</p>
+<pre><code class="language-mql5">
+struct MqlCalendarValue
+  {
+   ...
+   long              actual_value;              // valor atual do indicador
+   long              prev_value;                // valor anterior do indicador
+   long              revised_prev_value;        // valor do evento anterior revi
+   long              forecast_value;            // valor previsto do evento
+   ...</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2021
+  };
+o valor do campo ausente será retornado como INT64_MIN (-9223372036854775808). Veja o exemplo
+abaixo para valores de campo revised_prev_value.
+<h3>Observação</h3>
+Todas as funções para trabalhar com o Calendário Econômico usam o horário do servidor de
+negociação (TimeTradeServer). Isso significa que o tempo na estrutura MqlCalendarValue e os
+parâmetros de tempo de entrada nas funções CalendarValueHistoryByEvent/CalendarValueHistory
+são definidos no fuso horário do servidor de negociação e não no horário local do usuário.
+A estrutura MqlCalendarValue disponibiliza método para obter e verificar valores a partir dos campos
+actual_value, forecast_value, prev_value e revised_prev_value. Se o valor do campo não estiver
+definido, ele armazenará o valor LONG_MIN (-9223372036854775808). 
+Deve-se ter em mente que os valores nestes campos são armazenados multiplicados por um fator de
+um milhão. Isso significa que quando as funções CalendarValueById, CalendarValueHistoryByEvent,
+<h3>CalendarValueHistory, CalendarValueLastByEvent e</h3>
+<h3>CalendarValueLast recebem</h3>
+valores 
+em
+MqlCalendarValue, é necessário verificar se os valores LONG_MIN desses campos são iguais; e se no
+campo estiver definido o valor, para obter o valor deve-se dividir o valor do campo por 1000 000
+(um milhão). Outra maneira de obter valores é verificar e obter valores por funções da própria
+estrutura MqlCalendarValue.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- código do país para a União Europeia de acordo com a ISO 3166-1 Alpha-2
+   string EU_code=&quot;EU&quot;;
+//--- obtenha os eventos para a União Europeia
+   MqlCalendarEvent events[];
+   int events_count=CalendarEventByCountry(EU_code,events);
+//--- imprima eventos para a União Europeia no Diário
+   if(events_count&gt;0)
+     {
+      PrintFormat(&quot;Eventos para a União Europeia: %d&quot;,events_count);
+      //--- reduza a lista de eventos, para estudar basta deixar 10
+      ArrayResize(events,10);
+      ArrayPrint(events);
+     }
+//--- veja que o evento &quot;ECB Interest Rate Decision&quot; tem event_id=999010007
+   ulong event_id=events[6].id;        // o ID deste evento pode mudar no Calendário, 
+   string event_name=events[6].name;   // nome do evento no Calendário
+   PrintFormat(&quot;Obtenha o valor para o evento event_name=%s event_id=%d&quot;,event_name,ev
+//--- obtenha todos os valores do evento &quot;ECB Interest Rate Decision&quot;
+   MqlCalendarValue values[];
+//--- defina os limites do intervalo de onde são tomados os eventos
+   datetime date_from=0;           // pegue todos os eventos desde o começo do históri</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2022
+</p>
+<pre><code class="language-mql5">
+   datetime date_to=D&#x27;01.01.2016&#x27;; // pege eventos não mais antigos que 2016
+   if(CalendarValueHistoryByEvent(event_id,values,date_from,date_to))
+     {
+      PrintFormat(&quot;Obtidos valores de eventos %s: %d&quot;,
+                  event_name,ArraySize(values));
+      //--- reduza a lista de eventos para 10, isso chega 10
+      ArrayResize(values,10);
+      ArrayPrint(values);
+     }
+   else
+     {
+      PrintFormat(&quot;Erro! Falha ao obter valores para o evento event_id=%d&quot;,event_id);
+      PrintFormat(&quot;Código de erro: %d&quot;,GetLastError());
+     }
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//---
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+<h3>Eventos para a União Europeia: 56</h3>
+</p>
+<pre><code class="language-mql5">
+            [id] [type] [sector] [frequency] [time_mode] [country_id] [unit] [importan
+   [0] 999010001      0        5           0           0          999      0          
+   [1] 999010002      0        5           0           0          999      0          
+   [2] 999010003      0        5           0           0          999      0          
+   [3] 999010004      0        5           0           0          999      0          
+   [4] 999010005      0        5           0           0          999      0          
+   [5] 999010006      1        5           0           0          999      1          
+   [6] 999010007      1        5           0           0          999      1          
+   [7] 999010008      0        5           0           0          999      0          
+   [8] 999010009      1        5           0           0          999      2          
+   [9] 999010010      0        5           0           0          999      0          
+</code></pre>
+<p>
+  Obtenha os valores para o evento event_name=ECB Interest Rate Decision event_id=9990
+  Obtidos os valores para o evento ECB Interest Rate Decision: 102
+</p>
+<pre><code class="language-mql5">
+       [id] [event_id]              [time]            [period] [revision] [actual_valu
+   [0] 2776  999010007 2007.03.08 11:45:00 1970.01.01 00:00:00          0        37500
+   [1] 2777  999010007 2007.05.10 11:45:00 1970.01.01 00:00:00          0        37500
+   [2] 2778  999010007 2007.06.06 11:45:00 1970.01.01 00:00:00          0        40000
+   [3] 2779  999010007 2007.07.05 11:45:00 1970.01.01 00:00:00          0        40000
+   [4] 2780  999010007 2007.08.02 11:45:00 1970.01.01 00:00:00          0        40000
+   [5] 2781  999010007 2007.09.06 11:45:00 1970.01.01 00:00:00          0        40000
+   [6] 2782  999010007 2007.10.04 11:45:00 1970.01.01 00:00:00          0        40000
+   [7] 2783  999010007 2007.11.08 12:45:00 1970.01.01 00:00:00          0        40000
+   [8] 2784  999010007 2007.12.06 12:45:00 1970.01.01 00:00:00          0        40000
+   [9] 2785  999010007 2008.01.10 12:45:00 1970.01.01 00:00:00          0        40000
+</code></pre>
+<p>
+*/
+<h3>Veja também</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2023
+CalendarCountries, CalendarEventByCountry, CalendarValueHistory, CalendarEventById,
+<h3>CalendarValueById</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2024
+<h3>CalendarValueHistory</h3>
+Obtém uma matriz de valores de todos os eventos num determinado intervalo de tempo com um filtro
+por país e/ou moeda.
+</p>
+<pre><code class="language-mql5">
+int  CalendarValueHistory(
+   MqlCalendarValue&amp;  values[],              // array para obter descrições de valores
+   datetime           datetime_from,         // borda esquerda do intervalo de tempo
+   datetime           datetime_to=0          // borda direita do intervalo de tempo
+   const string       country_code=NULL,     // código do país ISO 3166-1 alpha-2
+   const string       currency=NULL          // código da moeda do país 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+values[]
+[out]  Matriz de tipo MqlCalendarValue para obter valores de eventos. Veja um exemplo de
+processamento de eventos de calendário. 
+datetime_from
+[in]  Data de início do intervalo de tempo a partir do qual os eventos são selecionados pelo ID
+definido, enquanto datetime_from &lt; datetime_to.
+datetime_to=0
+[in]   Data final do intervalo de tempo a partir do qual os eventos são selecionados pelo ID
+definido. Se não for especificado o parâmetro datetime_to (ou é igual a 0), serão retornados todos
+os valores de evento da data especificada datetime_from, disponível no banco de dados do
+Calendário, incluindo os valores dos eventos planejados para o futuro.
+country_code=NULL
+[in]  Código do país segundo ISO 3166-1 alpha-2
+currency=NULL
+[in]  Código da moeda do país
+<h3>Valor retornado</h3>
+Se bem-sucedido, retorna o número de valores disponíveis no array de valores, caso contrário -1..
+Para obter informações de erro, chame a função GetLastError(). Possíveis erros:
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 4004 – ERR_NOT_ENOUGH_MEMORY (memória insuficiente para execução da solicitação),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· 5400 – ERR_CALENDAR_MORE_DATA (tamanho de array insuficiente para obter descrições de
+todos os valores, portanto, eles recebem apenas o que contêm).
+· falha ao executar ArrayResize()
+<h3>Observação</h3>
+Todas as funções para trabalhar com o Calendário Econômico usam o horário do servidor de
+negociação (TimeTradeServer). Isso significa que o tempo na estrutura MqlCalendarValue e os</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2025
+parâmetros de tempo de entrada nas funções CalendarValueHistoryByEvent/CalendarValueHistory
+são definidos no fuso horário do servidor de negociação e não no horário local do usuário.
+Se um array foi passado para a função events[] de comprimento fixo e, como resultado da
+solicitação, não havia espaço suficiente para salvar o resultado inteiro, é mostrado o erro
+ERR_CALENDAR_MORE_DATA (5400).
+Se não for especificado o parâmetro datetime_to (=0), serão retornados todos os valores de eventos
+a partir da data datetime_from disponível no banco de dados do Calendário, incluindo os valores
+planejados para o futuro.
+Para os filtros country_code e currency valores NULL e &quot;&quot; são equivalentes, eles indicam que não há
+filtro.
+Para country_code deve ser usado o campo code da estrutura MqlCalendarCountry, por exemplo,
+&quot;US&quot;, &quot;RU&quot; ou &quot;EU&quot;.
+Para currency deve ser usado o campo currency da estrutura MqlCalendarCountry, por exemplo,
+&quot;USD&quot;, &quot;RUB&quot; ou &quot;EUR&quot;.
+Os filtros são aplicados por conjunção, ou seja, através do booliano &#x27;E&#x27; são selecionados apenas os
+eventos para os quais ambas as condições são atendidas simultaneamente – país e moeda.
+A estrutura MqlCalendarValue disponibiliza método para obter e verificar valores a partir dos campos
+actual_value, forecast_value, prev_value e revised_prev_value. Se o valor do campo não estiver
+definido, ele armazenará o valor LONG_MIN (-9223372036854775808). 
+Deve-se ter em mente que os valores nestes campos são armazenados multiplicados por um fator de
+um milhão. Isso significa que quando as funções CalendarValueById, CalendarValueHistoryByEvent,
+<h3>CalendarValueHistory, CalendarValueLastByEvent e</h3>
+<h3>CalendarValueLast recebem</h3>
+valores 
+em
+MqlCalendarValue, é necessário verificar se os valores LONG_MIN desses campos são iguais; e se no
+campo estiver definido o valor, para obter o valor deve-se dividir o valor do campo por 1000 000
+(um milhão). Outra maneira de obter valores é verificar e obter valores por funções da própria
+estrutura MqlCalendarValue.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- código do país para a União Europeia de acordo com a ISO 3166-1 Alpha-2
+   string EU_code=&quot;EU&quot;;
+//--- obtenha todos os valores de evento da União Europeia
+   MqlCalendarValue values[];
+//--- defina os limites do intervalo de onde são tomados os eventos
+   datetime date_from=D&#x27;01.01.2018&#x27;;  // defina todos os eventos de 2018
+   datetime date_to=0;                // 0 indica que todos os eventos são conhecidos 
+</code></pre>
+<p>
+/ --- solicite o histórico do evento para a União Europeia desde 2018
+</p>
+<pre><code class="language-mql5">
+   if(CalendarValueHistory(values,date_from,date_to,EU_code))
+     {
+      PrintFormat(&quot;Obtidos valores do evento para country_code=%s: %d&quot;,</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2026
+</p>
+<pre><code class="language-mql5">
+                  EU_code,ArraySize(values));
+      //--- reduza o tamanho do array para imprimir no Diário
+      ArrayResize(values,10);
+//--- imprima o valor dos eventos no Diário
+      ArrayPrint(values);      
+     }
+   else
+     {
+      PrintFormat(&quot;Erro! Falha ao obter eventos do país country_code=%s&quot;,EU_code);
+      PrintFormat(&quot;Código de erro: %d&quot;,GetLastError());
+     }
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+  Obtidos os valores de eventos para country_code=EU: 1384
+</p>
+<pre><code class="language-mql5">
+        [id] [event_id]           [time]               [period] [revision]   [actual_v
+   [0] 54215  999500001 2018.01.02 09:00:00 2017.12.01 00:00:00          3       60600
+   [1] 54221  999500002 2018.01.04 09:00:00 2017.12.01 00:00:00          3       56600
+   [2] 54222  999500003 2018.01.04 09:00:00 2017.12.01 00:00:00          3       58100
+   [3] 45123  999030005 2018.01.05 10:00:00 2017.11.01 00:00:00          0         600
+   [4] 45124  999030006 2018.01.05 10:00:00 2017.11.01 00:00:00          0        2800
+   [5] 45125  999030012 2018.01.05 10:00:00 2017.12.01 00:00:00          1         900
+   [6] 45126  999030013 2018.01.05 10:00:00 2017.12.01 00:00:00          1        1400
+   [7] 54953  999520001 2018.01.05 20:30:00 2018.01.02 00:00:00          0      127900
+   [8] 22230  999040003 2018.01.08 10:00:00 2017.12.01 00:00:00          0        9100
+   [9] 22231  999040004 2018.01.08 10:00:00 2017.12.01 00:00:00          0       18400
+</code></pre>
+<p>
+*/ 
+<h3>Veja também</h3>
+CalendarCountries, CalendarEventByCountry, CalendarValueHistoryByEvent, CalendarEventById,
+<h3>CalendarValueById</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2027
+<h3>CalendarValueLastByEvent</h3>
+Obtém um array de valores do eventos por seu ID desde o momento em que criado do banco de dados
+do Calendário com o change_id definido.
+</p>
+<pre><code class="language-mql5">
+int  CalendarValueLastByEvent(
+   ulong                event_id,      // identificador de evento 
+   ulong&amp;               change_id,     // identificador do valor do evento 
+   MqlCalendarValue&amp;    values[]       // array para obter descrições de valores 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+event_id
+[in]  ID do evento.
+change_id
+[in][out]  Identificador de alteração.
+values[]
+[out]  Array de tipo MqlCalendarValue para obter valores de eventos. Veja um exemplo de
+processamento de eventos de calendário. 
+<h3>Valor retornado</h3>
+Número de valores de eventos recebidos. Para obter informações de erro, chame a função
+<h3>GetLastError(). Possíveis erros:</h3>
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 4004 – ERR_NOT_ENOUGH_MEMORY (memória insuficiente para execução da solicitação),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· 5400 – ERR_CALENDAR_MORE_DATA (tamanho de array insuficiente para obter descrições de
+todos os valores, portanto, eles recebem apenas o que contêm).
+· falha ao executar ArrayResize()
+<h3>Observação</h3>
+Todas as funções para trabalhar com o Calendário Econômico usam o horário do servidor de
+negociação (TimeTradeServer). Isso significa que o tempo na estrutura MqlCalendarValue e os
+parâmetros de tempo de entrada nas funções CalendarValueHistoryByEvent/CalendarValueHistory
+são definidos no fuso horário do servidor de negociação e não no horário local do usuário.
+Se um array foi passado para a função events[] de comprimento fixo e, como resultado da
+solicitação, não havia espaço suficiente para salvar o resultado inteiro, é mostrado o erro
+ERR_CALENDAR_MORE_DATA (5400).
+Se na função for passado change_id = 0, a função sempre retornará zero, mas ao mesmo tempo
+change_id retorna o estado atual do banco de dados do Calendário.
+A função retorna uma matriz de valores para as notícias especificadas e change_id novo que pode
+ser usado para chamadas subsequentes desta função para obter novos valores de notícias. Assim,
+chamando esta função com o último conhecido change_id, pode-se receber atualizações de valores
+para uma determinada notícia.</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2028
+A estrutura MqlCalendarValue disponibiliza método para obter e verificar valores a partir dos campos
+actual_value, forecast_value, prev_value e revised_prev_value. Se o valor do campo não estiver
+definido, ele armazenará o valor LONG_MIN (-9223372036854775808). 
+Deve-se ter em mente que os valores nestes campos são armazenados multiplicados por um fator de
+um milhão. Isso significa que quando as funções CalendarValueById, CalendarValueHistoryByEvent,
+<h3>CalendarValueHistory, CalendarValueLastByEvent e</h3>
+<h3>CalendarValueLast recebem</h3>
+valores 
+em
+MqlCalendarValue, é necessário verificar se os valores LONG_MIN desses campos são iguais; e se no
+campo estiver definido o valor, para obter o valor deve-se dividir o valor do campo por 1000 000
+(um milhão). Outra maneira de obter valores é verificar e obter valores por funções da própria
+estrutura MqlCalendarValue.
+Um exemplo de um EA que ouve a publicação do Nonfarm payrolls:
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Exemplo de uso da função CalendarValueLastByEvent&quot;
+#property description &quot; para pegar a publicação do relatório do evento Nonfarm Payroll
+#property description &quot;Para fazer isso, você precisa obter o ID atual da alteração&quot;
+#property description &quot; base do Calendário. Em seguida, obter segundo este identificad
+#property description &quot; apenas novos eventos através de pesquisa no temporizador&quot;
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- create timer
+   EventSetTimer(60);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- destroy timer
+   EventKillTimer();
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Timer function                                                   |
+//+------------------------------------------------------------------+
+void OnTimer()
+  {</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2029
+</p>
+<pre><code class="language-mql5">
+//--- ID da alteração da base do Calendário
+   static ulong calendar_change_id=0;
+//--- sinal da primeira inicialização
+   static bool first=true;
+//--- identificador de evento  
+   static ulong event_id=0;
+//--- nome do evento  
+   static string event_name=NULL;
+//--- array de valores do evento
+   MqlCalendarValue values[];
+//--- inicialize - obtenha o calendar_change_id atual
+   if(first)
+     {
+      MqlCalendarEvent events[];
+      //--- código do país para os EUA de acordo com a ISO 3166-1 Alpha-2 
+      string USA_code=&quot;US&quot;;
+      //--- obtenha eventos para os EUA    
+      int events_count=CalendarEventByCountry(USA_code,events);
+      //--- posição necessário no array de eventos events
+      int event_pos=-1;
+      //--- registre os eventos para os EUA no Diário
+      if(events_count&gt;0)
+        {
+         PrintFormat(&quot;%s: Eventos para os EUA: %d&quot;,__FUNCTION__,events_count);
+         for(int i=0;i&lt;events_count;i++)
+           {
+            string event_name_low=events[i].name;
+            //--- insira o nome do evento em minúsculas            
+            if(!StringToLower(event_name_low))
+              {
+               PrintFormat(&quot;StringToLower() retornou o erro %d&quot;,GetLastError());
+               //--- antecipadamente saia da função
+               return;
+              }
+            //--- procure o evento &quot;Nonfarm Payrolls&quot;            
+            if(StringFind(event_name_low,&quot;nonfarm payrolls&quot;)!=-1)
+              {
+               //--- evento encontrado, lembre-se de seu id
+               event_id=events[i].id;
+               //--- escreva para o evento &quot;Nonfarm Payrolls&quot; seu nome
+               event_name=events[i].name;
+               //--- lembre a posição do evento no array events[]               
+               event_pos=i;
+               //--- na verdade, no Calendário há vários eventos contendo o nome &quot;nonf
+               PrintFormat(&quot;Evento \&quot;Nonfarm Payrolls\&quot; encontrado: event_id=%d  event
+               //--- veja todos os eventos, comente o operador break, para entender me
+               break;
+              }
+           }</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2030
+</p>
+<pre><code class="language-mql5">
+         //--- reduza a lista, apague os eventos após o evento&quot;Nonfarm Payrolls&quot;
+         ArrayRemove(events,event_pos+1);
+         //--- para facilitar o estudo, deixe 9 eventos antes de &quot;Nonfarm Payrolls&quot;   
+         ArrayRemove(events,0,event_pos-9);
+         ArrayPrint(events);
+        }
+      else
+        {
+         PrintFormat(&quot;%s: CalendarEventByCountry(%s) retornou 0 eventos, código de err
+                     USA_code,__FUNCTION__,GetLastError());
+         //--- falha, tente novamente na próxima chamada do temporizador         
+         return;
+        }
+      //--- obtenha, para o evento definido, o ID da alteração da base do Calendário  
+      if(CalendarValueLastByEvent(event_id,calendar_change_id,values)&gt;0)
+        {
+         //--- este bloco de código não pode ser executado na primeira inicialização, 
+         PrintFormat(&quot;%s: Obtido ID atual da base do calendário: change_id=%d&quot;,
+                     __FUNCTION__,calendar_change_id);
+         //--- defina o sinalizador e saia antes do próximo evento do temporizador
+         first=false;
+         return;
+        }
+      else
+        {
+         //--- dados não recebidos (para a primeira execução, isso é normal), verifiqu
+         int error_code=GetLastError();
+         if(error_code==0)
+           {
+            PrintFormat(&quot;%s: Obtido ID atual da base do calendário: change_id=%d&quot;,
+                        __FUNCTION__,calendar_change_id);
+            //--- defina o sinalizador e saia antes do próximo evento do temporizador
+            first=false;
+            //--- agora você tem o valor calendar_change_id
+            return;
+           }
+         else
+           {
+            //--- isso é realmente um erro            
+            PrintFormat(&quot;%s: Falha ao obter valores para o evento event_id=%d&quot;,__FUNCT
+            PrintFormat(&quot;Código de erro: %d&quot;,error_code);
+            //--- falha, tente novamente na próxima chamada do temporizador         
+            return;
+           }
+        }
+     }
+//--- você tem o último valor conhecido do ID de mudança do calendário (change_id)</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2031
+</p>
+<pre><code class="language-mql5">
+   ulong old_change_id=calendar_change_id;
+//--- verifique se surgiu um novo valor para o evento &quot;Nonfarm Payrolls&quot;
+   if(CalendarValueLastByEvent(event_id,calendar_change_id,values)&gt;0)
+     {
+      PrintFormat(&quot;%s: Obtidos novos eventos para \&quot;%s\&quot;: %d&quot;,
+                  __FUNCTION__,event_name,ArraySize(values));
+      //--- exiba no Diário informações do array values 
+      ArrayPrint(values);
+      //--- exiba no Diário os valores do ID do Calendário - o anterior e o novo
+      PrintFormat(&quot;%s: Anterior change_id=%d, novo change_id=%d&quot;,
+                  __FUNCTION__,old_change_id,calendar_change_id);
+/* 
+      escreva aqui o código que processará a publicação de dados sobre o &quot;Nonfarm Payr
+      */
+     }
+//---     
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Resultado:</h3>
+</p>
+<pre><code class="language-mql5">
+   OnTimer: Eventos para EUA: 202
+   Evento &quot;Nonfarm Payrolls&quot; encontrado: event_id=840030016  event_name=Nonfarm Payrol
+            [id] [type] [sector] [frequency] [time_mode] [country_id] [unit] [importan
+   [0] 840030007      1        4           2           0          840      1          
+   [1] 840030008      1        4           2           0          840      1          
+   [2] 840030009      1        4           2           0          840      0          
+   [3] 840030010      1        4           2           0          840      0          
+   [4] 840030011      1        4           2           0          840      1          
+   [5] 840030012      1        4           2           0          840      1          
+   [6] 840030013      1        4           2           0          840      1          
+   [7] 840030014      1        4           2           0          840      1          
+   [8] 840030015      1        3           2           0          840      1          
+   [9] 840030016      1        3           2           0          840      4          
+   OnTimer: Recebido o ID atual da base do Calendário: change_id=33986560
+</code></pre>
+<p>
+*/  
+<h3>Veja também</h3>
+CalendarValueLast, CalendarValueHistory, CalendarValueHistoryByEvent, CalendarValueById</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2032
+<h3>CalendarValueLast</h3>
+Obtém um array de valores de todos os eventos com filtro por país e/ou moeda desde o momento em
+que criado do banco de dados do Calendário com o change_id definido.
+</p>
+<pre><code class="language-mql5">
+int  CalendarValueLast(
+   ulong&amp;               change_id,             // identificador de alteração
+   MqlCalendarValue&amp;    values[],              // array para obter descrições de valor
+   const string         country_code=NULL,     // código do país segundo ISO 3166-1 al
+   const string         currency=NULL          // código da moeda do país 
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+change_id
+[in][out]  Identificador de alteração.
+values[]
+[out]  Array de tipo MqlCalendarValue para obter valores de eventos. Veja um exemplo de
+processamento de eventos de calendário. 
+country_code=NULL
+[in]  Código do país segundo ISO 3166-1 alpha-2
+currency=NULL
+[in]  Código da moeda do país
+<h3>Valor retornado</h3>
+Número de valores de eventos recebidos. Para obter informações de erro, chame a função
+<h3>GetLastError(). Possíveis erros:</h3>
+· 4001 – ERR_INTERNAL_ERROR  (erro geral de tempo de execução),
+· 4004 – ERR_NOT_ENOUGH_MEMORY (memória insuficiente para execução da solicitação),
+· 5401 – ERR_CALENDAR_TIMEOUT (excedido tempo limite de solicitação),
+· 5400 – ERR_CALENDAR_MORE_DATA (tamanho de array insuficiente para obter descrições de
+todos os valores, portanto, eles recebem apenas o que contêm).
+· falha ao executar ArrayResize()
+<h3>Observação</h3>
+Todas as funções para trabalhar com o Calendário Econômico usam o horário do servidor de
+negociação (TimeTradeServer). Isso significa que o tempo na estrutura MqlCalendarValue e os
+parâmetros de tempo de entrada nas funções CalendarValueHistoryByEvent/CalendarValueHistory
+são definidos no fuso horário do servidor de negociação e não no horário local do usuário.
+Se um array foi passado para a função events[] de comprimento fixo e, como resultado da
+solicitação, não havia espaço suficiente para salvar o resultado inteiro, é mostrado o erro
+ERR_CALENDAR_MORE_DATA (5400).
+Se na função for passado change_id = 0, a função sempre retornará zero, mas ao mesmo tempo
+change_id retorna o estado atual do banco de dados do Calendário.</p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2033
+Para os filtros country_code e currency valores NULL e &quot;&quot; são equivalentes, eles indicam que não há
+filtro.
+Para country_code deve ser usado o campo code da estrutura MqlCalendarCountry, por exemplo,
+&quot;US&quot;, &quot;RU&quot; ou &quot;EU&quot;.
+Para currency deve ser usado o campo currency da estrutura MqlCalendarCountry, por exemplo,
+&quot;USD&quot;, &quot;RUB&quot; ou &quot;EUR&quot;.
+Os filtros são aplicados por conjunção, ou seja, através do booliano &#x27;E&#x27; são selecionados apenas os
+eventos para os quais ambas as condições são atendidas simultaneamente – país e moeda
+A função retorna uma matriz de valores para as notícias especificadas e change_id novo que pode
+ser usado para chamadas subsequentes desta função para obter novos valores de notícias. Assim,
+chamando esta função com o último conhecido change_id, pode-se receber atualizações de valores
+para uma determinada notícia.
+A estrutura MqlCalendarValue disponibiliza método para obter e verificar valores a partir dos campos
+actual_value, forecast_value, prev_value e revised_prev_value. Se o valor do campo não estiver
+definido, ele armazenará o valor LONG_MIN (-9223372036854775808). 
+Deve-se ter em mente que os valores nestes campos são armazenados multiplicados por um fator de
+um milhão. Isso significa que quando as funções CalendarValueById, CalendarValueHistoryByEvent,
+<h3>CalendarValueHistory, CalendarValueLastByEvent e</h3>
+<h3>CalendarValueLast recebem</h3>
+valores 
+em
+MqlCalendarValue, é necessário verificar se os valores LONG_MIN desses campos são iguais; e se no
+campo estiver definido o valor, para obter o valor deve-se dividir o valor do campo por 1000 000
+(um milhão). Outra maneira de obter valores é verificar e obter valores por funções da própria
+estrutura MqlCalendarValue.
+Um exemplo de um EA que ouve a publicação de eventos do Calendário Econômico:
+</p>
+<pre><code class="language-mql5">
+#property description &quot;Exemplo de uso da função CalendarValueLast&quot;
+#property description &quot; para criar um ouvinte de evento do Calendário Econômico.&quot;
+#property description &quot;Para fazer isso, você precisa obter o ID atual da alteração&quot;
+#property description &quot; base do Calendário. Em seguida, obter segundo este identificad
+#property description &quot; apenas novos eventos através de pesquisa no temporizador&quot;
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+//--- create timer
+   EventSetTimer(60);
+//---
+   return(INIT_SUCCEEDED);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+  {
+//--- destroy timer
+   EventKillTimer();</p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2034
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Timer function                                                   |
+//+------------------------------------------------------------------+
+void OnTimer()
+  {
+//--- ID da alteração da base do Calendário
+   static ulong calendar_change_id=0;
+//--- sinal da primeira inicialização
+   static bool first=true;
+//--- array de valores do evento
+   MqlCalendarValue values[];
+//--- inicialize - obtenha o calendar_change_id atual
+   if(first)
+     {
+      //--- obtenha o ID da alteração da base do Calendário   
+      if(CalendarValueLast(calendar_change_id,values)&gt;0)
+        {
+         //--- este bloco de código não pode ser executado na primeira inicialização, 
+         PrintFormat(&quot;%s: Obtido ID atual da base do calendário: change_id=%d&quot;,
+                     __FUNCTION__,calendar_change_id);
+         //--- defina o sinalizador e saia antes do próximo evento do temporizador
+         first=false;
+         return;
+        }
+      else
+        {
+         //--- dados não recebidos (para a primeira execução, isso é normal), verifiqu
+         int error_code=GetLastError();
+         if(error_code==0)
+           {
+            PrintFormat(&quot;%s: Obtido ID atual da base do calendário: change_id=%d&quot;,
+                        __FUNCTION__,calendar_change_id);
+            //--- defina o sinalizador e saia antes do próximo evento do temporizador
+            first=false;
+            //--- agora você tem o valor calendar_change_id
+            return;
+           }
+         else
+           {
+            //--- isso é realmente um erro            </p>
+<p></code></pre>
+<p>
+<h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2035
+</p>
+<pre><code class="language-mql5">
+            PrintFormat(&quot;%s: Falha ao obter eventos em CalendarValueLast. Código de er
+                        __FUNCTION__,error_code);
+            //--- falha ao trabalhar, tente inicializar novamente na próxima vez que o
+            return;
+           }
+        }
+     }
+//--- você tem o último valor conhecido do ID de mudança do calendário (change_id)
+   ulong old_change_id=calendar_change_id;
+//--- verifique se apareceram novos eventos do Calendário
+   if(CalendarValueLast(calendar_change_id,values)&gt;0)
+     {
+      PrintFormat(&quot;%s: Obtidos novos eventos do Calendário: %d&quot;,
+                  __FUNCTION__,ArraySize(values));
+      //--- exiba no Diário informações do array values 
+      ArrayPrint(values);
+      //--- exiba no Diário os valores do ID do Calendário - o anterior e o novo
+      PrintFormat(&quot;%s: Anterior change_id=%d, novo change_id=%d&quot;,
+                  __FUNCTION__,old_change_id,calendar_change_id);
+      //--- exiba no Diário novos eventos
+      ArrayPrint(values);
+      /* 
+     escreva aqui o seu código que irá processar o surgimento dos eventos
+      */
+     }
+//---     
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+/*
+</code></pre>
+<p>
+<h3>Exemplo para a operação do &quot;ouvinte&quot;:</h3>
+  OnTimer: Obtido ID atual da base do calendário: change_id=33281792
+  OnTimer: Obtidos novos eventos para o Calendário: 1
+</p>
+<pre><code class="language-mql5">
+        [id] [event_id]              [time]            [period] [revision] [actual_val
+   [0] 91040   76020013 2019.03.20 15:30:00 1970.01.01 00:00:00          0       -5077
+</code></pre>
+<p>
+  OnTimer: Anterior change_id=33281792, novo change_id=33282048
+</p>
+<pre><code class="language-mql5">
+        [id] [event_id]              [time]            [period] [revision] [actual_val
+   [0] 91040   76020013 2019.03.20 15:30:00 1970.01.01 00:00:00          0       -5077
+</code></pre>
+<p>
+  OnTimer: Obtidos novos eventos para o Calendário: 1
+</p>
+<pre><code class="language-mql5">
+        [id] [event_id]              [time]            [period] [revision]       [actu
+   [0] 91041   76020013 2019.03.27 15:30:00 1970.01.01 00:00:00          0 -9223372036
+</code></pre>
+<p>
+  OnTimer: Anterior change_id=33282048, novo change_id=33282560
+</p>
+<pre><code class="language-mql5">
+        [id] [event_id]              [time]            [period] [revision]       [actu
+   [0] 91041   76020013 2019.03.27 15:30:00 1970.01.01 00:00:00          0 -9223372036
+</code></pre>
+<p>
+*/  
+<h3>Veja também</h3></p>
+<p><h3>Calendário econômico</h3>
+© 2000-2025, MetaQuotes Ltd.
+2036
+CalendarValueLast, CalendarValueHistory, CalendarValueHistoryByEvent, CalendarValueById
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

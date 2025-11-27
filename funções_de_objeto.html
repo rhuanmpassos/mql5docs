@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de Objeto - MQL5 Docs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h1>MQL5 Docs</h1>
+            <p>Documentação Completa</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar..." onkeyup="filterNav()">
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <li class=""><a href="index.html">📚 Índice</a></li>
+            <li class=""><a href="introducao.html">Introducao</a></li>
+<li class=""><a href="referência_mql5.html">Referência MQL5</a></li>
+<li class=""><a href="elementos_básicos_da_linguagem.html">Elementos Básicos da Linguagem</a></li>
+<li class=""><a href="constantes,_enumeradores_e_estruturas.html">Constantes, Enumeradores e Estruturas</a></li>
+<li class=""><a href="programas_mql5.html">Programas MQL5</a></li>
+<li class=""><a href="variáveis_predefinidas.html">Variáveis Predefinidas</a></li>
+<li class=""><a href="funções_comuns.html">Funções Comuns</a></li>
+<li class=""><a href="funções_para_array.html">Funções para Array</a></li>
+<li class=""><a href="métodos_matriciais_e_vetoriais.html">Métodos matriciais e vetoriais</a></li>
+<li class=""><a href="funções_de_conversão.html">Funções de Conversão</a></li>
+<li class=""><a href="funções_matemáticas.html">Funções Matemáticas</a></li>
+<li class=""><a href="funções_de_string.html">Funções de String</a></li>
+<li class=""><a href="data_e_hora.html">Data e Hora</a></li>
+<li class=""><a href="informações_de_conta.html">Informações de Conta</a></li>
+<li class=""><a href="verificando_estado.html">Verificando Estado</a></li>
+<li class=""><a href="manipulação_de_eventos.html">Manipulação de eventos</a></li>
+<li class=""><a href="informações_de_mercado.html">Informações de Mercado</a></li>
+<li class=""><a href="calendário_econômico.html">Calendário econômico</a></li>
+<li class=""><a href="séries_temporais_e_acesso_a_indicadores.html">Séries Temporais e Acesso a Indicadores</a></li>
+<li class=""><a href="símbolos_personalizados.html">Símbolos personalizados</a></li>
+<li class=""><a href="operações_de_gráficos.html">Operações de Gráficos</a></li>
+<li class=""><a href="funções_de_negociação.html">Funções de Negociação</a></li>
+<li class=""><a href="gerenciamento_de_sinais.html">Gerenciamento de sinais</a></li>
+<li class=""><a href="funções_de_rede.html">Funções de rede</a></li>
+<li class=""><a href="variáveis_globais_do_terminal.html">Variáveis Globais do Terminal</a></li>
+<li class=""><a href="funções_de_arquivo.html">Funções de Arquivo</a></li>
+<li class=""><a href="indicadores_customizados.html">Indicadores Customizados</a></li>
+<li class="active"><a href="funções_de_objeto.html">Funções de Objeto</a></li>
+<li class=""><a href="indicadores_técnicos.html">Indicadores Técnicos</a></li>
+<li class=""><a href="trabalhando_com_resultados_de_otimização.html">Trabalhando com Resultados de Otimização</a></li>
+<li class=""><a href="trabalhando_com_eventos.html">Trabalhando com Eventos</a></li>
+<li class=""><a href="trabalhando_com_opencl.html">Trabalhando com OpenCL</a></li>
+<li class=""><a href="trabalhar_com_bancos_de_dados.html">Trabalhar com bancos de dados</a></li>
+<li class=""><a href="trabalho_com_directx.html">Trabalho com DirectX</a></li>
+<li class=""><a href="metatrader_para_python.html">MetaTrader para Python</a></li>
+<li class=""><a href="modelos_onnx.html">Modelos ONNX</a></li>
+<li class=""><a href="biblioteca_padrão.html">Biblioteca Padrão</a></li>
+<li class=""><a href="migrando_do_mql4.html">Migrando do MQL4</a></li>
+<li class=""><a href="lista_de_funções_mql5.html">Lista de Funções MQL5</a></li>
+<li class=""><a href="lista_de_constantes_mql5.html">Lista de Constantes MQL5</a></li>
+
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <h1>Funções de Objeto</h1>
+        </header>
+        
+        <article>
+            <p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2727
+<h3>Funções de Objeto</h3>
+Este é o grupo de funções destinadas ao trabalho com objetos gráficos relativos a qualquer gráfico
+especifico.
+As funções que definem as propriedades de objetos gráficos, assim como as operações ObjectCreate()
+e ObjectMove() para criar e mover objetos ao longo do gráfico são realmente usados para enviar
+comandos para o gráfico. Se essas funções são executadas com êxito, o comando é incluído na fila
+comum dos eventos gráficos. As alterações visuais nas propriedades de objetos gráficos são
+implementadas ao manipular a fila dos eventos de gráfico.
+Assim, não espere uma atualização visual imediata de objetos gráficos após chamar essas funções.
+Geralmente, os objetos gráficos no gráfico são atualizados automaticamente pelo terminal após os
+eventos de alteração - uma nova chegada de cotação, redimensionando a janela do gráfico, etc. Use a
+função ChartRedraw() para forçar a atualização dos objetos gráficos.
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>ObjectCreate</h3>
+Cria um objecto de tipo específico para um gráfico específico
+<h3>ObjectName</h3>
+Retorna o nome de um objeto do tipo correspondente para um
+gráfico específico (gráfico de sub-janela específica)
+<h3>ObjectDelete</h3>
+Remove o objeto com o nome específico a partir de um gráfico
+específico (a partir de gráfico de sub-janela específica)
+<h3>ObjectsDeleteAll</h3>
+Remove todos os objetos com o tipo específico a partir de um
+gráfico específico (a partir de gráfico de sub-janela específica)
+<h3>ObjectFind</h3>
+Pesquisa um objeto com o ID especificado pelo nome
+<h3>ObjectGetTimeByValue</h3>
+Retorna o valor de tempo ao valor do preço do objeto especifico
+<h3>ObjectGetValueByTime</h3>
+Retorna o valor do preço de um objeto ao período especificado
+<h3>ObjectMove</h3>
+Muda as coordenadas do ponto de ancoragem do objeto especificado
+<h3>ObjectsTotal</h3>
+Retorna o número de objetos do tipo especifico no gráfico
+especificado (gráfico de sub-janela específica)
+<h3>ObjectGetDouble</h3>
+Retorna o valor double da propriedade do objeto correspondente
+<h3>ObjectGetInteger</h3>
+Retorna o valor integer da propriedade do objeto correspondente
+<h3>ObjectGetString</h3>
+Retorna o valor string da propriedade do objeto correspondente
+<h3>ObjectSetDouble</h3>
+Define o valor da propriedade do objeto correspondente
+<h3>ObjectSetInteger</h3>
+Define o valor da propriedade do objeto correspondente
+<h3>ObjectSetString</h3>
+Define o valor da propriedade do objeto correspondente
+<h3>TextSetFont</h3>
+Define a fonte para exibir o texto usando métodos de desenho (Arial
+20, usado por padrão)
+<h3>TextOut</h3>
+Transfere o texto para um array personalizado (buffer) projetado
+para a criação de recursos gráficos</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2728
+<h3>Função</h3>
+<h3>Ação</h3>
+<h3>TextGetSize</h3>
+Retorna a largura e a altura da string nas configurações das fontes
+usadas no momento
+Todos os objetos gráficos devem ter um único nome dentro de um gráfico, incluindo suas sub-janelas.
+Mudança de nome de um objeto gráfico gera dois eventos: evento de exclusão de um objeto com o
+antigo nome, e evento de criação de um objeto com um novo nome.
+Após um objeto ser criado ou uma propriedade de objeto ser modificada, é recomendado chamar a
+função ChartRedraw(), a qual comanda o terminal do cliente, forçando o desenho de um gráfico (e
+todos os objetos visíveis dentro dele).</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2729
+<h3>ObjectCreate</h3>
+A função cria um objeto com o nome especifico, o tipo e as coordenadas iniciais na sub-janela de
+gráfico especifico. Durante a criação até 30 coordenadas podem ser especificadas.
+</p>
+<pre><code class="language-mql5">
+bool  ObjectCreate(
+   long         chart_id,      // identificador gráfico
+   string       name,          // nome objeto
+   ENUM_OBJECT  type,          // tipo objeto
+   sub_window   nwin,          // índice janela
+   datetime     time1,         // tempo do primeiro ponto de ancoragem
+   double       price1,        // preço do primeiro ponto de ancoragem
+   ...
+   datetime     timeN=0,       // tempo de N ponto de ancoragem
+   double       priceN=0,      // preço de N ponto de ancoragem
+   ...
+   datetime     time30=0,      // tempo do trigésimo ponto de ancoragem
+   double       price30=0      // preço do trigésimo ponto de ancoragem
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto. O nome deve ser único dentro de um gráfico, incluindo suas sub-janelas.
+type
+[in]  Tipo do e objeto. O valor pode ser um dos valores do enumerador ENUM_OBJECT.
+sub_window
+[in]  Número de sub-janela do gráfico. 0 (zero) significa a principal janela do gráfico. A sub-janela
+especifica deve existir, caso contrário, a função retorna false.
+time1
+[in]  A coordenada do tempo da primeira ancoragem.
+price1
+[in]  A coordenada do preço do primeiro ponto de ancoragem.
+timeN=0
+[in]  Tempo de N ponto de ancoragem.
+priceN=0
+[in]  A coordenada do preço de N ponto de ancoragem.
+time30=0
+[in]  A coordenada de tempo de N ponto de ancoragem.
+price30=0
+[in]  A coordenada do preço do trigésimo ponto de ancoragem.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2730
+<h3>Valor do Retorno</h3>
+Retorna true, se a colocação do comando na fila do gráfico especificado for bem-sucedida, caso
+contrário, false. Se o objeto já foi criado, é feita uma tentativa de alterar sua posição.
+<h3>Observação</h3>
+Ao chamar ObjectCreate(), sempre é usada uma chamada assíncrona, portanto a função retorna
+apenas o resultado da colocação do comando na fila do gráfico. Neste caso, true indica apenas que o
+comando está na fila com sucesso; e em si o resultado de sua execução não é conhecido.
+Para verificação do resultado da execução, é possível utilizar a função ObjectFind() ou quaisquer
+funções que solicitam as propriedades do objeto, por exemplo, do tipo ObjectGetXXX. Mas, ao fazer
+isto, deve-se ter em mente que estas funções são colocadas na fila de espera dos comandos do
+gráfico e são esperados os resultados da execução (uma vez que são chamadas síncronas), isso quer
+dizer que não podem consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando
+com um grande número de objetos no gráfico.
+An object name should not exceed 63 characters.
+A numeração das sub-janelas do gráfico (se houver sub-janelas com indicadores no gráfico) começa
+com 1. A janela principal do gráfico sempre tem índice 0.
+O maior número de pontos de ancoragem (até 30) é implementado para uso futuro. Ao mesmo
+tempo, o limite de 30 possíveis pontos de ancoragem para os objetos gráficos é determinado pela
+limitação do número de parâmetros (não mais do que 64), que pode ser usado quando chama uma
+função.
+Quando um objeto é renomeado, dois eventos são formados simultaneamente. Estes eventos podem
+ser manipulados em um Expert Advisor ou o indicador pela função OnChartEvent():
+· um evento de exclusão de um objeto com o nome antigo;
+· um evento de criação de um objeto com um novo nome.
+Há um certo número de pontos de ancoragem que devem ser especificados durante a criação de
+cada tipo de objeto:
+<h3>ID</h3>
+<h3>Description</h3>
+<h3>Pontos de Ancoragem</h3>
+<h3>OBJ_VLINE</h3>
+<h3>Linha Vertical</h3>
+Um ponto de ancoragem.
+<h3>Efetivamente</h3>
+apenas 
+as
+coordenadas de tempo são
+usadas.
+<h3>OBJ_HLINE</h3>
+<h3>Linha Horizontal</h3>
+Um ponto de ancoragem.
+<h3>Efetivamente</h3>
+apenas 
+a
+coordenada de preço é usada.
+<h3>OBJ_TREND</h3>
+<h3>Linha de Tendência</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_TRENDBYANGLE</h3>
+<h3>Linha</h3>
+de 
+<h3>Tendência</h3>
+por
+<h3>Ângulo</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_CYCLES</h3>
+<h3>Linhas de Ciclo</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_ARROWED_LINE</h3>
+<h3>Linha de Seta</h3>
+Dois pontos para Ancoragem.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2731
+<h3>ID</h3>
+<h3>Description</h3>
+<h3>Pontos de Ancoragem</h3>
+<h3>OBJ_CHANNEL</h3>
+<h3>Canal Eqüidistante</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_STDDEVCHANNEL</h3>
+<h3>Canal de Desvio Padrão</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_REGRESSION</h3>
+<h3>Canal de Regressão Linear</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_PITCHFORK</h3>
+<h3>Forquilha de Andrews</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_GANNLINE</h3>
+<h3>Linha Gann</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_GANNFAN</h3>
+<h3>Ventilador Gann</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_GANNGRID</h3>
+<h3>Grade Gann</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_FIBO</h3>
+<h3>Retração de Fibonacci</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_FIBOTIMES</h3>
+<h3>Fusos Horários de Fibonacci</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_FIBOFAN</h3>
+<h3>Fibonacci Fan</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_FIBOARC</h3>
+<h3>Arcos de Fibonacci</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_FIBOCHANNEL</h3>
+<h3>Canal de Fibonacci</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_EXPANSION</h3>
+<h3>Expansão de Fibonacci</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_ELLIOTWAVE5</h3>
+<h3>Onda Motriz de Elliott</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_ELLIOTWAVE3</h3>
+<h3>Onde de Correção de Elliott</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_RECTANGLE</h3>
+<h3>Rectangle</h3>
+Dois pontos para Ancoragem.
+<h3>OBJ_TRIANGLE</h3>
+<h3>Triangle</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_ELLIPSE</h3>
+<h3>Ellipse</h3>
+Três pontos para Ancoragem.
+<h3>OBJ_ARROW_THUMB_UP</h3>
+<h3>Polegares para cima</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_THUMB_DOWN</h3>
+<h3>Polegar para Baixo</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_UP</h3>
+<h3>Seta para cima</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_DOWN</h3>
+<h3>Seta para baixo</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_STOP</h3>
+<h3>Sinal Stop</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_CHECK</h3>
+<h3>Conferido</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_LEFT_PRICE</h3>
+<h3>Etiqueta de Preço à Esquerda</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_RIGHT_PRICE</h3>
+<h3>Rótulo de Preço Direito</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_BUY</h3>
+<h3>Comprar</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW_SELL</h3>
+<h3>Vender</h3>
+Um ponto de ancoragem.
+<h3>OBJ_ARROW</h3>
+<h3>Seta</h3>
+Um ponto de ancoragem.
+<h3>OBJ_TEXT</h3>
+<h3>Text</h3>
+Um ponto de ancoragem.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2732
+<h3>ID</h3>
+<h3>Description</h3>
+<h3>Pontos de Ancoragem</h3>
+<h3>OBJ_LABEL</h3>
+<h3>Rótulo</h3>
+<h3>Posição será definida usando</h3>
+as 
+propriedades
+<h3>OBJPROP_XDISTANCE</h3>
+e
+OBJPROP_YDISTANCE.
+<h3>OBJ_BUTTON</h3>
+<h3>Botão</h3>
+<h3>Posição será definida usando</h3>
+as 
+propriedades
+<h3>OBJPROP_XDISTANCE</h3>
+e
+OBJPROP_YDISTANCE.
+<h3>OBJ_CHART</h3>
+<h3>Gráfico</h3>
+<h3>Posição será definida usando</h3>
+as 
+propriedades
+<h3>OBJPROP_XDISTANCE</h3>
+e
+OBJPROP_YDISTANCE.
+<h3>OBJ_BITMAP</h3>
+<h3>Bitmap</h3>
+Um ponto de ancoragem.
+<h3>OBJ_BITMAP_LABEL</h3>
+<h3>Rótulo Bitmap</h3>
+<h3>Posição será definida usando</h3>
+as 
+propriedades
+<h3>OBJPROP_XDISTANCE</h3>
+e
+OBJPROP_YDISTANCE.
+<h3>OBJ_EDIT</h3>
+<h3>Edit</h3>
+<h3>Posição será definida usando</h3>
+as 
+propriedades
+<h3>OBJPROP_XDISTANCE</h3>
+e
+OBJPROP_YDISTANCE.
+<h3>OBJ_EVENT</h3>
+<h3>O</h3>
+objeto 
+&quot;Evento&quot;
+correspondendo a um evento
+no calendário econômico
+Um ponto de ancoragem.
+<h3>Efetivamente</h3>
+apenas 
+as
+coordenadas de tempo são
+usadas.
+<h3>OBJ_RECTANGLE_LABEL</h3>
+<h3>O</h3>
+objeto 
+&quot;Rótulo 
+de
+<h3>Retângulo&quot; para criação e</h3>
+design de interface gráfico
+customizada.
+<h3>Posição será definida usando</h3>
+as 
+propriedades
+<h3>OBJPROP_XDISTANCE</h3>
+e
+OBJPROP_YDISTANCE.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2733
+<h3>ObjectName</h3>
+A função retorna o nome do objeto correspondente no gráfico determinado, na sub-janela específica,
+de tipo específico.
+</p>
+<pre><code class="language-mql5">
+string  ObjectName(
+   long  chart_id,           // identificador gráfico
+   int   pos,                // número da lista de objetos
+   int   sub_window=-1,      // índice janela
+   int   type=-1             // tipo objeto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+pos
+[in]  Número ordinal do objeto de acordo com o filtro específico pelo número e tipo de sub-janela.
+sub_window=-1
+[in]  Número de sub-janela do gráfico. 0 significa janela do gráfico principal, -1 significa todas
+sub-janelas do gráfico, incluindo a janela principal.
+type=-1
+[in]  Tipo de objeto. O valor pode ser um dos valores do enumerador ENUM_OBJECT. -1 significa
+todos os tipos.
+<h3>Valor do Retorno</h3>
+Nome do objeto é retornado em caso de sucesso.
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.
+Quando um objeto é renomeado, dois eventos são formados simultaneamente. Estes eventos podem
+ser manipulados em um Expert Advisor ou o indicador pela função OnChartEvent():
+· um evento de exclusão de um objeto com o nome antigo;
+· um evento de criação de um objeto com um novo nome.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2734
+<h3>ObjectDelete</h3>
+A função remove o objeto com nome específico a partir de um gráfico especificado.
+</p>
+<pre><code class="language-mql5">
+bool  ObjectDelete(
+   long    chart_id,     // identificador gráfico
+   string  name          // nome objeto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto para ser deletado.
+<h3>Valor do Retorno</h3>
+Retorna true, se a colocação do comando na fila do gráfico especificado for bem-sucedida, caso
+contrário, false.
+<h3>Observação</h3>
+Ao chamar ObjectDelete(), sempre é usada uma chamada assíncrona, portanto a função retorna
+apenas o resultado da colocação do comando na fila do gráfico. Neste caso, true indica apenas que o
+comando está na fila com sucesso; e em si o resultado de sua execução não é conhecido.
+Para verificação do resultado da execução, é possível utilizar a função ObjectFind() ou quaisquer
+funções que solicitam as propriedades do objeto, por exemplo, do tipo ObjectGetXXX. Mas, ao fazer
+isto, deve-se ter em mente que estas funções são colocadas na fila de espera dos comandos do
+gráfico e são esperados os resultados da execução (uma vez que são chamadas síncronas), isso quer
+dizer que não podem consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando
+com um grande número de objetos no gráfico.
+Quando um objeto é renomeado, dois eventos são formados simultaneamente. Estes eventos podem
+ser manipulados em um Expert Advisor ou o indicador pela função OnChartEvent():
+· um evento de exclusão de um objeto com o nome antigo;
+· um evento de criação de um objeto com um novo nome.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2735
+<h3>ObjectsDeleteAll</h3>
+Remove todos os objetos a partir de um gráfico específico, específica sub-janela do gráfico, do tipo
+especificado.
+</p>
+<pre><code class="language-mql5">
+int  ObjectsDeleteAll(
+   long  chart_id,           // identificador gráfico
+   int   sub_window=-1,      // índice janela
+   int   type=-1             // tipo objeto
+   );
+</code></pre>
+<p>
+Remove todos os objetos do tipo especificado usando prefixo em nomes de objeto.
+</p>
+<pre><code class="language-mql5">
+int  ObjectsDeleteAll(
+   long           chart_id,   // ID do gráfico
+   const string     prefix,   // prefixo no nome do objeto
+   int       sub_window=-1,   // índice da janela
+   int      object_type=-1    // tipo do objeto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+prefix
+[in]  Prefixo no nome dos objetos. Todos os objetos cujos nomes começam com este conjunto de
+caracteres serão removidos do gráfico. Você pode especificar prefixo como &#x27;name&#x27; ou &#x27;name*&#x27; -
+ambas as variantes funcionarão da mesma forma. Se uma string vazia for especificada como o
+prefixo, os objetos com todos os nomes possíveis serão removidos.
+sub_window=-1
+[in] Número de sub-janelas do gráfico. 0 significa janela do gráfico principal, -1 significa todas
+sub-janelas do gráfico, incluindo a janela principal.
+type=-1
+[in]  Tipo de objeto. O valor pode ser um dos valores do enumerador ENUM_OBJECT. -1 significa
+todos os tipos.
+<h3>Valor do Retorno</h3>
+Retorna o número de objetos excluídos. Para ler mais sobre o erro, chamar GetLastError().
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2736
+<h3>ObjectFind</h3>
+A função pesquisa por um objeto com o nome específico no gráfico com o ID especifico.
+</p>
+<pre><code class="language-mql5">
+int  ObjectFind(
+   long    chart_id,     // identificador gráfico
+   string  name          // nome objeto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  O nome do objeto pesquisado.
+<h3>Valor do Retorno</h3>
+Se for bem sucedido, a função retorna o número da sub-janela (0 significa a janela principal do
+gráfico), no qual o objeto foi encontrado. Se o objeto não for encontrado, a função retorna um
+número negativo. Para ler mais sobre o erro, chamar GetLastError().
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.
+Quando um objeto é renomeado, dois eventos são formados simultaneamente. Estes eventos podem
+ser manipulados em um Expert Advisor ou o indicador pela função OnChartEvent():
+· um evento de exclusão de um objeto com o nome antigo;
+· um evento de criação de um objeto com um novo nome.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2737
+<h3>ObjectGetTimeByValue</h3>
+A função retorna o valor de tempo para o valor do preço específico de um objeto específico.
+datetime  ObjectGetTimeByValue(
+</p>
+<pre><code class="language-mql5">
+   long    chart_id,     // identificador gráfico
+   string  name,         // nome objeto
+   double  value,        // Preço
+   int     line_id       // Número linha
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+value
+[in]  Valor do preço.
+line_id 
+[in]  Identificador de linha.
+<h3>Valor do Retorno</h3>
+O valor de tempo para o valor de determinado preço de um objeto específico.
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.
+Um objeto pode ter vários valores em uma coordenada de preço, portanto é necessário especificar o
+número da linha. Esta função aplica-se apenas aos seguintes objetos:
+· Linha de Tendência (OBJ_TREND)
+· Linha de tendência pelo ângulo (OBJ_TRENDBYANGLE)
+· Linha de Gann(OBJ_GANNLINE)
+· Canal eqüidistante (OBJ_CHANNEL) - 2 linhas
+· Canal de regressão Linear (OBJ_REGRESSION) - 3 linhas
+· Canal de desvio padrão (OBJ_STDDEVCHANNEL) - 3 linhas
+· Linha com setas (OBJ_ARROWED_LINE)
+<h3>Veja Também</h3>
+<h3>Tipos de Objeto</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2738
+<h3>ObjectGetValueByTime</h3>
+A função retorna o valor do preço para o valor de tempo indicado de um objeto específico.
+</p>
+<pre><code class="language-mql5">
+double  ObjectGetValueByTime(
+   long      chart_id,     // identificador gráfico
+   string    name,         // nome objeto
+   datetime  time,         // Tempo
+   int       line_id       // Número Linha
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+time
+[in]  Valor de tempo.
+line_id
+[in]  ID de Linha.
+<h3>Valor do Retorno</h3>
+O valor do preço para o valor de tempo indicado de um objeto específico.
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.
+Um objeto pode ter vários valores em uma coordenada de preço, portanto é necessário especificar o
+número da linha. Esta função aplica-se apenas aos seguintes objetos:
+· Linha de Tendência (OBJ_TREND)
+· Linha de tendência pelo ângulo (OBJ_TRENDBYANGLE)
+· Linha de Gann(OBJ_GANNLINE)
+· Canal eqüidistante (OBJ_CHANNEL) - 2 linhas
+· Canal de regressão Linear (OBJ_REGRESSION) - 3 linhas
+· Canal de desvio padrão (OBJ_STDDEVCHANNEL) - 3 linhas
+· Linha com setas (OBJ_ARROWED_LINE)
+<h3>Veja Também</h3>
+<h3>Tipos de Objeto</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2739
+<h3>ObjectMove</h3>
+A função altera as coordenadas do ponto de ancoragem do objeto específico.
+</p>
+<pre><code class="language-mql5">
+bool  ObjectMove(
+   long      chart_id,        // identificador gráfico
+   string    name,            // nome objeto
+   int       point_index,     // número ponto ancoragem
+   datetime  time,            // Tempo
+   double    price            // Preço
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+point_index
+[in]  Índice do ponto de ancoragem. O número de pontos de ancoragem depende do tipo de objeto.
+time
+[in]  Coordenada de tempo do ponto de ancoragem selecionado.
+price
+[in]  Coordenada de preço do ponto de ancoragem selecionado.
+<h3>Valor do Retorno</h3>
+Retorna true, se a colocação do comando na fila do gráfico especificado for bem-sucedida, caso
+contrário, false.
+<h3>Observação</h3>
+Ao chamar ObjectMove(), sempre é usada uma chamada assíncrona, portanto a função retorna
+apenas o resultado da colocação do comando na fila do gráfico. Neste caso, true indica apenas que o
+comando está na fila com sucesso; e em si o resultado de sua execução não é conhecido.
+Para verificar o resultado da execução, pode-se usar a função que solicita as propriedades do
+objeto, por exemplo, do tipo ObjectGetXXX. Mas, ao fazer isto, deve-se ter em mente que estas
+funções são colocadas na fila de espera dos comandos do gráfico e são esperados os resultados da
+execução (uma vez que são chamadas síncronas), isso quer dizer que não podem consumir muito
+tempo. Deve ter isso em mente, se você estiver trabalhando com um grande número de objetos no
+gráfico.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2740
+<h3>ObjectsTotal</h3>
+A função retorna o número de objetos na tabela determinada, sub-janela especifica, do tipo
+especificado.
+</p>
+<pre><code class="language-mql5">
+int  ObjectsTotal(
+   long  chart_id,           // identificador gráfico
+   int   sub_window=-1,      // índice janela
+   int   type=-1             // tipo objeto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+sub_window=-1
+[in]  Número de sub-janela do gráfico. 0 significa janela do gráfico principal, -1 significa todas
+sub-janelas do gráfico, incluindo a janela principal.
+type=-1
+[in]  Tipo de objeto. O valor pode ser um dos valores do enumerador ENUM_OBJECT. -1 significa
+todos os tipos.
+<h3>Valor do Retorno</h3>
+O número de objetos.
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2741
+<h3>ObjectSetDouble</h3>
+A função define o valor da propriedade do objeto correspondente. A propriedade objeto deve ser do
+tipo double. Existem 2 variantes da função.
+<h3>Define valor da propriedade, sem modificador</h3>
+</p>
+<pre><code class="language-mql5">
+bool  ObjectSetDouble(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_DOUBLE     prop_id,           // propriedade
+   double                          prop_value         // valor
+   );
+</code></pre>
+<p>
+Define um valor de propriedade que indica o modificador
+</p>
+<pre><code class="language-mql5">
+bool  ObjectSetDouble(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_DOUBLE     prop_id,           // propriedade
+   int                             prop_modifier,     // modificador
+   double                          prop_value         // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+prop_id
+[in]  ID da propriedade do objeto. O valor pode ser um dos valores do enumerador
+ENUM_OBJECT_PROPERTY_DOUBLE.
+prop_modifier
+[in]  Modificador da propriedade específica. Ela indica o número do nível em ferramentas
+Fibonacci  e no objeto gráfico Tridente de Andrew. A numeração dos níveis começa a partir do
+zero.
+prop_value 
+[in]  O valor da propriedade.
+<h3>Valor do Retorno</h3>
+A função retorna true somente se o comando para alterar as propriedades de um objeto gráfico foi
+enviado a um gráfico com sucesso. Do contrário ele retorna false. Para ler mais sobre o erro,
+chamar GetLastError().
+<h3>Observação</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2742
+A função utiliza uma chamada assíncrona, isso significa que a função espera a execução do comando
+que foi colocado com sucesso na fila do gráfico especificado e retorna o controle imediatamente.
+Para verificar o resultado da execução, pode-se usar a função que solicita a propriedade
+especificada do objeto. Mas, ao fazer isto, deve-se ter em mente que estas funções são colocadas
+na fila de espera dos comandos de outro gráfico e são esperados os resultados da execução, isso
+quer dizer que não podem consumir muito tempo. Deve ter isso em mente, se você estiver
+trabalhando com um grande número de objetos no gráfico.
+Exemplo de criação de um objeto Fibonacci e adicionando um novo nível nele
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- arrays auxiliares
+   double high[],low[],price1,price2;
+   datetime time[],time1,time2;
+//--- Copiar os preços de abertura - 100 barras mais recentes são suficientes
+   int copied=CopyHigh(Symbol(),0,0,100,high);
+   if(copied&lt;=0)
+     {
+      Print(&quot;Falha ao copiar os valores da série de preços de Alta&quot;);
+      return;
+     }
+//--- Copiar os preço de fechamento - mais de 100 barras são suficientes
+   copied=CopyLow(Symbol(),0,0,100,low);
+   if(copied&lt;=0)
+     {
+      Print(&quot;Falha ao copiar os valores da série de preços de Baixa&quot;);
+      return;
+     }
+//--- Copiar os tempos de abertura para as últimas 100 barras
+   copied=CopyTime(Symbol(),0,0,100,time);
+   if(copied&lt;=0)
+     {
+      Print(&quot;Falha ao copiar os valores da série de preços de tempo&quot;);
+      return;
+     }
+//--- Organizar o acesso aos dados copiados como para timeseries - retrocesso
+   ArraySetAsSeries(high,true);
+   ArraySetAsSeries(low,true);
+   ArraySetAsSeries(time,true);
+//--- Coordenadas do primeiro ponto de ancoragem do objeto Fibo
+   price1=high[70];
+   time1=time[70];
+//--- Coordenadas do segundo ponto de ancoragem do objeto Fibo
+   price2=low[50];</p>
+<p></code></pre>
+<p>
+<h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2743
+</p>
+<pre><code class="language-mql5">
+   time2=time[50];
+//--- Tempo para criar o objeto Fibo
+   bool created=ObjectCreate(0,&quot;Fibo&quot;,OBJ_FIBO,0,time1,price1,time2,price2);
+   if(created) // Se o objeto for criado com sucesso
+     {
+      //--- definir a cor dos níveis de Fibo
+      ObjectSetInteger(0,&quot;Fibo&quot;,OBJPROP_LEVELCOLOR,Blue);
+      //--- a propósito, quanto níveis Fibo temos?
+      int levels=ObjectGetInteger(0,&quot;Fibo&quot;,OBJPROP_LEVELS);
+      Print(&quot;Fibo levels before = &quot;,levels);
+      //---saída para Jornal =&gt; número de nível: valor level_desription
+      for(int i=0;i&lt;levels;i++)
+        {
+         Print(i,&quot;: &quot;,ObjectGetDouble(0,&quot;Fibo&quot;,OBJPROP_LEVELVALUE,i),
+               &quot;  &quot;,ObjectGetString(0,&quot;Fibo&quot;,OBJPROP_LEVELTEXT,i));
+        }
+      //--- Tentar aumentar o número de níveis por unidade
+      bool modified=ObjectSetInteger(0,&quot;Fibo&quot;,OBJPROP_LEVELS,levels+1);
+      if(!modified) // falha ao alterar o número de níveis
+        {
+         Print(&quot;Falhou ao alterar o número de níveis da Fibo, erro &quot;,GetLastError());
+        }
+      //--- apenas informa
+      Print(&quot;Níveis de Fibo depois = &quot;,ObjectGetInteger(0,&quot;Fibo&quot;,OBJPROP_LEVELS));
+      //--- definir um valor para um nível recém-criado
+      bool added=ObjectSetDouble(0,&quot;Fibo&quot;,OBJPROP_LEVELVALUE,levels,133);
+      if(added) // conseguiu definir um valor para o nível
+        {
+         Print(&quot;Definido com sucesso mais um nível Fibo&quot;);
+         //--- Também não se esqueça de definir o nível da descrição
+         ObjectSetString(0,&quot;Fibo&quot;,OBJPROP_LEVELTEXT,levels,&quot;my level&quot;);
+         ChartRedraw(0);
+         //--- Obter o valor real do número de níveis no objeto Fibo
+         levels=ObjectGetInteger(0,&quot;Fibo&quot;,OBJPROP_LEVELS);
+         Print(&quot;Níveis de Fibo depois de adicionar = &quot;,levels);
+         //--- mais uma vez a saída de todos os níveis - só para ter certeza
+         for(int i=0;i&lt;levels;i++)
+           {
+            Print(i,&quot;:&quot;,ObjectGetDouble(0,&quot;Fibo&quot;,OBJPROP_LEVELVALUE,i),
+                  &quot;  &quot;,ObjectGetString(0,&quot;Fibo&quot;,OBJPROP_LEVELTEXT,i));
+           }
+        }
+      else // Falha se você tentar aumentar o número de níveis no objeto Fibo
+        {
+         Print(&quot;Falhou ao definir mais um nível Fibo. Error &quot;,GetLastError());
+        }
+     }
+</code></pre>
+<p>
+  }</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2744
+<h3>Veja Também</h3>
+<h3>Tipos de Objetos, Propriedades de objeto</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2745
+<h3>ObjectSetInteger</h3>
+A função define o valor da propriedade do objeto correspondente. A propriedade do objeto deve ser do
+tipo datetime, int, color, bool ou char. Existem 2 variantes da função.
+<h3>Define valor da propriedade, sem modificador</h3>
+</p>
+<pre><code class="language-mql5">
+bool  ObjectSetInteger(
+   long                             chart_id,          // identificador Gráfico
+   string                           name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_INTEGER     prop_id,           // propriedade
+   long                             prop_value         // valor
+   );
+</code></pre>
+<p>
+Define um valor de propriedade que indica o modificador
+</p>
+<pre><code class="language-mql5">
+bool  ObjectSetInteger(
+   long                             chart_id,          // identificador Gráfico
+   string                           name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_INTEGER     prop_id,           // propriedade
+   int                              prop_modifier,     // modificador
+   long                             prop_value         // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+prop_id
+[in]  ID da propriedade do objeto. O valor pode ser um dos valores do enumerador
+ENUM_OBJECT_PROPERTY_INTEGER.
+prop_modifier
+[in]  Modificador da propriedade específica. Indica o número do nível em ferramentas Fibonacci e
+no objeto gráfico do tipo Tridente de Andrew. A numeração dos níveis começa a partir do zero.
+prop_value 
+[in]  O valor da propriedade.
+<h3>Valor do Retorno</h3>
+A função retorna true somente se o comando para alterar as propriedades de um objeto gráfico foi
+enviado a um gráfico com sucesso. Do contrário ele retorna false. Para ler mais sobre o erro,
+chamar GetLastError().
+<h3>Observação</h3>
+A função utiliza uma chamada assíncrona, isso significa que a função espera a execução do comando
+que foi colocado com sucesso na fila do gráfico especificado e retorna o controle imediatamente.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2746
+Para verificar o resultado da execução, pode-se usar a função que solicita a propriedade
+especificada do objeto. Mas, ao fazer isto, deve-se ter em mente que estas funções são colocadas
+na fila de espera dos comandos de outro gráfico e são esperados os resultados da execução, isso
+quer dizer que não podem consumir muito tempo. Deve ter isso em mente, se você estiver
+trabalhando com um grande número de objetos no gráfico.
+Um exemplo de como criar uma tabela de cores da Web
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//|                                            Tabela de Cores da Web|
+//|                         Copyright 2011, MetaQuotes Software Corp |
+//|                                       https://www.metaquotes.net |
+//+------------------------------------------------------------------+
+#define X_SIZE 140      // largura de uma edição de objeto
+#define Y_SIZE 33       // altura de uma edição de objeto
+//+------------------------------------------------------------------+
+//| Array de cores da Web                                            |
+//+------------------------------------------------------------------+
+</code></pre>
+<p>
+color ExtClr[140]=
+</p>
+<pre><code class="language-mql5">
+  {
+   clrAliceBlue,clrAntiqueWhite,clrAqua,clrAquamarine,clrAzure,clrBeige,clrBisque,clrB
+   clrBlue,clrBlueViolet,clrBrown,clrBurlyWood,clrCadetBlue,clrChartreuse,clrChocolate
+   clrCornsilk,clrCrimson,clrCyan,clrDarkBlue,clrDarkCyan,clrDarkGoldenrod,clrDarkGray
+   clrDarkMagenta,clrDarkOliveGreen,clrDarkOrange,clrDarkOrchid,clrDarkRed,clrDarkSalm
+   clrDarkSlateBlue,clrDarkSlateGray,clrDarkTurquoise,clrDarkViolet,clrDeepPink,clrDee
+   clrDodgerBlue,clrFireBrick,clrFloralWhite,clrForestGreen,clrFuchsia,clrGainsboro,cl
+   clrGoldenrod,clrGray,clrGreen,clrGreenYellow,clrHoneydew,clrHotPink,clrIndianRed,cl
+   clrLavender,clrLavenderBlush,clrLawnGreen,clrLemonChiffon,clrLightBlue,clrLightCora
+   clrLightGoldenrod,clrLightGreen,clrLightGray,clrLightPink,clrLightSalmon,clrLightSe
+   clrLightSlateGray,clrLightSteelBlue,clrLightYellow,clrLime,clrLimeGreen,clrLinen,cl
+   clrMediumAquamarine,clrMediumBlue,clrMediumOrchid,clrMediumPurple,clrMediumSeaGreen
+   clrMediumSpringGreen,clrMediumTurquoise,clrMediumVioletRed,clrMidnightBlue,clrMintC
+   clrNavajoWhite,clrNavy,clrOldLace,clrOlive,clrOliveDrab,clrOrange,clrOrangeRed,clrO
+   clrPaleGreen,clrPaleTurquoise,clrPaleVioletRed,clrPapayaWhip,clrPeachPuff,clrPeru,c
+   clrPurple,clrRed,clrRosyBrown,clrRoyalBlue,clrSaddleBrown,clrSalmon,clrSandyBrown,c
+   clrSienna,clrSilver,clrSkyBlue,clrSlateBlue,clrSlateGray,clrSnow,clrSpringGreen,clr
+   clrThistle,clrTomato,clrTurquoise,clrViolet,clrWheat,clrWhite,clrWhiteSmoke,clrYell
+</code></pre>
+<p>
+  };
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Criando e inicializando uma edição de objeto                     |
+//+------------------------------------------------------------------+
+void CreateColorBox(int x,int y,color c)
+  {
+//--- gerar um nome para uma nova edição de objeto
+   string name=&quot;ColorBox_&quot;+(string)x+&quot;_&quot;+(string)y;
+//--- criar uma nova edição de objeto
+   if(!ObjectCreate(0,name,OBJ_EDIT,0,0,0))
+     {
+      Print(&quot;Não é possível criar: &#x27;&quot;,name,&quot;&#x27;&quot;);</p>
+<p></code></pre>
+<p>
+<h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2747
+</p>
+<pre><code class="language-mql5">
+      return;
+     }
+//--- definir coordenadas, largura e altura
+   ObjectSetInteger(0,name,OBJPROP_XDISTANCE,x*X_SIZE);
+   ObjectSetInteger(0,name,OBJPROP_YDISTANCE,y*Y_SIZE);
+   ObjectSetInteger(0,name,OBJPROP_XSIZE,X_SIZE);
+   ObjectSetInteger(0,name,OBJPROP_YSIZE,Y_SIZE);
+//--- definir a cor do texto
+   if(clrBlack==c) ObjectSetInteger(0,name,OBJPROP_COLOR,clrWhite);
+   else            ObjectSetInteger(0,name,OBJPROP_COLOR,clrBlack);
+//--- definir a cor de fundo
+   ObjectSetInteger(0,name,OBJPROP_BGCOLOR,c);
+//--- definir o texto
+   ObjectSetString(0,name,OBJPROP_TEXT,(string)c);
+</code></pre>
+<p>
+  }
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- criar tabela de cores 7x20 para edição de objetos
+   for(uint i=0;i&lt;140;i++)
+      CreateColorBox(i%7,i/7,ExtClr[i]);
+</code></pre>
+<p>
+  }
+<h3>Veja Também</h3>
+<h3>Tipos de Objetos, Propriedades de objeto</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2748
+<h3>ObjectSetString</h3>
+A função define o valor da propriedade do objeto correspondente. A propriedade do objeto deve ser do
+tipo string. Existem 2 variantes da função.
+<h3>Define valor da propriedade, sem modificador</h3>
+</p>
+<pre><code class="language-mql5">
+bool  ObjectSetString(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_STRING     prop_id,           // propriedade
+   string                          prop_value         // valor
+   );
+</code></pre>
+<p>
+Define um valor de propriedade que indica o modificador
+</p>
+<pre><code class="language-mql5">
+bool  ObjectSetString(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_STRING     prop_id,           // propriedade
+   int                             prop_modifier,     // modificador
+   string                          prop_value         // valor
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+prop_id
+[in]  ID da propriedade do objeto. O valor pode ser um dos valores do enumerador
+ENUM_OBJECT_PROPERTY_STRING.
+prop_modifier
+[in]  Modificador da propriedade específica. Indica o número do nível em ferramentas Fibonacci e
+no objeto gráfico do tipo Tridente de Andrew. A numeração dos níveis começa a partir do zero.
+prop_value 
+[in]  O valor da propriedade.
+<h3>Valor do Retorno</h3>
+A função retorna true somente se o comando para alterar as propriedades de um objeto gráfico foi
+enviado a um gráfico com sucesso. Do contrário ele retorna false. Para ler mais sobre o erro,
+chamar GetLastError().
+<h3>Observação</h3>
+A função utiliza uma chamada assíncrona, isso significa que a função espera a execução do comando
+que foi colocado com sucesso na fila do gráfico especificado e retorna o controle imediatamente.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2749
+Para verificar o resultado da execução, pode-se usar a função que solicita a propriedade
+especificada do objeto. Mas, ao fazer isto, deve-se ter em mente que estas funções são colocadas
+na fila de espera dos comandos de outro gráfico e são esperados os resultados da execução, isso
+quer dizer que não podem consumir muito tempo. Deve ter isso em mente, se você estiver
+trabalhando com um grande número de objetos no gráfico.
+Quando um objeto é renomeado, dois eventos são formados simultaneamente. Estes eventos podem
+ser manipulados em um Expert Advisor ou o indicador pela função OnChartEvent():
+· um evento de exclusão de um objeto com o nome antigo;
+· um evento de criação de um objeto com um novo nome.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2750
+<h3>ObjectGetDouble</h3>
+A função retorna o valor da propriedade do objeto correspondente. A propriedade objeto deve ser do
+tipo double. Existem 2 variantes da função.
+1. Imediatamente retorna o valor da propriedade.
+</p>
+<pre><code class="language-mql5">
+double  ObjectGetDouble(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_DOUBLE     prop_id,           // identificador propriedade
+   int                             prop_modifier=0    // modificador propriedade, se r
+   );
+</code></pre>
+<p>
+2. Retorna true ou false, dependendo do sucesso da função. Se bem sucedido, o valor da
+propriedade é colocado para receber uma variável passada como referência pelo último parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  ObjectGetDouble(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_DOUBLE     prop_id,           // identificador propriedade
+   int                             prop_modifier,     // modificador propriedade
+   double&amp;                         double_var         // aqui nós aceitamos o valor da
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+prop_id
+[in]  ID da propriedade do objeto. O valor pode ser um dos valores do enumerador
+ENUM_OBJECT_PROPERTY_DOUBLE.
+prop_modifier
+[in]  Modificador da propriedade específica. Para a primeira variante, o modificador tem valor
+padrão igual a 0. A maioria das propriedades não requerem um modificador. Indica o número do
+nível em ferramentas Fibonacci e no objeto gráfico do tipo Tridente de Andrew. A numeração dos
+níveis começa a partir do zero.
+double_var
+[out]  Variável do tipo double que recebeu o valor do propriedade solicitada.
+<h3>Valor do Retorno</h3>
+Valor do tipo double para a primeira variante chamada.
+Para a segunda variante, se essa propriedade é mantida e o valor foi colocado na variável
+double_var, a função retorna true, caso contrário, retorna false. Para ler mais sobre o erro, chamar
+GetLastError().</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2751
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2752
+<h3>ObjectGetInteger</h3>
+A função retorna o valor da propriedade do objeto correspondente. A propriedade do objeto deve ser
+do tipo datetime, int, color, bool ou char. Existem 2 variantes da função.
+1. Imediatamente retorna o valor da propriedade.
+long  ObjectGetInteger(
+</p>
+<pre><code class="language-mql5">
+   long                             chart_id,          // identificador Gráfico
+   string                           name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_INTEGER     prop_id,           // identificador propriedade
+   int                              prop_modifier=0    // modificador de propriedade, 
+   );
+</code></pre>
+<p>
+2. Retorna true ou false, dependendo do sucesso da função. Se bem sucedido, o valor da
+propriedade é colocado para receber uma variável passada como referência pelo último parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  ObjectGetInteger(
+   long                             chart_id,          // identificador Gráfico
+   string                           name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_INTEGER     prop_id,           // identificador propriedade
+   int                              prop_modifier,     // modificador propriedade
+   long&amp;                            long_var           // aqui nós aceitamos o valor d
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+prop_id
+[in]  ID da propriedade do objeto. O valor pode ser um dos valores do enumerador
+ENUM_OBJECT_PROPERTY_INTEGER.
+prop_modifier
+[in]  Modificador da propriedade específica. Para a primeira variante, o modificador tem valor
+padrão igual a 0. A maioria das propriedades não requerem um modificador. Indica o número do
+nível em ferramentas Fibonacci e no objeto gráfico do tipo Tridente de Andrew. A numeração dos
+níveis começa a partir do zero.
+long_var
+[out]  Variável do tipo long que recebe o valor da propriedade requisitada.
+<h3>Valor do Retorno</h3>
+O valor long para a primeira chamada da variante.
+A função retorna true para a segunda variante, se essa propriedade for mantida e o valor foi
+colocado na variável long_var, caso contrário, retorna false. Para ler mais sobre o erro, chamar
+GetLastError().</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2753
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2754
+<h3>ObjectGetString</h3>
+A função retorna o valor da propriedade do objeto correspondente. A propriedade do objeto deve ser
+do tipo string. Existem 2 variantes da função.
+1. Imediatamente retorna o valor da propriedade.
+</p>
+<pre><code class="language-mql5">
+string  ObjectGetString(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_STRING     prop_id,           // identificador propriedade
+   int                             prop_modifier=0    // modificador de propriedade, s
+   );
+</code></pre>
+<p>
+2. Retorna true ou false, dependendo do sucesso da função. Se bem sucedido, o valor da
+propriedade é colocado para receber uma variável passada como referência pelo último parâmetro.
+</p>
+<pre><code class="language-mql5">
+bool  ObjectGetString(
+   long                            chart_id,          // identificador Gráfico
+   string                          name,              // nome objeto
+   ENUM_OBJECT_PROPERTY_STRING     prop_id,           // identificador propriedade
+   int                             prop_modifier,     // modificador propriedade
+   string&amp;                         string_var         // aqui nós aceitamos o valor da
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+chart_id
+[in]  Identificador do gráfico. Significa o gráfico atual.
+nome
+[in]  Nome do objeto.
+prop_id
+[in]  ID da propriedade do objeto. O valor pode ser um dos valores do enumerador
+ENUM_OBJECT_PROPERTY_STRING.
+prop_modifier
+[in]  Modificador da propriedade específica. Para a primeira variante, o modificador tem valor
+padrão igual a 0. A maioria das propriedades não requerem um modificador. Indica o número do
+nível em ferramentas Fibonacci e no objeto gráfico do tipo Tridente de Andrew. A numeração dos
+níveis começa a partir do zero.
+string_var
+[out]  Variável do tipo string que recebe o valor das propriedades requisitadas.
+<h3>Valor do Retorno</h3>
+Valor string para a primeira versão da chamada.
+Retorna true para a segunda versão da chamada, se essa propriedade for mantida e o valor foi
+colocado na variável string_var, caso contrário, retorna false. Para ler mais sobre o erro, chamar
+GetLastError().</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2755
+<h3>Observação</h3>
+A função utiliza uma chamada síncrona, isso significa que a função espera a execução de todos os
+comandos que foram colocados na fila do gráfico antes de sua chamada, e por isso este recurso
+pode consumir muito tempo. Deve ter isso em mente, se você estiver trabalhando com um grande
+número de objetos no gráfico.
+Quando um objeto é renomeado, dois eventos são formados simultaneamente. Estes eventos podem
+ser manipulados em um Expert Advisor ou o indicador pela função OnChartEvent():
+· um evento de exclusão de um objeto com o nome antigo;
+· um evento de criação de um objeto com um novo nome.</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2756
+<h3>TextSetFont</h3>
+A função define a fonte para exibir o texto usando métodos de desenho e retorna o resultado dessa
+operação. Fonte Arial com o tamanho -120 (12 pt) é usado por padrão.
+</p>
+<pre><code class="language-mql5">
+bool  TextSetFont(
+   const string  name,            // nome da fonte ou caminho para o arquivo da fonte 
+   int           size,            // tamanho da fonte
+   uint          flags,           // combinação de sinalizadores
+   int           orientation=0    // ângulo de inclinação do texto
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+name
+[in]  Nome da fonte no sistema ou o nome do recurso contendo a fonte ou o caminho ao arquivo da
+fonte no disco.
+size
+[in]  O tamanho da fonte, que pode ser definida usando valores positivos e negativos. No caso de
+valores negativos, o valor é definido em décimos de um ponto e o tamanho do texto depende das
+configurações do sistema operacional (&quot;escala padrão&quot; ou &quot;grande escala&quot;). No caso de valores
+negativos, o valor é definido em décimos de um ponto e o tamanho do texto depende das
+configurações do sistema operacional (&quot;escala padrão&quot; ou &quot;grande escala&quot;). Veja a Nota abaixo
+para mais informações sobre as diferenças entre os modos.
+flags
+[in]  Combinação de sinalizadores descrevendo o estilo da fonte.
+orientation
+[in]  Inclinação horizontal do texto em relação ao eixo X, a unidade de medida é 0,1 grau. Isso
+significa que orientação=450 está para inclinação igual a 45 graus.
+<h3>Valor de retorno</h3>
+Retorna verdadeiro se a fonte atual é instalado com êxito, caso contrário é falso. Possibilidade de
+erros de códigos:
+· ERR_INVALID_PARAMETER(4003) - name apresenta NULL ou&quot;&quot; (string vazia),
+· ERR_INTERNAL_ERROR(4001) - erro de sistema operacional (por exemplo, uma tentativa de criar
+uma fonte inexistente).
+<h3>Observação</h3>
+Se &quot;::&quot; é usado em nome da fonte, a fonte é baixada do recurso EX5. Se name nome da fonte é
+especificado com uma extensão, a fonte é baixada do arquivo, se o caminho começa com &quot;\&quot; ou &quot;/&quot;,
+o arquivo é procurado em relação ao diretório MQL5. Caso contrário, ele é procurado em relação ao
+caminho do arquivo EX5 que chamou a função TextSetFont().
+O tamanho da fonte é definido usando valores positivos ou negativos. Esse fato define a
+dependência do tamanho do texto a partir das configurações do sistema operacional (escala de
+tamanho).
+· Se o tamanho é especificado por um número positivo, este tamanho é transformado em unidades
+de medidas físicas de um dispositivo (pixels) quando se muda de uma fonte lógica para uma</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2757
+física, e este tamanho corresponde à altura dos símbolos glifos escolhidos entre as fontes
+disponíveis. Este caso não é recomendado quando os textos exibidos pela função TextOut() e os
+exibidos pelo OBJ_LABEL (&quot;Etiquetas&quot;), onde objetos gráfico estão a ser utilizados em conjunto no
+gráfico.
+· Se o tamanho é determinado por um número negativo, este número deve ser definido em décimos
+de um ponto lógico (-350 é igual a 35 pontos lógicos) dividido em 10. Um valor obtido é então
+transformado em unidades de medidas físicas de um dispositivo (pixels) e corresponde ao valor
+absoluto da altura de um símbolo escolhido a partir das fontes disponíveis. Multiplicar o do
+tamanho de fonte determinada nas propriedades do objeto por -10 para tornar o tamanho de um
+texto na tela semelhante ao de um objeto OBJ_LABEL.
+Os sinalizadores podem ser usados com a combinação de sinalizadores de estilo com um dos
+sinalizadores especificando a largura da fonte. Nome dos sinalizadores são mostrados abaixo.
+Sinalizadores para especificar o estilo da fonte
+<h3>Flag</h3>
+<h3>Description</h3>
+<h3>FONT_ITALIC</h3>
+<h3>Itálico</h3>
+<h3>FONT_UNDERLINE</h3>
+<h3>Sublinhado</h3>
+<h3>FONT_STRIKEOUT</h3>
+<h3>Riscado</h3>
+Sinalizadores para especificar a largura da fonte
+<h3>Flag</h3>
+<h3>FW_DONTCARE</h3>
+<h3>FW_THIN</h3>
+<h3>FW_EXTRALIGHT</h3>
+<h3>FW_ULTRALIGHT</h3>
+<h3>FW_LIGHT</h3>
+<h3>FW_NORMAL</h3>
+<h3>FW_REGULAR</h3>
+<h3>FW_MEDIUM</h3>
+<h3>FW_SEMIBOLD</h3>
+<h3>FW_DEMIBOLD</h3>
+<h3>FW_BOLD</h3>
+<h3>FW_EXTRABOLD</h3>
+<h3>FW_ULTRABOLD</h3>
+<h3>FW_HEAVY</h3>
+<h3>FW_BLACK</h3>
+<h3>Também Veja</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2758
+<h3>Recursos, ResourceCreate(), ResourceSave(), TextOut()</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2759
+<h3>TextOut</h3>
+A função exibe um texto num array personalizado (buffer) e retorna o resultado dessa operação. O
+array é projetado para criar o recurso gráfico.
+</p>
+<pre><code class="language-mql5">
+bool  TextOut(
+   const string       text,          // texto exibido
+   int                x,             // coordenada X
+   int                y,             // coordenada Y
+   uint               anchor,        // tipo de âncora
+   uint               &amp;data[],       // buffer de saída
+   uint               width,         // largura de buffer em pixels
+   uint               height,        // altura de buffer em pixels
+   uint               color,         // cor do texto
+   ENUM_COLOR_FORMAT  color_format   // formato de cor para a saída
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+text
+[in]  Texto exibido que será escrito para o buffer. Somente o texto de uma linha é exibido.
+x
+[in]  Coordenada X do ponto de ancoragem do texto exibido.
+y
+[in]  Coordenada Y do ponto de ancoragem do texto exibido.
+anchor
+[in]  O valor de saída dos 9 métodos pré-definidos de localização do ponto de ancoragem do texto
+exibido. O valor é definido por uma combinação de dois sinalizadores - sinalizadores de
+alinhamento de texto horizontal e vertical. Nomes dos sinalizadores estão listados na Nota abaixo.
+data[]
+[in]  Buffer, na qual o texto é exibido. O buffer é usado para criar o recurso gráfico.
+width
+[in]  Largura do buffer em pixels.
+height
+[in]  Altura do buffer em pixels.
+color
+[in]  Cor do texto.
+color_format
+[in]  Formato de cor é definida pelo valor do enumerador ENUM_COLOR_FORMAT.
+<h3>Valor de retorno</h3>
+Retorna true se bem sucedido, caso contrário false.
+<h3>Observação</h3></p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2760
+Ponto de ancoragem determinado por anchor é uma combinação de dois sinalizadores de
+alinhamento de texto horizontal e vertical. Sinalizador de alinhamento de texto horizontal:
+· TA_LEFT – ponto de ancoragem no lado esquerdo da caixa delimitada
+· TA_CENTER – ponto de ancoragem horizontal localiza-se no centro da caixa delimitada
+· TA_RIGHT – ponto de ancoragem no lado direito da caixa delimitada
+<h3>Sinalizador de alinhamento de texto vertical:</h3>
+· TA_TOP – ponto de ancoragem no lado superior da caixa delimitada
+· TA_VCENTER – ponto de ancoragem verticais está localizado no centro da caixa delimitada
+· TA_BOTTOM – ponto de ancoragem no lado inferior da caixa delimitada
+Combinações possíveis de sinalizadores e pontos de ancoragem determinados são mostrados na
+imagem.
+<h3>Exemplo:</h3>
+</p>
+<pre><code class="language-mql5">
+//--- largura e altura da tela (usado para o desenho)
+#define IMG_WIDTH  200
+#define IMG_HEIGHT 200
+//--- exibir a janela de parâmetro antes de lançar o script
+#property script_show_inputs
+//--- permite definir o formato de cor
+input ENUM_COLOR_FORMAT clr_format=COLOR_FORMAT_XRGB_NOALPHA;
+//--- array de desenho (buffer)
+</code></pre>
+<p>
+uint ExtImg[IMG_WIDTH*IMG_HEIGHT];
+</p>
+<pre><code class="language-mql5">
+//+------------------------------------------------------------------+
+//| Programa Script da função start (iniciar)                        |
+//+------------------------------------------------------------------+
+void OnStart()
+  {
+//--- criar o objeto OBJ_BITMAP_LABEL para desenhar    
+   ObjectCreate(0,&quot;RELÓGIO&quot;,OBJ_BITMAP_LABEL,0,0,0);
+//--- especificar o nome do recurso gráfico para escrever no objeto RELÓGIO
+   ObjectSetString(0,&quot;RELÓGIO&quot;,OBJPROP_BMPFILE,&quot;::IMG&quot;);
+//--- variáveis auxiliares
+   double a;            // seta no canto
+   uint   nm=2700;      // minutos no canto
+   uint   nh=2700*12;   // horas no canto
+   uint   w,h;          // variáveis para receber string de tamanhos de texto </p>
+<p></code></pre>
+<p>
+<h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2761
+</p>
+<pre><code class="language-mql5">
+   int    x,y;          // variáveis para o cálculo das coordenadas atuais da string d
+//--- girar ponteiros do relógio em um loop infinito, até que o script seja interrompi
+   while(!IsStopped())
+     {
+      //--- limpar o buffer do array do desenho do relógio
+      ArrayFill(ExtImg,0,IMG_WIDTH*IMG_HEIGHT,0);
+      //--- definir a fonte para desenhar dígitos para o rosto do relógio
+      TextSetFont(&quot;Arial&quot;,-200,FW_EXTRABOLD,0);
+      //--- desenhar a face do relógio
+      for(int i=1;i&lt;=12;i++)
+        {
+         //--- receber o tamanho da hora atual sobre a face do relógio
+         TextGetSize(string(i),w,h);
+         //--- calcular as coordenadas da hora atual sobre a face do relógio
+         a=-((i*300)%3600*M_PI)/1800.0;
+         x=IMG_WIDTH/2-int(sin(a)*80+0.5+w/2);
+         y=IMG_HEIGHT/2-int(cos(a)*80+0.5+h/2);
+         //--- saída da hora na face do relógio através do buffer ExtImg[]
+         TextOut(string(i),x,y,TA_LEFT|TA_TOP,ExtImg,IMG_WIDTH,IMG_HEIGHT,0xFFFFFFFF,c
+        }
+      //--- agora, especificar a fonte para desenhar o ponteiro dos minutos
+      TextSetFont(&quot;Arial&quot;,-200,FW_EXTRABOLD,-int(nm%3600));
+      //--- receber o tamanho do ponteiro dos minutos
+      TextGetSize(&quot;-----&gt;&quot;,w,h);
+      //--- calcular as coordenadas do ponteiro dos minutos sobre a face do relógio
+      a=-(nm%3600*M_PI)/1800.0;
+      x=IMG_WIDTH/2-int(sin(a)*h/2+0.5);
+      y=IMG_HEIGHT/2-int(cos(a)*h/2+0.5);
+      //--- saída do ponteiro dos minutos na face do relógio através do buffer ExtImg
+      TextOut(&quot;-----&gt;&quot;,x,y,TA_LEFT|TA_TOP,ExtImg,IMG_WIDTH,IMG_HEIGHT,0xFFFFFFFF,clr_f
+      //--- agora, definir a fonte para desenhar o ponteiro dos minutos
+      TextSetFont(&quot;Arial&quot;,-200,FW_EXTRABOLD,-int(nh/12%3600));
+      TextGetSize(&quot;==&gt;&quot;,w,h);
+      //--- calcular as coordenadas do ponteiro das horas na face do relógio
+      a=-(nh/12%3600*M_PI)/1800.0;
+      x=IMG_WIDTH/2-int(sin(a)*h/2+0.5);
+      y=IMG_HEIGHT/2-int(cos(a)*h/2+0.5);
+      //--- saída do ponteiro das horas na face do relógio através do buffer ExtImg[]
+      TextOut(&quot;==&gt;&quot;,x,y,TA_LEFT|TA_TOP,ExtImg,IMG_WIDTH,IMG_HEIGHT,0xFFFFFFFF,clr_form
+      //--- atualizar o recurso gráfico
+      ResourceCreate(&quot;::IMG&quot;,ExtImg,IMG_WIDTH,IMG_HEIGHT,0,0,IMG_WIDTH,clr_format);
+      //--- forçar a atualização do gráfico
+      ChartRedraw();
+      //--- aumentar os contadores da hora e minuto
+      nm+=60;
+      nh+=60;</p>
+<p></code></pre>
+<p>
+<h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2762
+</p>
+<pre><code class="language-mql5">
+      //--- mantendo uma pequena pausa entre os quadros
+      Sleep(10);
+     }
+//--- excluir o objeto RELÓGIO quando completar a operação do script
+   ObjectDelete(0,&quot;CLOCK&quot;);
+//---
+</code></pre>
+<p>
+  }
+<h3>Também Veja</h3>
+Recursos, ResourceCreate(), ResourceSave(), TextGetSize(), TextSetFont()</p>
+<p><h3>Funções de Objeto</h3>
+© 2000-2025, MetaQuotes Ltd.
+2763
+<h3>TextGetSize</h3>
+A função retorna a largura da linha e altura nas configurações das fonte atuais.
+</p>
+<pre><code class="language-mql5">
+bool  TextGetSize(
+   const string       text,          // string de texto
+   uint&amp;               width,        // largura do buffer em pixels
+   uint&amp;               height        // altura de buffer em pixels
+   );
+</code></pre>
+<p>
+<h3>Parâmetros</h3>
+text
+[in]  String, para o qual deve ser obtido o comprimento e a largura.
+width
+[out]  Parâmetro de entrada para o recebimento da largura.
+height
+[out]  Parâmetro de entrada para o recebimento da altura.
+<h3>Valor de retorno</h3>
+Retorna true se bem sucedido, caso contrário false. Possibilidade de erros de códigos:
+· ERR_INTERNAL_ERROR(4001) - erro do sistema operacional.
+<h3>Também Veja</h3>
+Recursos, ResourceCreate(), ResourceSave(), TextSetFont(), TextOut()
+</p>
+        </article>
+        
+        <footer>
+            <p>Documentação MQL5 - Fonte: MetaQuotes Ltd.</p>
+        </footer>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+        
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        
+        function filterNav() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.nav-list li');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
